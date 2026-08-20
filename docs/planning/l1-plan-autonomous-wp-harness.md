@@ -37,9 +37,11 @@ WordPress サイトの運用（コンテンツ投稿・更新・計測・改善�
    緩める。credential を repository・DB・ログへ書かないのは不変）。検証は本番サイトで行ってよい
    （PO 判断 2026-08-21 — 旧「Docker WP のみ」制約は本企画では採らない）。ただし破壊的操作
    （削除・上書き・設定変更）はバックアップ・ロールバック手段の確保を実行条件とする。
-4. **WP 接続は API 車線を第一候補**とする（WP は Application Password + REST で
-   API を用意しやすい媒体として選定 — 旧 ADR-005 wp-rest-direct を legacy 参照）。
-   ブラウザ車線は API で賄えない箇所の補完として検討する。
+4. **対象基盤は XServer**（PO 判断 2026-08-21）。サイト運用は WP REST（Application
+   Password — 旧 ADR-005 wp-rest-direct を legacy 参照）、引継ぎ・新規立ち上げ等の
+   基盤操作は XServer API / SSH / WP-CLI を車線とする（PoC 証跡 2026-08-14 の延長）。
+   ブラウザ車線は API で賄えない箇所の補完として検討する。他ホスティングへの対応は
+   本企画の非対象（必要になったら別判断）。
 5. **テーマ連携**: 開発ベースは HELIX-WP-THEME（旧 AGENT-NEO）。AI 判定ロジックは
    ハーネス（オーケストレーター）側に置き、テーマ／プラグインは表示に徹する
    （REQ-NF-025 の分離原則を引き継ぐ）。
