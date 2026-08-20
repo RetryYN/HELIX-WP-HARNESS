@@ -2,7 +2,7 @@
   "schemaVersion": "helix-project-setup-state.v1",
   "setupCommand": "helix setup project",
   "phase": "0-A",
-  "decidedAt": "2026-08-20T17:53:45.104Z",
+  "decidedAt": "2026-08-20T18:02:28.030Z",
   "decidedBy": "fallback",
   "objectiveBoundary": {
     "scope": "consumer_setup_readiness_not_whole_program_completion",

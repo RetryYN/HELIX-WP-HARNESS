@@ -1,3 +1,0 @@
-[submodule "vendor/helix-harness"]
-	path = vendor/helix-harness
-	url = https://github.com/RetryYN/HELIX-HARNESS.git

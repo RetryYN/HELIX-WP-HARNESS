@@ -6,11 +6,13 @@ PO 判断により、HELIX-HARNESS のコア（開発規律・CI・doctor・revi
 
 ## 構成
 
-- `vendor/helix-harness/` = RetryYN/HELIX-HARNESS の固定 commit `dcfbb845` を submodule 結合（read-only）
-- runtime: Node v24.19.0（bun 非使用・node fallback）。deps は本リポと submodule 双方で `npm ci`
-- 入口: `npm run helix -- <cmd>`（package.json script）と PATH 上の `helix`
-  （`~/.local/bin/helix` → vendor wrapper への転送スクリプト。symlink は wrapper の
-  ROOT 解決を壊すので不可）
+- HELIX-HARNESS = npm devDependency `helix: github:RetryYN/HELIX-HARNESS#dcfbb845`（固定 commit）。
+  当初は vendor submodule で結合したが、doctor の consumer-ci-workflow 契約が checkout への
+  submodule 追加を許さない（`npm ci` だけで揃う形が正）ため npm 依存へ切替、submodule は撤去
+- runtime: Node v24.19.0（bun 非使用・node fallback）。deps は `npm ci` のみで揃う
+- 入口: `npm run helix -- <cmd>`（= `tsx node_modules/helix/src/cli.ts`）と PATH 上の `helix`
+  （`~/.local/bin/helix` が repo の node_modules 経由で exec）。typecheck は harness src を対象にした
+  repo 直下 tsconfig.json（tests は vitest 依存のため除外）
 - 生成物: `helix setup project` により AGENTS.md / CLAUDE.md / .claude / .codex / .vscode /
   .github(harness-check・escalation-stale・templates) / scripts/setup-branch-protection.sh /
   .helix(state・teams・memory・evidence) を生成
@@ -32,5 +34,5 @@ PO 判断により、HELIX-HARNESS のコア（開発規律・CI・doctor・revi
 
 - branch protection の適用は emit-only（`--apply-branch-protection` と admin 権限が必要）。未適用。
 - `helix version-up dry-run` の release-remote（HELIX-HARNESS-OS）は本家 #659 未終端のため実運用しない。
-- vendor 内ファイルは編集禁止。導入中に wrapper を誤上書きした事故が 1 件あり
-  `git checkout -- scripts/helix` で復元済み（本コミットの vendor pin はクリーン）。
+- node_modules 内の harness ファイルは編集禁止。導入中に PATH wrapper の symlink 書込みで vendor 実体を誤上書きした事故が 1 件あり
+  `git checkout -- scripts/helix` で復元済み（その後 vendor submodule 自体を撤去）。

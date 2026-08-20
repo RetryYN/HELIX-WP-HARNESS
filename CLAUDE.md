@@ -25,8 +25,8 @@ adapter doc に secret、token、machine-local absolute path を書かない。
 統合層 CLAUDE.md の「傘下リポ共通規律」を継承する（PO 承認前の外部 write 禁止／
 credential 非格納／PoC→要求→設計→実装の順／cross-repo 編集禁止／破壊的操作は PO 明示判断）。
 
-- `vendor/helix-harness/` は RetryYN/HELIX-HARNESS の**固定 commit read-only 参照**。
-  中のファイルを編集しない。pin 更新は `helix version-up dry-run` で計画を確認してから行う。
+- HELIX-HARNESS は npm 依存 `helix: github:RetryYN/HELIX-HARNESS#dcfbb845` の**固定 commit 参照**
+  （node_modules 内は編集しない）。pin 更新は `helix version-up dry-run` で計画を確認してから行う。
 - HELIX Lite として導入するのはコア（規律・CI・doctor・review・completion evidence）まで。
   resident lanes / routing / allocation / 配布系は本家で育て、本リポへ複製しない。
 <!-- project-owned:end -->

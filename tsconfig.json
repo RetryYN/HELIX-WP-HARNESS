@@ -1,0 +1,4 @@
+{
+  "extends": "./node_modules/helix/tsconfig.json",
+  "include": ["node_modules/helix/src"]
+}
