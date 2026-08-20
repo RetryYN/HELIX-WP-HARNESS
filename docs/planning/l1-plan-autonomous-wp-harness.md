@@ -63,7 +63,9 @@ WordPress サイトの運用（コンテンツ投稿・更新・計測・改善�
    **WP-CLI**（REST で届かない WP 内部操作）／**XServer API**／**XServer CLI・SSH**
    （基盤操作: 引継ぎ・新規立ち上げ・環境構築。PoC 証跡 2026-08-14 の延長）。
    補完車線: 既知 URL への決定論的 HTTP fetch（レンダリング後の実表示確認 — URL 一覧は
-   WP REST から得るためリンク発見クロールは不要）／DataForSEO（外部データ・OnPage 監査）／
+   WP REST から得るためリンク発見クロールは不要）／DataForSEO（外部データ・OnPage 監査。**記事制作時の競合閲覧も担当** —
+   SERP API で上位 URL → Content Parsing API で本文・見出し構造を取得。取れないサイトのみ
+   ブラウザ車線で補完）／
    GSC・GA4 ブラウザ車線。**自前クローラーは作らない（明示 defer）** — 再入場条件は
    「DataForSEO と既知 URL fetch で賄えない監査要件が具体化した時」。
    他ホスティングへの対応は本企画の非対象（必要になったら別判断）。
