@@ -4,4 +4,5 @@ node_modules/
 !.helix/evidence/.gitkeep
 .helix/memory/*
 !.helix/memory/.gitkeep
+!.helix/memory/resume-point.md
 harness.db
