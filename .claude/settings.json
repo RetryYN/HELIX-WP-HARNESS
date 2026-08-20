@@ -1,0 +1,103 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook agent-guard",
+            "timeout": 5,
+            "blockOnFailure": true,
+            "statusMessage": "agent-guard: subagent allowlist/model enforcement"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook work-guard",
+            "timeout": 30,
+            "blockOnFailure": true,
+            "statusMessage": "work/secret-egress guard: foreign edit and credential protection"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook git-command-guard",
+            "timeout": 30,
+            "blockOnFailure": true,
+            "statusMessage": "shell safety guard: secret egress and destructive Git/host operation protection"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix session start",
+            "timeout": 15,
+            "statusMessage": "session-log: session start (fail-open)"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook post-tool-use",
+            "timeout": 5,
+            "statusMessage": "session-log: post tool use (fail-open)"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix session summary",
+            "timeout": 5,
+            "statusMessage": "session-log: PLAN digest summary (fail-open)"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook claude-memory-wake",
+            "timeout": 7230,
+            "asyncRewake": true,
+            "statusMessage": "harness-memory: Claude宛て通知を待機"
+          }
+        ]
+      }
+    ]
+    ,
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook subagent-stop",
+            "timeout": 5,
+            "statusMessage": "agent-slots: release oldest guard slot (fail-open)"
+          }
+        ]
+      }
+    ]
+  }
+}

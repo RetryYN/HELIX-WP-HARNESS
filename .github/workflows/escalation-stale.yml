@@ -1,0 +1,23 @@
+name: escalation-stale
+on:
+  schedule:
+    - cron: '0 0 * * 1'
+permissions:
+  contents: read
+jobs:
+  escalation-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - name: HELIX status and continuation
+        run: npm run helix -- status --json
+      - name: HELIX completion decision packet
+        run: npm run helix -- completion decision-packet --json
+      - name: HELIX completion review bundle
+        run: npm run helix -- completion review-bundle --json
+      - name: HELIX consumer doctor
+        run: npm run helix -- doctor --profile consumer --json

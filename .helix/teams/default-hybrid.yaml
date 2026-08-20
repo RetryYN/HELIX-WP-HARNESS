@@ -1,0 +1,19 @@
+name: default-hybrid
+strategy: sequential
+max_parallel: 2
+serialization:
+  file_conflict: false
+  downstream_dependency: true
+  shared_state: false
+members:
+  - role: se
+    engine: codex-se
+    difficulty: standard
+    ownership: 実装対象ファイルを明示し、既存変更を戻さない
+    task: HELIX setup 後の対象 slice を実装し、変更ファイルと検証 command を残す
+  - role: tl
+    engine: pmo-sonnet
+    difficulty: standard
+    serialize_after: se
+    ownership: worker の変更範囲を review し、要求・設計・テストの意味整合を確認する
+    task: worker の実装結果を review し、findings-first で gate / test / handover の不足を指摘する

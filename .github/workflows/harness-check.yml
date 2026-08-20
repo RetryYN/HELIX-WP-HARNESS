@@ -1,0 +1,37 @@
+name: harness-check
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  harness-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - name: HELIX CLI dependency
+        run: npm run helix -- --version
+      - name: HELIX setup dry-run
+        run: npm run helix -- setup project --dry-run --json
+      - name: HELIX status
+        run: npm run helix -- status --json
+      - name: HELIX completion decision packet
+        run: npm run helix -- completion decision-packet --json
+      - name: HELIX completion review bundle
+        run: npm run helix -- completion review-bundle --json
+      - name: HELIX version-up dry-run
+        run: npm run helix -- version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-OS.git --json
+      - name: HELIX consumer doctor
+        run: npm run helix -- doctor --profile consumer --json
+      - name: HELIX rename plan
+        run: npm run helix -- rename plan --json
+      - name: HELIX team run dry-run
+        run: npm run helix -- team run --definition .helix/teams/default-hybrid.yaml --mode hybrid --json
+      - run: npm run typecheck
+      - run: npm test

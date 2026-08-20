@@ -1,0 +1,16 @@
+{
+  "name": "helix-wp-harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "helix": "tsx vendor/helix-harness/src/cli.ts",
+    "typecheck": "tsc -p vendor/helix-harness/tsconfig.json --noEmit",
+    "test": "node --version"
+  },
+  "devDependencies": {
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.2",
+    "helix": "github:RetryYN/HELIX-HARNESS#dcfbb845"
+  }
+}

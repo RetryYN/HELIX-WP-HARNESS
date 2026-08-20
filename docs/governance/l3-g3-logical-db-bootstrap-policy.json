@@ -1,0 +1,125 @@
+{
+  "schema_version": "helix-l3-g3-logical-db-bootstrap-policy.v2",
+  "purpose": "G1/G3 freeze用のread-only bootstrap verifier。L6 canonical runtimeではない。",
+  "canonical_json": {
+    "object_keys": "lexicographic_ascending",
+    "array_order": "preserve",
+    "binary": "unsigned_byte_array",
+    "encoding": "utf8",
+    "digest": "sha256"
+  },
+  "table_order": "lexicographic_ascending",
+  "column_order": "lexicographic_ascending",
+  "row_order": {
+    "columns": "all non-observation columns in lexicographic order",
+    "fallback": "all columns in lexicographic order"
+  },
+  "normalization_marker": "<rebuild-observation>",
+  "observation_columns": [
+    "artifact_progress.dependency_checked_at",
+    "artifact_progress.indexed_at",
+    "artifact_progress_events.occurred_at",
+    "artifact_registry.updated_at",
+    "automation_assets.indexed_at",
+    "dependency_edges.indexed_at",
+    "descent_obligations.indexed_at",
+    "design_coverage_gate.indexed_at",
+    "design_declarations.indexed_at",
+    "design_impact.indexed_at",
+    "design_references.indexed_at",
+    "diagram_artifacts.created_at",
+    "feedback_events.created_at",
+    "feedback_lifecycle_health.projected_at",
+    "gate_runs.checked_at",
+    "graph_nodes.indexed_at",
+    "graph_snapshots.created_at",
+    "guardrail_decisions.decided_at",
+    "impact_results.computed_at",
+    "improvement_log.created_at",
+    "issue_queue.created_at",
+    "mcp_server_profiles.indexed_at",
+    "poc_evaluations.evaluated_at",
+    "project_artifact_remap.indexed_at",
+    "project_current_location.indexed_at",
+    "project_current_location.snapshot_hash",
+    "project_current_location.source_clock",
+    "project_drive_model_candidates.indexed_at",
+    "project_l12_layer_coverage.indexed_at",
+    "project_operation_scopes.indexed_at",
+    "project_roadmap_current_actions.indexed_at",
+    "project_tailoring_decisions.indexed_at",
+    "project_vmodel_fit_blockers.indexed_at",
+    "project_vmodel_handoff_summary.indexed_at",
+    "project_vmodel_regression_guards.indexed_at",
+    "project_zip_adoption_decisions.indexed_at",
+    "quality_signals.computed_at",
+    "review_evidence_registry.indexed_at",
+    "roadmap_band_coverage.computed_at",
+    "roadmap_gate_progress.computed_at",
+    "roadmap_rollups.computed_at",
+    "search_index.updated_at",
+    "skill_evaluations.evaluated_at",
+    "skill_invocations.fired_at",
+    "skill_recommendations.recommended_at",
+    "test_cases.first_seen_at",
+    "test_cases.last_seen_at",
+    "trouble_events.created_at",
+    "verification_recommendations.created_at",
+    "visualization_tree_view.indexed_at",
+    "visualization_tree_view.snapshot_hash",
+    "visualization_tree_view.source_clock",
+    "visualization_view_model.indexed_at",
+    "visualization_view_model.snapshot_hash",
+    "visualization_view_model.source_clock",
+    "vmodel_zip_manifest.indexed_at",
+    "vmodel_zip_source_bindings.indexed_at",
+    "workflow_runs.checked_at"
+  ],
+  "projection_input_policy": {
+    "tracked_workspace_required": true,
+    "runtime_logs": "exclude",
+    "excluded_paths": [
+      ".helix/logs/plan/*.digest.json",
+      ".helix/logs/session/*.jsonl",
+      ".helix/logs/feedback-lifecycle.jsonl",
+      ".helix/handover/provider/*.json",
+      ".helix/evidence/run-debug/runtime-verification.jsonl",
+      ".helix/evidence/pair-agent/*.json",
+      ".helix/state/loop/*.iterations.jsonl",
+      ".helix/config/model-opt-in.yaml"
+    ],
+    "excluded_projection_steps": [
+      "projectDriveRuns",
+      "projectHookEvents",
+      "projectRuntimeVerificationEvents",
+      "projectPairAgentRunEvidence",
+      "projectLoopIterations",
+      "projectFeedbackLifecycle",
+      "projectModelEvaluations"
+    ]
+  },
+  "checkpoint_tables": [
+    "artifact_registry",
+    "descent_obligations",
+    "plan_registry",
+    "review_evidence_registry"
+  ],
+  "stale_rules": [
+    {
+      "table": "artifact_registry",
+      "column": "status",
+      "stale_value": "stale",
+      "minimum_rows": 1
+    }
+  ],
+  "orphan_rules": [
+    {
+      "child_table": "artifact_progress_events",
+      "child_column": "artifact_path",
+      "parent_table": "artifact_progress",
+      "parent_column": "artifact_path",
+      "minimum_child_rows": 1
+    }
+  ],
+  "rebuild_count": 2
+}

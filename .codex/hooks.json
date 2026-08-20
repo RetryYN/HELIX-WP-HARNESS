@@ -1,0 +1,92 @@
+{
+  "description": "Codex adapter hooks for HELIX (top-level は description|hooks のみ許容; $comment は Codex 0.144 で parse error)。Hosted/API tool surfaces still require explicit `helix guard preflight` before edits because repo-local Codex hooks do not execute there. The CLI name is intentionally unchanged until PLAN-M-02.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "spawn_agent|spawn_agents_on_csv|Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook agent-guard",
+            "timeout": 5,
+            "blockOnFailure": true,
+            "statusMessage": "agent-guard: Codex sub-agent role/model guard"
+          }
+        ]
+      },
+      {
+        "matcher": "apply_patch|Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook work-guard",
+            "timeout": 30,
+            "blockOnFailure": true,
+            "statusMessage": "work/secret-egress guard: foreign edit and credential protection"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook git-command-guard",
+            "timeout": 30,
+            "blockOnFailure": true,
+            "statusMessage": "shell safety guard: secret egress and destructive Git/host operation protection"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix session start",
+            "timeout": 90,
+            "statusMessage": "session-log: session start (fail-open)"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "apply_patch|Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook post-tool-use",
+            "timeout": 5,
+            "statusMessage": "session-log: post tool use (fail-open)"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix hook subagent-stop --quiet",
+            "timeout": 5,
+            "statusMessage": "agent-slots: release subagent slot (fail-open)"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "helix session summary --quiet",
+            "timeout": 60,
+            "statusMessage": "session-log: PLAN digest summary (fail-open)"
+          }
+        ]
+      }
+    ]
+  }
+}

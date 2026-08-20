@@ -1,0 +1,11 @@
+{
+  "phase": "0-A",
+  "decidedAt": "2026-08-20T17:53:45.104Z",
+  "decidedBy": "fallback",
+  "signals": {
+    "ownerType": "User",
+    "collaborators": 1,
+    "hasCodeowners": false,
+    "hasBranchProtection": false
+  }
+}

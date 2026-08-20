@@ -1,0 +1,53 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "HELIX: status",
+      "type": "shell",
+      "command": "npm run helix -- status",
+      "problemMatcher": []
+    },
+    {
+      "label": "HELIX: doctor",
+      "type": "shell",
+      "command": "npm run helix -- doctor --profile consumer",
+      "problemMatcher": []
+    },
+    {
+      "label": "HELIX: completion decision-packet",
+      "type": "shell",
+      "command": "npm run helix -- completion decision-packet --json",
+      "problemMatcher": []
+    },
+    {
+      "label": "HELIX: completion review-bundle",
+      "type": "shell",
+      "command": "npm run helix -- completion review-bundle --json",
+      "problemMatcher": []
+    },
+    {
+      "label": "HELIX: version-up dry-run",
+      "type": "shell",
+      "command": "npm run helix -- version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-OS.git --json",
+      "problemMatcher": []
+    },
+    {
+      "label": "HELIX: rename plan",
+      "type": "shell",
+      "command": "npm run helix -- rename plan --json",
+      "problemMatcher": []
+    },
+    {
+      "label": "HELIX: setup dry-run",
+      "type": "shell",
+      "command": "npm run helix -- setup project --dry-run",
+      "problemMatcher": []
+    },
+    {
+      "label": "HELIX: team run dry-run",
+      "type": "shell",
+      "command": "npm run helix -- team run --definition .helix/teams/default-hybrid.yaml --mode hybrid --json",
+      "problemMatcher": []
+    }
+  ]
+}

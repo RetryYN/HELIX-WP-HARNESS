@@ -1,0 +1,7 @@
+node_modules/
+.claude/settings.local.json
+.helix/evidence/*
+!.helix/evidence/.gitkeep
+.helix/memory/*
+!.helix/memory/.gitkeep
+harness.db
