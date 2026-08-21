@@ -1,0 +1,22 @@
+{
+  "schema_version": "provider-handover.v1",
+  "handover_kind": "mechanical",
+  "handover_id": "20260821212901-codex-to-claude-plan-l2-001-s1-draft-post-requirements",
+  "from": "codex",
+  "to": "claude",
+  "active_plan": "PLAN-L2-001-s1-draft-post-requirements",
+  "budget": "read-only review。本番WordPress write禁止。credential参照禁止。",
+  "context": {
+    "summary": "S1最小運用タスクのL2要求draftをCodexが起草。Claudeはread-onlyで要求境界・検証可能性・安全境界を独立レビューする。",
+    "next_actions": [
+      "docs/requirements/s1-draft-post-requirements.mdをfindings-firstでレビュー",
+      "review_kind=cross_agent、worker_model、reviewer_model、verdictを返す"
+    ],
+    "files": [
+      "docs/plans/PLAN-L2-001-s1-draft-post-requirements.md",
+      "docs/requirements/s1-draft-post-requirements.md",
+      ".helix/memory/resume-point.md"
+    ]
+  },
+  "created_at": "2026-08-21T21:29:01.136Z"
+}

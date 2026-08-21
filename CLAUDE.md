@@ -29,4 +29,6 @@ credential 非格納／PoC→要求→設計→実装の順／cross-repo 編集�
   （node_modules 内は編集しない）。pin 更新は `helix version-up dry-run` で計画を確認してから行う。
 - HELIX Lite として導入するのはコア（規律・CI・doctor・review・completion evidence）まで。
   resident lanes / routing / allocation / 配布系は本家で育て、本リポへ複製しない。
+- このリポジトリでは裸の `helix` を使わず、必ず `npm run helix -- <command>` を使う。
+  global wrapper は別 checkout を参照し得るため、進捗・doctor・PLAN・handover の証跡には採用しない。
 <!-- project-owned:end -->
