@@ -52,9 +52,11 @@ sub-tabは明色のsegmented controlとし、上部に「ホーム内の区分�
 
 ## deep link
 
-`index.html#/<surface>?state=<state>&t=<home-tab>&d=<decision>&c=<cluster>&f=<filter>` で、
-対象・sub-tab・filterを保持したまま再入場できる（L2 screen-flow.md の navigation 要件の確認用）。
+`index.html#/<surface>?state=<state>&t=<home-tab>&d=<decision>&c=<cluster>&f=<filter>&l=<lane>&v=<view>&k=<keyword>` で、
+対象・sub-tab・filter・KW lane・記事画面表示・選択KWを保持したまま再入場できる
+（L2 screen-flow.md の navigation 要件の確認用）。
 `t` は判断ホームのsub-tab（`decide` / `runtime` / `outcome`）で、reloadでも選択中tabを保持する。
+`l` はKW会計lane、`v` は `map` / `dfs`、`k` は既知のcluster主KW・intent KWだけを受理する。
 
 ```
 index.html#/home?state=reconcile             # 判断待ちタブで照合パネル
@@ -62,6 +64,8 @@ index.html#/home?state=normal&d=D-1839       # 公開条件がredの対象を選
 index.html#/home?state=normal&t=runtime      # 運転と注意タブ
 index.html#/home?state=empty&t=outcome       # 状態を所有しないタブでのscope note
 index.html#/articles?state=stale&f=red
+index.html#/articles?state=normal&l=unassigned&v=map
+index.html#/articles?state=normal&v=dfs&k=ひとり起業%20始め方
 ```
 
 ## 承認flowの確認手順

@@ -693,6 +693,9 @@ const DFS = {
 /* DFSデータ一覧に載せるKW。取得済み7件・未取得5件を混在させ、
    未取得を0や推定で埋めないことを一覧上でも確認できるようにする。 */
 const DFS_TABLE_KWS = CLUSTERS.map((c) => c.main).concat(["ひとり起業 費用", "開業届 提出期限"]);
+const KNOWN_KWS = [...new Set(DFS_TABLE_KWS.concat(
+  CLUSTERS.flatMap((cluster) => cluster.intents.map((intent) => intent.term))
+))];
 
 const dfsOf = (term) => DFS[term] || null;
 
@@ -1340,10 +1343,23 @@ function renderHome() {
 const laneOf = (id) => LANES.find((l) => l.id === id) || LANES[0];
 const laneSum = () => LANES.reduce((s, l) => s + l.n, 0);
 const mapKwListed = () => CLUSTERS.reduce((s, c) => s + c.kw, 0);
+const kwLedger = () => {
+  let sequence = 0;
+  return LANES.flatMap((lane) => Array.from({ length: lane.n }, () => ({
+    id: "KW-" + String(++sequence).padStart(4, "0"),
+    lane: lane.id
+  })));
+};
 
 /* 母集団の会計。lane合計 = 母集団 であることを常時表示する。 */
 function kwAccounting() {
   const sum = laneSum();
+  const ledger = kwLedger();
+  const identities = ledger.map((entry) => entry.id);
+  const uniqueIdentities = new Set(identities);
+  const duplicates = identities.length - uniqueIdentities.size;
+  const orphans = Math.max(0, KW_TOTAL - uniqueIdentities.size);
+  const balanced = sum === KW_TOTAL && ledger.length === KW_TOTAL && duplicates === 0 && orphans === 0;
   const label = LANES.map((l) => l.label + " " + l.n + "件").join("、");
   return '<section class="card card-pad account">' +
     '<div class="account-head"><h2>KW母集団 ' + num(KW_TOTAL) + " 件の会計</h2>" +
@@ -1359,7 +1375,8 @@ function kwAccounting() {
         '<span class="lane-sub">' + esc(l.sub) + "</span></button>";
     }).join("") + "</div>" +
     '<p class="account-check">' + LANES.map((l) => num(l.n)).join(" ＋ ") + " ＝ " + num(sum) +
-    "（母集団と一致）· 孤児KW <b>0件</b> · 二重計上 0件</p>" +
+    (balanced ? "（ID台帳と一致）" : "（不整合あり）") + " · 孤児KW <b>" + num(orphans) +
+    "件</b> · 二重計上 " + num(duplicates) + "件</p>" +
     "</section>";
 }
 
@@ -2070,6 +2087,8 @@ function setKwView(viewId, quiet) {
 function setState(stateId, quiet) {
   ui.state = stateId;
   render();
+  const restored = $('#state-switch [data-state="' + stateId + '"]');
+  if (restored) { restored.focus(); }
   if (!quiet) {
     const label = STATES.find((s) => s.id === stateId).label;
     announce("表示状態を " + label + " に切り替えました。");
@@ -2340,7 +2359,7 @@ function readHash() {
   if (FILTERS.some((f) => f.id === params.get("f"))) { ui.filter = params.get("f"); }
   if (LANES.some((l) => l.id === params.get("l"))) { ui.lane = params.get("l"); }
   if (["map", "dfs"].indexOf(params.get("v")) >= 0) { ui.kwView = params.get("v"); }
-  if (params.get("k") && DFS_TABLE_KWS.indexOf(params.get("k")) >= 0) { ui.kw = params.get("k"); }
+  if (params.get("k") && KNOWN_KWS.indexOf(params.get("k")) >= 0) { ui.kw = params.get("k"); }
 }
 
 function writeHash() {

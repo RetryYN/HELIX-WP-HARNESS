@@ -8,8 +8,9 @@
     "requirements:validate": "node scripts/validate-requirements.mjs",
     "requirements:helix-l1-l2": "node scripts/validate-helix-l1-l2.mjs",
     "requirements:helix-vmodel": "npm run helix -- vmodel lint",
+    "prototype:syntax": "node --check docs/prototypes/wp-ops-dashboard/app.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
+    "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel && npm run prototype:syntax"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",

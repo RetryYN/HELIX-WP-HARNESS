@@ -72,7 +72,6 @@ for (const [index, wpRow] of wpScreenRows.entries()) {
 const projection = readJson("docs/requirements/discovery/candidate-projection.json");
 if (projection.canonical !== false) fail("L2 projection must remain non-canonical");
 if (projection.compile_status === "completed" && !projection.agreement) fail("compile completed without human agreement");
-if (!projection.prototype_revision_ids.includes("WP-PROT-UI-02-r4")) fail("current HTML prototype missing from projection");
 const events = readFileSync(resolve(root, "docs/requirements/discovery/events.jsonl"), "utf8").trim().split("\n").map((line, index) => {
   try { return JSON.parse(line); } catch { fail(`invalid JSON event line ${index + 1}`); }
 });
@@ -85,6 +84,10 @@ if (events.length !== projection.event_count || events.at(-1)?.event_id !== proj
 const generatedPrototypeIds = new Set(events.filter((event) => event.event_type === "prototype_generated").map((event) => event.payload?.prototype_id));
 const recordedReactionIds = new Set(events.filter((event) => event.event_type === "prototype_reaction_recorded").map((event) => event.payload?.reaction_id));
 const currentPrototypeId = events.filter((event) => event.event_type === "prototype_generated").at(-1)?.payload?.prototype_id;
+if (!currentPrototypeId || !projection.prototype_revision_ids.includes(currentPrototypeId)) fail("current HTML prototype missing from projection");
+for (const path of ["docs/prototypes/wp-ops-dashboard/README.md", "docs/prototypes/wp-ops-dashboard/index.html", "docs/prototypes/wp-ops-dashboard/app.js"]) {
+  if (!readFileSync(resolve(root, path), "utf8").includes(currentPrototypeId)) fail(`prototype artifact revision drift ${path}`);
+}
 const poAgreementEvents = events.filter((event) =>
   event.event_type === "prototype_reaction_recorded" &&
   event.actor?.kind === "po" &&
