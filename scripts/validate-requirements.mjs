@@ -21,9 +21,30 @@ const requiredFiles = [
   "docs/requirements/l1/screen.md", "docs/requirements/l1/technical.md", "docs/requirements/l1/nfr.md",
   "docs/requirements/l2/screen-list.md", "docs/requirements/l2/screen-flow.md", "docs/requirements/l2/ui-element.md",
   "docs/requirements/l2/wireframe.md", "docs/test-design/l10-system-acceptance-test-design.md",
-  "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md"
+  "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md",
+  "docs/design/harness/L1-requirements/screen-requirements.md",
+  "docs/design/harness/L2-screen/screen-list.md", "docs/design/harness/L2-screen/screen-flow.md",
+  "docs/design/harness/L2-screen/ui-element.md", "docs/design/harness/L2-screen/wireframe.md"
 ];
 for (const path of requiredFiles) if (!existsSync(resolve(root, path))) fail(`missing artifact ${path}`);
+
+// HELIX本体の現行readerはPM/HM/GD IDとdocs/design/harness固定配置を読むため、
+// WP正本からの薄い互換projectionをexact mappingで拘束する。projection単独を正本化しない。
+const wpScreenListText = readFileSync(resolve(root, "docs/requirements/l2/screen-list.md"), "utf8");
+const wpScreenRows = [...wpScreenListText.matchAll(/^\|\s*(WP-UI-\d{2})\s*\|\s*`([^`]+)`\s*\|\s*(WP-SCR-\d{2})\s*\|/gm)];
+const helixL1Projection = readFileSync(resolve(root, "docs/design/harness/L1-requirements/screen-requirements.md"), "utf8");
+const helixL2Projection = readFileSync(resolve(root, "docs/design/harness/L2-screen/screen-list.md"), "utf8");
+const helixL1Rows = [...helixL1Projection.matchAll(/^\|\s*\*\*(PM-\d{2})\*\*\s*\|\s*(WP-SCR-\d{2})\s*\|\s*(WP-UI-\d{2})\s*\|/gm)];
+const helixL2Rows = [...helixL2Projection.matchAll(/^\|\s*(PM-\d{2})\s*\|\s*(WP-UI-\d{2})\s*\|\s*(WP-SCR-\d{2})\s*\|\s*`([^`]+)`\s*\|/gm)];
+if (wpScreenRows.length === 0 || helixL1Rows.length !== wpScreenRows.length || helixL2Rows.length !== wpScreenRows.length) fail("HELIX screen projection count mismatch");
+for (const [index, wpRow] of wpScreenRows.entries()) {
+  const suffix = String(index + 1).padStart(2, "0");
+  const expected = { helix: `PM-${suffix}`, ui: wpRow[1], route: wpRow[2], source: wpRow[3] };
+  const l1 = helixL1Rows[index];
+  const l2 = helixL2Rows[index];
+  if (l1[1] !== expected.helix || l1[2] !== expected.source || l1[3] !== expected.ui) fail(`HELIX L1 screen projection drift ${expected.helix}`);
+  if (l2[1] !== expected.helix || l2[2] !== expected.ui || l2[3] !== expected.source || l2[4] !== expected.route) fail(`HELIX L2 screen projection drift ${expected.helix}`);
+}
 const projection = readJson("docs/requirements/discovery/candidate-projection.json");
 if (projection.canonical !== false) fail("L2 projection must remain non-canonical");
 if (projection.compile_status === "completed" && !projection.agreement) fail("compile completed without human agreement");
