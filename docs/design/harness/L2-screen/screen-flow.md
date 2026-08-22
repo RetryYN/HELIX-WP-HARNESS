@@ -3,6 +3,7 @@ layer: L2
 sub_doc: screen-flow
 status: candidate_projection
 source_authority: docs/requirements/l2/screen-flow.md
+source_sha256: 61a6476c0777b898b432aa7fc1bd8a2d1d142d44d695472dafce420aea332b0a
 pair_artifact: docs/design/harness/L2-screen/wireframe.md
 ---
 

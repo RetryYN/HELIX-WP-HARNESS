@@ -3,6 +3,7 @@ layer: L12
 sub_doc: operational-test-design
 status: candidate_projection
 source_authority: docs/test-design/l12-operational-value-test-design.md
+source_sha256: cea8393daf992b4bea2296b597352221debc42a1d97fdc468830e6a396aaf1e6
 pair_artifact: docs/design/harness/L1-requirements/screen-requirements.md
 ---
 
@@ -22,4 +23,3 @@ HELIX V-model readerへL1 screen projectionのpairを接続する非正本projec
 | PM-06 | WP-UI-06 | rewrite前後の版・成果差分をWP-OT-04/05へ接続する |
 | PM-07 | WP-UI-07 | 売上÷費用の未確定規則ではpassを出さずWP-OT-05へ接続する |
 | PM-08 | WP-UI-08 | 予定と実績の差分、例外停止をWP-OT-01へ接続する |
-

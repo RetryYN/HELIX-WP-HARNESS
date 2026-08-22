@@ -1,4 +1,5 @@
 import { readFileSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { resolve } from "node:path";
 
 const root = process.cwd();
@@ -21,6 +22,8 @@ const requiredFiles = [
   "docs/requirements/l1/screen.md", "docs/requirements/l1/technical.md", "docs/requirements/l1/nfr.md",
   "docs/requirements/l2/screen-list.md", "docs/requirements/l2/screen-flow.md", "docs/requirements/l2/ui-element.md",
   "docs/requirements/l2/wireframe.md", "docs/test-design/l10-system-acceptance-test-design.md",
+  "docs/requirements/l3/coverage-gaps.json",
+  "docs/requirements/discovery/s1-acceptance-mapping.json",
   "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md",
   "docs/design/harness/L1-requirements/screen-requirements.md",
   "docs/design/harness/L2-screen/screen-list.md", "docs/design/harness/L2-screen/screen-flow.md",
@@ -28,6 +31,23 @@ const requiredFiles = [
   "docs/test-design/harness/L12-operational-test-design.md"
 ];
 for (const path of requiredFiles) if (!existsSync(resolve(root, path))) fail(`missing artifact ${path}`);
+
+const compatibilityProjections = [
+  "docs/design/harness/L1-requirements/screen-requirements.md",
+  "docs/design/harness/L2-screen/screen-list.md",
+  "docs/design/harness/L2-screen/screen-flow.md",
+  "docs/design/harness/L2-screen/ui-element.md",
+  "docs/design/harness/L2-screen/wireframe.md",
+  "docs/test-design/harness/L12-operational-test-design.md",
+];
+for (const path of compatibilityProjections) {
+  const text = readFileSync(resolve(root, path), "utf8");
+  const source = text.match(/^source_authority:\s*(\S+)$/m)?.[1];
+  const declaredDigest = text.match(/^source_sha256:\s*([0-9a-f]{64})$/m)?.[1];
+  if (!source || !declaredDigest || !existsSync(resolve(root, source))) fail(`invalid projection authority receipt ${path}`);
+  const actualDigest = createHash("sha256").update(readFileSync(resolve(root, source))).digest("hex");
+  if (actualDigest !== declaredDigest) fail(`projection source drift ${path} <- ${source}`);
+}
 
 // HELIX本体の現行readerはPM/HM/GD IDとdocs/design/harness固定配置を読むため、
 // WP正本からの薄い互換projectionをexact mappingで拘束する。projection単独を正本化しない。
@@ -66,8 +86,39 @@ const ir = readJson("docs/requirements/l3/requirements-ir.json");
 exactKeys(ir, ["schema_version", "initiative_id", "authority", "source_authority", "compile_result", "freeze", "actors", "requirements"], "IR");
 if (ir.authority === "canonical" && ir.compile_result !== "completed") fail("canonical IR without completed compile");
 if (ir.freeze.g3 === "frozen" && (!projection.agreement || projection.compile_status !== "completed")) fail("G3 freeze without agreement");
+if (ir.compile_result === "not_requested" && ir.requirements.some((requirement) => ["specified", "frozen"].includes(requirement.status))) fail("specified requirement before L3 compile request");
 const requirementIds = unique(ir.requirements.map((requirement) => requirement.id), "requirement id");
-for (const id of ["WP-NFR-SEC-01", "WP-NFR-PRIV-01", "WP-NFR-PERM-01", "WP-NFR-COST-01", "WP-NFR-LEGAL-01", "WP-NFR-OBS-01", "WP-NFR-A11Y-01", "WP-NFR-REC-01"]) {
+for (const candidate of projection.candidates) for (const id of candidate.requirement_ids) {
+  if (!requirementIds.has(id)) fail(`projection references unknown requirement ${id}`);
+}
+const l1SourceFiles = [
+  "docs/requirements/l1/business.md",
+  "docs/requirements/l1/functional.md",
+  "docs/requirements/l1/nfr.md",
+  "docs/requirements/l1/screen.md",
+  "docs/requirements/l1/technical.md",
+];
+const l1IdPattern = /\bWP-(?:BR|FRL1|NFRL1|TRL1|SCR)-\d{2}\b/g;
+const l1Ids = unique(
+  l1SourceFiles.flatMap((path) => [...readFileSync(resolve(root, path), "utf8").matchAll(/^\|\s*(WP-(?:BR|FRL1|NFRL1|TRL1|SCR)-\d{2})\s*\|/gm)].map((match) => match[1])),
+  "L1 id",
+);
+const referencedL1Ids = new Set(ir.requirements.flatMap((requirement) => requirement.source_ids).filter((id) => l1Ids.has(id)));
+const uncoveredL1Ids = [...l1Ids].filter((id) => !referencedL1Ids.has(id));
+const coverageGaps = readJson("docs/requirements/l3/coverage-gaps.json");
+exactKeys(coverageGaps, ["schema_version", "initiative_id", "authority", "promotion_policy", "gaps"], "coverage gaps");
+if (coverageGaps.initiative_id !== ir.initiative_id || coverageGaps.authority !== "non_canonical_precompile_inventory") fail("invalid coverage gap authority");
+const recordedGapIds = unique(coverageGaps.gaps.map((gap) => gap.source_id), "coverage gap source id");
+for (const gap of coverageGaps.gaps) {
+  exactKeys(gap, ["source_id", "reason", "next_action"], `coverage gap ${gap.source_id}`);
+  if (!l1Ids.has(gap.source_id) || !gap.reason || !gap.next_action) fail(`invalid coverage gap ${gap.source_id}`);
+}
+for (const id of uncoveredL1Ids) if (!recordedGapIds.has(id)) fail(`unrecorded pre-L3 coverage gap ${id}`);
+for (const id of recordedGapIds) if (!uncoveredL1Ids.includes(id)) fail(`stale pre-L3 coverage gap ${id}`);
+if ((ir.compile_result === "completed" || ir.freeze.g3 === "frozen") && uncoveredL1Ids.length) {
+  fail(`L3 promotion has orphan L1 ids: ${uncoveredL1Ids.join(", ")}`);
+}
+for (const id of ["WP-NFR-SEC-01", "WP-NFR-PRIV-01", "WP-NFR-PERM-01", "WP-NFR-COST-01", "WP-NFR-LEGAL-01", "WP-NFR-OBS-01", "WP-NFR-A11Y-01", "WP-NFR-REC-01", "WP-NFR-CRED-01"]) {
   if (!requirementIds.has(id)) fail(`implicit matrix requirement missing: ${id}`);
 }
 const testIds = new Set();
@@ -75,7 +126,7 @@ const acceptanceIds = [];
 for (const requirement of ir.requirements) {
   const commonKeys = ["id", "kind", "status", "source_ids", "statement", "priority", "actor_ids", "surface_ids", "acceptance_ids", "test_ids"];
   const conditionalKeys = requirement.surface_ids?.length ? [] : ["non_ui_na"];
-  const decisionKeys = requirement.status === "human_decision_required" ? ["pending_resolution"] : [];
+  const decisionKeys = requirement.pending_resolution ? ["pending_resolution"] : [];
   exactKeys(requirement, [...commonKeys, ...conditionalKeys, ...decisionKeys], `requirement ${requirement.id}`);
   if (!requirement.source_ids?.length || !requirement.acceptance_ids?.length || !requirement.test_ids?.length) fail(`incomplete trace fields ${requirement.id}`);
   acceptanceIds.push(...requirement.acceptance_ids); requirement.test_ids.forEach((id) => testIds.add(id));
@@ -84,6 +135,7 @@ for (const requirement of ir.requirements) {
 }
 unique(acceptanceIds, "acceptance id");
 const acceptance = readJson("docs/requirements/l3/acceptance-cases.json");
+exactKeys(acceptance, ["schema_version", "cases"], "acceptance registry");
 const definedAcceptance = unique(acceptance.cases.map((item) => item.id), "defined acceptance id");
 for (const id of acceptanceIds) if (!definedAcceptance.has(id)) fail(`undefined acceptance ${id}`);
 for (const item of acceptance.cases) {
@@ -93,16 +145,55 @@ for (const item of acceptance.cases) {
   if (!owner.acceptance_ids.includes(item.id)) fail(`acceptance ${item.id} missing from owner`);
   if (!["positive", "negative", "boundary"].includes(item.polarity) || !item.oracle) fail(`invalid acceptance ${item.id}`);
 }
+const s1Mapping = readJson("docs/requirements/discovery/s1-acceptance-mapping.json");
+exactKeys(s1Mapping, ["schema_version", "source", "authority", "mappings"], "S1 acceptance mapping");
+const s1SourceText = readFileSync(resolve(root, s1Mapping.source), "utf8");
+const s1SourceIds = unique(s1SourceText.match(/\bAC-S1-\d{3}\b/g) ?? [], "S1 source acceptance id");
+const mappedS1Ids = unique(s1Mapping.mappings.map((item) => item.source_acceptance_id), "mapped S1 acceptance id");
+for (const id of s1SourceIds) if (!mappedS1Ids.has(id)) fail(`unmapped S1 acceptance ${id}`);
+for (const mapping of s1Mapping.mappings) {
+  exactKeys(mapping, ["source_acceptance_id", "candidate_acceptance_ids"], `S1 mapping ${mapping.source_acceptance_id}`);
+  if (!s1SourceIds.has(mapping.source_acceptance_id) || !mapping.candidate_acceptance_ids.length) fail(`invalid S1 mapping ${mapping.source_acceptance_id}`);
+  for (const id of mapping.candidate_acceptance_ids) if (!definedAcceptance.has(id)) fail(`S1 mapping references unknown acceptance ${id}`);
+}
 const trace = readJson("docs/requirements/l3/traceability.json");
+exactKeys(trace, ["schema_version", "initiative_id", "relations"], "trace registry");
+unique(trace.relations.map((relation) => `${relation.l1}\0${relation.l2}`), "trace relation");
 const tracedRequirements = new Set(trace.relations.flatMap((relation) => relation.l3));
 const tracedTests = new Set(trace.relations.flatMap((relation) => relation.tests));
 for (const id of requirementIds) if (!tracedRequirements.has(id)) fail(`orphan requirement ${id}`);
 for (const id of testIds) if (!tracedTests.has(id)) fail(`orphan test ${id}`);
-for (const relation of trace.relations) for (const id of relation.l3) if (!requirementIds.has(id)) fail(`unknown requirement ${id}`);
+for (const relation of trace.relations) {
+  exactKeys(relation, ["l1", "l2", "l3", "tests"], `trace ${relation.l1} + ${relation.l2}`);
+  if (!l1Ids.has(relation.l1)) fail(`trace references unknown L1 id ${relation.l1}`);
+  const expectedRelationTests = new Set(relation.l3.flatMap((id) => ir.requirements.find((requirement) => requirement.id === id)?.test_ids ?? []));
+  if (relation.tests.length !== expectedRelationTests.size || relation.tests.some((id) => !expectedRelationTests.has(id))) {
+    fail(`trace test mismatch ${relation.l1} + ${relation.l2}`);
+  }
+  for (const id of relation.l3) {
+    if (!requirementIds.has(id)) fail(`unknown requirement ${id}`);
+    const owner = ir.requirements.find((requirement) => requirement.id === id);
+    if (!owner.source_ids.includes(relation.l1) || !owner.source_ids.includes(relation.l2)) {
+      fail(`trace/IR source mismatch ${relation.l1} + ${relation.l2} -> ${id}`);
+    }
+  }
+}
+for (const requirement of ir.requirements) {
+  const requirementL1Ids = requirement.source_ids.filter((id) => l1Ids.has(id));
+  const requirementL2Ids = requirement.source_ids.filter((id) => id.startsWith("WP-CAND-"));
+  for (const l1 of requirementL1Ids) {
+    const relation = trace.relations.find((item) => item.l1 === l1 && requirementL2Ids.includes(item.l2) && item.l3.includes(requirement.id));
+    if (!relation) fail(`IR L1 source missing from trace ${l1} -> ${requirement.id}`);
+  }
+  for (const l2 of requirementL2Ids) {
+    const relation = trace.relations.find((item) => item.l2 === l2 && requirementL1Ids.includes(item.l1) && item.l3.includes(requirement.id));
+    if (!relation) fail(`IR L2 source missing from trace ${l2} -> ${requirement.id}`);
+  }
+}
 const inventory = readJson("docs/poc/wp-poc-inventory.json");
 unique(inventory.evidence.map((item) => item.evidence_id), "PoC evidence id");
 for (const item of inventory.evidence) {
   if (!/^[0-9a-f]{64}$/.test(item.sha256)) fail(`invalid PoC digest ${item.evidence_id}`);
   if (!item.finding || !item.adopt?.length || !item.limits?.length) fail(`incomplete PoC disposition ${item.evidence_id}`);
 }
-console.log(`requirements validation: OK (${events.length} events, ${ir.requirements.length} requirements, ${acceptanceIds.length} acceptance cases, ${testIds.size} tests)`);
+console.log(`requirements validation: OK (${events.length} events, ${ir.requirements.length} requirements, ${acceptanceIds.length} acceptance cases, ${testIds.size} tests, ${uncoveredL1Ids.length} pre-L3 coverage gaps)`);

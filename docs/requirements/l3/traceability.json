@@ -3,15 +3,19 @@
   "initiative_id": "WP-AUTONOMOUS-OPS",
   "relations": [
     {"l1":"WP-FRL1-01","l2":"WP-CAND-KW","l3":["WP-FR-KW-01"],"tests":["WP-AT-KW-01"]},
-    {"l1":"WP-FRL1-02","l2":"WP-CAND-KW","l3":["WP-FR-KW-02","WP-FR-KW-03","WP-FR-AUDIT-01"],"tests":["WP-AT-KW-02","WP-AT-KW-03","WP-AT-AUDIT-01"]},
-    {"l1":"WP-FRL1-03","l2":"WP-CAND-POST","l3":["WP-FR-POST-01","WP-FR-POST-02"],"tests":["WP-AT-POST-01","WP-AT-POST-02"]},
+    {"l1":"WP-FRL1-02","l2":"WP-CAND-KW","l3":["WP-FR-KW-02","WP-FR-KW-03"],"tests":["WP-AT-KW-02","WP-AT-KW-03"]},
+    {"l1":"WP-FRL1-02","l2":"WP-CAND-UI","l3":["WP-FR-AUDIT-01"],"tests":["WP-AT-AUDIT-01"]},
+    {"l1":"WP-FRL1-03","l2":"WP-CAND-POST","l3":["WP-FR-POST-01","WP-FR-POST-02","WP-FR-POST-03"],"tests":["WP-AT-POST-01","WP-AT-POST-02","WP-AT-POST-03"]},
     {"l1":"WP-FRL1-04","l2":"WP-CAND-DOC","l3":["WP-FR-DOC-01","WP-FR-DOC-02","WP-TR-DOC-01"],"tests":["WP-AT-DOC-01","WP-AT-DOC-02","WP-AT-TR-01"]},
     {"l1":"WP-FRL1-05","l2":"WP-CAND-UI","l3":["WP-FR-UI-01","WP-FR-AUDIT-01"],"tests":["WP-AT-UI-01","WP-AT-AUDIT-01"]},
     {"l1":"WP-FRL1-06","l2":"WP-CAND-POST","l3":["WP-FR-POST-02"],"tests":["WP-AT-POST-02"]},
-    {"l1":"WP-FRL1-07","l2":"WP-CAND-UI","l3":["WP-NFR-REL-01","WP-NFR-COST-01"],"tests":["WP-AT-REL-01","WP-AT-COST-01"]},
+    {"l1":"WP-FRL1-07","l2":"WP-CAND-UI","l3":["WP-NFR-REL-01"],"tests":["WP-AT-REL-01"]},
     {"l1":"WP-NFRL1-01","l2":"WP-CAND-POST","l3":["WP-NFR-SEC-01"],"tests":["WP-AT-SEC-01"]},
     {"l1":"WP-NFRL1-02","l2":"WP-CAND-POST","l3":["WP-NFR-REL-01"],"tests":["WP-AT-REL-01"]},
     {"l1":"WP-NFRL1-03","l2":"WP-CAND-UI","l3":["WP-NFR-PERF-01"],"tests":["WP-AT-PERF-01"]},
+    {"l1":"WP-NFRL1-04","l2":"WP-CAND-QUALITY","l3":["WP-NFR-A11Y-01"],"tests":["WP-AT-A11Y-01"]},
+    {"l1":"WP-NFRL1-05","l2":"WP-CAND-UI","l3":["WP-NFR-REL-01"],"tests":["WP-AT-REL-01"]},
+    {"l1":"WP-NFRL1-06","l2":"WP-CAND-QUALITY","l3":["WP-NFR-REC-01"],"tests":["WP-AT-REC-01"]},
     {"l1":"WP-NFRL1-07","l2":"WP-CAND-KW","l3":["WP-NFR-COST-01"],"tests":["WP-AT-COST-01"]},
     {"l1":"WP-NFRL1-08","l2":"WP-CAND-UI","l3":["WP-NFR-SEC-01"],"tests":["WP-AT-SEC-01"]},
     {"l1":"WP-NFRL1-09","l2":"WP-CAND-QUALITY","l3":["WP-NFR-PRIV-01"],"tests":["WP-AT-PRIV-01"]},
@@ -19,6 +23,8 @@
     {"l1":"WP-NFRL1-11","l2":"WP-CAND-QUALITY","l3":["WP-NFR-LEGAL-01"],"tests":["WP-AT-LEGAL-01"]},
     {"l1":"WP-NFRL1-12","l2":"WP-CAND-QUALITY","l3":["WP-NFR-OBS-01"],"tests":["WP-AT-OBS-01"]},
     {"l1":"WP-NFRL1-13","l2":"WP-CAND-QUALITY","l3":["WP-NFR-A11Y-01"],"tests":["WP-AT-A11Y-01"]},
-    {"l1":"WP-NFRL1-14","l2":"WP-CAND-QUALITY","l3":["WP-NFR-REC-01"],"tests":["WP-AT-REC-01"]}
+    {"l1":"WP-NFRL1-14","l2":"WP-CAND-QUALITY","l3":["WP-NFR-REC-01"],"tests":["WP-AT-REC-01"]},
+    {"l1":"WP-TRL1-02","l2":"WP-CAND-DOC","l3":["WP-TR-DOC-01"],"tests":["WP-AT-TR-01"]},
+    {"l1":"WP-TRL1-06","l2":"WP-CAND-QUALITY","l3":["WP-NFR-CRED-01"],"tests":["WP-AT-CRED-01"]}
   ]
 }

@@ -15,11 +15,10 @@ if (packet.schemaVersion !== "l1-l2-gap-check.v1") throw new Error("unexpected H
 if (packet.consistency?.ok !== true || packet.consistency?.checked !== 8) {
   throw new Error(`HELIX L1/L2 projection is not connected to all 8 WP screens: ${JSON.stringify(packet.consistency)}`);
 }
-if (packet.consistency.violations.length !== 0 || packet.consistency.messages.some((line) => !line.includes("mock pair=declared"))) {
+if (packet.consistency.violations.length !== 0 || !packet.consistency.messages.some((line) => line.includes("mock pair=declared"))) {
   throw new Error(`HELIX L1/L2 structural coverage is not green: ${JSON.stringify(packet.consistency)}`);
 }
 if (packet.contentReviewRequired !== true || packet.completionClaimAllowed !== false) {
   throw new Error("HELIX L1/L2 human review boundary changed unexpectedly");
 }
 console.log("HELIX L1/L2 validation: OK (8 WP screens, bidirectional coverage, mock pair declared)");
-

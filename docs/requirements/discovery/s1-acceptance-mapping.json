@@ -1,0 +1,15 @@
+{
+  "schema_version": "wp-s1-acceptance-mapping.v1",
+  "source": "docs/requirements/s1-draft-post-requirements.md",
+  "authority": "l2_candidate_mapping",
+  "mappings": [
+    {"source_acceptance_id":"AC-S1-001","candidate_acceptance_ids":["WP-AC-POST-01A"]},
+    {"source_acceptance_id":"AC-S1-002","candidate_acceptance_ids":["WP-AC-POST-03B"]},
+    {"source_acceptance_id":"AC-S1-003","candidate_acceptance_ids":["WP-AC-POST-02B","WP-AC-SEC-01B","WP-AC-CRED-01B"]},
+    {"source_acceptance_id":"AC-S1-004","candidate_acceptance_ids":["WP-AC-POST-01B","WP-AC-REL-01B"]},
+    {"source_acceptance_id":"AC-S1-005","candidate_acceptance_ids":["WP-AC-POST-01A","WP-AC-CRED-01A"]},
+    {"source_acceptance_id":"AC-S1-006","candidate_acceptance_ids":["WP-AC-POST-02A","WP-AC-POST-03A"]},
+    {"source_acceptance_id":"AC-S1-007","candidate_acceptance_ids":["WP-AC-POST-03A","WP-AC-REL-01B"]},
+    {"source_acceptance_id":"AC-S1-008","candidate_acceptance_ids":["WP-AC-POST-03B"]}
+  ]
+}
