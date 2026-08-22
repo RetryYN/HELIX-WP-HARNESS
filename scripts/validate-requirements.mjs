@@ -24,7 +24,8 @@ const requiredFiles = [
   "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md",
   "docs/design/harness/L1-requirements/screen-requirements.md",
   "docs/design/harness/L2-screen/screen-list.md", "docs/design/harness/L2-screen/screen-flow.md",
-  "docs/design/harness/L2-screen/ui-element.md", "docs/design/harness/L2-screen/wireframe.md"
+  "docs/design/harness/L2-screen/ui-element.md", "docs/design/harness/L2-screen/wireframe.md",
+  "docs/test-design/harness/L12-operational-test-design.md"
 ];
 for (const path of requiredFiles) if (!existsSync(resolve(root, path))) fail(`missing artifact ${path}`);
 

@@ -3,6 +3,7 @@ layer: L1
 sub_doc: screen-requirements
 status: candidate_projection
 source_authority: docs/requirements/l1/screen.md
+pair_artifact: docs/test-design/harness/L12-operational-test-design.md
 ---
 
 # HELIX L1 screen compatibility projection
@@ -20,4 +21,3 @@ source_authority: docs/requirements/l1/screen.md
 | **PM-06** | WP-SCR-06 | WP-UI-06 | `docs/requirements/l1/screen.md` |
 | **PM-07** | WP-SCR-07 | WP-UI-07 | `docs/requirements/l1/screen.md` |
 | **PM-08** | WP-SCR-08 | WP-UI-08 | `docs/requirements/l1/screen.md` |
-

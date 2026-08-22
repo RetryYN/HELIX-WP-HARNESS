@@ -3,6 +3,7 @@ layer: L2
 sub_doc: ui-element
 status: candidate_projection
 source_authority: docs/requirements/l2/ui-element.md
+pair_artifact: docs/design/harness/L2-screen/wireframe.md
 ---
 
 # HELIX L2 UI-element compatibility projection
@@ -19,4 +20,3 @@ source_authority: docs/requirements/l2/ui-element.md
 | **PM-06** | WP-UI-06 | FreshnessBadge / ErrorState |
 | **PM-07** | WP-UI-07 | FreshnessBadge / EvidenceLink |
 | **PM-08** | WP-UI-08 | StateBadge / EmptyState |
-

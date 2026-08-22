@@ -4,6 +4,7 @@ sub_doc: screen-list
 status: candidate_projection
 parent_doc: docs/design/harness/L1-requirements/screen-requirements.md
 source_authority: docs/requirements/l2/screen-list.md
+pair_artifact: docs/design/harness/L2-screen/wireframe.md
 next_pair_freeze: L10
 implemented_screens: ""
 ---
@@ -23,4 +24,3 @@ HELIX reader用の非正本ID対応表。routeと状態契約の正本は`docs/r
 | PM-06 | WP-UI-06 | WP-SCR-06 | `/rewrites` | `docs/requirements/l2/screen-list.md` |
 | PM-07 | WP-UI-07 | WP-SCR-07 | `/outcomes` | `docs/requirements/l2/screen-list.md` |
 | PM-08 | WP-UI-08 | WP-SCR-08 | `/calendar` | `docs/requirements/l2/screen-list.md` |
-
