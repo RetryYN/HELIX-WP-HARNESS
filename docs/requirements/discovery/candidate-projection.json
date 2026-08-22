@@ -2,13 +2,14 @@
   "schema_version": "wp-requirement-candidate-projection.v1",
   "canonical": false,
   "initiative_id": "WP-AUTONOMOUS-OPS",
-  "event_head": "WP-EVT-0008",
-  "event_count": 8,
+  "event_head": "WP-EVT-0009",
+  "event_count": 9,
   "candidates": [
     {"candidate_id":"WP-CAND-KW","state":"accepted","source_event_ids":["WP-EVT-0002","WP-EVT-0005"],"requirement_ids":["WP-FR-KW-01","WP-FR-KW-02","WP-FR-KW-03"]},
     {"candidate_id":"WP-CAND-DOC","state":"accepted","source_event_ids":["WP-EVT-0003","WP-EVT-0005"],"requirement_ids":["WP-FR-DOC-01","WP-FR-DOC-02"]},
     {"candidate_id":"WP-CAND-POST","state":"elicited","source_event_ids":["WP-EVT-0004","WP-EVT-0007"],"requirement_ids":["WP-FR-POST-01","WP-FR-POST-02"]},
-    {"candidate_id":"WP-CAND-UI","state":"prototyped","source_event_ids":["WP-EVT-0006","WP-EVT-0008"],"requirement_ids":["WP-FR-UI-01","WP-FR-AUDIT-01"]}
+    {"candidate_id":"WP-CAND-UI","state":"prototyped","source_event_ids":["WP-EVT-0006","WP-EVT-0008"],"requirement_ids":["WP-FR-UI-01","WP-FR-AUDIT-01"]},
+    {"candidate_id":"WP-CAND-QUALITY","state":"elicited","source_event_ids":["WP-EVT-0009"],"requirement_ids":["WP-NFR-PRIV-01","WP-NFR-PERM-01","WP-NFR-LEGAL-01","WP-NFR-OBS-01","WP-NFR-A11Y-01","WP-NFR-REC-01"]}
   ],
   "question_ids": ["WP-Q-POST-01","WP-Q-POST-02","WP-Q-UI-01"],
   "answered_question_ids": [],

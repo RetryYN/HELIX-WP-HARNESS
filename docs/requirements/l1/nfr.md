@@ -18,3 +18,9 @@ authority: docs/requirements/authority.md
 | WP-NFRL1-06 | 本番writeはbackup、rollback、承認、監査を持つ | action-binding test |
 | WP-NFRL1-07 | API費用上限超過時は取得を停止しPOへ通知する | cost boundary test |
 | WP-NFRL1-08 | UI frontは未認証拒否、HTTPS、非index、CSRF、rate limitを満たす | security test |
+| WP-NFRL1-09 | 収集dataを目的最小限とし、datasetごとに保持・削除・法的/契約上の根拠を持つ | privacy/retention test |
+| WP-NFRL1-10 | actorとservice accountのpermissionを操作単位で限定し、権限逸脱を拒否する | permission test |
+| WP-NFRL1-11 | 外部content/APIの利用規約、license、転載禁止、取得条件をprovenanceへ束縛する | legal compliance test |
+| WP-NFRL1-12 | operation、gate、外部call、失敗、recoveryを相関ID付きで観測できる | observability test |
+| WP-NFRL1-13 | UIの主要判断・操作はWCAG 2.1 AA相当のkeyboard、focus、name、contrastを満たす | accessibility test |
+| WP-NFRL1-14 | backupの存在だけでなくrestore rehearsalと復旧時間を証跡化する | recovery test |

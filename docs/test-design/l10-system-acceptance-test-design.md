@@ -18,6 +18,12 @@
 | WP-AT-REL-01 | WP-NFR-REL-01 | recovery後同一operation chainへ収束 | 不明応答を成功扱い・無条件再送しない | failure injection |
 | WP-AT-PERF-01 | WP-NFR-PERF-01 | 指定workloadでp95 budget内 | dataset/環境欠落なら合格しない | performance report |
 | WP-AT-COST-01 | WP-NFR-COST-01 | cacheと月次集計を再現 | 上限超過要求を外部送信前に拒否 | cost ledger |
+| WP-AT-PRIV-01 | WP-NFR-PRIV-01 | dataset inventoryとpurgeを再現 | 期限超過・目的不明dataを拒否 | retention report |
+| WP-AT-PERM-01 | WP-NFR-PERM-01 | actor別許可操作だけ成功 | scope外write/publish/deleteを拒否 | permission matrix |
+| WP-AT-LEGAL-01 | WP-NFR-LEGAL-01 | source利用条件が全件trace可能 | 条件不明sourceをhuman reviewへ送る | compliance ledger |
+| WP-AT-OBS-01 | WP-NFR-OBS-01 | correlation IDで一気通貫再構築 | orphan/時刻・digest欠落を拒否 | trace query |
+| WP-AT-A11Y-01 | WP-NFR-A11Y-01 | keyboard flowとAA検査green | 色依存・focus/name欠落を検出 | axe+Playwright |
+| WP-AT-REC-01 | WP-NFR-REC-01 | restore rehearsalがRTO内でdigest一致 | 未検証backupで変更を拒否 | restore receipt |
 
 各requirementに対応する`A`は正常系、`B`は拒否・境界系のacceptance IDとする。実装PLANはRed evidence、
 expected failure、Green evidenceをこのTest IDへ束縛する。

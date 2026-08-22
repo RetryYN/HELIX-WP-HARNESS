@@ -45,6 +45,9 @@ exactKeys(ir, ["schema_version", "initiative_id", "authority", "source_authority
 if (ir.authority === "canonical" && ir.compile_result !== "completed") fail("canonical IR without completed compile");
 if (ir.freeze.g3 === "frozen" && (!projection.agreement || projection.compile_status !== "completed")) fail("G3 freeze without agreement");
 const requirementIds = unique(ir.requirements.map((requirement) => requirement.id), "requirement id");
+for (const id of ["WP-NFR-SEC-01", "WP-NFR-PRIV-01", "WP-NFR-PERM-01", "WP-NFR-COST-01", "WP-NFR-LEGAL-01", "WP-NFR-OBS-01", "WP-NFR-A11Y-01", "WP-NFR-REC-01"]) {
+  if (!requirementIds.has(id)) fail(`implicit matrix requirement missing: ${id}`);
+}
 const testIds = new Set();
 const acceptanceIds = [];
 for (const requirement of ir.requirements) {
