@@ -44,9 +44,19 @@ events.forEach((event, index) => {
 if (events.length !== projection.event_count || events.at(-1)?.event_id !== projection.event_head) fail("projection event head/count mismatch");
 const generatedPrototypeIds = new Set(events.filter((event) => event.event_type === "prototype_generated").map((event) => event.payload?.prototype_id));
 const recordedReactionIds = new Set(events.filter((event) => event.event_type === "prototype_reaction_recorded").map((event) => event.payload?.reaction_id));
+const currentPrototypeId = events.filter((event) => event.event_type === "prototype_generated").at(-1)?.payload?.prototype_id;
+const poAgreementEvents = events.filter((event) =>
+  event.event_type === "prototype_reaction_recorded" &&
+  event.actor?.kind === "po" &&
+  event.payload?.agreement === true &&
+  event.payload?.prototype_id === currentPrototypeId
+);
 for (const id of projection.prototype_revision_ids) if (!generatedPrototypeIds.has(id)) fail(`prototype revision lacks generation event ${id}`);
 for (const id of projection.reaction_ids) if (!recordedReactionIds.has(id)) fail(`reaction lacks event ${id}`);
 for (const id of recordedReactionIds) if (!projection.reaction_ids.includes(id)) fail(`reaction event missing from projection ${id}`);
+const agreementClaimed = Boolean(projection.agreement) || projection.convergence?.human_prototype_agreement === true;
+if (agreementClaimed && poAgreementEvents.length === 0) fail(`human prototype agreement lacks PO agreement event for ${currentPrototypeId}`);
+if (!agreementClaimed && poAgreementEvents.length > 0) fail(`PO agreement event for ${currentPrototypeId} is missing from projection agreement state`);
 for (const candidate of projection.candidates) {
   for (const source of candidate.source_event_ids) if (!eventIds.has(source)) fail(`unknown event ${source}`);
   if (candidate.state === "frozen") fail(`L2 candidate cannot be frozen: ${candidate.candidate_id}`);
