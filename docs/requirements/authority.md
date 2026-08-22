@@ -29,7 +29,9 @@ L3要件定義へ進まない。既存`docs/requirements/l3/`は漏れ検査に�
 ## トレーサビリティ
 
 `L1 BR/FR/NFR/TR/SCR → L2 candidate/surface → L3 WP-* → WP-AC-* → WP-AT-*`
-をstable IDで接続する。孤児、重複ID、存在しない参照、受入条件のない要求はL3進行を拒否する。
+をstable IDで接続する。L3未開始中の未降下L1 IDは`docs/requirements/l3/coverage-gaps.json`へ
+理由と再入場actionを伴ってexact inventory化する。未記録gap、解消済みgapの残存、二重管理不一致、
+重複ID、存在しない参照、受入条件のない要求を拒否し、L3 compile完了・G3 freeze時はgap 0を必須とする。
 
 ## PoCの扱い
 

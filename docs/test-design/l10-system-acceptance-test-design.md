@@ -26,6 +26,7 @@
 | WP-AT-OBS-01 | WP-NFR-OBS-01 | correlation IDで一気通貫再構築 | orphan/時刻・digest欠落を拒否 | trace query |
 | WP-AT-A11Y-01 | WP-NFR-A11Y-01 | keyboard flowとAA検査green | 色依存・focus/name欠落を検出 | axe+Playwright |
 | WP-AT-REC-01 | WP-NFR-REC-01 | restore rehearsalがRTO内でdigest一致 | 未検証backupで変更を拒否 | restore receipt |
+| WP-AT-CRED-01 | WP-NFR-CRED-01 | 全保存・証跡・応答surfaceでfixture秘密値0 | redact不能なcredential含有入力を永続化前に拒否 | secret canary scan |
 
 各requirementに対応する`A`は正常系、`B`は拒否・境界系のacceptance IDとする。実装PLANはRed evidence、
 expected failure、Green evidenceをこのTest IDへ束縛する。

@@ -42,6 +42,8 @@
     {"id":"WP-AC-A11Y-01A","requirement_id":"WP-NFR-A11Y-01","polarity":"positive","oracle":"主要flowをkeyboardだけで完了しfocus/name/contrast検査がgreen"},
     {"id":"WP-AC-A11Y-01B","requirement_id":"WP-NFR-A11Y-01","polarity":"negative","oracle":"色だけの状態、focus喪失、accessible name欠落をgateが検出する"},
     {"id":"WP-AC-REC-01A","requirement_id":"WP-NFR-REC-01","polarity":"positive","oracle":"backupから隔離環境へrestoreしRTO内・digest一致を記録する"},
-    {"id":"WP-AC-REC-01B","requirement_id":"WP-NFR-REC-01","polarity":"negative","oracle":"restore未検証、期限切れ、対象不一致backupでは本番変更を許可しない"}
+    {"id":"WP-AC-REC-01B","requirement_id":"WP-NFR-REC-01","polarity":"negative","oracle":"restore未検証、期限切れ、対象不一致backupでは本番変更を許可しない"},
+    {"id":"WP-AC-CRED-01A","requirement_id":"WP-NFR-CRED-01","polarity":"positive","oracle":"fixture credentialを含む全保存・証跡・応答surfaceで秘密値と復元可能な派生値が0件"},
+    {"id":"WP-AC-CRED-01B","requirement_id":"WP-NFR-CRED-01","polarity":"negative","oracle":"credentialを含む入力・外部応答・例外を受けても永続化前にredactし、redact不能なら処理を拒否する"}
   ]
 }
