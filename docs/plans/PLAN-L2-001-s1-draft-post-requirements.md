@@ -1,10 +1,11 @@
 ---
 plan_id: PLAN-L2-001-s1-draft-post-requirements
 title: "S1 最小運用タスク（WordPress下書き投稿）の要求化"
-kind: add-design
+kind: design
 layer: L2
+sub_doc: wireframe
 drive: agent
-status: in_progress
+status: draft
 completion_claim_allowed: false
 created: 2026-08-22
 updated: 2026-08-23
@@ -20,9 +21,9 @@ generates:
   - artifact_path: docs/requirements/s1-draft-post-requirements.md
     artifact_type: design_doc
   - artifact_path: docs/requirements/discovery/candidate-projection.json
-    artifact_type: requirement_candidate_projection
+    artifact_type: json_config
   - artifact_path: docs/requirements/l3/requirements-ir.json
-    artifact_type: requirement_ir_compile_preview
+    artifact_type: json_config
 pair_artifact: docs/test-design/l11-user-acceptance-test-design.md
 related_l0: docs/planning/l1-plan-autonomous-wp-harness.md
 related_br: docs/planning/l1-plan-autonomous-wp-harness.md
