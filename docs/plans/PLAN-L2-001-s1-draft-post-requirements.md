@@ -9,6 +9,8 @@ completion_claim_allowed: false
 created: 2026-08-22
 updated: 2026-08-23
 owner: Codex / PO
+behavior_contract_id: WP-REQUIREMENT-AUTHORITY-001
+responsibility_owner: wp-requirement-authority
 agent_slots:
   - role: se
     slot_label: "Codex — PoC証跡から要求・受入条件を起草する"

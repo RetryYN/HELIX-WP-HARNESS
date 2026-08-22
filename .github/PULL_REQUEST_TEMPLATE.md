@@ -1,7 +1,7 @@
 ## 概要
 
 ## 関連 PLAN / Issue
-Closes #
+Issue: none
 
 ## Issue closure（Issueを閉じるPRのみ）
 - Outcome: resolved <!-- resolved / rejected / quarantined / superseded / cancelled -->
