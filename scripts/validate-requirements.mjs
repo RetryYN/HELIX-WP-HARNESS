@@ -98,7 +98,6 @@ const l1SourceFiles = [
   "docs/requirements/l1/screen.md",
   "docs/requirements/l1/technical.md",
 ];
-const l1IdPattern = /\bWP-(?:BR|FRL1|NFRL1|TRL1|SCR)-\d{2}\b/g;
 const l1Ids = unique(
   l1SourceFiles.flatMap((path) => [...readFileSync(resolve(root, path), "utf8").matchAll(/^\|\s*(WP-(?:BR|FRL1|NFRL1|TRL1|SCR)-\d{2})\s*\|/gm)].map((match) => match[1])),
   "L1 id",
@@ -128,6 +127,9 @@ for (const requirement of ir.requirements) {
   const conditionalKeys = requirement.surface_ids?.length ? [] : ["non_ui_na"];
   const decisionKeys = requirement.pending_resolution ? ["pending_resolution"] : [];
   exactKeys(requirement, [...commonKeys, ...conditionalKeys, ...decisionKeys], `requirement ${requirement.id}`);
+  if (requirement.pending_resolution && !["candidate_inventory", "human_decision_required"].includes(requirement.status)) {
+    fail(`${requirement.id} has pending decisions in incompatible status ${requirement.status}`);
+  }
   if (!requirement.source_ids?.length || !requirement.acceptance_ids?.length || !requirement.test_ids?.length) fail(`incomplete trace fields ${requirement.id}`);
   acceptanceIds.push(...requirement.acceptance_ids); requirement.test_ids.forEach((id) => testIds.add(id));
   if (!requirement.surface_ids?.length && !requirement.non_ui_na) fail(`${requirement.id} has neither surface nor N/A receipt`);
