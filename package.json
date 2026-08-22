@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "helix": "tsx node_modules/helix/src/cli.ts",
+    "requirements:validate": "node scripts/validate-requirements.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "node --version"
+    "test": "npm run requirements:validate && node --version"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",

@@ -7,7 +7,7 @@ drive: agent
 status: in_progress
 completion_claim_allowed: false
 created: 2026-08-22
-updated: 2026-08-22
+updated: 2026-08-23
 owner: Codex / PO
 agent_slots:
   - role: se
@@ -17,7 +17,11 @@ agent_slots:
 generates:
   - artifact_path: docs/requirements/s1-draft-post-requirements.md
     artifact_type: design_doc
-pair_artifact: docs/requirements/s1-draft-post-requirements.md
+  - artifact_path: docs/requirements/discovery/candidate-projection.json
+    artifact_type: requirement_candidate_projection
+  - artifact_path: docs/requirements/l3/requirements-ir.json
+    artifact_type: requirement_ir_compile_preview
+pair_artifact: docs/test-design/l11-user-acceptance-test-design.md
 related_l0: docs/planning/l1-plan-autonomous-wp-harness.md
 related_br: docs/planning/l1-plan-autonomous-wp-harness.md
 next_pair_freeze: L3
@@ -26,14 +30,19 @@ dependencies:
   parent: docs/planning/l1-plan-autonomous-wp-harness.md
   requires: []
 review_evidence: []
-consumer_setup_boundary_record:
-  - allowed_outcome: start_project_plan
-  - project_setup_state: .helix/state/project-setup.json
-  - objective_boundary_scope: consumer_setup_readiness_not_whole_program_completion
-  - completion_claim_allowed: false
-  - first_run_completion_packet: "npm run helix -- completion decision-packet --json（2026-08-22実行、completionClaimAllowed=false）"
-  - first_project_plan_or_handover_route: PLAN-L2-001-s1-draft-post-requirements
-  - acceptance_evidence_plan: "本PLANのgenerated artifact、provider handover、cross-agent review evidenceを順次記録する"
+inventory_evidence:
+  - target: poc-wp local read-only checkout
+    inspected_at: 2026-08-23
+    scope: PoC-1〜4、renderer/reverse、PO入力資料の存在とdigest
+    disposition: adopt_with_limits
+    evidence: docs/poc/wp-poc-inventory.json
+    rejection_reason: raw運用data、secret混入可能log、PoC実装codeはWP要求正本へ複製しない
+  - target: https://github.com/RetryYN/HELIX-HARNESS
+    inspected_at: 2026-08-23
+    scope: Requirement Discovery、L1-L12、trace、review evidence契約
+    disposition: read_only_reference
+    evidence: docs/requirements/authority.md
+    rejection_reason: HELIX本体は変更せず、consumer固有要求だけを本リポジトリで管理する
 ---
 
 # S1 最小運用タスク（WordPress下書き投稿）の要求化
@@ -42,7 +51,7 @@ consumer_setup_boundary_record:
 
 confirmed済みL1企画を入力として、S1の最小運用タスク1本を検証可能なL2要求へ落とす。
 対象は「POが指定した内容でWordPress記事を1本、公開せず下書きとして作成し、機械証跡を残す」。
-本PLANは要求化とClaude/Codex連携証跡だけを扱い、本番WordPressへのwriteや実装は行わない。
+本PLANは要求authority再編、PoC束縛、Claude/Codex連携証跡だけを扱い、本番WordPressへのwriteや実装は行わない。
 
 ## §3 工程表
 
@@ -68,7 +77,7 @@ confirmed済みL1企画を入力として、S1の最小運用タスク1本を検
 
 ## §4 DoD（Definition of Done）
 
-- [ ] L1およびPoC証跡への参照が要求文書に記録されている。
-- [ ] 下書き限定、公開禁止、credential非記録、冪等性、失敗時fail-closeが受入条件に含まれる。
+- [x] L1およびPoC証跡への参照がdigest付きinventoryとして記録されている。
+- [x] credential非記録、冪等性、失敗時fail-closeがL3要求・受入oracleに含まれる。
 - [ ] Codex起草とClaude独立レビューのprovider evidenceが保存されている。
-- [ ] PO未決事項を推測で確定せず、後続判断として列挙している。
+- [x] PO未決事項を推測で確定せず、discovery eventとcandidate projectionへ列挙している。

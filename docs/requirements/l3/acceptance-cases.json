@@ -1,0 +1,33 @@
+{
+  "schema_version": "wp-acceptance-cases.v1",
+  "cases": [
+    {"id":"WP-AC-KW-01A","requirement_id":"WP-FR-KW-01","polarity":"positive","oracle":"既知Excelの戦略field、原文、provenanceが保持される"},
+    {"id":"WP-AC-KW-01B","requirement_id":"WP-FR-KW-01","polarity":"negative","oracle":"header不明・破損fileは解析正本を変更せず拒否される"},
+    {"id":"WP-AC-KW-02A","requirement_id":"WP-FR-KW-02","polarity":"positive","oracle":"同一snapshotと規則versionから同一分類・理由を得る"},
+    {"id":"WP-AC-KW-02B","requirement_id":"WP-FR-KW-02","polarity":"boundary","oracle":"記事型pageが3未満なら判定不能として自動生成を止める"},
+    {"id":"WP-AC-KW-03A","requirement_id":"WP-FR-KW-03","polarity":"positive","oracle":"全KWがexactly one分類へ帰属し母集団差分が0になる"},
+    {"id":"WP-AC-KW-03B","requirement_id":"WP-FR-KW-03","polarity":"negative","oracle":"重複帰属または孤児が1件でもあればgateが失敗する"},
+    {"id":"WP-AC-DOC-01A","requirement_id":"WP-FR-DOC-01","polarity":"positive","oracle":"doc_typeに対応するendpointとadapterだけが選択される"},
+    {"id":"WP-AC-DOC-01B","requirement_id":"WP-FR-DOC-01","polarity":"negative","oracle":"未知doc_typeは外部write前に拒否される"},
+    {"id":"WP-AC-DOC-02A","requirement_id":"WP-FR-DOC-02","polarity":"positive","oracle":"既知fixtureの逆変換・再render後にsemantic digestが一致する"},
+    {"id":"WP-AC-DOC-02B","requirement_id":"WP-FR-DOC-02","polarity":"boundary","oracle":"未知blockは破棄・推測変換されずrawとして保全される"},
+    {"id":"WP-AC-TR-01A","requirement_id":"WP-TR-DOC-01","polarity":"positive","oracle":"schema valid JSONから生成したtheme blockのeditor warningが0件"},
+    {"id":"WP-AC-TR-01B","requirement_id":"WP-TR-DOC-01","polarity":"negative","oracle":"未知field/typeまたはinvalid markupは投稿前に拒否される"},
+    {"id":"WP-AC-POST-01A","requirement_id":"WP-FR-POST-01","polarity":"positive","oracle":"1要求から1投稿だけ作成しID、status、経路、時刻を記録する"},
+    {"id":"WP-AC-POST-01B","requirement_id":"WP-FR-POST-01","polarity":"boundary","oracle":"timeout後に既存結果を照会し重複投稿を作成しない"},
+    {"id":"WP-AC-POST-02A","requirement_id":"WP-FR-POST-02","polarity":"positive","oracle":"current action digestへ束縛した有効なPO承認時だけwriteする"},
+    {"id":"WP-AC-POST-02B","requirement_id":"WP-FR-POST-02","polarity":"negative","oracle":"未承認、期限切れ、対象/digest不一致のwriteを拒否する"},
+    {"id":"WP-AC-UI-01A","requirement_id":"WP-FR-UI-01","polarity":"positive","oracle":"要承認、異常、成果、次回予定が証跡由来で表示される"},
+    {"id":"WP-AC-UI-01B","requirement_id":"WP-FR-UI-01","polarity":"boundary","oracle":"空DBではdummy値を表示せず正常性と次回予定の有無を明示する"},
+    {"id":"WP-AC-AUDIT-01A","requirement_id":"WP-FR-AUDIT-01","polarity":"positive","oracle":"任意のKWから判定、承認、外部結果へ全edgeを辿れる"},
+    {"id":"WP-AC-AUDIT-01B","requirement_id":"WP-FR-AUDIT-01","polarity":"negative","oracle":"存在しないevidence参照または手書き状態をtrace gateが拒否する"},
+    {"id":"WP-AC-SEC-01A","requirement_id":"WP-NFR-SEC-01","polarity":"positive","oracle":"認証済みactorがleast privilege範囲だけを操作できる"},
+    {"id":"WP-AC-SEC-01B","requirement_id":"WP-NFR-SEC-01","polarity":"negative","oracle":"未認証、CSRF、private IP fetch、secret出力、外部instructionを拒否する"},
+    {"id":"WP-AC-REL-01A","requirement_id":"WP-NFR-REL-01","polarity":"positive","oracle":"failure recoveryが同一operation chainへ収束する"},
+    {"id":"WP-AC-REL-01B","requirement_id":"WP-NFR-REL-01","polarity":"negative","oracle":"不明応答を成功扱いせず無条件再送しない"},
+    {"id":"WP-AC-PERF-01A","requirement_id":"WP-NFR-PERF-01","polarity":"positive","oracle":"指定datasetと環境でcold p95 1秒、操作p95 300ms以内"},
+    {"id":"WP-AC-PERF-01B","requirement_id":"WP-NFR-PERF-01","polarity":"boundary","oracle":"workload、環境、sampling不足の測定を合格根拠にしない"},
+    {"id":"WP-AC-COST-01A","requirement_id":"WP-NFR-COST-01","polarity":"positive","oracle":"standard queue、cache、週次取得、月次費用を再現できる"},
+    {"id":"WP-AC-COST-01B","requirement_id":"WP-NFR-COST-01","polarity":"negative","oracle":"月5 USD上限を超える要求を外部送信前に停止する"}
+  ]
+}

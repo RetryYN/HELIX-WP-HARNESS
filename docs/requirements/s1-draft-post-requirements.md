@@ -1,5 +1,8 @@
 # S1 最小運用タスク要求 — WordPress記事の下書き作成
 
+> authority note (2026-08-23): 本書は`WP-CAND-POST`のdraft source。公開を含む上位sliceとの
+> scope差は`WP-Q-POST-01`として未解決であり、PO回答まで確定要求・実装入力にしない。
+
 ## 状態
 
 - status: draft

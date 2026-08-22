@@ -1,0 +1,30 @@
+{
+  "schema_version": "wp-requirement-ir.v1",
+  "initiative_id": "WP-AUTONOMOUS-OPS",
+  "authority": "draft_compile_preview",
+  "source_authority": {
+    "l1": "docs/requirements/l1/",
+    "l2_events": "docs/requirements/discovery/events.jsonl",
+    "l2_projection": "docs/requirements/discovery/candidate-projection.json",
+    "poc_inventory": "docs/poc/wp-poc-inventory.json"
+  },
+  "compile_result": "backflow_required",
+  "freeze": {"g1": "pending_po", "g2": "pending_prototype_agreement", "g3": "not_eligible"},
+  "actors": ["PO", "WP_AGENT", "ANALYZER", "EXTERNAL_SERVICE"],
+  "requirements": [
+    {"id":"WP-FR-KW-01","kind":"functional","status":"specified_draft","source_ids":["WP-FRL1-01","WP-CAND-KW"],"statement":"サイト設計Excelをheader契約で取り込み、戦略層を改変せず原文とprovenanceを保持する","priority":"P0","actor_ids":["PO","ANALYZER"],"surface_ids":["WP-UI-02"],"acceptance_ids":["WP-AC-KW-01A","WP-AC-KW-01B"],"test_ids":["WP-AT-KW-01"]},
+    {"id":"WP-FR-KW-02","kind":"functional","status":"specified_draft","source_ids":["WP-FRL1-02","WP-CAND-KW","WP-POC-03"],"statement":"SERP、PAA、共通見出しから足切り・統合・戦場選定を決定論実行し、入力digestと理由を記録する","priority":"P0","actor_ids":["ANALYZER"],"surface_ids":["WP-UI-03"],"acceptance_ids":["WP-AC-KW-02A","WP-AC-KW-02B"],"test_ids":["WP-AT-KW-02"]},
+    {"id":"WP-FR-KW-03","kind":"functional","status":"specified_draft","source_ids":["WP-FRL1-02","WP-CAND-KW"],"statement":"全KWを記事割当、未割当、足切り、取込失敗のexactly oneへ分類し母集団差分を0にする","priority":"P0","actor_ids":["ANALYZER"],"surface_ids":["WP-UI-02"],"acceptance_ids":["WP-AC-KW-03A","WP-AC-KW-03B"],"test_ids":["WP-AT-KW-03"]},
+    {"id":"WP-FR-DOC-01","kind":"functional","status":"specified_draft","source_ids":["WP-FRL1-04","WP-CAND-DOC","WP-POC-04"],"statement":"post、page、LPをdoc_type付き中間JSONで表現し、投稿先を明示adapterで選択する","priority":"P0","actor_ids":["WP_AGENT"],"surface_ids":[],"non_ui_na":{"reason":"machine document contract","reevaluation":"editor UIを追加する場合"},"acceptance_ids":["WP-AC-DOC-01A","WP-AC-DOC-01B"],"test_ids":["WP-AT-DOC-01"]},
+    {"id":"WP-FR-DOC-02","kind":"functional","status":"specified_draft","source_ids":["WP-FRL1-04","WP-CAND-DOC","WP-POC-02","WP-POC-06"],"statement":"既存markupを中間JSONへ逆変換し、未知blockをraw保全して情報損失を防ぐ","priority":"P0","actor_ids":["WP_AGENT"],"surface_ids":[],"non_ui_na":{"reason":"machine conversion contract","reevaluation":"manual conversion UIを追加する場合"},"acceptance_ids":["WP-AC-DOC-02A","WP-AC-DOC-02B"],"test_ids":["WP-AT-DOC-02"]},
+    {"id":"WP-TR-DOC-01","kind":"technical","status":"specified_draft","source_ids":["WP-TRL1-02","WP-POC-05"],"statement":"中間JSONはschema_version、strict validation、未知type fail-closeを持ち、theme adapterは収穫markupに準拠する","priority":"P0","actor_ids":["WP_AGENT"],"surface_ids":[],"non_ui_na":{"reason":"schema and adapter contract","reevaluation":"schema editorを追加する場合"},"acceptance_ids":["WP-AC-TR-01A","WP-AC-TR-01B"],"test_ids":["WP-AT-TR-01"]},
+    {"id":"WP-FR-POST-01","kind":"functional","status":"human_decision_required","source_ids":["WP-FRL1-03","WP-CAND-POST","WP-POC-01"],"statement":"POが指定した対象と内容でWordPress投稿をexactly once作成し、post ID、status、経路、時刻を記録する","priority":"P0","actor_ids":["PO","WP_AGENT"],"surface_ids":["WP-UI-01"],"acceptance_ids":["WP-AC-POST-01A","WP-AC-POST-01B"],"test_ids":["WP-AT-POST-01"],"pending_resolution":["WP-Q-POST-01","WP-Q-POST-02"]},
+    {"id":"WP-FR-POST-02","kind":"functional","status":"specified_draft","source_ids":["WP-FRL1-03","WP-CAND-POST"],"statement":"公開、更新、削除など外部writeはrisk classと同一actionへのPO承認がない限り実行しない","priority":"P0","actor_ids":["PO","WP_AGENT"],"surface_ids":["WP-UI-01"],"acceptance_ids":["WP-AC-POST-02A","WP-AC-POST-02B"],"test_ids":["WP-AT-POST-02"]},
+    {"id":"WP-FR-UI-01","kind":"functional","status":"human_decision_required","source_ids":["WP-FRL1-05","WP-CAND-UI"],"statement":"ホームは要承認、異常、成果、次回予定を証跡由来で表示し、判断対象が0件でも正常性を示す","priority":"P0","actor_ids":["PO"],"surface_ids":["WP-UI-01"],"acceptance_ids":["WP-AC-UI-01A","WP-AC-UI-01B"],"test_ids":["WP-AT-UI-01"],"pending_resolution":["WP-Q-UI-01"]},
+    {"id":"WP-FR-AUDIT-01","kind":"functional","status":"specified_draft","source_ids":["WP-FRL1-02","WP-FRL1-05","WP-CAND-UI"],"statement":"任意のcluster、gate、投稿について入力、規則version、判定、PO override、外部結果を一気通貫追跡できる","priority":"P0","actor_ids":["PO"],"surface_ids":["WP-UI-02","WP-UI-03"],"acceptance_ids":["WP-AC-AUDIT-01A","WP-AC-AUDIT-01B"],"test_ids":["WP-AT-AUDIT-01"]},
+    {"id":"WP-NFR-SEC-01","kind":"non_functional","status":"specified_draft","source_ids":["WP-NFRL1-01","WP-NFRL1-06","WP-NFRL1-08"],"statement":"UIとagentは認証、least privilege、CSRF、rate limit、secret redaction、localhost限定管理port、prompt injection隔離を満たす","priority":"P0","actor_ids":["PO","WP_AGENT"],"surface_ids":["WP-UI-01","WP-UI-03"],"acceptance_ids":["WP-AC-SEC-01A","WP-AC-SEC-01B"],"test_ids":["WP-AT-SEC-01"]},
+    {"id":"WP-NFR-REL-01","kind":"non_functional","status":"specified_draft","source_ids":["WP-NFRL1-02","WP-NFRL1-05"],"statement":"timeout、不明応答、stale data、schema driftを明示状態にし、重複writeや黙った欠測を生じさせない","priority":"P0","actor_ids":["WP_AGENT","ANALYZER"],"surface_ids":["WP-UI-01"],"acceptance_ids":["WP-AC-REL-01A","WP-AC-REL-01B"],"test_ids":["WP-AT-REL-01"]},
+    {"id":"WP-NFR-PERF-01","kind":"non_functional","status":"specified_draft","source_ids":["WP-NFRL1-03"],"statement":"KW1000、記事100、版1000の基準datasetで一覧cold p95 1秒、操作p95 300msを測定する","priority":"P1","actor_ids":["PO"],"surface_ids":["WP-UI-01","WP-UI-02"],"acceptance_ids":["WP-AC-PERF-01A","WP-AC-PERF-01B"],"test_ids":["WP-AT-PERF-01"]},
+    {"id":"WP-NFR-COST-01","kind":"non_functional","status":"specified_draft","source_ids":["WP-NFRL1-07","WP-POC-03"],"statement":"DFSはstandard queue、100重点KW、週次、月5 USD上限、cache TTLの統制下で使用し超過前に停止する","priority":"P1","actor_ids":["ANALYZER"],"surface_ids":["WP-UI-07"],"acceptance_ids":["WP-AC-COST-01A","WP-AC-COST-01B"],"test_ids":["WP-AT-COST-01"]}
+  ]
+}

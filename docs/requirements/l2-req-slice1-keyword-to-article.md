@@ -1,8 +1,11 @@
 # L2 要求 — スライス1: キーワードから記事を書ける基盤
 
+> authority note (2026-08-23): 本書はL2情報源。candidate lifecycleの正本は
+> `docs/requirements/discovery/`、L3 compile previewは`docs/requirements/l3/requirements-ir.json`。
+
 - 位置づけ: HELIX V モデルの L2 要求。入力は L1 企画書
   （`docs/planning/l1-plan-autonomous-wp-harness.md`、confirmed 2026-08-21）。
-- 状態: **confirmed**（初回 PO 確認 2026-08-21 — 「おけこれでひとまず積んでおいて」。
+- 状態: **confirmed input / G2 freeze未実施**（初回 PO 確認 2026-08-21 — 「おけこれでひとまず積んでおいて」。
   以後の改訂は PO 対話に基づく追記で、最終改訂 2026-08-22）
 - 日付: 2026-08-21（初版）／2026-08-22（最終改訂）
 - 対象サイト: **solobiz-lab.com**（本番・引継ぎ第一号）
