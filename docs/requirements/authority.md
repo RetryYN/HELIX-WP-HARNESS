@@ -3,7 +3,7 @@
 - initiative_id: `WP-AUTONOMOUS-OPS`
 - canonical V-model: `L1-L12`
 - development style candidate: `V_DESIGN_SCRUM_IMPLEMENTATION`
-- lifecycle: `elicited`
+- lifecycle: `L2 prototyping`
 - freeze: **未実施**
 - authority owner: PO
 - updated: 2026-08-23
@@ -14,13 +14,17 @@
 | --- | --- | --- | --- |
 | L1 | `docs/requirements/l1/` の5 sub-doc | confirmed input | G1 content/pair/traceのPO承認 |
 | L2 | `docs/requirements/discovery/events.jsonl` と同イベントから生成する `candidate-projection.json` | non-canonical candidate | 未決事項の解消、画面prototype reaction、PO agreement |
-| L3 | `docs/requirements/l3/requirements-ir.json` | draft compile preview | L2 agreement後の再compile、L10 oracleとのpair、G3 PO/TL承認 |
+| L3 | 未開始。`docs/requirements/l3/`は早期gap inventoryとして撤回済み | not_started | 画面prototype reactionとL2 agreement後に新規compile |
 
 既存の `l1-plan-autonomous-wp-harness.md`、`l2-req-slice1-keyword-to-article.md`、
 `l2-req-r6-dashboard.md` は情報源として維持するが、単独のfreeze根拠にはしない。
 既存文書中の `confirmed` は「当時の対話内容を保存済み」の意味であり、G1/G2/G3 freezeを意味しない。
 
 AIはPOの回答、prototype合意、freezeを推測しない。未決事項は`human_decision_required`のまま保持する。
+
+2026-08-23のPO判断により、画面を伴う本案件は確認可能なprototypeを先に提示し、画面構成を確定するまで
+L3要件定義へ進まない。既存`docs/requirements/l3/`は漏れ検査に使った非正本inventoryであり、
+`compile requested/completed`、`specified`、G3到達の証拠に使用しない。
 
 ## トレーサビリティ
 

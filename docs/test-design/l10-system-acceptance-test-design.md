@@ -1,6 +1,7 @@
 # L10 System Acceptance Test Design
 
-本書はL3 requirement IRの右腕である。現時点はdraftであり、L3 freezeを主張しない。
+本書はL2 candidateから抽出したoracle inventoryである。画面合意後にL3 requirementを新規compileする際の
+右腕候補であり、現時点ではL10成果物、pair freeze、G3到達を主張しない。
 
 | Test ID | Requirement | positive oracle | negative/boundary oracle | evidence |
 | --- | --- | --- | --- | --- |
@@ -12,6 +13,7 @@
 | WP-AT-TR-01 | WP-TR-DOC-01 | 収穫markupがeditor warning 0 | 手書きinvalid blockをgateが拒否 | Playwright |
 | WP-AT-POST-01 | WP-FR-POST-01 | 1要求から1投稿、証跡field完備 | timeout再確認後も重複0 | WP REST+receipt |
 | WP-AT-POST-02 | WP-FR-POST-02 | 同一action承認時だけwrite | 未承認・期限切れ・digest違いを拒否 | approval audit |
+| WP-AT-POST-03 | WP-FR-POST-03 | 全prepublish gate後に同一post IDを公開し再取得一致 | gate red/欠落・競合・rollback未準備で公開0 | WP REST+gate packet |
 | WP-AT-UI-01 | WP-FR-UI-01 | 実証跡で全状態を表示 | 空DBにdummy値0 | Playwright+screenshots |
 | WP-AT-AUDIT-01 | WP-FR-AUDIT-01 | KWから外部結果まで全edge到達 | 存在しないevidence参照0 | trace graph |
 | WP-AT-SEC-01 | WP-NFR-SEC-01 | 認証後least privilegeで利用可能 | 未認証、CSRF、private IP、secret出力を拒否 | security profile |

@@ -17,6 +17,8 @@
     {"id":"WP-AC-POST-01B","requirement_id":"WP-FR-POST-01","polarity":"boundary","oracle":"timeout後に既存結果を照会し重複投稿を作成しない"},
     {"id":"WP-AC-POST-02A","requirement_id":"WP-FR-POST-02","polarity":"positive","oracle":"current action digestへ束縛した有効なPO承認時だけwriteする"},
     {"id":"WP-AC-POST-02B","requirement_id":"WP-FR-POST-02","polarity":"negative","oracle":"未承認、期限切れ、対象/digest不一致のwriteを拒否する"},
+    {"id":"WP-AC-POST-03A","requirement_id":"WP-FR-POST-03","polarity":"positive","oracle":"全公開前条件green後に同一post IDがpublishとなりURLと取得結果を検証する"},
+    {"id":"WP-AC-POST-03B","requirement_id":"WP-FR-POST-03","polarity":"negative","oracle":"gate欠落・red、modified/digest競合、rollback未準備のいずれかで公開を拒否する"},
     {"id":"WP-AC-UI-01A","requirement_id":"WP-FR-UI-01","polarity":"positive","oracle":"要承認、異常、成果、次回予定が証跡由来で表示される"},
     {"id":"WP-AC-UI-01B","requirement_id":"WP-FR-UI-01","polarity":"boundary","oracle":"空DBではdummy値を表示せず正常性と次回予定の有無を明示する"},
     {"id":"WP-AC-AUDIT-01A","requirement_id":"WP-FR-AUDIT-01","polarity":"positive","oracle":"任意のKWから判定、承認、外部結果へ全edgeを辿れる"},

@@ -21,12 +21,16 @@ const requiredFiles = [
   "docs/requirements/l1/screen.md", "docs/requirements/l1/technical.md", "docs/requirements/l1/nfr.md",
   "docs/requirements/l2/screen-list.md", "docs/requirements/l2/screen-flow.md", "docs/requirements/l2/ui-element.md",
   "docs/requirements/l2/wireframe.md", "docs/test-design/l10-system-acceptance-test-design.md",
-  "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md"
+  "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md",
+  "docs/prototypes/wp-ops-dashboard/index.html", "docs/prototypes/wp-ops-dashboard/styles.css",
+  "docs/prototypes/wp-ops-dashboard/app.js", "docs/prototypes/wp-ops-dashboard/prototype-home.png",
+  "docs/prototypes/wp-ops-dashboard/prototype-mobile.png"
 ];
 for (const path of requiredFiles) if (!existsSync(resolve(root, path))) fail(`missing artifact ${path}`);
 const projection = readJson("docs/requirements/discovery/candidate-projection.json");
 if (projection.canonical !== false) fail("L2 projection must remain non-canonical");
 if (projection.compile_status === "completed" && !projection.agreement) fail("compile completed without human agreement");
+if (!projection.prototype_revision_ids.includes("WP-PROT-UI-02-r1")) fail("current HTML prototype missing from projection");
 const events = readFileSync(resolve(root, "docs/requirements/discovery/events.jsonl"), "utf8").trim().split("\n").map((line, index) => {
   try { return JSON.parse(line); } catch { fail(`invalid JSON event line ${index + 1}`); }
 });
@@ -44,6 +48,7 @@ const ir = readJson("docs/requirements/l3/requirements-ir.json");
 exactKeys(ir, ["schema_version", "initiative_id", "authority", "source_authority", "compile_result", "freeze", "actors", "requirements"], "IR");
 if (ir.authority === "canonical" && ir.compile_result !== "completed") fail("canonical IR without completed compile");
 if (ir.freeze.g3 === "frozen" && (!projection.agreement || projection.compile_status !== "completed")) fail("G3 freeze without agreement");
+if (ir.compile_result === "not_requested" && ir.requirements.some((requirement) => ["specified", "frozen"].includes(requirement.status))) fail("specified requirement before L3 compile request");
 const requirementIds = unique(ir.requirements.map((requirement) => requirement.id), "requirement id");
 for (const id of ["WP-NFR-SEC-01", "WP-NFR-PRIV-01", "WP-NFR-PERM-01", "WP-NFR-COST-01", "WP-NFR-LEGAL-01", "WP-NFR-OBS-01", "WP-NFR-A11Y-01", "WP-NFR-REC-01"]) {
   if (!requirementIds.has(id)) fail(`implicit matrix requirement missing: ${id}`);
@@ -53,7 +58,7 @@ const acceptanceIds = [];
 for (const requirement of ir.requirements) {
   const commonKeys = ["id", "kind", "status", "source_ids", "statement", "priority", "actor_ids", "surface_ids", "acceptance_ids", "test_ids"];
   const conditionalKeys = requirement.surface_ids?.length ? [] : ["non_ui_na"];
-  const decisionKeys = requirement.status === "human_decision_required" ? ["pending_resolution"] : [];
+  const decisionKeys = requirement.pending_resolution ? ["pending_resolution"] : [];
   exactKeys(requirement, [...commonKeys, ...conditionalKeys, ...decisionKeys], `requirement ${requirement.id}`);
   if (!requirement.source_ids?.length || !requirement.acceptance_ids?.length || !requirement.test_ids?.length) fail(`incomplete trace fields ${requirement.id}`);
   acceptanceIds.push(...requirement.acceptance_ids); requirement.test_ids.forEach((id) => testIds.add(id));

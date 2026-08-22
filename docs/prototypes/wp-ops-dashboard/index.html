@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WP Operations — L2 Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">H</span><div><strong>WP Operations</strong><small>solobiz-lab.com</small></div></div>
+    <nav aria-label="主要画面">
+      <button class="nav-item active" data-view="home"><span>⌂</span>ホーム <b>1</b></button>
+      <button class="nav-item" data-view="articles"><span>▤</span>記事・KW</button>
+      <button class="nav-item" data-view="audit"><span>⌁</span>処理の監査</button>
+      <button class="nav-item" data-view="outcomes"><span>↗</span>成果</button>
+      <button class="nav-item" data-view="placeholder"><span>◌</span>AIO / LLMO</button>
+      <button class="nav-item" data-view="placeholder"><span>⌘</span>内部リンク・売り場</button>
+      <button class="nav-item" data-view="placeholder"><span>↻</span>リライト</button>
+      <button class="nav-item" data-view="placeholder"><span>□</span>カレンダー</button>
+    </nav>
+    <div class="runtime"><i></i><div><strong>運転正常</strong><small>次回取得 月曜 03:00</small></div></div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div><p class="eyebrow">L2 PROTOTYPE · FIXTURE DATA</p><h1 id="page-title">判断ホーム</h1></div>
+      <div class="top-actions"><span class="fresh">GSC · 2日前</span><button class="avatar" aria-label="POメニュー">PO</button></div>
+    </header>
+
+    <section id="home" class="view active">
+      <div class="hero-grid">
+        <article class="decision-card">
+          <div class="card-head"><div><span class="pill amber">公開承認 · 期限 4時間</span><h2>「ひとり起業の始め方」を公開しますか？</h2></div><span class="risk low">LOW RISK</span></div>
+          <p class="why">KWクラスタの全gateを通過し、WordPressの下書きと生成内容が一致しています。</p>
+          <div class="identity-row"><span>POST ID <strong>#1842</strong></span><span>STATUS <strong>draft</strong></span><span>UPDATED <strong>10:42</strong></span></div>
+          <div class="gate-summary"><div class="ring">7/7</div><div><strong>公開可能条件は全件green</strong><small>content digest <code>5ea1…93bd</code></small></div><button id="open-gates" class="link-button">条件を見る →</button></div>
+          <div class="decision-actions"><button class="secondary" id="return-button">差し戻す</button><button class="primary" id="approve-button">内容を確認して承認</button></div>
+        </article>
+        <aside class="status-panel">
+          <h3>今日の運転</h3>
+          <dl><div><dt>要承認</dt><dd class="accent">1</dd></div><div><dt>処理中</dt><dd>3</dd></div><div><dt>失敗</dt><dd>0</dd></div></dl>
+          <hr><p class="muted">次の自動処理</p><strong>GSC週次取得</strong><small>8月24日 03:00 · 読み取りのみ</small>
+        </aside>
+      </div>
+      <div class="section-title"><div><p class="eyebrow">ATTENTION</p><h2>確認しておくこと</h2></div></div>
+      <div class="alerts"><article><span class="icon warn">!</span><div><strong>A8成果データがstaleです</strong><p>最終取得から15日経過。次回cronで再取得します。</p></div><button>証跡</button></article><article><span class="icon ok">✓</span><div><strong>提携切れはありません</strong><p>126リンクを8月22日に照合済み。</p></div><button>詳細</button></article></div>
+      <div class="section-title"><div><p class="eyebrow">OUTCOMES</p><h2>今月の成果</h2></div><button class="link-button" data-jump="outcomes">成果を詳しく見る →</button></div>
+      <div class="metrics"><article><small>表示回数</small><strong>128,420</strong><em>+12.4%</em></article><article><small>AI露出KW</small><strong>18</strong><em>+3</em></article><article><small>確定CV</small><strong>42</strong><em>+8.1%</em></article><article><small>売上 ÷ コスト</small><strong>1.64×</strong><em class="neutral">目標 2.00×</em></article></div>
+    </section>
+
+    <section id="articles" class="view">
+      <div class="section-title"><div><p class="eyebrow">POPULATION 1,000 / ORPHAN 0</p><h2>記事を主役にKWを管理</h2></div><button class="secondary">足切りKWを見る</button></div>
+      <div class="table-wrap"><table><thead><tr><th>記事 / メインKW</th><th>KW</th><th>gate</th><th>WP状態</th><th>更新</th></tr></thead><tbody><tr><td><strong>ひとり起業の始め方</strong><small>ひとり起業</small></td><td>18</td><td><span class="pill green">7/7 green</span></td><td>draft · #1842</td><td>10:42</td></tr><tr><td><strong>個人事業の固定費を減らす</strong><small>個人事業 固定費</small></td><td>12</td><td><span class="pill gray">解析中</span></td><td>—</td><td>10:31</td></tr><tr><td><strong>小さな事業のSEO設計</strong><small>ひとり SEO</small></td><td>9</td><td><span class="pill red">1 red</span></td><td>draft · #1839</td><td>昨日</td></tr></tbody></table></div>
+    </section>
+
+    <section id="audit" class="view">
+      <div class="audit-layout"><article><p class="eyebrow">CLUSTER #C-204</p><h2>「ひとり起業」クラスタ</h2><p class="muted">18 KW → 1記事 · snapshot 2026-08-22 / JP / mobile</p><div class="overlap"><strong>SERP重複率</strong><span>72%</span></div><div class="bar"><i style="width:72%"></i></div><h3>判定根拠</h3><ul class="check-list"><li><i>✓</i>上位10件のうち記事型8件</li><li><i>✓</i>共通テーマ「準備」「費用」「手続き」</li><li><i>✓</i>PAA 4問を構成へ割当済み</li></ul></article><aside><span class="pill green">機械判定: 統合</span><h3>PO override</h3><p>判定が違う場合だけ、理由を残して上書きします。</p><button class="secondary wide">分割する</button><button class="secondary wide">KWを除外する</button><small>overrideは再解析後も維持されます</small></aside></div>
+    </section>
+
+    <section id="outcomes" class="view"><div class="section-title"><div><p class="eyebrow">AUGUST · MEASURED ONLY</p><h2>表示・AI露出・CV・収益を分離</h2></div></div><div class="goal-card"><div><small>L1成功基準</small><strong>1.64×</strong><span>/ 2.00× · 連続3か月</span></div><div class="goal-track"><i style="width:82%"></i></div><p>売上 ¥123,400 ÷ 運用コスト ¥75,200。推計値と帰属不能成果は含みません。</p></div></section>
+    <section id="placeholder" class="view"><div class="empty"><span>◇</span><h2>この画面は次のprototype revisionで確認します</h2><p>ホーム・記事・処理監査・成果の判断骨格を先に合意します。</p></div></section>
+  </main>
+
+  <dialog id="gate-dialog">
+    <form method="dialog"><div class="modal-head"><div><p class="eyebrow">PRE-PUBLISH CHECK</p><h2>公開可能条件</h2></div><button class="close" value="cancel" aria-label="閉じる">×</button></div><p>WordPress post <strong>#1842</strong> · digest <code>5ea1…93bd</code></p><ol class="gate-list"><li><i>✓</i><span><strong>WP再取得一致</strong><small>post ID / modified / content digest</small></span></li><li><i>✓</i><span><strong>文書schema・editor妥当性</strong><small>unknown type 0 · warning 0</small></span></li><li><i>✓</i><span><strong>記事品質gate</strong><small>KW / PAA / 見出し / writing rule</small></span></li><li><i>✓</i><span><strong>事実provenance</strong><small>検証可能な事実 12 / source 12</small></span></li><li><i>✓</i><span><strong>security preflight</strong><small>secret 0 · permission scoped</small></span></li><li><i>✓</i><span><strong>承認束縛</strong><small>このpost IDとdigestへ限定</small></span></li><li><i>✓</i><span><strong>rollback・公開後照合</strong><small>draftへ復帰可能 · GET検証予定</small></span></li></ol><div class="modal-actions"><button class="secondary" value="cancel">戻る</button><button class="primary" id="confirm-approve" value="cancel">この内容で承認する</button></div></form>
+  </dialog>
+  <div id="toast" role="status">prototype上で承認flowを確認しました。外部writeは行っていません。</div>
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,6 +1,6 @@
 ---
 plan_id: PLAN-L2-001-s1-draft-post-requirements
-title: "S1 最小運用タスク（WordPress下書き投稿）の要求化"
+title: "S1 最小運用タスク（WordPress安全公開）のL2要求・画面prototype"
 kind: add-design
 layer: L2
 drive: agent
@@ -22,7 +22,9 @@ generates:
   - artifact_path: docs/requirements/discovery/candidate-projection.json
     artifact_type: requirement_candidate_projection
   - artifact_path: docs/requirements/l3/requirements-ir.json
-    artifact_type: requirement_ir_compile_preview
+    artifact_type: withdrawn_precompile_gap_inventory
+  - artifact_path: docs/prototypes/wp-ops-dashboard/index.html
+    artifact_type: l2_screen_prototype
 pair_artifact: docs/test-design/l11-user-acceptance-test-design.md
 related_l0: docs/planning/l1-plan-autonomous-wp-harness.md
 related_br: docs/planning/l1-plan-autonomous-wp-harness.md
@@ -47,12 +49,12 @@ inventory_evidence:
     rejection_reason: HELIX本体は変更せず、consumer固有要求だけを本リポジトリで管理する
 ---
 
-# S1 最小運用タスク（WordPress下書き投稿）の要求化
+# S1 最小運用タスク（WordPress安全公開）のL2要求・画面prototype
 
 ## §0 位置づけ
 
-confirmed済みL1企画を入力として、S1の最小運用タスク1本を検証可能なL2要求へ落とす。
-対象は「POが指定した内容でWordPress記事を1本、公開せず下書きとして作成し、機械証跡を残す」。
+confirmed inputのL1企画を入力として、S1の最小運用タスク1本を検証可能なL2要求へ落とす。
+対象は「POが指定した記事をdraftから開始し、公開可能条件と承認を閉じて同一post IDを安全に公開する」。
 本PLANは要求authority再編、PoC束縛、Claude/Codex連携証跡だけを扱い、本番WordPressへのwriteや実装は行わない。
 
 ## §3 工程表
@@ -83,3 +85,7 @@ confirmed済みL1企画を入力として、S1の最小運用タスク1本を検
 - [x] credential非記録、冪等性、失敗時fail-closeがL3要求・受入oracleに含まれる。
 - [ ] Codex起草とClaude独立レビューのprovider evidenceが保存されている。
 - [x] PO未決事項を推測で確定せず、discovery eventとcandidate projectionへ列挙している。
+- [x] post IDを状態identityとし、WPから取得できる本文・全応答を重複保存しない。
+- [x] 判断flowを確認できるHTML prototypeとdesktop/mobile render evidenceが存在する。
+- [ ] HTML prototypeへのPO reactionとagreementがappend-only eventへ記録されている。
+- [x] prototype agreement前のL3 precompileは撤回され、要件定義未開始として表示される。
