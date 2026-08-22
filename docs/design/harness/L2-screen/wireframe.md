@@ -3,7 +3,7 @@ layer: L2
 sub_doc: wireframe
 status: candidate_projection
 source_authority: docs/requirements/l2/wireframe.md
-pair_artifact: docs/prototypes/wp-ops-dashboard/index.html
+pair_artifact: self
 ---
 
 # HELIX L2 wireframe compatibility projection
