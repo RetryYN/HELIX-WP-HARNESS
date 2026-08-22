@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WP Operations — L2 画面prototype (WP-PROT-UI-02-r2)
+   WP Operations — L2 画面prototype (WP-PROT-UI-02-r3)
    fixture表示のみ。production stylesheetではない。
    ========================================================================== */
 
@@ -298,10 +298,78 @@ button { font: inherit; color: inherit; }
 .badge-info    { background: var(--info-bg);    color: var(--info);    border-color: var(--info-line); }
 .badge-neutral { background: var(--neutral-bg); color: var(--neutral); border-color: var(--neutral-line); }
 
-/* --- 8. home block layout / runtime strip -------------------------------- */
-/* home viewはblock単位で組み、mobileでのみ並び順を差し替える */
-.home-view { display: grid; gap: 22px; }
+/* --- 8. home sub-tabs ---------------------------------------------------- */
+/* 判断ホーム内の区分。主要画面ナビ(.rail-nav)は暗色の縦レール、こちらは明色の
+   segmented controlにして、同じ「tab」でも階層が違うことを形で分ける。 */
+.subtabs-wrap { margin-bottom: 18px; }
+.subtabs-head { display: flex; gap: 4px 14px; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+.subtabs-note { font-size: 11.5px; color: var(--muted); }
 
+.subtabs {
+  display: flex; gap: 5px; padding: 5px;
+  max-width: 760px;              /* 画面幅いっぱいに広げるとnavと紛らわしいので抑える */
+  background: var(--surface-inset);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.subtab {
+  position: relative;
+  flex: 1 1 0; min-width: max-content;
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 14px 13px; min-height: 54px;
+  border: 1px solid transparent; border-radius: 10px;
+  background: transparent; color: var(--ink-2);
+  text-align: left; cursor: pointer;
+  scroll-snap-align: start;
+}
+.subtab:hover { background: rgba(255, 255, 255, .62); }
+.subtab[aria-selected="true"] {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  color: var(--ink);
+  box-shadow: var(--shadow-1);
+}
+/* 選択中は「面が浮く」だけでなくaccent barでも示し、色相のみに依存させない */
+.subtab[aria-selected="true"]::before {
+  content: ""; position: absolute;
+  left: 14px; right: 14px; bottom: 6px; height: 3px;
+  background: var(--accent); border-radius: 2px;
+}
+.subtab[aria-selected="true"] .st-glyph { color: var(--accent); }
+.subtab[aria-selected="true"] .st-label { font-weight: 800; }
+.st-glyph { width: 20px; flex: none; text-align: center; color: var(--muted); font-size: 14px; }
+.st-text { flex: 1 1 auto; min-width: 0; }
+.st-label { display: block; font-size: 13.5px; font-weight: 700; letter-spacing: -.01em; }
+.st-sub { display: block; font-size: 11px; font-weight: 500; color: var(--muted); }
+.st-badge { flex: none; }
+
+.home-panel { display: block; }
+
+/* 状態(empty/failure/timeout照合)を所有しないtabでの所在表示 */
+.scope-note {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  border: 1px solid var(--line-strong); background: var(--surface-sub);
+  border-radius: var(--r-md); padding: 11px 14px; margin-bottom: 16px;
+  font-size: 12.5px; color: var(--ink-2);
+}
+.scope-note > span { flex: 1 1 280px; min-width: 0; }
+.scope-note .badge { flex: none; }
+.scope-note .btn { flex: none; }
+
+/* tab間の受け渡し（ここには無いものが、どのtabにあるか） */
+.tab-handoff {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  border: 1px dashed var(--line-strong); border-radius: var(--r-md);
+  padding: 11px 14px; margin-top: 18px;
+  font-size: 12.5px; color: var(--muted);
+}
+.tab-handoff > span { flex: 1 1 280px; min-width: 0; }
+.tab-handoff strong { color: var(--ink-2); }
+
+/* --- 8b. runtime strip --------------------------------------------------- */
 .runtime-strip {
   display: grid; gap: 1px;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -317,6 +385,7 @@ button { font: inherit; color: inherit; }
 .runtime-cell dd small { display: block; font-size: 11.5px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 .runtime-cell.is-attention dd { color: var(--warn); }
 .runtime-cell.is-bad dd { color: var(--danger); }
+.runtime-cell .cell-link { display: inline-block; padding: 2px 0 0; min-height: 0; font-size: 11.5px; font-weight: 700; }
 
 /* --- 9. 承認queue (home) ------------------------------------------------- */
 /* 判断列(list) / 判断詳細(detail) / 補助情報(attn) の3ブロック。
@@ -327,6 +396,8 @@ button { font: inherit; color: inherit; }
   grid-template-areas: "list detail" "attn detail";
   gap: 16px; align-items: start;
 }
+/* 判断待ちtabは attn列を持たない2列構成 */
+.queue-layout.is-2col { grid-template-areas: "list detail"; }
 .queue-list-box { grid-area: list; display: grid; gap: 10px; align-content: start; }
 .detail-box     { grid-area: detail; display: grid; gap: 16px; align-content: start; }
 .attention-box  { grid-area: attn; display: grid; gap: 10px; align-content: start; }
@@ -581,6 +652,9 @@ td.num { font-variant-numeric: tabular-nums; }
 .sk-line.w40 { width: 40%; } .sk-line.w60 { width: 60%; } .sk-line.w80 { width: 80%; }
 .sk-block { height: 190px; border-radius: var(--r-lg); }
 .sk-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 20px; display: grid; gap: 11px; }
+/* 判断待ちtabのloadingは、本表示（list + detail）と同じ2列骨格で出す */
+.sk-2col { display: grid; grid-template-columns: minmax(320px, 380px) minmax(0, 1fr); gap: 16px; align-items: start; }
+.sk-stack { display: grid; gap: 10px; align-content: start; }
 .loading-note { display: flex; gap: 9px; align-items: center; font-size: 12.5px; color: var(--muted); margin-bottom: 12px; }
 .spinner {
   width: 15px; height: 15px; border-radius: 50%; flex: none;
@@ -715,6 +789,8 @@ textarea:focus, input[type="text"]:focus { border-color: var(--accent); }
     grid-template-columns: 1fr;
     grid-template-areas: "list" "detail" "attn";
   }
+  .queue-layout.is-2col { grid-template-areas: "list" "detail"; }
+  .sk-2col { grid-template-columns: 1fr; }
   .goal { grid-template-columns: 1fr; }
 }
 
@@ -748,17 +824,19 @@ textarea:focus, input[type="text"]:focus { border-color: var(--accent); }
   .topbar-side { width: 100%; }
   .freshness { min-width: 0; width: 100%; }
 
-  /* mobileでは判断を最上位に置き、運転状態と成果を後ろへ回す */
-  .hb-banner   { order: 1; }
-  .hb-queue    { order: 2; }
-  .hb-runtime  { order: 3; }
-  .hb-outcomes { order: 4; }
-  .hb-runtime::before {
-    content: "運転状態 / RUNTIME";
-    display: block; margin-bottom: 8px;
-    font-size: 10.5px; font-weight: 800; letter-spacing: .13em; color: var(--accent);
-  }
-  .hb-queue .section { margin-top: 4px; }
+  /* sub-tabはmobileでも3つ同時に見えることを優先し、補助語を落として圧縮する */
+  .subtabs-wrap { margin-bottom: 14px; }
+  .subtabs-head { margin-bottom: 6px; }
+  .subtabs { gap: 4px; padding: 4px; border-radius: 12px; }
+  .subtab { gap: 7px; padding: 8px 10px 12px; min-height: 48px; }
+  .subtab[aria-selected="true"]::before { left: 10px; right: 10px; bottom: 5px; }
+  .st-glyph { display: none; }
+  .st-sub { display: none; }
+  .st-label { font-size: 12.5px; }
+  .st-badge { font-size: 11px; padding: 2px 7px; }
+
+  .scope-note, .tab-handoff { align-items: flex-start; }
+  .scope-note .btn, .tab-handoff .btn { width: 100%; }
 
   .runtime-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .runtime-cell { padding: 10px 13px; }
@@ -800,6 +878,13 @@ textarea:focus, input[type="text"]:focus { border-color: var(--accent); }
 
   .toast-wrap { left: 14px; right: 14px; bottom: 14px; }
   .toast { max-width: none; }
+}
+
+@media (max-width: 460px) {
+  /* 狭幅では label と badge を縦に積み、3 tabを横スクロールなしで並べる */
+  .subtab { flex-direction: column; align-items: flex-start; gap: 3px; padding: 7px 9px 12px; min-height: 52px; }
+  .subtab[aria-selected="true"]::before { left: 9px; right: 9px; }
+  .st-badge { font-size: 10.5px; padding: 1px 6px; }
 }
 
 @media (max-width: 420px) {

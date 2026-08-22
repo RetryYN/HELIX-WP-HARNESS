@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WP Operations — L2 画面prototype (WP-PROT-UI-02-r2)
+   WP Operations — L2 画面prototype (WP-PROT-UI-02-r3)
 
    fixture-only。fetch / XHR / WebSocket を一切使わず、外部通信も本番writeも
    行わない。全ての「実行」はprototype上の表示遷移である。
@@ -59,6 +59,26 @@ const STATES = [
   { id: "error",     label: "failure" },
   { id: "reconcile", label: "timeout照合" }
 ];
+
+/* 判断ホーム(WP-UI-01)内のsub-tab。主要画面ナビ（SURFACES）とは階層も語彙も分ける。
+   POの問い「今、判断が必要か。運転は正常か」を、判断＝行動 / 運転＝監視 / 成果＝結果 の
+   3つの読み方へ分割し、1画面あたりのscroll量を判断1件分に抑える。 */
+const HOME_TABS = [
+  { id: "decide",  label: "判断待ち",   sub: "承認・差し戻し",   glyph: "⚑" },
+  { id: "runtime", label: "運転と注意", sub: "稼働状況・要確認", glyph: "◎" },
+  { id: "outcome", label: "成果サマリ", sub: "今月の確定値",     glyph: "↗" }
+];
+
+/* empty / failure / timeout照合 はいずれも「判断」pipelineの状態なので判断待ちtabが所有する。
+   所有しないtabでは最新表示を維持したまま、状態の所在をscope-noteで示す。
+   loadingは取得全体に掛かるため所有tabを持たない（全tabがskeleton）。 */
+const HOME_STATE_SCOPE = { empty: "decide", error: "decide", reconcile: "decide" };
+
+const HOME_LOADING_NOTE = {
+  decide:  "承認queueとWP状態を取得しています…",
+  runtime: "運転状況と注意事項を取得しています…",
+  outcome: "確定成果とコストを突合しています…"
+};
 
 /* --------------------------------------------------------------------------
    2. fixture
@@ -283,8 +303,7 @@ const STATE_COPY = {
     reconcile: {
       title: "公開writeの結果が確認できていません",
       lead: "timeoutにより応答が不明です。screen-flowの規定どおり、同一要求の自動再送を行わず、idempotency keyとWP側の実測結果を照合します。"
-    },
-    loadingNote: "承認queueとWP状態を取得しています…"
+    }
   },
   articles: {
     freshness: {
@@ -440,6 +459,7 @@ const RECONCILE = {
 
 const ui = {
   view: "home",
+  tab: HOME_TABS[0].id,   // 判断ホーム内のsub-tab。deep link `t=` で保持する
   state: "normal",
   decisionId: DECISIONS[0].id,
   clusterId: CLUSTERS[0].id,
@@ -520,18 +540,28 @@ function skCard(lines, blockHeight) {
     (blockHeight ? '<div class="sk" style="height:' + blockHeight + 'px"></div>' : "") + "</div>";
 }
 
-function renderLoading(viewId) {
-  const note = STATE_COPY[viewId].loadingNote;
+function renderLoading(viewId, sub) {
   const metricsSk = '<div class="metrics">' + [0, 0, 0, 0].map(() => skCard(["w60", "w40"])).join("") + "</div>";
 
-  const shapes = {
-    home:
+  /* homeはsub-tabごとに骨格が違うため、切替後のlayout shiftも起こさないよう形を分ける */
+  const homeShapes = {
+    decide:
+      '<div class="sk-2col"><div class="sk-stack">' +
+        skCard(["w40", "w80", "w60"]) + skCard(["w40", "w80", "w60"]) + "</div>" +
+        skCard(["w40", "w80"], 260) + "</div>",
+    runtime:
       '<div class="runtime-strip">' + [0, 0, 0, 0, 0].map(() =>
         '<div class="runtime-cell">' + skCard(["w60", "w80"]) + "</div>").join("") + "</div>" +
-      '<div class="queue-layout" style="margin-top:22px"><div class="queue-col">' +
-        skCard(["w40", "w80", "w60"]) + skCard(["w40", "w80", "w60"]) + "</div>" +
-        skCard(["w40", "w80"], 260) + "</div>" +
-      '<div style="margin-top:22px">' + metricsSk + "</div>",
+      '<div class="alerts" style="margin-top:22px">' + skCard(["w60", "w80", "w40"]) + skCard(["w60", "w80", "w40"]) + "</div>",
+    outcome:
+      skCard(["w40"], 120) + '<div style="margin-top:14px">' + metricsSk + "</div>"
+  };
+
+  const homeTab = homeShapes[sub] ? sub : HOME_TABS[0].id;
+  const note = viewId === "home" ? HOME_LOADING_NOTE[homeTab] : STATE_COPY[viewId].loadingNote;
+
+  const shapes = {
+    home: homeShapes[homeTab],
     articles:
       skCard(["w40", "w80"], 60) +
       '<div style="margin-top:14px">' + skCard(["w80", "w80", "w80", "w80", "w60"]) + "</div>",
@@ -555,18 +585,28 @@ function staleBanner(text, impact) {
    5. ホーム (WP-UI-01)
    ------------------------------------------------------------------------ */
 
-function runtimeStrip(stale) {
+const pendingCount = () => DECISIONS.length - Object.keys(ui.completed).length;
+
+function runtimeStrip(state) {
   const cells = [
     { dt: "対象site", dd: "solobiz-lab.com", sub: "検証サイト · REST API" },
-    { dt: "要承認", dd: String(DECISIONS.length - Object.keys(ui.completed).length), sub: "うち判断不可 1件", tone: "is-attention" },
+    { dt: "判断待ち", dd: String(pendingCount()), sub: "うち判断不可 1件", tone: "is-attention", to: "decide" },
     { dt: "処理中", dd: "3", sub: "cluster解析 2 · 記事生成 1" },
     { dt: "失敗", dd: "0", sub: "直近24時間" },
     { dt: "次の自動処理", dd: "8月24日 03:00", sub: "GSC週次取得 · 読み取りのみ" }
   ];
-  if (stale) { cells[4].sub = "GSC週次取得 · 前回は15日前"; }
+
+  /* 状態は「判断待ち」tabが所有するが、運転の数字にも必ず現れるようにする */
+  if (state === "stale")     { cells[4].sub = "GSC週次取得 · 前回は15日前"; }
+  if (state === "empty")     { cells[1].dd = "0"; cells[1].sub = "直近24時間の判断は完了済み"; cells[1].tone = ""; }
+  if (state === "error")     { cells[3].dd = "1"; cells[3].sub = "承認記録step · 外部write 0件"; cells[3].tone = "is-bad"; }
+  if (state === "reconcile") { cells[1].sub = "うち照合待ち 1件（自動再送なし）"; }
+
   return '<dl class="runtime-strip">' + cells.map((c) =>
     '<div class="runtime-cell ' + (c.tone || "") + '"><dt>' + esc(c.dt) + "</dt><dd>" + esc(c.dd) +
-    "<small>" + esc(c.sub) + "</small></dd></div>").join("") + "</dl>";
+    "<small>" + esc(c.sub) + "</small>" +
+    (c.to ? '<button type="button" class="linkbtn cell-link" data-act="home-tab" data-arg="' + c.to + '">判断待ちを開く →</button>' : "") +
+    "</dd></div>").join("") + "</dl>";
 }
 
 function queueItem(d) {
@@ -656,25 +696,69 @@ function decisionCard(d, stale) {
     "</div></article>";
 }
 
-function alertCards(stale) {
-  const list = stale
-    ? [
-        { tone: "warn", icon: "!", title: "A8成果データがstaleです", body: "最終取得から15日経過（期待間隔7日）。理由: ASP側の確定処理待ち。", impact: "公開判断への影響: なし。公開可能条件はWP再取得結果に依存します。", act: "証跡" },
-        { tone: "warn", icon: "!", title: "成果画面の数値は8月8日時点です", body: "L1成功基準（売上÷コスト）の現在値は確定まで暫定扱いです。", impact: "次回取得予定: 9月8日 ASP月次確定。", act: "成果へ" }
-      ]
-    : [
-        { tone: "warn", icon: "!", title: "cluster C-198 の判定が要確認です", body: "SERP重複率54%はしきい値をわずかに上回るのみ。検索意図が二分している疑いがあります。", impact: "必要なaction: 処理監査でoverride判断（分割 / 統合維持）。", act: "監査へ" },
-        { tone: "ok", icon: "✓", title: "提携切れリンクはありません", body: "126リンクを8月22日に照合済み。終了プログラム0件。", impact: "次回照合: 8月29日。", act: "詳細" }
-      ];
+/* 注意領域は承認対象ではない。tone !== "ok" の件数が「運転と注意」tabのbadgeになる。
+   `to` は "tab:<id>"（ホーム内sub-tab）か surface ID。 */
+function homeAlerts(state) {
+  if (state === "error") {
+    return [
+      { tone: "danger", icon: "×", title: "承認記録の書込みに失敗しています",
+        body: "失敗stepは approval_record_write。WordPressへのwriteは0件で、post #1842 は draft のままです。",
+        impact: "必要なaction: 判断待ちタブで evidence WP-EV-0429 を確認し、digest再確認から再入場する。",
+        act: "判断待ちへ", to: "tab:decide" }
+    ];
+  }
+  if (state === "reconcile") {
+    return [
+      { tone: "warn", icon: "?", title: "公開writeの結果が照合待ちです",
+        body: "idempotency key IK-1842-publish-7f31 の応答が timeout。同一要求の自動再送は行いません。",
+        impact: "必要なaction: 判断待ちタブでWP側実測と照合する（reconciliation_required）。",
+        act: "判断待ちへ", to: "tab:decide" }
+    ];
+  }
+  if (state === "empty") {
+    return [
+      { tone: "ok", icon: "✓", title: "判断待ちは0件です",
+        body: "直近24時間の判断は全て完了しています（最後: WP-OP-2026-0822-031 · 8月22日 19:12）。",
+        impact: "次回取得予定: 8月24日 03:00 GSC週次取得（読み取りのみ）。",
+        act: "判断待ちへ", to: "tab:decide" }
+    ];
+  }
+  if (state === "stale") {
+    return [
+      { tone: "warn", icon: "!", title: "A8成果データがstaleです",
+        body: "最終取得から15日経過（期待間隔7日）。理由: ASP側の確定処理待ち。",
+        impact: "公開判断への影響: なし。公開可能条件はWP再取得結果に依存します。",
+        act: "成果サマリへ", to: "tab:outcome" },
+      { tone: "warn", icon: "!", title: "成果画面の数値は8月8日時点です",
+        body: "L1成功基準（売上÷コスト）の現在値は確定まで暫定扱いです。",
+        impact: "次回取得予定: 9月8日 ASP月次確定。",
+        act: "成果へ", to: "outcomes" }
+    ];
+  }
+  return [
+    { tone: "warn", icon: "!", title: "cluster C-198 の判定が要確認です",
+      body: "SERP重複率54%はしきい値をわずかに上回るのみ。検索意図が二分している疑いがあります。",
+      impact: "必要なaction: 処理監査でoverride判断（分割 / 統合維持）。",
+      act: "監査へ", to: "audit" },
+    { tone: "ok", icon: "✓", title: "提携切れリンクはありません",
+      body: "126リンクを8月22日に照合済み。終了プログラム0件。",
+      impact: "次回照合: 8月29日。", act: "詳細", to: "" }
+  ];
+}
 
-  const dest = { "成果へ": "outcomes", "監査へ": "audit" };
+const attentionCount = (state) => homeAlerts(state).filter((a) => a.tone !== "ok").length;
 
-  return '<div class="alerts">' + list.map((a) =>
-    '<article class="alert alert-' + a.tone + '"><span class="alert-icon" aria-hidden="true">' + a.icon + "</span>" +
-    '<div class="alert-body"><strong>' + esc(a.title) + "</strong><p>" + esc(a.body) + "</p>" +
-    '<span class="impact">' + esc(a.impact) + "</span>" +
-    '<button type="button" class="linkbtn" data-act="' + (dest[a.act] ? "goto" : "noop") +
-    '" data-arg="' + (dest[a.act] || "") + '">' + esc(a.act) + " →</button></div></article>").join("") + "</div>";
+function alertCards(state) {
+  return '<div class="alerts">' + homeAlerts(state).map((a) => {
+    const tab = a.to.indexOf("tab:") === 0;
+    const act = a.to ? (tab ? "home-tab" : "goto") : "noop";
+    const arg = tab ? a.to.slice(4) : a.to;
+    return '<article class="alert alert-' + a.tone + '"><span class="alert-icon" aria-hidden="true">' + a.icon + "</span>" +
+      '<div class="alert-body"><strong>' + esc(a.title) + "</strong><p>" + esc(a.body) + "</p>" +
+      '<span class="impact">' + esc(a.impact) + "</span>" +
+      '<button type="button" class="linkbtn" data-act="' + act + '" data-arg="' + esc(arg) + '">' +
+      esc(a.act) + " →</button></div></article>";
+  }).join("") + "</div>";
 }
 
 function homeMetrics() {
@@ -684,44 +768,158 @@ function homeMetrics() {
     '</span><span class="m-source">' + esc(m.source) + "</span></article>").join("") + "</div>";
 }
 
-function renderHome() {
-  if (ui.state === "loading")   { return renderLoading("home"); }
-  if (ui.state === "empty")     { return renderEmpty("home"); }
-  if (ui.state === "error")     { return renderError("home"); }
-  if (ui.state === "reconcile") { return renderReconcile("home"); }
+/* sub-tabのbadge。件数だけでなく、その状態でtabが持つ意味（0件 / 失敗 / 照合待ち）も返す。
+   色に依存しないよう icon と aria-label 用のテキストを必ず併せて返す（StateBadge契約）。 */
+function homeTabStatus(tabId, state) {
+  if (state === "loading") { return { text: "…", tone: "neutral", icon: "⟳", sr: "取得中" }; }
 
-  const stale = ui.state === "stale";
-  const d = decisionOf(ui.decisionId);
+  if (tabId === "decide") {
+    if (state === "error")     { return { text: "失敗", tone: "danger", icon: "×", sr: "承認記録の書込みに失敗・外部write 0件" }; }
+    if (state === "reconcile") { return { text: "照合", tone: "warn",   icon: "?", sr: "照合待ち 1件・自動再送なし" }; }
+    const pending = state === "empty" ? 0 : pendingCount();
+    if (pending === 0) { return { text: "0", tone: "ok", icon: "✓", sr: "判断待ち 0件" }; }
+    const blocked = DECISIONS.filter((d) => d.redIndex > 0 && !ui.completed[d.id]).length;
+    return {
+      text: String(pending), tone: "warn", icon: "!",
+      sr: "判断待ち " + pending + "件" + (blocked ? "、うち判断不可 " + blocked + "件" : "")
+    };
+  }
 
-  /* mobileでは「判断 → 運転状態 → 成果」の順に並べ替える（block order参照） */
-  return '<div class="home-view">' +
-    (stale ? '<div class="hb hb-banner">' + staleBanner(
+  if (tabId === "runtime") {
+    const n = attentionCount(state);
+    if (n === 0) { return { text: "0", tone: "ok", icon: "✓", sr: "要確認 0件" }; }
+    const bad = homeAlerts(state).some((a) => a.tone === "danger");
+    return { text: String(n), tone: bad ? "danger" : "warn", icon: bad ? "×" : "!", sr: "要確認 " + n + "件" };
+  }
+
+  if (state === "stale") {
+    return { text: OUTCOMES.ratio, tone: "warn", icon: "!", sr: "売上÷コスト " + OUTCOMES.ratio + "、確定データは8月8日時点でstale" };
+  }
+  return { text: OUTCOMES.ratio, tone: "neutral", icon: "↗", sr: "売上÷コスト " + OUTCOMES.ratio + "、目標 " + OUTCOMES.target };
+}
+
+function renderHomeTabs(state) {
+  return '<div class="subtabs-wrap">' +
+    '<div class="subtabs-head"><p class="eyebrow">ホーム内の区分 / SECTIONS</p>' +
+    '<p class="subtabs-note">主要画面ナビ（ホーム／記事・KW／処理の監査／成果）とは別の、判断ホーム内の切り替えです。</p></div>' +
+    '<div class="subtabs" role="tablist" aria-label="判断ホーム内の区分">' +
+    HOME_TABS.map((t) => {
+      const on = t.id === ui.tab;
+      const st = homeTabStatus(t.id, state);
+      return '<button type="button" role="tab" class="subtab" id="home-tab-' + t.id + '" data-tab="' + t.id +
+        '" aria-selected="' + on + '" aria-controls="home-panel" tabindex="' + (on ? "0" : "-1") +
+        '" aria-label="' + esc(t.label + "、" + t.sub + "、" + st.sr) + '">' +
+        '<span class="st-glyph" aria-hidden="true">' + t.glyph + "</span>" +
+        '<span class="st-text"><span class="st-label">' + esc(t.label) + "</span>" +
+        '<span class="st-sub">' + esc(t.sub) + "</span></span>" +
+        '<span class="badge badge-' + st.tone + ' st-badge" aria-hidden="true">' +
+        '<span class="bi">' + st.icon + "</span>" + esc(st.text) + "</span>" +
+        "</button>";
+    }).join("") + "</div></div>";
+}
+
+/* 状態を所有しないtabで、状態の所在と「この表示は最新である」ことを明示する */
+function scopeNote(state) {
+  const owner = HOME_TABS.find((t) => t.id === HOME_STATE_SCOPE[state]);
+  const copy = {
+    empty:     ["neutral", "◇", "判断待ちが0件です。運転は継続しています。"],
+    error:     ["danger",  "×", "承認記録の書込みに失敗しています（WordPressへのwriteは0件）。"],
+    reconcile: ["warn",    "?", "公開writeの結果が照合待ちです（自動再送は行いません）。"]
+  }[state];
+
+  return '<div class="scope-note">' +
+    badge("状態: " + STATES.find((s) => s.id === state).label, copy[0], copy[1]) +
+    "<span>" + esc(copy[2]) + "この状態は「" + esc(owner.label) + "」が対象です。このタブの表示は最新のまま確認できます。</span>" +
+    '<button type="button" class="btn btn-secondary btn-sm" data-act="home-tab" data-arg="' + owner.id + '">' +
+    esc(owner.label) + "を開く</button></div>";
+}
+
+/* tab 1: 判断待ち — 承認・差し戻しの1件を決めるために必要なものだけを置く */
+function renderHomeDecide(state) {
+  const stale = state === "stale";
+  const attn = attentionCount(state);
+
+  return (stale ? staleBanner(
       "A8成果データが15日前（期待間隔7日）",
-      "理由: ASP側の確定処理待ち。成果の数値のみが古く、公開可能条件・WP状態は10:42時点で最新です。") + "</div>" : "") +
+      "判断への影響: なし。公開可能条件はWordPress再取得結果（10:42:14）に依存し、成果データは公開判断の入力ではありません。") : "") +
 
-    '<div class="hb hb-runtime">' + runtimeStrip(stale) + "</div>" +
+    sectionHead("要承認 / APPROVAL QUEUE", "いま判断が必要なもの",
+      "対象・なぜ・gate・risk・期限・根拠を1枚で確認してから判断します。",
+      '<button type="button" class="linkbtn" data-act="goto" data-arg="articles">記事・KWの一覧へ →</button>') +
 
-    '<div class="hb hb-queue">' +
-      sectionHead("要承認 / APPROVAL QUEUE", "いま判断が必要なもの",
-        "対象・なぜ・gate・risk・期限・根拠を1枚で確認してから判断します。",
-        '<button type="button" class="linkbtn" data-act="goto" data-arg="articles">記事・KWの一覧へ →</button>') +
-      '<div class="queue-layout">' +
-        '<div class="queue-list-box"><div class="queue-list">' + DECISIONS.map(queueItem).join("") + "</div>" +
-          '<p class="col-note">承認・差し戻しは選択中の1件に対してのみ実行されます。</p></div>' +
-        '<div class="detail-box">' + decisionCard(d, stale) + "</div>" +
-        '<div class="attention-box">' +
-          '<div class="col-head"><p class="eyebrow">注意 / ATTENTION</p><h3>確認しておくこと</h3>' +
-          "<p>判断queueとは分離して表示します。ここに出るものは承認対象ではありません。</p></div>" +
-          alertCards(stale) +
-        "</div>" +
-      "</div>" +
+    '<div class="queue-layout is-2col">' +
+      '<div class="queue-list-box"><div class="queue-list">' + DECISIONS.map(queueItem).join("") + "</div>" +
+        '<p class="col-note">承認・差し戻しは選択中の1件に対してのみ実行されます。</p></div>' +
+      '<div class="detail-box">' + decisionCard(decisionOf(ui.decisionId), stale) + "</div>" +
     "</div>" +
 
-    '<div class="hb hb-outcomes">' +
-      sectionHead("成果 / OUTCOMES", "今月の成果", "確定値のみ。推計値と帰属不能な成果は含みません。",
-        '<button type="button" class="linkbtn" data-act="goto" data-arg="outcomes">成果を詳しく見る →</button>') +
-      homeMetrics() +
-    "</div></div>";
+    '<div class="tab-handoff"><span><strong>このタブは承認対象だけを表示します。</strong>' +
+    "承認対象ではない要確認 " + attn + " 件と運転状況は「運転と注意」にあります。</span>" +
+    '<button type="button" class="btn btn-secondary btn-sm" data-act="home-tab" data-arg="runtime">運転と注意を開く</button></div>';
+}
+
+/* tab 2: 運転と注意 — 「運転は正常か」に必要な数字と、承認対象でない要確認 */
+function renderHomeRuntime(state) {
+  const stale = state === "stale";
+
+  return (stale ? staleBanner(
+      "A8成果データが15日前（期待間隔7日）",
+      "理由: ASP側の確定処理待ち。古いのは成果データのみで、WP状態と公開可能条件は10:42:14時点で最新です。") : "") +
+
+    sectionHead("運転状況 / RUNTIME", "運転は正常か",
+      "対象site・判断待ち・処理中・失敗・次の自動処理を1行で確認します。") +
+    runtimeStrip(state) +
+
+    sectionHead("注意 / ATTENTION", "確認しておくこと",
+      "ここに出るものは承認対象ではありません。承認・差し戻しは「判断待ち」で行います。") +
+    alertCards(state);
+}
+
+/* tab 3: 成果サマリ — L1成功基準の現在値まで。内訳は WP-UI-07 が正本 */
+function renderHomeOutcome(state) {
+  const stale = state === "stale";
+
+  const goal = '<div class="card card-pad"><div class="goal"><div>' +
+    badge("L1成功基準", "neutral", "◎") +
+    '<div class="goal-figure" style="margin-top:8px"><strong>' + esc(OUTCOMES.ratio) + "</strong>" +
+    "<span>/ 目標 " + esc(OUTCOMES.target) + " を3か月連続</span></div>" +
+    '<div class="meter" style="margin:14px 0 8px"><i style="width:' + OUTCOMES.progress + '%"></i></div>' +
+    '<p style="font-size:12.5px;color:var(--muted)">確定売上 ¥123,400 ÷ 実費 ¥75,200。推計値と帰属不能な成果は含みません。</p></div>' +
+    '<div class="months">' + OUTCOMES.months.map((m) =>
+      '<div class="month' + (m.hit ? " is-hit" : "") + '"><small>' + esc(m.m) + "</small><strong>" + esc(m.v) + "</strong></div>").join("") +
+    "</div></div></div>";
+
+  return (stale ? staleBanner(
+      "A8成果データが15日前（期待間隔7日）",
+      "表示中の確定CVと売上は8月8日時点です。8月9日以降の成果は未反映のため、L1成功基準の現在値は暫定です。") : "") +
+
+    sectionHead("成果 / OUTCOMES", "今月の成果", "確定値のみ。推計値と帰属不能な成果は含みません。",
+      '<button type="button" class="linkbtn" data-act="goto" data-arg="outcomes">成果を詳しく見る →</button>') +
+    goal +
+    '<div style="margin-top:14px">' + homeMetrics() + "</div>";
+}
+
+const HOME_PANELS = { decide: renderHomeDecide, runtime: renderHomeRuntime, outcome: renderHomeOutcome };
+
+function renderHome() {
+  const state = ui.state;
+  const tab = ui.tab;
+  const owner = HOME_STATE_SCOPE[state];
+
+  let panel;
+  if (state === "loading") {
+    panel = renderLoading("home", tab);
+  } else if (owner === tab) {
+    /* 状態を所有するtabでは、そのtabの見出しの下に EmptyState / ErrorState /
+       ReconciliationPanel をそのまま出す（要求の状態定義を欠かさない） */
+    const owned = { empty: renderEmpty, error: renderError, reconcile: renderReconcile };
+    panel = owned[state]("home");
+  } else {
+    panel = (owner ? scopeNote(state) : "") + HOME_PANELS[tab](state);
+  }
+
+  return renderHomeTabs(state) +
+    '<div class="home-panel" id="home-panel" role="tabpanel" aria-labelledby="home-tab-' + tab + '">' + panel + "</div>";
 }
 
 /* --------------------------------------------------------------------------
@@ -873,7 +1071,7 @@ function renderAudit() {
     '<hr style="border:0;border-top:1px solid var(--line);margin:16px 0">' +
     "<h3 style=\"font-size:14px\">この判断の行き先</h3>" +
     '<p style="color:var(--muted);font-size:12.5px;margin-top:4px">clusterの結論は記事構成へ反映され、記事の公開可能条件3（KW/PAA/見出し）の入力になります。</p>' +
-    '<button type="button" class="linkbtn" data-act="goto" data-arg="home">承認queueへ戻る →</button></aside>';
+    '<button type="button" class="linkbtn" data-act="home-tab" data-arg="decide">承認queueへ戻る →</button></aside>';
 
   return (stale ? staleBanner(
       "SERP snapshotが8日前（期待間隔7日）",
@@ -1147,13 +1345,15 @@ function renderFreshness() {
 
 function renderNav() {
   const list = $("#primary-nav");
+  /* nav countは判断待ちtabのbadgeと同じ値にする（0件のときは出さない） */
+  const pending = ui.state === "empty" ? 0 : pendingCount();
   list.innerHTML = SURFACES.map((s) =>
     '<button type="button" role="tab" id="tab-' + s.id + '" class="nav-item" data-view="' + s.id +
     '" data-soon="' + Boolean(s.soon) + '" aria-selected="' + (s.id === ui.view) +
     '" aria-controls="panel-current" tabindex="' + (s.id === ui.view ? "0" : "-1") + '">' +
     '<span class="nav-glyph" aria-hidden="true">' + s.glyph + "</span>" +
     '<span class="nav-label">' + esc(s.nav) + '<span class="nav-id"> ' + s.surface + "</span></span>" +
-    (s.count && !s.soon ? '<span class="nav-count">' + (DECISIONS.length - Object.keys(ui.completed).length) + "</span>" : "") +
+    (s.count && !s.soon && pending > 0 ? '<span class="nav-count">' + pending + "</span>" : "") +
     "</button>").join("");
 }
 
@@ -1215,6 +1415,27 @@ function goto(viewId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+/* 判断ホーム内のsub-tab切替。他surfaceからの導線でも使うためviewごと戻す。 */
+function setHomeTab(tabId, quiet) {
+  const tab = HOME_TABS.find((t) => t.id === tabId);
+  if (!tab) { return; }
+  const moved = ui.view !== "home";
+
+  ui.view = "home";
+  ui.tab = tab.id;
+  render();
+
+  /* 再描画でbutton要素は作り直されるため、選択中tabへfocusを戻す */
+  const restored = $("#home-tab-" + tab.id);
+  if (restored) { restored.focus(); } else { $("#view-region").focus(); }
+
+  if (!quiet) {
+    const st = homeTabStatus(tab.id, ui.state);
+    announce(tab.label + "を表示しました。" + st.sr + "。");
+  }
+  if (moved) { window.scrollTo({ top: 0, behavior: "smooth" }); }
+}
+
 function setState(stateId, quiet) {
   ui.state = stateId;
   render();
@@ -1225,11 +1446,12 @@ function setState(stateId, quiet) {
 }
 
 document.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-act], [data-view], [data-state]");
+  const target = event.target.closest("[data-act], [data-view], [data-state], [data-tab]");
   if (!target) { return; }
 
   if (target.dataset.view) { goto(target.dataset.view); return; }
   if (target.dataset.state) { setState(target.dataset.state); return; }
+  if (target.dataset.tab) { setHomeTab(target.dataset.tab); return; }
 
   const act = target.dataset.act;
   const arg = target.dataset.arg || "";
@@ -1237,6 +1459,10 @@ document.addEventListener("click", (event) => {
   switch (act) {
     case "goto":
       goto(arg);
+      break;
+
+    case "home-tab":
+      setHomeTab(arg);
       break;
 
     case "goto-cluster":
@@ -1417,10 +1643,18 @@ roving($("#state-switch"), ".sim-btn", (item) => {
   if (restored) { restored.focus(); }
 }, { next: ["ArrowRight", "ArrowDown"], prev: ["ArrowLeft", "ArrowUp"] });
 
+/* ホームのsub-tablistは再描画で作り直されるため、安定した祖先#view-mountへ委譲する。
+   focusが .subtab 上にないkey操作は roving() 側で無視される。 */
+roving($("#view-mount"), ".subtab", (item) => {
+  setHomeTab(item.dataset.tab);
+}, { next: ["ArrowRight", "ArrowDown"], prev: ["ArrowLeft", "ArrowUp"] });
+
 /* --------------------------------------------------------------------------
    16. deep link
    L2 screen-flow.md「deep linkは対象とfilterを保持する」の確認用。
+   `t=` はホーム内sub-tabで、reload・再入場でも選択中tabを保持する。
    例: index.html#/articles?state=stale&f=red
+       index.html#/home?state=normal&t=runtime
    ------------------------------------------------------------------------ */
 
 let syncingHash = false;
@@ -1434,13 +1668,14 @@ function readHash() {
 
   if (SURFACES.some((s) => s.id === viewId)) { ui.view = viewId; }
   if (STATES.some((s) => s.id === params.get("state"))) { ui.state = params.get("state"); }
+  if (HOME_TABS.some((t) => t.id === params.get("t"))) { ui.tab = params.get("t"); }
   if (decisionOf(params.get("d"))) { ui.decisionId = params.get("d"); }
   if (clusterOf(params.get("c"))) { ui.clusterId = params.get("c"); }
   if (FILTERS.some((f) => f.id === params.get("f"))) { ui.filter = params.get("f"); }
 }
 
 function writeHash() {
-  const query = "state=" + ui.state + "&d=" + ui.decisionId + "&c=" + ui.clusterId + "&f=" + ui.filter;
+  const query = "state=" + ui.state + "&t=" + ui.tab + "&d=" + ui.decisionId + "&c=" + ui.clusterId + "&f=" + ui.filter;
   const next = "#/" + ui.view + "?" + query;
   if (window.location.hash === next) { return; }
   syncingHash = true;

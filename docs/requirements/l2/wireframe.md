@@ -1,7 +1,7 @@
 # L2 Prototype Authority
 
 確認対象は実HTML prototype
-`docs/prototypes/wp-ops-dashboard/index.html`（`WP-PROT-UI-02-r2`）。以下のASCIIは履歴参照であり、
+`docs/prototypes/wp-ops-dashboard/index.html`（`WP-PROT-UI-02-r3`）。以下のASCIIは履歴参照であり、
 画面合意対象ではない。
 
 ```text

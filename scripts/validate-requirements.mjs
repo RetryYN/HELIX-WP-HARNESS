@@ -32,7 +32,7 @@ for (const path of requiredFiles) if (!existsSync(resolve(root, path))) fail(`mi
 const projection = readJson("docs/requirements/discovery/candidate-projection.json");
 if (projection.canonical !== false) fail("L2 projection must remain non-canonical");
 if (projection.compile_status === "completed" && !projection.agreement) fail("compile completed without human agreement");
-if (!projection.prototype_revision_ids.includes("WP-PROT-UI-02-r2")) fail("current HTML prototype missing from projection");
+if (!projection.prototype_revision_ids.includes("WP-PROT-UI-02-r3")) fail("current HTML prototype missing from projection");
 const events = readFileSync(resolve(root, "docs/requirements/discovery/events.jsonl"), "utf8").trim().split("\n").map((line, index) => {
   try { return JSON.parse(line); } catch { fail(`invalid JSON event line ${index + 1}`); }
 });
@@ -42,6 +42,11 @@ events.forEach((event, index) => {
   if (event.initiative_id !== projection.initiative_id) fail(`initiative mismatch at ${event.event_id}`);
 });
 if (events.length !== projection.event_count || events.at(-1)?.event_id !== projection.event_head) fail("projection event head/count mismatch");
+const generatedPrototypeIds = new Set(events.filter((event) => event.event_type === "prototype_generated").map((event) => event.payload?.prototype_id));
+const recordedReactionIds = new Set(events.filter((event) => event.event_type === "prototype_reaction_recorded").map((event) => event.payload?.reaction_id));
+for (const id of projection.prototype_revision_ids) if (!generatedPrototypeIds.has(id)) fail(`prototype revision lacks generation event ${id}`);
+for (const id of projection.reaction_ids) if (!recordedReactionIds.has(id)) fail(`reaction lacks event ${id}`);
+for (const id of recordedReactionIds) if (!projection.reaction_ids.includes(id)) fail(`reaction event missing from projection ${id}`);
 for (const candidate of projection.candidates) {
   for (const source of candidate.source_event_ids) if (!eventIds.has(source)) fail(`unknown event ${source}`);
   if (candidate.state === "frozen") fail(`L2 candidate cannot be frozen: ${candidate.candidate_id}`);
