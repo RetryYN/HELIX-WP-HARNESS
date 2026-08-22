@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="robots" content="noindex">
-  <title>WP Operations — L2 画面prototype (WP-PROT-UI-02-r3)</title>
+  <title>WP Operations — L2 画面prototype (WP-PROT-UI-02-r4)</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
         <span class="brand-mark" aria-hidden="true">WP</span>
         <span class="brand-text">
           <strong>WP Operations</strong>
-          <small>solobiz-lab.com · 検証サイト</small>
+          <small>solobiz-lab.com</small>
         </span>
       </div>
 
@@ -27,35 +27,25 @@
       </nav>
 
       <div class="rail-foot">
-        <p class="rail-foot-label">運転状態</p>
         <p class="rail-foot-body" id="rail-runtime">
           <span class="dot dot-ok" aria-hidden="true"></span>
           <span><strong>正常</strong><small>次回取得 8月24日 03:00</small></span>
         </p>
-        <p class="rail-note">fixture表示のみ。外部通信・本番writeは行いません。</p>
       </div>
     </aside>
 
     <div class="content">
       <!-- ─────────── prototype操作バー（製品UIではない） ─────────── -->
       <div class="sim" role="region" aria-label="prototype表示状態の切替">
-        <div class="sim-label">
-          <span class="sim-tag">PROTOTYPE 操作</span>
-          <span class="sim-hint">この画面が各状態でどう見えるかを切り替えて確認します</span>
-        </div>
+        <span class="sim-tag">PROTOTYPE</span>
         <div class="sim-switch" role="radiogroup" aria-label="表示状態" id="state-switch"></div>
       </div>
 
       <!-- ─────────── 画面ヘッダ ─────────── -->
       <header class="topbar">
         <div class="topbar-main">
-          <p class="crumb">
-            <span class="idchip" id="crumb-surface">WP-UI-01</span>
-            <span class="idchip ghost" id="crumb-screen">WP-SCR-01</span>
-            <code id="crumb-route">/</code>
-          </p>
           <h1 id="page-title">判断ホーム</h1>
-          <p class="question" id="page-question">POの問い: 今、判断が必要か。運転は正常か</p>
+          <p class="question" id="page-question">今、判断が必要か。運転は正常か</p>
         </div>
         <div class="topbar-side">
           <div class="freshness" id="freshness-badge"></div>
@@ -67,8 +57,7 @@
       </main>
 
       <footer class="page-foot">
-        <p><strong>WP-PROT-UI-02-r3</strong> · L2 画面prototype · fixture data · 外部writeなし</p>
-        <p>表示値は全てfixture。実データ、credential、顧客データは含みません。</p>
+        <p>WP-PROT-UI-02-r4 · fixture表示のみ。外部通信・本番write・credential保持は行いません。</p>
       </footer>
     </div>
   </div>
@@ -86,6 +75,11 @@
   <!-- ─────────── 証跡 dialog ─────────── -->
   <dialog id="evidence-dialog" aria-labelledby="evidence-dialog-title">
     <div class="dlg" id="evidence-dialog-body"></div>
+  </dialog>
+
+  <!-- ─────────── KW詳細（DataForSEO）drawer dialog ─────────── -->
+  <dialog id="kw-dialog" class="drawer" aria-labelledby="kw-dialog-title">
+    <div class="dlg" id="kw-dialog-body"></div>
   </dialog>
 
   <div class="toast-wrap">

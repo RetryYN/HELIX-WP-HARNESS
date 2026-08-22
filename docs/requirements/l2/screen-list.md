@@ -19,3 +19,5 @@ pair_artifact: docs/test-design/l11-user-acceptance-test-design.md
 | WP-UI-08 | `/calendar` | WP-SCR-08 | P1 | defined/N/A/defined/defined |
 
 `N/A`はread-only surfaceに取消操作が存在しないため。read-only要件が変わった場合に再評価する。
+
+`WP-UI-02`はcluster grouped keyword mapとDataForSEO evidence detailを持つ。外部APIの値は取得条件・snapshot・鮮度・費用・cache制約と一緒に表示し、未取得を0または推定値で補完しない。

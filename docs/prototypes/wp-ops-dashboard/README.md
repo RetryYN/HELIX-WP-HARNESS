@@ -1,4 +1,4 @@
-# WP Operations Dashboard prototype (WP-PROT-UI-02-r3)
+# WP Operations Dashboard prototype (WP-PROT-UI-02-r4)
 
 L2要求洗い出し用の静的HTML prototype。production codeではなく、画面構成とPO判断flowへのreactionを
 得るための成果物である。表示dataは全てfixtureで、WordPressや外部serviceへ接続・writeしない。
@@ -14,7 +14,7 @@ python3 -m http.server 4173 --directory docs/prototypes/wp-ops-dashboard
 | surface | route | L1 | 収録範囲 |
 | --- | --- | --- | --- |
 | WP-UI-01 | `/` | WP-SCR-01 | 承認queue、判断詳細、公開可能条件dialog、運転状態、成果summary |
-| WP-UI-02 | `/articles` | WP-SCR-02 | KW母集団1,000件の帰属会計、記事一覧、除外理由内訳 |
+| WP-UI-02 | `/articles` | WP-SCR-02 | KW母集団1,000件の帰属会計、cluster map、DataForSEO取得値・証跡詳細 |
 | WP-UI-03 | `/audit/clusters` | WP-SCR-03 | cluster判定根拠、導出規則version、PO override |
 | WP-UI-07 | `/outcomes` | WP-SCR-07 | L1成功基準、測定sourceつき指標、売上・コスト内訳 |
 | WP-UI-04/05/06/08 | 各route | 各L1 | P1のためplaceholder（次revisionで確認する旨を明示） |
@@ -37,6 +37,8 @@ sub-tabは明色のsegmented controlとし、上部に「ホーム内の区分�
 - `loading` は取得全体に掛かるため全tabがskeletonを出す。skeletonはtabごとに本表示と同じ骨格。
 
 ## 表示状態の切替
+
+記事・KW画面は「キーワードマップ」と「DataForSEOデータ」を切り替える。KWを選ぶと、取得endpoint、snapshot、地域・言語・device、鮮度、volume/CPC/competition、SERP/PAA/関連KW、費用、cache TTL、evidence ID、実測/推定区分を確認できる。欠損値は`未取得`とし、0で補完しない。表示値はfixtureでありAPI呼出しや課金は行わない。
 
 画面上部の **PROTOTYPE 操作** バーで、同じ画面の6状態を切り替えて確認できる。
 

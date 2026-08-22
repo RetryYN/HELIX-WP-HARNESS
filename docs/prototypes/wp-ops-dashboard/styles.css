@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WP Operations — L2 画面prototype (WP-PROT-UI-02-r3)
+   WP Operations — L2 画面prototype (WP-PROT-UI-02-r4)
    fixture表示のみ。production stylesheetではない。
    ========================================================================== */
 
@@ -898,4 +898,61 @@ textarea:focus, input[type="text"]:focus { border-color: var(--accent); }
 @media print {
   .rail, .sim, .toast-wrap { display: none; }
   .content { margin: 0; }
+}
+/* Article / keyword map and DataForSEO evidence surface. */
+.account { margin-bottom: 6px; }
+.account-head { display:flex; justify-content:space-between; gap:16px; align-items:end; }
+.account-head h2 { margin:0 0 4px; }
+.account-bar { display:flex; height:12px; margin:14px 0 10px; overflow:hidden; border-radius:999px; background:var(--line); }
+.account-bar .seg { min-width:3px; }
+.seg-assigned { background:#15835d; } .seg-unassigned { background:#d3a62e; }
+.seg-cut,.seg-excluded { background:#728078; } .seg-failed { background:#b95050; }
+.lanes { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.lane { padding:10px 12px; border-left:3px solid var(--line); background:var(--surface-2); border-radius:6px; }
+.lane-assigned { border-color:#15835d; } .lane-unassigned { border-color:#d3a62e; }
+.lane-cut,.lane-excluded { border-color:#728078; } .lane-failed { border-color:#b95050; }
+.lane-mark,.lane-label,.lane-sub { display:block; } .lane-n { font-size:20px; font-weight:700; }
+.lane-label { color:var(--ink-2); font-size:12px; } .lane-sub { color:var(--muted); font-size:11px; margin-top:3px; }
+.account-check { margin:10px 0 0; color:var(--success); font-size:12px; }
+.subtabs { display:flex; gap:4px; margin:6px 0 12px; padding:4px; max-width:760px; border:1px solid var(--line); border-radius:10px; background:var(--surface-2); }
+.subtab { flex:1; padding:9px 14px; border:0; border-radius:7px; background:transparent; color:var(--ink-2); cursor:pointer; }
+.subtab.is-current { background:var(--surface); color:var(--ink); box-shadow:0 1px 3px rgba(10,35,27,.12); }
+.cmap-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:12px; }
+.cmap { min-width:0; padding:15px; border:1px solid var(--line); border-radius:10px; background:var(--surface); }
+.cmap-head,.cmap-foot { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+.cmap-head { padding-bottom:10px; border-bottom:1px solid var(--line); }
+.cid,.cmap-main { margin:0; } .cid { color:var(--muted); font-size:11px; font-weight:700; letter-spacing:.05em; }
+.cmap-main { margin-top:2px; font-size:18px; line-height:1.35; }
+.c-count { flex:none; text-align:right; font-size:12px; color:var(--ink-2); }
+.itree { display:grid; gap:7px; margin:11px 0; }
+.i-kws { display:flex; gap:5px; align-items:center; flex-wrap:wrap; }
+.i-label { width:86px; color:var(--muted); font-size:11px; }
+.kwchip { padding:3px 7px; border:1px solid var(--line); border-radius:999px; background:transparent; color:var(--ink); font:inherit; font-size:12px; cursor:pointer; }
+.kwchip:hover,.kwchip:focus-visible { border-color:var(--accent); color:var(--accent); }
+.kwrest { color:var(--muted); font-size:11px; }
+.cmap-foot { align-items:center; padding-top:10px; border-top:1px solid var(--line); color:var(--ink-2); font-size:12px; }
+.cmap-acts { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.dfs-head { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+.dfs-kw { margin:0 0 5px; font-size:22px; font-weight:700; }.dfs-sub { margin:0; }
+.dfs-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin:12px 0; }
+.dfs-metric { margin:0; padding:10px; background:var(--surface-2); border-radius:7px; }
+.dfs-metric dt { color:var(--muted); font-size:11px; }.dfs-metric dd { margin:4px 0 0; font-weight:650; overflow-wrap:anywhere; }
+.dfs-metric.is-unknown dd,.unknown { color:var(--muted); }
+.dfs-terms { margin:7px 0; color:var(--ink-2); font-size:12px; line-height:1.5; }
+.dfs-terms.is-fixture { padding:8px 10px; border-left:3px solid var(--info); background:var(--surface-2); }
+.dfs-none { color:var(--muted); }.paa,.rel { margin:6px 0; }.url { overflow-wrap:anywhere; }
+.table-scroll { overflow:auto; }.table-card table { width:100%; border-collapse:collapse; }
+.table-card th,.table-card td { padding:9px 10px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }
+
+@media (max-width: 900px) {
+  .lanes,.cmap-grid { grid-template-columns:1fr 1fr; }
+  .dfs-grid { grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .account-head,.dfs-head,.cmap-head,.cmap-foot { display:block; }
+  .lanes { grid-template-columns:1fr 1fr; gap:6px; }
+  .cmap-grid,.dfs-grid { grid-template-columns:1fr; }
+  .lane { padding:8px; }
+  .lane-n { font-size:18px; }.subtabs { width:100%; }.subtab { padding:9px 6px; }
+  .c-count { margin-top:6px; text-align:left; }.cmap-acts { margin-top:8px; }
 }

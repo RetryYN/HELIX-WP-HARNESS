@@ -32,7 +32,7 @@ for (const path of requiredFiles) if (!existsSync(resolve(root, path))) fail(`mi
 const projection = readJson("docs/requirements/discovery/candidate-projection.json");
 if (projection.canonical !== false) fail("L2 projection must remain non-canonical");
 if (projection.compile_status === "completed" && !projection.agreement) fail("compile completed without human agreement");
-if (!projection.prototype_revision_ids.includes("WP-PROT-UI-02-r3")) fail("current HTML prototype missing from projection");
+if (!projection.prototype_revision_ids.includes("WP-PROT-UI-02-r4")) fail("current HTML prototype missing from projection");
 const events = readFileSync(resolve(root, "docs/requirements/discovery/events.jsonl"), "utf8").trim().split("\n").map((line, index) => {
   try { return JSON.parse(line); } catch { fail(`invalid JSON event line ${index + 1}`); }
 });
