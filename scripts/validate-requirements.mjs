@@ -27,7 +27,8 @@ const requiredFiles = [
   "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md",
   "docs/prototypes/wp-ops-dashboard/index.html", "docs/prototypes/wp-ops-dashboard/styles.css",
   "docs/prototypes/wp-ops-dashboard/app.js", "docs/prototypes/wp-ops-dashboard/prototype-home.png",
-  "docs/prototypes/wp-ops-dashboard/prototype-mobile.png",
+  "docs/prototypes/wp-ops-dashboard/prototype-keyword-map.png", "docs/prototypes/wp-ops-dashboard/prototype-dataforseo.png",
+  "docs/prototypes/wp-ops-dashboard/prototype-mobile.png", "docs/prototypes/wp-ops-dashboard/render-evidence.json",
   "docs/design/harness/L1-requirements/screen-requirements.md",
   "docs/design/harness/L2-screen/screen-list.md", "docs/design/harness/L2-screen/screen-flow.md",
   "docs/design/harness/L2-screen/ui-element.md", "docs/design/harness/L2-screen/wireframe.md",
@@ -87,6 +88,28 @@ const currentPrototypeId = events.filter((event) => event.event_type === "protot
 if (!currentPrototypeId || !projection.prototype_revision_ids.includes(currentPrototypeId)) fail("current HTML prototype missing from projection");
 for (const path of ["docs/prototypes/wp-ops-dashboard/README.md", "docs/prototypes/wp-ops-dashboard/index.html", "docs/prototypes/wp-ops-dashboard/app.js"]) {
   if (!readFileSync(resolve(root, path), "utf8").includes(currentPrototypeId)) fail(`prototype artifact revision drift ${path}`);
+}
+const renderEvidence = readJson("docs/prototypes/wp-ops-dashboard/render-evidence.json");
+exactKeys(renderEvidence, ["schema_version", "prototype_revision_id", "renderer", "generated_at", "captures"], "render evidence");
+if (renderEvidence.prototype_revision_id !== currentPrototypeId || !renderEvidence.renderer || !renderEvidence.generated_at) fail("render evidence revision/renderer missing");
+unique(renderEvidence.captures.map((capture) => capture.path), "render evidence path");
+const expectedRenderPaths = new Set([
+  "docs/prototypes/wp-ops-dashboard/prototype-home.png",
+  "docs/prototypes/wp-ops-dashboard/prototype-keyword-map.png",
+  "docs/prototypes/wp-ops-dashboard/prototype-dataforseo.png",
+  "docs/prototypes/wp-ops-dashboard/prototype-mobile.png",
+]);
+if (renderEvidence.captures.length !== expectedRenderPaths.size || renderEvidence.captures.some((capture) => !expectedRenderPaths.has(capture.path))) {
+  fail("render evidence capture set mismatch");
+}
+for (const capture of renderEvidence.captures) {
+  exactKeys(capture, ["path", "route", "width", "height", "sha256"], `render evidence ${capture.path}`);
+  if (!capture.path.startsWith("docs/prototypes/wp-ops-dashboard/") || !capture.route || !existsSync(resolve(root, capture.path))) fail(`invalid render evidence target ${capture.path}`);
+  const bytes = readFileSync(resolve(root, capture.path));
+  const digest = createHash("sha256").update(bytes).digest("hex");
+  if (digest !== capture.sha256) fail(`stale render evidence ${capture.path}`);
+  if (bytes.length < 24 || bytes.toString("hex", 0, 8) !== "89504e470d0a1a0a") fail(`render evidence is not PNG ${capture.path}`);
+  if (bytes.readUInt32BE(16) !== capture.width || bytes.readUInt32BE(20) !== capture.height) fail(`render evidence dimension drift ${capture.path}`);
 }
 const poAgreementEvents = events.filter((event) =>
   event.event_type === "prototype_reaction_recorded" &&

@@ -105,8 +105,14 @@ PO reactionは`docs/requirements/discovery/events.jsonl`へ追記し、accepted 
 
 ## Render evidence
 
-- `prototype-home.png` — 1440×1100 Chrome headless
-- `prototype-mobile.png` — 390×1100 Chrome headless
+- `prototype-home.png` — 判断ホーム、1440×1100 Chrome headless
+- `prototype-keyword-map.png` — KW map、1440×1100 Chrome headless
+- `prototype-dataforseo.png` — DataForSEO取得値一覧、1440×1100 Chrome headless
+- `prototype-mobile.png` — KW map、390×1100 Chrome headless
+
+各画像のroute、寸法、renderer、SHA-256は`render-evidence.json`へ固定する。
+`requirements:validate`が画像bytes・PNG寸法・prototype revisionとの一致を検査するため、
+画面変更後に古いrender evidenceを残すとCIは失敗する。
 
 ```bash
 google-chrome --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \

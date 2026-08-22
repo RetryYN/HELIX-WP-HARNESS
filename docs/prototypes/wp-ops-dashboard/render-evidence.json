@@ -1,0 +1,36 @@
+{
+  "schema_version": "wp-prototype-render-evidence.v1",
+  "prototype_revision_id": "WP-PROT-UI-02-r4",
+  "renderer": "Google Chrome 151.0.7922.173",
+  "generated_at": "2026-08-23T07:15:14+09:00",
+  "captures": [
+    {
+      "path": "docs/prototypes/wp-ops-dashboard/prototype-home.png",
+      "route": "#/home?state=normal&t=decide",
+      "width": 1440,
+      "height": 1100,
+      "sha256": "7fa22a78b94cf85a53951609556371bdcc290e5d846b69dbe68be9754df89ed1"
+    },
+    {
+      "path": "docs/prototypes/wp-ops-dashboard/prototype-keyword-map.png",
+      "route": "#/articles?state=normal&v=map&l=assigned",
+      "width": 1440,
+      "height": 1100,
+      "sha256": "f043770996589bb0bddb31b7b7e131b0836c652985720b3da755405a9c49ae83"
+    },
+    {
+      "path": "docs/prototypes/wp-ops-dashboard/prototype-dataforseo.png",
+      "route": "#/articles?state=normal&v=dfs&k=ひとり起業%20始め方",
+      "width": 1440,
+      "height": 1100,
+      "sha256": "50b319c96bf98401ff6b3d8ae7386bc24db12a121a5f2e653d307825c6603773"
+    },
+    {
+      "path": "docs/prototypes/wp-ops-dashboard/prototype-mobile.png",
+      "route": "#/articles?state=normal&v=map&l=assigned",
+      "width": 390,
+      "height": 1100,
+      "sha256": "613d51716177beed793f45f1bdef5eeac95c642ce18f2fb21d47c2bf93a40103"
+    }
+  ]
+}
