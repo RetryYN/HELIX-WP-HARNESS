@@ -26,6 +26,14 @@ dependencies:
   parent: docs/planning/l1-plan-autonomous-wp-harness.md
   requires: []
 review_evidence: []
+consumer_setup_boundary_record:
+  - allowed_outcome: start_project_plan
+  - project_setup_state: .helix/state/project-setup.json
+  - objective_boundary_scope: consumer_setup_readiness_not_whole_program_completion
+  - completion_claim_allowed: false
+  - first_run_completion_packet: "npm run helix -- completion decision-packet --json（2026-08-22実行、completionClaimAllowed=false）"
+  - first_project_plan_or_handover_route: PLAN-L2-001-s1-draft-post-requirements
+  - acceptance_evidence_plan: "本PLANのgenerated artifact、provider handover、cross-agent review evidenceを順次記録する"
 ---
 
 # S1 最小運用タスク（WordPress下書き投稿）の要求化

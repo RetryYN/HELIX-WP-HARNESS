@@ -42,7 +42,8 @@ dry-runのClaude reviewerに表示される`model_family=codex`はprovider誤配
 
 ## 次アクション
 
-1. HELIX-HARNESS側でconsumer実行時authority解決を修正する。
-2. 修正版pinへ`helix version-up dry-run`を経て更新する。
+1. HELIX-HARNESSはread-only参照専用とし、本リポジトリから編集しない。
+2. 上流所有者がconsumer実行時authority解決を修正した場合だけ、修正版pinへ
+   `helix version-up dry-run`を経て更新する。
 3. 同じworker contextでClaude read-onlyレビューを再実行する。
 4. `review_kind=cross_agent`、`worker_model`、`reviewer_model`、`verdict`をPLANへ記録する。
