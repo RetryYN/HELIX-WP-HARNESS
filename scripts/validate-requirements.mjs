@@ -129,6 +129,12 @@ for (const requirement of ir.requirements) {
   const decisionKeys = requirement.pending_resolution ? ["pending_resolution"] : [];
   exactKeys(requirement, [...commonKeys, ...conditionalKeys, ...decisionKeys], `requirement ${requirement.id}`);
   if (!requirementStatuses.has(requirement.status)) fail(`unknown requirement status ${requirement.status} at ${requirement.id}`);
+  if (requirement.status === "specified" && (ir.compile_result !== "completed" || !projection.agreement)) {
+    fail(`${requirement.id} claims specified without completed compile and L2 agreement`);
+  }
+  if (requirement.status === "frozen" && (ir.compile_result !== "completed" || ir.freeze.g3 !== "frozen")) {
+    fail(`${requirement.id} claims frozen without completed compile and G3 freeze`);
+  }
   if (requirement.pending_resolution && !["candidate_inventory", "human_decision_required"].includes(requirement.status)) {
     fail(`${requirement.id} has pending decisions in incompatible status ${requirement.status}`);
   }
