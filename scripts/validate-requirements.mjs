@@ -88,6 +88,7 @@ if (ir.authority === "canonical" && ir.compile_result !== "completed") fail("can
 if (ir.freeze.g3 === "frozen" && (!projection.agreement || projection.compile_status !== "completed")) fail("G3 freeze without agreement");
 if (ir.compile_result === "not_requested" && ir.requirements.some((requirement) => ["specified", "frozen"].includes(requirement.status))) fail("specified requirement before L3 compile request");
 const requirementIds = unique(ir.requirements.map((requirement) => requirement.id), "requirement id");
+const requirementStatuses = new Set(["candidate_inventory", "human_decision_required", "specified", "frozen"]);
 for (const candidate of projection.candidates) for (const id of candidate.requirement_ids) {
   if (!requirementIds.has(id)) fail(`projection references unknown requirement ${id}`);
 }
@@ -127,6 +128,7 @@ for (const requirement of ir.requirements) {
   const conditionalKeys = requirement.surface_ids?.length ? [] : ["non_ui_na"];
   const decisionKeys = requirement.pending_resolution ? ["pending_resolution"] : [];
   exactKeys(requirement, [...commonKeys, ...conditionalKeys, ...decisionKeys], `requirement ${requirement.id}`);
+  if (!requirementStatuses.has(requirement.status)) fail(`unknown requirement status ${requirement.status} at ${requirement.id}`);
   if (requirement.pending_resolution && !["candidate_inventory", "human_decision_required"].includes(requirement.status)) {
     fail(`${requirement.id} has pending decisions in incompatible status ${requirement.status}`);
   }
