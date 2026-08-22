@@ -23,8 +23,11 @@ const requiredFiles = [
   "docs/requirements/l2/screen-list.md", "docs/requirements/l2/screen-flow.md", "docs/requirements/l2/ui-element.md",
   "docs/requirements/l2/wireframe.md", "docs/test-design/l10-system-acceptance-test-design.md",
   "docs/requirements/l3/coverage-gaps.json",
-  "docs/requirements/discovery/s1-acceptance-mapping.json",
+  "docs/requirements/discovery/deferred-requirements.json", "docs/requirements/discovery/s1-acceptance-mapping.json",
   "docs/test-design/l11-user-acceptance-test-design.md", "docs/test-design/l12-operational-value-test-design.md",
+  "docs/prototypes/wp-ops-dashboard/index.html", "docs/prototypes/wp-ops-dashboard/styles.css",
+  "docs/prototypes/wp-ops-dashboard/app.js", "docs/prototypes/wp-ops-dashboard/prototype-home.png",
+  "docs/prototypes/wp-ops-dashboard/prototype-mobile.png",
   "docs/design/harness/L1-requirements/screen-requirements.md",
   "docs/design/harness/L2-screen/screen-list.md", "docs/design/harness/L2-screen/screen-flow.md",
   "docs/design/harness/L2-screen/ui-element.md", "docs/design/harness/L2-screen/wireframe.md",
@@ -69,6 +72,7 @@ for (const [index, wpRow] of wpScreenRows.entries()) {
 const projection = readJson("docs/requirements/discovery/candidate-projection.json");
 if (projection.canonical !== false) fail("L2 projection must remain non-canonical");
 if (projection.compile_status === "completed" && !projection.agreement) fail("compile completed without human agreement");
+if (!projection.prototype_revision_ids.includes("WP-PROT-UI-02-r4")) fail("current HTML prototype missing from projection");
 const events = readFileSync(resolve(root, "docs/requirements/discovery/events.jsonl"), "utf8").trim().split("\n").map((line, index) => {
   try { return JSON.parse(line); } catch { fail(`invalid JSON event line ${index + 1}`); }
 });
@@ -78,9 +82,36 @@ events.forEach((event, index) => {
   if (event.initiative_id !== projection.initiative_id) fail(`initiative mismatch at ${event.event_id}`);
 });
 if (events.length !== projection.event_count || events.at(-1)?.event_id !== projection.event_head) fail("projection event head/count mismatch");
+const generatedPrototypeIds = new Set(events.filter((event) => event.event_type === "prototype_generated").map((event) => event.payload?.prototype_id));
+const recordedReactionIds = new Set(events.filter((event) => event.event_type === "prototype_reaction_recorded").map((event) => event.payload?.reaction_id));
+const currentPrototypeId = events.filter((event) => event.event_type === "prototype_generated").at(-1)?.payload?.prototype_id;
+const poAgreementEvents = events.filter((event) =>
+  event.event_type === "prototype_reaction_recorded" &&
+  event.actor?.kind === "po" &&
+  event.payload?.agreement === true &&
+  event.payload?.prototype_id === currentPrototypeId
+);
+for (const id of projection.prototype_revision_ids) if (!generatedPrototypeIds.has(id)) fail(`prototype revision lacks generation event ${id}`);
+for (const id of projection.reaction_ids) if (!recordedReactionIds.has(id)) fail(`reaction lacks event ${id}`);
+for (const id of recordedReactionIds) if (!projection.reaction_ids.includes(id)) fail(`reaction event missing from projection ${id}`);
+const agreementClaimed = Boolean(projection.agreement) || projection.convergence?.human_prototype_agreement === true;
+if (agreementClaimed && poAgreementEvents.length === 0) fail(`human prototype agreement lacks PO agreement event for ${currentPrototypeId}`);
+if (!agreementClaimed && poAgreementEvents.length > 0) fail(`PO agreement event for ${currentPrototypeId} is missing from projection agreement state`);
 for (const candidate of projection.candidates) {
   for (const source of candidate.source_event_ids) if (!eventIds.has(source)) fail(`unknown event ${source}`);
   if (candidate.state === "frozen") fail(`L2 candidate cannot be frozen: ${candidate.candidate_id}`);
+}
+const deferred = readJson("docs/requirements/discovery/deferred-requirements.json");
+exactKeys(deferred, ["schema_version", "initiative_id", "authority", "reentry_condition", "requirements"], "deferred requirements");
+if (deferred.initiative_id !== projection.initiative_id || deferred.authority !== "l2_backflow_inventory") fail("invalid deferred requirement authority");
+const deferredIds = unique(deferred.requirements.map((item) => item.id), "deferred requirement id");
+for (const item of deferred.requirements) {
+  exactKeys(item, ["id", "candidate_id", "source", "statement", "disposition"], `deferred requirement ${item.id}`);
+  if (!projection.candidates.some((candidate) => candidate.candidate_id === item.candidate_id && candidate.requirement_ids.includes(item.id))) fail(`deferred requirement missing from projection ${item.id}`);
+  if (item.disposition !== "deferred_until_l3_compile" || !item.source || !item.statement) fail(`invalid deferred requirement ${item.id}`);
+}
+for (const candidate of projection.candidates) for (const id of candidate.requirement_ids) {
+  if (id.startsWith("WP-DEFER-") && !deferredIds.has(id)) fail(`projection references unknown deferred requirement ${id}`);
 }
 const ir = readJson("docs/requirements/l3/requirements-ir.json");
 exactKeys(ir, ["schema_version", "initiative_id", "authority", "source_authority", "compile_result", "freeze", "actors", "requirements"], "IR");
@@ -90,7 +121,7 @@ if (ir.compile_result === "not_requested" && ir.requirements.some((requirement) 
 const requirementIds = unique(ir.requirements.map((requirement) => requirement.id), "requirement id");
 const requirementStatuses = new Set(["candidate_inventory", "human_decision_required", "specified", "frozen"]);
 for (const candidate of projection.candidates) for (const id of candidate.requirement_ids) {
-  if (!requirementIds.has(id)) fail(`projection references unknown requirement ${id}`);
+  if (!id.startsWith("WP-DEFER-") && !requirementIds.has(id)) fail(`projection references unknown requirement ${id}`);
 }
 const l1SourceFiles = [
   "docs/requirements/l1/business.md",

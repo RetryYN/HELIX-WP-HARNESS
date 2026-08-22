@@ -2,23 +2,24 @@
   "schema_version": "wp-requirement-candidate-projection.v1",
   "canonical": false,
   "initiative_id": "WP-AUTONOMOUS-OPS",
-  "event_head": "WP-EVT-0009",
-  "event_count": 9,
+  "event_head": "WP-EVT-0019",
+  "event_count": 19,
   "candidates": [
     {"candidate_id":"WP-CAND-KW","state":"accepted","source_event_ids":["WP-EVT-0002","WP-EVT-0005"],"requirement_ids":["WP-FR-KW-01","WP-FR-KW-02","WP-FR-KW-03"]},
     {"candidate_id":"WP-CAND-DOC","state":"accepted","source_event_ids":["WP-EVT-0003","WP-EVT-0005"],"requirement_ids":["WP-FR-DOC-01","WP-FR-DOC-02"]},
-    {"candidate_id":"WP-CAND-POST","state":"elicited","source_event_ids":["WP-EVT-0004","WP-EVT-0007"],"requirement_ids":["WP-FR-POST-01","WP-FR-POST-02"]},
-    {"candidate_id":"WP-CAND-UI","state":"prototyped","source_event_ids":["WP-EVT-0006","WP-EVT-0008"],"requirement_ids":["WP-FR-UI-01","WP-FR-AUDIT-01"]},
-    {"candidate_id":"WP-CAND-QUALITY","state":"elicited","source_event_ids":["WP-EVT-0009"],"requirement_ids":["WP-NFR-PRIV-01","WP-NFR-PERM-01","WP-NFR-LEGAL-01","WP-NFR-OBS-01","WP-NFR-A11Y-01","WP-NFR-REC-01"]}
+    {"candidate_id":"WP-CAND-POST","state":"accepted","source_event_ids":["WP-EVT-0004","WP-EVT-0007","WP-EVT-0010","WP-EVT-0011","WP-EVT-0012"],"requirement_ids":["WP-FR-POST-01","WP-FR-POST-02","WP-FR-POST-03"]},
+    {"candidate_id":"WP-CAND-UI","state":"prototyped","source_event_ids":["WP-EVT-0006","WP-EVT-0008","WP-EVT-0013","WP-EVT-0015","WP-EVT-0016","WP-EVT-0017","WP-EVT-0018","WP-EVT-0019"],"requirement_ids":["WP-FR-UI-01","WP-FR-AUDIT-01"]},
+    {"candidate_id":"WP-CAND-QUALITY","state":"elicited","source_event_ids":["WP-EVT-0009"],"requirement_ids":["WP-NFR-PRIV-01","WP-NFR-PERM-01","WP-NFR-LEGAL-01","WP-NFR-OBS-01","WP-NFR-A11Y-01","WP-NFR-REC-01","WP-NFR-CRED-01"]},
+    {"candidate_id":"WP-CAND-EVIDENCE","state":"typed_defer","source_event_ids":["WP-EVT-0014"],"requirement_ids":["WP-DEFER-EVIDENCE-01"]},
+    {"candidate_id":"WP-CAND-WRITING","state":"typed_defer","source_event_ids":["WP-EVT-0014"],"requirement_ids":["WP-DEFER-WRITING-01"]},
+    {"candidate_id":"WP-CAND-DATA-CONTRACT","state":"typed_defer","source_event_ids":["WP-EVT-0014"],"requirement_ids":["WP-DEFER-WRITER-01","WP-DEFER-DERIVED-STATE-01"]}
   ],
   "question_ids": ["WP-Q-POST-01","WP-Q-POST-02","WP-Q-UI-01"],
-  "answered_question_ids": [],
-  "prototype_revision_ids": ["WP-PROT-UI-01-r1"],
-  "reaction_ids": [],
+  "answered_question_ids": ["WP-Q-POST-01","WP-Q-POST-02"],
+  "prototype_revision_ids": ["WP-PROT-UI-01-r1","WP-PROT-UI-02-r1","WP-PROT-UI-02-r2","WP-PROT-UI-02-r3","WP-PROT-UI-02-r4"],
+  "reaction_ids": ["WP-POC-REACTION-01","WP-REACTION-UI-01","WP-REACTION-UI-02"],
   "unresolved": [
-    {"id":"WP-Q-POST-01","owner":"PO","question":"S1最小単位はdraft保存までか、公開までか","reentry":"PO回答をeventへ追記"},
-    {"id":"WP-Q-POST-02","owner":"PO/TL","question":"idempotency key形式と保持期間","reentry":"方式候補と運用制約を確認"},
-    {"id":"WP-Q-UI-01","owner":"PO","question":"low-fi prototypeの判断情報と導線を受け入れるか","reentry":"reaction checklistへの回答"}
+    {"id":"WP-Q-UI-01","owner":"PO","question":"簡素化したHTML prototype WP-PROT-UI-02-r4の判断情報・キーワードマップ・DataForSEO証跡・公開条件・導線を受け入れるか","reentry":"HTMLを操作しreaction checklistへ回答"}
   ],
   "agreement": null,
   "compile_status": "backflow_required",

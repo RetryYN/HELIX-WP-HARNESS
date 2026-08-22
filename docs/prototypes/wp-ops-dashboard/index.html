@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex">
+  <title>WP Operations — L2 画面prototype (WP-PROT-UI-02-r4)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#view-region">本文へ移動</a>
+
+  <div class="app">
+    <!-- ─────────── 左レール / mobileでは上部バー ─────────── -->
+    <aside class="rail">
+      <div class="rail-brand">
+        <span class="brand-mark" aria-hidden="true">WP</span>
+        <span class="brand-text">
+          <strong>WP Operations</strong>
+          <small>solobiz-lab.com</small>
+        </span>
+      </div>
+
+      <nav class="rail-nav" aria-label="主要画面">
+        <div class="tablist" role="tablist" aria-orientation="vertical" id="primary-nav"></div>
+      </nav>
+
+      <div class="rail-foot">
+        <p class="rail-foot-body" id="rail-runtime">
+          <span class="dot dot-ok" aria-hidden="true"></span>
+          <span><strong>正常</strong><small>次回取得 8月24日 03:00</small></span>
+        </p>
+      </div>
+    </aside>
+
+    <div class="content">
+      <!-- ─────────── prototype操作バー（製品UIではない） ─────────── -->
+      <div class="sim" role="region" aria-label="prototype表示状態の切替">
+        <span class="sim-tag">PROTOTYPE</span>
+        <div class="sim-switch" role="radiogroup" aria-label="表示状態" id="state-switch"></div>
+      </div>
+
+      <!-- ─────────── 画面ヘッダ ─────────── -->
+      <header class="topbar">
+        <div class="topbar-main">
+          <h1 id="page-title">判断ホーム</h1>
+          <p class="question" id="page-question">今、判断が必要か。運転は正常か</p>
+        </div>
+        <div class="topbar-side">
+          <div class="freshness" id="freshness-badge"></div>
+        </div>
+      </header>
+
+      <main id="view-region" tabindex="-1">
+        <div id="view-mount"></div>
+      </main>
+
+      <footer class="page-foot">
+        <p>WP-PROT-UI-02-r4 · fixture表示のみ。外部通信・本番write・credential保持は行いません。</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- ─────────── 公開可能条件 / 承認 dialog ─────────── -->
+  <dialog id="publish-dialog" aria-labelledby="publish-dialog-title">
+    <div class="dlg" id="publish-dialog-body"></div>
+  </dialog>
+
+  <!-- ─────────── 理由入力を伴う汎用confirm dialog ─────────── -->
+  <dialog id="reason-dialog" aria-labelledby="reason-dialog-title">
+    <div class="dlg" id="reason-dialog-body"></div>
+  </dialog>
+
+  <!-- ─────────── 証跡 dialog ─────────── -->
+  <dialog id="evidence-dialog" aria-labelledby="evidence-dialog-title">
+    <div class="dlg" id="evidence-dialog-body"></div>
+  </dialog>
+
+  <!-- ─────────── KW詳細（DataForSEO）drawer dialog ─────────── -->
+  <dialog id="kw-dialog" class="drawer" aria-labelledby="kw-dialog-title">
+    <div class="dlg" id="kw-dialog-body"></div>
+  </dialog>
+
+  <div class="toast-wrap">
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  <p id="live-region" class="sr-only" role="status" aria-live="polite"></p>
+
+  <script src="app.js"></script>
+</body>
+</html>

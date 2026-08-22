@@ -3,15 +3,15 @@ layer: L2
 sub_doc: wireframe
 status: candidate_projection
 source_authority: docs/requirements/l2/wireframe.md
-source_sha256: fc267682a5e3b99c873c41fc546e2e446ed9203019aeea8dcfa7fb174d4b9878
+source_sha256: c4d08b9458d8a16352350555b1a22f32a4019bec75a2d4718897984b0ac411e9
 pair_artifact: self
 ---
 
 # HELIX L2 wireframe compatibility projection
 
-現行wireframeの正本は`docs/requirements/l2/wireframe.md`（WP-PROT-UI-01-r1）。
-このPRはHTML prototypeを含まない。この文書はHELIX readerとの互換projectionであり、
-PO agreementまたはG2 freezeを表さない。
+wireframeの正本は`docs/requirements/l2/wireframe.md`であり、確認用HTML prototypeは
+`docs/prototypes/wp-ops-dashboard/index.html`（WP-PROT-UI-02-r4）である。この文書は
+HELIX readerとの互換projectionであり、PO agreementまたはG2 freezeを表さない。
 
 ### PM-01 / WP-UI-01 判断ホーム
 

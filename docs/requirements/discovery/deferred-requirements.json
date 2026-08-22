@@ -1,0 +1,12 @@
+{
+  "schema_version": "wp-deferred-requirements.v1",
+  "initiative_id": "WP-AUTONOMOUS-OPS",
+  "authority": "l2_backflow_inventory",
+  "reentry_condition": "PO records agreement for the current HTML prototype and requests L3 compile",
+  "requirements": [
+    {"id":"WP-DEFER-EVIDENCE-01","candidate_id":"WP-CAND-EVIDENCE","source":"docs/requirements/l2-req-slice1-keyword-to-article.md#r2","statement":"記事中の検証可能な事実を {value, source:{api,ref,fetched_at}, estimated} で表現し、全事実nodeにsourceがある場合だけcontent gateをgreenにする","disposition":"deferred_until_l3_compile"},
+    {"id":"WP-DEFER-WRITING-01","candidate_id":"WP-CAND-WRITING","source":"docs/requirements/l2-req-slice1-keyword-to-article.md#r5","statement":"タイトル36字以内、main KWを先頭13字以内、lead 300〜500字、同一文末3連続禁止を含むPO writing regulationをversion付き決定論gateとして適用する","disposition":"deferred_until_l3_compile"},
+    {"id":"WP-DEFER-WRITER-01","candidate_id":"WP-CAND-DATA-CONTRACT","source":"docs/requirements/l2-req-r6-dashboard.md#2.1","statement":"正本表ごとのwriterを単一moduleへ固定し、UIを含む他moduleはappend-only operation以外で状態を変更できない","disposition":"deferred_until_l3_compile"},
+    {"id":"WP-DEFER-DERIVED-STATE-01","candidate_id":"WP-CAND-DATA-CONTRACT","source":"docs/requirements/l2-req-r6-dashboard.md#2.5","statement":"運転状態を正本eventと規則versionから導出し、正本表へ手書き状態列を保持しない","disposition":"deferred_until_l3_compile"}
+  ]
+}
