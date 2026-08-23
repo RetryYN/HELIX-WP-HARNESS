@@ -6,6 +6,7 @@ import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { buildDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
 import { categoryPathForKeywords, categoryPathsForIds, wpCategoryTaxonomy } from "./keyword-category-taxonomy.mjs";
+import { primaryQueryScore, primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
 
 assert.equal(wpCategoryTaxonomy.length,17);
 assert.deepEqual(categoryPathForKeywords(["it 就活 文系"]),["IT就活","文系就活"]);
@@ -14,6 +15,14 @@ assert.deepEqual(categoryPathForKeywords(["it 就活 企業 ランキング"]),[
 assert.deepEqual(categoryPathForKeywords(["it 就活エージェント 比較"]),["IT就活エージェント","比較・ランキング"]);
 assert.deepEqual(categoryPathsForIds([6,5]),[["就活対策","キャリア"]]);
 assert.deepEqual(categoryPathsForIds([1,9]),[["就活対策","面接対策"],["IT就活"]]);
+const rankingFixture=[
+  {query:"高表示",normalized_query:"高表示",clicks:0,impressions:53,position:2},
+  {query:"少数クリック",normalized_query:"少数クリック",clicks:1,impressions:3,position:1},
+  {query:"均衡",normalized_query:"均衡",clicks:1,impressions:9,position:3},
+];
+assert.equal(primaryQueryStats(rankingFixture).impression_p95,53);
+assert.equal(rankPrimaryQueries(rankingFixture,14)[0].query,"均衡","one click plus meaningful impressions should beat impressions alone");
+assert.ok(primaryQueryScore(rankingFixture[0],14)>primaryQueryScore(rankingFixture[1],14),"tiny-sample CTR must not dominate a high-impression query");
 
 const dbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-db-")), "dashboard.sqlite");
 buildDashboardDb({ dbPath, fixturePath: path.resolve("docs/prototypes/wp-ops-dashboard/data.json"), artifactRoot: path.resolve("artifacts/poc") }).close();
@@ -39,6 +48,14 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,hasGscEvidence?318:0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE source_file = '' OR window_days != 7").get().count,0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE normalized_query = ''").get().count,0);
+if(hasGscEvidence){
+  const actual=projectDashboard(pocDb);
+  assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");
+  assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),318,"details must retain every observed GSC query");
+  assert.equal(actual.article_query_summaries.filter((row)=>row.primary_query).length,48);
+  assert.equal(actual.article_query_summaries.filter((row)=>!row.primary_query).length,11,"unobserved articles must remain visible");
+  assert.equal(actual.primary_query_ranking["it-shukatu.com"].impression_p95,14,"ranking threshold must be derived per site from actual GSC distribution");
+}
 pocDb.close();
 
 const hierarchyRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-category-"));
@@ -106,10 +123,13 @@ assert.match(app, /visibleRows=rows\.slice/);
 assert.match(app, /categoryDepth=Math\.max/);
 assert.match(app, /category-grandchild-head/);
 assert.match(app, /syncCategoryFilters/);
-assert.match(app, /data\.article_queries/);
+assert.match(app, /data\.article_query_summaries/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
 assert.match(app, /empty\.hidden=rows\.length>0/);
+assert.match(html, /id="query-detail-dialog"/);
+assert.match(html, /<th>主クエリ<\/th>/);
+assert.match(app, /renderQueryDetail/);
 assert.doesNotMatch(app, /内包:\s*\$\{row\.group\.intent_keywords/, "contained keyword text must only appear in detail view");
 await stop(server);
 console.log("persistent SQLite→API→frontend contract: OK (DFS raw provenance, restart persistence, site isolation, strategy, gates, no fabricated links)");
