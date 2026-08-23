@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 
 const keywordPath="artifacts/poc/keyword-workbook-100-live/result.json";
-const gscSummaryPath="artifacts/poc/gsc-page-query-7d-summary.json";
+const gscSummaryPath="artifacts/poc/gsc-page-query-28d-summary.json";
 assert.ok(existsSync(keywordPath),"100-keyword real DFS result is required");
 assert.ok(existsSync(gscSummaryPath),"GSC real-data attestation is required");
 const keyword=JSON.parse(readFileSync(keywordPath,"utf8"));
@@ -14,6 +14,7 @@ assert.equal(new Set(keyword.tasks.map((row)=>row.source_keyword_id)).size,100,"
 assert.equal(gsc.schema_version,"wp-gsc-page-query-poc-summary.v1");
 assert.equal(gsc.articles,59);
 assert.equal(gsc.articles_ok+gsc.articles_error,gsc.articles);
-assert.equal(gsc.query_rows,318);
+assert.equal(gsc.window_days,28);
+assert.equal(gsc.query_rows,681);
 assert.match(gsc.local_evidence_tree_sha256,/^[a-f0-9]{64}$/);
-console.log("required PoC evidence: OK (DFS 100 real KW / 67 groups, GSC 59 articles / 318 queries)");
+console.log("required PoC evidence: OK (DFS 100 real KW / 67 groups, GSC 59 articles / 681 queries over 28 days)");

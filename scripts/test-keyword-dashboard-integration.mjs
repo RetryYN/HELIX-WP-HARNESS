@@ -33,7 +33,7 @@ assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE sn
 persisted.close();
 
 const pocDbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-poc-db-")), "dashboard.sqlite");
-const hasGscEvidence=existsSync(path.resolve(".helix/evidence/gsc-page-query-7d/manifest.json"));
+const hasGscEvidence=existsSync(path.resolve(".helix/evidence/gsc-page-query-28d/manifest.json"));
 const buildPoc = spawnSync(process.execPath, ["scripts/build-keyword-dashboard-db.mjs"], { env: { ...process.env, WP_DASHBOARD_DB: pocDbPath, ...(!hasGscEvidence?{WP_ALLOW_EMPTY_GSC:"1"}:{}) }, encoding: "utf8" });
 assert.equal(buildPoc.status, 0, buildPoc.stderr);
 const missingEvidenceBuild=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:path.join(mkdtempSync(path.join(tmpdir(),"wp-dashboard-no-gsc-")),"dashboard.sqlite"),WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_ALLOW_EMPTY_GSC:"0"},encoding:"utf8"});
@@ -48,16 +48,16 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE a
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE group_id IN (SELECT group_id FROM keyword_groups WHERE site_id = 'it-shukatu.com')").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword GLOB 'topic-*' OR main_keyword GLOB 'keyword-*'").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,hasGscEvidence?59:0);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,hasGscEvidence?318:0);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE source_file = '' OR window_days != 7").get().count,0);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,hasGscEvidence?681:0);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE source_file = '' OR window_days != 28").get().count,0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE normalized_query = ''").get().count,0);
 if(hasGscEvidence){
   const actual=projectDashboard(pocDb);
   assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");
-  assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),318,"details must retain every observed GSC query");
-  assert.equal(actual.article_query_summaries.filter((row)=>row.primary_query).length,48);
-  assert.equal(actual.article_query_summaries.filter((row)=>!row.primary_query).length,11,"unobserved articles must remain visible");
-  assert.equal(actual.primary_query_ranking["it-shukatu.com"].impression_p95,14,"ranking threshold must be derived per site from actual GSC distribution");
+  assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),681,"details must retain every observed GSC query");
+  assert.equal(actual.article_query_summaries.filter((row)=>row.primary_query).length,52);
+  assert.equal(actual.article_query_summaries.filter((row)=>!row.primary_query).length,7,"unobserved articles must remain visible");
+  assert.equal(actual.primary_query_ranking["it-shukatu.com"].impression_p95,38,"ranking threshold must be derived per site from actual GSC distribution");
 }
 pocDb.close();
 

@@ -9,9 +9,9 @@ const require=createRequire(import.meta.url);
 const {connectGuarded}=require(guardModule);
 const siteUrl=process.env.WP_GSC_SITE_URL??"https://it-shukatu-college.com/";
 const siteId=process.env.WP_GSC_SITE_ID??"it-shukatu.com";
-const days=Number(process.env.WP_GSC_DAYS??7);
+const days=Number(process.env.WP_GSC_DAYS??28);
 const concurrency=Number(process.env.WP_GSC_CONCURRENCY??3);
-const outputDir=path.resolve(process.argv[2]??".helix/evidence/gsc-page-query-7d");
+const outputDir=path.resolve(process.argv[2]??".helix/evidence/gsc-page-query-28d");
 
 async function wpPosts(){
   const rows=[];

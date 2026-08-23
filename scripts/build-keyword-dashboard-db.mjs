@@ -34,7 +34,7 @@ const fixture={...baseFixture,generated_at:poc.generated_at,groups:[...baseFixtu
 const fixturePath=path.resolve(".helix/keyword-dashboard-runtime.json");
 mkdirSync(path.dirname(fixturePath),{recursive:true});
 await import("node:fs/promises").then(({writeFile})=>writeFile(fixturePath,`${JSON.stringify(fixture,null,2)}\n`));
-const gscEvidencePath=path.resolve(process.env.WP_GSC_EVIDENCE??".helix/evidence/gsc-page-query-7d/manifest.json");
+const gscEvidencePath=path.resolve(process.env.WP_GSC_EVIDENCE??".helix/evidence/gsc-page-query-28d/manifest.json");
 const hasGscEvidence=existsSync(gscEvidencePath);
 if(!hasGscEvidence&&process.env.WP_ALLOW_EMPTY_GSC!=="1")throw new Error(`GSC evidence is required: ${gscEvidencePath}. Set WP_ALLOW_EMPTY_GSC=1 only for an explicit empty-state test.`);
 const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: path.resolve("artifacts/poc"), importedKeywords, gscEvidencePath:hasGscEvidence?gscEvidencePath:undefined });
