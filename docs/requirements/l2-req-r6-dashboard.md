@@ -141,10 +141,13 @@
 
 ### 3.4 AIO / LLMO
 
-- **問い**: 「AI に読まれているか」「AI 露出の打ち手はあるか」
-- 表示: KW×ai_overview 出現履歴（aio_observations）、llms.txt 状態（site_checks・検査日つき）、
+- **問い**: 「AIOによりorganicクリック余地が下がるKW群はどれか」「その条件でも施策する価値が
+  あるか」「AI に読まれているか」
+- 表示: KW×ai_overview 出現履歴・継続率（aio_observations）、AIO有無で補正した施策優先度と
+  期待クリック余地、検索Vol・商業性・期待CVの併記、llms.txt 状態（site_checks・検査日つき）、
   AI クローラー巡回推移（crawler_hits — 未実装期間は「未計測」と明示）。
 - 操作: なし（打ち手提案は承認キュー経由）。
+- 受入: AIOは施策判断にだけ使用し、記事作成gate_runsのpass/fail条件へ混入させない。
 
 ### 3.5 内部リンク・売り場
 
