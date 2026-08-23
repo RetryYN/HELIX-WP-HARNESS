@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T11:21:35.500Z",
+  "generated_at": "2026-08-23T11:27:13.803Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -468,23 +468,19 @@
       ]
     ]
   },
-  "article_keyword_groups": [
+  "normalization_aliases": [
     {
-      "group_id": "poc-article-group-1",
-      "evidence": "likely_same_intent",
+      "canonical": "it就活サイト",
       "source_keyword_ids": [
         "4769dfab:IT就活:16",
         "4769dfab:IT就活:17"
       ],
-      "main_keyword": "it 就活サイト",
-      "sub_keywords": [
-        "it 就活 サイト"
-      ],
-      "normalized_keywords": [
+      "variants": [
         "it 就活サイト",
         "it 就活 サイト"
       ]
     }
   ],
-  "reproducibility_digest": "578d3e735d4eaa69c795784477df2a07bdf13bd4ae9096e103f641a1f3419441"
+  "article_keyword_groups": [],
+  "reproducibility_digest": "37a797ee8bd6838ab854435bafcc2e72aec08a37839760027abcdabd1df19c37"
 }

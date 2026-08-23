@@ -11,6 +11,7 @@
     "poc:keyword-serp:test": "node scripts/test-keyword-serp.mjs",
     "poc:keyword-serp": "node scripts/poc-keyword-serp.mjs",
     "poc:keyword-serp:evaluate": "node scripts/evaluate-keyword-serp.mjs",
+    "poc:keyword-intent-pair": "node scripts/poc-keyword-intent-pair.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
   },
