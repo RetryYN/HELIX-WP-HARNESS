@@ -13,7 +13,7 @@ const records = [
 const first = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 const second = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 assert.deepEqual(first, second);
-assert.deepEqual(first.clusters, [["a", "b"], ["c"], ["d"]]);
+assert.deepEqual(first.clusters, [["a", "b", "c"], ["d"]]);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "b").ratio, 1);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "c").intent_confidence, "possible");
 assert.equal(first.possible_pairs.length, 2);

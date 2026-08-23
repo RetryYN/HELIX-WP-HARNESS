@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T12:04:01.295Z",
+  "generated_at": "2026-08-23T12:59:47.163Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -126,7 +126,9 @@
       ],
       "raw_file": "raw/08231116-1317-0066-0000-3b748a72e76d.json",
       "response_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
-      "cost": 0.0006
+      "cost": 0.0006,
+      "search_volume_min": 100,
+      "search_volume_max": 1000
     },
     {
       "source_keyword_id": "bec89ab9:キーワード割り当て:8",
@@ -142,12 +144,14 @@
       ],
       "raw_file": "raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
       "response_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
-      "cost": 0.0006
+      "cost": 0.0006,
+      "search_volume_min": 1000,
+      "search_volume_max": 10000
     }
   ],
   "grouping": {
-    "algorithm": "top5-url-overlap-intent-confidence-components.v2",
-    "decision": "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate",
+    "algorithm": "top5-url-overlap-intent-components.v3",
+    "decision": "上位5 URLの一致率が60%以上なら同一施策KW群。80%以上はhigh、60%以上80%未満はpossible、60%未満はseparate",
     "threshold_operator": ">=",
     "high_threshold": 0.8,
     "possible_threshold": 0.6,
@@ -507,9 +511,7 @@
         "bec89ab9:キーワード割り当て:6"
       ],
       [
-        "bec89ab9:キーワード割り当て:7"
-      ],
-      [
+        "bec89ab9:キーワード割り当て:7",
         "bec89ab9:キーワード割り当て:8"
       ]
     ]
@@ -527,6 +529,26 @@
       ]
     }
   ],
-  "article_keyword_groups": [],
-  "reproducibility_digest": "04810566ab652c437d0447a5ce8728fbb08098392a4c8d56d0917fb6c0091632"
+  "article_keyword_groups": [
+    {
+      "group_id": "poc-article-group-1",
+      "evidence": "likely_same_intent",
+      "source_keyword_ids": [
+        "bec89ab9:キーワード割り当て:7",
+        "bec89ab9:キーワード割り当て:8"
+      ],
+      "main_keyword": "ライター 副業",
+      "main_keyword_origin": "highest_search_volume",
+      "intent_keywords": [
+        "記事作成 副業"
+      ],
+      "modifiers": [],
+      "sibling_keywords": [],
+      "normalized_keywords": [
+        "記事作成 副業",
+        "ライター 副業"
+      ]
+    }
+  ],
+  "reproducibility_digest": "35925b8f6bb62aa41da225ec7ccc8c2a9105ccdf1cfb7c333590846312659d9a"
 }

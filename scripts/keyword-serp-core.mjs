@@ -73,7 +73,7 @@ export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 
       const confidence = !comparable ? "insufficient" : result.ratio >= highThreshold ? "high" : result.ratio >= possibleThreshold ? "possible" : "separate";
       const candidate = confidence === "high" || confidence === "possible";
       pairs.push({ left: records[i].source_keyword_id, right: records[j].source_keyword_id, ...result, comparable, intent_confidence: confidence, likely_same_intent: candidate });
-      if (confidence === "high") union(i, j);
+      if (candidate) union(i, j);
     }
   }
   const grouped = new Map();
