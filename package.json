@@ -18,7 +18,7 @@
     "prototype:keyword-dashboard:test": "node scripts/test-keyword-dashboard-integration.mjs",
     "poc:required": "npm run poc:keyword-serp:test && npm run poc:keyword-serp:verify && npm run prototype:keyword-dashboard:test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
+    "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel && npm run poc:required"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
