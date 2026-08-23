@@ -29,5 +29,6 @@ buildDashboardDb({ dbPath, fixturePath, artifactRoot: root }).close();
 const data = projectDashboard(openDashboardDb(dbPath));
 assert.equal(data.groups.length, 20); assert.equal(data.groups.reduce((sum, group) => sum + 1 + group.intent_keywords.length, 0), 100);
 assert.equal(data.groups.every((group) => group.intent_keywords.length === 4 && group.search_volume === 500), true);
+assert.equal(data.groups.flatMap((group) => [group.main_keyword, ...group.intent_keywords]).length, 100);
 assert.deepEqual(data.groups.reduce((counts, group) => ({ ...counts, [group.site_id]: (counts[group.site_id] ?? 0) + 1 }), {}), { "scale-a.test": 10, "scale-b.test": 10 });
 console.log(`100 keyword scale: OK (4,950 pair comparisons, 20 SERP groups, 20 main, 80 contained, 2 isolated sites, persistent SQLite projection: ${dbPath})`);

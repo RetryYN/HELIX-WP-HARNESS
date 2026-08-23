@@ -11,8 +11,8 @@ const pinnedSites=data.sites.filter((site)=>site.is_pinned).sort((a,b)=>a.displa
 siteSelector.value=pinnedSites[0]?.site_id??data.sites[0].site_id;
 pinnedSites.forEach((site,index)=>siteSelector.insertAdjacentHTML("beforeend",`<button type="button" role="tab" class="site-tab ${index===0?"active":""}" data-site="${site.site_id}">${site.label}</button>`));
 siteSelector.insertAdjacentHTML("beforeend",'<button type="button" class="site-directory-trigger">サイト一覧</button>');
-const metricLabels = {actionable_main_keywords:"施策メインKW",new_article_candidates:"新規記事候補",wp_articles_assigned:"記事ID割当"};
-function renderMetrics(groups){const metrics={actionable_main_keywords:groups.length,new_article_candidates:groups.filter((group)=>group.state.startsWith("新規記事候補")).length,wp_articles_assigned:groups.filter((group)=>group.wp_article_id!=null).length};document.querySelector("#metrics").innerHTML=Object.entries(metrics).map(([key,value])=>`<div class="metric"><span>${metricLabels[key]}</span><strong>${yen.format(value)}</strong><small>件</small></div>`).join("")}
+const metricLabels = {total_keywords:"対象KW",actionable_main_keywords:"施策メインKW",new_article_candidates:"新規記事候補",wp_articles_assigned:"記事ID割当"};
+function renderMetrics(groups){const metrics={total_keywords:groups.reduce((sum,group)=>sum+1+group.intent_keywords.length,0),actionable_main_keywords:groups.length,new_article_candidates:groups.filter((group)=>group.state.startsWith("新規記事候補")).length,wp_articles_assigned:groups.filter((group)=>group.wp_article_id!=null).length};document.querySelector("#metrics").innerHTML=Object.entries(metrics).map(([key,value])=>`<div class="metric"><span>${metricLabels[key]}</span><strong>${yen.format(value)}</strong><small>件</small></div>`).join("")}
 
 document.querySelectorAll(".tab").forEach((tab)=>tab.addEventListener("click",()=>{
   document.querySelectorAll(".tab,.view").forEach((node)=>node.classList.remove("active"));
@@ -55,7 +55,7 @@ function selectSite(){keywordRows=allKeywordRows.filter((row)=>row.group.site_id
 function renderRows(){
   const query=filters.search.value.trim().toLocaleLowerCase("ja-JP");
   const rows=keywordRows.filter((row)=>(!query||`${row.keyword} ${row.parent??""}`.toLocaleLowerCase("ja-JP").includes(query))&&(filters.category.value==="all"||row.group.category===filters.category.value)&&(filters.parent.value==="all"||row.parent===filters.parent.value)&&(filters.state.value==="all"||row.group.state===filters.state.value));
-  rowsRoot.innerHTML=rows.map((row)=>`<tr data-id="${row.group.id}"><td>${row.group.category}</td><td><strong>${row.keyword}</strong></td><td><strong>${row.group.search_volume==null?"未取得":yen.format(row.group.search_volume)}</strong></td><td>${row.group.intent_keywords.length}語</td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td><td><button class="detail-button" type="button">詳細</button></td></tr>`).join("");
+  rowsRoot.innerHTML=rows.map((row)=>`<tr data-id="${row.group.id}"><td>${row.group.category}</td><td><strong>${row.keyword}</strong><span class="contained-keywords">内包: ${row.group.intent_keywords.join(" ／ ")||"なし"}</span></td><td><strong>${row.group.search_volume==null?"未取得":yen.format(row.group.search_volume)}</strong></td><td>${row.group.intent_keywords.length}語</td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td><td><button class="detail-button" type="button">詳細</button></td></tr>`).join("");
   rowsRoot.querySelectorAll("tr").forEach((tr)=>{const group=data.groups.find((item)=>item.id===tr.dataset.id);tr.children[2].querySelector("strong").textContent=formatVolume(group.search_volume)});
   document.querySelector("#table-empty").innerHTML=rows.length?"":"<div class='empty'><strong>該当KWなし</strong><span>フィルターを変更してください。</span></div>";
   if(!rows.length){detail.innerHTML="";return}
