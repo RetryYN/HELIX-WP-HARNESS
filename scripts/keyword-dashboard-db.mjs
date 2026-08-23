@@ -5,7 +5,7 @@ import { parseCsv } from "./read-csv.mjs";
 import { normalizeKeyword } from "./keyword-serp-core.mjs";
 import { categoryPathsForIds } from "./keyword-category-taxonomy.mjs";
 import { primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
-import { matchKeywordGroupToArticles } from "./keyword-article-matching.mjs";
+import { matchKeywordGroupToArticles, reconcileArticleAssignments } from "./keyword-article-matching.mjs";
 
 const schemaVersion = "keyword-dashboard.v1";
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
@@ -44,7 +44,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE dfs_tasks (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), task_order INTEGER NOT NULL, task_id TEXT NOT NULL, keyword TEXT NOT NULL, snapshot_path TEXT NOT NULL, observed_at TEXT NOT NULL, aio_present INTEGER NOT NULL, cost REAL NOT NULL, PRIMARY KEY(group_id, task_order));
     CREATE TABLE shared_urls (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), url_order INTEGER NOT NULL, url TEXT NOT NULL, PRIMARY KEY(group_id, url_order));
     CREATE TABLE article_links (link_id TEXT PRIMARY KEY, site_id TEXT NOT NULL REFERENCES sites(site_id), source_group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), target_group_id TEXT REFERENCES keyword_groups(group_id), trigger_type TEXT NOT NULL, trigger_text TEXT NOT NULL, source_section TEXT, state TEXT NOT NULL);
-    CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','複数候補','新規記事候補')), selected_wp_article_id INTEGER);
+    CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
     CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id));
   `);
   const metadata = db.prepare("INSERT INTO dashboard_metadata VALUES (?, ?)");
@@ -97,11 +97,12 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const assignArticle=db.prepare("UPDATE keyword_groups SET wp_article_id = ?, action_state = '公開中' WHERE group_id = ?");
   for(const site of fixture.sites){
     const articles=beforeMatch.article_query_summaries.filter((article)=>article.site_id===site.site_id);
-    for(const group of beforeMatch.groups.filter((item)=>item.site_id===site.site_id)){
-      const match=matchKeywordGroupToArticles(group,articles);
-      insertMatchRun.run(group.id,match.state,match.wp_article_id);
-      match.candidates.forEach((candidate)=>insertMatchCandidate.run(group.id,candidate.wp_article_id,candidate.title_score,JSON.stringify(candidate.title_matches),JSON.stringify(candidate.query_matches)));
-      if(match.state==="確定")assignArticle.run(match.wp_article_id,group.id);
+    const siteGroups=beforeMatch.groups.filter((item)=>item.site_id===site.site_id);
+    const matches=reconcileArticleAssignments(siteGroups.map((group)=>matchKeywordGroupToArticles(group,articles)));
+    for(const match of matches){
+      insertMatchRun.run(match.group_id,match.state,match.wp_article_id);
+      match.candidates.forEach((candidate)=>insertMatchCandidate.run(match.group_id,candidate.wp_article_id,candidate.title_score,JSON.stringify(candidate.title_matches),JSON.stringify(candidate.query_matches)));
+      if(match.state==="確定")assignArticle.run(match.wp_article_id,match.group_id);
     }
   }
   db.exec("PRAGMA optimize");

@@ -26,5 +26,8 @@
     "helix": "github:RetryYN/HELIX-HARNESS#dcfbb845",
     "tsx": "^4.23.12",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "kuromoji": "^0.1.2"
   }
 }

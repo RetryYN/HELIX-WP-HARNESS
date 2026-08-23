@@ -51,7 +51,7 @@ let queryPage=1;
 let queryCategoryDepth=1;
 function label(group){return group.main_keyword ?? group.sibling_keywords.join(" ／ ")}
 function articleForId(id){return data.article_query_summaries.find((article)=>article.site_id===siteSelector.value&&article.wp_article_id===id)}
-function articleMatchLabel(group){const match=group.article_match;if(!match)return "未照合";if(match.state==="確定")return `WP #${group.wp_article_id}`;if(match.state==="タイトル一致のみ")return `候補 WP #${match.candidates[0]?.wp_article_id}`;if(match.state==="複数候補")return `候補 ${match.candidates.length}件`;return "対応記事なし"}
+function articleMatchLabel(group){const match=group.article_match;if(!match)return "未照合";if(match.state==="確定")return `WP #${group.wp_article_id}`;if(match.state==="タイトル一致のみ")return `候補 WP #${match.candidates[0]?.wp_article_id}`;if(match.state==="複数候補")return `候補 ${match.candidates.length}件`;if(match.state==="同一記事候補")return `他KW群と同じ記事`;return "対応記事なし"}
 function renderDetail(group){
   const keywords=group.intent_keywords.length?group.intent_keywords:group.sibling_keywords;
   const compared=group.comparison_keywords;
