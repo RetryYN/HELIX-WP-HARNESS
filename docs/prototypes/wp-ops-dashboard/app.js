@@ -1,5 +1,5 @@
-const data = await fetch("data.json").then((response) => {
-  if (!response.ok) throw new Error(`data.json: ${response.status}`);
+const data = await fetch("/api/dashboard").then((response) => {
+  if (!response.ok) throw new Error(`/api/dashboard: ${response.status}`);
   return response.json();
 });
 const yen = new Intl.NumberFormat("ja-JP");
