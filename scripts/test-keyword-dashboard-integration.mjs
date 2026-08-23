@@ -89,10 +89,12 @@ const app = await fetch(`http://127.0.0.1:${port}/app.js`).then((item) => item.t
 assert.match(html, /keyword-rows/);
 assert.match(html, /id="page-size"/);
 assert.match(html, /<th>AIO<\/th>/);
-assert.match(html, /<th>親カテゴリー<\/th><th>子カテゴリー<\/th><th>孫カテゴリー<\/th>/);
+assert.match(html, /<th>親カテゴリー<\/th><th id="category-child-head">子カテゴリー<\/th><th id="category-grandchild-head">孫カテゴリー<\/th>/);
 assert.match(app, /\/api\/dashboard/);
 assert.match(app, /aio_observed_queries>0/);
 assert.match(app, /visibleRows=rows\.slice/);
+assert.match(app, /categoryDepth=Math\.max/);
+assert.match(app, /category-grandchild-head/);
 assert.doesNotMatch(app, /内包:\s*\$\{row\.group\.intent_keywords/, "contained keyword text must only appear in detail view");
 await stop(server);
 console.log("persistent SQLite→API→frontend contract: OK (DFS raw provenance, restart persistence, site isolation, strategy, gates, no fabricated links)");

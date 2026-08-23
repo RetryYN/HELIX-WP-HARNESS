@@ -37,6 +37,7 @@ const filters={search:document.querySelector("#keyword-search"),category:documen
 const pageSizeControl=document.querySelector("#page-size");
 const pagination=document.querySelector("#pagination");
 let currentPage=1;
+let categoryDepth=1;
 function label(group){return group.main_keyword ?? group.sibling_keywords.join(" ／ ")}
 function renderDetail(group){
   const keywords=group.intent_keywords.length?group.intent_keywords:group.sibling_keywords;
@@ -55,7 +56,7 @@ const allKeywordRows=data.groups.filter((group)=>group.main_keyword).map((group)
 let keywordRows=[];
 const option=(value)=>`<option value="${value}">${value}</option>`;
 function resetFilter(select){while(select.options.length>1)select.remove(1);select.value="all"}
-function selectSite(){keywordRows=allKeywordRows.filter((row)=>row.group.site_id===siteSelector.value).sort(compareSourceOrder);currentPage=1;Object.values(filters).forEach((filter)=>{if(filter.tagName==="SELECT")resetFilter(filter);else filter.value=""});[...new Set(keywordRows.map((row)=>row.group.category))].forEach((value)=>filters.category.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.parent))].forEach((value)=>filters.parent.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.group.state))].forEach((value)=>filters.state.insertAdjacentHTML("beforeend",option(value)));renderMetrics(keywordRows.map((row)=>row.group));renderRows();renderEmptyViews()}
+function selectSite(){keywordRows=allKeywordRows.filter((row)=>row.group.site_id===siteSelector.value).sort(compareSourceOrder);categoryDepth=Math.max(1,...keywordRows.map((row)=>row.group.category_path?.length??1));document.querySelector("#category-child-head").hidden=categoryDepth<2;document.querySelector("#category-grandchild-head").hidden=categoryDepth<3;currentPage=1;Object.values(filters).forEach((filter)=>{if(filter.tagName==="SELECT")resetFilter(filter);else filter.value=""});[...new Set(keywordRows.map((row)=>row.group.category))].forEach((value)=>filters.category.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.parent))].forEach((value)=>filters.parent.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.group.state))].forEach((value)=>filters.state.insertAdjacentHTML("beforeend",option(value)));renderMetrics(keywordRows.map((row)=>row.group));renderRows();renderEmptyViews()}
 function renderRows(){
   const query=filters.search.value.trim().toLocaleLowerCase("ja-JP");
   const rows=keywordRows.filter((row)=>(!query||`${row.keyword} ${row.parent??""}`.toLocaleLowerCase("ja-JP").includes(query))&&(filters.category.value==="all"||row.group.category===filters.category.value)&&(filters.parent.value==="all"||row.parent===filters.parent.value)&&(filters.state.value==="all"||row.group.state===filters.state.value));
@@ -64,8 +65,8 @@ function renderRows(){
   currentPage=Math.min(currentPage,pageCount);
   const start=(currentPage-1)*pageSize;
   const visibleRows=rows.slice(start,start+pageSize);
-  rowsRoot.innerHTML=visibleRows.map((row)=>{const aioPresent=row.group.strategy.aio_observed_queries>0;const [parent="—",child="—",grandchild="—"]=row.group.category_path??[];return `<tr data-id="${row.group.id}"><td>${parent}</td><td>${child}</td><td>${grandchild}</td><td><strong>${row.keyword}</strong></td><td><strong>${row.group.search_volume==null?"未取得":yen.format(row.group.search_volume)}</strong></td><td>${row.group.intent_keywords.length}語</td><td><span class="aio-state ${aioPresent?"present":"absent"}">${aioPresent?"あり":"なし"}</span></td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td><td><button class="detail-button" type="button">詳細</button></td></tr>`}).join("");
-  rowsRoot.querySelectorAll("tr").forEach((tr)=>{const group=data.groups.find((item)=>item.id===tr.dataset.id);tr.children[4].querySelector("strong").textContent=formatVolume(group.search_volume)});
+  rowsRoot.innerHTML=visibleRows.map((row)=>{const aioPresent=row.group.strategy.aio_observed_queries>0;const path=row.group.category_path??[row.group.category];const categories=Array.from({length:categoryDepth},(_,index)=>path[index]??"—");return `<tr data-id="${row.group.id}">${categories.map((category)=>`<td>${category}</td>`).join("")}<td><strong>${row.keyword}</strong></td><td class="search-volume"><strong>${row.group.search_volume==null?"未取得":yen.format(row.group.search_volume)}</strong></td><td>${row.group.intent_keywords.length}語</td><td><span class="aio-state ${aioPresent?"present":"absent"}">${aioPresent?"あり":"なし"}</span></td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td><td><button class="detail-button" type="button">詳細</button></td></tr>`}).join("");
+  rowsRoot.querySelectorAll("tr").forEach((tr)=>{const group=data.groups.find((item)=>item.id===tr.dataset.id);tr.querySelector(".search-volume strong").textContent=formatVolume(group.search_volume)});
   document.querySelector("#table-empty").innerHTML=rows.length?"":"<div class='empty'><strong>該当KWなし</strong><span>フィルターを変更してください。</span></div>";
   pagination.innerHTML=rows.length?`<span><strong>${start+1}–${Math.min(start+pageSize,rows.length)}</strong> / ${rows.length}件</span><button id="page-prev" type="button" ${currentPage===1?"disabled":""}>前へ</button><span>${currentPage} / ${pageCount}ページ</span><button id="page-next" type="button" ${currentPage===pageCount?"disabled":""}>次へ</button>`:"";
   pagination.querySelector("#page-prev")?.addEventListener("click",()=>{currentPage-=1;renderRows()});
