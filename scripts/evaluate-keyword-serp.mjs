@@ -59,13 +59,6 @@ function classifyArticleGroup(members) {
     const main = mainCandidates[0];
     return { main_keyword: main.keyword, main_keyword_origin: "highest_search_volume", intent_keywords: keywords.filter((keyword) => keyword !== main.keyword), modifiers: classified.map((item) => item.modifier).filter(Boolean), sibling_keywords: [] };
   }
-  const ranked = members
-    .map((id) => byId.get(id))
-    .filter((item) => Number.isFinite(item.search_volume_max))
-    .sort((left, right) => right.search_volume_max - left.search_volume_max || left.source_keyword_id.localeCompare(right.source_keyword_id));
-  if (ranked.length === members.length && ranked.length > 0) {
-    return { main_keyword: ranked[0].keyword, main_keyword_origin: "highest_search_volume", intent_keywords: ranked.slice(1).map((item) => item.keyword), modifiers: [], sibling_keywords: [] };
-  }
   return { main_keyword: null, main_keyword_origin: "unresolved", intent_keywords: [], modifiers: [], sibling_keywords: keywords };
 }
 const articleKeywordGroups = grouping.clusters
