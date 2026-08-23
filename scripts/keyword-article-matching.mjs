@@ -9,9 +9,10 @@ const grammarParts=new Set(["助詞","助動詞"]);
 const ignoredParts=new Set(["記号","フィラー"]);
 const analysisCache=new Map();
 const matchTokenCache=new Map();
+const lexicalNormalize=(value)=>normalizeKeyword(value).replaceAll("ねくたい","ネクタイ");
 
 export function analyzeJapaneseText(value){
-  const normalized=normalizeKeyword(value);
+  const normalized=lexicalNormalize(value);
   if(analysisCache.has(normalized))return analysisCache.get(normalized);
   const analyzed=tokenizer.tokenize(normalized).filter((token)=>!ignoredParts.has(token.pos)).map((token,index)=>{
     const surface=tokenAlias(token.surface_form.toLowerCase());
@@ -23,7 +24,7 @@ export function analyzeJapaneseText(value){
 }
 
 export function tokenizeMatchText(value){
-  const normalized=normalizeKeyword(value);
+  const normalized=lexicalNormalize(value);
   if(matchTokenCache.has(normalized))return matchTokenCache.get(normalized);
   const content=analyzeJapaneseText(normalized).filter((token)=>!token.grammar).map((token)=>token.lemma);
   const merged=[];

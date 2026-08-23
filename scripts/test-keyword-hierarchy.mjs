@@ -6,6 +6,8 @@ const tree=buildKeywordHierarchy([
   {source_keyword_id:"news-order",raw_keyword:"就活 itニュース",search_volume:20},
   {source_keyword_id:"detail",raw_keyword:"就活 気になるニュース it",search_volume:0},
 ]);
+const tieTree=buildKeywordHierarchy([{source_keyword_id:"tie",raw_keyword:"就活ねくたい",search_volume:8100}]);
+assert.deepEqual(tieTree[0].normalized_terms,["就活","ネクタイ"]);assert.equal(tieTree[0].term_count,2);
 assert.equal(tree.find((row)=>row.source_keyword_id==="news").parent_source_keyword_id,"root");
 assert.equal(tree.find((row)=>row.source_keyword_id==="news-order").relation,"reordered_alias");
 assert.equal(tree.find((row)=>row.source_keyword_id==="detail").parent_source_keyword_id,"news");
