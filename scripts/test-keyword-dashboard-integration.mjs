@@ -89,6 +89,7 @@ const app = await fetch(`http://127.0.0.1:${port}/app.js`).then((item) => item.t
 assert.match(html, /keyword-rows/);
 assert.match(html, /id="page-size"/);
 assert.match(html, /<th>AIO<\/th>/);
+assert.match(html, /<th>親カテゴリー<\/th><th>子カテゴリー<\/th><th>孫カテゴリー<\/th>/);
 assert.match(app, /\/api\/dashboard/);
 assert.match(app, /aio_observed_queries>0/);
 assert.match(app, /visibleRows=rows\.slice/);
