@@ -5,8 +5,9 @@ import path from "node:path";
 import { buildDashboardDb, openDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
 import { groupBySerp } from "./keyword-serp-core.mjs";
 
-const root = mkdtempSync(path.join(tmpdir(), "wp-keyword-scale-"));
-const rawDir = path.join(root, "raw"); mkdirSync(rawDir);
+const root = process.env.WP_DASHBOARD_SCALE_ROOT ? path.resolve(process.env.WP_DASHBOARD_SCALE_ROOT) : mkdtempSync(path.join(tmpdir(), "wp-keyword-scale-"));
+mkdirSync(root, { recursive: true });
+const rawDir = path.join(root, "raw"); mkdirSync(rawDir, { recursive: true });
 const sites = [{ site_id: "scale-a.test", label: "Scale A", domain: "scale-a.test", status: "active", is_pinned: true, display_order: 1 }, { site_id: "scale-b.test", label: "Scale B", domain: "scale-b.test", status: "active", is_pinned: true, display_order: 2 }];
 const records = [];
 for (let cluster = 0; cluster < 20; cluster += 1) for (let member = 0; member < 5; member += 1) {
@@ -29,4 +30,4 @@ const data = projectDashboard(openDashboardDb(dbPath));
 assert.equal(data.groups.length, 20); assert.equal(data.groups.reduce((sum, group) => sum + 1 + group.intent_keywords.length, 0), 100);
 assert.equal(data.groups.every((group) => group.intent_keywords.length === 4 && group.search_volume === 500), true);
 assert.deepEqual(data.groups.reduce((counts, group) => ({ ...counts, [group.site_id]: (counts[group.site_id] ?? 0) + 1 }), {}), { "scale-a.test": 10, "scale-b.test": 10 });
-console.log("100 keyword scale: OK (4,950 pair comparisons, 20 SERP groups, 20 main, 80 contained, 2 isolated sites, persistent SQLite projection)");
+console.log(`100 keyword scale: OK (4,950 pair comparisons, 20 SERP groups, 20 main, 80 contained, 2 isolated sites, persistent SQLite projection: ${dbPath})`);
