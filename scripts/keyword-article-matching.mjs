@@ -33,6 +33,6 @@ export function matchKeywordGroupToArticles(group,articles){
   const bestScore=Math.max(0,...candidates.map((candidate)=>candidate.title_score));
   const titleCandidates=candidates.filter((candidate)=>candidate.title_score===bestScore);
   const confirmed=titleCandidates.filter((candidate)=>candidate.query_matches.length>0);
-  const state=titleCandidates.length===0?"新規記事候補":confirmed.length===1?"確定":titleCandidates.length===1?"タイトル一致のみ":"競合";
+  const state=titleCandidates.length===0?"新規記事候補":confirmed.length===1?"確定":titleCandidates.length===1?"タイトル一致のみ":"複数候補";
   return {group_id:group.id,main_keyword:group.main_keyword,state,wp_article_id:state==="確定"?confirmed[0].wp_article_id:null,candidates:titleCandidates};
 }

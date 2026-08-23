@@ -135,7 +135,7 @@ assert.match(app, /syncQueryCategoryFilters/);
 assert.match(app, /empty\.hidden=rows\.length>0/);
 assert.match(html, /id="query-detail-dialog"/);
 assert.match(html, /<th>主クエリ<\/th>/);
-assert.match(html, /<th>記事連携<\/th>/);
+assert.match(html, /<th>自サイト記事<\/th>/);
 assert.match(app, /renderQueryDetail/);
 assert.match(app, /articleMatchLabel/);
 assert.match(app, /title_matches/);

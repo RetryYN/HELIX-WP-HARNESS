@@ -14,5 +14,5 @@ assert.equal(twitter.state,"確定");assert.equal(twitter.wp_article_id,132);
 const conflict=matchKeywordGroupToArticles({id:"jobs",main_keyword:"it 就活 職種",intent_keywords:[]},[
   article(195,"IT就活の企業と職種ガイド"),article(499,"IT業界の就活向け職種一覧"),
 ]);
-assert.equal(conflict.state,"競合");assert.equal(conflict.wp_article_id,null);
+assert.equal(conflict.state,"複数候補");assert.equal(conflict.wp_article_id,null);
 console.log("keyword title -> acquired query article matching: OK");
