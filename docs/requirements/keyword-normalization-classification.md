@@ -153,6 +153,21 @@ AI Overviewは「記事に含めるべき内容」ではない。出現有無と
 検索Volをそのまま施策価値とせず、organicクリック余地が著しく下がり得るクエリとして優先度、
 期待クリック、施策採否の判断へ使う。単発観測と継続出現を区別し、記事公開の合否には使わない。
 
+### PAA・関連検索からの内部リンク導出
+
+PAAの質問文と関連検索KWは正規化後に同一`site_id`の施策KW群へ照合し、次のように処理する。
+
+1. 照合先が同じ記事KW群なら、別リンクを作らず本文の`required_topic`候補にする。
+2. 照合先が別の記事KW群なら、観測元記事から照合先記事への`internal_link_candidate`を作る。
+3. 照合先にWP記事IDがあればリンク先URLを確定し、本文内で質問・関連語を説明する箇所を
+   `source_section`としてリンク位置候補にする。
+4. 照合先記事が未作成なら`waiting_for_target_article`として保持し、URLを捏造しない。
+5. 照合先がなければ新規KW候補に留め、無関係な既存記事へ接続しない。
+
+anchorはPAA・関連検索の文字列をそのまま完全一致で強制せず、リンク位置の文脈に合う自然な語句を
+候補化する。候補は`source_article_id`、`source_section`、`trigger_type`、`trigger_text`、
+`target_keyword_group_id`、`target_article_id`、根拠snapshotを持ち、サイト横断リンクを生成しない。
+
 ### 記事作成SEOゲート
 
 - main_keywordはタイトル、主要見出し、本文で個別にcoverageを確認する。
@@ -163,6 +178,8 @@ AI Overviewは「記事に含めるべき内容」ではない。出現有無と
 - exact_alias/reordered_aliasを別KWとして重複カウントせず、不自然な語順の完全一致を強制しない。
 - PAA・関連検索・競合見出しの全件を必須化しない。構成策定時に採用し、出典付きで固定した
   `required_topics`だけをcoverage対象にする。
+- 承認済み内部リンク候補でリンク先WP記事IDが存在する場合は、指定`source_section`内に対象記事への
+  リンクがあることを検査する。リンク先未作成の候補は公開ゲートをfailさせず待機状態にする。
 - 欠落したmain、intent、必要構造を別々に返し、1件でも必須条件が欠ければfail-closeとする。
 
 ## 7. UI表示

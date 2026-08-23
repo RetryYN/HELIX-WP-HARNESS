@@ -74,7 +74,7 @@
 | results_ga4 | GA4 取り込み値（導入は段階制 — 未導入期間は UI に「未計測」表示） | 取り込み (ingest-ga4) |
 | cost_entries | 運用コスト（API 費用実測・AI 費用。L1 KPI の分母） | 取り込み (ingest-cost) |
 | programs | ASP 提携（単価・**成果発生条件・EPC・確定率**・状態・取得日） | 取り込み (ingest-a8) |
-| article_links | 記事×リンク対応（内部リンク・提携プログラム ID・カテゴリ） | 解析 (analyzer) |
+| article_links | 記事×リンク対応（source section・target記事・anchor・根拠PAA/関連検索・状態） | 解析 (analyzer) |
 | aio_observations | KW×AI Overview 出現の観測履歴（serp_snapshots から導出集計） | 解析 (analyzer) |
 | site_checks | サイト検査結果（llms.txt 状態・noindex 検査等、検査日時つき） | 検査 (site-checker) |
 | publish_schedule | 公開予定・季節性メモ（予定=パイプライン、メモ=operations 経由で出所記録） | 生成 (writer-pipeline)+UI(メモのみ) |
@@ -153,9 +153,12 @@
 
 - **問い**: 「リンク構造に穴（孤立・断絶・カテゴリ間の分断）はないか」「どの記事がどの案件を持つか」
 - 表示: リンクグラフ（article_links: 孤立記事・ハブ・**カテゴリ間導線**の視認）。
+  PAA・関連検索から導出したリンク候補は、起点記事、リンク位置候補、根拠語、接続先KW群、
+  接続先WP記事ID、`candidate` / `waiting_for_target_article` / `placed`の状態を表示する。
   記事×提携プログラム対応表（programs: 単価・成果発生条件・EPC・確定率・状態）。
   提携切れの影響記事リスト（terminated 差分×article_links）。
-- 操作: 差し替え候補の承認（approval_requests→operations。実行はパイプライン）。
+- 操作: 内部リンク候補の承認・却下、差し替え候補の承認（approval_requests→operations。
+  実行はパイプライン）。PAA・関連検索文字列の完全一致anchorを自動強制しない。
 
 ### 3.6 リライト
 
