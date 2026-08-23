@@ -15,6 +15,9 @@ document.querySelectorAll(".tab").forEach((tab)=>tab.addEventListener("click",()
 
 const rowsRoot = document.querySelector("#keyword-rows");
 const detail = document.querySelector("#group-detail");
+const dialog = document.querySelector("#detail-dialog");
+document.querySelector("#detail-close").addEventListener("click",()=>dialog.close());
+dialog.addEventListener("click",(event)=>{if(event.target===dialog)dialog.close()});
 const filters={search:document.querySelector("#keyword-search"),category:document.querySelector("#category-filter"),parent:document.querySelector("#parent-filter"),confidence:document.querySelector("#confidence-filter"),state:document.querySelector("#state-filter")};
 function label(group){return group.main_keyword ?? group.sibling_keywords.join(" ／ ")}
 function renderDetail(group){
@@ -29,10 +32,10 @@ const option=(value)=>`<option value="${value}">${value}</option>`;
 function renderRows(){
   const query=filters.search.value.trim().toLocaleLowerCase("ja-JP");
   const rows=keywordRows.filter((row)=>(!query||`${row.keyword} ${row.parent??""}`.toLocaleLowerCase("ja-JP").includes(query))&&(filters.category.value==="all"||row.group.category===filters.category.value)&&(filters.parent.value==="all"||row.parent===filters.parent.value)&&(filters.confidence.value==="all"||row.group.confidence===filters.confidence.value)&&(filters.state.value==="all"||row.group.state===filters.state.value));
-  rowsRoot.innerHTML=rows.map((row,index)=>`<tr tabindex="0" class="${index===0?"selected":""}" data-id="${row.group.id}"><td><strong>${row.keyword}</strong></td><td>${row.parent??"未確定"}</td><td><span class="relation ${row.relation}">${row.relation}</span></td><td>${row.group.category}</td><td><span class="badge ${row.group.confidence}">${row.group.confidence}</span></td><td>${row.group.overlap.shared}/${row.group.overlap.depth} · ${Math.round(row.group.overlap.ratio*100)}%</td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td></tr>`).join("");
+  rowsRoot.innerHTML=rows.map((row)=>`<tr data-id="${row.group.id}"><td><strong>${row.keyword}</strong></td><td>${row.parent??"未確定"}</td><td><span class="relation ${row.relation}">${row.relation}</span></td><td>${row.group.category}</td><td><span class="badge ${row.group.confidence}">${row.group.confidence}</span></td><td>${row.group.overlap.shared}/${row.group.overlap.depth} · ${Math.round(row.group.overlap.ratio*100)}%</td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td><td><button class="detail-button" type="button">詳細</button></td></tr>`).join("");
   document.querySelector("#table-empty").innerHTML=rows.length?"":"<div class='empty'><strong>該当KWなし</strong><span>フィルターを変更してください。</span></div>";
-  if(!rows.length){detail.innerHTML="";return} renderDetail(rows[0].group);
-  rowsRoot.querySelectorAll("tr").forEach((row)=>{const select=()=>{rowsRoot.querySelectorAll("tr").forEach((item)=>item.classList.remove("selected"));row.classList.add("selected");renderDetail(data.groups.find((group)=>group.id===row.dataset.id))};row.addEventListener("click",select);row.addEventListener("keydown",(event)=>{if(event.key==="Enter"||event.key===" ")select()})});
+  if(!rows.length){detail.innerHTML="";return}
+  rowsRoot.querySelectorAll(".detail-button").forEach((button)=>button.addEventListener("click",()=>{const row=button.closest("tr");renderDetail(data.groups.find((group)=>group.id===row.dataset.id));dialog.showModal()}));
 }
 Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",renderRows));renderRows();
 
