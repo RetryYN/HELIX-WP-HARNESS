@@ -7,6 +7,7 @@ import { categoryPathsForIds } from "./keyword-category-taxonomy.mjs";
 import { primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
 
 const schemaVersion = "keyword-dashboard.v1";
+const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
 
 function rawSnapshots(artifactRoot) {
   const snapshots = new Map();
@@ -59,7 +60,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
       for(const row of parseCsv(readFileSync(queryPath,"utf8"))){
         const expected=["上位のクエリ","クリック数","表示回数","CTR","掲載順位"];
         if(!expected.every((field)=>field in row))throw new Error(`GSC query CSV schema mismatch: ${queryPath}`);
-        insertQuery.run(article.site_id,article.wp_article_id,row["上位のクエリ"],normalizeKeyword(row["上位のクエリ"]),Number(row["クリック数"]),Number(row["表示回数"]),Number(row["CTR"].replace("%",""))/100,Number(row["掲載順位"]),manifest.days,manifest.generated_at,queryPath);
+        insertQuery.run(article.site_id,article.wp_article_id,row["上位のクエリ"],normalizeKeyword(row["上位のクエリ"]),numeric(row["クリック数"],"clicks"),numeric(row["表示回数"],"impressions"),numeric(row["CTR"],"CTR")/100,numeric(row["掲載順位"],"position"),manifest.days,manifest.generated_at,queryPath);
       }
     }
   }

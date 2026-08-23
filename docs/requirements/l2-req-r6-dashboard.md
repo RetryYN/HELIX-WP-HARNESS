@@ -131,6 +131,8 @@
 - **フィルター**: KW検索、親/子/孫カテゴリー（親→子→孫の連動）、main KW、施策状態、
   表示件数（25/50/100/全件）、ページ送り。存在しないカテゴリー深度のフィルターは自動非表示。
 - **並び**: 取込DBの`source_order`を既定とし、Excelファイル名やシート名を画面見出しに出さない。
+- **カテゴリー出典**: キーワード一覧のカテゴリーは戦略層取込が完成するまで暫定推測として明示し、
+  WP taxonomy由来の記事カテゴリーと同一の正本であるかのように表示しない。
 - **集計**: 対象KW数、施策main KW数、未施策数、記事ID割当数をサイト単位で表示する。
 - **詳細**: main選定根拠、intent KW、群内最低SERP一致数/率、共通URL、AIO観測数、施策判断、
   記事成立gate、DFS task ID、費用を表示する。単独KWは一致率0%ではなく「比較対象なし」とする。
@@ -157,6 +159,10 @@
 - **母集団照合**: 取込KW総数 = 記事割当 + 未割当 + 足切り + 取込失敗 + 要確認を常時検証する。
 - 一覧の全行は`source_keyword_id`からDFS task、クラスタ、WP記事ID、GSC証跡までdrill-downできる。
 - DBと証跡がない場合は設計済みemptyを表示し、fixtureやページ別/クエリ別の推測値で画面を埋めない。
+- 実データ版DB buildはGSC証跡を必須とし、欠落時はfail-closeする。empty-state試験だけは
+  `WP_ALLOW_EMPTY_GSC=1`を明示した隔離テストとして実行し、実データPoC成功判定へ流用しない。
+- required CIは100実KW/67群のDFS provenance、GSC実測attestation（59記事/318クエリ）、
+  SQLite→API→frontend契約を検査する。GSC rawはlocal-onlyとし、集計とtree digestだけをcommitする。
 - loading/error/stale/normalを区別し、データ行があるnormal状態ではemptyコンテナが余白を確保しない。
 - フィルター変更時は1ページ目へ戻り、サイト変更時は両一覧のフィルターをそのサイト用に再構築する。
 

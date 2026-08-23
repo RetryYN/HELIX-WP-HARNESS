@@ -35,3 +35,5 @@ jobs:
         run: npm run helix -- team run --definition .helix/teams/default-hybrid.yaml --mode hybrid --json
       - run: npm run typecheck
       - run: npm test
+      - name: Required real-data PoC contracts
+        run: npm run poc:required

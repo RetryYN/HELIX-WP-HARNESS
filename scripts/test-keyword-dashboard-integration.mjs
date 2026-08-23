@@ -33,8 +33,12 @@ assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE sn
 persisted.close();
 
 const pocDbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-poc-db-")), "dashboard.sqlite");
-const buildPoc = spawnSync(process.execPath, ["scripts/build-keyword-dashboard-db.mjs"], { env: { ...process.env, WP_DASHBOARD_DB: pocDbPath }, encoding: "utf8" });
+const hasGscEvidence=existsSync(path.resolve(".helix/evidence/gsc-page-query-7d/manifest.json"));
+const buildPoc = spawnSync(process.execPath, ["scripts/build-keyword-dashboard-db.mjs"], { env: { ...process.env, WP_DASHBOARD_DB: pocDbPath, ...(!hasGscEvidence?{WP_ALLOW_EMPTY_GSC:"1"}:{}) }, encoding: "utf8" });
 assert.equal(buildPoc.status, 0, buildPoc.stderr);
+const missingEvidenceBuild=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:path.join(mkdtempSync(path.join(tmpdir(),"wp-dashboard-no-gsc-")),"dashboard.sqlite"),WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_ALLOW_EMPTY_GSC:"0"},encoding:"utf8"});
+assert.notEqual(missingEvidenceBuild.status,0,"dashboard build must fail closed without GSC evidence");
+assert.match(missingEvidenceBuild.stderr,/GSC evidence is required/);
 const pocDb = new DatabaseSync(pocDbPath, { readOnly: true });
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com'").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = '施策KW群割当済み'").get().count, 100);
@@ -43,7 +47,6 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE s
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE action_state NOT IN ('未施策','予約済','下書き','公開中')").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE group_id IN (SELECT group_id FROM keyword_groups WHERE site_id = 'it-shukatu.com')").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword GLOB 'topic-*' OR main_keyword GLOB 'keyword-*'").get().count, 0);
-const hasGscEvidence=existsSync(path.resolve(".helix/evidence/gsc-page-query-7d/manifest.json"));
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,hasGscEvidence?59:0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,hasGscEvidence?318:0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE source_file = '' OR window_days != 7").get().count,0);
@@ -130,6 +133,9 @@ assert.match(app, /empty\.hidden=rows\.length>0/);
 assert.match(html, /id="query-detail-dialog"/);
 assert.match(html, /<th>主クエリ<\/th>/);
 assert.match(app, /renderQueryDetail/);
+assert.match(app, /const escapeHtml=/);
+assert.match(app, /escapeHtml\(row\.query\)/,"GSC queries must be escaped before HTML insertion");
+assert.match(app, /escapeHtml\(row\.title\)/,"WP titles must be escaped before HTML insertion");
 assert.doesNotMatch(app, /内包:\s*\$\{row\.group\.intent_keywords/, "contained keyword text must only appear in detail view");
 await stop(server);
 console.log("persistent SQLite→API→frontend contract: OK (DFS raw provenance, restart persistence, site isolation, strategy, gates, no fabricated links)");
