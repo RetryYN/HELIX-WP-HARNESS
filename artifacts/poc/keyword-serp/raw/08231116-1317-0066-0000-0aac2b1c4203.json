@@ -1,0 +1,791 @@
+{
+  "version": "0.1.20260806",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.0195 sec.",
+  "cost": 0.0006,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "08231116-1317-0066-0000-0aac2b1c4203",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0138 sec.",
+      "cost": 0.0006,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "task_get",
+        "advanced",
+        "08231116-1317-0066-0000-0aac2b1c4203"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "task_get",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "seo ライティング",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "bec89ab9:キーワード割り当て:3"
+      },
+      "result": [
+        {
+          "keyword": "seo ライティング",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=seo%20%E3%83%A9%E3%82%A4%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 11:17:11 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "people_also_ask",
+            "organic",
+            "related_searches"
+          ],
+          "se_results_count": 131,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "SEOライティングとは、`検索エンジン（Googleなど）で上位表示を狙い、ユーザーの悩みや疑問を解決するための文章作成手法` です。検索意図に沿ったキーワード選定、論理的な見出し構成、そして分かりやすい本文の作成が基本となります。[](https://moltsinc.co.jp/media/knowledge/5343/) [[1]](https://moltsinc.co.jp/media/knowledge/5343/)[[2]](https://sol.ferret-one.com/blog/seo-writing)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)\n\nさらに理解を深めるために、検索意図に合わせた構成や本文の作り方を解説している動画もご覧いただけます。\n\n検索意図に合わせた構成や本文の作り方を確認したい場合は、こちらの動画が役立ちます：\n\n![](https://api.dataforseo.com/cdn/i/08231116-1317-0066-0000-0aac2b1c4203:4)\n9:01\n[](https://www.youtube.com/watch?v=RDizVDpADfQ) SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方 7 日前![](https://api.dataforseo.com/cdn/i/08231116-1317-0066-0000-0aac2b1c4203:5)\nYouTube · 東京SEOメーカーAIO戦略室【世界基準でSEO / LLMOを設計するプロ集団】\t\n\n基本のステップ\n\n- **キーワード選定** ：狙う検索キーワードを1つ（または2〜3語の複合語）に絞る\n- **検索意図の分析** ：上位表示されている記事を参考に、ユーザーが何を知りたがっているかを調べる\n- **見出し構成の作成** ：H2やH3の見出しを先に作り、質問に対する答えを順番に配置する\n- **執筆と最適化** ：結論ファーストで書き、タイトルや見出しにキーワードを自然に含める\n- **公開とリライト** ：公開後も順位やアクセス数を確認し、内容を修正・加筆する[](https://www.willgate.co.jp/promonista/seo-writing/) [[1]](https://www.willgate.co.jp/promonista/seo-writing/)[[2]](https://sol.ferret-one.com/blog/seo-writing)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)[[4]](https://deepeditor.jp/blog/seo-writing/)[[5]](https://www.youtube.com/watch?v=QbI0hAEy3oY&t=483)\n\n重要なポイント\n\n- **タイトル** ：30文字程度を目安にし、左側に重要なキーワードを配置する\n- **独自性（E-E-A-T）** ：体験談や一次情報を取り入れ、他のサイトのコピーにならないようにする\n- **読みやすさ** ：専門用語の補足や箇条書きを活用し、冗長な文章を避ける[](https://www.willgate.co.jp/promonista/seo-writing/) [[1]](https://www.willgate.co.jp/promonista/seo-writing/)[[2]](https://www.youtube.com/watch?v=QbI0hAEy3oY&t=483)[[3]](https://sol.ferret-one.com/blog/seo-writing)\n\nもしよろしければ、**書きたいテーマやキーワード** を教えてください。具体的な見出し構成のアイデアをご提案できます。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "SEOライティングとは、 検索エンジン（Googleなど）で上位表示を狙い、ユーザーの悩みや疑問を解決するための文章作成手法 です。検索意図に沿ったキーワード選定、論理的な見出し構成、そして分かりやすい本文の作成が基本となります。",
+                  "markdown": "SEOライティングとは、`検索エンジン（Googleなど）で上位表示を狙い、ユーザーの悩みや疑問を解決するための文章作成手法` です。検索意図に沿ったキーワード選定、論理的な見出し構成、そして分かりやすい本文の作成が基本となります。[](https://moltsinc.co.jp/media/knowledge/5343/) [[1]](https://moltsinc.co.jp/media/knowledge/5343/)[[2]](https://sol.ferret-one.com/blog/seo-writing)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "THE MOLTS",
+                      "domain": "moltsinc.co.jp",
+                      "url": "https://moltsinc.co.jp/media/knowledge/5343/",
+                      "title": "SEOライティング完全ガイド｜上位表示の7ステップと実践テクニック",
+                      "text": "SEOライティングとは、検索上位表示を目的とした記事作成手法です。基本知識から実践テクニックまで7ステップで詳しく解説。..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ferretソリューション",
+                      "domain": "sol.ferret-one.com",
+                      "url": "https://sol.ferret-one.com/blog/seo-writing",
+                      "title": "SEOライティングとは？初心者が今日から実践できる10のチェックリスト",
+                      "text": "SEOライティングとは？ 初心者が今日から実践できる10のチェックリスト | ferretソリューション * SEOライ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=RDizVDpADfQ",
+                      "title": "SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方",
+                      "text": "ます。 構成は読者の疑問に順番に答えるための道筋として考えるとその役割が分かりやすくなり。 ます。 構成ができたら本文を..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "さらに理解を深めるために、検索意図に合わせた構成や本文の作り方を解説している動画もご覧いただけます。",
+                  "markdown": "さらに理解を深めるために、検索意図に合わせた構成や本文の作り方を解説している動画もご覧いただけます。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "検索意図に合わせた構成や本文の作り方を確認したい場合は、こちらの動画が役立ちます： 9:01 SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方 7 日前 YouTube · 東京SEOメーカーAIO戦略室【世界基準でSEO / LLMOを設計するプロ集団】",
+                  "markdown": "検索意図に合わせた構成や本文の作り方を確認したい場合は、こちらの動画が役立ちます：\n\n![](https://api.dataforseo.com/cdn/i/08231116-1317-0066-0000-0aac2b1c4203:2)\n9:01\n[](https://www.youtube.com/watch?v=RDizVDpADfQ) SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方 7 日前![](https://api.dataforseo.com/cdn/i/08231116-1317-0066-0000-0aac2b1c4203:3)\nYouTube · 東京SEOメーカーAIO戦略室【世界基準でSEO / LLMOを設計するプロ集団】\t",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "基本のステップ",
+                  "text": "キーワード選定 ：狙う検索キーワードを1つ（または2〜3語の複合語）に絞る 検索意図の分析 ：上位表示されている記事を参考に、ユーザーが何を知りたがっているかを調べる 見出し構成の作成 ：H2やH3の見出しを先に作り、質問に対する答えを順番に配置する 執筆と最適化 ：結論ファーストで書き、タイトルや見出しにキーワードを自然に含める 公開とリライト ：公開後も順位やアクセス数を確認し、内容を修正・加筆する",
+                  "markdown": "- **キーワード選定** ：狙う検索キーワードを1つ（または2〜3語の複合語）に絞る\n- **検索意図の分析** ：上位表示されている記事を参考に、ユーザーが何を知りたがっているかを調べる\n- **見出し構成の作成** ：H2やH3の見出しを先に作り、質問に対する答えを順番に配置する\n- **執筆と最適化** ：結論ファーストで書き、タイトルや見出しにキーワードを自然に含める\n- **公開とリライト** ：公開後も順位やアクセス数を確認し、内容を修正・加筆する[](https://www.willgate.co.jp/promonista/seo-writing/) [[1]](https://www.willgate.co.jp/promonista/seo-writing/)[[2]](https://sol.ferret-one.com/blog/seo-writing)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)[[4]](https://deepeditor.jp/blog/seo-writing/)[[5]](https://www.youtube.com/watch?v=QbI0hAEy3oY&t=483)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社ウィルゲート",
+                      "domain": "www.willgate.co.jp",
+                      "url": "https://www.willgate.co.jp/promonista/seo-writing/",
+                      "title": "SEOライティングの基礎と知っておくべき13のポイント | プロモニスタ",
+                      "text": "SEOライティングの基礎と知っておくべき13のポイント * SEOライティングの基礎... ... 基本となる価値がある..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ferretソリューション",
+                      "domain": "sol.ferret-one.com",
+                      "url": "https://sol.ferret-one.com/blog/seo-writing",
+                      "title": "SEOライティングとは？初心者が今日から実践できる10のチェックリスト",
+                      "text": "SEOライティングとは？ 初心者が今日から実践できる10のチェックリスト | ferretソリューション * SEOライ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=RDizVDpADfQ",
+                      "title": "SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方",
+                      "text": "ます。 構成は読者の疑問に順番に答えるための道筋として考えるとその役割が分かりやすくなり。 ます。 構成ができたら本文を..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "deepeditor.jp",
+                      "domain": "deepeditor.jp",
+                      "url": "https://deepeditor.jp/blog/seo-writing/",
+                      "title": "SEOライティングのコツは？初心者向けに書き方を解説！ - DeepEditor",
+                      "text": "【すぐに実践】SEOライティングのコツ4つ！ SEOライティングというと難しい印象を持つ人も多いですが、今回は少しでも簡..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=QbI0hAEy3oY&t=483",
+                      "title": "【超大作】SEOライティングの教科書",
+                      "text": "みたいなキーワードと。 iPhoneケース。 探してませんか。 今回はおすすめの。 iPhoneケースをランキング。 紹..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "重要なポイント",
+                  "text": "タイトル ：30文字程度を目安にし、左側に重要なキーワードを配置する 独自性（E-E-A-T） ：体験談や一次情報を取り入れ、他のサイトのコピーにならないようにする 読みやすさ ：専門用語の補足や箇条書きを活用し、冗長な文章を避ける",
+                  "markdown": "- **タイトル** ：30文字程度を目安にし、左側に重要なキーワードを配置する\n- **独自性（E-E-A-T）** ：体験談や一次情報を取り入れ、他のサイトのコピーにならないようにする\n- **読みやすさ** ：専門用語の補足や箇条書きを活用し、冗長な文章を避ける[](https://www.willgate.co.jp/promonista/seo-writing/) [[1]](https://www.willgate.co.jp/promonista/seo-writing/)[[2]](https://www.youtube.com/watch?v=QbI0hAEy3oY&t=483)[[3]](https://sol.ferret-one.com/blog/seo-writing)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社ウィルゲート",
+                      "domain": "www.willgate.co.jp",
+                      "url": "https://www.willgate.co.jp/promonista/seo-writing/",
+                      "title": "SEOライティングの基礎と知っておくべき13のポイント | プロモニスタ",
+                      "text": "SEOライティングの基礎と知っておくべき13のポイント * SEOライティングの基礎... ... 基本となる価値がある..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=QbI0hAEy3oY&t=483",
+                      "title": "【超大作】SEOライティングの教科書",
+                      "text": "みたいなキーワードと。 iPhoneケース。 探してませんか。 今回はおすすめの。 iPhoneケースをランキング。 紹..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ferretソリューション",
+                      "domain": "sol.ferret-one.com",
+                      "url": "https://sol.ferret-one.com/blog/seo-writing",
+                      "title": "SEOライティングとは？初心者が今日から実践できる10のチェックリスト",
+                      "text": "SEOライティングとは？ 初心者が今日から実践できる10のチェックリスト | ferretソリューション * SEOライ..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "もしよろしければ、 書きたいテーマやキーワード を教えてください。具体的な見出し構成のアイデアをご提案できます。",
+                  "markdown": "もしよろしければ、**書きたいテーマやキーワード** を教えてください。具体的な見出し構成のアイデアをご提案できます。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "THE MOLTS",
+                  "domain": "moltsinc.co.jp",
+                  "url": "https://moltsinc.co.jp/media/knowledge/5343/",
+                  "title": "SEOライティング完全ガイド｜上位表示の7ステップと実践テクニック",
+                  "text": "SEOライティングとは、検索上位表示を目的とした記事作成手法です。基本知識から実践テクニックまで7ステップで詳しく解説。..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "株式会社ウィルゲート",
+                  "domain": "www.willgate.co.jp",
+                  "url": "https://www.willgate.co.jp/promonista/seo-writing/",
+                  "title": "SEOライティングの基礎と知っておくべき13のポイント | プロモニスタ",
+                  "text": "SEOライティングの基礎と知っておくべき13のポイント * SEOライティングの基礎... ... 基本となる価値がある..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ferretソリューション",
+                  "domain": "sol.ferret-one.com",
+                  "url": "https://sol.ferret-one.com/blog/seo-writing",
+                  "title": "SEOライティングとは？初心者が今日から実践できる10のチェックリスト",
+                  "text": "SEOライティングとは？ 初心者が今日から実践できる10のチェックリスト | ferretソリューション * SEOライ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "deepeditor.jp",
+                  "domain": "deepeditor.jp",
+                  "url": "https://deepeditor.jp/blog/seo-writing/",
+                  "title": "SEOライティングのコツは？初心者向けに書き方を解説！ - DeepEditor",
+                  "text": "【すぐに実践】SEOライティングのコツ4つ！ SEOライティングというと難しい印象を持つ人も多いですが、今回は少しでも簡..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=QbI0hAEy3oY&t=483",
+                  "title": "【超大作】SEOライティングの教科書",
+                  "text": "みたいなキーワードと。 iPhoneケース。 探してませんか。 今回はおすすめの。 iPhoneケースをランキング。 紹..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=RDizVDpADfQ",
+                  "title": "SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方",
+                  "text": "ます。 構成は読者の疑問に順番に答えるための道筋として考えるとその役割が分かりやすくなり。 ます。 構成ができたら本文を..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEOライターの年収は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "初心者向けのSEOライティングのコツは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEOライティングの勉強方法は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEOライティングの手順は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]",
+              "domain": "moltsinc.co.jp",
+              "title": "SEOライティング完全ガイド｜上位表示の7ステップと実践 ...",
+              "url": "https://moltsinc.co.jp/media/knowledge/5343/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://moltsinc.co.jp › media › knowledge",
+              "website_name": "THE MOLTS",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "SEOライティングとは、検索上位表示を目的とした記事作成手法 です。基本知識から実践テクニックまで7ステップで詳しく解説。キーワード選定・構成作成・執筆・改善まで ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティングとは、検索上位表示を目的とした記事作成手法"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEOライティングで重要な7つの...",
+                  "description": null,
+                  "url": "https://moltsinc.co.jp/media/knowledge/5343/#lwptoc5",
+                  "domain": "moltsinc.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEOライティングに必要な12の...",
+                  "description": null,
+                  "url": "https://moltsinc.co.jp/media/knowledge/5343/#lwptoc19",
+                  "domain": "moltsinc.co.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]",
+              "domain": "sol.ferret-one.com",
+              "title": "SEOライティングとは？初心者が今日から実践できる10の ...",
+              "url": "https://sol.ferret-one.com/blog/seo-writing",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://sol.ferret-one.com › blog › seo-writing",
+              "website_name": "ferretソリューション",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "4 日前 — SEOライティングとは、検索エンジンの仕組みを理解したうえで、ユーザーの検索意図に応えるコンテンツを作る技術です。成功の鍵は「PV数」ではなく「 ...",
+              "pre_snippet": "4 日前",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティング"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-19 11:17:11 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]",
+              "domain": "www.willgate.co.jp",
+              "title": "SEOライティングの基礎と知っておくべき13のポイント",
+              "url": "https://www.willgate.co.jp/promonista/seo-writing/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.willgate.co.jp › promonista › seo-writing",
+              "website_name": "株式会社ウィルゲート",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "SEOライティングとは、検索エンジンから集客を狙ってコンテンツを作成する際のライティング方法 です。サイト運営者が伝えたいことを伝えるだけのライティングではなく、 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティングとは、検索エンジンから集客を狙ってコンテンツを作成する際のライティング方法"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[8]/div[1]/div[1]/div[1]",
+              "domain": "www.youtube.com",
+              "title": "SEOライティングとは？初心者向けに今評価される記事の ...",
+              "url": "https://www.youtube.com/watch?v=siH1MXALUTI",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "視聴回数: 200 回以上  ·  3 か月前",
+              "website_name": "YouTube · 東京SEOメーカーAIO戦略室【世界基準でSEO / LLMOを設計するプロ集団】",
+              "is_image": false,
+              "is_video": true,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": [
+                "is_video"
+              ],
+              "description": null,
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-21 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[10]/div[1]/div[1]",
+              "domain": "bluemonkey.jp",
+              "title": "【初心者向け】SEOライティングとは？コツや勉強できる本",
+              "url": "https://bluemonkey.jp/media/column/seo-lighting/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://bluemonkey.jp › BlueMonkey Media › コラム",
+              "website_name": "CMS BlueMonkey",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/06/26 — SEOライティングとは、Webページやブログ記事などのコンテンツを、検索エンジンの検索結果で上位に表示されるように最適化するために文章を書く技術の ...",
+              "pre_snippet": "06/26/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティング"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEOライティングの目的",
+                  "description": null,
+                  "url": "https://bluemonkey.jp/media/column/seo-lighting/#a02",
+                  "domain": "bluemonkey.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEOライティングに活用したいツ...",
+                  "description": null,
+                  "url": "https://bluemonkey.jp/media/column/seo-lighting/#a04",
+                  "domain": "bluemonkey.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEOライティングが学べる本",
+                  "description": null,
+                  "url": "https://bluemonkey.jp/media/column/seo-lighting/#a06",
+                  "domain": "bluemonkey.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-06-26 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[12]/div[1]/div[1]",
+              "domain": "lucy.ne.jp",
+              "title": "【上位表示率約77%】SEOライティングの実践大全集",
+              "url": "https://lucy.ne.jp/bazubu/seo-writing-43562.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://lucy.ne.jp › バズ部 › SEO",
+              "website_name": "株式会社ルーシー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/04/11 — SEOライティングとは、バズ部の考える定義では、検索エンジンを使って自社サイトに流入した「検索ユーザー」に向けて最適化した文章の書き方をいう。",
+              "pre_snippet": "04/11/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティング"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "6.【SEOライティングSTEP3】ニー...",
+                  "description": null,
+                  "url": "https://lucy.ne.jp/bazubu/seo-writing-43562.html#6SEOSTEP3",
+                  "domain": "lucy.ne.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "7.【SEOライティングSTEP4】記...",
+                  "description": null,
+                  "url": "https://lucy.ne.jp/bazubu/seo-writing-43562.html#7SEOSTEP4",
+                  "domain": "lucy.ne.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-04-11 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[14]/div[1]/div[1]",
+              "domain": "deepeditor.jp",
+              "title": "SEOライティングのコツは？初心者向けに書き方を解説！",
+              "url": "https://deepeditor.jp/blog/seo-writing/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://deepeditor.jp › blog › seo-writing",
+              "website_name": "deepeditor.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/02/14 — SEOライティングの基本的な書き方 · タイトルは32文字前後 · ディスクリプションは120字程度を意識 · 適宜改行する · 古びやすい情報は入れない · 難解な ...",
+              "pre_snippet": "02/14/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティングの基本的な書き方"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-02-14 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[16]/div[1]/div[1]",
+              "domain": "www.lany.co.jp",
+              "title": "SEOライティングとは？書き方と効果的なポイント8選",
+              "url": "https://www.lany.co.jp/blog/seo-writing",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.lany.co.jp › blog › seo-writing",
+              "website_name": "株式会社LANY",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/09/05 — SEOライティングで意識したい8つのポイント・コツ · メタディスクリプションを設定する · 適切なパーマリンクを設定する · 独自性のある情報を含める.",
+              "pre_snippet": "09/05/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティングで意識したい8つのポイント・コツ"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEOライティングの基本的な5つ...",
+                  "description": null,
+                  "url": "https://www.lany.co.jp/blog/seo-writing#heading1",
+                  "domain": "www.lany.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEOライティングで意識したい...",
+                  "description": null,
+                  "url": "https://www.lany.co.jp/blog/seo-writing#heading2",
+                  "domain": "www.lany.co.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-09-05 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[18]/div[1]/div[1]",
+              "domain": "www.plan-b.co.jp",
+              "title": "【今すぐ使える】SEOライティングのノウハウから勉強方法をご紹介",
+              "url": "https://www.plan-b.co.jp/blog/seo/63721/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.plan-b.co.jp › ブログ › SEO対策",
+              "website_name": "株式会社PLAN-B",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/11/28 — 【初級】SEOライティングを意識した4つの記事作成ポイント · 目次と導入文は手を抜かない · 文字数は上位記事を参考にする · 画像・図・動画の挿入は ...",
+              "pre_snippet": "11/28/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOライティング"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-11-28 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "SEOライティング やり方",
+                "SEOライティング資格",
+                "SEOライティング 本",
+                "Seo ライティング 副業",
+                "Seo ライティング 求人",
+                "Seo ライティング 講座",
+                "Seo ライティング 例",
+                "SEOライティング AI"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

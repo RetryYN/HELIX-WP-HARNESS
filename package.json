@@ -8,6 +8,9 @@
     "requirements:validate": "node scripts/validate-requirements.mjs",
     "requirements:helix-l1-l2": "node scripts/validate-helix-l1-l2.mjs",
     "requirements:helix-vmodel": "npm run helix -- vmodel lint",
+    "poc:keyword-serp:test": "node scripts/test-keyword-serp.mjs",
+    "poc:keyword-serp": "node scripts/poc-keyword-serp.mjs",
+    "poc:keyword-serp:evaluate": "node scripts/evaluate-keyword-serp.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
   },

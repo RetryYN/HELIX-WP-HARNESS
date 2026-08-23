@@ -1,0 +1,760 @@
+{
+  "version": "0.1.20260806",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.0177 sec.",
+  "cost": 0.0006,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "08231116-1317-0066-0000-b828ed158ada",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0128 sec.",
+      "cost": 0.0006,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "task_get",
+        "advanced",
+        "08231116-1317-0066-0000-b828ed158ada"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "task_get",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "seo 記事",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "bec89ab9:キーワード割り当て:2"
+      },
+      "result": [
+        {
+          "keyword": "seo 記事",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=seo%20%E8%A8%98%E4%BA%8B&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 11:16:59 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 137,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "SEO記事とは、`検索エンジン（Googleなど）の検索結果で上位に表示させるために作るWeb記事` のことです。ユーザーの悩みや知りたいこと（検索意図）にしっかり答え、役に立つ情報を提供することで、サイトへのアクセスを増やします。[](https://www.seohacks.net/blog/20719/) [[1]](https://www.seohacks.net/blog/20719/)[[2]](https://leadnine.co.jp/media-seo/6417/)\n\n詳しい手順やコツについては、詳しい解説が載っている[SEO記事の書き方完全ガイド](https://www.willgate.co.jp/promonista/how-to-write-seo-contents/) や[SEO記事とは？特徴や作成手順を解説した記事](https://www.seohacks.net/blog/20719/) が参考になります。[](https://www.seohacks.net/blog/20719/) [[1]](https://www.seohacks.net/blog/20719/)[[2]](https://www.willgate.co.jp/promonista/how-to-write-seo-contents/)\n\nSEO記事の基本的な作り方\n\n- **キーワードを選ぶ** ：読者が検索する言葉（キーワード）を決めます。\n- **検索意図を調べる** ：その言葉で検索する人が「何を知りたいのか」を考えます。\n- **構成（設計図）を作る** ：見出しの順番を決め、疑問に順番に答える流れを作ります。\n- **本文を書く** ：結論を先に書き、分かりやすい言葉で説明します。\n- **独自性を入れる** ：他の記事にはない自分の体験や詳しい情報を加えます。[](https://leadnine.co.jp/media-seo/6417/) [[1]](https://leadnine.co.jp/media-seo/6417/)[[2]](https://corp.neo-m.jp/column/contents-marketing_009_seo-article)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)[[4]](https://www.lany.co.jp/blog/plots)[[5]](https://wacul-ai.com/blog/seo/seo-media/)\n\nSEO記事について、さらに知りたいことはありますか？\n\n- 詳しい**キーワードの選び方** \n- 読みやすくなる**見出し構成の作り方** \n- AIを使った**記事作成のコツ** \n\n知りたい内容があれば教えてください。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "SEO記事とは、 検索エンジン（Googleなど）の検索結果で上位に表示させるために作るWeb記事 のことです。ユーザーの悩みや知りたいこと（検索意図）にしっかり答え、役に立つ情報を提供することで、サイトへのアクセスを増やします。",
+                  "markdown": "SEO記事とは、`検索エンジン（Googleなど）の検索結果で上位に表示させるために作るWeb記事` のことです。ユーザーの悩みや知りたいこと（検索意図）にしっかり答え、役に立つ情報を提供することで、サイトへのアクセスを増やします。[](https://www.seohacks.net/blog/20719/) [[1]](https://www.seohacks.net/blog/20719/)[[2]](https://leadnine.co.jp/media-seo/6417/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ナイルのSEO相談室",
+                      "domain": "www.seohacks.net",
+                      "url": "https://www.seohacks.net/blog/20719/",
+                      "title": "SEO記事とは？評価される記事の特徴や作成手順、注意点を解説",
+                      "text": "SEO記事とは、検索エンジン経由での流入を狙って設計されたWebコンテンツのこと。 検索で情報を探すユーザーの意図をくみ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "リードナイン株式会社",
+                      "domain": "leadnine.co.jp",
+                      "url": "https://leadnine.co.jp/media-seo/6417/",
+                      "title": "SEO記事の書き方【19原則】文章構成の作成方法を詳しく解説",
+                      "text": "SEO（Search Engine Optimization）記事とは、検索エンジンでユーザーがキーワード検索したときに..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "詳しい手順やコツについては、詳しい解説が載っている SEO記事の書き方完全ガイド や SEO記事とは？特徴や作成手順を解説した記事 が参考になります。",
+                  "markdown": "詳しい手順やコツについては、詳しい解説が載っている[SEO記事の書き方完全ガイド](https://www.willgate.co.jp/promonista/how-to-write-seo-contents/) や[SEO記事とは？特徴や作成手順を解説した記事](https://www.seohacks.net/blog/20719/) が参考になります。[](https://www.seohacks.net/blog/20719/) [[1]](https://www.seohacks.net/blog/20719/)[[2]](https://www.willgate.co.jp/promonista/how-to-write-seo-contents/)",
+                  "links": [
+                    {
+                      "type": "link_element",
+                      "title": "SEO記事の書き方完全ガイド",
+                      "description": null,
+                      "url": "https://www.willgate.co.jp/promonista/how-to-write-seo-contents/",
+                      "domain": "www.willgate.co.jp"
+                    },
+                    {
+                      "type": "link_element",
+                      "title": "SEO記事とは？特徴や作成手順を解説した記事",
+                      "description": null,
+                      "url": "https://www.seohacks.net/blog/20719/",
+                      "domain": "www.seohacks.net"
+                    }
+                  ],
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ナイルのSEO相談室",
+                      "domain": "www.seohacks.net",
+                      "url": "https://www.seohacks.net/blog/20719/",
+                      "title": "SEO記事とは？評価される記事の特徴や作成手順、注意点を解説",
+                      "text": "SEO記事とは、検索エンジン経由での流入を狙って設計されたWebコンテンツのこと。 検索で情報を探すユーザーの意図をくみ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社ウィルゲート",
+                      "domain": "www.willgate.co.jp",
+                      "url": "https://www.willgate.co.jp/promonista/how-to-write-seo-contents/",
+                      "title": "SEO記事の書き方完全ガイド！SEO歴20年の会社が上位化のための ...",
+                      "text": "SEO歴20年の会社が上位化のためのチェックリストと最新トレンドを解説 * SEO記事の書き方完全ガ... ... Ta..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "SEO記事の基本的な作り方",
+                  "text": "キーワードを選ぶ ：読者が検索する言葉（キーワード）を決めます。 検索意図を調べる ：その言葉で検索する人が「何を知りたいのか」を考えます。 構成（設計図）を作る ：見出しの順番を決め、疑問に順番に答える流れを作ります。 本文を書く ：結論を先に書き、分かりやすい言葉で説明します。 独自性を入れる ：他の記事にはない自分の体験や詳しい情報を加えます。",
+                  "markdown": "- **キーワードを選ぶ** ：読者が検索する言葉（キーワード）を決めます。\n- **検索意図を調べる** ：その言葉で検索する人が「何を知りたいのか」を考えます。\n- **構成（設計図）を作る** ：見出しの順番を決め、疑問に順番に答える流れを作ります。\n- **本文を書く** ：結論を先に書き、分かりやすい言葉で説明します。\n- **独自性を入れる** ：他の記事にはない自分の体験や詳しい情報を加えます。[](https://leadnine.co.jp/media-seo/6417/) [[1]](https://leadnine.co.jp/media-seo/6417/)[[2]](https://corp.neo-m.jp/column/contents-marketing_009_seo-article)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)[[4]](https://www.lany.co.jp/blog/plots)[[5]](https://wacul-ai.com/blog/seo/seo-media/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "リードナイン株式会社",
+                      "domain": "leadnine.co.jp",
+                      "url": "https://leadnine.co.jp/media-seo/6417/",
+                      "title": "SEO記事の書き方【19原則】文章構成の作成方法を詳しく解説",
+                      "text": "SEO（Search Engine Optimization）記事とは、検索エンジンでユーザーがキーワード検索したときに..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ネオマーケティング",
+                      "domain": "corp.neo-m.jp",
+                      "url": "https://corp.neo-m.jp/column/contents-marketing_009_seo-article",
+                      "title": "SEO記事の作成方法・効果的な作り方のポイントを解説",
+                      "text": "SEO記事を作成する10ステップ. ここからは、SEO記事を作成する基本的な手順について解説していきます。SEO対策の効..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=RDizVDpADfQ",
+                      "title": "SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方",
+                      "text": "最初に知りたいことは。 何か次に気になることは。 何か。 最後に判断する時何が必要になるのか。 このように並べると記事全..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社LANY",
+                      "domain": "www.lany.co.jp",
+                      "url": "https://www.lany.co.jp/blog/plots",
+                      "title": "SEOに強い記事構成を作る7つのコツ！必要な情報や具体的な作り方",
+                      "text": "SEOに強い記事構成を作る7つのコツ！ 必要な情報や具体的な作り方 * 資料請求 * お問い合わせ * SEOに強い記事..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "AIアナリスト",
+                      "domain": "wacul-ai.com",
+                      "url": "https://wacul-ai.com/blog/seo/seo-media/",
+                      "title": "SEO記事の書き方｜検索上位を狙うためのポイントからリライトのコツ ...",
+                      "text": "SEO記事の書き方と手順. 読みやすいSEO記事の構成. SEO記事は、ただ情報を並べるのではなく、「結論→理由→具体例..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "SEO記事について、さらに知りたいことはありますか？詳しい キーワードの選び方\n読みやすくなる 見出し構成の作り方\nAIを使った 記事作成のコツ\n知りたい内容があれば教えてください。",
+                  "markdown": "SEO記事について、さらに知りたいことはありますか？\n\n- 詳しい**キーワードの選び方** \n- 読みやすくなる**見出し構成の作り方** \n- AIを使った**記事作成のコツ** \n\n知りたい内容があれば教えてください。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ナイルのSEO相談室",
+                  "domain": "www.seohacks.net",
+                  "url": "https://www.seohacks.net/blog/20719/",
+                  "title": "SEO記事とは？評価される記事の特徴や作成手順、注意点を解説",
+                  "text": "SEO記事とは、検索エンジン経由での流入を狙って設計されたWebコンテンツのこと。 検索で情報を探すユーザーの意図をくみ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "リードナイン株式会社",
+                  "domain": "leadnine.co.jp",
+                  "url": "https://leadnine.co.jp/media-seo/6417/",
+                  "title": "SEO記事の書き方【19原則】文章構成の作成方法を詳しく解説",
+                  "text": "SEO（Search Engine Optimization）記事とは、検索エンジンでユーザーがキーワード検索したときに..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "株式会社ウィルゲート",
+                  "domain": "www.willgate.co.jp",
+                  "url": "https://www.willgate.co.jp/promonista/how-to-write-seo-contents/",
+                  "title": "SEO記事の書き方完全ガイド！SEO歴20年の会社が上位化のための ...",
+                  "text": "SEO歴20年の会社が上位化のためのチェックリストと最新トレンドを解説 * SEO記事の書き方完全ガ... ... Ta..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "株式会社LANY",
+                  "domain": "www.lany.co.jp",
+                  "url": "https://www.lany.co.jp/blog/plots",
+                  "title": "SEOに強い記事構成を作る7つのコツ！必要な情報や具体的な作り方",
+                  "text": "SEOに強い記事構成を作る7つのコツ！ 必要な情報や具体的な作り方 * 資料請求 * お問い合わせ * SEOに強い記事..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "AIアナリスト",
+                  "domain": "wacul-ai.com",
+                  "url": "https://wacul-ai.com/blog/seo/seo-media/",
+                  "title": "SEO記事の書き方｜検索上位を狙うためのポイントからリライトのコツ ...",
+                  "text": "SEO記事の書き方と手順. 読みやすいSEO記事の構成. SEO記事は、ただ情報を並べるのではなく、「結論→理由→具体例..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=RDizVDpADfQ",
+                  "title": "SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方",
+                  "text": "最初に知りたいことは。 何か次に気になることは。 何か。 最後に判断する時何が必要になるのか。 このように並べると記事全..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ネオマーケティング",
+                  "domain": "corp.neo-m.jp",
+                  "url": "https://corp.neo-m.jp/column/contents-marketing_009_seo-article",
+                  "title": "SEO記事の作成方法・効果的な作り方のポイントを解説",
+                  "text": "SEO記事を作成する10ステップ. ここからは、SEO記事を作成する基本的な手順について解説していきます。SEO対策の効..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]",
+              "domain": "www.seohacks.net",
+              "title": "SEO記事とは？評価される記事の特徴や作成手順、注意点を ...",
+              "url": "https://www.seohacks.net/blog/20719/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.seohacks.net › ブログ",
+              "website_name": "ナイルのSEO相談室",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/07/29 — SEO記事は、検索ユーザーの意図をくみ取り、課題を解決する情報を届けることが大切。SEO記事の特徴や制作手順、成果の出る記事を作るために意識したい ...",
+              "pre_snippet": "07/29/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO記事は、検索ユーザーの意図をくみ取り、課題を解決する情報を届けることが大切"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEO記事とは",
+                  "description": null,
+                  "url": "https://www.seohacks.net/blog/20719/#SEO",
+                  "domain": "www.seohacks.net"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEO記事の制作にあたって意識...",
+                  "description": null,
+                  "url": "https://www.seohacks.net/blog/20719/#SEO-2",
+                  "domain": "www.seohacks.net"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEO記事の制作ステップ",
+                  "description": null,
+                  "url": "https://www.seohacks.net/blog/20719/#SEO-3",
+                  "domain": "www.seohacks.net"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-07-29 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEO記事とは何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEO記事構成とは何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEO記事の相場はいくらですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEO対策の記事の書き方は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]",
+              "domain": "leadnine.co.jp",
+              "title": "SEO記事の書き方【19原則】文章構成の作成方法を詳しく解説",
+              "url": "https://leadnine.co.jp/media-seo/6417/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://leadnine.co.jp › media-seo",
+              "website_name": "リードナイン株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "SEO記事を作成する12の手順 · ①ユーザーの悩みを深く考える · ②ユーザーにメリットをもたらす内容を作成する · ③2〜3割オリジナリティのある内容を加える · ④title・ ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO記事を作成する12の手順"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEO記事とは",
+                  "description": null,
+                  "url": "https://leadnine.co.jp/media-seo/6417/#toc-1",
+                  "domain": "leadnine.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEO記事作成前に実施する7つ...",
+                  "description": null,
+                  "url": "https://leadnine.co.jp/media-seo/6417/#toc-4",
+                  "domain": "leadnine.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEO記事を作成する12の手順",
+                  "description": null,
+                  "url": "https://leadnine.co.jp/media-seo/6417/#toc-5",
+                  "domain": "leadnine.co.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]",
+              "domain": "search-engine-pirates.co.jp",
+              "title": "【テンプレ付き】\"SEO記事\"とは？上位表示される条件や書き方 ...",
+              "url": "https://search-engine-pirates.co.jp/column/content-seo/seo-article/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://search-engine-pirates.co.jp › SEOコラム",
+              "website_name": "株式会社検索順位の海賊",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/12 — SEO記事とは、検索エンジン最適化（SEO）の観点から制作された記事のことです。検索結果での上位表示を目指し、サイトへのアクセスを最大化することを主な ...",
+              "pre_snippet": "07/12/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO記事",
+                "SEO",
+                "記事"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-12 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[9]/div[1]/div[1]",
+              "domain": "www.lany.co.jp",
+              "title": "SEOに強い記事構成を作る7つのコツ！必要な情報や具体的 ...",
+              "url": "https://www.lany.co.jp/blog/plots",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.lany.co.jp › blog › plots",
+              "website_name": "株式会社LANY",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/01/08 — SEOに強い記事構成の作り方7ステップ · 1. 記事の目的を明確にする · 2. 対策キーワードとその関連キーワードを調査する · 3. 検索意図を深掘りする · 4.",
+              "pre_snippet": "01/08/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "1. 記事の目的を明確にする"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-01-08 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[1]/div[1]",
+              "domain": "x-buzz.co.jp",
+              "title": "SEO記事とは？1位を狙える書き方を事例付きで解説！ゴミと ...",
+              "url": "https://x-buzz.co.jp/writing/content-marketing/9953/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://x-buzz.co.jp › ... › コンテンツマーケティング",
+              "website_name": "株式会社クロスバズ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "SEO記事 とは、検索結果での上位表示を目的に書かれた記事のことです。「SEOって何？」「SEO記事と他の記事はどう違うの？」とお悩みの方もいらっしゃるでしょう。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO記事",
+                "記事",
+                "SEO"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[13]/div[1]/div[1]",
+              "domain": "wacul-ai.com",
+              "title": "SEO記事の書き方｜検索上位を狙うためのポイントからリライト ...",
+              "url": "https://wacul-ai.com/blog/seo/seo-media/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://wacul-ai.com › 家 › SEO",
+              "website_name": "AIアナリスト",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/02/06 — SEO記事の書き方と手順 · 1. 記事の目的とターゲットを明確にする · 2. 読者の疑問に答えるための情報をリサーチする · 3. 上位表示サイトを調査し、 ...",
+              "pre_snippet": "02/06/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO記事の書き方と手順"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-02-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[14]/div[1]/div[1]/div[1]",
+              "domain": "www.youtube.com",
+              "title": "SEO記事の質は本文を書く前に決まる！ 初心者のための記事 ...",
+              "url": "https://www.youtube.com/watch?v=wI2srZXxeHY",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "視聴回数: 140 回以上  ·  3 か月前",
+              "website_name": "YouTube · 東京SEOメーカーAIO戦略室【世界基準でSEO / LLMOを設計するプロ集団】",
+              "is_image": false,
+              "is_video": true,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": [
+                "is_video"
+              ],
+              "description": null,
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[16]/div[1]/div[1]",
+              "domain": "www.creal.co.jp",
+              "title": "SEO記事の書き方とは？初心者でもできるコツとポイントを解説",
+              "url": "https://www.creal.co.jp/column/seo/11467/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.creal.co.jp › コラム › SEO",
+              "website_name": "株式会社クリエル",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/06/29 — 上位表示しやすいSEO記事の書き方 · 1.上位表示ページをリサーチする · 2.検索ニーズを明確にする · 3.SEO対策を踏まえた記事構成を作る · 4.SEO ...",
+              "pre_snippet": "06/29/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO記事",
+                "SEO",
+                "記事"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-06-29 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[18]/div[1]/div[1]",
+              "domain": "corp.neo-m.jp",
+              "title": "SEO記事の作成方法・効果的な作り方のポイントを解説",
+              "url": "https://corp.neo-m.jp/column/contents-marketing_009_seo-article",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://corp.neo-m.jp › column › contents-marketing_0...",
+              "website_name": "ネオマーケティング",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "SEO記事を作成する10ステップ · 1. ユーザーの課題・検索意図を深掘りする · 2. キーワードをリサーチする · 3. キーワードを含めたタイトル・見出しを設定する · 4. · 5.",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO記事を作成する10ステップ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "SEO記事 例",
+                "Seo 記事 ゴミ",
+                "SEOとは",
+                "SEO記事 書き方",
+                "Seo 記事 読み方",
+                "Seo 記事 目的",
+                "Seo 記事 構成 案",
+                "Seo 記事 ai"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
