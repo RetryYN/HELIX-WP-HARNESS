@@ -24,19 +24,24 @@
   <main>
     <section id="actions" class="view active">
       <div class="metrics" id="metrics"></div>
-      <div class="toolbar">
+      <div class="toolbar table-toolbar">
         <div>
-          <h2>施策・統合候補</h2>
-          <p>Highは記事KW群、Possibleは統合判断待ちとして分離表示</p>
+          <h2>キーワード一覧</h2>
+          <p>KWごとに親・関係・施策状態を確認し、同じ記事群の根拠を開く</p>
         </div>
-        <select id="confidence-filter" aria-label="確度で絞り込み">
-          <option value="all">すべての確度</option>
-          <option value="high">High（80%以上）</option>
-          <option value="possible">Possible（60%以上）</option>
-        </select>
+        <div class="filters">
+          <input id="keyword-search" type="search" placeholder="キーワード検索" aria-label="キーワード検索">
+          <select id="category-filter" aria-label="カテゴリーで絞り込み"><option value="all">全カテゴリー</option></select>
+          <select id="parent-filter" aria-label="親キーワードで絞り込み"><option value="all">全親KW</option></select>
+          <select id="confidence-filter" aria-label="確度で絞り込み"><option value="all">全確度</option><option value="high">High</option><option value="possible">Possible</option></select>
+          <select id="state-filter" aria-label="状態で絞り込み"><option value="all">全状態</option></select>
+        </div>
       </div>
       <div class="layout">
-        <div class="cards" id="group-list"></div>
+        <div class="table-wrap">
+          <table><thead><tr><th>キーワード</th><th>親KW</th><th>関係</th><th>カテゴリー</th><th>確度</th><th>SERP</th><th>施策状態</th><th>WP ID</th></tr></thead><tbody id="keyword-rows"></tbody></table>
+          <div id="table-empty"></div>
+        </div>
         <aside class="detail" id="group-detail" aria-live="polite"></aside>
       </div>
     </section>
