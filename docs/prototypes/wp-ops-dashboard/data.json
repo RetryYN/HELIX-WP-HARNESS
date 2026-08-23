@@ -5,11 +5,19 @@
   "sites": [
     {
       "site_id": "solobiz-lab.com",
-      "label": "大人のひとりビジネスラボ"
+      "label": "大人のひとりビジネスラボ",
+      "domain": "solobiz-lab.com",
+      "status": "active",
+      "is_pinned": true,
+      "display_order": 1
     },
     {
       "site_id": "it-shukatu.com",
-      "label": "IT就活大学"
+      "label": "IT就活大学",
+      "domain": "it-shukatu.com",
+      "status": "active",
+      "is_pinned": true,
+      "display_order": 2
     }
   ],
   "sources": [],

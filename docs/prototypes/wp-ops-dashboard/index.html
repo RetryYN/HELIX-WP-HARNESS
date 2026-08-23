@@ -66,6 +66,10 @@
     <div class="dialog-head"><span>判定詳細</span><button id="detail-close" type="button" aria-label="閉じる">×</button></div>
     <div class="detail" id="group-detail" aria-live="polite"></div>
   </dialog>
+  <dialog id="site-dialog">
+    <div class="dialog-head"><span>サイト一覧</span><button id="site-close" type="button" aria-label="閉じる">×</button></div>
+    <div class="site-directory"><input id="site-search" type="search" placeholder="サイト名・ドメインで検索" aria-label="サイト検索"><div id="site-list"></div></div>
+  </dialog>
 
   <template id="empty-template"><div class="empty"><strong>該当データがありません</strong><span>フィルターを変更してください。</span></div></template>
   <script type="module" src="app.js"></script>

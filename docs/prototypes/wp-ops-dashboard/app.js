@@ -7,8 +7,10 @@ const formatVolume=(value)=>typeof value==="number"?yen.format(value):(value??"�
 document.querySelector("#freshness").textContent = `DFS実測 · ${new Date(data.generated_at).toLocaleString("ja-JP")}`;
 
 const siteSelector=document.querySelector("#site-selector");
-siteSelector.value=data.sites[0].site_id;
-data.sites.forEach((site,index)=>siteSelector.insertAdjacentHTML("beforeend",`<button type="button" role="tab" class="site-tab ${index===0?"active":""}" data-site="${site.site_id}">${site.label}</button>`));
+const pinnedSites=data.sites.filter((site)=>site.is_pinned).sort((a,b)=>a.display_order-b.display_order).slice(0,4);
+siteSelector.value=pinnedSites[0]?.site_id??data.sites[0].site_id;
+pinnedSites.forEach((site,index)=>siteSelector.insertAdjacentHTML("beforeend",`<button type="button" role="tab" class="site-tab ${index===0?"active":""}" data-site="${site.site_id}">${site.label}</button>`));
+siteSelector.insertAdjacentHTML("beforeend",'<button type="button" class="site-directory-trigger">サイト一覧</button>');
 const metricLabels = {actionable_main_keywords:"施策メインKW",new_article_candidates:"新規記事候補",possible_merge_pairs:"統合検討ペア",wp_articles_assigned:"記事ID割当"};
 function renderMetrics(groups){const pairIds=new Set(groups.filter((group)=>group.confidence==="possible").map((group)=>group.comparison_keywords.slice().sort().join("|")));const metrics={actionable_main_keywords:groups.length,new_article_candidates:groups.filter((group)=>group.state.startsWith("新規記事候補")).length,possible_merge_pairs:pairIds.size,wp_articles_assigned:groups.filter((group)=>group.wp_article_id!=null).length};document.querySelector("#metrics").innerHTML=Object.entries(metrics).map(([key,value])=>`<div class="metric"><span>${metricLabels[key]}</span><strong>${yen.format(value)}</strong><small>件</small></div>`).join("")}
 
@@ -22,6 +24,14 @@ const detail = document.querySelector("#group-detail");
 const dialog = document.querySelector("#detail-dialog");
 document.querySelector("#detail-close").addEventListener("click",()=>dialog.close());
 dialog.addEventListener("click",(event)=>{if(event.target===dialog)dialog.close()});
+const siteDialog=document.querySelector("#site-dialog");
+const siteSearch=document.querySelector("#site-search");
+const siteList=document.querySelector("#site-list");
+document.querySelector("#site-close").addEventListener("click",()=>siteDialog.close());
+siteSelector.querySelector(".site-directory-trigger").addEventListener("click",()=>siteDialog.showModal());
+function activateSite(siteId){siteSelector.value=siteId;siteSelector.querySelectorAll(".site-tab").forEach((item)=>item.classList.toggle("active",item.dataset.site===siteId));selectSite();if(siteDialog.open)siteDialog.close()}
+function renderSiteList(){const query=siteSearch.value.trim().toLocaleLowerCase("ja-JP");const sites=data.sites.filter((site)=>`${site.label} ${site.domain}`.toLocaleLowerCase("ja-JP").includes(query));siteList.innerHTML=sites.map((site)=>`<button type="button" class="site-list-item" data-site="${site.site_id}"><span><strong>${site.label}</strong><small>${site.domain}</small></span><em>${site.status}</em></button>`).join("");siteList.querySelectorAll(".site-list-item").forEach((item)=>item.addEventListener("click",()=>activateSite(item.dataset.site)))}
+siteSearch.addEventListener("input",renderSiteList);renderSiteList();
 const filters={search:document.querySelector("#keyword-search"),category:document.querySelector("#category-filter"),parent:document.querySelector("#parent-filter"),state:document.querySelector("#state-filter")};
 function label(group){return group.main_keyword ?? group.sibling_keywords.join(" ／ ")}
 function renderDetail(group){
@@ -46,7 +56,7 @@ function renderRows(){
   if(!rows.length){detail.innerHTML="";return}
   rowsRoot.querySelectorAll(".detail-button").forEach((button)=>button.addEventListener("click",()=>{const row=button.closest("tr");renderDetail(data.groups.find((group)=>group.id===row.dataset.id));dialog.showModal()}));
 }
-Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",renderRows));siteSelector.querySelectorAll(".site-tab").forEach((tab)=>tab.addEventListener("click",()=>{siteSelector.querySelectorAll(".site-tab").forEach((item)=>item.classList.remove("active"));tab.classList.add("active");siteSelector.value=tab.dataset.site;selectSite()}));
+Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",renderRows));siteSelector.querySelectorAll(".site-tab").forEach((tab)=>tab.addEventListener("click",()=>activateSite(tab.dataset.site)));
 
 function renderEmptyViews(){const site=data.sites.find((item)=>item.site_id===siteSelector.value);const assigned=keywordRows.filter((row)=>row.group.wp_article_id!=null).length;document.querySelector("#query-empty").innerHTML=`<strong>${site.label}の獲得クエリはまだありません</strong><span>WP記事IDの割当が${assigned}件のため、記事とGSCクエリを結合できません。記事ID照合後に実データを表示します。</span>`;document.querySelector("#link-map").innerHTML=`<div class="map-placeholder"><strong>${site.label}の内部リンク構造は未生成です</strong><span>このサイトのWP記事IDを取得し、記事本文から内部リンクを抽出した後に表示します。他サイトの記事やリンクは混在させません。</span></div>`}
 selectSite();
