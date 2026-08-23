@@ -34,12 +34,14 @@
           <select id="category-filter" aria-label="カテゴリーで絞り込み"><option value="all">全カテゴリー</option></select>
           <select id="parent-filter" aria-label="メインキーワードで絞り込み"><option value="all">全メインKW</option></select>
           <select id="state-filter" aria-label="状態で絞り込み"><option value="all">全状態</option></select>
+          <select id="page-size" aria-label="表示件数"><option value="25">25件表示</option><option value="50">50件表示</option><option value="100">100件表示</option><option value="all">すべて表示</option></select>
         </div>
       </div>
       <div class="layout table-layout">
         <div class="table-wrap">
-          <table><thead><tr><th>カテゴリー</th><th>メインKW</th><th>検索Vol</th><th>内包KW</th><th>施策状態</th><th>WP ID</th><th></th></tr></thead><tbody id="keyword-rows"></tbody></table>
+          <table><thead><tr><th>カテゴリー</th><th>メインKW</th><th>検索Vol</th><th>内包KW</th><th>AIO</th><th>施策状態</th><th>WP ID</th><th></th></tr></thead><tbody id="keyword-rows"></tbody></table>
           <div id="table-empty"></div>
+          <div id="pagination" class="pagination" aria-live="polite"></div>
         </div>
       </div>
     </section>

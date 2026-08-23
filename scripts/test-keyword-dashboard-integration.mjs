@@ -65,7 +65,11 @@ assert.deepEqual(afterRestart, first, "persistent SQLite projection must survive
 const html = await fetch(`http://127.0.0.1:${port}/`).then((item) => item.text());
 const app = await fetch(`http://127.0.0.1:${port}/app.js`).then((item) => item.text());
 assert.match(html, /keyword-rows/);
+assert.match(html, /id="page-size"/);
+assert.match(html, /<th>AIO<\/th>/);
 assert.match(app, /\/api\/dashboard/);
+assert.match(app, /aio_observed_queries>0/);
+assert.match(app, /visibleRows=rows\.slice/);
 assert.doesNotMatch(app, /内包:\s*\$\{row\.group\.intent_keywords/, "contained keyword text must only appear in detail view");
 await stop(server);
 console.log("persistent SQLite→API→frontend contract: OK (DFS raw provenance, restart persistence, site isolation, strategy, gates, no fabricated links)");

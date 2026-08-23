@@ -34,6 +34,9 @@ function activateSite(siteId){siteSelector.value=siteId;siteSelector.querySelect
 function renderSiteList(){const query=siteSearch.value.trim().toLocaleLowerCase("ja-JP");const sites=data.sites.filter((site)=>`${site.label} ${site.domain}`.toLocaleLowerCase("ja-JP").includes(query));siteList.innerHTML=sites.map((site)=>`<button type="button" class="site-list-item" data-site="${site.site_id}"><span><strong>${site.label}</strong><small>${site.domain}</small></span><em>${site.status}</em></button>`).join("");siteList.querySelectorAll(".site-list-item").forEach((item)=>item.addEventListener("click",()=>activateSite(item.dataset.site)))}
 siteSearch.addEventListener("input",renderSiteList);renderSiteList();
 const filters={search:document.querySelector("#keyword-search"),category:document.querySelector("#category-filter"),parent:document.querySelector("#parent-filter"),state:document.querySelector("#state-filter")};
+const pageSizeControl=document.querySelector("#page-size");
+const pagination=document.querySelector("#pagination");
+let currentPage=1;
 function label(group){return group.main_keyword ?? group.sibling_keywords.join(" ／ ")}
 function renderDetail(group){
   const keywords=group.intent_keywords.length?group.intent_keywords:group.sibling_keywords;
@@ -52,17 +55,25 @@ const allKeywordRows=data.groups.filter((group)=>group.main_keyword).map((group)
 let keywordRows=[];
 const option=(value)=>`<option value="${value}">${value}</option>`;
 function resetFilter(select){while(select.options.length>1)select.remove(1);select.value="all"}
-function selectSite(){keywordRows=allKeywordRows.filter((row)=>row.group.site_id===siteSelector.value).sort(compareSourceOrder);Object.values(filters).forEach((filter)=>{if(filter.tagName==="SELECT")resetFilter(filter);else filter.value=""});[...new Set(keywordRows.map((row)=>row.group.category))].forEach((value)=>filters.category.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.parent))].forEach((value)=>filters.parent.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.group.state))].forEach((value)=>filters.state.insertAdjacentHTML("beforeend",option(value)));renderMetrics(keywordRows.map((row)=>row.group));renderRows();renderEmptyViews()}
+function selectSite(){keywordRows=allKeywordRows.filter((row)=>row.group.site_id===siteSelector.value).sort(compareSourceOrder);currentPage=1;Object.values(filters).forEach((filter)=>{if(filter.tagName==="SELECT")resetFilter(filter);else filter.value=""});[...new Set(keywordRows.map((row)=>row.group.category))].forEach((value)=>filters.category.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.parent))].forEach((value)=>filters.parent.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.group.state))].forEach((value)=>filters.state.insertAdjacentHTML("beforeend",option(value)));renderMetrics(keywordRows.map((row)=>row.group));renderRows();renderEmptyViews()}
 function renderRows(){
   const query=filters.search.value.trim().toLocaleLowerCase("ja-JP");
   const rows=keywordRows.filter((row)=>(!query||`${row.keyword} ${row.parent??""}`.toLocaleLowerCase("ja-JP").includes(query))&&(filters.category.value==="all"||row.group.category===filters.category.value)&&(filters.parent.value==="all"||row.parent===filters.parent.value)&&(filters.state.value==="all"||row.group.state===filters.state.value));
-  rowsRoot.innerHTML=rows.map((row)=>`<tr data-id="${row.group.id}"><td>${row.group.category}</td><td><strong>${row.keyword}</strong></td><td><strong>${row.group.search_volume==null?"未取得":yen.format(row.group.search_volume)}</strong></td><td>${row.group.intent_keywords.length}語</td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td><td><button class="detail-button" type="button">詳細</button></td></tr>`).join("");
+  const pageSize=pageSizeControl.value==="all"?Math.max(rows.length,1):Number(pageSizeControl.value);
+  const pageCount=Math.max(1,Math.ceil(rows.length/pageSize));
+  currentPage=Math.min(currentPage,pageCount);
+  const start=(currentPage-1)*pageSize;
+  const visibleRows=rows.slice(start,start+pageSize);
+  rowsRoot.innerHTML=visibleRows.map((row)=>{const aioPresent=row.group.strategy.aio_observed_queries>0;return `<tr data-id="${row.group.id}"><td>${row.group.category}</td><td><strong>${row.keyword}</strong></td><td><strong>${row.group.search_volume==null?"未取得":yen.format(row.group.search_volume)}</strong></td><td>${row.group.intent_keywords.length}語</td><td><span class="aio-state ${aioPresent?"present":"absent"}">${aioPresent?"あり":"なし"}</span></td><td>${row.group.state}</td><td>${row.group.wp_article_id??"—"}</td><td><button class="detail-button" type="button">詳細</button></td></tr>`}).join("");
   rowsRoot.querySelectorAll("tr").forEach((tr)=>{const group=data.groups.find((item)=>item.id===tr.dataset.id);tr.children[2].querySelector("strong").textContent=formatVolume(group.search_volume)});
   document.querySelector("#table-empty").innerHTML=rows.length?"":"<div class='empty'><strong>該当KWなし</strong><span>フィルターを変更してください。</span></div>";
+  pagination.innerHTML=rows.length?`<span><strong>${start+1}–${Math.min(start+pageSize,rows.length)}</strong> / ${rows.length}件</span><button id="page-prev" type="button" ${currentPage===1?"disabled":""}>前へ</button><span>${currentPage} / ${pageCount}ページ</span><button id="page-next" type="button" ${currentPage===pageCount?"disabled":""}>次へ</button>`:"";
+  pagination.querySelector("#page-prev")?.addEventListener("click",()=>{currentPage-=1;renderRows()});
+  pagination.querySelector("#page-next")?.addEventListener("click",()=>{currentPage+=1;renderRows()});
   if(!rows.length){detail.innerHTML="";return}
   rowsRoot.querySelectorAll(".detail-button").forEach((button)=>button.addEventListener("click",()=>{const row=button.closest("tr");renderDetail(data.groups.find((group)=>group.id===row.dataset.id));dialog.showModal()}));
 }
-Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",renderRows));siteSelector.querySelectorAll(".site-tab").forEach((tab)=>tab.addEventListener("click",()=>activateSite(tab.dataset.site)));
+Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",()=>{currentPage=1;renderRows()}));pageSizeControl.addEventListener("change",()=>{currentPage=1;renderRows()});siteSelector.querySelectorAll(".site-tab").forEach((tab)=>tab.addEventListener("click",()=>activateSite(tab.dataset.site)));
 
 function renderEmptyViews(){const site=data.sites.find((item)=>item.site_id===siteSelector.value);const assigned=keywordRows.filter((row)=>row.group.wp_article_id!=null).length;document.querySelector("#query-empty").innerHTML=`<strong>${site.label}の獲得クエリはまだありません</strong><span>WP記事IDの割当が${assigned}件のため、記事とGSCクエリを結合できません。記事ID照合後に実データを表示します。</span>`;document.querySelector("#link-map").innerHTML=`<div class="map-placeholder"><strong>${site.label}の内部リンク構造は未生成です</strong><span>このサイトのWP記事IDを取得し、記事本文から内部リンクを抽出した後に表示します。他サイトの記事やリンクは混在させません。</span></div>`}
 selectSite();
