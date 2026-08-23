@@ -40,14 +40,24 @@ function classifyArticleGroup(members) {
   });
   const parents = [...new Set(classified.map((item) => item.parent).filter(Boolean))];
   if (parents.length === 1 && classified.every((item) => item.parent === parents[0])) {
-    return { main_keyword: parents[0], main_keyword_origin: "derived_parent", intent_keywords: keywords, modifiers: classified.map((item) => item.modifier), sibling_keywords: [] };
+    // §5: 導出親は入力KWとして実在する場合のみ main へ確定。実在しなければ candidate に留める。
+    const existing = classified.find((item) => normalizeKeyword(item.keyword) === parents[0] && !item.modifier);
+    if (existing) {
+      return { main_keyword: existing.keyword, main_keyword_origin: "input_parent", intent_keywords: keywords.filter((keyword) => keyword !== existing.keyword), modifiers: classified.map((item) => item.modifier).filter(Boolean), sibling_keywords: [] };
+    }
+    return { main_keyword: null, main_keyword_origin: "unresolved", derived_parent_candidate: parents[0], intent_keywords: [], modifiers: classified.map((item) => item.modifier).filter(Boolean), sibling_keywords: keywords };
   }
-  const ranked = members
-    .map((id) => byId.get(id))
+  // §5: 修飾語付きKWは検索Volによらず main 候補から除外する。
+  const nonModifier = members
+    .map((id, index) => ({ record: byId.get(id), modifier: classified[index].modifier }))
+    .filter(({ modifier }) => !modifier)
+    .map(({ record }) => record);
+  const mainCandidates = nonModifier
     .filter((item) => Number.isFinite(item.search_volume_max))
     .sort((left, right) => right.search_volume_max - left.search_volume_max || left.source_keyword_id.localeCompare(right.source_keyword_id));
-  if (ranked.length === members.length && ranked.length > 0) {
-    return { main_keyword: ranked[0].keyword, main_keyword_origin: "highest_search_volume", intent_keywords: ranked.slice(1).map((item) => item.keyword), modifiers: [], sibling_keywords: [] };
+  if (mainCandidates.length > 0 && mainCandidates.length === nonModifier.length) {
+    const main = mainCandidates[0];
+    return { main_keyword: main.keyword, main_keyword_origin: "highest_search_volume", intent_keywords: keywords.filter((keyword) => keyword !== main.keyword), modifiers: classified.map((item) => item.modifier).filter(Boolean), sibling_keywords: [] };
   }
   return { main_keyword: null, main_keyword_origin: "unresolved", intent_keywords: [], modifiers: [], sibling_keywords: keywords };
 }
