@@ -1,4 +1,4 @@
-import { mkdirSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { buildDashboardDb } from "./keyword-dashboard-db.mjs";
 import { categoryPathForKeywords } from "./keyword-category-taxonomy.mjs";
@@ -34,7 +34,8 @@ const fixture={...baseFixture,generated_at:poc.generated_at,groups:[...baseFixtu
 const fixturePath=path.resolve(".helix/keyword-dashboard-runtime.json");
 mkdirSync(path.dirname(fixturePath),{recursive:true});
 await import("node:fs/promises").then(({writeFile})=>writeFile(fixturePath,`${JSON.stringify(fixture,null,2)}\n`));
-const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: path.resolve("artifacts/poc"), importedKeywords });
-const counts = Object.fromEntries(["sites", "imported_keywords", "keyword_groups", "dfs_tasks", "gate_runs", "article_links"].map((table) => [table, Number(db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count)]));
+const gscEvidencePath=path.resolve(process.env.WP_GSC_EVIDENCE??".helix/evidence/gsc-page-query-7d/manifest.json");
+const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: path.resolve("artifacts/poc"), importedKeywords, gscEvidencePath:existsSync(gscEvidencePath)?gscEvidencePath:undefined });
+const counts = Object.fromEntries(["sites", "imported_keywords", "keyword_groups", "dfs_tasks", "gate_runs", "articles", "gsc_query_results", "article_links"].map((table) => [table, Number(db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count)]));
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));
