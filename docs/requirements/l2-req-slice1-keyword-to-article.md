@@ -72,6 +72,9 @@
 
 ### R2. キーワード解析（分析基盤の事前処理 = ガードレール機構）
 
+キーワードの正規化、alias、親子、SERP confidence、main/intent KW、記事作成SEOゲートの共通定義は
+`keyword-normalization-classification.md`を正本とする。
+
 キーワード解析は記事生成の前提となる**ガードレール機構**として機能させる。
 生成に先立ち、確定キーワード群を解析してまとめる事前処理を置く。
 
