@@ -1,0 +1,761 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231446-1317-0139-0000-9fe2527bfdbb",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "3.8413 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "it 企業 就活",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:12"
+      },
+      "result": [
+        {
+          "keyword": "it 企業 就活",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=it%20%E4%BC%81%E6%A5%AD%20%E5%B0%B1%E6%B4%BB&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:47:00 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 135,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:4)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)\n\nIT業界の主な分類と特徴\n\n- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)\n\n就活を成功させるステップ\n\n- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)\n\nもしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "IT企業の就活は、 業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵 です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。",
+                  "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:2)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)",
+                  "links": null,
+                  "images": [
+                    {
+                      "type": "images_element",
+                      "alt": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...",
+                      "url": null,
+                      "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:3"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "マイナビ新卒紹介",
+                      "domain": "shinsotsu.mynavi-agent.jp",
+                      "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+                      "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+                      "text": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説 * キャリパスLIVE紹介 ... 2026年3月23日 *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "techoffer.jp",
+                      "domain": "techoffer.jp",
+                      "url": "https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/",
+                      "title": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説",
+                      "text": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 更新日: 2026年01月12日 * IT業界とは？ 基..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリタス就活",
+                      "domain": "job.career-tasu.jp",
+                      "url": "https://job.career-tasu.jp/guide/study/069/",
+                      "title": "【業界研究】IT業界とは？4分類・職種・仕事内容や今後の動向まで ...",
+                      "text": "【業界研究】IT業界とは？ 4分類・職種・仕事内容や今後の動向まで詳しく解説！ ... キャリタス就活 ... 採用情報..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "type就活",
+                      "domain": "typeshukatsu.jp",
+                      "url": "https://typeshukatsu.jp/s/article/step/75468/",
+                      "title": "ITエンジニア就活、いつから始める？スケジュールと準備内容を完全解説！",
+                      "text": "ITエンジニア就活、いつから始める？ スケジュールと準備内容を完全解説！ type就活 ITエンジニア就活、いつから始め..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66",
+                      "title": "IT業界への志望動機で気を付けるべきこと │ IT業界について徹底解説！",
+                      "text": "としている企業もあります。 が。 最低権限ITパスポートや基礎情報技術者といった資格を取っていたり簡単にでも。 プログラ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "オープンアップ ITエンジニア",
+                      "domain": "openupitengineer.co.jp",
+                      "url": "https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/",
+                      "title": "IT業界は新卒就職できる？職種と就活の進め方 – まなびっとコラム",
+                      "text": "結論：IT業界は新卒・未経験からでも十分に目指せる分野です。多くの企業が育成を前提とした新卒採用の枠を用意しており、入社..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "IT業界の主な分類と特徴",
+                  "text": "SIer（システムインテグレーション） : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。 Web系・インターネット企業 : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。 ソフトウェア・パッケージベンダー : 業務効率化などの自社ソフトや製品を開発・販売。 通信インフラ・キャリア : 5Gやネットワークなどの通信基盤を支える。",
+                  "markdown": "- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリタス就活",
+                      "domain": "job.career-tasu.jp",
+                      "url": "https://job.career-tasu.jp/guide/study/069/",
+                      "title": "【業界研究】IT業界とは？4分類・職種・仕事内容や今後の動向まで ...",
+                      "text": "【業界研究】IT業界とは？ 4分類・職種・仕事内容や今後の動向まで詳しく解説！ ... キャリタス就活 ... 採用情報..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "techoffer.jp",
+                      "domain": "techoffer.jp",
+                      "url": "https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/",
+                      "title": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説",
+                      "text": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 更新日: 2026年01月12日 * IT業界とは？ 基..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "unison-career.jp",
+                      "domain": "unison-career.jp",
+                      "url": "https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/",
+                      "title": "【就活生向け】IT企業ランキングTOP100！総合評価で ...",
+                      "text": "【就活生向け】IT企業ランキングTOP100！ 総合評価で企業の特徴が一覧でよくわかる！ IT専門就活エージェント「ユニ..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "就活を成功させるステップ",
+                  "text": "業界・企業研究を進める : 企業の採用ページや ワンキャリア などの就活サイトで求める役割を確認する。 インターンに参加する : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。 「就活の軸」を言語化する : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。",
+                  "markdown": "- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)",
+                  "links": [
+                    {
+                      "type": "link_element",
+                      "title": "ワンキャリア",
+                      "description": null,
+                      "url": "https://www.onecareer.jp/companies/business_categories/5",
+                      "domain": "www.onecareer.jp"
+                    }
+                  ],
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ワンキャリア",
+                      "domain": "www.onecareer.jp",
+                      "url": "https://www.onecareer.jp/companies/business_categories/5",
+                      "title": "【IT・通信業界の企業一覧】新卒の就活・インターン情報 - ワンキャリア",
+                      "text": "IT・通信業界の企業一覧です。企業の会社概要から、新卒の企業説明会やインターン・本選考・選考ステップをまとめています。内..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "マイナビ新卒紹介",
+                      "domain": "shinsotsu.mynavi-agent.jp",
+                      "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+                      "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+                      "text": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説 * キャリパスLIVE紹介 ... 2026年3月23日 *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "type就活",
+                      "domain": "typeshukatsu.jp",
+                      "url": "https://typeshukatsu.jp/s/article/step/75468/",
+                      "title": "ITエンジニア就活、いつから始める？スケジュールと準備内容を完全解説！",
+                      "text": "ITエンジニア就活、いつから始める？ スケジュールと準備内容を完全解説！ type就活 ITエンジニア就活、いつから始め..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "もしよろしければ、以下を教えてください：文系・理系 どちらの専攻ですか？\nエンジニア職 と 文系向け職種（営業・企画など） のどちらに興味がありますか？\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
+                  "markdown": "もしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ワンキャリア",
+                  "domain": "www.onecareer.jp",
+                  "url": "https://www.onecareer.jp/companies/business_categories/5",
+                  "title": "【IT・通信業界の企業一覧】新卒の就活・インターン情報 - ワンキャリア",
+                  "text": "IT・通信業界の企業一覧です。企業の会社概要から、新卒の企業説明会やインターン・本選考・選考ステップをまとめています。内..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "マイナビ新卒紹介",
+                  "domain": "shinsotsu.mynavi-agent.jp",
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+                  "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+                  "text": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説 * キャリパスLIVE紹介 ... 2026年3月23日 *"
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "キャリタス就活",
+                  "domain": "job.career-tasu.jp",
+                  "url": "https://job.career-tasu.jp/guide/study/069/",
+                  "title": "【業界研究】IT業界とは？4分類・職種・仕事内容や今後の動向まで ...",
+                  "text": "【業界研究】IT業界とは？ 4分類・職種・仕事内容や今後の動向まで詳しく解説！ ... キャリタス就活 ... 採用情報..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "type就活",
+                  "domain": "typeshukatsu.jp",
+                  "url": "https://typeshukatsu.jp/s/article/step/75468/",
+                  "title": "ITエンジニア就活、いつから始める？スケジュールと準備内容を完全解説！",
+                  "text": "ITエンジニア就活、いつから始める？ スケジュールと準備内容を完全解説！ type就活 ITエンジニア就活、いつから始め..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "unison-career.jp",
+                  "domain": "unison-career.jp",
+                  "url": "https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/",
+                  "title": "【就活生向け】IT企業ランキングTOP100！総合評価で ...",
+                  "text": "【就活生向け】IT企業ランキングTOP100！ 総合評価で企業の特徴が一覧でよくわかる！ IT専門就活エージェント「ユニ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "techoffer.jp",
+                  "domain": "techoffer.jp",
+                  "url": "https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/",
+                  "title": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説",
+                  "text": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 更新日: 2026年01月12日 * IT業界とは？ 基..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66",
+                  "title": "IT業界への志望動機で気を付けるべきこと │ IT業界について徹底解説！",
+                  "text": "としている企業もあります。 が。 最低権限ITパスポートや基礎情報技術者といった資格を取っていたり簡単にでも。 プログラ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "オープンアップ ITエンジニア",
+                  "domain": "openupitengineer.co.jp",
+                  "url": "https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/",
+                  "title": "IT業界は新卒就職できる？職種と就活の進め方 – まなびっとコラム",
+                  "text": "結論：IT業界は新卒・未経験からでも十分に目指せる分野です。多くの企業が育成を前提とした新卒採用の枠を用意しており、入社..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "www.onecareer.jp",
+              "title": "【IT・通信業界の企業一覧】新卒の就活・インターン情報",
+              "url": "https://www.onecareer.jp/companies/business_categories/5",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.onecareer.jp › 企業検索",
+              "website_name": "ワンキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT・通信業界の企業一覧 です。企業の会社概要から、新卒の企業説明会やインターン・本選考・選考ステップをまとめています。内定者の声を参考にしてIT・通信業界の企業 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT・通信業界の企業一覧"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界で就活するならどこがいい？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界のホワイト企業は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT企業に就職するのは難しいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "なぜIT企業はやめたほうがいいのでしょうか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "job.career-tasu.jp",
+              "title": "【業界研究】IT業界とは？4分類・職種・仕事内容や今後の ...",
+              "url": "https://job.career-tasu.jp/guide/study/069/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.career-tasu.jp › guide › study",
+              "website_name": "キャリタス就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/25 — IT業界の就活では、自己分析を深めることが重要です。自己分析することで、自分がどのような職種に興味があるか理解できます。また、それを軸にどのような ...",
+              "pre_snippet": "03/25/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT業界の就活では、自己分析を深め"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "shinsotsu.mynavi-agent.jp",
+              "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+              "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shinsotsu.mynavi-agent.jp › 就活ノウハウ",
+              "website_name": "マイナビ新卒紹介",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/23 — IT業界向けの就活の軸を例文45選で紹介。SIer・Web系・SESなど業態別の軸の定め方、採用担当者が見る評価ポイント、4ステップの作り方まで徹底解説。",
+              "pre_snippet": "03/23/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT業界向けの就活の軸を例文45選で紹介"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界で評価される「就活の軸...",
+                  "description": null,
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/#head3",
+                  "domain": "shinsotsu.mynavi-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "属性・業態別】IT企業選びで失敗...",
+                  "description": null,
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/#head4",
+                  "domain": "shinsotsu.mynavi-agent.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-23 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "engineer-shukatu.jp",
+              "title": "エンジニア就活 - 未経験OK！IT業界特化の就職 ...",
+              "url": "https://engineer-shukatu.jp/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://engineer-shukatu.jp",
+              "website_name": "エンジニア就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "プログラミング経験者から未経験者まで 。「エンジニア就活」はIT業界特化の就職・インターンシップ情報サイトです。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "プログラミング経験者から未経験者まで"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "www.nikki.ne.jp",
+              "title": "2025年卒 IT業界新卒就職人気企業ランキング│総合ランキング",
+              "url": "https://www.nikki.ne.jp/event/20240515/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.nikki.ne.jp › event",
+              "website_name": "楽天みん就",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025年3月卒業予定の学生を対象に調査した『2025年卒 IT業界新卒就職人気企業ランキング』上位150社を発表！多くの学生から支持を集めたのは、どんな企業なのでしょう ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "企業"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "typeshukatsu.jp",
+              "title": "ITエンジニア就活、いつから始める？スケジュールと準備内容を ...",
+              "url": "https://typeshukatsu.jp/s/article/step/75468/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://typeshukatsu.jp › article › step",
+              "website_name": "type就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT エンジニアの就活は、一般的な就活と異なる点がいくつかあります。 ... ・早期選考の実施: 優秀な人材を確保するため、大学3年生の夏頃から選考を開始する企業が増加傾向に ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活",
+                "企業"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "techoffer.jp",
+              "title": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も ...",
+              "url": "https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://techoffer.jp › rikeishukatsu › syukatsu-it-ranking",
+              "website_name": "techoffer.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/01/12 — 【最新】新卒就活生に人気なIT企業ランキングTOP10 · 1位：NTTデータ · 2位：富士通 · 3位：SCSK · 4位：伊藤忠テクノソリューションズ（CTC） · 5位： ...",
+              "pre_snippet": "01/12/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "IT企業"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-01-12 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "IT企業に就職するのって勝ちですか？最近友達の話を聞いてる ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13279243393",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › question_detail",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/04/30 — IT企業に就職するのって勝ちですか？最近友達の話を聞いてるとIT企業は営業がなく、転勤もなく、給料も良いらしいのです。実際にITで働かれてる方が ...",
+              "pre_snippet": "04/30/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT企業",
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-04-30 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "avalon-consulting.jp",
+              "title": "IT業界への就職の実態とは？業界について徹底解説",
+              "url": "https://avalon-consulting.jp/blog/it-industry-employment",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://avalon-consulting.jp › Blogs › 業界研究",
+              "website_name": "就活塾ホワイトアカデミー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/16 — このページではIT業界への就職を志望する方に向けて業界構造や代表的な職種・内定獲得のポイントについてまとめております。内容に目を通せばIT業界の ...",
+              "pre_snippet": "03/16/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "新卒 it やめとけ",
+                "It 企業 就活 資格",
+                "入っては いけない IT企業",
+                "IT企業 大手 ランキング",
+                "IT企業一覧 大手",
+                "IT企業 就活サイト",
+                "IT企業 就活 ランキング",
+                "IT企業 就活 時期"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

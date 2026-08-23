@@ -1,0 +1,603 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231449-1317-0139-0000-d8f97039be99",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "65.3758 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 筆記試験 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:63"
+      },
+      "result": [
+        {
+          "keyword": "就活 筆記試験 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20%E7%AD%86%E8%A8%98%E8%A9%A6%E9%A8%93%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:50:44 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 1320000,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "engineer-shukatu.jp",
+              "title": "IT企業のSE選考では対策必須！SEの適性検査「CAB」 ...",
+              "url": "https://engineer-shukatu.jp/column/archives/49214",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://engineer-shukatu.jp › column › archives",
+              "website_name": "エンジニア就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT 業でSEの採用をする際は「CAB」「GAB」「Web-CAB」「玉手箱」等の適性検査が導入されていることが多くあります。 適性検査の種類が違えば、問題の傾向もまた異なります。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "SE業界(システムエンジニア)の就活における筆記試験とは ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11171534901",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2017/03/11 — SIerを含むIT業界では筆記試験などの適性検査はCAB・GABが多いと聞きましたが、一般常識(数学、社会、漢字、四字熟語等？)を出す会社も多いのでしょうか。",
+              "pre_snippet": "03/11/2017 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "筆記試験"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "大学4年の就活生です。来 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13281413638",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "来週にIT企業の面接と筆 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11281103696",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+%E7%AD%86%E8%A8%98%E8%A9%A6%E9%A8%93+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjTr4r0_7aWAxVNT6QEHasRN0EQrQIoAnoECCwQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2017-03-11 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "techoffer.jp",
+              "title": "IT業界に就職したい！選考で課される適性検査について解説",
+              "url": "https://techoffer.jp/rikeishukatsu/it-tekiseikensa/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://techoffer.jp › rikeishukatsu › it-tekiseikensa",
+              "website_name": "techoffer.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/08/27 — 筆記試験は、面接前に課されることも多く、突破できなければその後の選考にすすめないので何としても突破したいところです。 「IT業界で課される筆記試験 ...",
+              "pre_snippet": "08/27/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "筆記試験",
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-08-27 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SPIがボロボロでも受かった理由は何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "三大IT資格は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界でSPIとは何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "適性検査はボロボロでも受かりますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "www.liber.co.jp",
+              "title": "IT業界の筆記テスト | 転職マニュアル - リーベル",
+              "url": "https://www.liber.co.jp/job-change-manual/manual06_03/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.liber.co.jp › 転職マニュアル",
+              "website_name": "liber.co.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "昨今、IT業界の中途採用で行われる筆記テストとして「CAB」をベースにしたものが採用されているようです。 ... CABの問題は暗算・法則性・命令表・暗号の4種類と性格テストで ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "筆記"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "www.kotora.jp",
+              "title": "IT業界の筆記試験って本当に必要？意外と知らない選考の裏側",
+              "url": "https://www.kotora.jp/c/78862-2/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.kotora.jp › ...",
+              "website_name": "コトラ（KOTORA）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/05/08 — IT業界の採用選考において、筆記試験は面接だけでは捉えきれない「適性」を測る重要な役割を果たしています。特に、適性検査では応募者の論理的思考力や ...",
+              "pre_snippet": "05/08/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "筆記試験"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界の筆記試験とは",
+                  "description": null,
+                  "url": "https://www.kotora.jp/c/78862-2/#co-index-0",
+                  "domain": "www.kotora.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "筆記試験の種類とその内容",
+                  "description": null,
+                  "url": "https://www.kotora.jp/c/78862-2/#co-index-10",
+                  "domain": "www.kotora.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "筆記試験対策の重要性と具体的...",
+                  "description": null,
+                  "url": "https://www.kotora.jp/c/78862-2/#co-index-15",
+                  "domain": "www.kotora.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-05-08 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "IT業界の適性検査はどんな問題が出ますか？ | PORTキャリア",
+              "url": "https://www.theport.jp/portcareer/qa/3579/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › ... › 就活Q&A › 筆記試験対策",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/07/03 — 共通SPI型が一般的！ 入念な対策で選考を通過しよう IT業界の適性検査では、言語・非言語・性格が出題される共通SPI型が最もスタンダードです。",
+              "pre_snippet": "07/03/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "共通SPI"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-07-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "reashu.com",
+              "title": "【適性検査一覧】IT業界で導入されている試験と対策",
+              "url": "https://reashu.com/it-character_test/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://reashu.com › 就活のやり方 › ITエンジニア就活",
+              "website_name": "就活の教科書",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/04/28 — 能力適性検査では、国語・数学・論理問題などが出題され、受験するテストによって問題は異なります。 能力適性検査では、性格に関する質問が出題され、IT ...",
+              "pre_snippet": "04/28/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界/エンジニア適性検査一覧",
+                  "description": null,
+                  "url": "https://reashu.com/it-character_test/#IT-2",
+                  "domain": "reashu.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "テスト種類別】IT業界のエンジニ...",
+                  "description": null,
+                  "url": "https://reashu.com/it-character_test/#IT-3",
+                  "domain": "reashu.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-04-28 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "tategami-shukatsu.com",
+              "title": "【IT就活生必見】対策するべき筆記試験とおすすめの参考書 ...",
+              "url": "https://tategami-shukatsu.com/it-spi-cab-gab-aptitude-test-countermeasure-book/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://tategami-shukatsu.com › it-spi-cab-gab-aptitude-...",
+              "website_name": "tategami-shukatsu.com",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/03/05 — 本記事では『IT業界特有の筆記試験』について、テストの種類や特徴、難易度とオススメの対策本について紹介します。IT就活ではCAB試験の対策を行う ...",
+              "pre_snippet": "03/05/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "筆記試験",
+                "IT就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界で多用される３種類の筆記...",
+                  "description": null,
+                  "url": "https://tategami-shukatsu.com/it-spi-cab-gab-aptitude-test-countermeasure-book/#index_id0",
+                  "domain": "tategami-shukatsu.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SPI試験の概要",
+                  "description": null,
+                  "url": "https://tategami-shukatsu.com/it-spi-cab-gab-aptitude-test-countermeasure-book/#index_id1",
+                  "domain": "tategami-shukatsu.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "CAB試験の対策を必ず行うべき...",
+                  "description": null,
+                  "url": "https://tategami-shukatsu.com/it-spi-cab-gab-aptitude-test-countermeasure-book/#index_id4",
+                  "domain": "tategami-shukatsu.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-03-05 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "ITエンジニアの適性検査とは？3つのタイプとCAB検査も解説",
+              "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6071/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › エンジニア転職ガイド",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/13 — ITエンジニアの選考で実施される適性検査とは、性格や能力などの要素から職業の素養を見極めるテストやアンケートを指します。 ITエンジニアに向いている ...",
+              "pre_snippet": "08/13/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "1.エンジニアの適性検査とは？",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6071/#1%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E9%81%A9%E6%80%A7%E6%A4%9C%E6%9F%BB%E3%81%A8%E3%81%AF%EF%BC%9F",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "2.エンジニアの適性診断は3つの...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6071/#2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E9%81%A9%E6%80%A7%E8%A8%BA%E6%96%AD%E3%81%AF3%E3%81%A4%E3%81%AE%E8%A8%BA%E6%96%AD%E3%81%A7%E5%AF%A9%E6%9F%BB",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "IT企業 筆記試験内容",
+                "IT適性検査 落ちる",
+                "IT 適性検査 問題",
+                "IT 適性検査対策",
+                "It 適性 検査 web テ スティング",
+                "It 適性 検査 無料",
+                "It 企業 web テスト 一覧",
+                "It 適性 検査 siirus"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

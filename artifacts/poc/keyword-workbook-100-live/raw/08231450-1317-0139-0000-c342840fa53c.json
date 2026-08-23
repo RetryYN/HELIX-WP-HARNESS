@@ -1,0 +1,844 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231450-1317-0139-0000-c342840fa53c",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "39.3223 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 適性検査 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:73"
+      },
+      "result": [
+        {
+          "keyword": "就活 適性検査 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20%E9%81%A9%E6%80%A7%E6%A4%9C%E6%9F%BB%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:50:52 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 120,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "engineer-shukatu.jp",
+              "title": "IT企業のSE選考では対策必須！SEの適性検査「CAB」 ...",
+              "url": "https://engineer-shukatu.jp/column/archives/49214",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://engineer-shukatu.jp › column › archives",
+              "website_name": "エンジニア就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT 業でSEの採用をする際は「CAB」「GAB」「Web-CAB」「玉手箱」等の適性検査が導入されていることが多くあります。 適性検査の種類が違えば、問題の傾向もまた異なります。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "適性検査"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-c342840fa53c:4)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.theport.jp/portcareer/article/161860/) だけでなく、[CAB](https://engineer-shukatu.jp/column/archives/49214) や[玉手箱](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)\n\n主なIT適性検査の種類と特徴\n\n- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.theport.jp/portcareer/article/161860/)\n\n効率的な対策の進め方\n\n- **形式の見極め** : 志望企業のURLや過去の先輩の体験談から、どのテスト（CAB、玉手箱、SPI等）が使われるか特定する。\n- **時間を測った演習** : 問題の難易度より制限時間が厳しいため、市販の対策本やアプリを使い、本番を意識して素早く正確に解く訓練を重ねる。\n- **素直な性格検査** : 企業に良く見せようと偽らず、一貫性を持たせて回答する。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)\n\n志望している**具体的な企業名** や**職種（SE、プログラマー、総合職など）** を教えていただければ、さらに詳しい対策方法や、よく使われる適性検査の傾向をお伝えできます。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "IT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、 一般的な SPI だけでなく、 CAB や 玉手箱 などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。",
+                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-c342840fa53c:2)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.theport.jp/portcareer/article/161860/) だけでなく、[CAB](https://engineer-shukatu.jp/column/archives/49214) や[玉手箱](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)",
+                  "links": [
+                    {
+                      "type": "link_element",
+                      "title": "SPI",
+                      "description": null,
+                      "url": "https://www.theport.jp/portcareer/article/161860/",
+                      "domain": "www.theport.jp"
+                    },
+                    {
+                      "type": "link_element",
+                      "title": "CAB",
+                      "description": null,
+                      "url": "https://engineer-shukatu.jp/column/archives/49214",
+                      "domain": "engineer-shukatu.jp"
+                    },
+                    {
+                      "type": "link_element",
+                      "title": "玉手箱",
+                      "description": null,
+                      "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/",
+                      "domain": "unison-career.jp"
+                    }
+                  ],
+                  "images": [
+                    {
+                      "type": "images_element",
+                      "alt": "適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...",
+                      "url": null,
+                      "image_url": "https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-c342840fa53c:3"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "エンジニア就活",
+                      "domain": "engineer-shukatu.jp",
+                      "url": "https://engineer-shukatu.jp/column/archives/49214",
+                      "title": "IT企業のSE選考では対策必須！SEの適性検査「CAB」「玉手箱」の出題傾向と対策方法を知ろう！ | エンジニア就活",
+                      "text": "SEの適性検査は、応募者の職務適性を客観的に測るツールとして、IT企業の採用において重視されています。能力検査と性格検査..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "unison-career.jp",
+                      "domain": "unison-career.jp",
+                      "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/",
+                      "title": "【新卒向け】IT業界の適性検査に落ちる理由は出題傾向の確認不足 ...",
+                      "text": "難しい問題の対策を解説 ｜IT専門就活エージェント「ユニゾンキャリア」 * 記事で学ぶarticle. 一覧を見る ラン..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ポート株式会社（PORT INC.）",
+                      "domain": "www.theport.jp",
+                      "url": "https://www.theport.jp/portcareer/article/161860/",
+                      "title": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説",
+                      "text": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説 | PORTキャリア ... About Us * 私..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "主なIT適性検査の種類と特徴",
+                  "text": "CAB（Web-CAB） : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。 玉手箱 : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。 SPI : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。 ATPP : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。",
+                  "markdown": "- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.theport.jp/portcareer/article/161860/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "マネーフォワード クラウド",
+                      "domain": "biz.moneyforward.com",
+                      "url": "https://biz.moneyforward.com/payroll/basic/108203/",
+                      "title": "エンジニアの適性検査で落ちる理由とは？代表的な「CAB」の概要や具体 ...",
+                      "text": "代表的な「CAB」の概要や具体的な対策を解説 * 更新日 : 2026年3月31日 ... 不合格となる主な原因を知るこ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "jws-japan.or.jp",
+                      "domain": "jws-japan.or.jp",
+                      "url": "https://jws-japan.or.jp/whitecareer/blog/14974",
+                      "title": "CABの対策｜IT・エンジニア職向け適性検査の出題形式と解き方を解説",
+                      "text": "CABとは?IT・エンジニア職向けの適性検査. CABはIT職の適性を測るために設計された検査で、コンピュータ職に必要な..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "エンジニア就活",
+                      "domain": "engineer-shukatu.jp",
+                      "url": "https://engineer-shukatu.jp/column/archives/49214",
+                      "title": "IT企業のSE選考では対策必須！SEの適性検査「CAB」「玉手箱」の出題傾向と対策方法を知ろう！ | エンジニア就活",
+                      "text": "SEの適性検査は、応募者の職務適性を客観的に測るツールとして、IT企業の採用において重視されています。能力検査と性格検査..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "unison-career.jp",
+                      "domain": "unison-career.jp",
+                      "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/",
+                      "title": "【新卒向け】IT業界の適性検査に落ちる理由は出題傾向の確認不足 ...",
+                      "text": "難しい問題の対策を解説 ｜IT専門就活エージェント「ユニゾンキャリア」 * 記事で学ぶarticle. 一覧を見る ラン..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ポート株式会社（PORT INC.）",
+                      "domain": "www.theport.jp",
+                      "url": "https://www.theport.jp/portcareer/article/161860/",
+                      "title": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説",
+                      "text": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説 | PORTキャリア ... About Us * 私..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81",
+                      "title": "[Complete Strategy] Learn all about major online tests with just a glance! ...",
+                      "text": "玉手箱ギャブキャブの4つですこれらのテストはそれぞれ難易度や出題される問題の傾向や内容が異なりますこれまで受けたことがな..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "効率的な対策の進め方",
+                  "text": "形式の見極め : 志望企業のURLや過去の先輩の体験談から、どのテスト（CAB、玉手箱、SPI等）が使われるか特定する。 時間を測った演習 : 問題の難易度より制限時間が厳しいため、市販の対策本やアプリを使い、本番を意識して素早く正確に解く訓練を重ねる。 素直な性格検査 : 企業に良く見せようと偽らず、一貫性を持たせて回答する。",
+                  "markdown": "- **形式の見極め** : 志望企業のURLや過去の先輩の体験談から、どのテスト（CAB、玉手箱、SPI等）が使われるか特定する。\n- **時間を測った演習** : 問題の難易度より制限時間が厳しいため、市販の対策本やアプリを使い、本番を意識して素早く正確に解く訓練を重ねる。\n- **素直な性格検査** : 企業に良く見せようと偽らず、一貫性を持たせて回答する。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "マネーフォワード クラウド",
+                      "domain": "biz.moneyforward.com",
+                      "url": "https://biz.moneyforward.com/payroll/basic/108203/",
+                      "title": "エンジニアの適性検査で落ちる理由とは？代表的な「CAB」の概要や具体 ...",
+                      "text": "代表的な「CAB」の概要や具体的な対策を解説 * 更新日 : 2026年3月31日 ... 不合格となる主な原因を知るこ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "unison-career.jp",
+                      "domain": "unison-career.jp",
+                      "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/",
+                      "title": "【新卒向け】IT業界の適性検査に落ちる理由は出題傾向の確認不足 ...",
+                      "text": "難しい問題の対策を解説 ｜IT専門就活エージェント「ユニゾンキャリア」 * 記事で学ぶarticle. 一覧を見る ラン..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ポート株式会社（PORT INC.）",
+                      "domain": "www.theport.jp",
+                      "url": "https://www.theport.jp/portcareer/article/161860/",
+                      "title": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説",
+                      "text": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説 | PORTキャリア ... About Us * 私..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81",
+                      "title": "[Complete Strategy] Learn all about major online tests with just a glance! ...",
+                      "text": "玉手箱ギャブキャブの4つですこれらのテストはそれぞれ難易度や出題される問題の傾向や内容が異なりますこれまで受けたことがな..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "志望している 具体的な企業名 や 職種（SE、プログラマー、総合職など） を教えていただければ、さらに詳しい対策方法や、よく使われる適性検査の傾向をお伝えできます。",
+                  "markdown": "志望している**具体的な企業名** や**職種（SE、プログラマー、総合職など）** を教えていただければ、さらに詳しい対策方法や、よく使われる適性検査の傾向をお伝えできます。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "エンジニア就活",
+                  "domain": "engineer-shukatu.jp",
+                  "url": "https://engineer-shukatu.jp/column/archives/49214",
+                  "title": "IT企業のSE選考では対策必須！SEの適性検査「CAB」「玉手箱」の出題傾向と対策方法を知ろう！ | エンジニア就活",
+                  "text": "SEの適性検査は、応募者の職務適性を客観的に測るツールとして、IT企業の採用において重視されています。能力検査と性格検査..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ポート株式会社（PORT INC.）",
+                  "domain": "www.theport.jp",
+                  "url": "https://www.theport.jp/portcareer/article/161860/",
+                  "title": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説",
+                  "text": "IT企業の適性検査対策ガイド！ 職種別の評価ポイントをプロが解説 | PORTキャリア ... About Us * 私..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "マネーフォワード クラウド",
+                  "domain": "biz.moneyforward.com",
+                  "url": "https://biz.moneyforward.com/payroll/basic/108203/",
+                  "title": "エンジニアの適性検査で落ちる理由とは？代表的な「CAB」の概要や具体 ...",
+                  "text": "代表的な「CAB」の概要や具体的な対策を解説 * 更新日 : 2026年3月31日 ... 不合格となる主な原因を知るこ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "unison-career.jp",
+                  "domain": "unison-career.jp",
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/",
+                  "title": "【新卒向け】IT業界の適性検査に落ちる理由は出題傾向の確認不足 ...",
+                  "text": "難しい問題の対策を解説 ｜IT専門就活エージェント「ユニゾンキャリア」 * 記事で学ぶarticle. 一覧を見る ラン..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "jws-japan.or.jp",
+                  "domain": "jws-japan.or.jp",
+                  "url": "https://jws-japan.or.jp/whitecareer/blog/14974",
+                  "title": "CABの対策｜IT・エンジニア職向け適性検査の出題形式と解き方を解説",
+                  "text": "CABとは?IT・エンジニア職向けの適性検査. CABはIT職の適性を測るために設計された検査で、コンピュータ職に必要な..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81",
+                  "title": "[Complete Strategy] Learn all about major online tests with just a glance! ...",
+                  "text": "玉手箱ギャブキャブの4つですこれらのテストはそれぞれ難易度や出題される問題の傾向や内容が異なりますこれまで受けたことがな..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]",
+              "domain": "biz.moneyforward.com",
+              "title": "エンジニアの適性検査で落ちる理由とは？代表的な「CAB」 ...",
+              "url": "https://biz.moneyforward.com/payroll/basic/108203/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://biz.moneyforward.com › payroll › basic",
+              "website_name": "マネーフォワード クラウド",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/31 — ITエンジニア向けの適性検査は、制限時間内に多くの問題を解く必要があるものが多く、スピードが重要です。解答率が高くても、時間内に解き終えられないと ...",
+              "pre_snippet": "03/31/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "適性検査"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "代表的なITエンジニアの適性検...",
+                  "description": null,
+                  "url": "https://biz.moneyforward.com/payroll/basic/108203/#ITCAB",
+                  "domain": "biz.moneyforward.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアの適性検査の効果...",
+                  "description": null,
+                  "url": "https://biz.moneyforward.com/payroll/basic/108203/#IT",
+                  "domain": "biz.moneyforward.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-31 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[5]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "大学4年の就活生です。来週にIT企業SE職の適性検査と面接が ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13281413638",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/06/13 — 大学4年の 就活生です。 来週にIT企業 SE職の適性検査と面接があります。(110人ほどの中小企業) 個人的に適性検査がいつも苦手で通る時もありますが ...",
+              "pre_snippet": "06/13/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "IT",
+                "適性検査"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "現在就活中なのですが ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10308510285",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界の適性検査ってなにを ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13324339148",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+%E9%81%A9%E6%80%A7%E6%A4%9C%E6%9F%BB+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwiCq8f3_7aWAxVHGVkFHfy_JT0QrQIoAnoECCkQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-06-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[7]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT企業の適性検査の内容は何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT適性検査は難しいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "適性検査はボロボロでも受かりますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT能力適性検査の例題は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[9]/div[1]/div[1]",
+              "domain": "rookie.levtech.jp",
+              "title": "IT業界特有の適性検査5種類とは？特徴と対策・適性が高い人 ...",
+              "url": "https://rookie.levtech.jp/guide/detail/268/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://rookie.levtech.jp › guide › detail",
+              "website_name": "レバテックルーキー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/07/04 — 1.IT業界の適性検査はエンジニアの適性を図るもの · 2.IT業界の適性検査は能力検査と性格検査の2つ · 3.IT業界の適性検査の種類はおもに5つ · 4.IT業界の適性 ...",
+              "pre_snippet": "07/04/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "適性検査"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "2.IT業界の適性検査は能力検査...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/268/#2",
+                  "domain": "rookie.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "3.IT業界の適性検査の種類はお...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/268/#3",
+                  "domain": "rookie.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-07-04 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[11]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "ITエンジニアの適性検査とは？3つのタイプとCAB検査も解説",
+              "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6071/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › エンジニア転職ガイド",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/13 — ITエンジニアの選考で実施される適性検査とは、性格や能力などの要素から職業の素養を見極めるテストやアンケートを指します。 ITエンジニアに向いている ...",
+              "pre_snippet": "08/13/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "適性検査"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "1.エンジニアの適性検査とは？",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6071/#1%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E9%81%A9%E6%80%A7%E6%A4%9C%E6%9F%BB%E3%81%A8%E3%81%AF%EF%BC%9F",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "代表的なエンジニアの適性検査...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6071/#4_%E4%BB%A3%E8%A1%A8%E7%9A%84%E3%81%AA%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E9%81%A9%E6%80%A7%E6%A4%9C%E6%9F%BB%E3%80%8CCAB%E3%80%8D",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[13]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "IT企業の適性検査は何がおこなわれますか？ | PORTキャリア",
+              "url": "https://www.theport.jp/portcareer/qa/7042/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › ... › 就活Q&A › 筆記試験対策",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/01/06 — IT企業の適性検査は「特別に難しい内容が出る」というイメージが強いですが、実際には企業によって大きく異なります。 おもに3つのパターンに分かれます。",
+              "pre_snippet": "01/06/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "適性検査"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-01-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[15]/div[1]/div[1]",
+              "domain": "reashu.com",
+              "title": "ITエンジニアの適性検査と導入企業一覧 | 練習サイトも紹介 ...",
+              "url": "https://reashu.com/se_tekiseisindan/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://reashu.com › 就活のやり方 › ITエンジニア就活",
+              "website_name": "就活の教科書",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/04/28 — ITエンジニアの適性検査は、「WEB適性検査」と「マークシート」の2つの形式をとっています。 形式は2つですが、C-GAB、Web-CAB、CAB、GABなど種類が多く ...",
+              "pre_snippet": "04/28/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "適性検査"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-04-28 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[17]/div[1]/div[1]",
+              "domain": "jws-japan.or.jp",
+              "title": "IT・エンジニア職向け適性検査の出題形式と解き方を解説",
+              "url": "https://jws-japan.or.jp/whitecareer/blog/14974",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://jws-japan.or.jp › ホーム › 就活お役⽴ちブログ",
+              "website_name": "jws-japan.or.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/06/07 — CABはIT職の適性を測るために設計された検査で、コンピュータ職に必要な論理的思考・情報処理能力を評価します。一般的なSPIとは出題科目が大きく異なり ...",
+              "pre_snippet": "06/07/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "CABはIT職の適性を測るために設計された検"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "CABとは?IT・エンジニア職向け...",
+                  "description": null,
+                  "url": "https://jws-japan.or.jp/whitecareer/blog/14974#CABIT",
+                  "domain": "jws-japan.or.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "4科目の出題傾向",
+                  "description": null,
+                  "url": "https://jws-japan.or.jp/whitecareer/blog/14974#4",
+                  "domain": "jws-japan.or.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "CABの対策法",
+                  "description": null,
+                  "url": "https://jws-japan.or.jp/whitecareer/blog/14974#CAB",
+                  "domain": "jws-japan.or.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-06-07 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[19]/div[1]/div[1]",
+              "domain": "www.kotora.jp",
+              "title": "ITエンジニア適性検査に挑む！知っておきたい対策と成功の秘訣",
+              "url": "https://www.kotora.jp/c/78731-2/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.kotora.jp › ...",
+              "website_name": "コトラ（KOTORA）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/05/08 — ITエンジニア向けの適性検査とは、求職者の能力や性格を客観的に評価するために実施されるテストです。主に「能力検査」と「性格検査」の2つの要素 ...",
+              "pre_snippet": "05/08/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "適性検査"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-05-08 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "IT 適性検査 問題",
+                "IT適性検査 落ちる",
+                "IT 適性検査対策",
+                "It 適性検査 CAB",
+                "It 適性 検査 性格",
+                "It 適性 検査 無料",
+                "It 企業 web テスト 一覧",
+                "エンジニア 適性検査 落ちる"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

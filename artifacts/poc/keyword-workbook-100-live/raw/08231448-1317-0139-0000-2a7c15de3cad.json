@@ -1,0 +1,608 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231448-1317-0139-0000-2a7c15de3cad",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "44.3556 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 入社後にしたいこと it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:49"
+      },
+      "result": [
+        {
+          "keyword": "就活 入社後にしたいこと it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20%E5%85%A5%E7%A4%BE%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:49:29 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 120,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "「入社後やりたいことは？」IT業界。",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1063534435",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2011/06/01 — 「入社後やりたいことは？」IT業界。 IT業界を志望しています。 主にSIer系の企業で、幅広く活動しているところへの志望が多いかと思います。",
+              "pre_snippet": "06/01/2011 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後",
+                "こと",
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT企業の面接に向けて入 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10280667490",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT志望の就活生です。面 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10310785690",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+%E5%85%A5%E7%A4%BE%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sxsrf=APpeQntAndFKJy-iirn0o8ivpMvtNjM0mg:1787496568665&sa=X&ved=2ahUKEwjYs4zQ_7aWAxVEMWIAHbn7FqgQrQIoAnoECCwQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2011-06-01 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "【例文付き】ITエンジニアの転職で入社後にしたいことの答え ...",
+              "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6939/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › エンジニア転職ガイド",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "本記事では、「入社後にしたいこと」の質問をされる理由から、回答方法を「考え方」、「伝え方」、「回答例」の3点に分けて徹底解説します。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後にしたいこと"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "2.エンジニアとして入社後にした...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6939/#2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%A8%E3%81%97%E3%81%A6%E5%85%A5%E7%A4%BE%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%80%90%E8%80%83%E3%81%88%E6%96%B9%E7%B7%A8%E3%80%91",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5.エンジニア志望が入社後にした...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6939/#5%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E5%BF%97%E6%9C%9B%E3%81%8C%E5%85%A5%E7%A4%BE%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%82%92%E4%BC%9D%E3%81%88%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "rookie.levtech.jp",
+              "title": "ESの「入社後にしたいこと」への効果的な回答方法！企業 ...",
+              "url": "https://rookie.levtech.jp/guide/detail/382/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://rookie.levtech.jp › guide › detail",
+              "website_name": "レバテックルーキー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/02/02 — ESで「入社後にしたいこと」を質問する企業側の意図として、志望度の高さを知り、入社後のイメージをしっかりと持てているかを確認したいという考えが ...",
+              "pre_snippet": "02/02/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後にしたいこと"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "2.企業がESで「入社後にしたいこ...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/382/#2",
+                  "domain": "rookie.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "3.ESに書く「入社後にしたいこと...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/382/#3",
+                  "domain": "rookie.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-02-02 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "入社後やりたい事を伝える例文は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系を目指したい理由は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "なぜIT業界はやめたほうがいいのでしょうか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "日本のIT勝ち組企業は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "syukatsu-kaigi.jp",
+              "title": "「入社後にしたいこと」の例文40選｜内定者回答を業界・職種 ...",
+              "url": "https://syukatsu-kaigi.jp/articles/647",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://syukatsu-kaigi.jp › articles",
+              "website_name": "就活会議",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/02/26 — 「入社後にしたいこと」の回答例40選を業界・職種別に一挙公開。三菱商事やソニーなど有名企業の内定者が実際に選考で伝えた回答を、就活会議の独自 ...",
+              "pre_snippet": "02/26/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後にしたいこと",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "業界別】「入社後にしたいこと」の...",
+                  "description": null,
+                  "url": "https://syukatsu-kaigi.jp/articles/647#37",
+                  "domain": "syukatsu-kaigi.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "職種別】「入社後にしたいこと」の...",
+                  "description": null,
+                  "url": "https://syukatsu-kaigi.jp/articles/647#38",
+                  "domain": "syukatsu-kaigi.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-02-26 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "jws-japan.or.jp",
+              "title": "入社後にしたいこと例文7選｜業種・職種別に解説",
+              "url": "https://jws-japan.or.jp/whitecareer/blog/6223",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://jws-japan.or.jp › ホーム › 就活お役⽴ちブログ",
+              "website_name": "jws-japan.or.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/06/30 — 「入社後にしたいこと」を面接・ESで答えるための例文を業種別（金融・メーカー・商社・不動産）と職種別（営業・事務・エンジニア）に紹介。",
+              "pre_snippet": "06/30/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後にしたいこと"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-06-30 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "it-shukatu-college.com",
+              "title": "【就活生向け】IT業界の「入社後にしたいこと」の回答方法",
+              "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://it-shukatu-college.com › job-hunting-measures",
+              "website_name": "IT就活大学",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/02/03 — ITエンジニアの「入社後にしたいこと」に対する準備 · 選択職種の仕事内容と技術領域を整理する · 自身の強み・弱みの明確化 · 企業の強み・弱みの分析.",
+              "pre_snippet": "02/03/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "選択職種の仕事内容と技術領域を整理する"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "採用目線】就活で入社後にしたい...",
+                  "description": null,
+                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-1",
+                  "domain": "it-shukatu-college.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "仕事に対する理解度の確認",
+                  "description": null,
+                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-2",
+                  "domain": "it-shukatu-college.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活生の思考力を確認",
+                  "description": null,
+                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-5",
+                  "domain": "it-shukatu-college.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-02-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "unistyleinc.com",
+              "title": "入社後にしたいことの答え方やポイントを解説｜職種・業界別 ...",
+              "url": "https://unistyleinc.com/techniques/372",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unistyleinc.com › 就活テクニック",
+              "website_name": "unistyleinc.com",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/18 — 本記事ではエントリーシート(ES)の「入社後したいこと」答え方を紹介します。設問の意図から「入社後したいこと」を探す方法を踏まえ、職種別・業界別 ...",
+              "pre_snippet": "03/18/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後したいこと"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-18 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "career-emon.com",
+              "title": "SEとしてSIerで働く際の面接で、「入社後のやりたい仕事」 ...",
+              "url": "https://career-emon.com/questions/21120/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career-emon.com › questions",
+              "website_name": "キャリエモン",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "詳しい相談内容:「入社後にやりたい仕事」という質問の答え方についてご教授ください。私は多様な業界のお客様の課題解決を行っているSIerを志望しています。 そこで、この ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後に"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "internstreet.jp",
+              "title": "「入社後にしたいこと」の正しい書き方とは？｜企業の意図と ...",
+              "url": "https://internstreet.jp/articles/longinternship-short-es-perspective",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://internstreet.jp › longinternship-short-es-perspective",
+              "website_name": "Intern Street",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "「入社後にしたいことが思いつかない…」と感じる大学生は少なくありません。 企業がこの質問をする理由は、志望度・早期活躍の可能性・キャリアの方向性を知るためです。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "入社後にしたいこと"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "企業が「入社後にしたいこと」を聞...",
+                  "description": null,
+                  "url": "https://internstreet.jp/articles/longinternship-short-es-perspective#transition-point2",
+                  "domain": "internstreet.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "入社後にしたいこと」を具体的に...",
+                  "description": null,
+                  "url": "https://internstreet.jp/articles/longinternship-short-es-perspective#transition-point8",
+                  "domain": "internstreet.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "入社 後に したい こと IT業界 例文",
+                "入社 後に したい こと エンジニア 未経験",
+                "面接 入社 後に したい こと it",
+                "It 業界 で チャレンジ したい こと",
+                "入社後に したい こと 例文",
+                "Sier 入社 後に やりたい こと",
+                "入社 後に したい こと 例文 事務",
+                "入社後に したい こと 例文 ES"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

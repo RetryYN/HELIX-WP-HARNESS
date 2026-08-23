@@ -1,0 +1,578 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231450-1317-0139-0000-c2775fc31f72",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "55.1389 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "it 就活 職種",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:77"
+      },
+      "result": [
+        {
+          "keyword": "it 就活 職種",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=it%20%E5%B0%B1%E6%B4%BB%20%E8%81%B7%E7%A8%AE&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:51:20 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 134,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "job.mynavi.jp",
+              "title": "IT系の職種とは - 就活準備 - マイナビ2028",
+              "url": "https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.mynavi.jp › complete_guide › shokushu",
+              "website_name": "マイナビ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT系の職種の詳細職種 · ITコンサルタント · データサイエンティスト · プログラマー · ネットワークエンジニア · システム保守運用 · システムコンサルタント ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ITコンサルタント"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "mynavi-agent.jp",
+              "title": "わかりやすい！IT・エンジニアの職種図鑑",
+              "url": "https://mynavi-agent.jp/it/jobindex/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://mynavi-agent.jp › jobindex",
+              "website_name": "マイナビ転職エージェント",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "職種一覧 · ITコンサルタント · プロジェクトマネージャー · プロジェクトリーダー · システムエンジニア · プログラマー · サーバーエンジニア · ネットワークエンジニア.",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ITコンサルタント"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系の代表的な職種は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系の職種の一覧は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界で人気のある職種は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "3大IT資格とは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "www.hht.ac.jp",
+              "title": "IT系の仕事の種類を完全解説！職種別の仕事内容・年収・向い ...",
+              "url": "https://www.hht.ac.jp/news/61646/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.hht.ac.jp › お知らせ",
+              "website_name": "北海道ハイテクノロジー専門学校",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/05 — IT系の代表的な職種 | 開発・エンジニア系 · システムエンジニア · プログラマ · WEBエンジニア · インフラエンジニア · セキュリティエンジニア · プロジェクト ...",
+              "pre_snippet": "05/05/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "開発・エンジニア"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT系の代表的な職種 | 開発・エン...",
+                  "description": null,
+                  "url": "https://www.hht.ac.jp/news/61646/#IT",
+                  "domain": "www.hht.ac.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT系の仕事で活躍できる業界",
+                  "description": null,
+                  "url": "https://www.hht.ac.jp/news/61646/#IT-6",
+                  "domain": "www.hht.ac.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-05 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "job.career-tasu.jp",
+              "title": "【業界研究】IT業界とは？4分類・職種・仕事内容や今後の ...",
+              "url": "https://job.career-tasu.jp/guide/study/069/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.career-tasu.jp › guide › study",
+              "website_name": "キャリタス就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/25 — IT業界は主に4つの分類に分けられ、職種もさまざまな種類がある; 年々市場規模が大きくなっている、将来性の高い業界といえる; IT業界への就職を ...",
+              "pre_snippet": "03/25/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "職種"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界の主要な職種一覧",
+                  "description": null,
+                  "url": "https://job.career-tasu.jp/guide/study/069/#rtoc-2",
+                  "domain": "job.career-tasu.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界に就職するメリット",
+                  "description": null,
+                  "url": "https://job.career-tasu.jp/guide/study/069/#rtoc-5",
+                  "domain": "job.career-tasu.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界の就活の進め方ポイント",
+                  "description": null,
+                  "url": "https://job.career-tasu.jp/guide/study/069/#rtoc-7",
+                  "domain": "job.career-tasu.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "www.saison-technology.com",
+              "title": "「IT業界って実は5つに分かれてる！」就活前に知っておきたい ...",
+              "url": "https://www.saison-technology.com/coloris/%E5%B0%B1%E6%B4%BB%E3%82%92%E7%9F%A5%E3%82%8B/1lamw",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.saison-technology.com › 就活を知る",
+              "website_name": "株式会社セゾンテクノロジー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT業界は5つに分けて理解しよう · 【1】インターネット・Webサービス系 · 【2】SIer（システムインテグレーター） · 【3】ハードウェア系 · 【4】ソフトウェアパッケージ系.",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "【1】インターネット・Webサービス"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "www.nca.ac.jp",
+              "title": "ITエンジニアの種類を一覧で解説！仕事内容・年収・あなたに ...",
+              "url": "https://www.nca.ac.jp/contents/column/technology/it_engineer/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.nca.ac.jp › Home › AI・ホワイトハッカー",
+              "website_name": "名古屋デザイン＆テクノロジー専門学校",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/06/09 — ITエンジニアの種類一覧 ; プログラマー; システムエンジニア（SE）; Webエンジニア; アプリケーションエンジニア; IoTエンジニア · サーバーエンジニア ...",
+              "pre_snippet": "06/09/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "1-1. ITエンジニア＝システムを作...",
+                  "description": null,
+                  "url": "https://www.nca.ac.jp/contents/column/technology/it_engineer/#IT-2",
+                  "domain": "www.nca.ac.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "仕事内容・年収・役割の違いを比較",
+                  "description": null,
+                  "url": "https://www.nca.ac.jp/contents/column/technology/it_engineer/#i",
+                  "domain": "www.nca.ac.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-06-09 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "job.rikunabi.com",
+              "title": "IT業界とは？事業内容や職種、業界動向を解説",
+              "url": "https://job.rikunabi.com/contents/industry/914/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.rikunabi.com › contents › industry",
+              "website_name": "就活ならリクナビ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/04/16 — IT業界の職種 · エンジニア（開発職） · ITコンサルタント · 営業 · カスタマーサクセス · バックオフィス · クリエーティブ職.",
+              "pre_snippet": "04/16/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "職種"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "そもそもIT業界とは",
+                  "description": null,
+                  "url": "https://job.rikunabi.com/contents/industry/914/#IT",
+                  "domain": "job.rikunabi.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界の5つの分類",
+                  "description": null,
+                  "url": "https://job.rikunabi.com/contents/industry/914/#IT5",
+                  "domain": "job.rikunabi.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界の職種",
+                  "description": null,
+                  "url": "https://job.rikunabi.com/contents/industry/914/#IT-2",
+                  "domain": "job.rikunabi.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-04-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "openupitengineer.co.jp",
+              "title": "IT業界は新卒就職できる？職種と就活の進め方",
+              "url": "https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://openupitengineer.co.jp › magazine › beginner",
+              "website_name": "オープンアップ ITエンジニア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/06 — 新卒のIT就活の進め方と準備ステップ. 結論：IT就活は「業界・職種理解 → 自己分析と軸づくり → 企業研究・選考対策」の順に進めると、迷いが少なくなり ...",
+              "pre_snippet": "08/06/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT就活",
+                "職種"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "shigoto.mhlw.go.jp",
+              "title": "IT・通信の仕事 | 職業情報提供サイト（job tag） - 厚生労働省",
+              "url": "https://shigoto.mhlw.go.jp/User/ITOccupations",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shigoto.mhlw.go.jp › User › ITOccupations",
+              "website_name": "職業情報提供サイト（job tag）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT 関連の職業をまとめたPDFファイルを下の図からダウンロードできます。 PDFファイルに掲載された職業名からその職業の詳細ページを表示することもできます。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "IT業界 やめとけ",
+                "IT系 職種 おすすめ",
+                "It 関係 の仕事 年収",
+                "IT職種 分類",
+                "IT 職種 女性",
+                "IT職種ランキング",
+                "It系仕事向いている人",
+                "IT職種 診断"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
