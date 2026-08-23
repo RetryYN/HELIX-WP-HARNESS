@@ -3,6 +3,7 @@ import { DatabaseSync } from "node:sqlite";
 import path from "node:path";
 import { parseCsv } from "./read-csv.mjs";
 import { normalizeKeyword } from "./keyword-serp-core.mjs";
+import { categoryPathsForIds } from "./keyword-category-taxonomy.mjs";
 
 const schemaVersion = "keyword-dashboard.v1";
 
@@ -110,7 +111,7 @@ export function projectDashboard(db) {
     const categoryPath=JSON.parse(row.category_path_json);
     return { id: row.group_id, site_id: row.site_id, main_keyword: row.main_keyword, main_origin: row.main_origin, source_order: { file: row.source_order_file, sheet: row.source_order_sheet, row: row.source_order_row }, source_location: row.source_location, search_volume: JSON.parse(row.search_volume_json), search_volume_source: row.search_volume_source, intent_keywords: list("intent"), sibling_keywords: list("sibling"), comparison_keywords: list("comparison"), confidence: row.confidence, overlap: { shared: row.overlap_shared, depth: row.overlap_depth, ratio: row.overlap_ratio }, state: row.action_state, wp_article_id: row.wp_article_id, category: categoryPath.join(" ＞ "), category_path: categoryPath, strategy: { ...strategy, aio_observed_queries: Number(aio.observed), aio_checked_queries: Number(aio.checked) }, article_gate: { status: conditions.every((item) => item.status === "pass") ? "成立" : "未成立", conditions }, cost: row.cost, task_ids, shared_urls };
   });
-  const articleQueries=db.prepare("SELECT q.site_id,q.wp_article_id,a.url,a.title,q.query,q.normalized_query,q.clicks,q.impressions,q.ctr,q.position,q.window_days,q.observed_at FROM gsc_query_results q JOIN articles a USING(site_id,wp_article_id) ORDER BY q.site_id,q.impressions DESC,q.clicks DESC,q.wp_article_id,q.query").all();
+  const articleQueries=db.prepare("SELECT q.site_id,q.wp_article_id,a.url,a.title,a.category_ids_json,q.query,q.normalized_query,q.clicks,q.impressions,q.ctr,q.position,q.window_days,q.observed_at FROM gsc_query_results q JOIN articles a USING(site_id,wp_article_id) ORDER BY q.site_id,q.impressions DESC,q.clicks DESC,q.wp_article_id,q.query").all().map(({category_ids_json,...row})=>({...row,category_paths:categoryPathsForIds(JSON.parse(category_ids_json))}));
   const gscArticles=db.prepare("SELECT site_id,wp_article_id,url,title,gsc_status FROM articles ORDER BY site_id,wp_article_id").all();
   return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), normalization_aliases: JSON.parse(metadata.normalization_aliases), article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, gsc_articles: gscArticles };
 }

@@ -5,13 +5,15 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { buildDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
-import { categoryPathForKeywords, wpCategoryTaxonomy } from "./keyword-category-taxonomy.mjs";
+import { categoryPathForKeywords, categoryPathsForIds, wpCategoryTaxonomy } from "./keyword-category-taxonomy.mjs";
 
 assert.equal(wpCategoryTaxonomy.length,17);
 assert.deepEqual(categoryPathForKeywords(["it 就活 文系"]),["IT就活","文系就活"]);
 assert.deepEqual(categoryPathForKeywords(["it 就活 面接","it 就活 逆質問"]),["就活対策","面接対策"]);
 assert.deepEqual(categoryPathForKeywords(["it 就活 企業 ランキング"]),["IT業界研究","IT企業分析"]);
 assert.deepEqual(categoryPathForKeywords(["it 就活エージェント 比較"]),["IT就活エージェント","比較・ランキング"]);
+assert.deepEqual(categoryPathsForIds([6,5]),[["就活対策","キャリア"]]);
+assert.deepEqual(categoryPathsForIds([1,9]),[["就活対策","面接対策"],["IT就活"]]);
 
 const dbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-db-")), "dashboard.sqlite");
 buildDashboardDb({ dbPath, fixturePath: path.resolve("docs/prototypes/wp-ops-dashboard/data.json"), artifactRoot: path.resolve("artifacts/poc") }).close();
@@ -105,6 +107,8 @@ assert.match(app, /categoryDepth=Math\.max/);
 assert.match(app, /category-grandchild-head/);
 assert.match(app, /syncCategoryFilters/);
 assert.match(app, /data\.article_queries/);
+assert.match(app, /query-page-size/);
+assert.match(app, /syncQueryCategoryFilters/);
 assert.doesNotMatch(app, /内包:\s*\$\{row\.group\.intent_keywords/, "contained keyword text must only appear in detail view");
 await stop(server);
 console.log("persistent SQLite→API→frontend contract: OK (DFS raw provenance, restart persistence, site isolation, strategy, gates, no fabricated links)");

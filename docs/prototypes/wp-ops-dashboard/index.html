@@ -49,12 +49,22 @@
     </section>
 
     <section id="article-queries" class="view">
-      <div class="section-head">
+      <div class="section-head table-toolbar">
         <div><h2>記事獲得クエリ</h2><p>WordPress記事IDごとにGSCで実際に獲得した検索クエリを表示</p></div>
+        <div class="filters">
+          <input id="query-search" type="search" placeholder="クエリ・記事検索" aria-label="クエリ・記事検索">
+          <select id="query-category-parent-filter" aria-label="親カテゴリーで絞り込み"><option value="all">全親カテゴリー</option></select>
+          <select id="query-category-child-filter" aria-label="子カテゴリーで絞り込み"><option value="all">全子カテゴリー</option></select>
+          <select id="query-category-grandchild-filter" aria-label="孫カテゴリーで絞り込み"><option value="all">全孫カテゴリー</option></select>
+          <select id="query-article-filter" aria-label="記事で絞り込み"><option value="all">全記事</option></select>
+          <select id="query-period-filter" aria-label="取得期間で絞り込み"><option value="all">全期間</option></select>
+          <select id="query-page-size" aria-label="表示件数"><option value="25">25件表示</option><option value="50">50件表示</option><option value="100">100件表示</option><option value="all">すべて表示</option></select>
+        </div>
       </div>
       <div class="table-wrap">
-        <table><thead><tr><th>記事</th><th>WP ID</th><th>獲得クエリ</th><th>表示回数</th><th>クリック</th><th>平均掲載順位</th><th>取得期間</th></tr></thead><tbody id="query-rows"></tbody></table>
+        <table><thead><tr><th>親カテゴリー</th><th id="query-category-child-head">子カテゴリー</th><th id="query-category-grandchild-head">孫カテゴリー</th><th>記事</th><th>WP ID</th><th>獲得クエリ</th><th>表示回数</th><th>クリック</th><th>平均掲載順位</th><th>取得期間</th></tr></thead><tbody id="query-rows"></tbody></table>
         <div id="query-empty" class="empty-state"></div>
+        <div id="query-pagination" class="pagination" aria-live="polite"></div>
       </div>
     </section>
 

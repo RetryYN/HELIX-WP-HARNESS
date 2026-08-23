@@ -20,6 +20,13 @@ export const wpCategoryTaxonomy = [
   { id: 37, name: "ガクチカ", slug: "gakuchika", parent: 5 },
 ];
 
+export function categoryPathsForIds(ids){
+  const byId=new Map(wpCategoryTaxonomy.map((category)=>[category.id,category]));
+  const selected=new Set(ids);
+  const leaves=ids.filter((id)=>!ids.some((other)=>other!==id&&(()=>{let current=byId.get(other);while(current?.parent){if(current.parent===id)return true;current=byId.get(current.parent)}return false})()));
+  return leaves.map((id)=>{const path=[];let current=byId.get(id);while(current){path.unshift(current.name);current=byId.get(current.parent)}return path}).filter((path)=>path.length).sort((left,right)=>right.length-left.length||left.join("\0").localeCompare(right.join("\0"),"ja"));
+}
+
 const includesAny = (text, terms) => terms.some((term) => text.includes(term));
 
 export function categoryPathForKeywords(keywords) {
