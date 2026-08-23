@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T11:27:13.803Z",
+  "generated_at": "2026-08-23T11:33:14.986Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -146,10 +146,11 @@
     }
   ],
   "grouping": {
-    "algorithm": "top5-url-overlap-likely-intent-components.v1",
-    "decision": "5位以内のURL一致率が80%を超える場合、同一検索意図に内包される可能性が高い",
-    "threshold_operator": ">",
-    "threshold": 0.8,
+    "algorithm": "top5-url-overlap-intent-confidence-components.v2",
+    "decision": "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate",
+    "threshold_operator": ">=",
+    "high_threshold": 0.8,
+    "possible_threshold": 0.6,
     "comparison_depth": 5,
     "pairs": [
       {
@@ -166,6 +167,7 @@
         "denominator": 5,
         "ratio": 1,
         "comparable": true,
+        "intent_confidence": "high",
         "likely_same_intent": true
       },
       {
@@ -176,6 +178,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -186,6 +189,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -196,6 +200,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -206,6 +211,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -216,6 +222,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -226,6 +233,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -236,6 +244,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -246,6 +255,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -256,6 +266,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -266,6 +277,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -276,6 +288,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -286,6 +299,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -296,6 +310,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -306,6 +321,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -316,6 +332,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -326,6 +343,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -336,6 +354,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -346,6 +365,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -356,6 +376,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -366,6 +387,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -376,6 +398,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -386,6 +409,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -396,6 +420,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -406,6 +431,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -416,6 +442,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -426,6 +453,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false
       },
       {
@@ -440,7 +468,8 @@
         "denominator": 5,
         "ratio": 0.6,
         "comparable": true,
-        "likely_same_intent": false
+        "intent_confidence": "possible",
+        "likely_same_intent": true
       }
     ],
     "clusters": [
@@ -461,9 +490,7 @@
         "bec89ab9:キーワード割り当て:6"
       ],
       [
-        "bec89ab9:キーワード割り当て:7"
-      ],
-      [
+        "bec89ab9:キーワード割り当て:7",
         "bec89ab9:キーワード割り当て:8"
       ]
     ]
@@ -481,6 +508,23 @@
       ]
     }
   ],
-  "article_keyword_groups": [],
-  "reproducibility_digest": "37a797ee8bd6838ab854435bafcc2e72aec08a37839760027abcdabd1df19c37"
+  "article_keyword_groups": [
+    {
+      "group_id": "poc-article-group-1",
+      "evidence": "likely_same_intent",
+      "source_keyword_ids": [
+        "bec89ab9:キーワード割り当て:7",
+        "bec89ab9:キーワード割り当て:8"
+      ],
+      "main_keyword": "記事作成 副業",
+      "sub_keywords": [
+        "ライター 副業"
+      ],
+      "normalized_keywords": [
+        "記事作成 副業",
+        "ライター 副業"
+      ]
+    }
+  ],
+  "reproducibility_digest": "3796d80daf604043b84dbf0e6b341daead61a15ceb64e8051d03c766470d768b"
 }

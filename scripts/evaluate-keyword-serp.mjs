@@ -22,7 +22,7 @@ for (const file of files) {
   });
 }
 tasks.sort((a, b) => a.source_keyword_id.localeCompare(b.source_keyword_id));
-const grouping = groupBySerp(tasks, { threshold: 0.8, comparisonDepth: 5 });
+const grouping = groupBySerp(tasks, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 const byId = new Map(tasks.map((task) => [task.source_keyword_id, task]));
 const normalizationAliases = [];
 const articleKeywordGroups = grouping.clusters
@@ -54,7 +54,7 @@ const evidence = {
   query_contract: { provider: "DataForSEO", queue: "standard", location_code: 2392, language_code: "ja", device: "desktop", fetched_depth: 10, comparison_depth: 5 },
   normalization: { version: "nfkc-space-casefold.v1", coverage_version: "nfkc-space-casefold-compact.v1", input_count: tasks.length },
   tasks,
-  grouping: { algorithm: "top5-url-overlap-likely-intent-components.v1", decision: "5位以内のURL一致率が80%を超える場合、同一検索意図に内包される可能性が高い", ...grouping },
+  grouping: { algorithm: "top5-url-overlap-intent-confidence-components.v2", decision: "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate", ...grouping },
   normalization_aliases: normalizationAliases,
   article_keyword_groups: articleKeywordGroups,
 };

@@ -68,7 +68,7 @@ while (completed.length < tasks.length && Date.now() < deadline) {
 if (completed.length !== tasks.length) throw new Error(`timeout: ${completed.length}/${tasks.length} tasks completed`);
 
 completed.sort((a, b) => a.source_keyword_id.localeCompare(b.source_keyword_id));
-const grouping = groupBySerp(completed, { threshold: 0.8, comparisonDepth: 5 });
+const grouping = groupBySerp(completed, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 const evidence = {
   schema_version: "wp-keyword-serp-poc.v1",
   generated_at: new Date().toISOString(),
@@ -79,7 +79,7 @@ const evidence = {
     { file: "IT就活大学キーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
   ],
   tasks: completed,
-  grouping: { algorithm: "top5-url-overlap-likely-intent-components.v1", decision: "5位以内のURL一致率が80%を超える場合、同一検索意図に内包される可能性が高い", ...grouping },
+  grouping: { algorithm: "top5-url-overlap-intent-confidence-components.v2", decision: "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate", ...grouping },
   reproducibility_digest: digest({ input, snapshots: completed.map(({ source_keyword_id, response_digest }) => ({ source_keyword_id, response_digest })), grouping }),
 };
 await writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(evidence, null, 2)}\n`);

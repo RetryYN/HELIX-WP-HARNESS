@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T11:28:20.212Z",
+  "generated_at": "2026-08-23T11:33:15.048Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -50,10 +50,11 @@
     }
   ],
   "grouping": {
-    "algorithm": "top5-url-overlap-likely-intent-components.v1",
-    "decision": "5位以内のURL一致率が80%を超える場合、同一検索意図に内包される可能性が高い",
-    "threshold_operator": ">",
-    "threshold": 0.8,
+    "algorithm": "top5-url-overlap-intent-confidence-components.v2",
+    "decision": "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate",
+    "threshold_operator": ">=",
+    "high_threshold": 0.8,
+    "possible_threshold": 0.6,
     "comparison_depth": 5,
     "pairs": [
       {
@@ -69,19 +70,35 @@
         "denominator": 5,
         "ratio": 0.8,
         "comparable": true,
-        "likely_same_intent": false
+        "intent_confidence": "high",
+        "likely_same_intent": true
       }
     ],
     "clusters": [
       [
-        "probe:it-job-site:comparison"
-      ],
-      [
+        "probe:it-job-site:comparison",
         "probe:it-job-site:recommended"
       ]
     ]
   },
   "normalization_aliases": [],
-  "article_keyword_groups": [],
-  "reproducibility_digest": "a1ff5944e7359c081a3d2635efb2e3f09688ba38939f23ae0038e10c01f876ab"
+  "article_keyword_groups": [
+    {
+      "group_id": "poc-article-group-1",
+      "evidence": "likely_same_intent",
+      "source_keyword_ids": [
+        "probe:it-job-site:comparison",
+        "probe:it-job-site:recommended"
+      ],
+      "main_keyword": "it 就活サイト 比較",
+      "sub_keywords": [
+        "it 就活サイト おすすめ"
+      ],
+      "normalized_keywords": [
+        "it 就活サイト 比較",
+        "it 就活サイト おすすめ"
+      ]
+    }
+  ],
+  "reproducibility_digest": "201e7d6fa41b46044baf4d92590ae74941cb3626038ae83958533ffa7cdd2f96"
 }

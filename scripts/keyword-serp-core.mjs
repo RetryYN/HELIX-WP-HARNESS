@@ -57,7 +57,7 @@ export function overlap(left, right) {
   };
 }
 
-export function groupBySerp(records, { threshold = 0.8, comparisonDepth = 5 } = {}) {
+export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 0.6, comparisonDepth = 5 } = {}) {
   const parent = records.map((_, index) => index);
   const find = (index) => (parent[index] === index ? index : (parent[index] = find(parent[index])));
   const union = (a, b) => {
@@ -70,9 +70,10 @@ export function groupBySerp(records, { threshold = 0.8, comparisonDepth = 5 } = 
     for (let j = i + 1; j < records.length; j += 1) {
       const result = overlap(records[i].organic_urls.slice(0, comparisonDepth), records[j].organic_urls.slice(0, comparisonDepth));
       const comparable = result.denominator === comparisonDepth;
-      const same = comparable && result.ratio > threshold;
-      pairs.push({ left: records[i].source_keyword_id, right: records[j].source_keyword_id, ...result, comparable, likely_same_intent: same });
-      if (same) union(i, j);
+      const confidence = !comparable ? "insufficient" : result.ratio >= highThreshold ? "high" : result.ratio >= possibleThreshold ? "possible" : "separate";
+      const candidate = confidence === "high" || confidence === "possible";
+      pairs.push({ left: records[i].source_keyword_id, right: records[j].source_keyword_id, ...result, comparable, intent_confidence: confidence, likely_same_intent: candidate });
+      if (candidate) union(i, j);
     }
   }
   const grouped = new Map();
@@ -84,7 +85,7 @@ export function groupBySerp(records, { threshold = 0.8, comparisonDepth = 5 } = 
   const clusters = [...grouped.values()]
     .map((members) => members.sort())
     .sort((a, b) => a[0].localeCompare(b[0]));
-  return { threshold_operator: ">", threshold, comparison_depth: comparisonDepth, pairs, clusters };
+  return { threshold_operator: ">=", high_threshold: highThreshold, possible_threshold: possibleThreshold, comparison_depth: comparisonDepth, pairs, clusters };
 }
 
 export function digest(value) {
