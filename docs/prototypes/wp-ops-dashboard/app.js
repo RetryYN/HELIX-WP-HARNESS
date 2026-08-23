@@ -6,8 +6,11 @@ const yen = new Intl.NumberFormat("ja-JP");
 const formatVolume=(value)=>typeof value==="number"?yen.format(value):(value??"未取得");
 document.querySelector("#freshness").textContent = `DFS実測 · ${new Date(data.generated_at).toLocaleString("ja-JP")}`;
 
+const siteSelector=document.querySelector("#site-selector");
+siteSelector.value=data.sites[0].site_id;
+data.sites.forEach((site,index)=>siteSelector.insertAdjacentHTML("beforeend",`<button type="button" role="tab" class="site-tab ${index===0?"active":""}" data-site="${site.site_id}">${site.label}</button>`));
 const metricLabels = {actionable_main_keywords:"施策メインKW",new_article_candidates:"新規記事候補",possible_merge_pairs:"統合検討ペア",wp_articles_assigned:"記事ID割当"};
-document.querySelector("#metrics").innerHTML = Object.entries(data.metrics).map(([key,value])=>`<div class="metric"><span>${metricLabels[key]}</span><strong>${yen.format(value)}</strong><small>件</small></div>`).join("");
+function renderMetrics(groups){const pairIds=new Set(groups.filter((group)=>group.confidence==="possible").map((group)=>group.comparison_keywords.slice().sort().join("|")));const metrics={actionable_main_keywords:groups.length,new_article_candidates:groups.filter((group)=>group.state.startsWith("新規記事候補")).length,possible_merge_pairs:pairIds.size,wp_articles_assigned:groups.filter((group)=>group.wp_article_id!=null).length};document.querySelector("#metrics").innerHTML=Object.entries(metrics).map(([key,value])=>`<div class="metric"><span>${metricLabels[key]}</span><strong>${yen.format(value)}</strong><small>件</small></div>`).join("")}
 
 document.querySelectorAll(".tab").forEach((tab)=>tab.addEventListener("click",()=>{
   document.querySelectorAll(".tab,.view").forEach((node)=>node.classList.remove("active"));
@@ -29,11 +32,11 @@ function renderDetail(group){
   detail.querySelectorAll(".detail-row").forEach((row)=>{const key=row.querySelector("span")?.textContent;if(key==="メインKW検索Vol")row.querySelector("strong").textContent=formatVolume(group.search_volume);if(key==="比較ペア")row.querySelector("strong").textContent=compared.join(" ↔ ")});
 }
 const compareSourceOrder=(left,right)=>left.group.source_order.file-right.group.source_order.file||left.group.source_order.sheet-right.group.source_order.sheet||left.group.source_order.row-right.group.source_order.row;
-const keywordRows=data.groups.filter((group)=>group.main_keyword).map((group)=>({keyword:group.main_keyword,parent:group.main_keyword,group})).sort(compareSourceOrder);
+const allKeywordRows=data.groups.filter((group)=>group.main_keyword).map((group)=>({keyword:group.main_keyword,parent:group.main_keyword,group}));
+let keywordRows=[];
 const option=(value)=>`<option value="${value}">${value}</option>`;
-[...new Set(keywordRows.map((row)=>row.group.category))].forEach((value)=>filters.category.insertAdjacentHTML("beforeend",option(value)));
-[...new Set(keywordRows.map((row)=>row.parent).filter(Boolean))].forEach((value)=>filters.parent.insertAdjacentHTML("beforeend",option(value)));
-[...new Set(keywordRows.map((row)=>row.group.state))].forEach((value)=>filters.state.insertAdjacentHTML("beforeend",option(value)));
+function resetFilter(select){while(select.options.length>1)select.remove(1);select.value="all"}
+function selectSite(){keywordRows=allKeywordRows.filter((row)=>row.group.site_id===siteSelector.value).sort(compareSourceOrder);Object.values(filters).forEach((filter)=>{if(filter.tagName==="SELECT")resetFilter(filter);else filter.value=""});[...new Set(keywordRows.map((row)=>row.group.category))].forEach((value)=>filters.category.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.parent))].forEach((value)=>filters.parent.insertAdjacentHTML("beforeend",option(value)));[...new Set(keywordRows.map((row)=>row.group.state))].forEach((value)=>filters.state.insertAdjacentHTML("beforeend",option(value)));renderMetrics(keywordRows.map((row)=>row.group));renderRows();renderEmptyViews()}
 function renderRows(){
   const query=filters.search.value.trim().toLocaleLowerCase("ja-JP");
   const rows=keywordRows.filter((row)=>(!query||`${row.keyword} ${row.parent??""}`.toLocaleLowerCase("ja-JP").includes(query))&&(filters.category.value==="all"||row.group.category===filters.category.value)&&(filters.parent.value==="all"||row.parent===filters.parent.value)&&(filters.state.value==="all"||row.group.state===filters.state.value));
@@ -43,7 +46,7 @@ function renderRows(){
   if(!rows.length){detail.innerHTML="";return}
   rowsRoot.querySelectorAll(".detail-button").forEach((button)=>button.addEventListener("click",()=>{const row=button.closest("tr");renderDetail(data.groups.find((group)=>group.id===row.dataset.id));dialog.showModal()}));
 }
-Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",renderRows));renderRows();
+Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",renderRows));siteSelector.querySelectorAll(".site-tab").forEach((tab)=>tab.addEventListener("click",()=>{siteSelector.querySelectorAll(".site-tab").forEach((item)=>item.classList.remove("active"));tab.classList.add("active");siteSelector.value=tab.dataset.site;selectSite()}));
 
-document.querySelector("#query-empty").innerHTML=`<strong>獲得クエリはまだありません</strong><span>WP記事IDの割当が${data.metrics.wp_articles_assigned}件のため、記事とGSCクエリを結合できません。記事ID照合後に実データを表示します。</span>`;
-document.querySelector("#link-map").innerHTML=`<div class="map-placeholder"><strong>内部リンク構造は未生成です</strong><span>WP記事IDを取得し、記事本文から内部リンクを抽出した後に表示します。推測リンクやダミーノードは表示しません。</span></div>`;
+function renderEmptyViews(){const site=data.sites.find((item)=>item.site_id===siteSelector.value);const assigned=keywordRows.filter((row)=>row.group.wp_article_id!=null).length;document.querySelector("#query-empty").innerHTML=`<strong>${site.label}の獲得クエリはまだありません</strong><span>WP記事IDの割当が${assigned}件のため、記事とGSCクエリを結合できません。記事ID照合後に実データを表示します。</span>`;document.querySelector("#link-map").innerHTML=`<div class="map-placeholder"><strong>${site.label}の内部リンク構造は未生成です</strong><span>このサイトのWP記事IDを取得し、記事本文から内部リンクを抽出した後に表示します。他サイトの記事やリンクは混在させません。</span></div>`}
+selectSite();

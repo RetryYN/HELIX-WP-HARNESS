@@ -1,5 +1,145 @@
-{"schema_version":"wp-keyword-dashboard-prototype.v1","generated_at":"2026-08-23T11:27:00+09:00","provenance":"DataForSEO standard raw snapshots + supplied Excel JSON inspection","metrics":{"actionable_main_keywords":3,"new_article_candidates":3,"possible_merge_pairs":1,"wp_articles_assigned":0},"sources":[],"groups":[
-{"id":"intent-pair-001","main_keyword":"it 就活サイト","main_origin":"imported_keyword","source_order":{"file":2,"sheet":1,"row":16},"source_location":"IT就活大学キーワードマップ.xlsx / IT就活 / 16行","search_volume":70,"search_volume_source":"IT就活大学キーワードマップ.xlsx / IT就活","intent_keywords":["it 就活サイト 比較","it 就活サイト おすすめ"],"sibling_keywords":[],"comparison_keywords":["it 就活サイト 比較","it 就活サイト おすすめ"],"confidence":"high","overlap":{"shared":4,"depth":5,"ratio":0.8},"state":"新規記事候補","wp_article_id":null,"category":"IT就活","cost":0.0012,"task_ids":["08231127-1317-0066-0000-27b983625bf0","08231127-1317-0066-0000-6695f73ea2c8"],"shared_urls":["https://coeteco.jp/articles/14332","https://engineer-shukatu.jp/tensyoku/it-tenshoku-site","https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254","https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"]},
-{"id":"solobiz-article-sidejob","main_keyword":"記事作成 副業","main_origin":"imported_keyword","source_order":{"file":1,"sheet":3,"row":7},"source_location":"大人のひとりビジネスラボ.xlsx / キーワード割り当て / 7行","search_volume":"100-1000","search_volume_source":"大人のひとりビジネスラボ.xlsx / キーワード割り当て","intent_keywords":[],"sibling_keywords":["ライター 副業"],"comparison_keywords":["記事作成 副業","ライター 副業"],"confidence":"possible","overlap":{"shared":3,"depth":5,"ratio":0.6},"state":"新規記事候補・統合検討","wp_article_id":null,"category":"クライアントワーク","cost":0.0012,"task_ids":["08231116-1317-0066-0000-3b748a72e76d","08231116-1317-0066-0000-2a5bb8fc7c4d"],"shared_urls":[]},
-{"id":"solobiz-writer-sidejob","main_keyword":"ライター 副業","main_origin":"imported_keyword","source_order":{"file":1,"sheet":3,"row":8},"source_location":"大人のひとりビジネスラボ.xlsx / キーワード割り当て / 8行","search_volume":"1000-10000","search_volume_source":"大人のひとりビジネスラボ.xlsx / キーワード割り当て","intent_keywords":[],"sibling_keywords":["記事作成 副業"],"comparison_keywords":["記事作成 副業","ライター 副業"],"confidence":"possible","overlap":{"shared":3,"depth":5,"ratio":0.6},"state":"新規記事候補・統合検討","wp_article_id":null,"category":"クライアントワーク","cost":0.0012,"task_ids":["08231116-1317-0066-0000-3b748a72e76d","08231116-1317-0066-0000-2a5bb8fc7c4d"],"shared_urls":[]}
-],"normalization_aliases":[{"canonical":"it就活サイト","variants":["it 就活サイト","it 就活 サイト"],"relation":"exact_alias"}]}
+{
+  "schema_version": "wp-keyword-dashboard-prototype.v1",
+  "generated_at": "2026-08-23T11:27:00+09:00",
+  "provenance": "DataForSEO standard raw snapshots + supplied Excel JSON inspection",
+  "sites": [
+    {
+      "site_id": "solobiz-lab.com",
+      "label": "大人のひとりビジネスラボ"
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "label": "IT就活大学"
+    }
+  ],
+  "sources": [],
+  "groups": [
+    {
+      "id": "intent-pair-001",
+      "site_id": "it-shukatu.com",
+      "main_keyword": "it 就活サイト",
+      "main_origin": "imported_keyword",
+      "source_order": {
+        "file": 2,
+        "sheet": 1,
+        "row": 16
+      },
+      "source_location": "IT就活大学キーワードマップ.xlsx / IT就活 / 16行",
+      "search_volume": 70,
+      "search_volume_source": "IT就活大学キーワードマップ.xlsx / IT就活",
+      "intent_keywords": [
+        "it 就活サイト 比較",
+        "it 就活サイト おすすめ"
+      ],
+      "sibling_keywords": [],
+      "comparison_keywords": [
+        "it 就活サイト 比較",
+        "it 就活サイト おすすめ"
+      ],
+      "confidence": "high",
+      "overlap": {
+        "shared": 4,
+        "depth": 5,
+        "ratio": 0.8
+      },
+      "state": "新規記事候補",
+      "wp_article_id": null,
+      "category": "IT就活",
+      "cost": 0.0012,
+      "task_ids": [
+        "08231127-1317-0066-0000-27b983625bf0",
+        "08231127-1317-0066-0000-6695f73ea2c8"
+      ],
+      "shared_urls": [
+        "https://coeteco.jp/articles/14332",
+        "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site",
+        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+      ]
+    },
+    {
+      "id": "solobiz-article-sidejob",
+      "site_id": "solobiz-lab.com",
+      "main_keyword": "記事作成 副業",
+      "main_origin": "imported_keyword",
+      "source_order": {
+        "file": 1,
+        "sheet": 3,
+        "row": 7
+      },
+      "source_location": "大人のひとりビジネスラボ.xlsx / キーワード割り当て / 7行",
+      "search_volume": "100-1000",
+      "search_volume_source": "大人のひとりビジネスラボ.xlsx / キーワード割り当て",
+      "intent_keywords": [],
+      "sibling_keywords": [
+        "ライター 副業"
+      ],
+      "comparison_keywords": [
+        "記事作成 副業",
+        "ライター 副業"
+      ],
+      "confidence": "possible",
+      "overlap": {
+        "shared": 3,
+        "depth": 5,
+        "ratio": 0.6
+      },
+      "state": "新規記事候補・統合検討",
+      "wp_article_id": null,
+      "category": "クライアントワーク",
+      "cost": 0.0012,
+      "task_ids": [
+        "08231116-1317-0066-0000-3b748a72e76d",
+        "08231116-1317-0066-0000-2a5bb8fc7c4d"
+      ],
+      "shared_urls": []
+    },
+    {
+      "id": "solobiz-writer-sidejob",
+      "site_id": "solobiz-lab.com",
+      "main_keyword": "ライター 副業",
+      "main_origin": "imported_keyword",
+      "source_order": {
+        "file": 1,
+        "sheet": 3,
+        "row": 8
+      },
+      "source_location": "大人のひとりビジネスラボ.xlsx / キーワード割り当て / 8行",
+      "search_volume": "1000-10000",
+      "search_volume_source": "大人のひとりビジネスラボ.xlsx / キーワード割り当て",
+      "intent_keywords": [],
+      "sibling_keywords": [
+        "記事作成 副業"
+      ],
+      "comparison_keywords": [
+        "記事作成 副業",
+        "ライター 副業"
+      ],
+      "confidence": "possible",
+      "overlap": {
+        "shared": 3,
+        "depth": 5,
+        "ratio": 0.6
+      },
+      "state": "新規記事候補・統合検討",
+      "wp_article_id": null,
+      "category": "クライアントワーク",
+      "cost": 0.0012,
+      "task_ids": [
+        "08231116-1317-0066-0000-3b748a72e76d",
+        "08231116-1317-0066-0000-2a5bb8fc7c4d"
+      ],
+      "shared_urls": []
+    }
+  ],
+  "normalization_aliases": [
+    {
+      "canonical": "it就活サイト",
+      "variants": [
+        "it 就活サイト",
+        "it 就活 サイト"
+      ],
+      "relation": "exact_alias"
+    }
+  ]
+}
