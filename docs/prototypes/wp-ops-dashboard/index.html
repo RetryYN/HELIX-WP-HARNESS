@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>キーワード施策ボード</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">HELIX WP HARNESS</p>
+      <h1>キーワード施策ボード</h1>
+    </div>
+    <div class="freshness"><span class="dot"></span><span id="freshness">実データ読込中</span></div>
+  </header>
+
+  <nav class="tabs" aria-label="表示切替">
+    <button class="tab active" data-view="actions">施策候補</button>
+    <button class="tab" data-view="sources">入力テーブル</button>
+    <button class="tab" data-view="evidence">判定証跡</button>
+  </nav>
+
+  <main>
+    <section id="actions" class="view active">
+      <div class="metrics" id="metrics"></div>
+      <div class="toolbar">
+        <div>
+          <h2>施策・統合候補</h2>
+          <p>Highは記事KW群、Possibleは統合判断待ちとして分離表示</p>
+        </div>
+        <select id="confidence-filter" aria-label="確度で絞り込み">
+          <option value="all">すべての確度</option>
+          <option value="high">High（80%以上）</option>
+          <option value="possible">Possible（60%以上）</option>
+        </select>
+      </div>
+      <div class="layout">
+        <div class="cards" id="group-list"></div>
+        <aside class="detail" id="group-detail" aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <section id="sources" class="view">
+      <div class="section-head">
+        <div><h2>入力テーブル</h2><p>重複を捨てず、KW本体と割当・観測を分離して取り込む</p></div>
+      </div>
+      <div class="source-grid" id="source-list"></div>
+      <div class="notice"><strong>取込規則</strong><span>同じKWの複数カテゴリ・トピック・競合URLは多対多関係として全件保持します。</span></div>
+    </section>
+
+    <section id="evidence" class="view">
+      <div class="section-head">
+        <div><h2>判定証跡</h2><p>表示値をDataForSEO raw snapshotまで逆引き</p></div>
+      </div>
+      <div id="evidence-list" class="evidence-list"></div>
+    </section>
+  </main>
+
+  <template id="empty-template"><div class="empty"><strong>該当データがありません</strong><span>フィルターを変更してください。</span></div></template>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
