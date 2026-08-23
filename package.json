@@ -13,6 +13,7 @@
     "poc:keyword-serp:evaluate": "node scripts/evaluate-keyword-serp.mjs",
     "poc:keyword-intent-pair": "node scripts/poc-keyword-intent-pair.mjs",
     "prototype:keyword-dashboard": "node scripts/serve-keyword-dashboard.mjs",
+    "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",
     "prototype:keyword-dashboard:test": "node scripts/test-keyword-dashboard-integration.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
