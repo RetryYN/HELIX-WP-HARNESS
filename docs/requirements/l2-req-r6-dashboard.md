@@ -33,7 +33,7 @@
 | 表 | 内容 | writer |
 | --- | --- | --- |
 | site_design_imports | サイト設計 Excel の取り込み版（原文セル+出典ファイル/シート/行、版つき） | 取り込み (ingest-design) |
-| keywords | KW 原本（設計取り込み由来・出典参照つき。足切り結果と理由を含む） | 取り込み (ingest-design) |
+| keywords | KW 原本（不変 source_keyword_id、設計取り込み由来・出典参照つき） | 取り込み (ingest-design) |
 | article_versions | 記事正本=中間 JSON の版（全文・schema_version・生成入力 digest） | 生成 (writer-pipeline) |
 | articles | 記事レジストリ（メイン KW・WP post id・URL。**状態列は持たない** — 状態は §2.5 の導出） | 生成 (writer-pipeline) |
 
@@ -42,8 +42,13 @@
 | 表 | 内容 | writer |
 | --- | --- | --- |
 | serp_snapshots | SERP スナップショット（KW×取得日時・取得条件〔地域/言語/端末/経路=DFS standard〕・上位 URL 群・ai_overview 有無） | 解析 (analyzer) |
+| dfs_tasks | source_keyword_id×DFS task id（要求原文・正規化形・endpoint・要求/応答 digest・取得条件・時刻・費用・成否） | 解析 (analyzer) |
+| keyword_candidates | DFS 候補語と競合 KW の正規化行（raw 値、由来、元 snapshot、Vol/CPC/競合性） | 解析 (analyzer) |
+| keyword_decisions | 候補ごとの existing/suggested/competitor_gap と採用/保留/足切り（規則 ID・入力値・閾値・理由・版） | 解析 (analyzer) |
 | paa_items | PAA（KW×質問文×出典スナップショット） | 解析 (analyzer) |
 | clusters | SERP グルーピング（ペア別重複率・代表 KW・境界フラグ・使用スナップショット参照） | 解析 (analyzer) |
+| cluster_keywords | クラスタ×KW 対応（main/sub、合算対象 Vol、機械判定/PO 上書きの由来） | 解析 (analyzer) |
+| article_keyword_assignments | クラスタ×既存 WP 記事 ID/新規記事候補/未割当の対応。本文全量は保持せず WP ID と解析参照を持つ | 解析 (analyzer) |
 | heading_analyses | 競合共通見出し分析（対象 URL 群・トークン・過半数判定・判定不能フラグ） | 解析 (analyzer) |
 | hypotheses | 仮説（発見→仮説→施策→検証条件の 4 段+「何が増えれば勝ちか」メタ） | 解析 (analyzer) |
 | title_candidates | タイトル案 3 件と選定結果（R5 規則の判定つき） | 生成 (writer-pipeline) |
@@ -111,6 +116,8 @@
   件数照合を常時表示（漏れの構造的検出）。
 - 操作: なし（読み取り）。詳細へ 1 クリック遷移。
 - 受入: 状態表示に手書き値の混入経路が存在しない（§2.5 の導出のみ）。
+  一覧の全行は `source_keyword_id` から DFS task、候補判定、クラスタ、WP 記事 ID まで
+  drill-down でき、未取得・取得失敗・未割当を成功済みに見せない。
 
 ### 3.3 処理の適切性（グルーピング監査）
 
@@ -120,8 +127,12 @@
   境界フラグ+**使用した SERP スナップショットの取得条件**（取得日時・地域/端末・上位 URL 群）。
   共通見出し（heading_analyses）・構成案・仮説（hypotheses）・タイトル案（title_candidates）と
   各ゲート判定（gate_runs）。**正解データとの一致率**（cluster_truthset との比較+誤分類一覧）。
+  加えて、入力したサイト設計行と DFS 実応答の対応、raw/正規化 KW、候補の由来、Vol/CPC/競合性、
+  採用/保留/足切り理由、DFS task id・取得条件・取得日時・費用・snapshot digest を表示する。
 - 操作: クラスタの分割・統合・KW 除外（operations。機械判定より優先・再解析後も維持）。
 - 受入: 任意のクラスタについて「なぜこうグルーピングされたか」を数字で答えられる。
+  任意の表示値を raw snapshot とサイト設計の元セルまで逆引きできる。fixture・手書き JSON のみで
+  画面が埋まる実装は不合格とする。
 
 ### 3.4 AIO / LLMO
 
