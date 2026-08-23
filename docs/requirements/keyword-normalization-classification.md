@@ -185,6 +185,8 @@ anchorはPAA・関連検索の文字列をそのまま完全一致で強制せ�
 
 ## 7. UI表示
 
-記事候補ごとに、main_keyword、intent_keywords、alias、親子・兄弟関係、SERP一致数/率/confidence、
-共通・非共通URL、検索Vol、既存WP記事ID、施策状態、SEOゲートの欠落項目、DFS取得日時・費用・鮮度を表示する。
+一覧は1行=1施策KW群とし、main_keyword、main検索Vol、intent件数、実WPカテゴリー階層、AIO有無、
+施策状態、WP記事IDだけを比較可能な列として表示する。intent_keywords全文、alias、親子・兄弟関係、
+SERP一致数/率/confidence、共通・非共通URL、SEOゲート欠落、DFS取得日時・費用・鮮度は詳細へ分離する。
+カテゴリーは親/子/孫を別列・別連動フィルターとし、サイト内に存在しない深度は列とフィルターを自動非表示にする。
 POの統合・分割・除外は追記証跡として機械判定より優先する。
