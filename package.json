@@ -15,7 +15,6 @@
     "prototype:keyword-dashboard": "node scripts/serve-keyword-dashboard.mjs",
     "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",
     "prototype:keyword-dashboard:test": "node scripts/test-keyword-dashboard-integration.mjs",
-    "prototype:keyword-dashboard:scale-test": "node scripts/test-keyword-dashboard-scale.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
   },
