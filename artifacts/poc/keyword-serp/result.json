@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T12:59:47.163Z",
+  "generated_at": "2026-08-23T16:05:31.688Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -153,6 +153,7 @@
     "algorithm": "top5-url-overlap-intent-components.v3",
     "decision": "上位5 URLの一致率が60%以上なら同一施策KW群。80%以上はhigh、60%以上80%未満はpossible、60%未満はseparate",
     "threshold_operator": ">=",
+    "linkage": "complete",
     "high_threshold": 0.8,
     "possible_threshold": 0.6,
     "comparison_depth": 5,
@@ -550,5 +551,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "35925b8f6bb62aa41da225ec7ccc8c2a9105ccdf1cfb7c333590846312659d9a"
+  "reproducibility_digest": "687b09d16c3a4ae79cd2eaa09499eb540af81d0d450fea353a8aa9596ac412f4"
 }
