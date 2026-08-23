@@ -66,43 +66,6 @@
       ]
     },
     {
-      "id": "solobiz-article-sidejob",
-      "site_id": "solobiz-lab.com",
-      "main_keyword": "記事作成 副業",
-      "main_origin": "imported_keyword",
-      "source_order": {
-        "file": 1,
-        "sheet": 3,
-        "row": 7
-      },
-      "source_location": "大人のひとりビジネスラボ.xlsx / キーワード割り当て / 7行",
-      "search_volume": "100-1000",
-      "search_volume_source": "大人のひとりビジネスラボ.xlsx / キーワード割り当て",
-      "intent_keywords": [],
-      "sibling_keywords": [
-        "ライター 副業"
-      ],
-      "comparison_keywords": [
-        "記事作成 副業",
-        "ライター 副業"
-      ],
-      "confidence": "possible",
-      "overlap": {
-        "shared": 3,
-        "depth": 5,
-        "ratio": 0.6
-      },
-      "state": "新規記事候補・統合検討",
-      "wp_article_id": null,
-      "category": "クライアントワーク",
-      "cost": 0.0012,
-      "task_ids": [
-        "08231116-1317-0066-0000-3b748a72e76d",
-        "08231116-1317-0066-0000-2a5bb8fc7c4d"
-      ],
-      "shared_urls": []
-    },
-    {
       "id": "solobiz-writer-sidejob",
       "site_id": "solobiz-lab.com",
       "main_keyword": "ライター 副業",
@@ -110,15 +73,15 @@
       "source_order": {
         "file": 1,
         "sheet": 3,
-        "row": 8
+        "row": 7
       },
       "source_location": "大人のひとりビジネスラボ.xlsx / キーワード割り当て / 8行",
       "search_volume": "1000-10000",
       "search_volume_source": "大人のひとりビジネスラボ.xlsx / キーワード割り当て",
-      "intent_keywords": [],
-      "sibling_keywords": [
+      "intent_keywords": [
         "記事作成 副業"
       ],
+      "sibling_keywords": [],
       "comparison_keywords": [
         "記事作成 副業",
         "ライター 副業"
@@ -129,7 +92,7 @@
         "depth": 5,
         "ratio": 0.6
       },
-      "state": "新規記事候補・統合検討",
+      "state": "新規記事候補",
       "wp_article_id": null,
       "category": "クライアントワーク",
       "cost": 0.0012,
