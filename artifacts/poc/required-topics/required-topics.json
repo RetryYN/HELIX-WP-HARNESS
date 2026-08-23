@@ -1,0 +1,1459 @@
+{
+  "schema_version": "wp-required-topics-poc.v1",
+  "group": {
+    "site": "solobiz",
+    "main_keyword": "ライター 副業",
+    "sub_keywords": [
+      "記事作成 副業"
+    ],
+    "source_keyword_ids": [
+      "bec89ab9:キーワード割り当て:8",
+      "bec89ab9:キーワード割り当て:7"
+    ]
+  },
+  "input": {
+    "serp_result_file": "artifacts/poc/keyword-serp/result.json",
+    "snapshots": [
+      {
+        "keyword": "ライター 副業",
+        "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+        "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+        "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+        "organic_urls": [
+          "https://note.com/asami_7716/n/n1a92cbbf4542",
+          "https://crowdworks.jp/public/jobs/group/writing_beginner",
+          "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+          "https://shuuumatu-worker.jp/projects?jobtypes=writer",
+          "https://hipro-job.jp/pro/and_hipro/column/A000000807"
+        ]
+      },
+      {
+        "keyword": "記事作成 副業",
+        "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+        "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+        "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+        "organic_urls": [
+          "https://crowdworks.jp/public/jobs/group/writing_beginner",
+          "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOooU1HANY7mUd5zKawIRVqwyjYK9sfomlQjoSzFxd1dP0m_aT6Sm",
+          "https://www.craudia.com/crarepo/archives/1794",
+          "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+          "https://hipro-job.jp/pro/and_hipro/column/A000000807"
+        ]
+      }
+    ],
+    "snapshot_selection_digest": "10192a294aa1dd9f33c36cea174d565d0216bbc181be1f98e5f3c5ca204e8c57"
+  },
+  "fetch": {
+    "requested_url_count": 7,
+    "successful_url_count": 6,
+    "failed_url_count": 1,
+    "pages": [
+      {
+        "url": "https://crowdworks.jp/public/jobs/group/writing_beginner",
+        "snapshot_refs": [
+          {
+            "keyword": "ライター 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+            "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+            "rank": 2
+          },
+          {
+            "keyword": "記事作成 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "rank": 1
+          }
+        ],
+        "ok": true,
+        "attempts": 1,
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "html_sha256": "7b65daf5f4bcac5d330fd14926523d06e55bc146d5f0cae96fcb22fd06e3e003",
+        "headings": []
+      },
+      {
+        "url": "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+        "snapshot_refs": [
+          {
+            "keyword": "ライター 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+            "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+            "rank": 5
+          },
+          {
+            "keyword": "記事作成 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "rank": 5
+          }
+        ],
+        "ok": true,
+        "attempts": 1,
+        "status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "html_sha256": "1f19c93658de586dd0204ac403b952da57711a4b253c9ce4bb2db7aa78a0cc10",
+        "headings": [
+          {
+            "level": 1,
+            "text": "Webライターの副業の始め方を解説|案件の探し方や収入を高めるコツを紹介"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業の主な業務内容"
+          },
+          {
+            "level": 3,
+            "text": "読者が求める記事を作成するための情報収集・リサーチ"
+          },
+          {
+            "level": 3,
+            "text": "記事構成の作成"
+          },
+          {
+            "level": 3,
+            "text": "記事の執筆"
+          },
+          {
+            "level": 3,
+            "text": "文章の編集・校正"
+          },
+          {
+            "level": 3,
+            "text": "完成した記事の入稿"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業で得られる3つの価値"
+          },
+          {
+            "level": 3,
+            "text": "本業の専門知識・経験をそのまま収入に変えられる"
+          },
+          {
+            "level": 3,
+            "text": "発信者として業界内の認知・信頼を高められる"
+          },
+          {
+            "level": 3,
+            "text": "専門知識を言語化することで思考が整理・深化する"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業が向いている人の特徴"
+          },
+          {
+            "level": 3,
+            "text": "文字の読み書きが好きな人"
+          },
+          {
+            "level": 3,
+            "text": "好奇心旺盛で物事に興味・関心を持てる人"
+          },
+          {
+            "level": 3,
+            "text": "客観的な広い視野を持てる人"
+          },
+          {
+            "level": 2,
+            "text": "未経験からWebライターの副業を始める方法"
+          },
+          {
+            "level": 3,
+            "text": "1.最低限のスキル・知識を身につける"
+          },
+          {
+            "level": 3,
+            "text": "2.ポートフォリオを用意する"
+          },
+          {
+            "level": 3,
+            "text": "3.案件を探す"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業の案件の探し方"
+          },
+          {
+            "level": 3,
+            "text": "副業エージェントを活用する"
+          },
+          {
+            "level": 3,
+            "text": "クラウドソーシングを活用する"
+          },
+          {
+            "level": 3,
+            "text": "SNSを活用して紹介してもらう"
+          },
+          {
+            "level": 3,
+            "text": "企業に直接営業をかける"
+          },
+          {
+            "level": 3,
+            "text": "副業マッチングサービスを活用する"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業の案件例"
+          },
+          {
+            "level": 3,
+            "text": "案件例1自社サービスの認知拡大に向けたブログ記事の執筆"
+          },
+          {
+            "level": 3,
+            "text": "案件例2取材データをもとにインタビュー記事の執筆"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業で収入・単価を高めるコツ"
+          },
+          {
+            "level": 3,
+            "text": "業界知識や専門性を高める"
+          },
+          {
+            "level": 3,
+            "text": "SEOやマーケティングの知識を取り入れる"
+          },
+          {
+            "level": 3,
+            "text": "コミュニケーションスキルを高める"
+          },
+          {
+            "level": 2,
+            "text": "AI時代のWebライターの副業はどう変わる?"
+          },
+          {
+            "level": 3,
+            "text": "AIに代替されにくいWebライターの強みとは"
+          },
+          {
+            "level": 3,
+            "text": "AIをWebライターの副業に活かす方法"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業をする際の注意点"
+          },
+          {
+            "level": 3,
+            "text": "初め は稼げないことを理解する"
+          },
+          {
+            "level": 3,
+            "text": "趣味ではなく仕事であることを意識する"
+          },
+          {
+            "level": 3,
+            "text": "年間所得が20万円を超える場合は確定申告を行う"
+          },
+          {
+            "level": 2,
+            "text": "Webライターの副業について理解を深めて副業収入を獲得しよう"
+          },
+          {
+            "level": 2,
+            "text": "関連するタグ"
+          },
+          {
+            "level": 2,
+            "text": "RECOMMENDED"
+          },
+          {
+            "level": 3,
+            "text": "副業とは?定義や注目されている理由・得られるメリット・注意点を徹底解説"
+          },
+          {
+            "level": 3,
+            "text": "副業の税金対策ガイド!確定申告のやり方から節税まで解説"
+          },
+          {
+            "level": 3,
+            "text": "会社員の副業の実態は?副業市場が伸びている理由や成功のコツ・注意点を徹底解説"
+          },
+          {
+            "level": 3,
+            "text": "副業の始め方を4ステップで紹介|会社員・初心者がやることと注意点を解説"
+          },
+          {
+            "level": 3,
+            "text": "副業の応募から契約の流れを解説|失敗しないための注意点・質問リスト"
+          },
+          {
+            "level": 3,
+            "text": "在宅のおすすめ副業14選!安全な副業の選び方や案件獲得方法・注意点を徹底解説"
+          },
+          {
+            "level": 2,
+            "text": "POPULAR"
+          },
+          {
+            "level": 3,
+            "text": "【2026年最新】公務員の副業は解禁された?できることや注意点を徹底解説|弁護士監修"
+          },
+          {
+            "level": 3,
+            "text": "【年収・月収別】フリーランスの手取り額を早見表で解説!手取り額を増やすコツも紹介|税理士監修"
+          },
+          {
+            "level": 3,
+            "text": "在宅のおすすめ副業14選!安全な副業の選び方や案件獲得方法・注意点を徹底解説"
+          },
+          {
+            "level": 3,
+            "text": "【弁護士監修】副業は会社に報告すべき?報告の進め方・競業避止義務違反にならないための注意点を解説"
+          },
+          {
+            "level": 3,
+            "text": "副業の税金はいくら?収入別のシミュレーション例を紹介"
+          },
+          {
+            "level": 3,
+            "text": "フリーランスは開業届なしでも業務できる?提出の判断基準や確定申告への影響を解説"
+          },
+          {
+            "level": 3,
+            "text": "【税理士監修】副業の住民税はいくら?計算方法や申告・納付方法を徹底解説"
+          },
+          {
+            "level": 3,
+            "text": "副業で月10万円は可能?おすすめの副業や稼ぐためのポイントを紹介"
+          },
+          {
+            "level": 3,
+            "text": "【宅建士監修】宅建士資格を活かせる副業・フリーランスのおすすめは?案件の探し方や注意点を解説"
+          },
+          {
+            "level": 3,
+            "text": "はたらき方にはどんな種類がある?雇用形態や勤務時間による違いを解説"
+          },
+          {
+            "level": 2,
+            "text": "EVENT"
+          },
+          {
+            "level": 3,
+            "text": "【2024年11月フリーランス保護新法施行】 副業人材を送り出す・受け入れる際に、知っておくべき「制度や法的知識」と具体的な対策"
+          },
+          {
+            "level": 3,
+            "text": "~DXを推進するためのIT人材確保戦略~リスキリングと外部人材活用のポイントを紹介!"
+          },
+          {
+            "level": 3,
+            "text": "組織を活性化するイノベーションマネジメントの実践"
+          },
+          {
+            "level": 3,
+            "text": "事例から学ぶデータドリブン組織実現に向けたデータの民主化と人材育成戦略"
+          },
+          {
+            "level": 3,
+            "text": "会社を成長させ、そして守っていく~新規事業を成功させる「攻め」と「守り」の知財戦略~"
+          },
+          {
+            "level": 3,
+            "text": "動的な人材ポートフォリオを活かした人事課題解決の実現へ!事業成長に向けた人事制度改革とは"
+          },
+          {
+            "level": 3,
+            "text": "副業・フリーランスとして 活動希望の方"
+          },
+          {
+            "level": 3,
+            "text": "グループ会社"
+          },
+          {
+            "level": 3,
+            "text": "個人向けサービス"
+          },
+          {
+            "level": 3,
+            "text": "法人向けサービス"
+          }
+        ]
+      },
+      {
+        "url": "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+        "snapshot_refs": [
+          {
+            "keyword": "ライター 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+            "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+            "rank": 3
+          },
+          {
+            "keyword": "記事作成 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "rank": 4
+          }
+        ],
+        "ok": false,
+        "attempts": 1,
+        "status": null,
+        "content_type": null,
+        "html_sha256": null,
+        "headings": [],
+        "error": "HTTP 403"
+      },
+      {
+        "url": "https://note.com/asami_7716/n/n1a92cbbf4542",
+        "snapshot_refs": [
+          {
+            "keyword": "ライター 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+            "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+            "rank": 1
+          }
+        ],
+        "ok": true,
+        "attempts": 1,
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "html_sha256": "0c58e0ef208c489a8ae882eaf0af362101941c4bf141e74b39074720456917e7",
+        "headings": [
+          {
+            "level": 1,
+            "text": "30代副業Webライターの率直な話"
+          },
+          {
+            "level": 2,
+            "text": "1. 思ったより要求レベルが高かった"
+          },
+          {
+            "level": 2,
+            "text": "2. 継続案件が取れるかが大事"
+          },
+          {
+            "level": 2,
+            "text": "3. 熱量による違い"
+          },
+          {
+            "level": 2,
+            "text": "4. 個人的にはやってよかった"
+          },
+          {
+            "level": 2,
+            "text": "いいなと思ったら応援しよう!"
+          }
+        ]
+      },
+      {
+        "url": "https://shuuumatu-worker.jp/projects?jobtypes=writer",
+        "snapshot_refs": [
+          {
+            "keyword": "ライター 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+            "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+            "rank": 4
+          }
+        ],
+        "ok": true,
+        "attempts": 1,
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "html_sha256": "71c92db87a990fa669c389e78b75dc8641b145840b3aee7a22da70a1f7015243",
+        "headings": [
+          {
+            "level": 1,
+            "text": "ライターの副業・複業求人・案件一覧"
+          },
+          {
+            "level": 2,
+            "text": "その他の職種"
+          },
+          {
+            "level": 2,
+            "text": "ライターに関連するスキル"
+          }
+        ]
+      },
+      {
+        "url": "https://www.craudia.com/crarepo/archives/1794",
+        "snapshot_refs": [
+          {
+            "keyword": "記事作成 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "rank": 3
+          }
+        ],
+        "ok": true,
+        "attempts": 1,
+        "status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "html_sha256": "51a32b6e53a214cd8e0806f50b08b5029d4b934397a3c47d3e57a5f6caef54a8",
+        "headings": [
+          {
+            "level": 1,
+            "text": "記事作成の副業って?どうやって始めるの?"
+          },
+          {
+            "level": 2,
+            "text": "記事作成の副業とはどんな仕事?"
+          },
+          {
+            "level": 3,
+            "text": "WEB上に掲載するための記事を作成する仕事"
+          },
+          {
+            "level": 3,
+            "text": "クライアントとのやりとりはWEBで完結することが多い"
+          },
+          {
+            "level": 3,
+            "text": "多様なジャンルの仕事がある"
+          },
+          {
+            "level": 2,
+            "text": "記事作成の副業はいくら稼げるの?"
+          },
+          {
+            "level": 3,
+            "text": "記事作成の仕事は様々な要素によって単価が変わる"
+          },
+          {
+            "level": 3,
+            "text": "初心者は単価0.5円~1円の仕事から始めるのが一般的"
+          },
+          {
+            "level": 3,
+            "text": "スキルが上がると副業ライターで 月10万 円も可能"
+          },
+          {
+            "level": 2,
+            "text": "記事作成の副業はどうやって始めるの?"
+          },
+          {
+            "level": 3,
+            "text": "仕事はインターネットで探せる"
+          },
+          {
+            "level": 3,
+            "text": "最初はクラウドソーシングサービスを利用するのがおすすめ"
+          },
+          {
+            "level": 3,
+            "text": "文章力や執筆ジャンルの知識は自分で勉強する"
+          },
+          {
+            "level": 2,
+            "text": "副業で記事作成の仕事をするメリットは?"
+          },
+          {
+            "level": 3,
+            "text": "時間と場所を問わず仕事ができる"
+          },
+          {
+            "level": 3,
+            "text": "パソコン一台あれば仕事を始められる"
+          },
+          {
+            "level": 3,
+            "text": "自分のレベルに応じた仕事が見つかる"
+          },
+          {
+            "level": 2,
+            "text": "副業で記事作成の仕事をするデメリットは?"
+          },
+          {
+            "level": 3,
+            "text": "目が疲れる"
+          },
+          {
+            "level": 3,
+            "text": "高収入を得るには自分からのアクションが必要"
+          },
+          {
+            "level": 3,
+            "text": "クライアントとのやりとりで疲弊することもある"
+          },
+          {
+            "level": 2,
+            "text": "まとめ"
+          },
+          {
+            "level": 2,
+            "text": "関連記事"
+          },
+          {
+            "level": 3,
+            "text": "歯医者の有効な集客方法8選!オンラインでの新規患者獲得のポイントも解説"
+          },
+          {
+            "level": 3,
+            "text": "SEOのリライトの方法とは?選定基準と効果を最大化するコツを解説"
+          },
+          {
+            "level": 3,
+            "text": "Web記事作成におけるタイトルの付け方と3つのコツ"
+          },
+          {
+            "level": 3,
+            "text": "Webライターにおすすめの資格8選!資格取得時の注意点とメリット・デメリット"
+          },
+          {
+            "level": 3,
+            "text": "記事作成時のリサーチ方法と調査のコツ"
+          },
+          {
+            "level": 3,
+            "text": "記事作成を効率化するための事前準備や執筆テクニック"
+          },
+          {
+            "level": 2,
+            "text": "検索"
+          },
+          {
+            "level": 2,
+            "text": "カテゴリ"
+          },
+          {
+            "level": 2,
+            "text": "検索"
+          },
+          {
+            "level": 2,
+            "text": "カテゴリ"
+          }
+        ]
+      },
+      {
+        "url": "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOooU1HANY7mUd5zKawIRVqwyjYK9sfomlQjoSzFxd1dP0m_aT6Sm",
+        "snapshot_refs": [
+          {
+            "keyword": "記事作成 副業",
+            "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "rank": 2
+          }
+        ],
+        "ok": true,
+        "attempts": 1,
+        "status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "html_sha256": "e9d5df4eeb9db8756217ba5b808332deaf68103a5ea16fe1a93b77c7f5abf298",
+        "headings": [
+          {
+            "level": 1,
+            "text": "ライティングの副業・在宅・委託・フリーランスの仕事を探す"
+          },
+          {
+            "level": 2,
+            "text": "新着の仕事 新着の仕事一覧を見る"
+          }
+        ]
+      }
+    ],
+    "user_agent": "HELIX-PoC5-required-topics/1.0 (known SERP URL fetch)",
+    "max_attempts": 2,
+    "max_bytes": 3145728,
+    "timeout_ms": 15000
+  },
+  "heading_analysis": {
+    "tokenizer": "nfkc-particle-symbol-split.v1",
+    "verdict": "determined",
+    "reason": null,
+    "successful_page_count": 6,
+    "minimum_successful_pages": 3,
+    "threshold": "occurrence_count > 3",
+    "common_themes": [
+      {
+        "topic": "副業",
+        "token": "副業",
+        "occurrence_count": 4,
+        "page_count": 6,
+        "sources": [
+          {
+            "kind": "heading_fetch",
+            "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+            "fetch_digest": "1f19c93658de586dd0204ac403b952da57711a4b253c9ce4bb2db7aa78a0cc10",
+            "url": "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+            "matched_headings": [
+              {
+                "level": 1,
+                "text": "Webライターの副業の始め方を解説|案件の探し方や収入を高めるコツを紹介"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業の主な業務内容"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業で得られる3つの価値"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業が向いている人の特徴"
+              },
+              {
+                "level": 2,
+                "text": "未経験からWebライターの副業を始める方法"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業の案件の探し方"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業の案件例"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業で収入・単価を高めるコツ"
+              },
+              {
+                "level": 2,
+                "text": "AI時代のWebライターの副業はどう変わる?"
+              },
+              {
+                "level": 3,
+                "text": "AIをWebライターの副業に活かす方法"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業をする際の注意点"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業について理解を深めて副業収入を獲得しよう"
+              },
+              {
+                "level": 3,
+                "text": "副業とは?定義や注目されている理由・得られるメリット・注意点を徹底解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の税金対策ガイド!確定申告のやり方から節税まで解説"
+              },
+              {
+                "level": 3,
+                "text": "会社員の副業の実態は?副業市場が伸びている理由や成功のコツ・注意点を徹底解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の始め方を4ステップで紹介|会社員・初心者がやることと注意点を解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の応募から契約の流れを解説|失敗しないための注意点・質問リスト"
+              },
+              {
+                "level": 3,
+                "text": "【2026年最新】公務員の副業は解禁された?できることや注意点を徹底解説|弁護士監修"
+              },
+              {
+                "level": 3,
+                "text": "【弁護士監修】副業は会社に報告すべき?報告の進め方・競業避止義務違反にならないための注意点を解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の税金はいくら?収入別のシミュレーション例を紹介"
+              },
+              {
+                "level": 3,
+                "text": "【税理士監修】副業の住民税はいくら?計算方法や申告・納付方法を徹底解説"
+              },
+              {
+                "level": 3,
+                "text": "副業で月10万円は可能?おすすめの副業や稼ぐためのポイントを紹介"
+              },
+              {
+                "level": 3,
+                "text": "副業・フリーランスとして 活動希望の方"
+              }
+            ]
+          },
+          {
+            "kind": "heading_fetch",
+            "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+            "fetch_digest": "71c92db87a990fa669c389e78b75dc8641b145840b3aee7a22da70a1f7015243",
+            "url": "https://shuuumatu-worker.jp/projects?jobtypes=writer",
+            "matched_headings": [
+              {
+                "level": 1,
+                "text": "ライターの副業・複業求人・案件一覧"
+              }
+            ]
+          },
+          {
+            "kind": "heading_fetch",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "fetch_digest": "1f19c93658de586dd0204ac403b952da57711a4b253c9ce4bb2db7aa78a0cc10",
+            "url": "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+            "matched_headings": [
+              {
+                "level": 1,
+                "text": "Webライターの副業の始め方を解説|案件の探し方や収入を高めるコツを紹介"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業の主な業務内容"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業で得られる3つの価値"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業が向いている人の特徴"
+              },
+              {
+                "level": 2,
+                "text": "未経験からWebライターの副業を始める方法"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業の案件の探し方"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業の案件例"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業で収入・単価を高めるコツ"
+              },
+              {
+                "level": 2,
+                "text": "AI時代のWebライターの副業はどう変わる?"
+              },
+              {
+                "level": 3,
+                "text": "AIをWebライターの副業に活かす方法"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業をする際の注意点"
+              },
+              {
+                "level": 2,
+                "text": "Webライターの副業について理解を深めて副業収入を獲得しよう"
+              },
+              {
+                "level": 3,
+                "text": "副業とは?定義や注目されている理由・得られるメリット・注意点を徹底解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の税金対策ガイド!確定申告のやり方から節税まで解説"
+              },
+              {
+                "level": 3,
+                "text": "会社員の副業の実態は?副業市場が伸びている理由や成功のコツ・注意点を徹底解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の始め方を4ステップで紹介|会社員・初心者がやることと注意点を解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の応募から契約の流れを解説|失敗しないための注意点・質問リスト"
+              },
+              {
+                "level": 3,
+                "text": "【2026年最新】公務員の副業は解禁された?できることや注意点を徹底解説|弁護士監修"
+              },
+              {
+                "level": 3,
+                "text": "【弁護士監修】副業は会社に報告すべき?報告の進め方・競業避止義務違反にならないための注意点を解説"
+              },
+              {
+                "level": 3,
+                "text": "副業の税金はいくら?収入別のシミュレーション例を紹介"
+              },
+              {
+                "level": 3,
+                "text": "【税理士監修】副業の住民税はいくら?計算方法や申告・納付方法を徹底解説"
+              },
+              {
+                "level": 3,
+                "text": "副業で月10万円は可能?おすすめの副業や稼ぐためのポイントを紹介"
+              },
+              {
+                "level": 3,
+                "text": "副業・フリーランスとして 活動希望の方"
+              }
+            ]
+          },
+          {
+            "kind": "heading_fetch",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "fetch_digest": "51a32b6e53a214cd8e0806f50b08b5029d4b934397a3c47d3e57a5f6caef54a8",
+            "url": "https://www.craudia.com/crarepo/archives/1794",
+            "matched_headings": [
+              {
+                "level": 1,
+                "text": "記事作成の副業って?どうやって始めるの?"
+              },
+              {
+                "level": 2,
+                "text": "記事作成の副業とはどんな仕事?"
+              },
+              {
+                "level": 2,
+                "text": "記事作成の副業はいくら稼げるの?"
+              },
+              {
+                "level": 2,
+                "text": "記事作成の副業はどうやって始めるの?"
+              },
+              {
+                "level": 2,
+                "text": "副業で記事作成の仕事をするメリットは?"
+              },
+              {
+                "level": 2,
+                "text": "副業で記事作成の仕事をするデメリットは?"
+              }
+            ]
+          },
+          {
+            "kind": "heading_fetch",
+            "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+            "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+            "fetch_digest": "e9d5df4eeb9db8756217ba5b808332deaf68103a5ea16fe1a93b77c7f5abf298",
+            "url": "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOooU1HANY7mUd5zKawIRVqwyjYK9sfomlQjoSzFxd1dP0m_aT6Sm",
+            "matched_headings": [
+              {
+                "level": 1,
+                "text": "ライティングの副業・在宅・委託・フリーランスの仕事を探す"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "paa": [
+    {
+      "question": "ライターの副業におすすめなのは?",
+      "keyword": "ライター 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+      "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 0,
+      "rank_absolute": 3
+    },
+    {
+      "question": "副業のライターの収入はいくらくらいですか?",
+      "keyword": "ライター 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+      "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 1,
+      "rank_absolute": 3
+    },
+    {
+      "question": "副業で10万円稼ぎたいのですが、どうすればいいですか?",
+      "keyword": "ライター 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+      "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 2,
+      "rank_absolute": 3
+    },
+    {
+      "question": "副業で5万円稼ぎたいのですが、どうすればいいですか?",
+      "keyword": "ライター 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+      "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 3,
+      "rank_absolute": 3
+    },
+    {
+      "question": "文章作成で副業はできますか?",
+      "keyword": "記事作成 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+      "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 0,
+      "rank_absolute": 4
+    },
+    {
+      "question": "やらない方がいい副業は?",
+      "keyword": "記事作成 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+      "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 1,
+      "rank_absolute": 4
+    },
+    {
+      "question": "毎日3000円コツコツ稼げる副業は?",
+      "keyword": "記事作成 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+      "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 2,
+      "rank_absolute": 4
+    },
+    {
+      "question": "副業で10万円稼ぎたいのですが、どうすればいいですか?",
+      "keyword": "記事作成 副業",
+      "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+      "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+      "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+      "snapshot_url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+      "item_index": 3,
+      "rank_absolute": 4
+    }
+  ],
+  "required_topics": [
+    {
+      "id": "common_theme:副業",
+      "topic": "副業",
+      "kinds": [
+        "common_theme"
+      ],
+      "sources": [
+        {
+          "kind": "heading_fetch",
+          "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+          "fetch_digest": "1f19c93658de586dd0204ac403b952da57711a4b253c9ce4bb2db7aa78a0cc10",
+          "url": "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+          "matched_headings": [
+            {
+              "level": 1,
+              "text": "Webライターの副業の始め方を解説|案件の探し方や収入を高めるコツを紹介"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業の主な業務内容"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業で得られる3つの価値"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業が向いている人の特徴"
+            },
+            {
+              "level": 2,
+              "text": "未経験からWebライターの副業を始める方法"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業の案件の探し方"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業の案件例"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業で収入・単価を高めるコツ"
+            },
+            {
+              "level": 2,
+              "text": "AI時代のWebライターの副業はどう変わる?"
+            },
+            {
+              "level": 3,
+              "text": "AIをWebライターの副業に活かす方法"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業をする際の注意点"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業について理解を深めて副業収入を獲得しよう"
+            },
+            {
+              "level": 3,
+              "text": "副業とは?定義や注目されている理由・得られるメリット・注意点を徹底解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の税金対策ガイド!確定申告のやり方から節税まで解説"
+            },
+            {
+              "level": 3,
+              "text": "会社員の副業の実態は?副業市場が伸びている理由や成功のコツ・注意点を徹底解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の始め方を4ステップで紹介|会社員・初心者がやることと注意点を解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の応募から契約の流れを解説|失敗しないための注意点・質問リスト"
+            },
+            {
+              "level": 3,
+              "text": "【2026年最新】公務員の副業は解禁された?できることや注意点を徹底解説|弁護士監修"
+            },
+            {
+              "level": 3,
+              "text": "【弁護士監修】副業は会社に報告すべき?報告の進め方・競業避止義務違反にならないための注意点を解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の税金はいくら?収入別のシミュレーション例を紹介"
+            },
+            {
+              "level": 3,
+              "text": "【税理士監修】副業の住民税はいくら?計算方法や申告・納付方法を徹底解説"
+            },
+            {
+              "level": 3,
+              "text": "副業で月10万円は可能?おすすめの副業や稼ぐためのポイントを紹介"
+            },
+            {
+              "level": 3,
+              "text": "副業・フリーランスとして 活動希望の方"
+            }
+          ]
+        },
+        {
+          "kind": "heading_fetch",
+          "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+          "fetch_digest": "71c92db87a990fa669c389e78b75dc8641b145840b3aee7a22da70a1f7015243",
+          "url": "https://shuuumatu-worker.jp/projects?jobtypes=writer",
+          "matched_headings": [
+            {
+              "level": 1,
+              "text": "ライターの副業・複業求人・案件一覧"
+            }
+          ]
+        },
+        {
+          "kind": "heading_fetch",
+          "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+          "fetch_digest": "1f19c93658de586dd0204ac403b952da57711a4b253c9ce4bb2db7aa78a0cc10",
+          "url": "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+          "matched_headings": [
+            {
+              "level": 1,
+              "text": "Webライターの副業の始め方を解説|案件の探し方や収入を高めるコツを紹介"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業の主な業務内容"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業で得られる3つの価値"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業が向いている人の特徴"
+            },
+            {
+              "level": 2,
+              "text": "未経験からWebライターの副業を始める方法"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業の案件の探し方"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業の案件例"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業で収入・単価を高めるコツ"
+            },
+            {
+              "level": 2,
+              "text": "AI時代のWebライターの副業はどう変わる?"
+            },
+            {
+              "level": 3,
+              "text": "AIをWebライターの副業に活かす方法"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業をする際の注意点"
+            },
+            {
+              "level": 2,
+              "text": "Webライターの副業について理解を深めて副業収入を獲得しよう"
+            },
+            {
+              "level": 3,
+              "text": "副業とは?定義や注目されている理由・得られるメリット・注意点を徹底解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の税金対策ガイド!確定申告のやり方から節税まで解説"
+            },
+            {
+              "level": 3,
+              "text": "会社員の副業の実態は?副業市場が伸びている理由や成功のコツ・注意点を徹底解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の始め方を4ステップで紹介|会社員・初心者がやることと注意点を解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の応募から契約の流れを解説|失敗しないための注意点・質問リスト"
+            },
+            {
+              "level": 3,
+              "text": "【2026年最新】公務員の副業は解禁された?できることや注意点を徹底解説|弁護士監修"
+            },
+            {
+              "level": 3,
+              "text": "【弁護士監修】副業は会社に報告すべき?報告の進め方・競業避止義務違反にならないための注意点を解説"
+            },
+            {
+              "level": 3,
+              "text": "副業の税金はいくら?収入別のシミュレーション例を紹介"
+            },
+            {
+              "level": 3,
+              "text": "【税理士監修】副業の住民税はいくら?計算方法や申告・納付方法を徹底解説"
+            },
+            {
+              "level": 3,
+              "text": "副業で月10万円は可能?おすすめの副業や稼ぐためのポイントを紹介"
+            },
+            {
+              "level": 3,
+              "text": "副業・フリーランスとして 活動希望の方"
+            }
+          ]
+        },
+        {
+          "kind": "heading_fetch",
+          "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+          "fetch_digest": "51a32b6e53a214cd8e0806f50b08b5029d4b934397a3c47d3e57a5f6caef54a8",
+          "url": "https://www.craudia.com/crarepo/archives/1794",
+          "matched_headings": [
+            {
+              "level": 1,
+              "text": "記事作成の副業って?どうやって始めるの?"
+            },
+            {
+              "level": 2,
+              "text": "記事作成の副業とはどんな仕事?"
+            },
+            {
+              "level": 2,
+              "text": "記事作成の副業はいくら稼げるの?"
+            },
+            {
+              "level": 2,
+              "text": "記事作成の副業はどうやって始めるの?"
+            },
+            {
+              "level": 2,
+              "text": "副業で記事作成の仕事をするメリットは?"
+            },
+            {
+              "level": 2,
+              "text": "副業で記事作成の仕事をするデメリットは?"
+            }
+          ]
+        },
+        {
+          "kind": "heading_fetch",
+          "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+          "fetch_digest": "e9d5df4eeb9db8756217ba5b808332deaf68103a5ea16fe1a93b77c7f5abf298",
+          "url": "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOooU1HANY7mUd5zKawIRVqwyjYK9sfomlQjoSzFxd1dP0m_aT6Sm",
+          "matched_headings": [
+            {
+              "level": 1,
+              "text": "ライティングの副業・在宅・委託・フリーランスの仕事を探す"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paa:ライターの副業におすすめなのは?",
+      "topic": "ライターの副業におすすめなのは?",
+      "kinds": [
+        "paa"
+      ],
+      "sources": [
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "ライター 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+          "question": "ライターの副業におすすめなのは?",
+          "item_index": 0,
+          "rank_absolute": 3
+        }
+      ]
+    },
+    {
+      "id": "paa:副業のライターの収入はいくらくらいですか?",
+      "topic": "副業のライターの収入はいくらくらいですか?",
+      "kinds": [
+        "paa"
+      ],
+      "sources": [
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "ライター 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+          "question": "副業のライターの収入はいくらくらいですか?",
+          "item_index": 1,
+          "rank_absolute": 3
+        }
+      ]
+    },
+    {
+      "id": "paa:副業で10万円稼ぎたいのですが、どうすればいいですか?",
+      "topic": "副業で10万円稼ぎたいのですが、どうすればいいですか?",
+      "kinds": [
+        "paa"
+      ],
+      "sources": [
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "ライター 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+          "question": "副業で10万円稼ぎたいのですが、どうすればいいですか?",
+          "item_index": 2,
+          "rank_absolute": 3
+        },
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "記事作成 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+          "question": "副業で10万円稼ぎたいのですが、どうすればいいですか?",
+          "item_index": 3,
+          "rank_absolute": 4
+        }
+      ]
+    },
+    {
+      "id": "paa:副業で5万円稼ぎたいのですが、どうすればいいですか?",
+      "topic": "副業で5万円稼ぎたいのですが、どうすればいいですか?",
+      "kinds": [
+        "paa"
+      ],
+      "sources": [
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "ライター 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+          "question": "副業で5万円稼ぎたいのですが、どうすればいいですか?",
+          "item_index": 3,
+          "rank_absolute": 3
+        }
+      ]
+    },
+    {
+      "id": "paa:文章作成で副業はできますか?",
+      "topic": "文章作成で副業はできますか?",
+      "kinds": [
+        "paa"
+      ],
+      "sources": [
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "記事作成 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+          "question": "文章作成で副業はできますか?",
+          "item_index": 0,
+          "rank_absolute": 4
+        }
+      ]
+    },
+    {
+      "id": "paa:やらない方がいい副業は?",
+      "topic": "やらない方がいい副業は?",
+      "kinds": [
+        "paa"
+      ],
+      "sources": [
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "記事作成 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+          "question": "やらない方がいい副業は?",
+          "item_index": 1,
+          "rank_absolute": 4
+        }
+      ]
+    },
+    {
+      "id": "paa:毎日3000円コツコツ稼げる副業は?",
+      "topic": "毎日3000円コツコツ稼げる副業は?",
+      "kinds": [
+        "paa"
+      ],
+      "sources": [
+        {
+          "kind": "paa_snapshot",
+          "snapshot_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+          "snapshot_file": "artifacts/poc/keyword-serp/raw/08231116-1317-0066-0000-3b748a72e76d.json",
+          "fetch_digest": null,
+          "url": "https://www.google.com/search?q=%E8%A8%98%E4%BA%8B%E4%BD%9C%E6%88%90%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "keyword": "記事作成 副業",
+          "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+          "question": "毎日3000円コツコツ稼げる副業は?",
+          "item_index": 2,
+          "rank_absolute": 4
+        }
+      ]
+    }
+  ],
+  "reproducibility_digest": "100ec5597f720bc8729a39d502c0873d922587d7d2b5c34de87408b138144a8f"
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "wp-required-topics-gate.v1",
+  "input_digest": "07882b9c701efe2cc8869e9ebb6214f304020f1376e1babcde7a719d0a6ebd84",
+  "draft_digest": "110d16da26874f29e50ec7da260793a6f6d7d1eddce773722e345af66d913877",
+  "keyword_coverage": {
+    "pass": true,
+    "main": {
+      "keyword": "ライター 副業",
+      "normalized": "ライター副業",
+      "present": true
+    },
+    "sub": [
+      {
+        "keyword": "記事作成 副業",
+        "normalized": "記事作成副業",
+        "present": true
+      }
+    ],
+    "missing": []
+  },
+  "required_topics_coverage": {
+    "pass": true,
+    "topics": [
+      {
+        "topic": "副業",
+        "normalized": "副業",
+        "present": true
+      },
+      {
+        "topic": "ライターの副業におすすめなのは?",
+        "normalized": "ライターの副業におすすめなのは?",
+        "present": true
+      },
+      {
+        "topic": "副業のライターの収入はいくらくらいですか?",
+        "normalized": "副業のライターの収入はいくらくらいですか?",
+        "present": true
+      },
+      {
+        "topic": "副業で10万円稼ぎたいのですが、どうすればいいですか?",
+        "normalized": "副業で10万円稼ぎたいのですが、どうすればいいですか?",
+        "present": true
+      },
+      {
+        "topic": "副業で5万円稼ぎたいのですが、どうすればいいですか?",
+        "normalized": "副業で5万円稼ぎたいのですが、どうすればいいですか?",
+        "present": true
+      },
+      {
+        "topic": "文章作成で副業はできますか?",
+        "normalized": "文章作成で副業はできますか?",
+        "present": true
+      },
+      {
+        "topic": "やらない方がいい副業は?",
+        "normalized": "やらない方がいい副業は?",
+        "present": true
+      },
+      {
+        "topic": "毎日3000円コツコツ稼げる副業は?",
+        "normalized": "毎日3000円コツコツ稼げる副業は?",
+        "present": true
+      }
+    ],
+    "missing": []
+  },
+  "common_topics_verdict": "determined",
+  "pass": true
+}
