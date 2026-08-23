@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T12:01:09.585Z",
+  "generated_at": "2026-08-23T12:04:01.359Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -74,6 +74,7 @@
         "likely_same_intent": true
       }
     ],
+    "possible_pairs": [],
     "clusters": [
       [
         "probe:it-job-site:comparison",
@@ -107,5 +108,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "53348b60039304aec05914a0bdfe2ac5132d02456d93598c0efb3f32e55d799a"
+  "reproducibility_digest": "7a23c8e2da7fd6d46a221e6e3a8e13bddc2ebd5dc09ab69fa5f1d8ee87f86d1d"
 }

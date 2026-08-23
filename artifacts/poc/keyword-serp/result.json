@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T12:01:09.521Z",
+  "generated_at": "2026-08-23T12:04:01.295Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -472,6 +472,23 @@
         "likely_same_intent": true
       }
     ],
+    "possible_pairs": [
+      {
+        "left": "bec89ab9:キーワード割り当て:7",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [
+          "https://crowdworks.jp/public/jobs/group/writing_beginner",
+          "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+          "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html"
+        ],
+        "shared_count": 3,
+        "denominator": 5,
+        "ratio": 0.6,
+        "comparable": true,
+        "intent_confidence": "possible",
+        "likely_same_intent": true
+      }
+    ],
     "clusters": [
       [
         "4769dfab:IT就活:16",
@@ -490,7 +507,9 @@
         "bec89ab9:キーワード割り当て:6"
       ],
       [
-        "bec89ab9:キーワード割り当て:7",
+        "bec89ab9:キーワード割り当て:7"
+      ],
+      [
         "bec89ab9:キーワード割り当て:8"
       ]
     ]
@@ -508,27 +527,6 @@
       ]
     }
   ],
-  "article_keyword_groups": [
-    {
-      "group_id": "poc-article-group-1",
-      "evidence": "likely_same_intent",
-      "source_keyword_ids": [
-        "bec89ab9:キーワード割り当て:7",
-        "bec89ab9:キーワード割り当て:8"
-      ],
-      "main_keyword": null,
-      "main_keyword_origin": "unresolved",
-      "intent_keywords": [],
-      "modifiers": [],
-      "sibling_keywords": [
-        "記事作成 副業",
-        "ライター 副業"
-      ],
-      "normalized_keywords": [
-        "記事作成 副業",
-        "ライター 副業"
-      ]
-    }
-  ],
-  "reproducibility_digest": "492894e8627903dfd1454623a2e735be87ae68f895148b74010c958a7eb67f95"
+  "article_keyword_groups": [],
+  "reproducibility_digest": "04810566ab652c437d0447a5ce8728fbb08098392a4c8d56d0917fb6c0091632"
 }

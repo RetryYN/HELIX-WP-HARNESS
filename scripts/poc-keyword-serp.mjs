@@ -44,7 +44,13 @@ const posted = await request("/serp/google/organic/task_post", {
     tag: row.source_keyword_id,
   }))),
 });
-const tasks = posted.tasks.map((task, index) => ({ ...input[index], task_id: task.id, post_status_code: task.status_code }));
+const inputByTag = new Map(input.map((row) => [row.source_keyword_id, row]));
+const tasks = posted.tasks.map((task) => {
+  const tag = task.data?.tag;
+  const source = inputByTag.get(tag);
+  if (!source) throw new Error(`task_post response has unknown tag: ${tag ?? "missing"}`);
+  return { ...source, task_id: task.id, post_status_code: task.status_code };
+});
 
 const deadline = Date.now() + 180_000;
 const completed = [];

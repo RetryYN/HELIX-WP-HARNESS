@@ -13,9 +13,10 @@ const records = [
 const first = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 const second = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 assert.deepEqual(first, second);
-assert.deepEqual(first.clusters, [["a", "b", "c"], ["d"]]);
+assert.deepEqual(first.clusters, [["a", "b"], ["c"], ["d"]]);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "b").ratio, 1);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "c").intent_confidence, "possible");
+assert.equal(first.possible_pairs.length, 2);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "d").likely_same_intent, false);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "b").intent_confidence, "high");
 assert.deepEqual(checkKeywordCoverage("IT就活サイトの選び方。", { main_keyword: "it 就活 サイト", sub_keywords: ["IT 就活サイト"] }).missing, []);

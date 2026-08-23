@@ -73,7 +73,7 @@ export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 
       const confidence = !comparable ? "insufficient" : result.ratio >= highThreshold ? "high" : result.ratio >= possibleThreshold ? "possible" : "separate";
       const candidate = confidence === "high" || confidence === "possible";
       pairs.push({ left: records[i].source_keyword_id, right: records[j].source_keyword_id, ...result, comparable, intent_confidence: confidence, likely_same_intent: candidate });
-      if (candidate) union(i, j);
+      if (confidence === "high") union(i, j);
     }
   }
   const grouped = new Map();
@@ -85,7 +85,7 @@ export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 
   const clusters = [...grouped.values()]
     .map((members) => members.sort())
     .sort((a, b) => a[0].localeCompare(b[0]));
-  return { threshold_operator: ">=", high_threshold: highThreshold, possible_threshold: possibleThreshold, comparison_depth: comparisonDepth, pairs, clusters };
+  return { threshold_operator: ">=", high_threshold: highThreshold, possible_threshold: possibleThreshold, comparison_depth: comparisonDepth, pairs, possible_pairs: pairs.filter((pair) => pair.intent_confidence === "possible"), clusters };
 }
 
 export function digest(value) {
