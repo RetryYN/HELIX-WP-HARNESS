@@ -109,6 +109,7 @@ assert.match(app, /syncCategoryFilters/);
 assert.match(app, /data\.article_queries/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
+assert.match(app, /empty\.hidden=rows\.length>0/);
 assert.doesNotMatch(app, /内包:\s*\$\{row\.group\.intent_keywords/, "contained keyword text must only appear in detail view");
 await stop(server);
 console.log("persistent SQLite→API→frontend contract: OK (DFS raw provenance, restart persistence, site isolation, strategy, gates, no fabricated links)");
