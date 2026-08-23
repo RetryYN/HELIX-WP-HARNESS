@@ -14,7 +14,7 @@ for(let page=1;;page+=1){
   if(response.status===400&&page>1)break;
   if(!response.ok)throw new Error(`WP posts: HTTP ${response.status}`);
   for(const post of await response.json()){
-    const headings=[...post.content.rendered.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].map((match,index)=>({position:index,text:decode(match[1])})).filter((heading)=>heading.text);
+    const headings=[...post.content.rendered.matchAll(/<h([23])\b[^>]*>([\s\S]*?)<\/h\1>/gi)].map((match,index)=>({position:index,level:Number(match[1]),text:decode(match[2])})).filter((heading)=>heading.text);
     articles.push({site_id:siteId,wp_article_id:post.id,url:post.link,title:decode(post.title.rendered),modified:post.modified,headings});
   }
   if(page>=Number(response.headers.get("x-wp-totalpages")??1))break;
@@ -22,7 +22,8 @@ for(let page=1;;page+=1){
 await mkdir(path.dirname(output),{recursive:true});
 const generatedAt=new Date().toISOString();
 await writeFile(output,`${JSON.stringify({schema_version:"wp-heading-evidence.v1",generated_at:generatedAt,site_id:siteId,site_url:siteUrl,articles},null,2)}\n`);
-const h2=articles.reduce((sum,article)=>sum+article.headings.length,0);
+const h2=articles.reduce((sum,article)=>sum+article.headings.filter((heading)=>heading.level===2).length,0);
+const h3=articles.reduce((sum,article)=>sum+article.headings.filter((heading)=>heading.level===3).length,0);
 const digest=createHash("sha256").update(JSON.stringify(articles.map((article)=>[article.wp_article_id,article.modified,article.headings.map((heading)=>heading.text)]))).digest("hex");
-await mkdir(path.dirname(summaryOutput),{recursive:true});await writeFile(summaryOutput,`${JSON.stringify({schema_version:"wp-heading-attestation.v1",generated_at:generatedAt,site_id:siteId,articles:articles.length,h2,tree_sha256:digest},null,2)}\n`);
-console.log(JSON.stringify({output,summary:summaryOutput,articles:articles.length,h2},null,2));
+await mkdir(path.dirname(summaryOutput),{recursive:true});await writeFile(summaryOutput,`${JSON.stringify({schema_version:"wp-heading-attestation.v2",generated_at:generatedAt,site_id:siteId,articles:articles.length,h2,h3,tree_sha256:digest},null,2)}\n`);
+console.log(JSON.stringify({output,summary:summaryOutput,articles:articles.length,h2,h3},null,2));

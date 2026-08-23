@@ -48,6 +48,10 @@ const headingTie=matchKeywordGroupToArticles({id:"writing",main_keyword:"就活 
   {...article(1,"作文対策"),headings:[{position:0,text:"IT就活の作文対策"}]},{...article(2,"作文の書き方"),headings:[{position:1,text:"IT就活の作文例"}]},
 ]);
 assert.equal(headingTie.state,"複数候補","equal H2 support must not be auto-confirmed");
+const h3Only=matchKeywordGroupToArticles({id:"knowledge",main_keyword:"it 就活 知識",intent_keywords:[]},[
+  {...article(902,"就活エージェントの注意点"),headings:[{position:4,level:3,text:"アドバイザーがIT就活の知識を持たない場合"}]},
+]);
+assert.equal(h3Only.state,"見出し一致のみ");assert.equal(h3Only.wp_article_id,null,"an H3 subtopic alone must not establish article identity");
 const reconciled=reconcileArticleAssignments([
   {group_id:"with-query",main_keyword:"it 就活",state:"確定",wp_article_id:195,candidates:[{wp_article_id:195,title_score:4,main_title_position:5,query_matches:["it 就活"]}]},
   {group_id:"title-only",main_keyword:"就活 it 企業",state:"確定",wp_article_id:195,candidates:[{wp_article_id:195,title_score:6,main_title_position:3,query_matches:[]}]},

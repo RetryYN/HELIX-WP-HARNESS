@@ -44,7 +44,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE dfs_tasks (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), task_order INTEGER NOT NULL, task_id TEXT NOT NULL, keyword TEXT NOT NULL, snapshot_path TEXT NOT NULL, observed_at TEXT NOT NULL, aio_present INTEGER NOT NULL, cost REAL NOT NULL, PRIMARY KEY(group_id, task_order));
     CREATE TABLE shared_urls (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), url_order INTEGER NOT NULL, url TEXT NOT NULL, PRIMARY KEY(group_id, url_order));
     CREATE TABLE article_links (link_id TEXT PRIMARY KEY, site_id TEXT NOT NULL REFERENCES sites(site_id), source_group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), target_group_id TEXT REFERENCES keyword_groups(group_id), trigger_type TEXT NOT NULL, trigger_text TEXT NOT NULL, source_section TEXT, state TEXT NOT NULL);
-    CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
+    CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','見出し一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
     CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, heading_score INTEGER NOT NULL, heading_matches_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id));
   `);
   const metadata = db.prepare("INSERT INTO dashboard_metadata VALUES (?, ?)");

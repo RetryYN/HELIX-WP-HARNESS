@@ -107,13 +107,13 @@ export function matchKeywordGroupToArticles(group,articles){
     const mainQueryExact=queryEvidence.some((item)=>item.main&&item.matches.some((match)=>match.kind==="期待一致"));
     const queryScore=queryEvidence.reduce((score,item)=>score+(item.main?100:0)+(item.matches.some((match)=>match.kind==="期待一致")?20:10),0);
     const titleScore=Math.max(0,...evidence.map((item)=>item.weight))+Math.max(0,evidence.length-1)*20;
-    const headingEvidence=(article.headings??[]).map((heading)=>{const tokens=tokenizeMatchText(heading.text);const main=titleEvidence(group.main_keyword,tokens,{main:true});const intents=group.intent_keywords.filter((keyword)=>titleEvidence(keyword,tokens).matches);return{...heading,main:main.matches,intents}});
-    const mainHeading=headingEvidence.filter((heading)=>heading.main);
-    const intentHeadingKeywords=[...new Set(headingEvidence.flatMap((heading)=>heading.intents))];
-    const headingEligible=mainHeading.length>0||intentHeadingKeywords.length>=2;
-    const headingScore=headingEligible?(mainHeading.length?500:200)+intentHeadingKeywords.length*30:0;
-    const headingMatches=headingEvidence.filter((heading)=>heading.main||heading.intents.length).map(({position,text,main,intents})=>({position,text,main,intent_keywords:intents}));
-    return {wp_article_id:article.wp_article_id,title:article.title,url:article.url,title_matches:titleMatches,query_matches:queryMatches,query_support_keywords:queryEvidence.map((item)=>item.keyword),query_score:queryScore,query_eligible:mainQueryExact||queryEvidence.length>=2,heading_score:headingScore,heading_eligible:headingEligible,heading_matches:headingMatches,main_title_position:mainEvidence.start,main_title_span:mainEvidence.span,main_title_leading:mainEvidence.leading,title_score:titleScore};
+    const headingEvidence=(article.headings??[]).map((heading)=>{const tokens=tokenizeMatchText(heading.text);const main=titleEvidence(group.main_keyword,tokens,{main:true});const intents=group.intent_keywords.filter((keyword)=>titleEvidence(keyword,tokens).matches);return{...heading,level:heading.level??2,main:main.matches,intents}});
+    const headingLayer=(level,mainBase,intentBase)=>{const rows=headingEvidence.filter((heading)=>heading.level===level),main=rows.filter((heading)=>heading.main),intents=[...new Set(rows.flatMap((heading)=>heading.intents))],eligible=main.length>0||intents.length>=2;return{eligible,score:eligible?(main.length?mainBase:intentBase)+intents.length*30:0}};
+    const h2=headingLayer(2,500,200),h3=headingLayer(3,300,100);
+    const headingEligible=h2.eligible||h3.eligible;
+    const headingScore=h2.score||h3.score;
+    const headingMatches=headingEvidence.filter((heading)=>heading.main||heading.intents.length).map(({position,level,text,main,intents})=>({position,level,text,main,intent_keywords:intents}));
+    return {wp_article_id:article.wp_article_id,title:article.title,url:article.url,title_matches:titleMatches,query_matches:queryMatches,query_support_keywords:queryEvidence.map((item)=>item.keyword),query_score:queryScore,query_eligible:mainQueryExact||queryEvidence.length>=2,heading_score:headingScore,heading_eligible:headingEligible,h2_score:h2.score,h2_eligible:h2.eligible,h3_score:h3.score,h3_eligible:h3.eligible,heading_matches:headingMatches,main_title_position:mainEvidence.start,main_title_span:mainEvidence.span,main_title_leading:mainEvidence.leading,title_score:titleScore};
   }).filter((candidate)=>candidate.title_score>0||candidate.query_matches.length>0||candidate.heading_eligible);
   const queryCandidates=candidates.filter((candidate)=>candidate.query_eligible);
   const bestQueryScore=Math.max(0,...queryCandidates.map((candidate)=>candidate.query_score));
@@ -123,15 +123,14 @@ export function matchKeywordGroupToArticles(group,articles){
   const leadingCandidates=candidates.filter((candidate)=>candidate.main_title_leading);
   const bestLeadingScore=Math.max(0,...leadingCandidates.map((candidate)=>candidate.title_score));
   const leading=leadingCandidates.filter((candidate)=>candidate.title_score===bestLeadingScore);
-  const headingCandidates=candidates.filter((candidate)=>candidate.heading_eligible);
-  const bestHeadingScore=Math.max(0,...headingCandidates.map((candidate)=>candidate.heading_score));
-  const strongestHeadingCandidates=headingCandidates.filter((candidate)=>candidate.heading_score===bestHeadingScore);
+  const h2Candidates=candidates.filter((candidate)=>candidate.h2_eligible),bestH2Score=Math.max(0,...h2Candidates.map((candidate)=>candidate.h2_score)),strongestH2Candidates=h2Candidates.filter((candidate)=>candidate.h2_score===bestH2Score);
+  const h3Candidates=candidates.filter((candidate)=>candidate.h3_eligible),bestH3DisplayScore=Math.max(0,...h3Candidates.map((candidate)=>candidate.h3_score)),strongestH3Display=h3Candidates.filter((candidate)=>candidate.h3_score===bestH3DisplayScore),h3SelectionCandidates=h3Candidates.filter((candidate)=>candidate.title_score>0||candidate.query_eligible||candidate.h2_eligible),bestH3Score=Math.max(0,...h3SelectionCandidates.map((candidate)=>candidate.h3_score)),strongestH3Candidates=h3SelectionCandidates.filter((candidate)=>candidate.h3_score===bestH3Score);
   // PO-defined order: main-keyword title match first, acquired-query support
   // second. Included keywords strengthen/disambiguate but do not override a
   // unique compact main keyword at the title front.
-  const selected=leading.length===1?leading[0]:strongestQueryCandidates.length===1?strongestQueryCandidates[0]:strongestHeadingCandidates.length===1?strongestHeadingCandidates[0]:null;
-  const displayed=selected?[selected]:queryCandidates.length>1?strongestQueryCandidates:headingCandidates.length?strongestHeadingCandidates:titleCandidates;
-  const state=candidates.length===0?"新規記事候補":selected?"確定":displayed.length===1?"タイトル一致のみ":"複数候補";
+  const selected=leading.length===1?leading[0]:strongestQueryCandidates.length===1?strongestQueryCandidates[0]:strongestH2Candidates.length===1?strongestH2Candidates[0]:strongestH3Candidates.length===1?strongestH3Candidates[0]:null;
+  const displayed=selected?[selected]:queryCandidates.length>1?strongestQueryCandidates:h2Candidates.length?strongestH2Candidates:h3Candidates.length?strongestH3Display:titleCandidates;
+  const state=candidates.length===0?"新規記事候補":selected?"確定":displayed.length===1&&displayed[0].title_score===0?"見出し一致のみ":displayed.length===1?"タイトル一致のみ":"複数候補";
   return {group_id:group.id,main_keyword:group.main_keyword,state,wp_article_id:selected?.wp_article_id??null,candidates:displayed};
 }
 
