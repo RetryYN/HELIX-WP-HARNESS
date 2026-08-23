@@ -1,5 +1,8 @@
 # L2 要求 — R6 施策ダッシュボード（詳細要求）
 
+> authority note (2026-08-23): 本書はUI要求の情報源。画面candidateとprototypeの正本は
+> `docs/requirements/l2/`と`docs/requirements/discovery/`であり、本書単独ではG2 freezeを表さない。
+
 - 位置づけ: `l2-req-slice1-keyword-to-article.md` R6 節の詳細化。本書が R6 の正本であり、
   スライス1 文書の R6 節は概要+本書への参照とする。
 - 状態: **candidate**（2026-08-22 起草・sol レビュー反映済み。PO 確認で confirmed へ）

@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "helix": "tsx node_modules/helix/src/cli.ts",
+    "requirements:validate": "node scripts/validate-requirements.mjs",
+    "requirements:helix-l1-l2": "node scripts/validate-helix-l1-l2.mjs",
+    "requirements:helix-vmodel": "npm run helix -- vmodel lint",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "node --version"
+    "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",

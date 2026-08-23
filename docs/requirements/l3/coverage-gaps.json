@@ -1,0 +1,25 @@
+{
+  "schema_version": "wp-precompile-coverage-gaps.v1",
+  "initiative_id": "WP-AUTONOMOUS-OPS",
+  "authority": "non_canonical_precompile_inventory",
+  "promotion_policy": "L3 compile completion and G3 freeze require zero gaps",
+  "gaps": [
+    {"source_id":"WP-BR-01","reason":"business outcome must be decomposed after L2 prototype agreement","next_action":"compile operational autonomy requirements and L12 oracle"},
+    {"source_id":"WP-BR-02","reason":"existing-site takeover is outside the current publish prototype decision","next_action":"compile takeover inventory slice"},
+    {"source_id":"WP-BR-03","reason":"new-site launch is an explicitly separate S4 slice","next_action":"re-enter through separately approved S4 candidate"},
+    {"source_id":"WP-BR-04","reason":"evidence-derived operation is represented in candidate details but not yet compiled as a business trace","next_action":"compile end-to-end evidence requirement after UI agreement"},
+    {"source_id":"WP-BR-05","reason":"revenue and cost calculation rules remain a PO-owned future candidate","next_action":"resolve calculation boundary before L3 compile"},
+    {"source_id":"WP-SCR-01","reason":"home prototype awaits PO reaction","next_action":"map accepted home surface after prototype agreement"},
+    {"source_id":"WP-SCR-02","reason":"article and keyword prototype awaits PO reaction","next_action":"map accepted article surface after prototype agreement"},
+    {"source_id":"WP-SCR-03","reason":"audit prototype awaits PO reaction","next_action":"map accepted audit surface after prototype agreement"},
+    {"source_id":"WP-SCR-04","reason":"AIO/LLMO surface is not part of the current prototype decision","next_action":"retain as separately re-entered UI candidate"},
+    {"source_id":"WP-SCR-05","reason":"internal-link and marketplace surface is not part of the current prototype decision","next_action":"retain as separately re-entered UI candidate"},
+    {"source_id":"WP-SCR-06","reason":"rewrite surface is not part of the current prototype decision","next_action":"retain as separately re-entered UI candidate"},
+    {"source_id":"WP-SCR-07","reason":"outcomes prototype awaits PO reaction","next_action":"map accepted outcomes surface after prototype agreement"},
+    {"source_id":"WP-SCR-08","reason":"calendar surface is not part of the current prototype decision","next_action":"retain as separately re-entered UI candidate"},
+    {"source_id":"WP-TRL1-01","reason":"REST-first and WP-CLI fallback routing has not been compiled","next_action":"compile transport selection and fallback acceptance oracle"},
+    {"source_id":"WP-TRL1-03","reason":"deterministic state derivation invariant has not been compiled","next_action":"compile analyzer and derived-state contract"},
+    {"source_id":"WP-TRL1-04","reason":"external staging and promotion invariant has not been compiled","next_action":"compile staging schema and freshness promotion contract"},
+    {"source_id":"WP-TRL1-05","reason":"single writer and append-only operation invariant has not been compiled","next_action":"compile operation writer ownership contract"}
+  ]
+}

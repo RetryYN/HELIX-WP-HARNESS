@@ -1,7 +1,10 @@
 # L1 企画書 — 完全自走型 WP 運用 HARNESS
 
+> authority note (2026-08-23): 本書はL1情報源。現行の5 sub-doc正本は
+> `docs/requirements/l1/`、状態とfreeze境界は`docs/requirements/authority.md`を参照する。
+
 - 位置づけ: HELIX V モデルの L1 企画（フリー形式）。L2 要求の入力（目的・対象・価値仮説・採用境界）。
-- 状態: **confirmed**（PO 確認 2026-08-21 — 「ぐらいかな」により内容確定）
+- 状態: **confirmed input / G1 freeze未実施**（PO 確認 2026-08-21の内容を保存）
 - 日付: 2026-08-21
 
 ## 目的

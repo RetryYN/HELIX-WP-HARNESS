@@ -1,0 +1,67 @@
+{
+  "schema_version": "wp-poc-inventory.v1",
+  "inventory_id": "WP-POC-INVENTORY-20260823",
+  "inspected_at": "2026-08-23",
+  "source": {
+    "repository": "poc-wp",
+    "remote": null,
+    "head": "2ca29df",
+    "access": "read_only_local_checkout",
+    "portability": "digest_bound_metadata_only"
+  },
+  "evidence": [
+    {
+      "evidence_id": "WP-POC-01",
+      "path": "evidence/poc1-block-roundtrip/poc1-result.json",
+      "sha256": "0c671c57e9524b7f14f6c3ee39f9f6b2e3575bcc6e1fc90d82a3e6e94151f93f",
+      "finding": "draft投稿のREST往復でraw一致、core blockのparseと表示が成立",
+      "adopt": ["WP-FR-POST-01", "WP-AC-POST-01"],
+      "limits": ["検証台のdraft 1件であり、公開・timeout・重複排除の証明ではない"]
+    },
+    {
+      "evidence_id": "WP-POC-02",
+      "path": "evidence/poc2-parts-roundtrip/poc2-result.json",
+      "sha256": "2c2aa6e7172d436d712c027115e25ff8bab11959459edd3f40657bb46b507d09",
+      "finding": "本番記事のraw抽出と検証台への再投入でSHA-256一致",
+      "adopt": ["WP-FR-DOC-02"],
+      "limits": ["テーマ未登録blockの描画互換は証明しない", "本番sourceはread-only"]
+    },
+    {
+      "evidence_id": "WP-POC-03",
+      "path": "evidence/poc-image-pipeline/dfs-poc3-final.json",
+      "sha256": "37eea42aba429848a62beeafee4c330c2bcb938669e9ee5bebb825ee56ae120b",
+      "finding": "DFS standard queueでJP SERP、PAA、AI Overview、suggestionを取得し費用を実測",
+      "adopt": ["WP-FR-KW-02", "WP-NFR-COST-01"],
+      "limits": ["証跡本文にローカルcredential所在の記述があるため原本は複製しない", "SERP変動を固定真実として扱わない"]
+    },
+    {
+      "evidence_id": "WP-POC-04",
+      "path": "evidence/poc-image-pipeline/poc4-fixed-pages.json",
+      "sha256": "827098ee96c20566ef5d094210721d8a3c97558383f00a426b1358cdd0093163",
+      "finding": "pageのREST作成・再投入・raw digest一致と2本番サイトのread到達性を確認",
+      "adopt": ["WP-FR-DOC-01"],
+      "limits": ["LP CPTの同一証跡ではない", "公開page操作はPoC実績でありproduction write許可ではない"]
+    },
+    {
+      "evidence_id": "WP-POC-05",
+      "path": "evidence/poc-image-pipeline/render-v0-result.json",
+      "sha256": "4bdce10f7bcb2f2c85bf9a3a8dfbfffeb7262a7ff1c3c6345a547bfc1a95439a",
+      "finding": "中間JSONからSWELL/Neo adapterへの決定論renderが成立",
+      "adopt": ["WP-TR-DOC-01"],
+      "limits": ["一部手書きtheme blockはeditor invalidのため収穫markup準拠が必要"]
+    },
+    {
+      "evidence_id": "WP-POC-06",
+      "path": "evidence/poc-image-pipeline/reverse-v0-result.json",
+      "sha256": "55cc0cce6db5c5f7160f707d50aefc2785eeaad547203ef4eca1faa909f7f731",
+      "finding": "実記事40KBを130 sectionの中間JSONへ変換しraw未対応0、sample roundtrip一致",
+      "adopt": ["WP-FR-DOC-02", "WP-AC-DOC-02"],
+      "limits": ["単一実記事での結果を全テーマ・全記事へ一般化しない"]
+    }
+  ],
+  "excluded": [
+    {"scope": "data/a8 and data/gsc raw exports", "reason": "運用データを要求リポジトリへ複製しない"},
+    {"scope": "browser session and guard logs", "reason": "credential/session情報の混入可能性がある"},
+    {"scope": "uncommitted PoC implementation", "reason": "実装コードはPoC側所有でありWP要求の正本にしない"}
+  ]
+}
