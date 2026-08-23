@@ -40,6 +40,14 @@ const intentSupport=matchKeywordGroupToArticles({id:"sites",main_keyword:"it 就
   article(10,"IT就活サイトの選び方",["it 就活サイト"]),article(20,"IT就活サイト比較",["it 就活サイト","it 就活サイト 比較"]),
 ]);
 assert.equal(intentSupport.state,"確定");assert.equal(intentSupport.wp_article_id,20,"included keywords disambiguate articles that both acquire the main keyword");
+const headingSupport=matchKeywordGroupToArticles({id:"qualification",main_keyword:"it 就活 資格",intent_keywords:[]},[
+  {...article(559,"IT業界へ就職する方法"),headings:[{position:0,text:"IT就活で役立つ資格"}]},
+]);
+assert.equal(headingSupport.state,"確定");assert.equal(headingSupport.wp_article_id,559,"a full main-keyword H2 resolves a title/GSC-unconfirmed article");
+const headingTie=matchKeywordGroupToArticles({id:"writing",main_keyword:"就活 作文 it",intent_keywords:[]},[
+  {...article(1,"作文対策"),headings:[{position:0,text:"IT就活の作文対策"}]},{...article(2,"作文の書き方"),headings:[{position:1,text:"IT就活の作文例"}]},
+]);
+assert.equal(headingTie.state,"複数候補","equal H2 support must not be auto-confirmed");
 const reconciled=reconcileArticleAssignments([
   {group_id:"with-query",main_keyword:"it 就活",state:"確定",wp_article_id:195,candidates:[{wp_article_id:195,title_score:4,main_title_position:5,query_matches:["it 就活"]}]},
   {group_id:"title-only",main_keyword:"就活 it 企業",state:"確定",wp_article_id:195,candidates:[{wp_article_id:195,title_score:6,main_title_position:3,query_matches:[]}]},

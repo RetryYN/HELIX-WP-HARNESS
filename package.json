@@ -13,6 +13,7 @@
     "poc:keyword-serp:verify": "node scripts/verify-poc-evidence.mjs",
     "poc:keyword-intent-pair": "node scripts/poc-keyword-intent-pair.mjs",
     "poc:gsc-page-queries": "node scripts/poc-gsc-page-queries.mjs",
+    "poc:wp-headings": "node scripts/fetch-wp-heading-evidence.mjs",
     "poc:keyword-article-match": "node scripts/poc-keyword-article-matching.mjs",
     "prototype:keyword-dashboard": "node scripts/serve-keyword-dashboard.mjs",
     "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",

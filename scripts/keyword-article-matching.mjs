@@ -107,8 +107,14 @@ export function matchKeywordGroupToArticles(group,articles){
     const mainQueryExact=queryEvidence.some((item)=>item.main&&item.matches.some((match)=>match.kind==="期待一致"));
     const queryScore=queryEvidence.reduce((score,item)=>score+(item.main?100:0)+(item.matches.some((match)=>match.kind==="期待一致")?20:10),0);
     const titleScore=Math.max(0,...evidence.map((item)=>item.weight))+Math.max(0,evidence.length-1)*20;
-    return {wp_article_id:article.wp_article_id,title:article.title,url:article.url,title_matches:titleMatches,query_matches:queryMatches,query_support_keywords:queryEvidence.map((item)=>item.keyword),query_score:queryScore,query_eligible:mainQueryExact||queryEvidence.length>=2,main_title_position:mainEvidence.start,main_title_span:mainEvidence.span,main_title_leading:mainEvidence.leading,title_score:titleScore};
-  }).filter((candidate)=>candidate.title_score>0||candidate.query_matches.length>0);
+    const headingEvidence=(article.headings??[]).map((heading)=>{const tokens=tokenizeMatchText(heading.text);const main=titleEvidence(group.main_keyword,tokens,{main:true});const intents=group.intent_keywords.filter((keyword)=>titleEvidence(keyword,tokens).matches);return{...heading,main:main.matches,intents}});
+    const mainHeading=headingEvidence.filter((heading)=>heading.main);
+    const intentHeadingKeywords=[...new Set(headingEvidence.flatMap((heading)=>heading.intents))];
+    const headingEligible=mainHeading.length>0||intentHeadingKeywords.length>=2;
+    const headingScore=headingEligible?(mainHeading.length?500:200)+intentHeadingKeywords.length*30:0;
+    const headingMatches=headingEvidence.filter((heading)=>heading.main||heading.intents.length).map(({position,text,main,intents})=>({position,text,main,intent_keywords:intents}));
+    return {wp_article_id:article.wp_article_id,title:article.title,url:article.url,title_matches:titleMatches,query_matches:queryMatches,query_support_keywords:queryEvidence.map((item)=>item.keyword),query_score:queryScore,query_eligible:mainQueryExact||queryEvidence.length>=2,heading_score:headingScore,heading_eligible:headingEligible,heading_matches:headingMatches,main_title_position:mainEvidence.start,main_title_span:mainEvidence.span,main_title_leading:mainEvidence.leading,title_score:titleScore};
+  }).filter((candidate)=>candidate.title_score>0||candidate.query_matches.length>0||candidate.heading_eligible);
   const queryCandidates=candidates.filter((candidate)=>candidate.query_eligible);
   const bestQueryScore=Math.max(0,...queryCandidates.map((candidate)=>candidate.query_score));
   const strongestQueryCandidates=queryCandidates.filter((candidate)=>candidate.query_score===bestQueryScore);
@@ -117,11 +123,14 @@ export function matchKeywordGroupToArticles(group,articles){
   const leadingCandidates=candidates.filter((candidate)=>candidate.main_title_leading);
   const bestLeadingScore=Math.max(0,...leadingCandidates.map((candidate)=>candidate.title_score));
   const leading=leadingCandidates.filter((candidate)=>candidate.title_score===bestLeadingScore);
+  const headingCandidates=candidates.filter((candidate)=>candidate.heading_eligible);
+  const bestHeadingScore=Math.max(0,...headingCandidates.map((candidate)=>candidate.heading_score));
+  const strongestHeadingCandidates=headingCandidates.filter((candidate)=>candidate.heading_score===bestHeadingScore);
   // PO-defined order: main-keyword title match first, acquired-query support
   // second. Included keywords strengthen/disambiguate but do not override a
   // unique compact main keyword at the title front.
-  const selected=leading.length===1?leading[0]:strongestQueryCandidates.length===1?strongestQueryCandidates[0]:null;
-  const displayed=selected?[selected]:queryCandidates.length>1?strongestQueryCandidates:titleCandidates;
+  const selected=leading.length===1?leading[0]:strongestQueryCandidates.length===1?strongestQueryCandidates[0]:strongestHeadingCandidates.length===1?strongestHeadingCandidates[0]:null;
+  const displayed=selected?[selected]:queryCandidates.length>1?strongestQueryCandidates:headingCandidates.length?strongestHeadingCandidates:titleCandidates;
   const state=candidates.length===0?"新規記事候補":selected?"確定":displayed.length===1?"タイトル一致のみ":"複数候補";
   return {group_id:group.id,main_keyword:group.main_keyword,state,wp_article_id:selected?.wp_article_id??null,candidates:displayed};
 }
@@ -138,7 +147,7 @@ export function reconcileArticleAssignments(matches){
     competing.sort((left,right)=>{
       const candidate=(match)=>match.candidates.find((item)=>item.wp_article_id===match.wp_article_id);
       const l=candidate(left),r=candidate(right);
-      return Number(r.query_matches.length>0)-Number(l.query_matches.length>0)||r.title_score-l.title_score||(l.main_title_position??Infinity)-(r.main_title_position??Infinity)||left.group_id.localeCompare(right.group_id);
+      return Number(r.query_matches.length>0)-Number(l.query_matches.length>0)||r.title_score-l.title_score||r.heading_score-l.heading_score||(l.main_title_position??Infinity)-(r.main_title_position??Infinity)||left.group_id.localeCompare(right.group_id);
     });
     for(const duplicate of competing.slice(1)){duplicate.state="同一記事候補";duplicate.wp_article_id=null}
   }

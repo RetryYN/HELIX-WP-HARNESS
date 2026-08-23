@@ -37,7 +37,8 @@ await import("node:fs/promises").then(({writeFile})=>writeFile(fixturePath,`${JS
 const gscEvidencePath=path.resolve(process.env.WP_GSC_EVIDENCE??".helix/evidence/gsc-page-query-28d/manifest.json");
 const hasGscEvidence=existsSync(gscEvidencePath);
 if(!hasGscEvidence&&process.env.WP_ALLOW_EMPTY_GSC!=="1")throw new Error(`GSC evidence is required: ${gscEvidencePath}. Set WP_ALLOW_EMPTY_GSC=1 only for an explicit empty-state test.`);
-const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: path.resolve("artifacts/poc"), importedKeywords, gscEvidencePath:hasGscEvidence?gscEvidencePath:undefined });
+const headingEvidencePath=path.resolve(process.env.WP_HEADING_EVIDENCE??".helix/evidence/wp-headings/manifest.json");
+const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: path.resolve("artifacts/poc"), importedKeywords, gscEvidencePath:hasGscEvidence?gscEvidencePath:undefined, headingEvidencePath:existsSync(headingEvidencePath)?headingEvidencePath:undefined });
 const counts = Object.fromEntries(["sites", "imported_keywords", "keyword_groups", "dfs_tasks", "gate_runs", "articles", "gsc_query_results", "article_links"].map((table) => [table, Number(db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count)]));
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));
