@@ -1,15 +1,16 @@
 import { normalizeKeyword } from "./keyword-serp-core.mjs";
 import kuromoji from "kuromoji";
 import { fileURLToPath } from "node:url";
+import {genericMatchTokens,lexicalReplacements} from "./keyword-policy.mjs";
 
-const genericTokens=new Set(["it","就活","新卒","方法"]);
+const genericTokens=new Set(genericMatchTokens);
 const tokenAlias=(token)=>["x","twitter","ツイッター"].includes(token)?"twitter":token;
 const tokenizer=await new Promise((resolve,reject)=>kuromoji.builder({dicPath:fileURLToPath(new URL("../node_modules/kuromoji/dict",import.meta.url))}).build((error,value)=>error?reject(error):resolve(value)));
 const grammarParts=new Set(["助詞","助動詞"]);
 const ignoredParts=new Set(["記号","フィラー"]);
 const analysisCache=new Map();
 const matchTokenCache=new Map();
-const lexicalNormalize=(value)=>normalizeKeyword(value).replaceAll("ねくたい","ネクタイ");
+const lexicalNormalize=(value)=>lexicalReplacements.reduce((text,[from,to])=>text.replaceAll(from,to),normalizeKeyword(value));
 
 export function analyzeJapaneseText(value){
   const normalized=lexicalNormalize(value);

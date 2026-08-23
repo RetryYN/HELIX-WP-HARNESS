@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { digest, groupBySerp, normalizeKeyword, organicUrls } from "./keyword-serp-core.mjs";
+import {buildLatestKeywordGroups} from "./keyword-grouping.mjs";
 import { readXlsxKeywordSheet } from "./read-xlsx-keywords.mjs";
 
 const API = "https://api.dataforseo.com/v3";
@@ -147,12 +148,10 @@ while (completed.length < tasks.length && Date.now() < deadline) {
 if (completed.length !== tasks.length) throw new Error(`timeout: ${completed.length}/${tasks.length} tasks completed`);
 
 completed.sort((a, b) => a.source_keyword_id.localeCompare(b.source_keyword_id));
-const grouping = groupBySerp(completed, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
-const byId=new Map(completed.map((row)=>[row.source_keyword_id,row]));
-const modifiers=["おすすめ","比較","ランキング","口コミ","評判","選び方","方法"];
-const articleKeywordGroups=grouping.clusters.map((members,index)=>{const rows=members.map((id)=>byId.get(id));const eligible=rows.filter((row)=>!modifiers.some((modifier)=>normalizeKeyword(row.keyword).endsWith(modifier)));const ranked=(eligible.length?eligible:rows).slice().sort((a,b)=>(b.search_volume??-1)-(a.search_volume??-1)||a.source_row-b.source_row);const main=ranked[0];return{group_id:`article-group-${index+1}`,site_id:"it-shukatu.com",main_keyword:main.keyword,main_keyword_origin:"highest_search_volume",main_search_volume:main.search_volume,intent_keywords:rows.filter((row)=>row.source_keyword_id!==main.source_keyword_id).map((row)=>row.keyword),source_keyword_ids:members}});
+const {policyVersion,hierarchy,grouping,articleKeywordGroups}=buildLatestKeywordGroups(completed);
 const evidence = {
-  schema_version: "wp-keyword-serp-poc.v1",
+  schema_version: "wp-keyword-serp-poc.v2",
+  keyword_policy_version:policyVersion,
   generated_at: new Date().toISOString(),
   query_contract: { provider: "DataForSEO", queue: "standard", location_code: 2392, language_code: "ja", device: "desktop", depth: 10 },
   normalization: { version: "nfkc-space-casefold.v1", input_count: input.length, input_digest: digest(input) },
@@ -161,7 +160,8 @@ const evidence = {
     { file: "IT就活大学キーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
   ],
   tasks: completed,
-  grouping: { algorithm: "top5-url-overlap-intent-components.v3", decision: "上位5 URLの一致率が60%以上なら同一施策KW群。80%以上はhigh、60%以上80%未満はpossible、60%未満はseparate", ...grouping },
+  grouping: { algorithm: "normalized-context-hierarchy-top5-complete-linkage.v4", decision: "形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけの群は最寄りの実在親施策へ内包する。", ...grouping },
+  keyword_hierarchy:hierarchy,
   article_keyword_groups: articleKeywordGroups,
   reproducibility_digest: digest({ input, snapshots: completed.map(({ source_keyword_id, response_digest }) => ({ source_keyword_id, response_digest })), grouping, articleKeywordGroups }),
 };

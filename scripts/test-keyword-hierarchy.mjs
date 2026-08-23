@@ -13,6 +13,7 @@ assert.equal(tree.find((row)=>row.source_keyword_id==="news").parent_source_keyw
 assert.equal(tree.find((row)=>row.source_keyword_id==="root").parent_source_keyword_id,null,"IT就活 must not become a child of the different-context 就活 query");
 assert.equal(tree.find((row)=>row.source_keyword_id==="general").relation,"root");
 assert.equal(tree.find((row)=>row.source_keyword_id==="news-order").relation,"reordered_alias");
+assert.equal(tree.find((row)=>row.source_keyword_id==="news-order").root_source_keyword_id,"root","an alias must inherit the representative concept root");
 assert.equal(tree.find((row)=>row.source_keyword_id==="detail").parent_source_keyword_id,"news");
 assert.equal(tree.find((row)=>row.source_keyword_id==="detail").depth,2);
 console.log("keyword token hierarchy: OK");

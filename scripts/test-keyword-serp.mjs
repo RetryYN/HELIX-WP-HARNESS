@@ -13,6 +13,9 @@ const records = [
 const first = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 const second = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 assert.deepEqual(first, second);
+const scoped=groupBySerp(records.slice(0,2),{scopeById:new Map([[records[0].source_keyword_id,"general"],[records[1].source_keyword_id,"it"]])});
+assert.equal(scoped.pairs[0].intent_confidence,"context_separate");
+assert.equal(scoped.pairs[0].likely_same_intent,false,"SERP overlap must not cross a context root");
 assert.deepEqual(first.clusters, [["a", "b", "c"], ["d"]]);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "b").ratio, 1);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "c").intent_confidence, "possible");

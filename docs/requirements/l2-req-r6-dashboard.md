@@ -201,7 +201,7 @@
 - DBと証跡がない場合は設計済みemptyを表示し、fixtureやページ別/クエリ別の推測値で画面を埋めない。
 - 実データ版DB buildはGSC証跡を必須とし、欠落時はfail-closeする。empty-state試験だけは
   `WP_ALLOW_EMPTY_GSC=1`を明示した隔離テストとして実行し、実データPoC成功判定へ流用しない。
-- required CIの既存`npm test`は100実KW/67群のDFS provenance、GSC実測attestation（28日窓・59記事/681クエリ）、
+- required CIの既存`npm test`は100実KW/63群のDFS provenance（形態素正規化・語順alias・文脈root・語数ツリーを先に確定し、同じ枝内でSERP比較。修飾語だけの群は最寄りの実在親施策へ内包）、GSC実測attestation（28日窓・59記事/681クエリ）、
   WP見出し実測attestation（59記事・381 H2・1089 H3）、
   SQLite→API→frontend契約を検査する。GSC rawはlocal-onlyとし、集計とtree digestだけをcommitする。
 - loading/error/stale/normalを区別し、データ行があるnormal状態ではemptyコンテナが余白を確保しない。
