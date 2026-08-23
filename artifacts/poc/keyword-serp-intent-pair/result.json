@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T11:33:15.048Z",
+  "generated_at": "2026-08-23T12:01:09.585Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -90,15 +90,22 @@
         "probe:it-job-site:comparison",
         "probe:it-job-site:recommended"
       ],
-      "main_keyword": "it 就活サイト 比較",
-      "sub_keywords": [
+      "main_keyword": "it 就活サイト",
+      "main_keyword_origin": "derived_parent",
+      "intent_keywords": [
+        "it 就活サイト 比較",
         "it 就活サイト おすすめ"
       ],
+      "modifiers": [
+        "比較",
+        "おすすめ"
+      ],
+      "sibling_keywords": [],
       "normalized_keywords": [
         "it 就活サイト 比較",
         "it 就活サイト おすすめ"
       ]
     }
   ],
-  "reproducibility_digest": "201e7d6fa41b46044baf4d92590ae74941cb3626038ae83958533ffa7cdd2f96"
+  "reproducibility_digest": "53348b60039304aec05914a0bdfe2ac5132d02456d93598c0efb3f32e55d799a"
 }

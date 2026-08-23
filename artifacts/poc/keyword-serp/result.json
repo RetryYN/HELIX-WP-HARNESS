@@ -1,6 +1,6 @@
 {
   "schema_version": "wp-keyword-serp-poc.v1",
-  "generated_at": "2026-08-23T11:33:14.986Z",
+  "generated_at": "2026-08-23T12:01:09.521Z",
   "query_contract": {
     "provider": "DataForSEO",
     "queue": "standard",
@@ -516,8 +516,12 @@
         "bec89ab9:キーワード割り当て:7",
         "bec89ab9:キーワード割り当て:8"
       ],
-      "main_keyword": "記事作成 副業",
-      "sub_keywords": [
+      "main_keyword": null,
+      "main_keyword_origin": "unresolved",
+      "intent_keywords": [],
+      "modifiers": [],
+      "sibling_keywords": [
+        "記事作成 副業",
         "ライター 副業"
       ],
       "normalized_keywords": [
@@ -526,5 +530,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "3796d80daf604043b84dbf0e6b341daead61a15ceb64e8051d03c766470d768b"
+  "reproducibility_digest": "492894e8627903dfd1454623a2e735be87ae68f895148b74010c958a7eb67f95"
 }

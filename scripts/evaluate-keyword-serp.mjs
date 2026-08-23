@@ -25,6 +25,20 @@ tasks.sort((a, b) => a.source_keyword_id.localeCompare(b.source_keyword_id));
 const grouping = groupBySerp(tasks, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 const byId = new Map(tasks.map((task) => [task.source_keyword_id, task]));
 const normalizationAliases = [];
+const intentModifiers = ["おすすめ", "比較", "ランキング", "口コミ", "評判", "選び方", "方法"];
+function classifyArticleGroup(members) {
+  const keywords = members.map((id) => byId.get(id).keyword);
+  const classified = keywords.map((keyword) => {
+    const normalized = normalizeKeyword(keyword);
+    const modifier = intentModifiers.find((candidate) => normalized.endsWith(` ${candidate}`));
+    return { keyword, modifier: modifier ?? null, parent: modifier ? normalized.slice(0, -(modifier.length + 1)) : null };
+  });
+  const parents = [...new Set(classified.map((item) => item.parent).filter(Boolean))];
+  if (parents.length === 1 && classified.every((item) => item.parent === parents[0])) {
+    return { main_keyword: parents[0], main_keyword_origin: "derived_parent", intent_keywords: keywords, modifiers: classified.map((item) => item.modifier), sibling_keywords: [] };
+  }
+  return { main_keyword: null, main_keyword_origin: "unresolved", intent_keywords: [], modifiers: [], sibling_keywords: keywords };
+}
 const articleKeywordGroups = grouping.clusters
   .map((members) => {
     const canonical = new Map();
@@ -44,8 +58,7 @@ const articleKeywordGroups = grouping.clusters
     group_id: `poc-article-group-${index + 1}`,
     evidence: "likely_same_intent",
     source_keyword_ids: members,
-    main_keyword: byId.get(members[0]).keyword,
-    sub_keywords: members.slice(1).map((id) => byId.get(id).keyword),
+    ...classifyArticleGroup(members),
     normalized_keywords: members.map((id) => byId.get(id).normalized_keyword),
   }));
 const evidence = {
