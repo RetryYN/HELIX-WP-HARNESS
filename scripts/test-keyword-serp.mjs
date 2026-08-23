@@ -21,4 +21,10 @@ assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "d")
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "b").intent_confidence, "high");
 assert.deepEqual(checkKeywordCoverage("IT就活サイトの選び方。", { main_keyword: "it 就活 サイト", sub_keywords: ["IT 就活サイト"] }).missing, []);
 assert.deepEqual(checkKeywordCoverage("IT就活サイトの選び方。", { main_keyword: "it 就活 サイト", sub_keywords: ["比較"] }).missing, ["比較"]);
+const bridge = groupBySerp([
+  { source_keyword_id: "x", organic_urls: ["https://a/", "https://b/", "https://c/", "https://d/", "https://e/"] },
+  { source_keyword_id: "y", organic_urls: ["https://a/", "https://b/", "https://c/", "https://f/", "https://g/"] },
+  { source_keyword_id: "z", organic_urls: ["https://a/", "https://f/", "https://g/", "https://h/", "https://i/"] },
+], { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
+assert.equal(bridge.clusters.some((cluster) => cluster.length === 3), false, "60% bridge must not transitively merge a 20% pair");
 console.log("keyword SERP core: OK");
