@@ -24,7 +24,8 @@
 
 ## 2. データ契約（SQLite ハブ）
 
-単一 SQLite ファイルを正本とする。**書き込み主体（writer）は表ごとに単一モジュールに固定**し
+単一 SQLite ファイルを運用正本とする。Excel・CSV・API応答は入力または観測snapshotであり、
+取り込み後の状態・関係・順序の正本にはしない。**書き込み主体（writer）は表ごとに単一モジュールに固定**し
 （抽象名でなく L3 でモジュール名を確定して対応表を成果物にする）、UI は読み取りと
 `approval_requests` への応答（`operations` 追記）のみを行う。
 
@@ -32,7 +33,7 @@
 
 | 表 | 内容 | writer |
 | --- | --- | --- |
-| site_design_imports | サイト設計 Excel の取り込み版（原文セル+出典ファイル/シート/行、版つき） | 取り込み (ingest-design) |
+| site_design_imports | サイト設計 Excel の入力snapshot（原文セル+出典ファイル/シート/行、版・source_orderつき） | 取り込み (ingest-design) |
 | keywords | KW 原本（不変 source_keyword_id、設計取り込み由来・出典参照つき） | 取り込み (ingest-design) |
 | article_versions | 記事正本=中間 JSON の版（全文・schema_version・生成入力 digest） | 生成 (writer-pipeline) |
 | articles | 記事レジストリ（メイン KW・WP post id・URL。**状態列は持たない** — 状態は §2.5 の導出） | 生成 (writer-pipeline) |
