@@ -1,15 +1,13 @@
 import { mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { buildDashboardDb } from "./keyword-dashboard-db.mjs";
-import { readXlsxKeywordSheet } from "./read-xlsx-keywords.mjs";
 
 const dbPath = path.resolve(process.env.WP_DASHBOARD_DB ?? ".helix/keyword-dashboard.sqlite");
 mkdirSync(path.dirname(dbPath), { recursive: true });
-const workbook=process.env.WP_KEYWORD_WORKBOOK??"/home/tenni/dev/poc-wp/data/IT就活大学キーワードマップ.xlsx";
-const importedKeywords=readXlsxKeywordSheet(workbook,{sheetNumber:1,sheetName:"IT就活",limit:100}).map((row)=>({...row,site_id:"it-shukatu.com",source_keyword_id:`it-shukatu.com:IT就活:${row.source_row}`}));
 const baseFixture=JSON.parse(readFileSync(path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),"utf8"));
 const pocPath=path.resolve(process.env.WP_KEYWORD_POC_RESULT??"artifacts/poc/keyword-workbook-100-live/result.json");
 const poc=JSON.parse(readFileSync(pocPath,"utf8"));
+const importedKeywords=poc.tasks.map((row)=>({source_keyword_id:row.source_keyword_id,site_id:"it-shukatu.com",source_sheet:row.source_sheet,source_row:row.source_row,raw_keyword:row.keyword,search_volume:row.search_volume,cpc:row.cpc,competition:row.competition}));
 const taskById=new Map(poc.tasks.map((task)=>[task.source_keyword_id,task]));
 const pairByIds=new Map(poc.grouping.pairs.map((pair)=>[[pair.left,pair.right].sort().join("\0"),pair]));
 const processedGroups=poc.article_keyword_groups.map((group,index)=>{
