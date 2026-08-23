@@ -7,27 +7,67 @@ const tokenAlias=(token)=>["x","twitter","ツイッター"].includes(token)?"twi
 const tokenizer=await new Promise((resolve,reject)=>kuromoji.builder({dicPath:fileURLToPath(new URL("../node_modules/kuromoji/dict",import.meta.url))}).build((error,value)=>error?reject(error):resolve(value)));
 const grammarParts=new Set(["助詞","助動詞"]);
 const ignoredParts=new Set(["記号","フィラー"]);
+const analysisCache=new Map();
+const matchTokenCache=new Map();
 
 export function analyzeJapaneseText(value){
-  return tokenizer.tokenize(normalizeKeyword(value)).filter((token)=>!ignoredParts.has(token.pos)).map((token,index)=>{
+  const normalized=normalizeKeyword(value);
+  if(analysisCache.has(normalized))return analysisCache.get(normalized);
+  const analyzed=tokenizer.tokenize(normalized).filter((token)=>!ignoredParts.has(token.pos)).map((token,index)=>{
     const surface=tokenAlias(token.surface_form.toLowerCase());
     const lemma=tokenAlias((token.basic_form==="*"?surface:token.basic_form).toLowerCase());
     return{surface,lemma,pos:token.pos,pos_detail:token.pos_detail_1,index,grammar:grammarParts.has(token.pos)};
   });
+  analysisCache.set(normalized,analyzed);
+  return analyzed;
 }
 
 export function tokenizeMatchText(value){
-  const content=analyzeJapaneseText(value).filter((token)=>!token.grammar).map((token)=>token.lemma);
+  const normalized=normalizeKeyword(value);
+  if(matchTokenCache.has(normalized))return matchTokenCache.get(normalized);
+  const content=analyzeJapaneseText(normalized).filter((token)=>!token.grammar).map((token)=>token.lemma);
   const merged=[];
   for(let index=0;index<content.length;index+=1){
     if(content[index]==="就"&&content[index+1]==="活"){merged.push("就活");index+=1}
     else merged.push(content[index]);
   }
+  matchTokenCache.set(normalized,merged);
   return merged;
 }
 
 export function canonicalMatchText(value){
   return tokenizeMatchText(value).join("");
+}
+
+const tokenSet=(value)=>new Set(tokenizeMatchText(value));
+const sameTokenSet=(left,right)=>left.size===right.size&&[...left].every((token)=>right.has(token));
+const containsTokenSet=(left,right)=>[...right].every((token)=>left.has(token));
+const queryKeywordKind=(keyword,query)=>{const expected=tokenSet(keyword),observed=tokenSet(query);if(sameTokenSet(expected,observed))return"期待一致";return Math.min(expected.size,observed.size)>=2&&containsTokenSet(observed,expected)?"内包一致":null};
+
+export function assessKeywordAcquisition(group,queries){
+  if(!group)return{state:"施策KW未連携",coverage_rate:null,acquired_keywords:0,planned_keywords:0,matched_query_count:0,unexpected_query_count:queries.length,rewrite_guidance:"先に施策KW群と記事IDを確定",targets:[],queries:queries.map((query)=>({...query,keyword_match:"想定外",matched_keywords:[]}))};
+  const planned=[...new Set([group.main_keyword,...group.intent_keywords])];
+  const targetRows=planned.map((keyword)=>{
+    const matches=queries.map((query)=>{
+      // A broader acquired query may contain the planned KW. The reverse does
+      // not prove that a modifier such as `比較` or `おすすめ` was acquired.
+      const kind=queryKeywordKind(keyword,query.query);
+      return kind?{query:query.query,kind,clicks:query.clicks,impressions:query.impressions}:null;
+    }).filter(Boolean);
+    const exact=matches.filter((match)=>match.kind==="期待一致");
+    return{keyword,role:keyword===group.main_keyword?"メインKW":"内包KW",status:exact.length?"期待一致":matches.length?"内包一致":"未獲得",matches};
+  });
+  const queryRows=queries.map((query)=>{
+    const matched=targetRows.map((target)=>({target,match:target.matches.find((match)=>match.query===query.query)})).filter((item)=>item.match);
+    const exact=matched.filter((item)=>item.match.kind==="期待一致");
+    return{...query,keyword_match:exact.length?"期待一致":matched.length?"内包一致":"想定外",matched_keywords:(exact.length?exact:matched).map((item)=>item.target.keyword)};
+  });
+  const acquired=targetRows.filter((target)=>target.status!=="未獲得").length;
+  const main=targetRows[0];
+  const coverage=queries.length&&planned.length?acquired/planned.length:null;
+  const state=queries.length===0?"未観測":acquired===planned.length?"全KW獲得":acquired>0?"一部獲得":"未獲得";
+  const rewriteGuidance=queries.length===0?"観測待ち":main.status==="未獲得"?"タイトル・主要見出しでメインKWを補強":coverage<0.5?"未獲得KWを見出し・FAQへ補強":acquired===planned.length?"獲得KWを維持し順位・CTRを改善":queryRows.filter((query)=>query.keyword_match==="想定外").reduce((sum,query)=>sum+query.impressions,0)>queryRows.filter((query)=>query.keyword_match!=="想定外").reduce((sum,query)=>sum+query.impressions,0)?"想定外クエリの意図ずれを確認":"未獲得KWを見出し・FAQへ補強";
+  return{state,coverage_rate:coverage,acquired_keywords:acquired,planned_keywords:planned.length,matched_query_count:queryRows.filter((query)=>query.keyword_match!=="想定外").length,unexpected_query_count:queryRows.filter((query)=>query.keyword_match==="想定外").length,rewrite_guidance:rewriteGuidance,group_id:group.id,main_keyword:group.main_keyword,targets:targetRows,queries:queryRows};
 }
 
 export function distinctiveKeywordCores(keywords){
@@ -62,18 +102,26 @@ export function matchKeywordGroupToArticles(group,articles){
     const mainEvidence=titleEvidence(group.main_keyword,titleTokens,{main:true});
     const evidence=[mainEvidence,...group.intent_keywords.map((keyword)=>titleEvidence(keyword,titleTokens))].filter((item)=>item.matches);
     const titleMatches=[...new Set(evidence.flatMap((item)=>item.required))];
-    const queryMatches=article.queries.filter((query)=>keywords.some((keyword)=>canonicalMatchText(keyword)===canonicalMatchText(query.query)));
-    const titleScore=Math.max(0,...evidence.map((item)=>item.weight));
-    return {wp_article_id:article.wp_article_id,title:article.title,url:article.url,title_matches:titleMatches,query_matches:queryMatches.map((query)=>query.query),main_title_position:mainEvidence.start,main_title_span:mainEvidence.span,main_title_leading:mainEvidence.leading,title_score:titleScore};
+    const queryEvidence=keywords.map((keyword,index)=>{const matches=article.queries.map((query)=>({query:query.query,kind:queryKeywordKind(keyword,query.query)})).filter((item)=>item.kind);return{keyword,main:index===0,matches}}).filter((item)=>item.matches.length);
+    const queryMatches=[...new Set(queryEvidence.flatMap((item)=>item.matches.map((match)=>match.query)))];
+    const mainQueryExact=queryEvidence.some((item)=>item.main&&item.matches.some((match)=>match.kind==="期待一致"));
+    const queryScore=queryEvidence.reduce((score,item)=>score+(item.main?100:0)+(item.matches.some((match)=>match.kind==="期待一致")?20:10),0);
+    const titleScore=Math.max(0,...evidence.map((item)=>item.weight))+Math.max(0,evidence.length-1)*20;
+    return {wp_article_id:article.wp_article_id,title:article.title,url:article.url,title_matches:titleMatches,query_matches:queryMatches,query_support_keywords:queryEvidence.map((item)=>item.keyword),query_score:queryScore,query_eligible:mainQueryExact||queryEvidence.length>=2,main_title_position:mainEvidence.start,main_title_span:mainEvidence.span,main_title_leading:mainEvidence.leading,title_score:titleScore};
   }).filter((candidate)=>candidate.title_score>0||candidate.query_matches.length>0);
-  const queryCandidates=candidates.filter((candidate)=>candidate.query_matches.length>0);
+  const queryCandidates=candidates.filter((candidate)=>candidate.query_eligible);
+  const bestQueryScore=Math.max(0,...queryCandidates.map((candidate)=>candidate.query_score));
+  const strongestQueryCandidates=queryCandidates.filter((candidate)=>candidate.query_score===bestQueryScore);
   const bestScore=Math.max(0,...candidates.map((candidate)=>candidate.title_score));
   const titleCandidates=candidates.filter((candidate)=>candidate.title_score===bestScore);
   const leadingCandidates=candidates.filter((candidate)=>candidate.main_title_leading);
   const bestLeadingScore=Math.max(0,...leadingCandidates.map((candidate)=>candidate.title_score));
   const leading=leadingCandidates.filter((candidate)=>candidate.title_score===bestLeadingScore);
-  const selected=queryCandidates.length===1?queryCandidates[0]:queryCandidates.length===0&&leading.length===1?leading[0]:null;
-  const displayed=selected?[selected]:queryCandidates.length>1?queryCandidates:titleCandidates;
+  // PO-defined order: main-keyword title match first, acquired-query support
+  // second. Included keywords strengthen/disambiguate but do not override a
+  // unique compact main keyword at the title front.
+  const selected=leading.length===1?leading[0]:strongestQueryCandidates.length===1?strongestQueryCandidates[0]:null;
+  const displayed=selected?[selected]:queryCandidates.length>1?strongestQueryCandidates:titleCandidates;
   const state=candidates.length===0?"新規記事候補":selected?"確定":displayed.length===1?"タイトル一致のみ":"複数候補";
   return {group_id:group.id,main_keyword:group.main_keyword,state,wp_article_id:selected?.wp_article_id??null,candidates:displayed};
 }

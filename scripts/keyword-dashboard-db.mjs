@@ -5,7 +5,7 @@ import { parseCsv } from "./read-csv.mjs";
 import { normalizeKeyword } from "./keyword-serp-core.mjs";
 import { categoryPathsForIds } from "./keyword-category-taxonomy.mjs";
 import { primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
-import { matchKeywordGroupToArticles, reconcileArticleAssignments } from "./keyword-article-matching.mjs";
+import { assessKeywordAcquisition, matchKeywordGroupToArticles, reconcileArticleAssignments } from "./keyword-article-matching.mjs";
 
 const schemaVersion = "keyword-dashboard.v1";
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
@@ -138,7 +138,9 @@ export function projectDashboard(db) {
   const articleQuerySummaries=gscArticles.map(({category_ids_json,...article})=>{
     const queries=rankPrimaryQueries(articleQueries.filter((row)=>row.site_id===article.site_id&&row.wp_article_id===article.wp_article_id),rankingBySite[article.site_id].impression_p95);
     const primary=queries[0]??null;
-    return {...article,category_paths:categoryPathsForIds(JSON.parse(category_ids_json)),query_count:queries.length,total_clicks:queries.reduce((sum,row)=>sum+row.clicks,0),total_impressions:queries.reduce((sum,row)=>sum+row.impressions,0),window_days:primary?.window_days??null,observed_at:primary?.observed_at??null,primary_query:primary,queries};
+    const group=groups.find((item)=>item.site_id===article.site_id&&item.wp_article_id===article.wp_article_id);
+    const keywordAcquisition=assessKeywordAcquisition(group,queries);
+    return {...article,category_paths:categoryPathsForIds(JSON.parse(category_ids_json)),query_count:queries.length,total_clicks:queries.reduce((sum,row)=>sum+row.clicks,0),total_impressions:queries.reduce((sum,row)=>sum+row.impressions,0),window_days:primary?.window_days??null,observed_at:primary?.observed_at??null,primary_query:primary,queries,keyword_acquisition:keywordAcquisition};
   });
   return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), normalization_aliases: JSON.parse(metadata.normalization_aliases), article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, article_query_summaries: articleQuerySummaries, primary_query_ranking: Object.fromEntries(Object.entries(rankingBySite).map(([siteId,ranking])=>[siteId,{...ranking,method:"log_impressions_plus_clicks_at_p95"}])), gsc_articles: gscArticles.map(({category_ids_json,...article})=>article) };
 }

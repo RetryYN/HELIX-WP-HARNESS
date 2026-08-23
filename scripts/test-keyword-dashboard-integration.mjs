@@ -59,9 +59,13 @@ if(hasGscEvidence){
   assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),681,"details must retain every observed GSC query");
   assert.equal(actual.article_query_summaries.filter((row)=>row.primary_query).length,52);
   assert.equal(actual.article_query_summaries.filter((row)=>!row.primary_query).length,7,"unobserved articles must remain visible");
+  assert.equal(actual.article_query_summaries.filter((row)=>row.keyword_acquisition.group_id).length,10,"confirmed keyword groups must join article details by WP ID");
+  assert.equal(actual.article_query_summaries.find((row)=>row.wp_article_id===132).keyword_acquisition.coverage_rate,1,"actual GSC queries must produce keyword acquisition coverage");
+  assert.equal(actual.article_query_summaries.find((row)=>row.wp_article_id===17).keyword_acquisition.coverage_rate,null,"unobserved GSC must not be displayed as 0% coverage");
   assert.equal(actual.primary_query_ranking["it-shukatu.com"].impression_p95,38,"ranking threshold must be derived per site from actual GSC distribution");
   const confirmed=new Map(actual.groups.filter((group)=>group.site_id==="it-shukatu.com"&&group.article_match?.state==="確定").map((group)=>[group.main_keyword,group.wp_article_id]));
-  assert.equal(confirmed.size,10);assert.equal(confirmed.get("it パスポート 就活"),1112);assert.equal(confirmed.get("就活の軸it"),130);assert.equal(confirmed.get("就活nnt"),793);assert.equal(confirmed.get("it 就活エージェント"),17);assert.equal(confirmed.get("it 就活 新卒"),559);assert.equal(confirmed.get("就活 入社後にしたいこと it"),1020);assert.equal(confirmed.get("就活it企業"),195);assert.equal(confirmed.get("就活ツイッター"),132);assert.equal(confirmed.get("就活 it やりたいこと"),92);assert.equal(confirmed.get("it 就活 おすすめ"),197);
+  assert.equal(confirmed.size,10);assert.equal(confirmed.get("it 就活"),195);assert.equal(confirmed.get("it パスポート 就活"),1112);assert.equal(confirmed.get("就活の軸it"),130);assert.equal(confirmed.get("就活nnt"),793);assert.equal(confirmed.get("it 就活エージェント"),17);assert.equal(confirmed.get("it 就活 新卒"),559);assert.equal(confirmed.get("就活 入社後にしたいこと it"),1020);assert.equal(confirmed.get("就活ツイッター"),132);assert.equal(confirmed.get("就活 it やりたいこと"),92);assert.equal(confirmed.get("it 就活 おすすめ"),197);
+  assert.equal(actual.groups.find((group)=>group.main_keyword==="就活it企業").article_match.state,"同一記事候補","one WP article must belong to the better-supported keyword group");
 }
 pocDb.close();
 
