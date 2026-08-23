@@ -2,14 +2,14 @@
   "schema_version": "wp-keyword-dashboard-prototype.v1",
   "generated_at": "2026-08-23T11:27:00+09:00",
   "provenance": "DataForSEO standard raw snapshots + supplied Excel JSON inspection",
-  "metrics": {"solobiz_unique_keywords":680,"it_map_unique_keywords":10619,"competitor_unique_keywords":7946,"wp_articles_assigned":0},
+  "metrics": {"actionable_main_keywords":1,"new_article_candidates":1,"unresolved_parent_groups":1,"wp_articles_assigned":0},
   "sources": [
     {"name":"大人のひとりビジネスラボ","role":"戦略・カテゴリ正本","rows":799,"unique_keywords":680,"detail":"94 KWが複数カテゴリに所属。割当を全件保持。"},
     {"name":"IT就活大学キーワードマップ","role":"トピック・計測値","rows":10694,"unique_keywords":10619,"detail":"15トピック、完了印75件。WP記事IDとは未照合。"},
     {"name":"競合メディア獲得状況","role":"競合観測","rows":10232,"unique_keywords":7946,"detail":"14サイト・1,511 URL。KW正本へ直接混ぜない。"}
   ],
   "groups": [
-    {"id":"intent-pair-001","main_keyword":"it 就活サイト","main_origin":"derived_parent","intent_keywords":["it 就活サイト 比較","it 就活サイト おすすめ"],"aliases":[],"confidence":"high","overlap":{"shared":4,"depth":5,"ratio":0.8},"state":"新規記事候補","wp_article_id":null,"category":"IT就活","cost":0.0012,"task_ids":["08231127-1317-0066-0000-27b983625bf0","08231127-1317-0066-0000-6695f73ea2c8"],"shared_urls":["https://coeteco.jp/articles/14332","https://engineer-shukatu.jp/tensyoku/it-tenshoku-site","https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254","https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"]},
+    {"id":"intent-pair-001","main_keyword":"it 就活サイト","main_origin":"derived_parent","search_volume":70,"search_volume_source":"IT就活大学キーワードマップ.xlsx / IT就活","intent_keywords":["it 就活サイト 比較","it 就活サイト おすすめ"],"aliases":[],"confidence":"high","overlap":{"shared":4,"depth":5,"ratio":0.8},"state":"新規記事候補","wp_article_id":null,"category":"IT就活","cost":0.0012,"task_ids":["08231127-1317-0066-0000-27b983625bf0","08231127-1317-0066-0000-6695f73ea2c8"],"shared_urls":["https://coeteco.jp/articles/14332","https://engineer-shukatu.jp/tensyoku/it-tenshoku-site","https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254","https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"]},
     {"id":"solobiz-pair-001","main_keyword":null,"main_origin":"unresolved","intent_keywords":[],"sibling_keywords":["記事作成 副業","ライター 副業"],"aliases":[],"confidence":"possible","overlap":{"shared":3,"depth":5,"ratio":0.6},"state":"統合判断待ち","wp_article_id":null,"category":"クライアントワーク","cost":0.0012,"task_ids":["08231116-1317-0066-0000-3b748a72e76d","08231116-1317-0066-0000-2a5bb8fc7c4d"],"shared_urls":[]}
   ],
   "normalization_aliases":[{"canonical":"it就活サイト","variants":["it 就活サイト","it 就活 サイト"],"relation":"exact_alias"}]
