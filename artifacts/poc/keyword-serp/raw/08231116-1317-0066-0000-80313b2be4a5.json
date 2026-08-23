@@ -1,0 +1,840 @@
+{
+  "version": "0.1.20260806",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.0194 sec.",
+  "cost": 0.0006,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "08231116-1317-0066-0000-80313b2be4a5",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0124 sec.",
+      "cost": 0.0006,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "task_get",
+        "advanced",
+        "08231116-1317-0066-0000-80313b2be4a5"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "task_get",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "seo 外注",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "bec89ab9:キーワード割り当て:5"
+      },
+      "result": [
+        {
+          "keyword": "seo 外注",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=seo%20%E5%A4%96%E6%B3%A8&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 11:17:23 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 103,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "SEO対策の外注は、自社のリソースや専門知識不足を補い、早期に成果を出すために有効です。`費用相場は月額10万〜50万円程度（コンサル型は月40万〜100万円、記事作成は1本数万〜10万円）` 。依頼範囲、費用、注意点を事前に整理してパートナーを選びましょう。[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs)[[3]](https://www.seohacks.net/blog/10185/)[[4]](https://gmotech.jp/semlabo/seo/blog/seo-expence/)[[5]](https://www.geo-code.co.jp/seo/mag/seo-outsourcing-cost-comparison/)\n\n外注できる内容と費用相場\n\n- **SEOコンサルティング型** : 月額40万〜100万円以上。全体戦略、キーワード設計、課題分析、改善提案。\n- **運用代行・コンテンツ制作型** : 1記事3万〜10万円以上（月額5万〜30万円等）。構成案、執筆、リライトの代行。\n- **内部・テクニカル対策** : 10万〜50万円程度（単発）。サイト構造や表示速度の最適化。\n- **外部対策（被リンク獲得）** : 月額1万〜15万円。健全な被リンク施策の実施。[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://www.willgate.co.jp/promonista/seo_outsource/)[[3]](https://www.seohacks.net/blog/10185/)\n\n外注するメリットとデメリット\n\n- **メリット**:\n\t- プロの最新ノウハウや分析ツールを活用できる\n\t- 自社担当者の作業負担を減らし、本業に集中できる\n\t- アルゴリズムの変動へ迅速に対応できる[](https://www.seohacks.net/blog/10185/) [[1]](https://www.seohacks.net/blog/10185/)[[2]](https://www.willgate.co.jp/promonista/seo_outsource/)[[3]](https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs)\n- **デメリット**:\n\t- 毎月固定のコストが発生する\n\t- 社内にノウハウが蓄積されにくい\n\t- 成果が出るまでに半年から1年程度かかる[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://www.willgate.co.jp/promonista/seo_outsource/)[[3]](https://digima.cocoo.co.jp/media/seo-outsourcing-warning)\n\n失敗しないための注意点\n\n- **目的とKPIの明確化** : 単なる順位向上ではなく、問い合わせや売上増などのゴールを共有する。\n- **丸投げをしない** : 自社の強みや一次情報（顧客の声など）を積極的に提供・連携する。\n- **実績の確認** : 過去に自社と近い業界や規模で成果を出しているか確認する。[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://www.seohacks.net/blog/10185/)[[3]](https://www.willgate.co.jp/promonista/seo_outsource/)",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "SEO対策の外注は、自社のリソースや専門知識不足を補い、早期に成果を出すために有効です 。 費用相場は月額10万〜50万円程度（コンサル型は月40万〜100万円、記事作成は1本数万〜10万円） 。依頼範囲、費用、注意点を事前に整理してパートナーを選びましょう。",
+                  "markdown": "SEO対策の外注は、自社のリソースや専門知識不足を補い、早期に成果を出すために有効です。`費用相場は月額10万〜50万円程度（コンサル型は月40万〜100万円、記事作成は1本数万〜10万円）` 。依頼範囲、費用、注意点を事前に整理してパートナーを選びましょう。[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs)[[3]](https://www.seohacks.net/blog/10185/)[[4]](https://gmotech.jp/semlabo/seo/blog/seo-expence/)[[5]](https://www.geo-code.co.jp/seo/mag/seo-outsourcing-cost-comparison/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Speee",
+                      "domain": "webanalytics.speee.jp",
+                      "url": "https://webanalytics.speee.jp/media/article/seo-outsource/",
+                      "title": "【2026年最新】SEO対策は外注すべき？インハウスと比較した ...",
+                      "text": "【2026年最新】SEO対策は外注すべき？ インハウスと比較したメリット・費用相場をプロが解説| Speee Marke..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Workship ENTERPRISE",
+                      "domain": "enterprise.goworkship.com",
+                      "url": "https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs",
+                      "title": "SEO対策を外注すべき理由｜費用の相場や外注先の選び方を徹底解説",
+                      "text": "SEO対策を外注すべき3つの理由を解説. SEO対策を外注することで、自社運用よりも高い成果を効率的に得られることが実証..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ナイルのSEO相談室",
+                      "domain": "www.seohacks.net",
+                      "url": "https://www.seohacks.net/blog/10185/",
+                      "title": "SEO対策は外注すべき？判断の方法や費用相場、依頼するメリットを紹介",
+                      "text": "SEO対策は外注すべき？ 判断の方法や費用相場、依頼するメリットを紹介 * SEOの基礎知識 * SEO対策は外注すべき..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "GMO TECH",
+                      "domain": "gmotech.jp",
+                      "url": "https://gmotech.jp/semlabo/seo/blog/seo-expence/",
+                      "title": "SEO対策にかかる費用一覧【2026年】施策別の費用…相場を解説",
+                      "text": "SEO対策の費用相場はいくらですか? 外注する場合の中心帯は月額15万〜50万円です。 施策別ではSEOコンサルティング..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社ジオコード",
+                      "domain": "www.geo-code.co.jp",
+                      "url": "https://www.geo-code.co.jp/seo/mag/seo-outsourcing-cost-comparison/",
+                      "title": "SEO外注の費用はいくら？相場・料金体系・依頼先別の費用比較をわかり ...",
+                      "text": "結論から言うと、SEO外注の費用は依頼内容によって大きく異なりますが、公開されている料金情報では月額10万円〜50万円程..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "外注できる内容と費用相場",
+                  "text": "SEOコンサルティング型 : 月額40万〜100万円以上。全体戦略、キーワード設計、課題分析、改善提案。 運用代行・コンテンツ制作型 : 1記事3万〜10万円以上（月額5万〜30万円等）。構成案、執筆、リライトの代行。 内部・テクニカル対策 : 10万〜50万円程度（単発）。サイト構造や表示速度の最適化。 外部対策（被リンク獲得） : 月額1万〜15万円。健全な被リンク施策の実施。",
+                  "markdown": "- **SEOコンサルティング型** : 月額40万〜100万円以上。全体戦略、キーワード設計、課題分析、改善提案。\n- **運用代行・コンテンツ制作型** : 1記事3万〜10万円以上（月額5万〜30万円等）。構成案、執筆、リライトの代行。\n- **内部・テクニカル対策** : 10万〜50万円程度（単発）。サイト構造や表示速度の最適化。\n- **外部対策（被リンク獲得）** : 月額1万〜15万円。健全な被リンク施策の実施。[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://www.willgate.co.jp/promonista/seo_outsource/)[[3]](https://www.seohacks.net/blog/10185/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Speee",
+                      "domain": "webanalytics.speee.jp",
+                      "url": "https://webanalytics.speee.jp/media/article/seo-outsource/",
+                      "title": "【2026年最新】SEO対策は外注すべき？インハウスと比較した ...",
+                      "text": "【2026年最新】SEO対策は外注すべき？ インハウスと比較したメリット・費用相場をプロが解説| Speee Marke..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社ウィルゲート",
+                      "domain": "www.willgate.co.jp",
+                      "url": "https://www.willgate.co.jp/promonista/seo_outsource/",
+                      "title": "SEO対策は外注するべき？SEO歴20年の会社が失敗ケースやメリデメ",
+                      "text": "SEO歴20年の会社が外注の判断基準やメリット、サービス内容や費用相場を徹底解説！ * SEO対策は外注するべ... ."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ナイルのSEO相談室",
+                      "domain": "www.seohacks.net",
+                      "url": "https://www.seohacks.net/blog/10185/",
+                      "title": "SEO対策は外注すべき？判断の方法や費用相場、依頼するメリットを紹介",
+                      "text": "SEO対策は外注すべき？ 判断の方法や費用相場、依頼するメリットを紹介 * SEOの基礎知識 * SEO対策は外注すべき..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "外注するメリットとデメリット",
+                  "text": "メリット :プロの最新ノウハウや分析ツールを活用できる\n自社担当者の作業負担を減らし、本業に集中できる\nアルゴリズムの変動へ迅速に対応できる プロの最新ノウハウや分析ツールを活用できる 自社担当者の作業負担を減らし、本業に集中できる アルゴリズムの変動へ迅速に対応できる デメリット :毎月固定のコストが発生する\n社内にノウハウが蓄積されにくい\n成果が出るまでに半年から1年程度かかる 毎月固定のコストが発生する 社内にノウハウが蓄積されにくい 成果が出るまでに半年から1年程度かかる",
+                  "markdown": "- **メリット**:\n\t- プロの最新ノウハウや分析ツールを活用できる\n\t- 自社担当者の作業負担を減らし、本業に集中できる\n\t- アルゴリズムの変動へ迅速に対応できる[](https://www.seohacks.net/blog/10185/) [[1]](https://www.seohacks.net/blog/10185/)[[2]](https://www.willgate.co.jp/promonista/seo_outsource/)[[3]](https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs)\n- **デメリット**:\n\t- 毎月固定のコストが発生する\n\t- 社内にノウハウが蓄積されにくい\n\t- 成果が出るまでに半年から1年程度かかる[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://www.willgate.co.jp/promonista/seo_outsource/)[[3]](https://digima.cocoo.co.jp/media/seo-outsourcing-warning)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ナイルのSEO相談室",
+                      "domain": "www.seohacks.net",
+                      "url": "https://www.seohacks.net/blog/10185/",
+                      "title": "SEO対策は外注すべき？判断の方法や費用相場、依頼するメリットを紹介",
+                      "text": "SEO対策は外注すべき？ 判断の方法や費用相場、依頼するメリットを紹介 * SEOの基礎知識 * SEO対策は外注すべき..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社ウィルゲート",
+                      "domain": "www.willgate.co.jp",
+                      "url": "https://www.willgate.co.jp/promonista/seo_outsource/",
+                      "title": "SEO対策は外注するべき？SEO歴20年の会社が失敗ケースやメリデメ",
+                      "text": "SEO歴20年の会社が外注の判断基準やメリット、サービス内容や費用相場を徹底解説！ * SEO対策は外注するべ... ."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Workship ENTERPRISE",
+                      "domain": "enterprise.goworkship.com",
+                      "url": "https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs",
+                      "title": "SEO対策を外注すべき理由｜費用の相場や外注先の選び方を徹底解説",
+                      "text": "SEO対策を外注すべき3つの理由を解説. SEO対策を外注することで、自社運用よりも高い成果を効率的に得られることが実証..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Speee",
+                      "domain": "webanalytics.speee.jp",
+                      "url": "https://webanalytics.speee.jp/media/article/seo-outsource/",
+                      "title": "【2026年最新】SEO対策は外注すべき？インハウスと比較した ...",
+                      "text": "【2026年最新】SEO対策は外注すべき？ インハウスと比較したメリット・費用相場をプロが解説| Speee Marke..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "デジマ女子",
+                      "domain": "digima.cocoo.co.jp",
+                      "url": "https://digima.cocoo.co.jp/media/seo-outsourcing-warning",
+                      "title": "【要注意】SEOを外注する前に！絶対に知っておくべき3つの落とし穴と ...",
+                      "text": "3.費用対効果が悪く、成果がでない. SEO外注は月額10万〜30万円が一般的な相場であり、決して安価な施策ではありませ..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "失敗しないための注意点",
+                  "text": "目的とKPIの明確化 : 単なる順位向上ではなく、問い合わせや売上増などのゴールを共有する。 丸投げをしない : 自社の強みや一次情報（顧客の声など）を積極的に提供・連携する。 実績の確認 : 過去に自社と近い業界や規模で成果を出しているか確認する。",
+                  "markdown": "- **目的とKPIの明確化** : 単なる順位向上ではなく、問い合わせや売上増などのゴールを共有する。\n- **丸投げをしない** : 自社の強みや一次情報（顧客の声など）を積極的に提供・連携する。\n- **実績の確認** : 過去に自社と近い業界や規模で成果を出しているか確認する。[](https://webanalytics.speee.jp/media/article/seo-outsource/) [[1]](https://webanalytics.speee.jp/media/article/seo-outsource/)[[2]](https://www.seohacks.net/blog/10185/)[[3]](https://www.willgate.co.jp/promonista/seo_outsource/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Speee",
+                      "domain": "webanalytics.speee.jp",
+                      "url": "https://webanalytics.speee.jp/media/article/seo-outsource/",
+                      "title": "【2026年最新】SEO対策は外注すべき？インハウスと比較した ...",
+                      "text": "【2026年最新】SEO対策は外注すべき？ インハウスと比較したメリット・費用相場をプロが解説| Speee Marke..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ナイルのSEO相談室",
+                      "domain": "www.seohacks.net",
+                      "url": "https://www.seohacks.net/blog/10185/",
+                      "title": "SEO対策は外注すべき？判断の方法や費用相場、依頼するメリットを紹介",
+                      "text": "SEO対策は外注すべき？ 判断の方法や費用相場、依頼するメリットを紹介 * SEOの基礎知識 * SEO対策は外注すべき..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社ウィルゲート",
+                      "domain": "www.willgate.co.jp",
+                      "url": "https://www.willgate.co.jp/promonista/seo_outsource/",
+                      "title": "SEO対策は外注するべき？SEO歴20年の会社が失敗ケースやメリデメ",
+                      "text": "SEO歴20年の会社が外注の判断基準やメリット、サービス内容や費用相場を徹底解説！ * SEO対策は外注するべ... ."
+                    }
+                  ]
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "Speee",
+                  "domain": "webanalytics.speee.jp",
+                  "url": "https://webanalytics.speee.jp/media/article/seo-outsource/",
+                  "title": "【2026年最新】SEO対策は外注すべき？インハウスと比較した ...",
+                  "text": "【2026年最新】SEO対策は外注すべき？ インハウスと比較したメリット・費用相場をプロが解説| Speee Marke..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ナイルのSEO相談室",
+                  "domain": "www.seohacks.net",
+                  "url": "https://www.seohacks.net/blog/10185/",
+                  "title": "SEO対策は外注すべき？判断の方法や費用相場、依頼するメリットを紹介",
+                  "text": "SEO対策は外注すべき？ 判断の方法や費用相場、依頼するメリットを紹介 * SEOの基礎知識 * SEO対策は外注すべき..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "株式会社ウィルゲート",
+                  "domain": "www.willgate.co.jp",
+                  "url": "https://www.willgate.co.jp/promonista/seo_outsource/",
+                  "title": "SEO対策は外注するべき？SEO歴20年の会社が失敗ケースやメリデメ",
+                  "text": "SEO歴20年の会社が外注の判断基準やメリット、サービス内容や費用相場を徹底解説！ * SEO対策は外注するべ... ."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "Workship ENTERPRISE",
+                  "domain": "enterprise.goworkship.com",
+                  "url": "https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs",
+                  "title": "SEO対策を外注すべき理由｜費用の相場や外注先の選び方を徹底解説",
+                  "text": "SEO対策を外注すべき3つの理由を解説. SEO対策を外注することで、自社運用よりも高い成果を効率的に得られることが実証..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "株式会社ジオコード",
+                  "domain": "www.geo-code.co.jp",
+                  "url": "https://www.geo-code.co.jp/seo/mag/seo-outsourcing-cost-comparison/",
+                  "title": "SEO外注の費用はいくら？相場・料金体系・依頼先別の費用比較をわかり ...",
+                  "text": "結論から言うと、SEO外注の費用は依頼内容によって大きく異なりますが、公開されている料金情報では月額10万円〜50万円程..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "デジマ女子",
+                  "domain": "digima.cocoo.co.jp",
+                  "url": "https://digima.cocoo.co.jp/media/seo-outsourcing-warning",
+                  "title": "【要注意】SEOを外注する前に！絶対に知っておくべき3つの落とし穴と ...",
+                  "text": "3.費用対効果が悪く、成果がでない. SEO外注は月額10万〜30万円が一般的な相場であり、決して安価な施策ではありませ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "GMO TECH",
+                  "domain": "gmotech.jp",
+                  "url": "https://gmotech.jp/semlabo/seo/blog/seo-expence/",
+                  "title": "SEO対策にかかる費用一覧【2026年】施策別の費用…相場を解説",
+                  "text": "SEO対策の費用相場はいくらですか? 外注する場合の中心帯は月額15万〜50万円です。 施策別ではSEOコンサルティング..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "webanalytics.speee.jp",
+              "title": "【2026年最新】SEO対策は外注すべき？インハウスと比較した ...",
+              "url": "https://webanalytics.speee.jp/media/article/seo-outsource/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://webanalytics.speee.jp › article › seo-outsource",
+              "website_name": "Speee",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/14 — SEO外注のメリット · 最新かつ高度な専門知見の獲得（AEO対応など） · 社内リソースの最適化施策の立案や分析といった工数のかかる業務を切り出すことで、 ...",
+              "pre_snippet": "05/14/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO外注のメリット"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "外注決断の前に！そもそも...",
+                  "description": null,
+                  "url": "https://webanalytics.speee.jp/media/article/seo-outsource/#section-2",
+                  "domain": "webanalytics.speee.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEO対策を外注するメリットとデメ...",
+                  "description": null,
+                  "url": "https://webanalytics.speee.jp/media/article/seo-outsource/#section-3",
+                  "domain": "webanalytics.speee.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-14 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "www.seohacks.net",
+              "title": "SEO対策は外注すべき？判断の方法や費用相場",
+              "url": "https://www.seohacks.net/blog/10185/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.seohacks.net › ブログ",
+              "website_name": "ナイルのSEO相談室",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/19 — 本記事では、SEOの外注の内容や費用の相場、SEO会社を選ぶポイントを解説します。外注する前に知っておきたい注意点も紹介しているので、SEOの外注を ...",
+              "pre_snippet": "05/19/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO",
+                "外注"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEOをプロに外注するメリット",
+                  "description": null,
+                  "url": "https://www.seohacks.net/blog/10185/#SEO-3",
+                  "domain": "www.seohacks.net"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEOの外注先候補が複数ある場...",
+                  "description": null,
+                  "url": "https://www.seohacks.net/blog/10185/#SEO-4",
+                  "domain": "www.seohacks.net"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-19 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "mieru-ca.com",
+              "title": "SEOは外部に依頼すべき？外注の費用相場と契約時の注意点",
+              "url": "https://mieru-ca.com/blog/seo-commission/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://mieru-ca.com › ホーム › 運用・組織作り",
+              "website_name": "ミエルカSEO",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/04/30 — SEOの外注を検討している方へ。依頼すべき企業の特徴や、内製との違いを解説します。自社の状況に合った選択をするためのポイントを押さえ、SEO対策を ...",
+              "pre_snippet": "04/30/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEOの外注を検討している方へ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-04-30 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEOの外注の相場はいくらですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEOでやってはいけないことは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEO対策はオワコンですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "SEO記事 1本いくら？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "rank-quest.jp",
+              "title": "【SEO担当者必見】SEO対策は外注すべき？判断方法やメリット",
+              "url": "https://rank-quest.jp/column/column/subcontracting-request/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://rank-quest.jp › コラム",
+              "website_name": "rank-quest.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/01 — SEO対策の外注を成功させるためには、SEOの仕組みや失敗しやすいケース、依頼前に確認しておきたい外注先の選び方などを把握しておくことが重要です。",
+              "pre_snippet": "07/01/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO",
+                "外注"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEO対策を外注する際の会社の...",
+                  "description": null,
+                  "url": "https://rank-quest.jp/column/column/subcontracting-request/#SEO%E5%AF%BE%E7%AD%96%E3%82%92%E5%A4%96%E6%B3%A8%E3%81%99%E3%82%8B%E9%9A%9B%E3%81%AE%E4%BC%9A%E7%A4%BE%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9",
+                  "domain": "rank-quest.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "おすすめSEO対策外注会社",
+                  "description": null,
+                  "url": "https://rank-quest.jp/column/column/subcontracting-request/#%E3%81%8A%E3%81%99%E3%81%99%E3%82%81SEO%E5%AF%BE%E7%AD%96%E5%A4%96%E6%B3%A8%E4%BC%9A%E7%A4%BE",
+                  "domain": "rank-quest.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-01 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "www.willgate.co.jp",
+              "title": "SEO対策は外注するべき？SEO歴20年の会社が失敗ケースや ...",
+              "url": "https://www.willgate.co.jp/promonista/seo_outsource/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.willgate.co.jp › promonista › seo_outsource",
+              "website_name": "株式会社ウィルゲート",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "SEO 対策は外注するべき？判断基準を3つご紹介 · 検索需要がないケース · 購入時に情報収集されないケース · 社内での施策優先度が低いケース.",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO",
+                "外注"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEO対策は外注するべき？判断...",
+                  "description": null,
+                  "url": "https://www.willgate.co.jp/promonista/seo_outsource/#SEO3",
+                  "domain": "www.willgate.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEOを外注する際のタイプ・内容...",
+                  "description": null,
+                  "url": "https://www.willgate.co.jp/promonista/seo_outsource/#SEO-2",
+                  "domain": "www.willgate.co.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "enterprise.goworkship.com",
+              "title": "SEO対策を外注すべき理由｜費用の相場や外注先の選び方 ...",
+              "url": "https://enterprise.goworkship.com/lp/outsourcization/seo-outsourcing-needs",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://enterprise.goworkship.com › ... › 外注",
+              "website_name": "Workship ENTERPRISE",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "SEO対策を外注すべき3つの理由 を解説 · 自社運用と外注成果の比較データ · 時間コスト削減と専門性確保のメリット · アルゴリズム変化への迅速な対応力.",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO対策を外注すべき3つの理由"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "wacul-ai.com",
+              "title": "SEO対策を外注するメリット・デメリット、外注先の選び方や注意 ...",
+              "url": "https://wacul-ai.com/blog/seo/seo-outsourcing/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://wacul-ai.com › 家 › SEO",
+              "website_name": "AIアナリスト",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/15 — SEO対策を外注するメリット · SEO対策の効果を高められる · Webサイトを客観的に分析できる · アルゴリズムの変更にも対応できる · 自社リソースをコア ...",
+              "pre_snippet": "05/15/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO対策の効果を高められる"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "SEO対策を外注するメリット",
+                  "description": null,
+                  "url": "https://wacul-ai.com/blog/seo/seo-outsourcing/#SEO%E5%AF%BE%E7%AD%96%E3%82%92%E5%A4%96%E6%B3%A8%E3%81%99%E3%82%8B%E3%83%A1%E3%83%AA%E3%83%83%E3%83%88",
+                  "domain": "wacul-ai.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEO対策の外注がおすすめなケ...",
+                  "description": null,
+                  "url": "https://wacul-ai.com/blog/seo/seo-outsourcing/#SEO%E5%AF%BE%E7%AD%96%E3%81%AE%E5%A4%96%E6%B3%A8%E3%81%8C%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%81%AA%E3%82%B1%E3%83%BC%E3%82%B9",
+                  "domain": "wacul-ai.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "SEO会社の選び方",
+                  "description": null,
+                  "url": "https://wacul-ai.com/blog/seo/seo-outsourcing/#SEO%E4%BC%9A%E7%A4%BE%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9",
+                  "domain": "wacul-ai.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-15 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "digima.cocoo.co.jp",
+              "title": "【要注意】SEOを外注する前に！絶対に知っておくべき3つの ...",
+              "url": "https://digima.cocoo.co.jp/media/seo-outsourcing-warning",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://digima.cocoo.co.jp › お役立ち情報 › 記事一覧",
+              "website_name": "デジマ女子",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/04/30 — 3.費用対効果が悪く、成果がでない. SEO外注は月額10万〜30万円が一般的な相場であり、決して安価な施策ではありません。 しかし、SEOの性質上、施策実施 ...",
+              "pre_snippet": "04/30/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "SEO外注は月額10万〜30万円が一般的な相場"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-04-30 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "thinktion.net",
+              "title": "SEO外注で失敗しないために｜費用相場と業者選びのコツ",
+              "url": "https://thinktion.net/blog/seo-outsourcing-success/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://thinktion.net › ... › より深くSEO対策を学ぶ",
+              "website_name": "シンクション株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/24 — 料金プラン別比較（初期・月額・成果報酬型） · 初期費用型. -費用相場：5万円〜30万円. -特徴：契約時に一括で支払うプラン。 · 月額費用型. -費用相場： ...",
+              "pre_snippet": "03/24/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-24 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "SEO対策",
+                "SEO 手順",
+                "コラム seo 対策",
+                "SEO対策とは わかりやすく",
+                "SEO対策とは 初心者",
+                "Seo 対策 2025"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

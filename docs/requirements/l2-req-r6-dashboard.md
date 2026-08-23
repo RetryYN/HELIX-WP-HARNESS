@@ -24,7 +24,8 @@
 
 ## 2. データ契約（SQLite ハブ）
 
-単一 SQLite ファイルを正本とする。**書き込み主体（writer）は表ごとに単一モジュールに固定**し
+単一 SQLite ファイルを運用正本とする。Excel・CSV・API応答は入力または観測snapshotであり、
+取り込み後の状態・関係・順序の正本にはしない。**書き込み主体（writer）は表ごとに単一モジュールに固定**し
 （抽象名でなく L3 でモジュール名を確定して対応表を成果物にする）、UI は読み取りと
 `approval_requests` への応答（`operations` 追記）のみを行う。
 
@@ -32,8 +33,8 @@
 
 | 表 | 内容 | writer |
 | --- | --- | --- |
-| site_design_imports | サイト設計 Excel の取り込み版（原文セル+出典ファイル/シート/行、版つき） | 取り込み (ingest-design) |
-| keywords | KW 原本（設計取り込み由来・出典参照つき。足切り結果と理由を含む） | 取り込み (ingest-design) |
+| site_design_imports | サイト設計 Excel の入力snapshot（原文セル+出典ファイル/シート/行、版・source_orderつき） | 取り込み (ingest-design) |
+| keywords | KW 原本（不変 source_keyword_id、設計取り込み由来・出典参照つき） | 取り込み (ingest-design) |
 | article_versions | 記事正本=中間 JSON の版（全文・schema_version・生成入力 digest） | 生成 (writer-pipeline) |
 | articles | 記事レジストリ（メイン KW・WP post id・URL。**状態列は持たない** — 状態は §2.5 の導出） | 生成 (writer-pipeline) |
 
@@ -42,8 +43,13 @@
 | 表 | 内容 | writer |
 | --- | --- | --- |
 | serp_snapshots | SERP スナップショット（KW×取得日時・取得条件〔地域/言語/端末/経路=DFS standard〕・上位 URL 群・ai_overview 有無） | 解析 (analyzer) |
+| dfs_tasks | source_keyword_id×DFS task id（要求原文・正規化形・endpoint・要求/応答 digest・取得条件・時刻・費用・成否） | 解析 (analyzer) |
+| keyword_candidates | DFS 候補語と競合 KW の正規化行（raw 値、由来、元 snapshot、Vol/CPC/競合性） | 解析 (analyzer) |
+| keyword_decisions | 候補ごとの existing/suggested/competitor_gap と採用/保留/足切り（規則 ID・入力値・閾値・理由・版） | 解析 (analyzer) |
 | paa_items | PAA（KW×質問文×出典スナップショット） | 解析 (analyzer) |
 | clusters | SERP グルーピング（ペア別重複率・代表 KW・境界フラグ・使用スナップショット参照） | 解析 (analyzer) |
+| cluster_keywords | クラスタ×KW 対応（main/sub、合算対象 Vol、機械判定/PO 上書きの由来） | 解析 (analyzer) |
+| article_keyword_assignments | クラスタ×既存 WP 記事 ID/新規記事候補/未割当の対応。本文全量は保持せず WP ID と解析参照を持つ | 解析 (analyzer) |
 | heading_analyses | 競合共通見出し分析（対象 URL 群・トークン・過半数判定・判定不能フラグ） | 解析 (analyzer) |
 | hypotheses | 仮説（発見→仮説→施策→検証条件の 4 段+「何が増えれば勝ちか」メタ） | 解析 (analyzer) |
 | title_candidates | タイトル案 3 件と選定結果（R5 規則の判定つき） | 生成 (writer-pipeline) |
@@ -68,7 +74,7 @@
 | results_ga4 | GA4 取り込み値（導入は段階制 — 未導入期間は UI に「未計測」表示） | 取り込み (ingest-ga4) |
 | cost_entries | 運用コスト（API 費用実測・AI 費用。L1 KPI の分母） | 取り込み (ingest-cost) |
 | programs | ASP 提携（単価・**成果発生条件・EPC・確定率**・状態・取得日） | 取り込み (ingest-a8) |
-| article_links | 記事×リンク対応（内部リンク・提携プログラム ID・カテゴリ） | 解析 (analyzer) |
+| article_links | 記事×リンク対応（source section・target記事・anchor・根拠PAA/関連検索・状態） | 解析 (analyzer) |
 | aio_observations | KW×AI Overview 出現の観測履歴（serp_snapshots から導出集計） | 解析 (analyzer) |
 | site_checks | サイト検査結果（llms.txt 状態・noindex 検査等、検査日時つき） | 検査 (site-checker) |
 | publish_schedule | 公開予定・季節性メモ（予定=パイプライン、メモ=operations 経由で出所記録） | 生成 (writer-pipeline)+UI(メモのみ) |
@@ -80,6 +86,10 @@
   導出ビューとして実装し、正本表に状態列を持たない（手書き混入をスキーマ的に不可能にする）。
   導出の優先順位（PO 操作＞最新ゲート判定＞工程実行）と再解析時の regla（PO 上書きは維持）を
   L3 設計で確定し、導出 SQL 自体を成果物にする。
+- **サイト分離**: 全KW・カテゴリ・解析・記事・成果・操作は`site_id`を必須とし、一覧件数、
+  グルーピング、WP記事ID、内部リンク、GSCクエリをサイト横断で混在させない。UIはヘッダーで
+  サイトを選択してから各機能ビューを表示する。ヘッダーに固定表示するサイトタブは最大4件とし、
+  追加サイトは検索可能なサイト一覧から選択する。
 - **鮮度**: 外部データ系はデータセットごとに期待更新周期を定義し（GSC/A8=週 1、
   設計 Excel=不定期〔取り込み日を表示〕、site_checks=検査日）、周期性のあるものは
   2 周期超で stale 警告。UI は全数値に取得日・期間窓を併記する。
@@ -111,6 +121,8 @@
   件数照合を常時表示（漏れの構造的検出）。
 - 操作: なし（読み取り）。詳細へ 1 クリック遷移。
 - 受入: 状態表示に手書き値の混入経路が存在しない（§2.5 の導出のみ）。
+  一覧の全行は `source_keyword_id` から DFS task、候補判定、クラスタ、WP 記事 ID まで
+  drill-down でき、未取得・取得失敗・未割当を成功済みに見せない。
 
 ### 3.3 処理の適切性（グルーピング監査）
 
@@ -120,23 +132,33 @@
   境界フラグ+**使用した SERP スナップショットの取得条件**（取得日時・地域/端末・上位 URL 群）。
   共通見出し（heading_analyses）・構成案・仮説（hypotheses）・タイトル案（title_candidates）と
   各ゲート判定（gate_runs）。**正解データとの一致率**（cluster_truthset との比較+誤分類一覧）。
+  加えて、入力したサイト設計行と DFS 実応答の対応、raw/正規化 KW、候補の由来、Vol/CPC/競合性、
+  採用/保留/足切り理由、DFS task id・取得条件・取得日時・費用・snapshot digest を表示する。
 - 操作: クラスタの分割・統合・KW 除外（operations。機械判定より優先・再解析後も維持）。
 - 受入: 任意のクラスタについて「なぜこうグルーピングされたか」を数字で答えられる。
+  任意の表示値を raw snapshot とサイト設計の元セルまで逆引きできる。fixture・手書き JSON のみで
+  画面が埋まる実装は不合格とする。
 
 ### 3.4 AIO / LLMO
 
-- **問い**: 「AI に読まれているか」「AI 露出の打ち手はあるか」
-- 表示: KW×ai_overview 出現履歴（aio_observations）、llms.txt 状態（site_checks・検査日つき）、
+- **問い**: 「AIOによりorganicクリック余地が下がるKW群はどれか」「その条件でも施策する価値が
+  あるか」「AI に読まれているか」
+- 表示: KW×ai_overview 出現履歴・継続率（aio_observations）、AIO有無で補正した施策優先度と
+  期待クリック余地、検索Vol・商業性・期待CVの併記、llms.txt 状態（site_checks・検査日つき）、
   AI クローラー巡回推移（crawler_hits — 未実装期間は「未計測」と明示）。
 - 操作: なし（打ち手提案は承認キュー経由）。
+- 受入: AIOは施策判断にだけ使用し、記事作成gate_runsのpass/fail条件へ混入させない。
 
 ### 3.5 内部リンク・売り場
 
 - **問い**: 「リンク構造に穴（孤立・断絶・カテゴリ間の分断）はないか」「どの記事がどの案件を持つか」
 - 表示: リンクグラフ（article_links: 孤立記事・ハブ・**カテゴリ間導線**の視認）。
+  PAA・関連検索から導出したリンク候補は、起点記事、リンク位置候補、根拠語、接続先KW群、
+  接続先WP記事ID、`candidate` / `waiting_for_target_article` / `placed`の状態を表示する。
   記事×提携プログラム対応表（programs: 単価・成果発生条件・EPC・確定率・状態）。
   提携切れの影響記事リスト（terminated 差分×article_links）。
-- 操作: 差し替え候補の承認（approval_requests→operations。実行はパイプライン）。
+- 操作: 内部リンク候補の承認・却下、差し替え候補の承認（approval_requests→operations。
+  実行はパイプライン）。PAA・関連検索文字列の完全一致anchorを自動強制しない。
 
 ### 3.6 リライト
 

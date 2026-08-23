@@ -1,0 +1,607 @@
+{
+  "version": "0.1.20260806",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.0138 sec.",
+  "cost": 0.0006,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "08231116-1317-0066-0000-366cdf30d777",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0106 sec.",
+      "cost": 0.0006,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "task_get",
+        "advanced",
+        "08231116-1317-0066-0000-366cdf30d777"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "task_get",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "it 就活 サイト",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "4769dfab:IT就活:17"
+      },
+      "result": [
+        {
+          "keyword": "it 就活 サイト",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=it%20%E5%B0%B1%E6%B4%BB%20%E3%82%B5%E3%82%A4%E3%83%88&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 11:16:59 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 17900000,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "www.neo-career.co.jp",
+              "title": "ITエンジニア向け就活サイトおすすめ24選【2026年8月】",
+              "url": "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.neo-career.co.jp › ... › 就活 › 就活サービス",
+              "website_name": "株式会社ネオキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "【情報掲載型】ITエンジニア向けおすすめの就活サイト5選 · unistyle · キャリタス就活 · みん就 · 就活会議 · OpenWork. openwork. OpenWork. 主な特徴, 企業の口コミ情報 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "unistyle"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "【エージェント型】ITエンジニア向...",
+                  "description": null,
+                  "url": "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it#482928_h2_1",
+                  "domain": "www.neo-career.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "【情報掲載型】ITエンジニア向け...",
+                  "description": null,
+                  "url": "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it#482931_h2_1",
+                  "domain": "www.neo-career.co.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]",
+              "domain": "qiita.com",
+              "title": "【全エンジニア必見】エンジニア就活で本当に使ってよかった ...",
+              "url": "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://qiita.com › 初心者",
+              "website_name": "Qiita",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/07/03 — 就活・インターン探し用サイト · サポーターズ · サポーターズHUB · 逆求人ナビ · キャリアセレクト · ONE CAREER · Wantedly · ライトハウス.",
+              "pre_snippet": "07/03/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "サポーターズ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-07-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "ITエンジニアの就活サイト23選！新卒におすすめ人気 ...",
+              "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › IT就活対策 › IT就活知識",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "6.ITエンジニアの就活サイトおすすめランキングTOP10 · 6-1.ユニゾンキャリア就活 · 6-2.マイナビ · 6-3.キャリアチケット · 6-4.リクナビ · 6-5.レバテックルーキー · 6-6 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活サイト",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "6.ITエンジニアの就活サイトおす...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/#6IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0TOP10",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "7.ITエンジニアの就活サイトの活...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/#7IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "ITエンジニアの就活サイトのおすすめは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_expanded_element",
+                      "featured_title": "6.ITエンジニアの就活サイトおすすめランキングTOP10",
+                      "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/",
+                      "domain": "unison-career.jp",
+                      "title": "ITエンジニアの就活サイト23選！新卒におすすめ人気 ...",
+                      "description": "6-1.ユニゾンキャリア 就活\n6-2.マイナビ\n6-3.キャリアチケット\n6-4.リクナビ\n6-5.レバテックルーキー\n6-6.paiza 就活\n6-7.TECH BASE.\n6-8. エンジニア就活",
+                      "images": null,
+                      "timestamp": null,
+                      "table": null
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系で1番稼げる職業は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_expanded_element",
+                      "featured_title": null,
+                      "url": "https://www.internetacademy.jp/it/design/web-design/work-to-earn-relevant-web-it.html",
+                      "domain": "www.internetacademy.jp",
+                      "title": "今後、稼げる職業って何？Web・IT関連の稼げる仕事ランキング",
+                      "description": "【第1位】 ITコンサルタント\n Web・IT業界で最も稼げる職業が、クライアントの経営課題をITによって解決するITコンサルタントです。 近年、DX（デジタルトランスフォーメーション）に取り組む企業の増加に伴い、ITコンサルタントの需要も高まっています。 2024年における平均年収は、647万円と高水準の職業と言えます。",
+                      "images": null,
+                      "timestamp": null,
+                      "table": null
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "三大就活サイトとは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_expanded_element",
+                      "featured_title": null,
+                      "url": "https://www.neo-career.co.jp/humanresource/knowhow/a-contents-newgrad-siteryokin_tokucho_190813/",
+                      "domain": "www.neo-career.co.jp",
+                      "title": "【新卒】就職サイトの比較7選！マイナビやリクナビの料金や特徴",
+                      "description": "マイナビ・リクナビ・キャリタス就活 の3媒体は、インターンシップと3月以降のプランで料金がわかれる仕組みになっています。 基本的には通年で掲載する企業が多いため、掲載にかかる料金はその合算として考えておくと良いでしょう。",
+                      "images": null,
+                      "timestamp": null,
+                      "table": null
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "日本のIT勝ち組企業は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_expanded_element",
+                      "featured_title": "4-1.大手IT企業の売上高ランキング",
+                      "url": "https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p16095/",
+                      "domain": "unison-career.jp",
+                      "title": "【2026年最新】大手IT企業ランキング！新卒入社で勝ち組の高年収・優良 ...",
+                      "description": null,
+                      "images": null,
+                      "timestamp": null,
+                      "table": {
+                        "table_header": [
+                          "順位",
+                          "社名",
+                          "売上高"
+                        ],
+                        "table_content": [
+                          [
+                            "1位",
+                            "株式会社NTTデータグループ",
+                            "4兆6,387億円"
+                          ],
+                          [
+                            "2位",
+                            "富士通株式会社",
+                            "3兆7,560億円"
+                          ],
+                          [
+                            "3位",
+                            "日本電気株式会社（NEC）",
+                            "3兆3,130億円"
+                          ],
+                          [
+                            "4位",
+                            "株式会社日立製作所",
+                            "2兆7,460億円"
+                          ]
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[8]/div[1]/div[1]",
+              "domain": "engineer-shukatu.jp",
+              "title": "エンジニア就活 - 未経験OK！IT業界特化の就職 ...",
+              "url": "https://engineer-shukatu.jp/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://engineer-shukatu.jp",
+              "website_name": "エンジニア就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "ワンランク上の就活を始めよう！ プログラミング経験者から 未経験者まで. ITエンジニア職に焦点を当てた新卒就職支援ナビ",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[10]/div[1]/div[1]",
+              "domain": "careerselect.jp",
+              "title": "エンジニア学生のための就活サイト｜キャリアセレクト",
+              "url": "https://careerselect.jp/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://careerselect.jp",
+              "website_name": "キャリアセレクト",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "キャリアセレクト は企業やエージェントからオファーをもらう事が出来るエンジニア向けの就職支援サイトです。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "キャリアセレクト"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[12]/div[1]/div[1]",
+              "domain": "rookie.levtech.jp",
+              "title": "ITエンジニアを目指す新卒学生向け就活サービス｜レバテック ...",
+              "url": "https://rookie.levtech.jp/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://rookie.levtech.jp",
+              "website_name": "レバテックルーキー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "ITエンジニア専門 の就活支援サービス です。 業界に詳しいプロによる就活サポートや、 厳選されたベンチャー企業からの紹介・スカウトが受けられる無料のサービスです。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ITエンジニア専門 の就活支援サービス"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[14]/div[1]/div[1]",
+              "domain": "engineer.beet-agent.com",
+              "title": "ITエンジニア向け就活サイトおすすめランキング26選【徹底比較】",
+              "url": "https://engineer.beet-agent.com/1488/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://engineer.beet-agent.com › エンジニアの転職",
+              "website_name": "BEET-AGENT",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/04/14 — ITエンジニア志望の学生向けに、エージェント型・スカウト型・情報掲載型など26社の就活サイトを徹底比較。スキルレベルや志望企業タイプ別におすすめ ...",
+              "pre_snippet": "04/14/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活サイト"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアにおすすめのエージ...",
+                  "description": null,
+                  "url": "https://engineer.beet-agent.com/1488/#index_id1",
+                  "domain": "engineer.beet-agent.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアにおすすめのスカウ...",
+                  "description": null,
+                  "url": "https://engineer.beet-agent.com/1488/#index_id2",
+                  "domain": "engineer.beet-agent.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-04-14 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[16]/div[1]/div[1]",
+              "domain": "paiza.jp",
+              "title": "＜就活学生向け＞ITエンジニア特化型就活サイト｜paiza新卒",
+              "url": "https://paiza.jp/pages/students/recruit",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://paiza.jp › pages › students › recruit",
+              "website_name": "paiza",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT エンジニア特化型就活サイト【paiza新卒】は、プログラミングスキルがある人ほど就活がすすみ、人気企業や高い初任給のスカウトを受け取ることができるITエンジニア ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活サイト",
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[18]/div[1]/div[1]",
+              "domain": "itnabi.com",
+              "title": "【ITなび就活】東京IT中小企業へ就職｜新卒学生支援サイト",
+              "url": "https://itnabi.com/shukatsu/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://itnabi.com › shukatsu",
+              "website_name": "ITなび就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT なび就活は、東京のIT中小企業を目指す新卒学生向け就職支援サイトです。Web合同企業説明会開催中！文系/理系大学生/未経験でも安心。専任のキャリアアドバイザーが ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活",
+                "サイト"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "IT就活サイト 新卒",
+                "IT就活サイトおすすめ",
+                "エンジニア就活サイト",
+                "エンジニア就活サイト 新卒",
+                "IT就活エージェントおすすめ",
+                "It 就活 エージェント 新卒",
+                "新卒 it やめとけ",
+                "入っては いけない IT企業 新卒"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

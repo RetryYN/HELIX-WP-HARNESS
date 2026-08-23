@@ -1,0 +1,112 @@
+{
+  "schema_version": "wp-keyword-serp-poc.v1",
+  "generated_at": "2026-08-23T12:04:01.359Z",
+  "query_contract": {
+    "provider": "DataForSEO",
+    "queue": "standard",
+    "location_code": 2392,
+    "language_code": "ja",
+    "device": "desktop",
+    "fetched_depth": 10,
+    "comparison_depth": 5
+  },
+  "normalization": {
+    "version": "nfkc-space-casefold.v1",
+    "coverage_version": "nfkc-space-casefold-compact.v1",
+    "input_count": 2
+  },
+  "tasks": [
+    {
+      "source_keyword_id": "probe:it-job-site:comparison",
+      "keyword": "it 就活サイト 比較",
+      "normalized_keyword": "it 就活サイト 比較",
+      "task_id": "08231127-1317-0066-0000-27b983625bf0",
+      "organic_urls": [
+        "https://coeteco.jp/articles/14332",
+        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site",
+        "https://engineer.beet-agent.com/1488",
+        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+      ],
+      "raw_file": "raw/08231127-1317-0066-0000-27b983625bf0.json",
+      "response_digest": "5fccc66446718d6df9e384f81047e85127564d3dc3b9c349bfccafcea7915e8e",
+      "cost": 0.0006
+    },
+    {
+      "source_keyword_id": "probe:it-job-site:recommended",
+      "keyword": "it 就活サイト おすすめ",
+      "normalized_keyword": "it 就活サイト おすすめ",
+      "task_id": "08231127-1317-0066-0000-6695f73ea2c8",
+      "organic_urls": [
+        "https://coeteco.jp/articles/14332",
+        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
+        "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site"
+      ],
+      "raw_file": "raw/08231127-1317-0066-0000-6695f73ea2c8.json",
+      "response_digest": "16d5af545cc7f6ce7c07be65a24d1dfb04dff3dddbc667a2f9797baca139e0bf",
+      "cost": 0.0006
+    }
+  ],
+  "grouping": {
+    "algorithm": "top5-url-overlap-intent-confidence-components.v2",
+    "decision": "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate",
+    "threshold_operator": ">=",
+    "high_threshold": 0.8,
+    "possible_threshold": 0.6,
+    "comparison_depth": 5,
+    "pairs": [
+      {
+        "left": "probe:it-job-site:comparison",
+        "right": "probe:it-job-site:recommended",
+        "shared_urls": [
+          "https://coeteco.jp/articles/14332",
+          "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site",
+          "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+          "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+        ],
+        "shared_count": 4,
+        "denominator": 5,
+        "ratio": 0.8,
+        "comparable": true,
+        "intent_confidence": "high",
+        "likely_same_intent": true
+      }
+    ],
+    "possible_pairs": [],
+    "clusters": [
+      [
+        "probe:it-job-site:comparison",
+        "probe:it-job-site:recommended"
+      ]
+    ]
+  },
+  "normalization_aliases": [],
+  "article_keyword_groups": [
+    {
+      "group_id": "poc-article-group-1",
+      "evidence": "likely_same_intent",
+      "source_keyword_ids": [
+        "probe:it-job-site:comparison",
+        "probe:it-job-site:recommended"
+      ],
+      "main_keyword": "it 就活サイト",
+      "main_keyword_origin": "derived_parent",
+      "intent_keywords": [
+        "it 就活サイト 比較",
+        "it 就活サイト おすすめ"
+      ],
+      "modifiers": [
+        "比較",
+        "おすすめ"
+      ],
+      "sibling_keywords": [],
+      "normalized_keywords": [
+        "it 就活サイト 比較",
+        "it 就活サイト おすすめ"
+      ]
+    }
+  ],
+  "reproducibility_digest": "7a23c8e2da7fd6d46a221e6e3a8e13bddc2ebd5dc09ab69fa5f1d8ee87f86d1d"
+}

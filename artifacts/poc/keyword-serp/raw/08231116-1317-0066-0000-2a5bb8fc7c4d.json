@@ -1,0 +1,678 @@
+{
+  "version": "0.1.20260806",
+  "status_code": 20000,
+  "status_message": "Ok.",
+  "time": "0.0143 sec.",
+  "cost": 0.0006,
+  "tasks_count": 1,
+  "tasks_error": 0,
+  "tasks": [
+    {
+      "id": "08231116-1317-0066-0000-2a5bb8fc7c4d",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "0.0115 sec.",
+      "cost": 0.0006,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "task_get",
+        "advanced",
+        "08231116-1317-0066-0000-2a5bb8fc7c4d"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "task_get",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "ライター 副業",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "bec89ab9:キーワード割り当て:8"
+      },
+      "result": [
+        {
+          "keyword": "ライター 副業",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%20%E5%89%AF%E6%A5%AD&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 11:17:18 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 189,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "副業ライターは、`パソコンとネット環境があれば場所や時間を選ばずに始められる人気の仕事` です。初期投資がほとんどかからず、スキマ時間を活用してWebサイトの記事やコラムなどを執筆できます。[](https://crowdworks.jp/public/jobs/group/writing_beginner) [[1]](https://crowdworks.jp/public/jobs/group/writing_beginner)[[2]](https://www.youtube.com/watch?v=AKJzeDeZZ3I&t=407)[[3]](https://www.google.com/search?q=product&prds=pvt:hg,productid:7484602747688331719,catalogid:3007381868367503895,gpcid:18162372549626433101,mid:576462460939476389&ibp=oshop)\n\n副業ライターの始め方\n\n- **仕事を探す**：[クラウドワークス](https://crowdworks.jp/public/jobs/group/writing_beginner) や[ランサーズ](https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOornx6JRJtDnA-Rr6WD_sAJtuAxm4jqlL1FFdiNCmpnmgEo2LDPJ) などのクラウドソーシングサイトに登録し、初心者向けの案件を探して応募します。\n- **得意分野を作る** ：自分の本業や趣味の知識（医療、不動産、金融、ガジェットなど）を活かすと、文字単価が上がりやすくなります。\n- **AIを活用する** ：リサーチや構成、下書きの作成にAIツールを上手に使うことで、作業時間を短縮して効率よく執筆できます。[[1]](https://www.google.com/search?q=product&prds=pvt:hg,productid:1313873964611142288&ibp=oshop)[[2]](https://www.google.com/search?q=product&prds=pvt:hg,productid:5755955704962942597&ibp=oshop)\n\n収入を増やすコツ\n\n- **単価交渉をする** ：実績を積んで高品質な記事を書けるようになったら、クライアントに文字単価のアップを相談します。\n- **直接契約を結ぶ** ：クラウドソーシング以外に、企業のメディアや編集プロダクションから直接仕事を受けると、手数料が引かれず収入が安定します。\n- **専門性を高める** ：SEO（検索上位表示）の知識や、インタビュー、編集・校正スキルを身につけると、他のライターと差別化できます。[[1]](https://www.google.com/search?q=product&prds=pvt:hg,productid:5755955704962942597&ibp=oshop)[[2]](https://www.google.com/search?q=product&prds=pvt:hg,productid:7484602747688331719,catalogid:3007381868367503895,gpcid:18162372549626433101,mid:576462460939476389&ibp=oshop)\n\nもしよろしければ、以下について教えてください：\n\n- **ライティングの経験** （完全未経験か、少し経験があるか）\n- **得意なジャンルや本業の仕事内容** \n\n最適な案件の探し方や、最初のステップを提案いたします。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "副業ライターは、 パソコンとネット環境があれば場所や時間を選ばずに始められる人気の仕事 です。初期投資がほとんどかからず、スキマ時間を活用してWebサイトの記事やコラムなどを執筆できます。",
+                  "markdown": "副業ライターは、`パソコンとネット環境があれば場所や時間を選ばずに始められる人気の仕事` です。初期投資がほとんどかからず、スキマ時間を活用してWebサイトの記事やコラムなどを執筆できます。[](https://crowdworks.jp/public/jobs/group/writing_beginner) [[1]](https://crowdworks.jp/public/jobs/group/writing_beginner)[[2]](https://www.youtube.com/watch?v=AKJzeDeZZ3I&t=407)[[3]](https://www.google.com/search?q=product&prds=pvt:hg,productid:7484602747688331719,catalogid:3007381868367503895,gpcid:18162372549626433101,mid:576462460939476389&ibp=oshop)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "クラウドワークス",
+                      "domain": "crowdworks.jp",
+                      "url": "https://crowdworks.jp/public/jobs/group/writing_beginner",
+                      "title": "ライティング・記事作成の仕事・求人を探す | 在宅ワーク・副業するなら【クラウドワークス】",
+                      "text": "クラウドワークスには、オンラインメディアのコンテンツ制作や雑誌や新聞など紙媒体の記事執筆など、さまざまなライティング・記..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=AKJzeDeZZ3I&t=407",
+                      "title": "[Rebroadcast] [How to Earn 30000 Yen a Month] A Thorough ...",
+                      "text": "ウブライターはアーティストではないということが分かったところで次ウブライターのメリット。 デメリットいきましょうまずはメ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Google",
+                      "domain": "www.google.com",
+                      "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:7484602747688331719,catalogid:3007381868367503895,gpcid:18162372549626433101,mid:576462460939476389&ibp=oshop",
+                      "title": "Webライターフリーランス入門講座",
+                      "text": "副業の中でも人気が高い「Webライター」。本書は、時給300円の副業ライターから始め、現在は法人化にまで至っている筆者が..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "副業ライターの始め方",
+                  "text": "仕事を探す ： クラウドワークス や ランサーズ などのクラウドソーシングサイトに登録し、初心者向けの案件を探して応募します。 得意分野を作る ：自分の本業や趣味の知識（医療、不動産、金融、ガジェットなど）を活かすと、文字単価が上がりやすくなります。 AIを活用する ：リサーチや構成、下書きの作成にAIツールを上手に使うことで、作業時間を短縮して効率よく執筆できます。",
+                  "markdown": "- **仕事を探す**：[クラウドワークス](https://crowdworks.jp/public/jobs/group/writing_beginner) や[ランサーズ](https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOornx6JRJtDnA-Rr6WD_sAJtuAxm4jqlL1FFdiNCmpnmgEo2LDPJ) などのクラウドソーシングサイトに登録し、初心者向けの案件を探して応募します。\n- **得意分野を作る** ：自分の本業や趣味の知識（医療、不動産、金融、ガジェットなど）を活かすと、文字単価が上がりやすくなります。\n- **AIを活用する** ：リサーチや構成、下書きの作成にAIツールを上手に使うことで、作業時間を短縮して効率よく執筆できます。[[1]](https://www.google.com/search?q=product&prds=pvt:hg,productid:1313873964611142288&ibp=oshop)[[2]](https://www.google.com/search?q=product&prds=pvt:hg,productid:5755955704962942597&ibp=oshop)",
+                  "links": [
+                    {
+                      "type": "link_element",
+                      "title": "クラウドワークス",
+                      "description": null,
+                      "url": "https://crowdworks.jp/public/jobs/group/writing_beginner",
+                      "domain": "crowdworks.jp"
+                    },
+                    {
+                      "type": "link_element",
+                      "title": "ランサーズ",
+                      "description": null,
+                      "url": "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOornx6JRJtDnA-Rr6WD_sAJtuAxm4jqlL1FFdiNCmpnmgEo2LDPJ",
+                      "domain": "www.lancers.jp"
+                    }
+                  ],
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Google",
+                      "domain": "www.google.com",
+                      "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:1313873964611142288&ibp=oshop",
+                      "title": "AIを武器にした副業ライター入門: 文字単価0.1円から月50万になった私の全手順【2026年最新版】",
+                      "text": "AIに仕事を奪われた私が、AIを武器に変えた話をします。 この本は副業で収入を得たいけど一歩踏み出せない人のために書きま..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Google",
+                      "domain": "www.google.com",
+                      "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:5755955704962942597&ibp=oshop",
+                      "title": "AIではじめるライター副業: ゼロから最初の1本を書いて応募するまで",
+                      "text": "「AIが文章を書けるようになったら、ライターの仕事はなくなるのでは?」——答えは、半分イエスで、半分ノーです。AIに丸投..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "収入を増やすコツ",
+                  "text": "単価交渉をする ：実績を積んで高品質な記事を書けるようになったら、クライアントに文字単価のアップを相談します。 直接契約を結ぶ ：クラウドソーシング以外に、企業のメディアや編集プロダクションから直接仕事を受けると、手数料が引かれず収入が安定します。 専門性を高める ：SEO（検索上位表示）の知識や、インタビュー、編集・校正スキルを身につけると、他のライターと差別化できます。",
+                  "markdown": "- **単価交渉をする** ：実績を積んで高品質な記事を書けるようになったら、クライアントに文字単価のアップを相談します。\n- **直接契約を結ぶ** ：クラウドソーシング以外に、企業のメディアや編集プロダクションから直接仕事を受けると、手数料が引かれず収入が安定します。\n- **専門性を高める** ：SEO（検索上位表示）の知識や、インタビュー、編集・校正スキルを身につけると、他のライターと差別化できます。[[1]](https://www.google.com/search?q=product&prds=pvt:hg,productid:5755955704962942597&ibp=oshop)[[2]](https://www.google.com/search?q=product&prds=pvt:hg,productid:7484602747688331719,catalogid:3007381868367503895,gpcid:18162372549626433101,mid:576462460939476389&ibp=oshop)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Google",
+                      "domain": "www.google.com",
+                      "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:5755955704962942597&ibp=oshop",
+                      "title": "AIではじめるライター副業: ゼロから最初の1本を書いて応募するまで",
+                      "text": "「AIが文章を書けるようになったら、ライターの仕事はなくなるのでは?」——答えは、半分イエスで、半分ノーです。AIに丸投..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Google",
+                      "domain": "www.google.com",
+                      "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:7484602747688331719,catalogid:3007381868367503895,gpcid:18162372549626433101,mid:576462460939476389&ibp=oshop",
+                      "title": "Webライターフリーランス入門講座",
+                      "text": "副業の中でも人気が高い「Webライター」。本書は、時給300円の副業ライターから始め、現在は法人化にまで至っている筆者が..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "もしよろしければ、以下について教えてください：ライティングの経験 （完全未経験か、少し経験があるか）\n得意なジャンルや本業の仕事内容\n最適な案件の探し方や、最初のステップを提案いたします。",
+                  "markdown": "もしよろしければ、以下について教えてください：\n\n- **ライティングの経験** （完全未経験か、少し経験があるか）\n- **得意なジャンルや本業の仕事内容** \n\n最適な案件の探し方や、最初のステップを提案いたします。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "クラウドワークス",
+                  "domain": "crowdworks.jp",
+                  "url": "https://crowdworks.jp/public/jobs/group/writing_beginner",
+                  "title": "ライティング・記事作成の仕事・求人を探す | 在宅ワーク・副業するなら【クラウドワークス】",
+                  "text": "クラウドワークスには、オンラインメディアのコンテンツ制作や雑誌や新聞など紙媒体の記事執筆など、さまざまなライティング・記..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=AKJzeDeZZ3I&t=407",
+                  "title": "[Rebroadcast] [How to Earn 30000 Yen a Month] A Thorough ...",
+                  "text": "ウブライターはアーティストではないということが分かったところで次ウブライターのメリット。 デメリットいきましょうまずはメ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "Google",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:7484602747688331719,catalogid:3007381868367503895,gpcid:18162372549626433101,mid:576462460939476389&ibp=oshop",
+                  "title": "Webライターフリーランス入門講座",
+                  "text": "副業の中でも人気が高い「Webライター」。本書は、時給300円の副業ライターから始め、現在は法人化にまで至っている筆者が..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "Google",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:5755955704962942597&ibp=oshop",
+                  "title": "AIではじめるライター副業: ゼロから最初の1本を書いて応募するまで",
+                  "text": "「AIが文章を書けるようになったら、ライターの仕事はなくなるのでは?」——答えは、半分イエスで、半分ノーです。AIに丸投..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "Google",
+                  "domain": "www.google.com",
+                  "url": "https://www.google.com/search?q=product&prds=pvt:hg,productid:1313873964611142288&ibp=oshop",
+                  "title": "AIを武器にした副業ライター入門: 文字単価0.1円から月50万になった私の全手順【2026年最新版】",
+                  "text": "AIに仕事を奪われた私が、AIを武器に変えた話をします。 この本は副業で収入を得たいけど一歩踏み出せない人のために書きま..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "note.com",
+              "title": "30代副業Webライターの率直な話｜なないろあさみ",
+              "url": "https://note.com/asami_7716/n/n1a92cbbf4542",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "110 件以上の高評価  ·  1 年前",
+              "website_name": "note · なないろあさみ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "30代副業Webライターの率直な話 · 1. 思ったより要求レベルが高かった · 2. 継続案件が取れるかが大事 · 3. 熱量による違い · 4. 個人的にはやって ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "副業",
+                "ライター"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "ライターの副業におすすめなのは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "副業のライターの収入はいくらくらいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "副業で10万円稼ぎたいのですが、どうすればいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "副業で5万円稼ぎたいのですが、どうすればいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "crowdworks.jp",
+              "title": "ライティング・記事作成の仕事・求人を探す | 在宅ワーク・副業 ...",
+              "url": "https://crowdworks.jp/public/jobs/group/writing_beginner",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://crowdworks.jp › jobs › group › writing_beginner",
+              "website_name": "クラウドワークス",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "【20代会社員歓迎】在宅ワーク・副業に興味がある方へ｜Webライター募集！ 掲載日： 2026年08月18日. 固定報酬制30,000〜50,000円. 応募数19 人 契約状況1/5人. 募集. あと ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "副業",
+                "ライター"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "jp.indeed.com",
+              "title": "ライター 副業の求人",
+              "url": "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://jp.indeed.com › q-ライター-副業-求人",
+              "website_name": "Indeed",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "ライター 副業の求人は285件あります 。ライター, シナリオライター, 制作・編集・校正などの仕事・転職・アルバイト情報もまとめて検索。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ライター 副業の求人は285件あります"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "shuuumatu-worker.jp",
+              "title": "ライターの副業・複業求人・案件一覧",
+              "url": "https://shuuumatu-worker.jp/projects?jobtypes=writer",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shuuumatu-worker.jp › projects",
+              "website_name": "シューマツワーカー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "コンテンツライター募集 ！「地方×副業」をテーマに、30代の新しい生き方を描くno... 報酬. 80,000円~150, ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "コンテンツライター募集"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "hipro-job.jp",
+              "title": "Webライターの副業の始め方を解説｜案件の探し方や収入を ...",
+              "url": "https://hipro-job.jp/pro/and_hipro/column/A000000807/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://hipro-job.jp › pro › and_hipro › column",
+              "website_name": "HiPro [ハイプロ]",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/15 — Webライターの副業は、情報収集から執筆、編集まで幅広い業務を担当し、自身のスキルを磨けます。文字の読み書きが好きで、好奇心旺盛な方には特に ...",
+              "pre_snippet": "05/15/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ライター",
+                "副業"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-15 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "www.lancers.jp",
+              "title": "ライティングの副業・在宅・委託・フリーランスの仕事を探す",
+              "url": "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOoo2d56s5JFyrg1bhvA5QjjbW1aSmBVeH9yxn1tmw3tFeaxo4XYg",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.lancers.jp › work › search › writing › writing",
+              "website_name": "ランサーズ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "ネットで最短即日発注ができるランサーズなら、ライティングの仕事が872,394件 。ライティングの仕事情報の検索から納品、報酬の受け取りまで、すべてランサーズで完結し ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ネットで最短即日発注ができるランサーズなら、ライティングの仕事が872,394件"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "biz.moneyforward.com",
+              "title": "Webライターの副業の始め方は？メリット・デメリットと合わせて ...",
+              "url": "https://biz.moneyforward.com/tax_return/basic/58269/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://biz.moneyforward.com › tax_return › basic",
+              "website_name": "マネーフォワード クラウド",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/11/21 — Webサイトの文章を作成（ライティング）するのが、Webライターです。副業として人気が高いものの、実際にやってみたら仕事の案件がない、月に5万円を ...",
+              "pre_snippet": "11/21/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ライター",
+                "副業"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-11-21 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "www.wantedly.com",
+              "title": "編集者・ライターの副業募集",
+              "url": "https://www.wantedly.com/project_categories/editing_and_writing/side_job",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.wantedly.com › side_job",
+              "website_name": "Wantedly",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "編集者・ライター 副業の募集133件を掲載しています 。Wantedlyなら転職活動を始める前にカジュアルに会社やチームと話せます。気になる募集を見つけて、気軽に応募して ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "編集者・ライター 副業の募集133件を掲載しています"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "xn--pckua2a7gp15o89zb.com",
+              "title": "在宅 副業 ライターの仕事・求人情報",
+              "url": "https://xn--pckua2a7gp15o89zb.com/%E5%9C%A8%E5%AE%85-%E5%89%AF%E6%A5%AD-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC%E3%81%AE%E4%BB%95%E4%BA%8B",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://求人ボックス.com › 在宅-副業-ライターの仕事",
+              "website_name": "求人ボックス",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "在宅 副業 ライターの求人は6405件あります 。【顧客満足度No.1】求人ボックスは毎日更新！在宅ライター・取材ライターの求人や業務委託での仕事・転職・採用情報も ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "在宅 副業 ライターの求人は6405件あります"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "Webライター副業やって みた",
+                "Webライター副業 やめとけ",
+                "ライター 副業 未経験",
+                "Webライター 副業 未経験",
+                "Webライターやめとけ",
+                "副業ライターのはじめ方",
+                "ライター 副業 未経験 在宅",
+                "ライター 副業 在宅"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

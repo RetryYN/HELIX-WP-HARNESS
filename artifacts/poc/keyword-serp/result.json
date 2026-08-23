@@ -1,0 +1,555 @@
+{
+  "schema_version": "wp-keyword-serp-poc.v1",
+  "generated_at": "2026-08-23T16:05:31.688Z",
+  "query_contract": {
+    "provider": "DataForSEO",
+    "queue": "standard",
+    "location_code": 2392,
+    "language_code": "ja",
+    "device": "desktop",
+    "fetched_depth": 10,
+    "comparison_depth": 5
+  },
+  "normalization": {
+    "version": "nfkc-space-casefold.v1",
+    "coverage_version": "nfkc-space-casefold-compact.v1",
+    "input_count": 8
+  },
+  "tasks": [
+    {
+      "source_keyword_id": "4769dfab:IT就活:16",
+      "keyword": "it 就活サイト",
+      "normalized_keyword": "it 就活サイト",
+      "task_id": "08231116-1317-0066-0000-424d8b63361e",
+      "organic_urls": [
+        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
+        "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://engineer-shukatu.jp/",
+        "https://careerselect.jp/"
+      ],
+      "raw_file": "raw/08231116-1317-0066-0000-424d8b63361e.json",
+      "response_digest": "2f5bd680d026e9c44359c0f690113bc079ceaa294009ce96deef833b9e269b17",
+      "cost": 0.0006
+    },
+    {
+      "source_keyword_id": "4769dfab:IT就活:17",
+      "keyword": "it 就活 サイト",
+      "normalized_keyword": "it 就活 サイト",
+      "task_id": "08231116-1317-0066-0000-366cdf30d777",
+      "organic_urls": [
+        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
+        "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://engineer-shukatu.jp/",
+        "https://careerselect.jp/"
+      ],
+      "raw_file": "raw/08231116-1317-0066-0000-366cdf30d777.json",
+      "response_digest": "af2b633b2b4ae71ffd1ff67afc363ab96626c4edec6a7295bc55dbd719036503",
+      "cost": 0.0006
+    },
+    {
+      "source_keyword_id": "bec89ab9:キーワード割り当て:2",
+      "keyword": "seo 記事",
+      "normalized_keyword": "seo 記事",
+      "task_id": "08231116-1317-0066-0000-b828ed158ada",
+      "organic_urls": [
+        "https://www.seohacks.net/blog/20719",
+        "https://leadnine.co.jp/media-seo/6417",
+        "https://search-engine-pirates.co.jp/column/content-seo/seo-article",
+        "https://www.lany.co.jp/blog/plots",
+        "https://x-buzz.co.jp/writing/content-marketing/9953"
+      ],
+      "raw_file": "raw/08231116-1317-0066-0000-b828ed158ada.json",
+      "response_digest": "999388d080ccdaf00115764f286667b18f6464ac80fe82b6d03b789719c0e7c5",
+      "cost": 0.0006
+    },
+    {
+      "source_keyword_id": "bec89ab9:キーワード割り当て:3",
+      "keyword": "seo ライティング",
+      "normalized_keyword": "seo ライティング",
+      "task_id": "08231116-1317-0066-0000-0aac2b1c4203",
+      "organic_urls": [
+        "https://moltsinc.co.jp/media/knowledge/5343",
+        "https://sol.ferret-one.com/blog/seo-writing",
+        "https://www.willgate.co.jp/promonista/seo-writing",
+        "https://www.youtube.com/watch?v=siH1MXALUTI",
+        "https://bluemonkey.jp/media/column/seo-lighting"
+      ],
+      "raw_file": "raw/08231116-1317-0066-0000-0aac2b1c4203.json",
+      "response_digest": "4f1eab10f87e477b8ad0fe3f9187016d2b24f9b6aebdf26b68b59fd782ff22e9",
+      "cost": 0.0006
+    },
+    {
+      "source_keyword_id": "bec89ab9:キーワード割り当て:5",
+      "keyword": "seo 外注",
+      "normalized_keyword": "seo 外注",
+      "task_id": "08231116-1317-0066-0000-80313b2be4a5",
+      "organic_urls": [
+        "https://webanalytics.speee.jp/media/article/seo-outsource",
+        "https://www.seohacks.net/blog/10185",
+        "https://mieru-ca.com/blog/seo-commission",
+        "https://rank-quest.jp/column/column/subcontracting-request",
+        "https://www.willgate.co.jp/promonista/seo_outsource"
+      ],
+      "raw_file": "raw/08231116-1317-0066-0000-80313b2be4a5.json",
+      "response_digest": "e29a65ace30a62faa6ad549b5b0b0b628c722873c25399714850c344857af023",
+      "cost": 0.0006
+    },
+    {
+      "source_keyword_id": "bec89ab9:キーワード割り当て:6",
+      "keyword": "seo 代行",
+      "normalized_keyword": "seo 代行",
+      "task_id": "08231115-1317-0066-0000-0e767dc7d8af",
+      "organic_urls": [
+        "https://rank-quest.jp/column/column/seoagency",
+        "https://www.cinc-j.co.jp/analytics/seo",
+        "https://www.plan-b.co.jp/blog/seo/85288",
+        "https://white-link.com/sem-plus/seo-company",
+        "https://takuwil.spool.co.jp/column/article/seo-agency"
+      ],
+      "raw_file": "raw/08231115-1317-0066-0000-0e767dc7d8af.json",
+      "response_digest": "37167848faa467c7311ad38c9967f5739e12185d8dbb9bf7db079c80bd47052f",
+      "cost": 0.0006
+    },
+    {
+      "source_keyword_id": "bec89ab9:キーワード割り当て:7",
+      "keyword": "記事作成 副業",
+      "normalized_keyword": "記事作成 副業",
+      "task_id": "08231116-1317-0066-0000-3b748a72e76d",
+      "organic_urls": [
+        "https://crowdworks.jp/public/jobs/group/writing_beginner",
+        "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOooU1HANY7mUd5zKawIRVqwyjYK9sfomlQjoSzFxd1dP0m_aT6Sm",
+        "https://www.craudia.com/crarepo/archives/1794",
+        "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+        "https://hipro-job.jp/pro/and_hipro/column/A000000807"
+      ],
+      "raw_file": "raw/08231116-1317-0066-0000-3b748a72e76d.json",
+      "response_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+      "cost": 0.0006,
+      "search_volume_min": 100,
+      "search_volume_max": 1000
+    },
+    {
+      "source_keyword_id": "bec89ab9:キーワード割り当て:8",
+      "keyword": "ライター 副業",
+      "normalized_keyword": "ライター 副業",
+      "task_id": "08231116-1317-0066-0000-2a5bb8fc7c4d",
+      "organic_urls": [
+        "https://note.com/asami_7716/n/n1a92cbbf4542",
+        "https://crowdworks.jp/public/jobs/group/writing_beginner",
+        "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+        "https://shuuumatu-worker.jp/projects?jobtypes=writer",
+        "https://hipro-job.jp/pro/and_hipro/column/A000000807"
+      ],
+      "raw_file": "raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
+      "response_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+      "cost": 0.0006,
+      "search_volume_min": 1000,
+      "search_volume_max": 10000
+    }
+  ],
+  "grouping": {
+    "algorithm": "top5-url-overlap-intent-components.v3",
+    "decision": "上位5 URLの一致率が60%以上なら同一施策KW群。80%以上はhigh、60%以上80%未満はpossible、60%未満はseparate",
+    "threshold_operator": ">=",
+    "linkage": "complete",
+    "high_threshold": 0.8,
+    "possible_threshold": 0.6,
+    "comparison_depth": 5,
+    "pairs": [
+      {
+        "left": "4769dfab:IT就活:16",
+        "right": "4769dfab:IT就活:17",
+        "shared_urls": [
+          "https://careerselect.jp/",
+          "https://engineer-shukatu.jp/",
+          "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+          "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+          "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+        ],
+        "shared_count": 5,
+        "denominator": 5,
+        "ratio": 1,
+        "comparable": true,
+        "intent_confidence": "high",
+        "likely_same_intent": true
+      },
+      {
+        "left": "4769dfab:IT就活:16",
+        "right": "bec89ab9:キーワード割り当て:2",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:16",
+        "right": "bec89ab9:キーワード割り当て:3",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:16",
+        "right": "bec89ab9:キーワード割り当て:5",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:16",
+        "right": "bec89ab9:キーワード割り当て:6",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:16",
+        "right": "bec89ab9:キーワード割り当て:7",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:16",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:17",
+        "right": "bec89ab9:キーワード割り当て:2",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:17",
+        "right": "bec89ab9:キーワード割り当て:3",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:17",
+        "right": "bec89ab9:キーワード割り当て:5",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:17",
+        "right": "bec89ab9:キーワード割り当て:6",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:17",
+        "right": "bec89ab9:キーワード割り当て:7",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "4769dfab:IT就活:17",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:2",
+        "right": "bec89ab9:キーワード割り当て:3",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:2",
+        "right": "bec89ab9:キーワード割り当て:5",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:2",
+        "right": "bec89ab9:キーワード割り当て:6",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:2",
+        "right": "bec89ab9:キーワード割り当て:7",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:2",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:3",
+        "right": "bec89ab9:キーワード割り当て:5",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:3",
+        "right": "bec89ab9:キーワード割り当て:6",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:3",
+        "right": "bec89ab9:キーワード割り当て:7",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:3",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:5",
+        "right": "bec89ab9:キーワード割り当て:6",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:5",
+        "right": "bec89ab9:キーワード割り当て:7",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:5",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:6",
+        "right": "bec89ab9:キーワード割り当て:7",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:6",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [],
+        "shared_count": 0,
+        "denominator": 5,
+        "ratio": 0,
+        "comparable": true,
+        "intent_confidence": "separate",
+        "likely_same_intent": false
+      },
+      {
+        "left": "bec89ab9:キーワード割り当て:7",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [
+          "https://crowdworks.jp/public/jobs/group/writing_beginner",
+          "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+          "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html"
+        ],
+        "shared_count": 3,
+        "denominator": 5,
+        "ratio": 0.6,
+        "comparable": true,
+        "intent_confidence": "possible",
+        "likely_same_intent": true
+      }
+    ],
+    "possible_pairs": [
+      {
+        "left": "bec89ab9:キーワード割り当て:7",
+        "right": "bec89ab9:キーワード割り当て:8",
+        "shared_urls": [
+          "https://crowdworks.jp/public/jobs/group/writing_beginner",
+          "https://hipro-job.jp/pro/and_hipro/column/A000000807",
+          "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html"
+        ],
+        "shared_count": 3,
+        "denominator": 5,
+        "ratio": 0.6,
+        "comparable": true,
+        "intent_confidence": "possible",
+        "likely_same_intent": true
+      }
+    ],
+    "clusters": [
+      [
+        "4769dfab:IT就活:16",
+        "4769dfab:IT就活:17"
+      ],
+      [
+        "bec89ab9:キーワード割り当て:2"
+      ],
+      [
+        "bec89ab9:キーワード割り当て:3"
+      ],
+      [
+        "bec89ab9:キーワード割り当て:5"
+      ],
+      [
+        "bec89ab9:キーワード割り当て:6"
+      ],
+      [
+        "bec89ab9:キーワード割り当て:7",
+        "bec89ab9:キーワード割り当て:8"
+      ]
+    ]
+  },
+  "normalization_aliases": [
+    {
+      "canonical": "it就活サイト",
+      "source_keyword_ids": [
+        "4769dfab:IT就活:16",
+        "4769dfab:IT就活:17"
+      ],
+      "variants": [
+        "it 就活サイト",
+        "it 就活 サイト"
+      ]
+    }
+  ],
+  "article_keyword_groups": [
+    {
+      "group_id": "poc-article-group-1",
+      "evidence": "likely_same_intent",
+      "source_keyword_ids": [
+        "bec89ab9:キーワード割り当て:7",
+        "bec89ab9:キーワード割り当て:8"
+      ],
+      "main_keyword": "ライター 副業",
+      "main_keyword_origin": "highest_search_volume",
+      "intent_keywords": [
+        "記事作成 副業"
+      ],
+      "modifiers": [],
+      "sibling_keywords": [],
+      "normalized_keywords": [
+        "記事作成 副業",
+        "ライター 副業"
+      ]
+    }
+  ],
+  "reproducibility_digest": "687b09d16c3a4ae79cd2eaa09499eb540af81d0d450fea353a8aa9596ac412f4"
+}
