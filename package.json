@@ -12,6 +12,9 @@
     "poc:keyword-serp": "node scripts/poc-keyword-serp.mjs",
     "poc:keyword-serp:evaluate": "node scripts/evaluate-keyword-serp.mjs",
     "poc:keyword-intent-pair": "node scripts/poc-keyword-intent-pair.mjs",
+    "poc:required-topics:test": "node scripts/test-required-topics.mjs",
+    "poc:required-topics": "node scripts/poc-required-topics.mjs",
+    "poc:draft-article": "node scripts/poc-draft-article.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
   },
