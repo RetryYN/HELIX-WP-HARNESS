@@ -6,8 +6,9 @@ import { normalizeKeyword } from "./keyword-serp-core.mjs";
 import { categoryPathsForIds } from "./keyword-category-taxonomy.mjs";
 import { primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
 import { assessKeywordAcquisition, matchKeywordGroupToArticles, reconcileArticleAssignments } from "./keyword-article-matching.mjs";
+import {buildKeywordHierarchy} from "./keyword-hierarchy.mjs";
 
-const schemaVersion = "keyword-dashboard.v2";
+const schemaVersion = "keyword-dashboard.v4";
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
 
 function rawSnapshots(artifactRoot) {
@@ -30,10 +31,11 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const db = new DatabaseSync(dbPath);
   db.exec(`
     PRAGMA foreign_keys = OFF;
-    DROP TABLE IF EXISTS keyword_article_match_candidates; DROP TABLE IF EXISTS keyword_article_match_runs; DROP TABLE IF EXISTS gsc_query_results; DROP TABLE IF EXISTS articles; DROP TABLE IF EXISTS imported_keywords; DROP TABLE IF EXISTS article_links; DROP TABLE IF EXISTS shared_urls; DROP TABLE IF EXISTS dfs_tasks; DROP TABLE IF EXISTS gate_runs; DROP TABLE IF EXISTS strategy_decisions; DROP TABLE IF EXISTS group_keywords; DROP TABLE IF EXISTS keyword_groups; DROP TABLE IF EXISTS sites; DROP TABLE IF EXISTS dashboard_metadata;
+    DROP TABLE IF EXISTS keyword_article_match_candidates; DROP TABLE IF EXISTS keyword_article_match_runs; DROP TABLE IF EXISTS gsc_query_results; DROP TABLE IF EXISTS articles; DROP TABLE IF EXISTS keyword_hierarchy; DROP TABLE IF EXISTS imported_keywords; DROP TABLE IF EXISTS article_links; DROP TABLE IF EXISTS shared_urls; DROP TABLE IF EXISTS dfs_tasks; DROP TABLE IF EXISTS gate_runs; DROP TABLE IF EXISTS strategy_decisions; DROP TABLE IF EXISTS group_keywords; DROP TABLE IF EXISTS keyword_groups; DROP TABLE IF EXISTS sites; DROP TABLE IF EXISTS dashboard_metadata;
     PRAGMA foreign_keys = ON;
     CREATE TABLE dashboard_metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     CREATE TABLE imported_keywords (source_keyword_id TEXT PRIMARY KEY, site_id TEXT NOT NULL, source_sheet TEXT NOT NULL, source_row INTEGER NOT NULL, raw_keyword TEXT NOT NULL, search_volume INTEGER, cpc REAL, competition REAL, processing_state TEXT NOT NULL);
+    CREATE TABLE keyword_hierarchy (source_keyword_id TEXT PRIMARY KEY REFERENCES imported_keywords(source_keyword_id), representative_source_keyword_id TEXT NOT NULL, parent_source_keyword_id TEXT, root_source_keyword_id TEXT NOT NULL, normalized_terms_json TEXT NOT NULL, term_count INTEGER NOT NULL, depth INTEGER NOT NULL, relation TEXT NOT NULL CHECK(relation IN ('root','child','reordered_alias')));
     CREATE TABLE sites (site_id TEXT PRIMARY KEY, label TEXT NOT NULL, domain TEXT NOT NULL, status TEXT NOT NULL, is_pinned INTEGER NOT NULL, display_order INTEGER NOT NULL);
     CREATE TABLE articles (site_id TEXT NOT NULL REFERENCES sites(site_id), wp_article_id INTEGER NOT NULL, url TEXT NOT NULL, title TEXT NOT NULL, category_ids_json TEXT NOT NULL, headings_json TEXT NOT NULL, gsc_status TEXT NOT NULL CHECK(gsc_status IN ('ok','error')), PRIMARY KEY(site_id, wp_article_id), UNIQUE(site_id, url));
     CREATE TABLE gsc_query_results (site_id TEXT NOT NULL, wp_article_id INTEGER NOT NULL, query TEXT NOT NULL, normalized_query TEXT NOT NULL, clicks INTEGER NOT NULL, impressions INTEGER NOT NULL, ctr REAL NOT NULL, position REAL NOT NULL, window_days INTEGER NOT NULL, observed_at TEXT NOT NULL, source_file TEXT NOT NULL, PRIMARY KEY(site_id, wp_article_id, query, window_days, observed_at), FOREIGN KEY(site_id, wp_article_id) REFERENCES articles(site_id, wp_article_id));
@@ -45,7 +47,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE shared_urls (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), url_order INTEGER NOT NULL, url TEXT NOT NULL, PRIMARY KEY(group_id, url_order));
     CREATE TABLE article_links (link_id TEXT PRIMARY KEY, site_id TEXT NOT NULL REFERENCES sites(site_id), source_group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), target_group_id TEXT REFERENCES keyword_groups(group_id), trigger_type TEXT NOT NULL, trigger_text TEXT NOT NULL, source_section TEXT, state TEXT NOT NULL);
     CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','見出し一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
-    CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, heading_score INTEGER NOT NULL, heading_matches_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id));
+    CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, heading_score INTEGER NOT NULL, heading_matches_json TEXT NOT NULL, coverage_rate REAL NOT NULL, coverage_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id));
   `);
   const metadata = db.prepare("INSERT INTO dashboard_metadata VALUES (?, ?)");
   metadata.run("schema_version", schemaVersion); metadata.run("generated_at", fixture.generated_at); metadata.run("normalization_aliases", JSON.stringify(fixture.normalization_aliases ?? []));
@@ -72,6 +74,8 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const insertImported=db.prepare("INSERT INTO imported_keywords VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const processedKeywords=new Set(fixture.groups.flatMap((group)=>group.comparison_keywords.map((keyword)=>`${group.site_id}\0${keyword}`)));
   importedKeywords.forEach((row)=>insertImported.run(row.source_keyword_id,row.site_id,row.source_sheet,row.source_row,row.raw_keyword,row.search_volume,row.cpc,row.competition,processedKeywords.has(`${row.site_id}\0${row.raw_keyword}`)?"施策KW群割当済み":"SERP未取得"));
+  const insertHierarchy=db.prepare("INSERT INTO keyword_hierarchy VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+  for(const site of fixture.sites)for(const row of buildKeywordHierarchy(importedKeywords.filter((item)=>item.site_id===site.site_id)))insertHierarchy.run(row.source_keyword_id,row.representative_source_keyword_id,row.parent_source_keyword_id,row.root_source_keyword_id,JSON.stringify(row.normalized_terms),row.term_count,row.depth,row.relation);
   const insertGroup = db.prepare("INSERT INTO keyword_groups VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const insertKeyword = db.prepare("INSERT INTO group_keywords VALUES (?, ?, ?, ?)");
   const insertStrategy = db.prepare("INSERT INTO strategy_decisions VALUES (?, ?, ?, ?, ?)");
@@ -95,7 +99,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   }
   const beforeMatch=projectDashboard(db);
   const insertMatchRun=db.prepare("INSERT INTO keyword_article_match_runs VALUES (?, ?, ?)");
-  const insertMatchCandidate=db.prepare("INSERT INTO keyword_article_match_candidates VALUES (?, ?, ?, ?, ?, ?, ?)");
+  const insertMatchCandidate=db.prepare("INSERT INTO keyword_article_match_candidates VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const assignArticle=db.prepare("UPDATE keyword_groups SET wp_article_id = ?, action_state = '公開中' WHERE group_id = ?");
   for(const site of fixture.sites){
     const articles=beforeMatch.article_query_summaries.filter((article)=>article.site_id===site.site_id);
@@ -103,7 +107,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     const matches=reconcileArticleAssignments(siteGroups.map((group)=>matchKeywordGroupToArticles(group,articles)));
     for(const match of matches){
       insertMatchRun.run(match.group_id,match.state,match.wp_article_id);
-      match.candidates.forEach((candidate)=>insertMatchCandidate.run(match.group_id,candidate.wp_article_id,candidate.title_score,JSON.stringify(candidate.title_matches),JSON.stringify(candidate.query_matches),candidate.heading_score,JSON.stringify(candidate.heading_matches)));
+      match.candidates.forEach((candidate)=>insertMatchCandidate.run(match.group_id,candidate.wp_article_id,candidate.title_score,JSON.stringify(candidate.title_matches),JSON.stringify(candidate.query_matches),candidate.heading_score,JSON.stringify(candidate.heading_matches),candidate.coverage_rate,JSON.stringify(candidate.planned_keyword_coverage)));
       if(match.state==="確定")assignArticle.run(match.wp_article_id,match.group_id);
     }
   }
@@ -121,6 +125,7 @@ export function openDashboardDb(dbPath) {
 export function projectDashboard(db) {
   const metadata = Object.fromEntries(db.prepare("SELECT key, value FROM dashboard_metadata").all().map((row) => [row.key, row.value]));
   const sites = db.prepare("SELECT site_id, label, domain, status, is_pinned, display_order FROM sites ORDER BY display_order").all().map((site) => ({ ...site, is_pinned: Boolean(site.is_pinned) }));
+  const keywordHierarchy=db.prepare("SELECT h.*,k.site_id,k.raw_keyword,k.search_volume,p.raw_keyword AS parent_keyword,r.raw_keyword AS root_keyword FROM keyword_hierarchy h JOIN imported_keywords k USING(source_keyword_id) LEFT JOIN imported_keywords p ON p.source_keyword_id=h.parent_source_keyword_id JOIN imported_keywords r ON r.source_keyword_id=h.root_source_keyword_id ORDER BY k.site_id,h.depth,k.source_sheet,k.source_row").all().map(({normalized_terms_json,...row})=>({...row,normalized_terms:JSON.parse(normalized_terms_json)}));
   const groups = db.prepare("SELECT * FROM keyword_groups ORDER BY source_order_file, source_order_sheet, source_order_row").all().map((row) => {
     const keywords = db.prepare("SELECT keyword, role FROM group_keywords WHERE group_id = ? ORDER BY role, position").all(row.group_id);
     const list = (role) => keywords.filter((item) => item.role === role).map((item) => item.keyword);
@@ -131,7 +136,7 @@ export function projectDashboard(db) {
     const shared_urls = db.prepare("SELECT url FROM shared_urls WHERE group_id = ? ORDER BY url_order").all(row.group_id).map((item) => item.url);
     const categoryPath=JSON.parse(row.category_path_json);
     const matchRun=db.prepare("SELECT state,selected_wp_article_id FROM keyword_article_match_runs WHERE group_id = ?").get(row.group_id);
-    const matchCandidates=db.prepare("SELECT wp_article_id,title_score,title_matches_json,query_matches_json,heading_score,heading_matches_json FROM keyword_article_match_candidates WHERE group_id = ? ORDER BY title_score DESC,heading_score DESC,wp_article_id").all(row.group_id).map(({title_matches_json,query_matches_json,heading_matches_json,...candidate})=>({...candidate,title_matches:JSON.parse(title_matches_json),query_matches:JSON.parse(query_matches_json),heading_matches:JSON.parse(heading_matches_json)}));
+    const matchCandidates=db.prepare("SELECT wp_article_id,title_score,title_matches_json,query_matches_json,heading_score,heading_matches_json,coverage_rate,coverage_json FROM keyword_article_match_candidates WHERE group_id = ? ORDER BY title_score DESC,heading_score DESC,coverage_rate DESC,wp_article_id").all(row.group_id).map(({title_matches_json,query_matches_json,heading_matches_json,coverage_json,...candidate})=>({...candidate,title_matches:JSON.parse(title_matches_json),query_matches:JSON.parse(query_matches_json),heading_matches:JSON.parse(heading_matches_json),planned_keyword_coverage:JSON.parse(coverage_json)}));
     return { id: row.group_id, site_id: row.site_id, main_keyword: row.main_keyword, main_origin: row.main_origin, source_order: { file: row.source_order_file, sheet: row.source_order_sheet, row: row.source_order_row }, source_location: row.source_location, search_volume: JSON.parse(row.search_volume_json), search_volume_source: row.search_volume_source, intent_keywords: list("intent"), sibling_keywords: list("sibling"), comparison_keywords: list("comparison"), confidence: row.confidence, overlap: { shared: row.overlap_shared, depth: row.overlap_depth, ratio: row.overlap_ratio }, state: row.action_state, wp_article_id: row.wp_article_id, article_match:matchRun?{state:matchRun.state,selected_wp_article_id:matchRun.selected_wp_article_id,candidates:matchCandidates}:null, category: categoryPath.join(" ＞ "), category_path: categoryPath, strategy: { ...strategy, aio_observed_queries: Number(aio.observed), aio_checked_queries: Number(aio.checked) }, article_gate: { status: conditions.every((item) => item.status === "pass") ? "成立" : "未成立", conditions }, cost: row.cost, task_ids, shared_urls };
   });
   const articleQueries=db.prepare("SELECT q.site_id,q.wp_article_id,a.url,a.title,a.category_ids_json,q.query,q.normalized_query,q.clicks,q.impressions,q.ctr,q.position,q.window_days,q.observed_at FROM gsc_query_results q JOIN articles a USING(site_id,wp_article_id) ORDER BY q.site_id,q.wp_article_id,q.query").all().map(({category_ids_json,...row})=>({...row,category_paths:categoryPathsForIds(JSON.parse(category_ids_json))}));
@@ -144,5 +149,5 @@ export function projectDashboard(db) {
     const keywordAcquisition=assessKeywordAcquisition(group,queries);
     return {...article,headings:JSON.parse(headings_json),category_paths:categoryPathsForIds(JSON.parse(category_ids_json)),query_count:queries.length,total_clicks:queries.reduce((sum,row)=>sum+row.clicks,0),total_impressions:queries.reduce((sum,row)=>sum+row.impressions,0),window_days:primary?.window_days??null,observed_at:primary?.observed_at??null,primary_query:primary,queries,keyword_acquisition:keywordAcquisition};
   });
-  return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), normalization_aliases: JSON.parse(metadata.normalization_aliases), article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, article_query_summaries: articleQuerySummaries, primary_query_ranking: Object.fromEntries(Object.entries(rankingBySite).map(([siteId,ranking])=>[siteId,{...ranking,method:"log_impressions_plus_clicks_at_p95"}])), gsc_articles: gscArticles.map(({category_ids_json,headings_json,...article})=>article) };
+  return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), keyword_hierarchy:keywordHierarchy, normalization_aliases: JSON.parse(metadata.normalization_aliases), article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, article_query_summaries: articleQuerySummaries, primary_query_ranking: Object.fromEntries(Object.entries(rankingBySite).map(([siteId,ranking])=>[siteId,{...ranking,method:"log_impressions_plus_clicks_at_p95"}])), gsc_articles: gscArticles.map(({category_ids_json,headings_json,...article})=>article) };
 }

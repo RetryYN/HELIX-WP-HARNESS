@@ -42,6 +42,8 @@ assert.notEqual(missingEvidenceBuild.status,0,"dashboard build must fail closed 
 assert.match(missingEvidenceBuild.stderr,/GSC evidence is required/);
 const pocDb = new DatabaseSync(pocDbPath, { readOnly: true });
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com'").get().count, 100);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy").get().count,100,"every imported keyword must have a hierarchy row");
+assert.equal(pocDb.prepare("SELECT p.raw_keyword AS parent FROM keyword_hierarchy h JOIN imported_keywords k ON k.source_keyword_id=h.source_keyword_id LEFT JOIN imported_keywords p ON p.source_keyword_id=h.parent_source_keyword_id WHERE k.raw_keyword='it ニュース 就活'").get().parent,"it 就活");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = '施策KW群割当済み'").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com'").get().count, 67);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND action_state = '未施策'").get().count, hasGscEvidence?(hasHeadingEvidence?53:57):67);
@@ -138,6 +140,7 @@ assert.match(app, /categoryDepth=Math\.max/);
 assert.match(app, /category-grandchild-head/);
 assert.match(app, /syncCategoryFilters/);
 assert.match(app, /data\.article_query_summaries/);
+assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);assert.match(html,/data-view="keyword-tree"/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
 assert.match(app, /empty\.hidden=rows\.length>0/);
