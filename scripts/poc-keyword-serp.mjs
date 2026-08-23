@@ -85,7 +85,7 @@ const evidence = {
     { file: "IT就活大学キーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
   ],
   tasks: completed,
-  grouping: { algorithm: "top5-url-overlap-intent-confidence-components.v2", decision: "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate", ...grouping },
+  grouping: { algorithm: "top5-url-overlap-intent-components.v3", decision: "上位5 URLの一致率が60%以上なら同一施策KW群。80%以上はhigh、60%以上80%未満はpossible、60%未満はseparate", ...grouping },
   reproducibility_digest: digest({ input, snapshots: completed.map(({ source_keyword_id, response_digest }) => ({ source_keyword_id, response_digest })), grouping }),
 };
 await writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(evidence, null, 2)}\n`);

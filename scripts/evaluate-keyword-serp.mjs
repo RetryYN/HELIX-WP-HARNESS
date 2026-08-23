@@ -6,6 +6,10 @@ const outputDir = path.resolve(process.argv[2] ?? "artifacts/poc/keyword-serp");
 const rawDir = path.join(outputDir, "raw");
 const files = (await readdir(rawDir)).filter((name) => name.endsWith(".json")).sort();
 const tasks = [];
+const importedKeywordMetrics = new Map([
+  ["bec89ab9:キーワード割り当て:7", { search_volume_min: 100, search_volume_max: 1000 }],
+  ["bec89ab9:キーワード割り当て:8", { search_volume_min: 1000, search_volume_max: 10000 }],
+]);
 for (const file of files) {
   const body = JSON.parse(await readFile(path.join(rawDir, file), "utf8"));
   const task = body.tasks?.[0];
@@ -19,6 +23,7 @@ for (const file of files) {
     raw_file: `raw/${file}`,
     response_digest: digest(body),
     cost: task.cost ?? 0,
+    ...(importedKeywordMetrics.get(task.data.tag) ?? {}),
   });
 }
 tasks.sort((a, b) => a.source_keyword_id.localeCompare(b.source_keyword_id));
@@ -36,6 +41,13 @@ function classifyArticleGroup(members) {
   const parents = [...new Set(classified.map((item) => item.parent).filter(Boolean))];
   if (parents.length === 1 && classified.every((item) => item.parent === parents[0])) {
     return { main_keyword: parents[0], main_keyword_origin: "derived_parent", intent_keywords: keywords, modifiers: classified.map((item) => item.modifier), sibling_keywords: [] };
+  }
+  const ranked = members
+    .map((id) => byId.get(id))
+    .filter((item) => Number.isFinite(item.search_volume_max))
+    .sort((left, right) => right.search_volume_max - left.search_volume_max || left.source_keyword_id.localeCompare(right.source_keyword_id));
+  if (ranked.length === members.length && ranked.length > 0) {
+    return { main_keyword: ranked[0].keyword, main_keyword_origin: "highest_search_volume", intent_keywords: ranked.slice(1).map((item) => item.keyword), modifiers: [], sibling_keywords: [] };
   }
   return { main_keyword: null, main_keyword_origin: "unresolved", intent_keywords: [], modifiers: [], sibling_keywords: keywords };
 }
@@ -67,7 +79,7 @@ const evidence = {
   query_contract: { provider: "DataForSEO", queue: "standard", location_code: 2392, language_code: "ja", device: "desktop", fetched_depth: 10, comparison_depth: 5 },
   normalization: { version: "nfkc-space-casefold.v1", coverage_version: "nfkc-space-casefold-compact.v1", input_count: tasks.length },
   tasks,
-  grouping: { algorithm: "top5-url-overlap-intent-confidence-components.v2", decision: "上位5 URLの一致率が80%以上ならhigh、60%以上80%未満ならpossible、60%未満ならseparate", ...grouping },
+  grouping: { algorithm: "top5-url-overlap-intent-components.v3", decision: "上位5 URLの一致率が60%以上なら同一施策KW群。80%以上はhigh、60%以上80%未満はpossible、60%未満はseparate", ...grouping },
   normalization_aliases: normalizationAliases,
   article_keyword_groups: articleKeywordGroups,
 };
