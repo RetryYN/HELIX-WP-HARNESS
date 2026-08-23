@@ -16,13 +16,13 @@
   </header>
 
   <nav class="tabs" aria-label="表示切替">
-    <button class="tab active" data-view="actions">施策候補</button>
-    <button class="tab" data-view="sources">入力テーブル</button>
-    <button class="tab" data-view="evidence">判定証跡</button>
+    <button class="tab active" data-view="keywords">キーワード一覧</button>
+    <button class="tab" data-view="article-queries">記事獲得クエリ</button>
+    <button class="tab" data-view="internal-links">内部リンクマップ</button>
   </nav>
 
   <main>
-    <section id="actions" class="view active">
+    <section id="keywords" class="view active">
       <div class="metrics" id="metrics"></div>
       <div class="toolbar table-toolbar">
         <div>
@@ -45,19 +45,21 @@
       </div>
     </section>
 
-    <section id="sources" class="view">
+    <section id="article-queries" class="view">
       <div class="section-head">
-        <div><h2>入力テーブル</h2><p>重複を捨てず、KW本体と割当・観測を分離して取り込む</p></div>
+        <div><h2>記事獲得クエリ</h2><p>WordPress記事IDごとにGSCで実際に獲得した検索クエリを表示</p></div>
       </div>
-      <div class="source-grid" id="source-list"></div>
-      <div class="notice"><strong>取込規則</strong><span>同じKWの複数カテゴリ・トピック・競合URLは多対多関係として全件保持します。</span></div>
+      <div class="table-wrap">
+        <table><thead><tr><th>記事</th><th>WP ID</th><th>獲得クエリ</th><th>表示回数</th><th>クリック</th><th>平均掲載順位</th><th>取得期間</th></tr></thead><tbody id="query-rows"></tbody></table>
+        <div id="query-empty" class="empty-state"></div>
+      </div>
     </section>
 
-    <section id="evidence" class="view">
+    <section id="internal-links" class="view">
       <div class="section-head">
-        <div><h2>判定証跡</h2><p>表示値をDataForSEO raw snapshotまで逆引き</p></div>
+        <div><h2>内部リンクマップ</h2><p>記事間リンク、孤立記事、ハブ、カテゴリ間導線を表示</p></div>
       </div>
-      <div id="evidence-list" class="evidence-list"></div>
+      <div id="link-map" class="map-empty"></div>
     </section>
   </main>
 

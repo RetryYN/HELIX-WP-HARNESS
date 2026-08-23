@@ -39,6 +39,5 @@ function renderRows(){
 }
 Object.values(filters).forEach((filter)=>filter.addEventListener(filter.type==="search"?"input":"change",renderRows));renderRows();
 
-document.querySelector("#source-list").innerHTML=data.sources.map((source)=>`<article class="source-card"><p class="detail-label">${source.role}</p><h3>${source.name}</h3><div class="source-stat"><span>入力行</span><strong>${yen.format(source.rows)}</strong></div><div class="source-stat"><span>ユニークKW</span><strong>${yen.format(source.unique_keywords)}</strong></div><div class="source-stat"><span>取込判断</span><strong>分離保持</strong></div><p class="card-meta">${source.detail}</p></article>`).join("");
-
-document.querySelector("#evidence-list").innerHTML=data.groups.map((group)=>`<article class="evidence-card"><header><div><p class="detail-label">${group.id}</p><h3>${label(group)}</h3></div><span class="badge ${group.confidence}">${group.confidence}</span></header><progress max="1" value="${group.overlap.ratio}" aria-label="SERP一致率"></progress><div class="card-meta"><span>${group.overlap.shared}/${group.overlap.depth} URL一致</span><span>${group.task_ids.length} DFS tasks</span><span>raw digest保持</span></div></article>`).join("");
+document.querySelector("#query-empty").innerHTML=`<strong>獲得クエリはまだありません</strong><span>WP記事IDの割当が${data.metrics.wp_articles_assigned}件のため、記事とGSCクエリを結合できません。記事ID照合後に実データを表示します。</span>`;
+document.querySelector("#link-map").innerHTML=`<div class="map-placeholder"><strong>内部リンク構造は未生成です</strong><span>WP記事IDを取得し、記事本文から内部リンクを抽出した後に表示します。推測リンクやダミーノードは表示しません。</span></div>`;
