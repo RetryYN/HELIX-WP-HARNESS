@@ -3,6 +3,10 @@ import {tokenizeMatchText} from "./keyword-article-matching.mjs";
 const counts=(tokens)=>tokens.reduce((map,token)=>map.set(token,(map.get(token)??0)+1),new Map());
 const subset=(left,right)=>[...left].every(([token,count])=>(right.get(token)??0)>=count);
 const key=(tokens)=>[...tokens].sort((a,b)=>a.localeCompare(b,"ja")).join("\0");
+// These terms change the search domain rather than merely narrowing a topic.
+// A parent candidate must retain the same context boundary.
+const contextAnchors=["it"];
+const sameContext=(left,right)=>contextAnchors.every((anchor)=>left.terms.has(anchor)===right.terms.has(anchor));
 
 export function buildKeywordHierarchy(rows){
   const prepared=rows.map((row,index)=>{const tokens=tokenizeMatchText(row.raw_keyword??row.keyword);return{...row,index,tokens,term_count:tokens.length,term_key:key(tokens),terms:counts(tokens)}});
@@ -11,7 +15,7 @@ export function buildKeywordHierarchy(rows){
   const concepts=[...representatives.values()];
   const parentByKey=new Map();
   for(const child of concepts){
-    const candidates=concepts.filter((candidate)=>candidate.term_count<child.term_count&&subset(candidate.terms,child.terms)).sort((left,right)=>right.term_count-left.term_count||Number(right.search_volume??0)-Number(left.search_volume??0)||left.index-right.index);
+    const candidates=concepts.filter((candidate)=>candidate.term_count<child.term_count&&sameContext(candidate,child)&&subset(candidate.terms,child.terms)).sort((left,right)=>right.term_count-left.term_count||Number(right.search_volume??0)-Number(left.search_volume??0)||left.index-right.index);
     parentByKey.set(child.term_key,candidates[0]??null);
   }
   const depthFor=(row,seen=new Set())=>{const parent=parentByKey.get(row.term_key);if(!parent)return 0;if(seen.has(row.term_key))throw new Error(`keyword hierarchy cycle: ${row.raw_keyword??row.keyword}`);return 1+depthFor(parent,new Set([...seen,row.term_key]))};
