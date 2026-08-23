@@ -58,13 +58,6 @@ export function overlap(left, right) {
 }
 
 export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 0.6, comparisonDepth = 5 } = {}) {
-  const parent = records.map((_, index) => index);
-  const find = (index) => (parent[index] === index ? index : (parent[index] = find(parent[index])));
-  const union = (a, b) => {
-    const ra = find(a);
-    const rb = find(b);
-    if (ra !== rb) parent[rb] = ra;
-  };
   const pairs = [];
   for (let i = 0; i < records.length; i += 1) {
     for (let j = i + 1; j < records.length; j += 1) {
@@ -73,19 +66,24 @@ export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 
       const confidence = !comparable ? "insufficient" : result.ratio >= highThreshold ? "high" : result.ratio >= possibleThreshold ? "possible" : "separate";
       const candidate = confidence === "high" || confidence === "possible";
       pairs.push({ left: records[i].source_keyword_id, right: records[j].source_keyword_id, ...result, comparable, intent_confidence: confidence, likely_same_intent: candidate });
-      if (candidate) union(i, j);
     }
   }
-  const grouped = new Map();
-  records.forEach((record, index) => {
-    const root = find(index);
-    if (!grouped.has(root)) grouped.set(root, []);
-    grouped.get(root).push(record.source_keyword_id);
-  });
-  const clusters = [...grouped.values()]
+  const pairByIds = new Map(pairs.map((pair) => [[pair.left, pair.right].sort().join("\0"), pair]));
+  const clusters = records.map((record) => [record.source_keyword_id]);
+  const candidates = pairs.filter((pair) => pair.likely_same_intent).sort((a, b) => b.ratio - a.ratio || a.left.localeCompare(b.left) || a.right.localeCompare(b.right));
+  for (const edge of candidates) {
+    const leftIndex = clusters.findIndex((cluster) => cluster.includes(edge.left));
+    const rightIndex = clusters.findIndex((cluster) => cluster.includes(edge.right));
+    if (leftIndex === rightIndex) continue;
+    const completeLink = clusters[leftIndex].every((left) => clusters[rightIndex].every((right) => pairByIds.get([left, right].sort().join("\0"))?.likely_same_intent));
+    if (!completeLink) continue;
+    clusters[leftIndex].push(...clusters[rightIndex]);
+    clusters.splice(rightIndex, 1);
+  }
+  const sortedClusters = clusters
     .map((members) => members.sort())
     .sort((a, b) => a[0].localeCompare(b[0]));
-  return { threshold_operator: ">=", high_threshold: highThreshold, possible_threshold: possibleThreshold, comparison_depth: comparisonDepth, pairs, possible_pairs: pairs.filter((pair) => pair.intent_confidence === "possible"), clusters };
+  return { threshold_operator: ">=", linkage: "complete", high_threshold: highThreshold, possible_threshold: possibleThreshold, comparison_depth: comparisonDepth, pairs, possible_pairs: pairs.filter((pair) => pair.intent_confidence === "possible"), clusters: sortedClusters };
 }
 
 export function digest(value) {
