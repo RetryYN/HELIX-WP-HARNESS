@@ -1,0 +1,726 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231446-1317-0139-0000-3a3a6dd14da1",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "45.4977 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活nnt",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:9"
+      },
+      "result": [
+        {
+          "keyword": "就活nnt",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BBnnt&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:47:38 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches",
+            "knowledge_graph"
+          ],
+          "se_results_count": 132,
+          "pages_count": 1,
+          "items_count": 13,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "就活における「NNT」とは、「無い内定（ナイナイテイ）」の略で、`就職活動をしているにもかかわらず1社も内定をもらえていない状態を指す学生間のスラング` です。焦る気持ちを抑え、客観的に原因を分析して対策を立てることで、内定獲得を目指すことができます。[](https://campus.doda.jp/career/job/000170.html) [[1]](https://campus.doda.jp/career/job/000170.html)[[2]](https://avalon-consulting.jp/20s-media/syukatu-nnt/)[[3]](https://careerticket.jp/media/article/412/)\n\nNNTになりがちな原因\n\n- **自己分析・志望動機が浅い** ：企業への熱意や、自分の強みが正しく伝わっていない。\n- **視野が狭くなっている** ：大手企業や有名企業ばかりを受けている。\n- **行動量が不足している** ：不採用を恐れてエントリーや面接の数が減っている。[](https://campus.doda.jp/career/job/000170.html) [[1]](https://campus.doda.jp/career/job/000170.html)[[2]](https://careerticket.jp/media/article/412/)\n\n抜け出すための対策\n\n- **選考の振り返り** ：書類で落ちるか、面接で落ちるかによって改善点を見直す。\n- **視野を広げる** ：中小企業や隠れた優良企業にも目を向ける。\n- **逆求人サイトの活用** ：プロフィールを登録して企業からのオファーを待つ。\n- **第三者の相談** ：大学のキャリアセンターや就職エージェントにアドバイスをもらう。[](https://campus.doda.jp/career/job/000170.html) [[1]](https://campus.doda.jp/career/job/000170.html)[[2]](https://careerticket.jp/media/article/412/)[[3]](https://www.youtube.com/watch?v=0xzu7yu48cA&t=141)\n\nもしよろしければ、以下を教えてください：\n\n- 現在の**学年・時期** （何年生か、何月頃か）\n- 選考の**どの段階** で落ちることが多いか（書類、1次面接、最終面接など）\n\n状況に合わせた具体的な対策をご提案します。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "就活における「NNT」とは、「無い内定（ナイナイテイ）」の略で、 就職活動をしているにもかかわらず1社も内定をもらえていない状態を指す学生間のスラング です。焦る気持ちを抑え、客観的に原因を分析して対策を立てることで、内定獲得を目指すことができます。",
+                  "markdown": "就活における「NNT」とは、「無い内定（ナイナイテイ）」の略で、`就職活動をしているにもかかわらず1社も内定をもらえていない状態を指す学生間のスラング` です。焦る気持ちを抑え、客観的に原因を分析して対策を立てることで、内定獲得を目指すことができます。[](https://campus.doda.jp/career/job/000170.html) [[1]](https://campus.doda.jp/career/job/000170.html)[[2]](https://avalon-consulting.jp/20s-media/syukatu-nnt/)[[3]](https://careerticket.jp/media/article/412/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "dodaキャンパス",
+                      "domain": "campus.doda.jp",
+                      "url": "https://campus.doda.jp/career/job/000170.html",
+                      "title": "NNT就活生でも焦らない！今日から始める逆転内定への道",
+                      "text": "NNT就活生でも焦らない！ 今日から始める逆転内定への道 | 新卒のスカウト型・オファー型就活ならdodaキャンパス *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "就活塾ホワイトアカデミー",
+                      "domain": "avalon-consulting.jp",
+                      "url": "https://avalon-consulting.jp/20s-media/syukatu-nnt/",
+                      "title": "就活のNNT(無い内定)とは？特徴・原因から脱却の対策まで解説",
+                      "text": "NNTは就活用語「無い内定」の略. NNTとは、「無い内定」の略称であり、就職活動中の学生が内定を得られていない状態を指..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアチケット就職",
+                      "domain": "careerticket.jp",
+                      "url": "https://careerticket.jp/media/article/412/",
+                      "title": "NNTとは？陥りやすい人にみられる特徴や抜け出すための6ステップを ...",
+                      "text": "NNTとは？ 陥りやすい人にみられる特徴や抜け出すための6ステップを解説 ... 0120-962-647 * 悩み *"
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "NNTになりがちな原因",
+                  "text": "自己分析・志望動機が浅い ：企業への熱意や、自分の強みが正しく伝わっていない。 視野が狭くなっている ：大手企業や有名企業ばかりを受けている。 行動量が不足している ：不採用を恐れてエントリーや面接の数が減っている。",
+                  "markdown": "- **自己分析・志望動機が浅い** ：企業への熱意や、自分の強みが正しく伝わっていない。\n- **視野が狭くなっている** ：大手企業や有名企業ばかりを受けている。\n- **行動量が不足している** ：不採用を恐れてエントリーや面接の数が減っている。[](https://campus.doda.jp/career/job/000170.html) [[1]](https://campus.doda.jp/career/job/000170.html)[[2]](https://careerticket.jp/media/article/412/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "dodaキャンパス",
+                      "domain": "campus.doda.jp",
+                      "url": "https://campus.doda.jp/career/job/000170.html",
+                      "title": "NNT就活生でも焦らない！今日から始める逆転内定への道",
+                      "text": "NNT就活生でも焦らない！ 今日から始める逆転内定への道 | 新卒のスカウト型・オファー型就活ならdodaキャンパス *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアチケット就職",
+                      "domain": "careerticket.jp",
+                      "url": "https://careerticket.jp/media/article/412/",
+                      "title": "NNTとは？陥りやすい人にみられる特徴や抜け出すための6ステップを ...",
+                      "text": "NNTとは？ 陥りやすい人にみられる特徴や抜け出すための6ステップを解説 ... 0120-962-647 * 悩み *"
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "抜け出すための対策",
+                  "text": "選考の振り返り ：書類で落ちるか、面接で落ちるかによって改善点を見直す。 視野を広げる ：中小企業や隠れた優良企業にも目を向ける。 逆求人サイトの活用 ：プロフィールを登録して企業からのオファーを待つ。 第三者の相談 ：大学のキャリアセンターや就職エージェントにアドバイスをもらう。",
+                  "markdown": "- **選考の振り返り** ：書類で落ちるか、面接で落ちるかによって改善点を見直す。\n- **視野を広げる** ：中小企業や隠れた優良企業にも目を向ける。\n- **逆求人サイトの活用** ：プロフィールを登録して企業からのオファーを待つ。\n- **第三者の相談** ：大学のキャリアセンターや就職エージェントにアドバイスをもらう。[](https://campus.doda.jp/career/job/000170.html) [[1]](https://campus.doda.jp/career/job/000170.html)[[2]](https://careerticket.jp/media/article/412/)[[3]](https://www.youtube.com/watch?v=0xzu7yu48cA&t=141)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "dodaキャンパス",
+                      "domain": "campus.doda.jp",
+                      "url": "https://campus.doda.jp/career/job/000170.html",
+                      "title": "NNT就活生でも焦らない！今日から始める逆転内定への道",
+                      "text": "NNT就活生でも焦らない！ 今日から始める逆転内定への道 | 新卒のスカウト型・オファー型就活ならdodaキャンパス *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアチケット就職",
+                      "domain": "careerticket.jp",
+                      "url": "https://careerticket.jp/media/article/412/",
+                      "title": "NNTとは？陥りやすい人にみられる特徴や抜け出すための6ステップを ...",
+                      "text": "NNTとは？ 陥りやすい人にみられる特徴や抜け出すための6ステップを解説 ... 0120-962-647 * 悩み *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=0xzu7yu48cA&t=141",
+                      "title": "【27卒NNT】8月が最後のチャンス。逆転就活のためのオファー活用法・ ...",
+                      "text": "なかなか。 就活に宣伝できなかったよっていう人にとっても役には立つんですがこれらの強みがない人にとっても役に立つ情報を案..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "もしよろしければ、以下を教えてください：現在の 学年・時期 （何年生か、何月頃か）\n選考の どの段階 で落ちることが多いか（書類、1次面接、最終面接など）\n状況に合わせた具体的な対策をご提案します。",
+                  "markdown": "もしよろしければ、以下を教えてください：\n\n- 現在の**学年・時期** （何年生か、何月頃か）\n- 選考の**どの段階** で落ちることが多いか（書類、1次面接、最終面接など）\n\n状況に合わせた具体的な対策をご提案します。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "dodaキャンパス",
+                  "domain": "campus.doda.jp",
+                  "url": "https://campus.doda.jp/career/job/000170.html",
+                  "title": "NNT就活生でも焦らない！今日から始める逆転内定への道",
+                  "text": "NNT就活生でも焦らない！ 今日から始める逆転内定への道 | 新卒のスカウト型・オファー型就活ならdodaキャンパス *"
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=0xzu7yu48cA&t=141",
+                  "title": "【27卒NNT】8月が最後のチャンス。逆転就活のためのオファー活用法・ ...",
+                  "text": "なかなか。 就活に宣伝できなかったよっていう人にとっても役には立つんですがこれらの強みがない人にとっても役に立つ情報を案..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "就活塾ホワイトアカデミー",
+                  "domain": "avalon-consulting.jp",
+                  "url": "https://avalon-consulting.jp/20s-media/syukatu-nnt/",
+                  "title": "就活のNNT(無い内定)とは？特徴・原因から脱却の対策まで解説",
+                  "text": "NNTは就活用語「無い内定」の略. NNTとは、「無い内定」の略称であり、就職活動中の学生が内定を得られていない状態を指..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "キャリアチケット就職",
+                  "domain": "careerticket.jp",
+                  "url": "https://careerticket.jp/media/article/412/",
+                  "title": "NNTとは？陥りやすい人にみられる特徴や抜け出すための6ステップを ...",
+                  "text": "NNTとは？ 陥りやすい人にみられる特徴や抜け出すための6ステップを解説 ... 0120-962-647 * 悩み *"
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "27卒NNT就活生です。就活が終わりません。先が見えません。...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10327863850",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/07 — 27卒NNT就活生です。就活が終わりません。先が見えません。 3年の春に会社説明会に行き、夏のインターンにも少し参加しました。",
+              "pre_snippet": "05/07/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "NNT就活",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "26卒NNTです。一応去年 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12317174892",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "26卒です。この時期にnntな ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10319091085",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BBnnt+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjS8f6a_7aWAxWNtysGHcRDLOcQrQIoAnoECCoQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-07 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活でNNTとは何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活で27卒のNNTは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "NTTの入社難易度は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "27卒NNT なん J？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[2]/div[1]",
+              "domain": "campus.doda.jp",
+              "title": "NNT就活生でも焦らない！今日から始める逆転内定への道",
+              "url": "https://campus.doda.jp/career/job/000170.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://campus.doda.jp › ... › 就活ノウハウ › トップ",
+              "website_name": "dodaキャンパス",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "NNTになりがちな就活生の特徴は？ · 志望動機が薄い · 社会性が低い · 自分の個性がアピールできない · 企業への貢献度に興味関心がない · 極度に不安や焦りを感じている.",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "志望動機が薄い"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "avalon-consulting.jp",
+              "title": "就活のNNT(無い内定)とは？特徴・原因から脱却の対策まで解説",
+              "url": "https://avalon-consulting.jp/20s-media/syukatu-nnt/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://avalon-consulting.jp › syukatu-nnt",
+              "website_name": "就活塾ホワイトアカデミー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/25 — NNTとは、「無い内定」の略称であり、就職活動中の学生が内定を得られていない状態を指します。就職活動のプレッシャーや不安を表す際に頻繁に用いられて ...",
+              "pre_snippet": "07/25/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "NNT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "offerbox.jp",
+              "title": "NNTとは？｜ANTとの違いや特徴・内定獲得までのポイント",
+              "url": "https://offerbox.jp/columns/knowhow/30021.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://offerbox.jp › 就活コラム › 就活ノウハウ",
+              "website_name": "OfferBox",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/06/16 — 企業側の視点を考えずに就活を進めてしまうのも、NNTの学生にありがちな特徴です。やりがいや待遇、労働環境など企業に求めるものは人それぞれですが、 ...",
+              "pre_snippet": "06/16/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "企業側の視点を考えずに就活を進めてしまうのも、NNTの学生にありがちな特徴"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-06-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]",
+              "domain": "www.youtube.com",
+              "title": "【27卒】「5月、NNTだけが使える武器がある」就活のプロが ...",
+              "url": "https://www.youtube.com/watch?v=VAypP_x6WYQ",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "視聴回数: 9990 回以上  ·  3 か月前",
+              "website_name": "YouTube · しゅんダイアリー就活チャンネル",
+              "is_image": false,
+              "is_video": true,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": [
+                "is_video"
+              ],
+              "description": null,
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-01 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[13]/div[1]/div[1]",
+              "domain": "note.com",
+              "title": "就職留年してNNT（無い内定）のまま卒業した｜かきつばた",
+              "url": "https://note.com/756star/n/n0aea49225042",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "40 件以上の高評価  ·  1 年前",
+              "website_name": "note · かきつばた",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "いつものオタクのnoteとは少し違って真面目なお話。 数多くあるNNT就活ブログの中の\"ホンモノ\"のNNT就活noteである。 先にネタバレをすると就職留年し ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "NNT就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[15]/div[1]/div[1]",
+              "domain": "career-research.mynavi.jp",
+              "title": "NNT | マイナビキャリアリサーチLab",
+              "url": "https://career-research.mynavi.jp/glossary/jobhunting-page03/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career-research.mynavi.jp › 用語集",
+              "website_name": "マイナビキャリアリサーチLab",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就職活動中の学生が企業から内定や内々定を得ていない状態のこと 。 「内々定」にかけて「NAI NAITEI（無い内定）」の頭文字を取った略語とされ、学生同士で互いの状況を ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就職活動中の学生が企業から内定や内々定を得ていない状態のこと"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[17]/div[1]/div[1]",
+              "domain": "www.alc.co.jp",
+              "title": "【27卒8月最新】内定ない大学生が今から就活は遅い？NNT ...",
+              "url": "https://www.alc.co.jp/job-change/newgrad-nnt/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.alc.co.jp › job-change › newgrad-nnt",
+              "website_name": "株式会社アルク",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/01 — 「27卒でまだ内定がない…」「NNT(無い内定)ってもう手遅れ？やばい？」 就活の選考が進まず「無い内定」で不安に感じている27卒生も多いのではない ...",
+              "pre_snippet": "08/01/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "NNT",
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-01 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[19]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "NNTは使い方に注意が必要な就活用語！？ 用語の意味を ...",
+              "url": "https://www.theport.jp/portcareer/article/81473/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › トップ › その他",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/17 — NNTは「ない内定」の略語で学生間のスラングと理解する。 周囲と比較せず、内定の有無で自分の価値を判断しない。 内定獲得をゴールとせず、納得できる ...",
+              "pre_snippet": "07/17/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "NNTは「ない内定」の略語"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-17 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "就活 NNT なんJ",
+                "就活 NNT 知恵袋",
+                "NNT 卒業",
+                "27 卒 nnt",
+                "26 卒 nnt",
+                "27卒就活 やばい",
+                "Nnt いつまで",
+                "NNTとは"
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "knowledge_graph",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "right",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[3]",
+              "title": "内定",
+              "subtitle": "ないてい",
+              "description": "内定は、\n内々で決まることの意。\n就職活動における解約権留保付労働契約の通称。本項で詳述する。\n就職活動において内定は、解約権留保付労働契約と呼ばれる一種の労働契約のことである。一般的な意味と異なり、この場合は正式に労働契約が成立している。 出典: 開く 閉じる 説明",
+              "card_id": null,
+              "url": null,
+              "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-3a3a6dd14da1:0",
+              "logo_url": null,
+              "cid": null,
+              "items": [
+                {
+                  "type": "knowledge_graph_description_item",
+                  "rank_group": 0,
+                  "rank_absolute": 0,
+                  "page": 1,
+                  "position": "left",
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+                  "text": "内定は、\n内々で決まることの意。\n就職活動における解約権留保付労働契約の通称。本項で詳述する。\n就職活動において内定は、解約権留保付労働契約と呼ばれる一種の労働契約のことである。一般的な意味と異なり、この場合は正式に労働契約が成立している。 出典: ウィキペディア ウィキペディア 開く 閉じる 説明",
+                  "links": [
+                    {
+                      "type": "link_element",
+                      "title": "ウィキペディア",
+                      "url": "https://ja.wikipedia.org/wiki/%E5%86%85%E5%AE%9A",
+                      "domain": "ja.wikipedia.org",
+                      "description": null,
+                      "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/visd-inline-description[1]/div[1]/div[1]/a[1]"
+                    },
+                    {
+                      "type": "link_element",
+                      "title": "ウィキペディア",
+                      "url": "https://ja.wikipedia.org/wiki/%E5%86%85%E5%AE%9A",
+                      "domain": "ja.wikipedia.org",
+                      "description": null,
+                      "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/visd-inline-description[1]/div[1]/span[2]/span[1]/span[1]/a[1]"
+                    }
+                  ],
+                  "rectangle": null
+                }
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

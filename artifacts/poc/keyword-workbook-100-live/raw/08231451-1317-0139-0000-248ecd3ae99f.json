@@ -1,0 +1,562 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231451-1317-0139-0000-248ecd3ae99f",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "7.6390 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "it ポートフォリオ 就活",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:87"
+      },
+      "result": [
+        {
+          "keyword": "it ポートフォリオ 就活",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=it%20%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%20%E5%B0%B1%E6%B4%BB&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:51:14 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 127,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "career.levtech.jp",
+              "title": "ITエンジニアのポートフォリオとは？作り方や参考例を紹介",
+              "url": "https://career.levtech.jp/guide/knowhow/article/31009/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career.levtech.jp › ... › ITエンジニアの記事一覧",
+              "website_name": "レバテックキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "実際の成果物を掲載することで、自分のスキルや強みをアピールできます 。つまり、ITエンジニアの転職において、ポートフォリオは自己アピールするための重要な手段です。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "実際の成果物を掲載することで、自分のスキルや強みをアピールできます"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアにポートフォリオが...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/31009/#2",
+                  "domain": "career.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニア向けポートフォリオ...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/31009/#3",
+                  "domain": "career.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "paiza.jp",
+              "title": "自分のポートフォリオを作ろう！ | ITエンジニア就活・IT業界に特 ...",
+              "url": "https://paiza.jp/student/advice/student_portfolio",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://paiza.jp › student › advice › student_portfolio",
+              "website_name": "paiza",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "制作物にスキルを語ってもらえるので面接で「うまく話せない、アピールが苦手」と自覚している方ほどポートフォリオ作りは有効です。 またポートフォリオ作りの過程で、 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "careerpark-agent.jp",
+              "title": "エンジニア志望の就活はポートフォリオが重要！ 頻出質問例も ...",
+              "url": "https://careerpark-agent.jp/column/64870",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://careerpark-agent.jp › ... › 就活準備 › 職種研究",
+              "website_name": "キャリアパークエージェント",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "ポートフォリオを作成することによって、採用担当の目に見える形で技術力を証明することができます 。面接で「プログラミングが得意です」、「アプリ開発の経験があります」 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオを作成することによって、採用担当の目に見える形で技術力を証明することができます"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "エンジニアへの就活を成功させる...",
+                  "description": null,
+                  "url": "https://careerpark-agent.jp/column/64870#i-0",
+                  "domain": "careerpark-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "エンジニアとは",
+                  "description": null,
+                  "url": "https://careerpark-agent.jp/column/64870#i-2",
+                  "domain": "careerpark-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "エンジニア就活を成功させるには...",
+                  "description": null,
+                  "url": "https://careerpark-agent.jp/column/64870#i-12",
+                  "domain": "careerpark-agent.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "job.tracks.run",
+              "title": "エンジニア就活生のためのポートフォリオ完全ガイド",
+              "url": "https://job.tracks.run/columns/engineer-portfolio-guide",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.tracks.run › engineer-portfolio-guide",
+              "website_name": "tracks.run",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/02/19 — 「ポートフォリオ、何から始めるべき？」と悩む学生エンジニア必見。就活で評価されるポートフォリオの作り方、載せるべき内容、失敗例と改善策を網羅 ...",
+              "pre_snippet": "02/19/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオ",
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-02-19 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "エンジニアでポートフォリオって何作ってるんですか？具体例 ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13312241668",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › question_detail",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/03/14 — 自分でエンジニア（業界問わず）と名乗れるほどの技術力があるなら、ポートフォリオなんて用意しないよ。 業務経歴書だけで十分。 未経験者が、「一応 ...",
+              "pre_snippet": "03/14/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-03-14 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "ポートフォリオ選考で落ちることはありますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界でポートフォリオとは何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "ポートフォリオは、何日で作ります？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "ポートフォリオとはIT分野で何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "paiza.jp",
+              "title": "ポートフォリオを作ろう",
+              "url": "https://paiza.jp/student/advice/portfolio",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://paiza.jp › student › advice › portfolio",
+              "website_name": "paiza",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "ポートフォリオ とは. ここで言うポートフォリオとは、自分の成果物や開発経験、プログラミングスキルなどを応募企業へ伝えるための資料やWebページのことです。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "mynavi-creator.jp",
+              "title": "ポートフォリオはIT業界への転職に必須？重要性と作成 ...",
+              "url": "https://mynavi-creator.jp/knowhow/article/portfolio-for-it",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://mynavi-creator.jp › 転職ノウハウ › ポートフォリオ",
+              "website_name": "mynavi-creator.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "転職活動におけるポートフォリオは、あなたが持っている技術力や、生み出すアウトプットの品質、仕事への姿勢などを企業へプレゼンテーションするものです。ポートフォリオ ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "www.acrovision.jp",
+              "title": "エンジニアのポートフォリオの作り方6つ！メリット・デメリットも解説",
+              "url": "https://www.acrovision.jp/career/career-post-2652/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.acrovision.jp › career › career-post-2652",
+              "website_name": "株式会社アクロビジョン",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "ポートフォリオがあるとエンジニアは自分のスキルや実績などを証明することができます 。 そのため、エンジニアを志望して就職活動や転職活動を行う場合は、企業に自分の ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオがあるとエンジニアは自分のスキルや実績などを証明することができます"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "www.seraku.co.jp",
+              "title": "就活ポートフォリオの作り方！企業に刺さる自己PR術",
+              "url": "https://www.seraku.co.jp/tectec-note/recruit/recruit-what-is-job-hunting-portfolio/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.seraku.co.jp › ... › リクルート",
+              "website_name": "SERAKU",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/01/29 — ポートフォリオはクリエイティブ職やエンジニア職の就活に欠かせません。作り方のコツや活用方法を解説します。",
+              "pre_snippet": "01/29/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ポートフォリオ",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "はじめに",
+                  "description": null,
+                  "url": "https://www.seraku.co.jp/tectec-note/recruit/recruit-what-is-job-hunting-portfolio/#section0",
+                  "domain": "www.seraku.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活ポートフォリオのテーマや構成",
+                  "description": null,
+                  "url": "https://www.seraku.co.jp/tectec-note/recruit/recruit-what-is-job-hunting-portfolio/#section3",
+                  "domain": "www.seraku.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活のポートフォリオに関する悩...",
+                  "description": null,
+                  "url": "https://www.seraku.co.jp/tectec-note/recruit/recruit-what-is-job-hunting-portfolio/#section10",
+                  "domain": "www.seraku.co.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-01-29 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "エンジニア ポートフォリオ 大学生 例",
+                "It ポートフォリオ 例",
+                "エンジニア ポートフォリオ レベル 低い",
+                "It エンジニア ポートフォリオ 例",
+                "新卒 エンジニア ポートフォリオ なし",
+                "ポートフォリオ 就活 デザイン",
+                "ポートフォリオ 就活 文系",
+                "ポートフォリオ 就活 例"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

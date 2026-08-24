@@ -4,7 +4,8 @@
 - 判定: **PASS（限定スコープ）**
 - 実データ: PO 提供 Excel 2 ファイルの8 KW
 - API: DataForSEO Google organic、standard queue、日本、ja、desktop
-- 実行証跡: `artifacts/poc/keyword-serp/result.json` と同ディレクトリの `raw/`
+- 実行証跡の正本: `artifacts/poc/keyword-workbook-100-live/result.json` と同ディレクトリの `raw/`
+- 旧8KW評価経路 `scripts/evaluate-keyword-serp.mjs` は廃止し、100実KWの取得・分類結果へ一本化した。
 
 ## 成立したこと
 

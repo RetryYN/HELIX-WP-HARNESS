@@ -1,0 +1,571 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231451-1317-0139-0000-b6738b2104b7",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "44.8804 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 10年後の自分 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:90"
+      },
+      "result": [
+        {
+          "keyword": "就活 10年後の自分 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%2010%E5%B9%B4%E5%BE%8C%E3%81%AE%E8%87%AA%E5%88%86%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:52:00 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 117,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "unistyleinc.com",
+              "title": "例文17選|面接・ESでの「10年後の自分」の答え方は？意図や ...",
+              "url": "https://unistyleinc.com/techniques/1553",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unistyleinc.com › 就活テクニック",
+              "website_name": "unistyleinc.com",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/16 — ESや面接で頻出の「10年後の自分」を聞く意図や考え方、評価される回答方法まで解説しています。また、内容・業界別に例文も掲載しています。",
+              "pre_snippet": "03/16/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10年後の自分"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "内容別7選】「10年後の自分」に...",
+                  "description": null,
+                  "url": "https://unistyleinc.com/techniques/1553#E",
+                  "domain": "unistyleinc.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "業界別10選】「10年後の自分」に...",
+                  "description": null,
+                  "url": "https://unistyleinc.com/techniques/1553#F",
+                  "domain": "unistyleinc.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "2)IT・通信業界",
+                  "description": null,
+                  "url": "https://unistyleinc.com/techniques/1553#9",
+                  "domain": "unistyleinc.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "面接で10年後自分について聞かれたらどう答えればいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "10年後の自分へのメッセージの例文は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "新卒がやめた方がいい業界は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "エンジニアの10年後のキャリアプランは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "就活の「10年後の自分」の答え方！ 採用経験者のアドバイス付き",
+              "url": "https://www.theport.jp/portcareer/article/60166/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › トップ › その他",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/14 — 就活で聞かれる「10年後の自分」は3ステップで考えることができます。この記事では、キャリアコンサルタントと納得感のある10年後の自分の回答法を ...",
+              "pre_snippet": "08/14/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "10年後の自分"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-14 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "rookie.levtech.jp",
+              "title": "ESの質問「10年後の自分」への効果的な答え方！NG例・注意 ...",
+              "url": "https://rookie.levtech.jp/guide/detail/449/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://rookie.levtech.jp › guide › detail",
+              "website_name": "レバテックルーキー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/04/03 — 「10年後の自分」を効果的に伝えるためには、抽象的な将来像だけで終えることなく、なるべく具体的なエピソードやビジョンを盛り込みながら書くのが大切 ...",
+              "pre_snippet": "04/03/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10年後の自分"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "1.ESの質問「10年後の自分」で...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/449/#1",
+                  "domain": "rookie.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "4.ESの「10年後の自分」が思い...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/449/#4",
+                  "domain": "rookie.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-04-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "sinmido-recruit.com",
+              "title": "面接『10年後の自分は？』長期キャリアビジョン完全ガイド",
+              "url": "https://sinmido-recruit.com/columns/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%97%E3%83%A9%E3%83%B3%E3%81%AE%E7%AB%8B%E3%81%A6%E6%96%B9%EF%BD%9C5%E5%B9%B4%E5%BE%8C%E3%83%BB10%E5%B9%B4%E5%BE%8C%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://sinmido-recruit.com › columns › キャリアプラン...",
+              "website_name": "シンミドウ新卒採用",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/04/16 — 本記事は、10 年後ビジョンに特化した完全ガイドとして、①面接官の評価軸、②長期視点の作り方 5 ステップ、③業界別 10 年後 例文 15 選、④ライフ ...",
+              "pre_snippet": "04/16/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10 年後"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "面接官が『10年後の自分』を聞く...",
+                  "description": null,
+                  "url": "https://sinmido-recruit.com/columns/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%97%E3%83%A9%E3%83%B3%E3%81%AE%E7%AB%8B%E3%81%A6%E6%96%B9%EF%BD%9C5%E5%B9%B4%E5%BE%8C%E3%83%BB10%E5%B9%B4%E5%BE%8C%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3/#section-1",
+                  "domain": "sinmido-recruit.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "業界別 10年後ビジョン 例文集ー...",
+                  "description": null,
+                  "url": "https://sinmido-recruit.com/columns/%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%97%E3%83%A9%E3%83%B3%E3%81%AE%E7%AB%8B%E3%81%A6%E6%96%B9%EF%BD%9C5%E5%B9%B4%E5%BE%8C%E3%83%BB10%E5%B9%B4%E5%BE%8C%E3%83%93%E3%82%B8%E3%83%A7%E3%83%B3/#section-3",
+                  "domain": "sinmido-recruit.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-04-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "システムエンジニアで「10年後、20年後のキャリアビジョン ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1298098297",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2012/12/02 — そのシステムエンジニアの一次面接で「10年後、20年後のキャリアビジョンについて聞かせてください」という質問に対し、どのように伝えたらよいかわかり ...",
+              "pre_snippet": "12/02/2012 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10年後",
+                "年後"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2012-12-02 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "journal.rikunabi.com",
+              "title": "【人事＆プロに聞いた】「10年後の自分」を聞く意図は？例文 ...",
+              "url": "https://journal.rikunabi.com/p/advice/30227.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://journal.rikunabi.com › 就活相談",
+              "website_name": "就職ジャーナル",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/09/20 — 「10年後の自分」を考える上で大切なのは、「何をやりたいか」よりも「どうなっていたいか、どういうキャリアを歩んでいたいか」という観点で考えること。",
+              "pre_snippet": "09/20/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10年後の自分"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-09-20 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "www.neo-career.co.jp",
+              "title": "【例文】面接で「10年後の自分」を聞かれる意図と刺さる答え方",
+              "url": "https://www.neo-career.co.jp/careertrus/shushoku_mensetsu_10nengonojibun",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.neo-career.co.jp › ... › 就活 › 面接対策",
+              "website_name": "株式会社ネオキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "面接官が「10年後の自分」を聞く意図は就活生のキャリアプランと企業のマッチ度を測るためです。5W1Hを意識して具体的に話すコツを紹介します。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10年後の自分",
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "career.levtech.jp",
+              "title": "エンジニアとして10年後のキャリアプランを明確にする方法",
+              "url": "https://career.levtech.jp/guide/knowhow/article/121040/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career.levtech.jp › ... › ITエンジニアの記事一覧",
+              "website_name": "レバテックキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/06/27 — 10年後のキャリアプランを考える具体的なステップ · 1. 理想の10年後をイメージする · 2. 現在のスキルと経験を棚卸しする · 3. 必要なスキルや経験をリスト ...",
+              "pre_snippet": "06/27/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10年後"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "エンジニアとして10年後のキャリ...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/121040/#1",
+                  "domain": "career.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "10年後のキャリアプランを考える...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/121040/#2",
+                  "domain": "career.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-06-27 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "zapass.co",
+              "title": "【例文12選】「3年後・5年後・10年後の自分」とは？キャリア ...",
+              "url": "https://zapass.co/blog/myself-in-3-5-10-years",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://zapass.co › blog › myself-in-3-5-10-years",
+              "website_name": "ZaPASS JAPAN 株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/05/25 — この記事では、3年後・5年後・10年後の自分を考える重要性、企業がこの質問をする理由、具体的な回答例、そして効果的なキャリアプランを立てるための方法 ...",
+              "pre_snippet": "05/25/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "10年後の自分"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-05-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "10年後どうなっ ていたい か 例文",
+                "10年後の自分を考える 例",
+                "10年後 キャリアプラン 例",
+                "10年後の自分 わからない",
+                "面接 10年後の自分 例文",
+                "10年後の私 例文",
+                "10年後の自分女性",
+                "エントリーシート 10年後の自分"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

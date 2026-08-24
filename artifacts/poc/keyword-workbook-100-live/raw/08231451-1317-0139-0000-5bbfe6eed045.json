@@ -1,0 +1,590 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231451-1317-0139-0000-5bbfe6eed045",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "34.2837 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 5年後の自分 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:89"
+      },
+      "result": [
+        {
+          "keyword": "就活 5年後の自分 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%205%E5%B9%B4%E5%BE%8C%E3%81%AE%E8%87%AA%E5%88%86%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:51:49 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 118,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "unistyleinc.com",
+              "title": "面接で5年後の自分を聞かれた際の回答対策！回答例・深堀り ...",
+              "url": "https://unistyleinc.com/techniques/1472",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unistyleinc.com › 就活テクニック",
+              "website_name": "unistyleinc.com",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "3 日前 — 面接官が5年後の自分について聞くことは、自社に対する理解度と志望度を把握するためです。 というのも、一般的に面接官が聞く5年後の自分という問いは、 ...",
+              "pre_snippet": "3 日前",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "5年後の自分"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-20 14:51:49 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "例文8選｜「5年後の自分」の考え方とコツをキャリアの専門家が ...",
+              "url": "https://www.theport.jp/portcareer/article/138342/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › トップ › 自己分析",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/14 — 5年後の自分はなかなか想像が難しいものですが、企業研究や自己分析を徹底することで、面接官の印象に残りやすい回答が作れます。この記事では就活の ...",
+              "pre_snippet": "05/14/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "5年後の自分",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "企業が「5年後の自分」の質問か...",
+                  "description": null,
+                  "url": "https://www.theport.jp/portcareer/article/138342/#heading-3",
+                  "domain": "www.theport.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5年後の自分」を聞かれた際に参...",
+                  "description": null,
+                  "url": "https://www.theport.jp/portcareer/article/138342/#heading-9",
+                  "domain": "www.theport.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-14 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "5年後の自分について例文はありますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "5年後の自分が分からないときはどうしたらいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "5年後はどうなっていたいか 面接？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "5年後どうなっていたいか 事務？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "就職活動の面接でよく5年後、10年後の将来像について聞かれ ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13276286923",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/02/28 — あなたはその企業の中で5年後10年後にどのような仕事を担いたいのか、どういう社員になることを目指したいのか、を答えれば良いだけです。 あなたが ...",
+              "pre_snippet": "02/28/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "5年後"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアとして活躍されている ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14277101404",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "システムエンジニアで「10年 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1298098297",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+5%E5%B9%B4%E5%BE%8C%E3%81%AE%E8%87%AA%E5%88%86+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwiqhIiTgLeWAxXmRaQEHbLAHPYQrQIoAnoECDUQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-02-28 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "careerpark-agent.jp",
+              "title": "「5年後の自分」は企業理解を深めて見つける！ 作成法5ステップ",
+              "url": "https://careerpark-agent.jp/column/106329",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://careerpark-agent.jp › ... › 就活準備 › 自己分析",
+              "website_name": "キャリアパークエージェント",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "5年後の自分 について問う企業の意図として、自社とマッチする人材かどうかを確認するというものが挙げられます。企業とのマッチ度を確認するうえでは、企業のビジョンと ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "5年後の自分"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "5年後の自分を知るには企業理...",
+                  "description": null,
+                  "url": "https://careerpark-agent.jp/column/106329#i-0",
+                  "domain": "careerpark-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5年後の自分を想定するのに必...",
+                  "description": null,
+                  "url": "https://careerpark-agent.jp/column/106329#hissu1",
+                  "domain": "careerpark-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "②商社",
+                  "description": null,
+                  "url": "https://careerpark-agent.jp/column/106329#e2",
+                  "domain": "careerpark-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "③小売",
+                  "description": null,
+                  "url": "https://careerpark-agent.jp/column/106329#e3",
+                  "domain": "careerpark-agent.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "sinmido-recruit.com",
+              "title": "面接『5年後の自分は？』完全例文集｜業界7×職種5パターン+ ...",
+              "url": "https://sinmido-recruit.com/columns/%E9%9D%A2%E6%8E%A5%E3%80%8E5%E5%B9%B4%E5%BE%8C%E3%81%AE%E8%87%AA%E5%88%86%E3%81%AF%EF%BC%9F%E3%80%8F%E5%AE%8C%E5%85%A8%E4%BE%8B%E6%96%87%E9%9B%86%EF%BD%9C%E6%A5%AD%E7%95%8C7x%E8%81%B7%E7%A8%AE5/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://sinmido-recruit.com › columns › 面接『5年後の...",
+              "website_name": "シンミドウ新卒採用",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/20 — 例3『5年後は営業チームのプレイングマネージャーとして、自分の数字を上げながら後輩3〜5名の育成に関わりたいです。』 【ITエンジニア職】例1『5年後 ...",
+              "pre_snippet": "05/20/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "5年後",
+                "自分",
+                "5",
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-20 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "zapass.co",
+              "title": "【例文12選】「3年後・5年後・10年後の自分」とは？キャリア ...",
+              "url": "https://zapass.co/blog/myself-in-3-5-10-years",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://zapass.co › blog › myself-in-3-5-10-years",
+              "website_name": "ZaPASS JAPAN 株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/05/25 — この記事では、3年後・5年後・10年後の自分を考える重要性、企業がこの質問をする理由、具体的な回答例、そして効果的なキャリアプランを立てるための方法 ...",
+              "pre_snippet": "05/25/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "年後",
+                "5年後",
+                "年後の自分"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-05-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "reashu.com",
+              "title": "【例文あり】「5年後の自分」面接/ESでの答え方",
+              "url": "https://reashu.com/gonengonojibun/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://reashu.com › ... › 未来（意欲・キャリア・将来）",
+              "website_name": "就活の教科書",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/04/30 — 就活の面接で「5年後の自分」について聞かれた時の2つ目の答え方は「目標達成への『過程』を明確に伝える」ことです。 面接官は「学生が将来どうなりたい ...",
+              "pre_snippet": "04/30/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "5年後の自分"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "面接官が「5年後の自分」を聞く...",
+                  "description": null,
+                  "url": "https://reashu.com/gonengonojibun/#53",
+                  "domain": "reashu.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "面接で高評価】「5年後の自分」を...",
+                  "description": null,
+                  "url": "https://reashu.com/gonengonojibun/#5",
+                  "domain": "reashu.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-04-30 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "jp.indeed.com",
+              "title": "5年後の自分はどうなっていたいですか？面接でのキャリア ...",
+              "url": "https://jp.indeed.com/career-advice/interviewing/interview-question-where-do-you-see-yourself-in-five-years",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://jp.indeed.com › career-advice › interviewing › int...",
+              "website_name": "Indeed",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/16 — 採用企業が「5年後の自分はどうなっていたいですか？」という質問をしたら、その仕事に関連する自分の目標や関心をじっくり考えた上で回答しま ...",
+              "pre_snippet": "03/16/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "5年後の自分"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "www.witc.co.jp",
+              "title": "システムエンジニアのキャリアパス18選！5・10年後の ...",
+              "url": "https://www.witc.co.jp/blog/1zec5cq5tr/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.witc.co.jp › blog",
+              "website_name": "株式会社ワールドインテック",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/12/02 — システムエンジニアの5年後・10年後を考える際は、まず「どのような働き方をしたいか「どのような専門性を身につけたいか」を具体的にイメージするのが ...",
+              "pre_snippet": "12/02/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "5年後",
+                "年後"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-12-02 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "5年後のビジョン 例文",
+                "5年後10年後のビジョン 例文",
+                "5年後のビジョン 例文 転職",
+                "5年後の自分プライベート",
+                "5年後 キャリアプラン 社内",
+                "5年後のビジョン 会社",
+                "5年後10年後どう なりたい か",
+                "5年後 目標設定"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

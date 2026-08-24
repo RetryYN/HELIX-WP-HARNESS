@@ -1,0 +1,720 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231446-1317-0139-0000-5b2912e8b4c0",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "8.9122 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活つらい",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:3"
+      },
+      "result": [
+        {
+          "keyword": "就活つらい",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%81%A4%E3%82%89%E3%81%84&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:47:02 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 136,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "就活がしんどいと感じるのは、あなたの能力が足りないからではありません。`スケジュールや周囲との比較で心が疲れているサイン` です。まずは数日間就活を完全に休む、SNSを見ないなど、自分を一番大切にしてください。[](https://job.career-tasu.jp/guide/howto/184/) [[1]](https://job.career-tasu.jp/guide/howto/184/)[[2]](https://www.alc.co.jp/job-change/job-hunting-exhaustion/)\n\n心を軽くするコツ\n\n- **完全に休む日を作る** : 一日だけ就活の連絡や準備を一切せず、好きな趣味や睡眠に時間を使う。\n- **不採用は相性と捉える** : お祈りメールは人格否定ではなく、単に企業との縁やタイミングが合わなかっただけ。\n- **人と比べない** : 周囲の内定状況やSNSの情報から離れ、自分のペースを守る。[](https://job.career-tasu.jp/guide/howto/184/) [[1]](https://job.career-tasu.jp/guide/howto/184/)[[2]](https://careerpark-agent.jp/column/2599)[[3]](https://p-chan.jp/agent/agent-column/hard/)\n\n相談できる場所\n\n- **大学の窓口** : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。\n- **専門の相談窓口** : 気分の落ち込みや不眠が続くときは、厚生労働省の[こころの耳](https://kokoro.mhlw.go.jp/) などの相談窓口を利用する。[](https://careerpark-agent.jp/column/2599) [[1]](https://careerpark-agent.jp/column/2599)[[2]](https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84)[[3]](https://www.youtube.com/watch?v=z2a7ew8bjtw)\n\nもしよければ、何が一番しんどいと感じているか教えてもらえますか？\n\n- **スケジュールや忙しさ** \n- **落ち続けて自信がない** \n- **やりたいことが分からない** \n\nお話を聞かせてくれたら、少し楽になる方法を一緒に考えます。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "就活がしんどいと感じるのは、あなたの能力が足りないからではありません 。 スケジュールや周囲との比較で心が疲れているサイン です。まずは数日間就活を完全に休む、SNSを見ないなど、自分を一番大切にしてください。",
+                  "markdown": "就活がしんどいと感じるのは、あなたの能力が足りないからではありません。`スケジュールや周囲との比較で心が疲れているサイン` です。まずは数日間就活を完全に休む、SNSを見ないなど、自分を一番大切にしてください。[](https://job.career-tasu.jp/guide/howto/184/) [[1]](https://job.career-tasu.jp/guide/howto/184/)[[2]](https://www.alc.co.jp/job-change/job-hunting-exhaustion/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリタス就活",
+                      "domain": "job.career-tasu.jp",
+                      "url": "https://job.career-tasu.jp/guide/howto/184/",
+                      "title": "就活がつらい、しんどい……メンタルボロボロの現状を乗り越える方法",
+                      "text": "ログイン/会員登録をして、企業からのメッセージやキャリタス就活からのお役立ち情報を受け取ろう！ * キャリタス就活TOP..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "株式会社アルク",
+                      "domain": "www.alc.co.jp",
+                      "url": "https://www.alc.co.jp/job-change/job-hunting-exhaustion/",
+                      "title": "【27卒】就活が「辛い・不安・疲れた」と感じる理由と対処法",
+                      "text": "学生の約6割が抱える【就活ルールと実態の乖離】. 就活生の不安の正体は？学生の約6割が抱える【. 就活生の不安の正体は？..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "心を軽くするコツ",
+                  "text": "完全に休む日を作る : 一日だけ就活の連絡や準備を一切せず、好きな趣味や睡眠に時間を使う。 不採用は相性と捉える : お祈りメールは人格否定ではなく、単に企業との縁やタイミングが合わなかっただけ。 人と比べない : 周囲の内定状況やSNSの情報から離れ、自分のペースを守る。",
+                  "markdown": "- **完全に休む日を作る** : 一日だけ就活の連絡や準備を一切せず、好きな趣味や睡眠に時間を使う。\n- **不採用は相性と捉える** : お祈りメールは人格否定ではなく、単に企業との縁やタイミングが合わなかっただけ。\n- **人と比べない** : 周囲の内定状況やSNSの情報から離れ、自分のペースを守る。[](https://job.career-tasu.jp/guide/howto/184/) [[1]](https://job.career-tasu.jp/guide/howto/184/)[[2]](https://careerpark-agent.jp/column/2599)[[3]](https://p-chan.jp/agent/agent-column/hard/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリタス就活",
+                      "domain": "job.career-tasu.jp",
+                      "url": "https://job.career-tasu.jp/guide/howto/184/",
+                      "title": "就活がつらい、しんどい……メンタルボロボロの現状を乗り越える方法",
+                      "text": "ログイン/会員登録をして、企業からのメッセージやキャリタス就活からのお役立ち情報を受け取ろう！ * キャリタス就活TOP..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアパークエージェント",
+                      "domain": "careerpark-agent.jp",
+                      "url": "https://careerpark-agent.jp/column/2599",
+                      "title": "「就活しんどい」気持ちが軽くなる！ 現状を打開する10の処方箋",
+                      "text": "「就活しんどい」気持ちが軽くなる！ 現状を打開する10の処方箋 | キャリアパーク就職エージェント * 就活で辛くなった..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "p-chan.jp",
+                      "domain": "p-chan.jp",
+                      "url": "https://p-chan.jp/agent/agent-column/hard/",
+                      "title": "【2026年8月最新】就活がきつい！厳しい・しんどいと感じる理由や ...",
+                      "text": "就活が「きつい」「厳しい」「しんどい」と感じる10の理由. 就活が「きつい」と感じる8つの理由. 就活が「きつい」と感じ..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "相談できる場所",
+                  "text": "大学の窓口 : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。 専門の相談窓口 : 気分の落ち込みや不眠が続くときは、厚生労働省の こころの耳 などの相談窓口を利用する。",
+                  "markdown": "- **大学の窓口** : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。\n- **専門の相談窓口** : 気分の落ち込みや不眠が続くときは、厚生労働省の[こころの耳](https://kokoro.mhlw.go.jp/) などの相談窓口を利用する。[](https://careerpark-agent.jp/column/2599) [[1]](https://careerpark-agent.jp/column/2599)[[2]](https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84)[[3]](https://www.youtube.com/watch?v=z2a7ew8bjtw)",
+                  "links": [
+                    {
+                      "type": "link_element",
+                      "title": "こころの耳",
+                      "description": null,
+                      "url": "https://kokoro.mhlw.go.jp/",
+                      "domain": "kokoro.mhlw.go.jp"
+                    }
+                  ],
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアパークエージェント",
+                      "domain": "careerpark-agent.jp",
+                      "url": "https://careerpark-agent.jp/column/2599",
+                      "title": "「就活しんどい」気持ちが軽くなる！ 現状を打開する10の処方箋",
+                      "text": "「就活しんどい」気持ちが軽くなる！ 現状を打開する10の処方箋 | キャリアパーク就職エージェント * 就活で辛くなった..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84",
+                      "title": "「就活がしんどい…」と感じたら見てほしい！就活のプロがモチベーション ...",
+                      "text": "認識して欲しいこと。 就活がしんどいと感じやすい4つの原因と。 その対処法についてお伝えしていきます意外と気づいていない..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "YouTube",
+                      "domain": "www.youtube.com",
+                      "url": "https://www.youtube.com/watch?v=z2a7ew8bjtw",
+                      "title": "【要注意】就活鬱・・・就活ストレスとの付き合い方",
+                      "text": "もう全然受からなくてって言っ。 て。 初めて会って。 初めて来た場所。 で。 すごいストレスだと思うん。 です。 否定さ..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "もしよければ、何が一番しんどいと感じているか教えてもらえますか？スケジュールや忙しさ\n落ち続けて自信がない\nやりたいことが分からない\nお話を聞かせてくれたら、少し楽になる方法を一緒に考えます。",
+                  "markdown": "もしよければ、何が一番しんどいと感じているか教えてもらえますか？\n\n- **スケジュールや忙しさ** \n- **落ち続けて自信がない** \n- **やりたいことが分からない** \n\nお話を聞かせてくれたら、少し楽になる方法を一緒に考えます。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "キャリタス就活",
+                  "domain": "job.career-tasu.jp",
+                  "url": "https://job.career-tasu.jp/guide/howto/184/",
+                  "title": "就活がつらい、しんどい……メンタルボロボロの現状を乗り越える方法",
+                  "text": "ログイン/会員登録をして、企業からのメッセージやキャリタス就活からのお役立ち情報を受け取ろう！ * キャリタス就活TOP..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "キャリアパークエージェント",
+                  "domain": "careerpark-agent.jp",
+                  "url": "https://careerpark-agent.jp/column/2599",
+                  "title": "「就活しんどい」気持ちが軽くなる！ 現状を打開する10の処方箋",
+                  "text": "「就活しんどい」気持ちが軽くなる！ 現状を打開する10の処方箋 | キャリアパーク就職エージェント * 就活で辛くなった..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84",
+                  "title": "「就活がしんどい…」と感じたら見てほしい！就活のプロがモチベーション ...",
+                  "text": "認識して欲しいこと。 就活がしんどいと感じやすい4つの原因と。 その対処法についてお伝えしていきます意外と気づいていない..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "株式会社アルク",
+                  "domain": "www.alc.co.jp",
+                  "url": "https://www.alc.co.jp/job-change/job-hunting-exhaustion/",
+                  "title": "【27卒】就活が「辛い・不安・疲れた」と感じる理由と対処法",
+                  "text": "学生の約6割が抱える【就活ルールと実態の乖離】. 就活生の不安の正体は？学生の約6割が抱える【. 就活生の不安の正体は？..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "YouTube",
+                  "domain": "www.youtube.com",
+                  "url": "https://www.youtube.com/watch?v=z2a7ew8bjtw",
+                  "title": "【要注意】就活鬱・・・就活ストレスとの付き合い方",
+                  "text": "もう全然受からなくてって言っ。 て。 初めて会って。 初めて来た場所。 で。 すごいストレスだと思うん。 です。 否定さ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "p-chan.jp",
+                  "domain": "p-chan.jp",
+                  "url": "https://p-chan.jp/agent/agent-column/hard/",
+                  "title": "【2026年8月最新】就活がきつい！厳しい・しんどいと感じる理由や ...",
+                  "text": "就活が「きつい」「厳しい」「しんどい」と感じる10の理由. 就活が「きつい」と感じる8つの理由. 就活が「きつい」と感じ..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "job.career-tasu.jp",
+              "title": "就活がつらい、しんどい……メンタルボロボロの現状を ...",
+              "url": "https://job.career-tasu.jp/guide/howto/184/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.career-tasu.jp › guide › howto",
+              "website_name": "キャリタス就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/06/10 — 趣味や運動でリフレッシュする. 趣味や運動に時間を使い、強制的に就活以外のことを考える時間をもつことも効果的です。運動による適度な疲労は、睡眠の質 ...",
+              "pre_snippet": "06/10/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "趣味や運動でリフレッシュする"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活がつらいと感じる主な原因",
+                  "description": null,
+                  "url": "https://job.career-tasu.jp/guide/howto/184/#rtoc-2",
+                  "domain": "job.career-tasu.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活でつらいときの効果的な休...",
+                  "description": null,
+                  "url": "https://job.career-tasu.jp/guide/howto/184/#rtoc-5",
+                  "domain": "job.career-tasu.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-06-10 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活で一番辛い時期はいつですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活がつらいのはなぜですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活がしんどいと感じる理由は何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活でしんどい時はどうしたらいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "就活辛いです。ずっと漠然とした不安の中にいて、何が正解な ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11293984456",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/02/24 — 怒られたり、疑問をされるのが怖いです。 現在就活中. 就職活動.",
+              "pre_snippet": "02/24/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活つらいです24卒就活 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11281225456",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "ほんと就活がしんどくて、メンタ ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14315603254",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%81%A4%E3%82%89%E3%81%84+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjn0eKJ_7aWAxVIEFkFHegwCG8QrQIoAnoECCcQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-02-24 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "nikken-totalsourcing.jp",
+              "title": "就活がつらい、しんどい、もうやめたい！メンタルボロボロ",
+              "url": "https://nikken-totalsourcing.jp/work/newgraduate/special/real-snap/262/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://nikken-totalsourcing.jp › special › real-snap",
+              "website_name": "nikken-totalsourcing.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活 でつらいときには、運動をするなど身体を動かすという意見も目立ちました。運動をすることで気分転換となってネガティブな気持ちが解消し、精神を安定させるセロトニン ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "つらい"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "www.aichibank.co.jp",
+              "title": "つらい…」って思ってない？心が軽くなる原因別の乗り越え方",
+              "url": "https://www.aichibank.co.jp/life_plan/column/life/column25.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.aichibank.co.jp › column › life › column25",
+              "website_name": "あいち銀行",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/08 — 「就活が辛い…」と感じていませんか？この記事では、就活が辛くなる9つの原因を分析し、それぞれに合った具体的な解決策をご紹介します。心が軽くなる ...",
+              "pre_snippet": "05/08/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "辛い"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-08 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "note.com",
+              "title": "就活しんどい 学生も企業も得をしてないこの状況って本当に何？",
+              "url": "https://note.com/ababa_koho/n/n055976038419",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "30 件以上の高評価  ·  1 年前",
+              "website_name": "note · ABABA広報",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "去る3月1日、2026年卒業予定学生の「就活解禁日」を迎えました。就活生の皆さんが一番思っていると思いますが、「いや、解禁日って…苦笑」という感じです ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[13]/div[1]/div[1]/div[1]",
+              "domain": "www.youtube.com",
+              "title": "「就活がしんどい…」と感じたら見てほしい！就活のプロが ...",
+              "url": "https://www.youtube.com/watch?v=hpF_h_Bjtmw",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "視聴回数: 1190 回以上  ·  1 年前",
+              "website_name": "YouTube · 【公式】キャリアパーク就活講座",
+              "is_image": false,
+              "is_video": true,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": [
+                "is_video"
+              ],
+              "description": null,
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-05-21 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[15]/div[1]/div[1]",
+              "domain": "www.neo-career.co.jp",
+              "title": "就活がつらいのはなぜ？原因別に5つの対処法を紹介！",
+              "url": "https://www.neo-career.co.jp/careertrus/nayami_tsurai",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.neo-career.co.jp › careertrus › nayami_tsurai",
+              "website_name": "株式会社ネオキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活 がつらいと感じるのは何が原因？】①やりたいことが見つからずつらい②慣れない就活準備に追われてつらい③プレッシャーを感じてつらい④毎回の面接で緊張して ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "つらい"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[17]/div[1]/div[1]",
+              "domain": "www.alc.co.jp",
+              "title": "【27卒】就活が「辛い・不安・疲れた」と感じる理由と対処法",
+              "url": "https://www.alc.co.jp/job-change/job-hunting-exhaustion/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.alc.co.jp › job-hunting-exhaustion",
+              "website_name": "株式会社アルク",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/02 — 自分が辛いと感じるのは、個人の能力不足が原因ではありません。 仕組みそのものの歪みによるものだと理解し、冷静に対策を練ることが大切です。",
+              "pre_snippet": "07/02/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "自分が辛いと感じるのは、個人の能力不足が原因ではありません"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-02 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[19]/div[1]/div[1]",
+              "domain": "shinsotsu.mynavi-agent.jp",
+              "title": "【就活がうまくいかないときの特徴13選】つらい現状を打破する ...",
+              "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_035/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shinsotsu.mynavi-agent.jp › 就活ノウハウ",
+              "website_name": "マイナビ新卒紹介",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/02/25 — 就活がうまくいかないときに実践すべき対処法 · ①自己分析を客観的な視点でやり直す · ②志望業界・企業の視野を広げる · ③気になる企業があったら ...",
+              "pre_snippet": "02/25/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-02-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "就活 メンタル ボロボロ",
+                "就活 つらい 2ch",
+                "就活 しんどい 27卒",
+                "就活 メンタル しんどい",
+                "就活 つらい なんJ",
+                "就活 つらい エピソード",
+                "就活 つらい 知恵袋",
+                "もう就活 やめたい いやだ いやだ いやだ"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

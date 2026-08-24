@@ -1,0 +1,451 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231451-1317-0139-0000-401cc0fc8efc",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "12.5486 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "muit 就活会議",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:96"
+      },
+      "result": [
+        {
+          "keyword": "muit 就活会議",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=muit%20%E5%B0%B1%E6%B4%BB%E4%BC%9A%E8%AD%B0&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:51:51 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 0,
+          "pages_count": 1,
+          "items_count": 9,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "syukatsu-kaigi.jp",
+              "title": "三菱UFJインフォメーションテクノロジーの新卒採用・就職・企業 ...",
+              "url": "https://syukatsu-kaigi.jp/companies/74022",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://syukatsu-kaigi.jp › companies",
+              "website_name": "就活会議",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就職難易度・マッチ度のページでは、就活会議の会員が登録したステータスをもとに算出した三菱UFJインフォメーションテクノロジー株式会社の採用倍率、選考通過率 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活会議",
+                "三菱UFJインフォメーションテクノロジー"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活速報",
+                  "description": "就活会議では、三菱ＵＦＪインフォメーションテクノロジー株式会社の評判 ...",
+                  "url": "https://syukatsu-kaigi.jp/companies/74022/jobhunt_prompt_reports",
+                  "domain": "syukatsu-kaigi.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "マッチ度",
+                  "description": "三菱ＵＦＪインフォメーションテクノロジーの就活会議会員の採用倍率は5 ...",
+                  "url": "https://syukatsu-kaigi.jp/companies/74022/match",
+                  "domain": "syukatsu-kaigi.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "インターン",
+                  "description": "三菱ＵＦＪインフォメーションテクノロジーは5点満点中2.6点で、インターン ...",
+                  "url": "https://syukatsu-kaigi.jp/companies/74022/intern",
+                  "domain": "syukatsu-kaigi.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "4.3",
+                  "description": "就活会議の投稿コンテンツは、独自の掲載基準・審査フローを経て公開 ...",
+                  "url": "https://syukatsu-kaigi.jp/companies/74022/screening_experiences",
+                  "domain": "syukatsu-kaigi.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "企業研究",
+                  "description": "就活会議を運営する就活会議株式会社は、届出電気通信事業者として ...",
+                  "url": "https://syukatsu-kaigi.jp/companies/74022/screening_experiences/company_study",
+                  "domain": "syukatsu-kaigi.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]",
+              "domain": "reashu.com",
+              "title": "【就職難易度は？】三菱UFJインフォメーションテクノロジーの ...",
+              "url": "https://reashu.com/mufg-information-technology_saiyoudaigaku/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://reashu.com › ... › SIer",
+              "website_name": "就活の教科書",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/01/06 — 三菱UFJインフォメーションテクノロジーの採用倍率は、公式には公表されていません。 しかし、就活会議の選考通過率から考えると、採用倍率はおよそ6.1倍 ...",
+              "pre_snippet": "01/06/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "三菱UFJインフォメーションテクノロジー",
+                "就活会議"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-01-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "MUITの入社難易度は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "MUITは大手ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "MUITの部長の年収はいくらですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "三菱UFJインフォメーションテクノロジーは勝ち組ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[5]/div[1]/div[1]",
+              "domain": "www.it.mufg.jp",
+              "title": "新卒採用｜三菱UFJインフォメーションテクノロジー株式会社",
+              "url": "https://www.it.mufg.jp/recruiting/fresh/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.it.mufg.jp › recruiting › fresh",
+              "website_name": "三菱UFJインフォメーションテクノロジー株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026.07.22, 数字で見るMUITでの働き方を更新しました。 2027年度新卒採用のエントリー受付は終了しました。 多数のご応募をいただき、誠にありがとうございました。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "MUIT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[7]/div[1]/div[1]",
+              "domain": "www.nikki.ne.jp",
+              "title": "三菱UFJインフォメーションテクノロジーの新卒採用・就活情報",
+              "url": "https://www.nikki.ne.jp/company/200303020116202676/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.nikki.ne.jp › 情報処理/システム",
+              "website_name": "楽天みん就",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "三菱UFJインフォメーションテクノロジー の新卒採用・就活情報ページです。新卒採用やインターンについての情報や、三菱UFJインフォメーションテクノロジーに内定した ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "三菱UFJインフォメーションテクノロジー",
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[9]/div[1]/div[1]",
+              "domain": "www.it.mufg.jp",
+              "title": "FAQ｜新卒採用",
+              "url": "https://www.it.mufg.jp/recruiting/fresh/recruit/faq.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.it.mufg.jp › recruiting › fresh › recruit › faq",
+              "website_name": "三菱UFJインフォメーションテクノロジー株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "三菱UFJインフォメーションテクノロジー の採用に関するよくある質問とその回答をご紹介します。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "三菱UFJインフォメーションテクノロジー"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[11]/div[1]/div[1]",
+              "domain": "unistyleinc.com",
+              "title": "三菱UFJインフォメーションテクノロジー(MUIT)の新卒就活 ...",
+              "url": "https://unistyleinc.com/companies/1367",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unistyleinc.com › 企業・業界研究 › IT",
+              "website_name": "unistyleinc.com",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "参加したことによるメリットとして以下を挙げています。①有益な情報を共有できる②就活経験者にES添削＆模擬面接をしてもらう③ガクチカが作れる【逆転就活】MARCH未満の ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[13]/div[1]/div[1]",
+              "domain": "www.onecareer.jp",
+              "title": "【三菱UFJインフォメーションテクノロジー（MUIT）】プレエントリー",
+              "url": "https://www.onecareer.jp/events/seminar/74786?utm_source=oc&utm_medium=selection_recommend_event&utm_campaign=event_details",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.onecareer.jp › events › seminar",
+              "website_name": "ワンキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "プレエントリー受付中！ 三菱UFJインフォメーションテクノロジー（MUIT）の本選考・イベント情報を受け取りたい方は、 こちらのページからエントリーをお願いします。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "三菱UFJインフォメーションテクノロジー",
+                "MUIT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "三菱UFJインフォメーションテクノロジー やばい",
+                "三菱UFJインフォメーションテクノロジー 採用大学",
+                "三菱UFJインフォメーションテクノロジー 選考フロー",
+                "Muit と は",
+                "三菱UFJインフォメーションテクノロジー 年収",
+                "三菱UFJインフォメーションテクノロジー 評判",
+                "三菱UFJインフォメーションテクノロジー 就職偏差値",
+                "三菱UFJインフォメーションテクノロジー 採用人数"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

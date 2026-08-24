@@ -1,0 +1,596 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231450-1317-0139-0000-a2eac668b406",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "32.4986 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 髪型 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:71"
+      },
+      "result": [
+        {
+          "keyword": "就活 髪型 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20%E9%AB%AA%E5%9E%8B%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:50:43 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "images",
+            "related_searches"
+          ],
+          "se_results_count": 106,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "job.career-tasu.jp",
+              "title": "インターンシップで好印象な髪型とは？髪色・パーマ・前髪 ...",
+              "url": "https://job.career-tasu.jp/guide/internship/150/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.career-tasu.jp › guide › internship",
+              "website_name": "キャリタス就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/08/13 — インターンシップでは、顔周りをすっきり見せるために、耳を出す髪型がおすすめです。耳を出すことで顔の輪郭がはっきりして清潔な印象を与えることができ ...",
+              "pre_snippet": "08/13/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "髪型"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-08-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "回答お願いします。就活生なんですが髪型はロン毛でも大丈夫 ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12309121892",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/01/08 — 就活生なんですが髪型はロン毛でも大丈夫ですかね。肩くらいまであります ... ちなみにIT業界では澤円さんという有名人がいらっしゃいます。",
+              "pre_snippet": "01/08/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "髪型",
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "Web系企業エンジニアって服 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10245770335",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "新社会人のヘアスタイルにつ ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11312411261",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+%E9%AB%AA%E5%9E%8B+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwil0tPz_7aWAxVyBdsEHVbzDJYQrQIoAnoECCcQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-01-08 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活でNGな髪型は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT企業は髪色自由ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活の髪型はなんでもいいの？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活で男にNGな髪型は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "新卒でIT業界に入ったら服装はどうなる？企業や職種別の違い ...",
+              "url": "https://unison-career.jp/shukatsu-media/article/it-industry-research/it-industry/p13797/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › IT業界研究 › IT業界",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "この場合、服装や髪型のルールは、基本的に常駐先の企業の規定に従うことになる。 例えば、常駐先が金融機関や官公庁であれば、当然スーツ着用が義務付けられ、髪型や髪色 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "髪型",
+                "髪"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "3.IT業界の職種による服装・髪型...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-industry-research/it-industry/p13797/#3IT%E6%A5%AD%E7%95%8C%E3%81%AE%E8%81%B7%E7%A8%AE%E3%81%AB%E3%82%88%E3%82%8B%E6%9C%8D%E8%A3%85%E3%83%BB%E9%AB%AA%E5%9E%8B%E3%81%AE%E8%87%AA%E7%94%B1%E5%BA%A6",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "4.IT業界で髪型や髪色、服装自...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-industry-research/it-industry/p13797/#4IT%E6%A5%AD%E7%95%8C%E3%81%A7%E9%AB%AA%E5%9E%8B%E3%82%84%E9%AB%AA%E8%89%B2%E3%80%81%E6%9C%8D%E8%A3%85%E8%87%AA%E7%94%B1%E3%82%92%E6%A5%BD%E3%81%97%E3%82%80%E6%96%B9%E6%B3%95",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]",
+              "domain": "winc-career.jp",
+              "title": "就活用の髪型で面接官に好印象！男女別おすすめヘアスタイル ...",
+              "url": "https://winc-career.jp/magazine/181/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://winc-career.jp › magazine",
+              "website_name": "winc-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/06/05 — 就活時にふさわしい髪型 · ビジネスベリーショート. 後頭部や襟足までしっかり短く刈り上げた、超短髪のヘアスタイルです。 · センターパート. 前髪を真ん中 ...",
+              "pre_snippet": "06/05/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ビジネスベリーショート"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活時にふさわしい髪型",
+                  "description": null,
+                  "url": "https://winc-career.jp/magazine/181/#%E5%B0%B1%E6%B4%BB%E6%99%82%E3%81%AB%E3%81%B5%E3%81%95%E3%82%8F%E3%81%97%E3%81%84%E9%AB%AA%E5%9E%8B",
+                  "domain": "winc-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活時にNGな髪型",
+                  "description": null,
+                  "url": "https://winc-career.jp/magazine/181/#%E5%B0%B1%E6%B4%BB%E6%99%82%E3%81%ABNG%E3%81%AA%E9%AB%AA%E5%9E%8B",
+                  "domain": "winc-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "業界別の就活時の髪型ポイント",
+                  "description": null,
+                  "url": "https://winc-career.jp/magazine/181/#%E6%A5%AD%E7%95%8C%E5%88%A5%E3%81%AE%E5%B0%B1%E6%B4%BB%E6%99%82%E3%81%AE%E9%AB%AA%E5%9E%8B%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88",
+                  "domain": "winc-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-06-05 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[13]/div[1]/div[1]",
+              "domain": "www.onecareer.jp",
+              "title": "就活で好印象なメンズ髪形！似合う髪形の選び方やヘア ...",
+              "url": "https://www.onecareer.jp/articles/3482",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.onecareer.jp › ... › ビジネスマナー・就活準備",
+              "website_name": "ワンキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "例えば、金融業界やコンサル業界では七三分けやアップバングが好印象を与えますが、広告業界やIT業界ではナチュラルなセンターパートや軽い束感のあるスタイルも受け入れ ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[15]/div[1]/div[1]",
+              "domain": "nikken-totalsourcing.jp",
+              "title": "就活の髪型｜好印象を与えるマナーとOK/NG例を男女別に解説",
+              "url": "https://nikken-totalsourcing.jp/work/newgraduate/special/real-snap/1781/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://nikken-totalsourcing.jp › special › real-snap",
+              "website_name": "nikken-totalsourcing.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/24 — 就活においては、 地毛に近いナチュラルな髪色が基本 です。ナチュラルな髪色は、真面目さや誠実さが伝わりやすく、面接でも好印象につながります。 明る ...",
+              "pre_snippet": "03/24/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "地毛に近いナチュラルな髪色が基本"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-24 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "images",
+              "rank_group": 1,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[17]/div[1]",
+              "title": "画像",
+              "url": "https://www.google.com/search?sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&q=%E5%B0%B1%E6%B4%BB+%E9%AB%AA%E5%9E%8B+it&udm=2&source=univ&fir=vhG71KiPROjooM%252CmrKOcqH9EWSlWM%252C_%253Bp3mjOO6SgFFrgM%252CI_VV1q8MDmnWRM%252C_%253Be55UEtxEte9HJM%252CmrKOcqH9EWSlWM%252C_%253Bg5btkrFTRJOaxM%252CgUDuIslDhjUhFM%252C_%253B5cI4xkbmi7MRUM%252CI_VV1q8MDmnWRM%252C_%253BUWot5apj71E4vM%252CZVf9LGvcORXLsM%252C_%253BUZ5MbeEivpNDQM%252CQ12M_fL9r5eTyM%252C_%253BvzkJ9smtKXtXGM%252CQ12M_fL9r5eTyM%252C_%253B1Tm5MHZMSrdR8M%252CI_VV1q8MDmnWRM%252C_&usg=AI4_-kSJ9c3r78zUoMYNVSCsFh4-GZSFgg&sa=X&ved=2ahUKEwil0tPz_7aWAxVyBdsEHVbzDJYQ7Al6BAhJEAU",
+              "items": [
+                {
+                  "type": "images_element",
+                  "alt": "IT通信志望におすすめの戦略的な就活写真の撮り方をプロが解説 ...",
+                  "url": "https://studioindi.jp/blog/jobhunting-idphoto-it/",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo2HrHw147hh_7-vijfcH8oe4VQejHMkYx_VjAWpzsTd682B3NsoJz0Gg&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "一般企業の新卒採用面接官645人に聞く「男子就活生の髪型調査 ...",
+                  "url": "https://prtimes.jp/main/html/rd/p/000000828.000005794.html",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnIaWyQ7r5Kz9eq2hh3o0Terb0nflKjV2yWvYIL_hRTRYAIVyK_ewgS-k&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "IT通信志望におすすめの戦略的な就活写真の撮り方をプロが解説 ...",
+                  "url": "https://studioindi.jp/blog/jobhunting-idphoto-it/",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzbu_rwHFX6irEvLgdM9LDrOTpe6uwJYR_xUFTLVlJA5YiDit08Oe0rE&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "就活証明写真における服装(スーツ)、髪型、表情の業界別おすすめ ...",
+                  "url": "https://www.phopro.jp/media/photo/a90",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaZYHA_KhnRM6ppo86E7lEZSb9y7idLTWxpH9J8SWWMG-LVgF6yOncHQI&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "一般企業の新卒採用面接官645人に聞く「男子就活生の髪型調査 ...",
+                  "url": "https://prtimes.jp/main/html/rd/p/000000828.000005794.html",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcgoZe_oGfNkeD-Auu6Guolc3DdX6yeBIcuxBVDlbzl8_wtPRuy42s1nA&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "就活証明写真！業界に合った髪型でアピール！！",
+                  "url": "https://studio728.jp/blog/145597/",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi_7lkbsCpBJhcjRhwDy_b4uvO-I8lt3TFCLZvt9gO0mmIUwvmeDER0dc&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "就活で好印象なメンズの髪型20選！NGラインの見分け方やセット ...",
+                  "url": "https://www.ozmall.co.jp/hairsalon/men/37270/",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqnjIbemta94TvF1LGOMZdE-hJ_xLMmWpDIpGXlLxPEDgYQKp8cUrTWFA&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "就活で好印象なメンズの髪型20選！NGラインの見分け方やセット ...",
+                  "url": "https://www.ozmall.co.jp/hairsalon/men/37270/",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLsb6BL-FmVbB4UxEml_224ifpoeTtIlwzTaZhvhzbCBupeKllFTousQA&s"
+                },
+                {
+                  "type": "images_element",
+                  "alt": "一般企業の新卒採用面接官645人に聞く「男子就活生の髪型調査 ...",
+                  "url": "https://prtimes.jp/main/html/rd/p/000000828.000005794.html",
+                  "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMn23v88d1v7sUaSWmzhStjtN2GTT_gogTSyKExdEGRkY8ztTK_Lojb7I&s"
+                }
+              ],
+              "related_image_searches": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[19]/div[1]/div[1]",
+              "domain": "cheercareer.jp",
+              "title": "就活の第一印象は前髪で決まる！男女別・好印象を与える ...",
+              "url": "https://cheercareer.jp/ip_blogs/755",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://cheercareer.jp › 就活ノウハウ",
+              "website_name": "チアキャリア（CheerCareer）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/01/15 — ぱっつん前髪や触覚の可否など、就活生が悩みがちなポイントを徹底解説。男女別・顔の形別におすすめの好印象スタイルを分かりやすく紹介します。",
+              "pre_snippet": "01/15/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-01-15 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[21]/div[1]/div[1]",
+              "domain": "gaishishukatsu.com",
+              "title": "【就活の髪型にもう悩まない！】就活でのおすすめの髪型とは？ ...",
+              "url": "https://gaishishukatsu.com/archives/195392",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://gaishishukatsu.com › ... › 息抜き・読...",
+              "website_name": "外資就活ドットコム",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/05/21 — 就活の髪型を男女別に完全解説。面接・インターン・OB訪問で好印象を与える髪型のポイント、NGヘアスタイル、前髪・カラー・パーマの可否を写真付きで ...",
+              "pre_snippet": "05/21/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "髪型",
+                "ヘア"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-05-21 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "インターン 髪型 メンズ",
+                "インターン 髪型 下ろす",
+                "会社説明会 髪型 下ろす",
+                "インターン 髪型 女",
+                "インターン 髪型 前髪",
+                "オフィス カジュアル 髪型 就活",
+                "インターン 髪色",
+                "インターン 髪型 男 長め"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

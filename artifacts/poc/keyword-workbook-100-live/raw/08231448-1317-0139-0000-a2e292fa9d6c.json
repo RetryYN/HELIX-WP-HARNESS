@@ -1,0 +1,567 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231448-1317-0139-0000-a2e292fa9d6c",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "10.1466 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 キャリアプラン it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:42"
+      },
+      "result": [
+        {
+          "keyword": "就活 キャリアプラン it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%97%E3%83%A9%E3%83%B3%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:48:44 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 122,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "career.levtech.jp",
+              "title": "ITエンジニアのキャリアプランの描き方！職種別例を未経験 ...",
+              "url": "https://career.levtech.jp/guide/knowhow/article/181014/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career.levtech.jp › ... › ITエンジニアの記事一覧",
+              "website_name": "レバテックキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/07/24 — ITエンジニアの主なキャリアパスは、スペシャリスト、マネジメント職、別の職種の3つ · キャリアパスの例としては、1～4年目で開発工程を経験し自力で業務 ...",
+              "pre_snippet": "07/24/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ITエンジニアの主なキャリアパスは、スペシャリスト、マネジメント職、別の職種の3つ"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "タイプ別】ITエンジニアのキャリア...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/181014/#3",
+                  "domain": "career.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "自分に合ったキャリアプランの立...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/181014/#4",
+                  "domain": "career.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-07-24 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
+              "domain": "www.geekly.co.jp",
+              "title": "エンジニアのキャリアプラン例文！未経験や面接でのポイントを ...",
+              "url": "https://www.geekly.co.jp/column/cat-jobsearch/interview/career-plan-interview/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.geekly.co.jp › career-plan-interview",
+              "website_name": "Geekly",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/01/23 — 面接では、キャリアプランとして5年後、10年後のビジョンについて聞かれることがあります。ここでは、IT職種別に回答例文をご紹介します。 ・エンジニア ...",
+              "pre_snippet": "01/23/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "キャリアプラン",
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "面接で高評価を得られるエンジニ...",
+                  "description": null,
+                  "url": "https://www.geekly.co.jp/column/cat-jobsearch/interview/career-plan-interview/#-",
+                  "domain": "www.geekly.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "そもそもキャリアプランとは？",
+                  "description": null,
+                  "url": "https://www.geekly.co.jp/column/cat-jobsearch/interview/career-plan-interview/#--6",
+                  "domain": "www.geekly.co.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-01-23 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "doda.jp",
+              "title": "ITエンジニアのキャリアパスはどう描く？将来の考え方と転職 ...",
+              "url": "https://doda.jp/engineer/guide/it/002.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://doda.jp › engineer › guide",
+              "website_name": "doda",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/15 — システムエンジニアやプログラマーなどITエンジニア職の人が、どのようにキャリアパスを描いていけば良いかを解説。企業ごとに必要なスキルや経験を ...",
+              "pre_snippet": "07/15/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "キャリア"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-15 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "システムエンジニアSEのキャリアパスについて質問です。",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10148891175",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2015/08/10 — 私はシステムエンジニアを目指す就活生です。 面接のなかでキャリアパスについて質問された際、このような内容を答えようと考えています。",
+              "pre_snippet": "08/10/2015 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "キャリア"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2015-08-10 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "jna.co.jp",
+              "title": "システムエンジニアは新卒でもなれるが就職後のキャリアプラン ...",
+              "url": "https://jna.co.jp/blog/knowledge/5025/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://jna.co.jp › blog › knowledge",
+              "website_name": "ジャパニアス株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "... ケースが多いため、就職後のキャリアプランを作成することも大切です。そこでこの記事では、システムエンジニアになるための準備やキャリアプランについて紹介します。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "キャリアプラン"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "ITエンジニア面接で受かるキャリアプランの作り方！新卒は何 ...",
+              "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16792/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › ユニゾン㊙対策",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "5.新卒エンジニアの面接で使えるキャリアプラン例 · 5-1.3年で後輩指導ができる人になりたい · 5-2.3年後にはチームリーダーになりたい · 5-3.資格を複数取得して3年で上流 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "キャリアプラン"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "3.新卒エンジニアのキャリアプラ...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16792/#3%E6%96%B0%E5%8D%92%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%97%E3%83%A9%E3%83%B3%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5.新卒エンジニアの面接で使える...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16792/#5%E6%96%B0%E5%8D%92%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E9%9D%A2%E6%8E%A5%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8B%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%83%97%E3%83%A9%E3%83%B3%E4%BE%8B",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "なぜIT業界はやめたほうがいいのでしょうか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系で1番稼げる職業は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT事務のキャリアアップには何がありますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "面接でキャリアプランについて聞かれたらどう答えればいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "engineering-technology.brexa.com",
+              "title": "【完全版】ITエンジニアロードマップ｜未経験からキャリアパスまで",
+              "url": "https://engineering-technology.brexa.com/blog/hatasupo/it-engineer-roadmap/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://engineering-technology.brexa.com › hatasupo",
+              "website_name": "株式会社BREXA Holdings",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/01/15 — 未経験からITエンジニアを目指す方へ。キャリアパスの種類や必要スキル、学習ロードマップを徹底解説し、安定したキャリア形成のポイントも紹介し ...",
+              "pre_snippet": "01/15/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "キャリア"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアのキャリアパスの種類",
+                  "description": null,
+                  "url": "https://engineering-technology.brexa.com/blog/hatasupo/it-engineer-roadmap/#ttl2",
+                  "domain": "engineering-technology.brexa.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアの年収とキャリアア...",
+                  "description": null,
+                  "url": "https://engineering-technology.brexa.com/blog/hatasupo/it-engineer-roadmap/#ttl4",
+                  "domain": "engineering-technology.brexa.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-01-15 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "www.seigaku.ac.jp",
+              "title": "システムエンジニアのキャリアパスとは？",
+              "url": "https://www.seigaku.ac.jp/column/ai_robot/system_engineers_career.php",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.seigaku.ac.jp › system_engineers_career",
+              "website_name": "日本工科大学校",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "また、今後需要が高まる可能性のあるIT系職種を予想して、転職プランを考案することもキャリアプランの一環です。 特に近年は生成AIの急速な普及やDX（デジタルトランス ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "キャリアプラン"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "jp.stanby.com",
+              "title": "ITエンジニアのキャリアプランの考え方は？キャリアパスの例も ...",
+              "url": "https://jp.stanby.com/magazine/entry/230765",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://jp.stanby.com › magazine › entry",
+              "website_name": "スタンバイ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT エンジニアはキャリアの幅が広がっており、十分な経験やスキルがあれば転職しやすい職種の1つです。ただし理想の働き方を実現するには、しっかりとキャリアプランを設定 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "キャリアプラン"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "It 業界 キャリア プラン 例文",
+                "It 業界 キャリア プラン 新卒",
+                "IT業界 キャリアプラン 面接",
+                "エンジニア キャリアプラン 例文",
+                "エンジニア キャリアプラン 未経験",
+                "エンジニア キャリアプラン 新卒",
+                "ITエンジニア キャリアプラン例",
+                "Se キャリア プラン 新卒 面接"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

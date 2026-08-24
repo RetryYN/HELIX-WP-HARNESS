@@ -1,0 +1,572 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231449-1317-0139-0000-49ded14a7f65",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "45.4457 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "it 専門学校 就活",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:57"
+      },
+      "result": [
+        {
+          "keyword": "it 専門学校 就活",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=it%20%E5%B0%82%E9%96%80%E5%AD%A6%E6%A0%A1%20%E5%B0%B1%E6%B4%BB&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:50:07 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 125,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "IT専門学校に2年間いって就職ってきついですか？やっぱり ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14265623904",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 受験、進学",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2022/07/31 — IT専門学校に2年間いって就職ってきついですか？ やっぱり大学受験頑張って、日東駒専レベルには行くべきでしょうか？ しかし、私が行きたいのが情報 ...",
+              "pre_snippet": "07/31/2022 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT専門学校"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "情報系専門学校に通ってい ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11192794071",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "ITの専門学校(4年制)を卒業し ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14324830064",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=it+%E5%B0%82%E9%96%80%E5%AD%A6%E6%A0%A1+%E5%B0%B1%E6%B4%BB+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwj9m7bi_7aWAxX9_rsIHXzRAw8QrQIoAnoECCoQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2022-07-31 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "www.hal.ac.jp",
+              "title": "IT・コンピューター専門学校はやばいって本当？後悔しないため ...",
+              "url": "https://www.hal.ac.jp/job2/it/it-school",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.hal.ac.jp › job2 › it-school",
+              "website_name": "HAL東京",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/06/17 — IT・コンピューター専門学校を卒業すれば必ずIT業界に就職できますか？ 必ず就職できるとは限りませんが、専門学校では就職サポートが充実している ...",
+              "pre_snippet": "06/17/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "専門学校"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT・コンピューター専門学校とは",
+                  "description": null,
+                  "url": "https://www.hal.ac.jp/job2/it/it-school#chapter-1",
+                  "domain": "www.hal.ac.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT・コンピューター専門学校がや...",
+                  "description": null,
+                  "url": "https://www.hal.ac.jp/job2/it/it-school#chapter-4",
+                  "domain": "www.hal.ac.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-06-17 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "www.siw.ac.jp",
+              "title": "IT専門学校の就職先・就職率は？後悔しない学校選び ...",
+              "url": "https://www.siw.ac.jp/archives/1250",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.siw.ac.jp › BLOG",
+              "website_name": "さいたまIT・WEB専門学校",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/06/18 — 文部科学省が発表した「専門課程卒業者の就職状況調査（令和2年）」によると、情報処理・IT系の昼間部卒業生の就職率は96.2%。全国には100％を達成して ...",
+              "pre_snippet": "06/18/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "専門",
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "２、IT専門学校卒業後の進路は...",
+                  "description": null,
+                  "url": "https://www.siw.ac.jp/archives/1250#IT-2",
+                  "domain": "www.siw.ac.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "3、IT専門学校卒業後はどんな職...",
+                  "description": null,
+                  "url": "https://www.siw.ac.jp/archives/1250#3IT",
+                  "domain": "www.siw.ac.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-06-18 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系の専門学校の就職先は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT専門学校の就職率は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "専門学校はやばいって本当ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "ITを学ぶなら専門学校と大学、どちらがいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "www.chiba-fjb.ac.jp",
+              "title": "IT 専門学校 就職先",
+              "url": "https://www.chiba-fjb.ac.jp/www/column/column_20250618.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.chiba-fjb.ac.jp › www › column_20250618",
+              "website_name": "船橋情報ビジネス専門学校",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/06/18 — 【IT専門学校】卒業後の主な就職先 · ソフトウェア・システム開発企業 · ITサービス系企業 · ゲーム・エンターテインメント系企業 · 通信・インフラ企業.",
+              "pre_snippet": "06/18/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT専門学校",
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-06-18 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "shinronavi.com",
+              "title": "全国の情報・IT関係を目指せる専門学校一覧 (87校)",
+              "url": "https://shinronavi.com/search/result?sk[]=C&job[]=B1",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shinronavi.com › search › result",
+              "website_name": "進路ナビ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "全国の,情報・IT関係を目指せる専門学校の一覧（87校掲載中）です。,情報・IT関係を目指せる専門学校から学費・学部・仕事・資格・奨学金など希望の条件を追加して、 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "専門学校"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "morijyobi.ac.jp",
+              "title": "IT系専門学校の就職先は？目指せる職種・進路をわかりやすく ...",
+              "url": "https://morijyobi.ac.jp/report/it-vocational-school-career/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://morijyobi.ac.jp › it-vocational-school-career",
+              "website_name": "morijyobi.ac.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/02/13 — IT系専門学校の就職先は、システム開発やWeb制作、ゲーム、企業のIT部門など多岐にわたります。IT人材の需要が高まる今、実践的なスキルを身につけること ...",
+              "pre_snippet": "02/13/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "専門学校"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT系の専門学校の就職先はどん...",
+                  "description": null,
+                  "url": "https://morijyobi.ac.jp/report/it-vocational-school-career/#1",
+                  "domain": "morijyobi.ac.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT系専門学校の就職率は？大学...",
+                  "description": null,
+                  "url": "https://morijyobi.ac.jp/report/it-vocational-school-career/#3",
+                  "domain": "morijyobi.ac.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-02-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "www.best-shingaku.net",
+              "title": "IT コンピュータ 専門学校 就職に強い | 仕事",
+              "url": "https://www.best-shingaku.net/search/gk1bx75t35.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.best-shingaku.net › search",
+              "website_name": "ベスト進学ネット",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "「IT・コンピュータ」の専門学校の一覧です。「就職に強い」の特徴がある学校を表示しています。「IT・コンピュータ」の仕事を目指すには？各学校の詳細情報、学科 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "専門学校"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "qiita.com",
+              "title": "IT系専門学校に4年間通ってわかったこと",
+              "url": "https://qiita.com/oekazuma/items/4d5eb02f4599d939ad60",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://qiita.com › エンジニア",
+              "website_name": "Qiita",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "このインターンに参加するメリットは勉強ができるのはもちろんのこと全国のエンジニアと友達になれますし、社会人経験もできます。しかも本選考の一次面接 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "www.jec.ac.jp",
+              "title": "情報処理 | 情報処理・IT業界の就職率100%・DX・プログラマ・ ...",
+              "url": "https://www.jec.ac.jp/course/it/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.jec.ac.jp › 学科一覧",
+              "website_name": "日本電子専門学校",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就職を考えれば、幅広い可能性があるシステムエンジニアの道のほうが現実的だと感じ、情報系の専門学校に進むことを決めました。真剣に勉強に打ちこめる環境が整っている ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "専門学校"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "IT専門学校行かなきゃ よかった",
+                "It 専門 学校 後悔",
+                "IT専門学校 意味ない 知恵袋",
+                "IT 専門学校 就職先 知恵袋",
+                "IT専門学校 やめとけ",
+                "IT専門学校おすすめ",
+                "It 専門 学校 年収",
+                "It専門学校 なんJ"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

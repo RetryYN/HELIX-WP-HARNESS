@@ -1,0 +1,23 @@
+{
+  "goal_id": "PR-5-dashboard-evidence-review",
+  "workflow_style": "v_model",
+  "case_model": "poc",
+  "specialist_process": "none",
+  "behavior_contract_id": "PR-5-REVIEW-SCOPE",
+  "responsibility_owner": "wp-dashboard-review",
+  "allowed_paths": [
+    "artifacts/poc",
+    "docs/prototypes/wp-ops-dashboard",
+    "docs/governance",
+    "docs/requirements",
+    "scripts",
+    "package.json"
+  ],
+  "forbidden_paths": [],
+  "severity_policy_digest": "sha256:fbef76df873f9cc6d6d6c70da8b42a68ab6e9554bdeb8a7a030ebe78e6e0cb76",
+  "required_output_schema": "sha256:2053cb084f6a354d7d0186967f2a7a8a669f177c70a80c6920849653e7a820df",
+  "budget": {
+    "time_ms": 300000,
+    "token_limit": 30000
+  }
+}

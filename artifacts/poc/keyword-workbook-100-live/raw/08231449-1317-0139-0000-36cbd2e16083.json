@@ -1,0 +1,728 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231449-1317-0139-0000-36cbd2e16083",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "15.7717 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活ツイッター",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:54"
+      },
+      "result": [
+        {
+          "keyword": "就活ツイッター",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:49:21 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 109,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "就活に関する悩みです。就活垢というTwitterで ... - Yahoo!知恵袋",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11276910966",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/03/13 — 就活に関する悩みです。就活垢というTwitterで就活に関するTwitter(中身は就活生)を見ても共感できません。 決して就活に努力したくないわけではない ...",
+              "pre_snippet": "03/13/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "Twitter"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活でX(旧Twitter)を活用する ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活の際に、Twitterの裏垢 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13256636903",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%83%84%E3%82%A4%E3%83%83%E3%82%BF%E3%83%BC+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sxsrf=APpeQnulC22JmpyqvYXATB8MFG5WZOZjag:1787496560994&sa=X&ved=2ahUKEwjjgbfM_7aWAxXC0wIHHQdIPSYQrQIoAnoECCsQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-03-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
+              "domain": "x.com",
+              "title": "就活リス (@syukatsurisu) / Posts / X",
+              "url": "https://x.com/syukatsurisu",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "5.7万 人以上のフォロワー",
+              "website_name": "X · syukatsurisu",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活リス (@syukatsurisu) - Posts - 就活時に日系大手企業から複数内定を獲得/就活生に役立つ情報を発信 /DMでの就活相談・質問❌/リプも基本返信できません | X ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活時に日系大手企業から複数内定を獲得"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "X（旧Twitter）は、`リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります` 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。[](https://reashu.com/shukatsu-twitter/) [[1]](https://reashu.com/shukatsu-twitter/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14778)[[3]](https://web-wwc.com/blog/4848/)[[4]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)\n\n活用方法\n\n- **情報収集** ：選考体験記や業界動向をハッシュタグ（例：`#27卒` ）でリアルタイムに追う。\n- **仲間づくり** ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。\n- **スカウト・交流** ：社会人や人事の発信を参考にする。[](https://web-wwc.com/blog/4848/) [[1]](https://web-wwc.com/blog/4848/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14778)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)\n\n注意点\n\n- **身バレ防止** ：大学名や学部、具体的なエピソードを特定されないようにする。\n- **情報の真偽** ：不確かな噂や、高額セミナーへの誘導、怪しいアカウントに注意する。\n- **比較による焦り** ：他の就活生の内定報告などで自己肯定感を下げないようにする。[](https://reashu.com/shukatsu-twitter/) [[1]](https://reashu.com/shukatsu-twitter/)[[2]](https://careerticket.jp/media/article/1312/)\n\n就活アカウントの**具体的な運用方法** や、**おすすめのハッシュタグ・検索ワード** について知りたいですか？",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "X（旧Twitter）は、 リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。",
+                  "markdown": "X（旧Twitter）は、`リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります` 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。[](https://reashu.com/shukatsu-twitter/) [[1]](https://reashu.com/shukatsu-twitter/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14778)[[3]](https://web-wwc.com/blog/4848/)[[4]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "就活の教科書",
+                      "domain": "reashu.com",
+                      "url": "https://reashu.com/shukatsu-twitter/",
+                      "title": "【Twitter就活】就活アカウントのおすすめ活用法 | 作る時の注意点も",
+                      "text": "就活コンテンツを無料で配布中！ * >>SPI頻出問題集を貰うには（無料）<< ... >>広告掲載のお問い合わせはこち..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "jws-japan.or.jp",
+                      "domain": "jws-japan.or.jp",
+                      "url": "https://jws-japan.or.jp/whitecareer/blog/14778",
+                      "title": "就活×SNS活用術|X就活垢の作り方と運用を認定機関が解説",
+                      "text": "1. 就活で使う4つのSNSの役割. ☆ 4つのSNSの使い分け. ① X(旧Twitter)— メイン情報源 リアルタ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ウェブサイ",
+                      "domain": "web-wwc.com",
+                      "url": "https://web-wwc.com/blog/4848/",
+                      "title": "「Twitter就活」って？SNSを活かした採用活動 - ウェブサイ",
+                      "text": "企業側のTwitter活用は、採用活動に関しての情報をツイートで発信するという基本的な使い方だけに留まりません。就活生の..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Yahoo!知恵袋",
+                      "domain": "detail.chiebukuro.yahoo.co.jp",
+                      "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364",
+                      "title": "就活でX(旧Twitter)を活用する際、どのような活用方法がありま...",
+                      "text": "2024/5/25 15:32. 25卒で就活をしていました。 Xアカウントの活用方法として、面接内容やジョブ内容等、受..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "活用方法",
+                  "text": "情報収集 ：選考体験記や業界動向をハッシュタグ（例： #27卒 ）でリアルタイムに追う。 仲間づくり ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。 スカウト・交流 ：社会人や人事の発信を参考にする。",
+                  "markdown": "- **情報収集** ：選考体験記や業界動向をハッシュタグ（例：`#27卒` ）でリアルタイムに追う。\n- **仲間づくり** ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。\n- **スカウト・交流** ：社会人や人事の発信を参考にする。[](https://web-wwc.com/blog/4848/) [[1]](https://web-wwc.com/blog/4848/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14778)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ウェブサイ",
+                      "domain": "web-wwc.com",
+                      "url": "https://web-wwc.com/blog/4848/",
+                      "title": "「Twitter就活」って？SNSを活かした採用活動 - ウェブサイ",
+                      "text": "企業側のTwitter活用は、採用活動に関しての情報をツイートで発信するという基本的な使い方だけに留まりません。就活生の..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "jws-japan.or.jp",
+                      "domain": "jws-japan.or.jp",
+                      "url": "https://jws-japan.or.jp/whitecareer/blog/14778",
+                      "title": "就活×SNS活用術|X就活垢の作り方と運用を認定機関が解説",
+                      "text": "1. 就活で使う4つのSNSの役割. ☆ 4つのSNSの使い分け. ① X(旧Twitter)— メイン情報源 リアルタ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Yahoo!知恵袋",
+                      "domain": "detail.chiebukuro.yahoo.co.jp",
+                      "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364",
+                      "title": "就活でX(旧Twitter)を活用する際、どのような活用方法がありま...",
+                      "text": "2024/5/25 15:32. 25卒で就活をしていました。 Xアカウントの活用方法として、面接内容やジョブ内容等、受..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "注意点",
+                  "text": "身バレ防止 ：大学名や学部、具体的なエピソードを特定されないようにする。 情報の真偽 ：不確かな噂や、高額セミナーへの誘導、怪しいアカウントに注意する。 比較による焦り ：他の就活生の内定報告などで自己肯定感を下げないようにする。",
+                  "markdown": "- **身バレ防止** ：大学名や学部、具体的なエピソードを特定されないようにする。\n- **情報の真偽** ：不確かな噂や、高額セミナーへの誘導、怪しいアカウントに注意する。\n- **比較による焦り** ：他の就活生の内定報告などで自己肯定感を下げないようにする。[](https://reashu.com/shukatsu-twitter/) [[1]](https://reashu.com/shukatsu-twitter/)[[2]](https://careerticket.jp/media/article/1312/)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "就活の教科書",
+                      "domain": "reashu.com",
+                      "url": "https://reashu.com/shukatsu-twitter/",
+                      "title": "【Twitter就活】就活アカウントのおすすめ活用法 | 作る時の注意点も",
+                      "text": "就活コンテンツを無料で配布中！ * >>SPI頻出問題集を貰うには（無料）<< ... >>広告掲載のお問い合わせはこち..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアチケット就職",
+                      "domain": "careerticket.jp",
+                      "url": "https://careerticket.jp/media/article/1312/",
+                      "title": "就職活動にTwitterは使える？活用のポイントや注意点を解説",
+                      "text": "就職活動にTwitterを使うメリット; 就活情報を集められる; 企業の担当者とつながれる; 企業で働く社会人と繋がりを..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "就活アカウントの 具体的な運用方法 や、 おすすめのハッシュタグ・検索ワード について知りたいですか？",
+                  "markdown": "就活アカウントの**具体的な運用方法** や、**おすすめのハッシュタグ・検索ワード** について知りたいですか？",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "Yahoo!知恵袋",
+                  "domain": "detail.chiebukuro.yahoo.co.jp",
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364",
+                  "title": "就活でX(旧Twitter)を活用する際、どのような活用方法がありま...",
+                  "text": "2024/5/25 15:32. 25卒で就活をしていました。 Xアカウントの活用方法として、面接内容やジョブ内容等、受..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "就活の教科書",
+                  "domain": "reashu.com",
+                  "url": "https://reashu.com/shukatsu-twitter/",
+                  "title": "【Twitter就活】就活アカウントのおすすめ活用法 | 作る時の注意点も",
+                  "text": "就活コンテンツを無料で配布中！ * >>SPI頻出問題集を貰うには（無料）<< ... >>広告掲載のお問い合わせはこち..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "キャリアチケット就職",
+                  "domain": "careerticket.jp",
+                  "url": "https://careerticket.jp/media/article/1312/",
+                  "title": "就職活動にTwitterは使える？活用のポイントや注意点を解説",
+                  "text": "就職活動にTwitterを使うメリット; 就活情報を集められる; 企業の担当者とつながれる; 企業で働く社会人と繋がりを..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ウェブサイ",
+                  "domain": "web-wwc.com",
+                  "url": "https://web-wwc.com/blog/4848/",
+                  "title": "「Twitter就活」って？SNSを活かした採用活動 - ウェブサイ",
+                  "text": "企業側のTwitter活用は、採用活動に関しての情報をツイートで発信するという基本的な使い方だけに留まりません。就活生の..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "jws-japan.or.jp",
+                  "domain": "jws-japan.or.jp",
+                  "url": "https://jws-japan.or.jp/whitecareer/blog/14778",
+                  "title": "就活×SNS活用術|X就活垢の作り方と運用を認定機関が解説",
+                  "text": "1. 就活で使う4つのSNSの役割. ☆ 4つのSNSの使い分け. ① X(旧Twitter)— メイン情報源 リアルタ..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "reashu.com",
+              "title": "【Twitter就活】就活アカウントのおすすめ活用法 | 作る時の注意 ...",
+              "url": "https://reashu.com/shukatsu-twitter/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://reashu.com › 就活のやり方 › 就活お役立ちコラム",
+              "website_name": "就活の教科書",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/03 — Twitterの就活アカウントの活用方法4つ · 方法①：有益な情報を無料で手に入れること · 方法②：社会人にアプローチすること · 方法③：常にアンテナを ...",
+              "pre_snippet": "05/03/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "Twitterの就活アカウントの活用方法4つ"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "Twitterの就活アカウントの活用...",
+                  "description": null,
+                  "url": "https://reashu.com/shukatsu-twitter/#Twitter4",
+                  "domain": "reashu.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活におけるTwitter活用の注意...",
+                  "description": null,
+                  "url": "https://reashu.com/shukatsu-twitter/#Twitter5-2",
+                  "domain": "reashu.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活でSNSがどこまで調べられるのか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "ツイッターの暗黙のルールは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就職活動にSNSは影響しますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活で一番辛い時期はいつですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "www.onecareer.jp",
+              "title": "最強就活ツール!?内定に近づくTwitterの使い方【就活アカー ...",
+              "url": "https://www.onecareer.jp/articles/1669",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.onecareer.jp › articles",
+              "website_name": "ワンキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "Twitter の就活界隈（かいわい）にいれば、社会人や他の就活生の「頭の中」をずっと見ていられるので、多くの思考法や価値観を学ぶことができます。そういった点では、社会 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "Twitter",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "Twitterは最強の就活ツール...",
+                  "description": null,
+                  "url": "https://www.onecareer.jp/articles/1669#c1",
+                  "domain": "www.onecareer.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "テンプレ付き！ 今から始める就...",
+                  "description": null,
+                  "url": "https://www.onecareer.jp/articles/1669#c3",
+                  "domain": "www.onecareer.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "careerticket.jp",
+              "title": "就職活動にTwitterは使える？活用のポイントや注意点を解説",
+              "url": "https://careerticket.jp/media/article/1312/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://careerticket.jp › 記事メディアTOP › 就活ノウハウ",
+              "website_name": "キャリアチケット就職",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/07/03 — 就活情報を集められる · 企業の担当者とつながれる · 企業で働く社会人と繋がりを持つ機会ができる · 就活仲間ができる · 情報の真偽を見極めるのが難しい ...",
+              "pre_snippet": "07/03/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活情報を集められる"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-07-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "marketing.x.com",
+              "title": "Twitter就活、#Twitter転職の時代",
+              "url": "https://marketing.x.com/ja/insights/conversation-report-job-hunting",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://marketing.x.com › insights › conversation-report...",
+              "website_name": "X Business",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就職活動や転職活動におけるTwitterの活用について調査しました。情報収集ツールとしての活用から、求職者と企業とのマッチングまで。Twitter就活の実態に迫ります。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "Twitter",
+                "Twitter就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "web-wwc.com",
+              "title": "「Twitter就活」って？SNSを活かした採用活動",
+              "url": "https://web-wwc.com/blog/4848/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://web-wwc.com › blog",
+              "website_name": "ウェブサイ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "企業側のTwitter活用は、採用活動に関しての情報をツイートで発信するという基本的な使い方だけに留まりません。就活生のアカウントとTwitter上で連絡をとり、そのまま選考 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "Twitter",
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "note.com",
+              "title": "周囲に流されてTwitterの就活アカをつくった私が後悔したこと",
+              "url": "https://note.com/linkage/n/n32fde152bd2c",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "高評価 6 件  ·  6 年前",
+              "website_name": "note",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "それでは就活アカは必要ないのでしょうか？ 答えは「ノー」です。 さきほど後悔した点を挙げましたが、就活アカを作って良かったこともありました。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "x.com",
+              "title": "キャリタス就活【公式】 (@careertasu) / Posts / X",
+              "url": "https://x.com/careertasu",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "7560 人以上のフォロワー",
+              "website_name": "X · careertasu",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活 のプロに何でも相談できる「あんしん相談」など、学生のみなさんに寄り添った情報を毎日発信中！ 先輩社員と話せるイベントや選考対策が充実、掲載企業数2万社以上。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "Twitter 就活 バレる",
+                "Twitter 就活アカウント 怪しい",
+                "就活 Twitter 病む",
+                "就活垢 気持ち 悪い",
+                "就活垢 意識高い",
+                "就活 ツイッター 隠語",
+                "就活 リス Twitter",
+                "就活垢 DM"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

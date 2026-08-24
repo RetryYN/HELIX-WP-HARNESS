@@ -1,0 +1,574 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231450-1317-0139-0000-f7f51a1e27f8",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "32.8284 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 面接 質問 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:79"
+      },
+      "result": [
+        {
+          "keyword": "就活 面接 質問 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20%E9%9D%A2%E6%8E%A5%20%E8%B3%AA%E5%95%8F%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:51:07 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 136,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "job.tracks.run",
+              "title": "IT企業の面接質問集｜エンジニア就活対策 - Track Job",
+              "url": "https://job.tracks.run/columns/job-hunting-engineer-interview",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.tracks.run › job-hunting-engineer-interview",
+              "website_name": "tracks.run",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/06 — 自己PR、ガクチカ、技術経験、志望動機、逆質問まで、IT企業の面接で出やすい質問を整理。面接官の意図を踏まえた答え方と準備法をわかりやすく解説し ...",
+              "pre_snippet": "03/06/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "自己PR、ガクチカ、技術経験、志望動機、逆質問まで"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
+              "domain": "www.acrovision.jp",
+              "title": "IT業界で面接のときよく聞かれる質問7つ｜好印象を持た ...",
+              "url": "https://www.acrovision.jp/career/it-7/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.acrovision.jp › career",
+              "website_name": "株式会社アクロビジョン",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "身の回りに使われるIT技術を見て、「どこに魅力を感じたか」を具体的に答えられるようにしておくことと、企業のHPやOB・OG訪問などをして、「何故他の会社ではなくこの会社 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "面接でよく聞かれる質問7つ",
+                  "description": null,
+                  "url": "https://www.acrovision.jp/career/it-7/#questions-7",
+                  "domain": "www.acrovision.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界での逆質問とは",
+                  "description": null,
+                  "url": "https://www.acrovision.jp/career/it-7/#reverse-qa",
+                  "domain": "www.acrovision.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "好印象を持たれる逆質問例4つ",
+                  "description": null,
+                  "url": "https://www.acrovision.jp/career/it-7/#good-reverse-qa",
+                  "domain": "www.acrovision.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "career.levtech.jp",
+              "title": "ITエンジニアの面接質問集42選！各種回答例を紹介",
+              "url": "https://career.levtech.jp/guide/knowhow/article/231/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career.levtech.jp › ... › SEの記事一覧",
+              "website_name": "レバテックキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/10/30 — エンジニア転職の面接では、転職理由や志望動機のような定番の質問と、これまでの経験や業務内容に特化した2種類の質問が一般的です。 したがって、定番の ...",
+              "pre_snippet": "10/30/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "面接",
+                "質問"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアの経験・スキル・技...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/231/#3",
+                  "domain": "career.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "ITエンジニアの素質に関する面接...",
+                  "description": null,
+                  "url": "https://career.levtech.jp/guide/knowhow/article/231/#5",
+                  "domain": "career.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-10-30 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "reashu.com",
+              "title": "【回答例あり】IT業界/企業の面接でよく聞かれる質問一覧",
+              "url": "https://reashu.com/it_mensetsu_shitsumon/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://reashu.com › 面接 › 面接対策",
+              "website_name": "就活の教科書",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/03 — 質問①：なぜIT業界を志望しているのですか？ 質問②：IT業界の中で弊社を選んだ理由は何ですか？ 質問③：今興味のある技術や情報 ...",
+              "pre_snippet": "07/03/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "質問",
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "残業/年収/福利厚生】新卒のIT業...",
+                  "description": null,
+                  "url": "https://reashu.com/it_mensetsu_shitsumon/#IT-6",
+                  "domain": "reashu.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "新卒・転職別】IT業界/企業の面...",
+                  "description": null,
+                  "url": "https://reashu.com/it_mensetsu_shitsumon/#IT30",
+                  "domain": "reashu.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "ITエンジニアの面接でされる質問の回答例34選！逆質問例15選！",
+              "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6063/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › エンジニア転職ガイド",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/13 — ITエンジニアの採用面接で聞かれやすい、定番の質問10選をご紹介します。回答のポイントと例についても解説していくので、ぜひ参考にしてください。 自己 ...",
+              "pre_snippet": "08/13/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "ITエンジニアの採用面接で聞かれやすい、定番の質問10選"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "3.ITエンジニアの採用面接でよく...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6063/#3IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E6%8E%A1%E7%94%A8%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%82%88%E3%81%8F%E8%81%9E%E3%81%8B%E3%82%8C%E3%82%8B%E8%B3%AA%E5%95%8F%EF%BD%9E%E4%BA%BA%E6%9F%84%E3%82%84%E3%81%93%E3%82%8C%E3%81%BE%E3%81%A7%E3%81%AE%E7%B5%8C%E9%A8%9312%E9%81%B8%EF%BD%9E",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "6.ITエンジニア採用面接で印象...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6063/#6IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E6%8E%A1%E7%94%A8%E9%9D%A2%E6%8E%A5%E3%81%A7%E5%8D%B0%E8%B1%A1%E3%81%8C%E8%89%AF%E3%81%8F%E3%81%AA%E3%82%8B%E9%80%86%E8%B3%AA%E5%95%8F%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0TOP15",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "面接ボロボロ 受かった なぜ？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "面接でキラー質問とは何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "面接で「えっと」の言い換えは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "面接で絶対に言わないことワースト3は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "biz.supporterz.jp",
+              "title": "【エンジニア採用】優秀なエンジニアを見極める技術質問集",
+              "url": "https://biz.supporterz.jp/method/012",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://biz.supporterz.jp › method",
+              "website_name": "サポーターズ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/10/09 — エンジニアの技術質問例 ; 4. チーム開発を円滑に進めるために、どのようなことを工夫しましたか？ ; 5. 技術スタックと技術選定の理由について教えて ...",
+              "pre_snippet": "10/09/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "質問"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-10-09 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "paiza.jp",
+              "title": "一次・二次面接と最終面接の違いについて",
+              "url": "https://paiza.jp/student/advice/final_interview",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://paiza.jp › student › advice › final_interview",
+              "website_name": "paiza",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "質問 例 · ◯◯サービスの開発チームにはどのような方がいらっしゃいますか · 入社後はどのような研修や業務からのスタートになりますか ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "質問"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
+              "domain": "techoffer.jp",
+              "title": "IT業界の面接：質問意図を理解し内定獲得につなげよう",
+              "url": "https://techoffer.jp/rikeishukatsu/it-mensetsu-shitsuomon/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://techoffer.jp › it-mensetsu-shitsuomon",
+              "website_name": "techoffer.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/08/27 — 面接官は、就活生が自社でどのように働こうとするのか、しっかり考えているかどうかを知るための質問を行います。しっかりとした企業分析ができているか ...",
+              "pre_snippet": "08/27/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "面接",
+                "就活",
+                "質問"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-08-27 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "www.neo-career.co.jp",
+              "title": "【転職】IT業界・企業の面接質問と回答例・厳選12種",
+              "url": "https://www.neo-career.co.jp/careertrus/tenshoku_itgyokai_mensetsu",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.neo-career.co.jp › ... › 転職 › IT・Web業界",
+              "website_name": "株式会社ネオキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/08 — IT業界の転職面接では長所・短所、これまでの経歴、目標、キャリアについてなどを質問されます。本記事では未経験者向けの逆質問5つもご紹介！",
+              "pre_snippet": "07/08/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "面接",
+                "質問"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-08 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "It 業界 面接 質問 新卒",
+                "It 企業 面接 新卒",
+                "IT業界 面接 逆質問",
+                "It 企業 面接 未経験",
+                "IT業界 逆質問例",
+                "エンジニア面接質問 未経験",
+                "IT業界 逆質問 新卒",
+                "IT 面接 勉強してない"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
