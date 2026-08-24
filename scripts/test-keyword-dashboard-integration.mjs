@@ -72,7 +72,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
 {
   const actual=projectDashboard(pocDb);
   assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
-  assert.equal(actual.groups.find((group)=>group.main_keyword==="就活ねくたい").display_keyword,"就活 ねくたい","keyword list separates normalized tokens while retaining the source surface form");
+  assert.equal(actual.groups.find((group)=>group.main_keyword==="就活ねくたい").display_keyword,"就活 ネクタイ","keyword list uses normalized display tokens while retaining raw main_keyword");
   assert.ok(actual.groups.filter((group)=>group.category_path[0]==="就活").every((group)=>!group.category_path.includes("IT就活")),"general job-search scope must not fall back into the IT category");
   assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");
   assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),678,"raw 681 rows must project to 678 normalized query groups");
