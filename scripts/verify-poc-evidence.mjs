@@ -7,7 +7,7 @@ import path from "node:path";
 const repoRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const fromRepo=(value)=>path.isAbsolute(value)?value:path.resolve(repoRoot,value);
 const keywordPath=fromRepo("artifacts/poc/keyword-workbook-100-live/result.json");
-const gscSummaryPath=fromRepo("artifacts/poc/gsc-page-query-28d-summary.json");
+const gscSummaryPath=fromRepo(process.env.WP_GSC_SUMMARY ?? "artifacts/poc/gsc-page-query-28d-summary.json");
 const headingSummaryPath=fromRepo("artifacts/poc/wp-heading-summary.json");
 const fixtureDigest=(root)=>{const hash=createHash("sha256");const files=readdirSync(root,{recursive:true,withFileTypes:true}).filter((entry)=>entry.isFile()).map((entry)=>path.join(entry.parentPath,entry.name)).sort();for(const file of files){hash.update(path.relative(root,file));hash.update("\0");hash.update(readFileSync(file));hash.update("\0")}return hash.digest("hex")};
 assert.ok(existsSync(keywordPath),"100-keyword real DFS result is required");
