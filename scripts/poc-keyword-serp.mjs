@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { digest, groupBySerp, normalizeKeyword, organicUrls } from "./keyword-serp-core.mjs";
-import {buildLatestKeywordGroups} from "./keyword-grouping.mjs";
+import {GROUPING_ALGORITHM,GROUPING_DECISION,buildLatestKeywordGroups,evidenceDigest} from "./keyword-grouping.mjs";
 import { readXlsxKeywordSheet } from "./read-xlsx-keywords.mjs";
 
 const API = "https://api.dataforseo.com/v3";
@@ -160,10 +160,10 @@ const evidence = {
     { file: "IT就活大学キーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
   ],
   tasks: completed,
-  grouping: { algorithm: "normalized-context-hierarchy-top5-complete-linkage.v4", decision: "形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけの群は最寄りの実在親施策へ内包する。", ...grouping },
+  grouping: { algorithm: GROUPING_ALGORITHM, decision: GROUPING_DECISION, ...grouping },
   keyword_hierarchy:hierarchy,
   article_keyword_groups: articleKeywordGroups,
-  reproducibility_digest: digest({ input, snapshots: completed.map(({ source_keyword_id, response_digest }) => ({ source_keyword_id, response_digest })), grouping, articleKeywordGroups }),
+  reproducibility_digest: evidenceDigest({ tasks: completed, algorithm: GROUPING_ALGORITHM, hierarchy, grouping, articleKeywordGroups }),
 };
 await writeFile(path.join(outputDir, "result.json"), `${JSON.stringify(evidence, null, 2)}\n`);
 console.log(JSON.stringify({ output: path.join(outputDir, "result.json"), tasks: completed.length, clusters: grouping.clusters.length, article_keyword_groups:articleKeywordGroups.length,total_cost: completed.reduce((sum, row) => sum + Number(row.cost), 0) }, null, 2));

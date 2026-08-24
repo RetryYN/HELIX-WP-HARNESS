@@ -17,16 +17,20 @@ const processedGroups=poc.article_keyword_groups.map((group,index)=>{
   for(let left=0;left<rows.length;left+=1)for(let right=left+1;right<rows.length;right+=1)pairs.push(pairByIds.get([rows[left].source_keyword_id,rows[right].source_keyword_id].sort().join("\0")));
   const weakest=pairs.length?pairs.reduce((current,pair)=>(pair.decision_ratio??pair.ratio)<(current.decision_ratio??current.ratio)?pair:current):null;
   const sharedUrls=rows.length>1?rows[0].organic_urls.slice(0,5).filter((url)=>rows.slice(1).every((row)=>row.organic_urls.slice(0,5).includes(url))):[];
-  const main=rows.find((row)=>row.keyword===group.main_keyword);
+  const resolved=group.resolution_state!=="unresolved"&&group.main_keyword!=null;
+  const main=resolved?rows.find((row)=>row.keyword===group.main_keyword):null;
+  if(resolved&&!main)throw new Error(`main keyword is not an actual group member: ${group.group_id}`);
   const categoryPath=categoryPathForKeywords(rows.map((row)=>row.keyword));
+  const mainBasis="文脈・語数階層内の実在KWから検索Vol最大（修飾語はmain除外）";
   return {
-    id:`it-shukatu-serp-${String(index+1).padStart(3,"0")}`,site_id:"it-shukatu.com",main_keyword:group.main_keyword,main_origin:"文脈・語数階層内の実在KWから検索Vol最大（修飾語はmain除外）",
-    source_order:{file:0,sheet:0,row:Math.min(...rows.map((row)=>row.source_row))},source_location:`DB取込 / IT就活 / ${main.source_row}行`,search_volume:group.main_search_volume,search_volume_source:"取込DB（DataForSEO検索Vol）",
+    id:`it-shukatu-serp-${String(index+1).padStart(3,"0")}`,site_id:"it-shukatu.com",resolution_state:resolved?"resolved":"unresolved",main_keyword:resolved?group.main_keyword:null,derived_parent_candidate:resolved?null:group.derived_parent_candidate??null,
+    main_origin:resolved?mainBasis:"derived_parent_candidate（修飾語KWのみ・実在親KWなし・main未確定）",
+    source_order:{file:0,sheet:0,row:Math.min(...rows.map((row)=>row.source_row))},source_location:`DB取込 / IT就活 / ${(main??rows[0]).source_row}行`,search_volume:resolved?group.main_search_volume:null,search_volume_source:"取込DB（DataForSEO検索Vol）",
     intent_keywords:rows.filter((row)=>row.keyword!==group.main_keyword).map((row)=>row.keyword),sibling_keywords:[],comparison_keywords:rows.map((row)=>row.keyword),
     confidence:weakest?((weakest.decision_ratio??weakest.ratio)>=0.8?"high":"possible"):"single",overlap:{shared:weakest?.shared_count??0,depth:5,ratio:weakest?.decision_ratio??weakest?.ratio??0},state:"未施策",wp_article_id:null,category:categoryPath.at(-1),category_path:categoryPath,
-    strategy:{decision:rows.length>1?"1記事に統合":"単独施策候補",article_count:1,main_basis:"SERP群内の検索Vol最大",click_opportunity:"AIO出現クエリは施策評価で別管理"},
+    strategy:{decision:resolved?(rows.length>1?"1記事に統合":"単独施策候補"):"親KW未確定（PO確定またはDFS取得待ち）",article_count:1,main_basis:resolved?mainBasis:"derived_parent_candidate（未昇格）",click_opportunity:"AIO出現クエリは施策評価で別管理"},
     article_gate:{status:"未成立",conditions:[
-      {label:"対象KW群の確定",status:"pass",detail:`main 1語・内包KW ${rows.length-1}語`},{label:"WP記事IDの割当",status:"blocked",detail:"未割当"},{label:"main KW coverage",status:"pending",detail:"記事未作成"},{label:"内包KWの検索意図coverage",status:rows.length>1?"pending":"pass",detail:rows.length>1?"記事未作成":"内包KWなし"},{label:"required_topics coverage",status:"blocked",detail:"PAA・関連検索の論点化待ち"},{label:"事実情報の出典",status:"pending",detail:"記事未作成"}
+      resolved?{label:"対象KW群の確定",status:"pass",detail:`main 1語・内包KW ${rows.length-1}語`}:{label:"対象KW群の確定",status:"blocked",detail:`main未確定・導出候補「${group.derived_parent_candidate??"—"}」・修飾語KW ${rows.length}語`},{label:"WP記事IDの割当",status:"blocked",detail:"未割当"},{label:"main KW coverage",status:"pending",detail:"記事未作成"},{label:"内包KWの検索意図coverage",status:rows.length>1?"pending":"pass",detail:rows.length>1?"記事未作成":"内包KWなし"},{label:"required_topics coverage",status:"blocked",detail:"PAA・関連検索の論点化待ち"},{label:"事実情報の出典",status:"pending",detail:"記事未作成"}
     ]},cost:rows.reduce((sum,row)=>sum+Number(row.cost??0),0),task_ids:rows.map((row)=>row.task_id),shared_urls:sharedUrls
   };
 });

@@ -47,6 +47,8 @@ assert.equal(pocDb.prepare("SELECT h.term_count FROM keyword_hierarchy h JOIN im
 assert.equal(pocDb.prepare("SELECT p.raw_keyword AS parent FROM keyword_hierarchy h JOIN imported_keywords k ON k.source_keyword_id=h.source_keyword_id LEFT JOIN imported_keywords p ON p.source_keyword_id=h.parent_source_keyword_id WHERE k.raw_keyword='it ニュース 就活'").get().parent,"it 就活");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = '施策KW群割当済み'").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com'").get().count, 63);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND resolution_state = 'resolved' AND main_keyword IS NOT NULL").get().count, 63, "every real group currently resolves to an actual main keyword");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword IS NULL OR resolution_state = 'unresolved'").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND action_state = '未施策'").get().count, hasGscEvidence?(hasHeadingEvidence?50:54):63);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND action_state = '公開中'").get().count, hasGscEvidence?(hasHeadingEvidence?13:9):0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE state = '確定'").get().count,hasGscEvidence?(hasHeadingEvidence?13:9):0);
@@ -74,6 +76,28 @@ if(hasGscEvidence){
   assert.equal(actual.groups.find((group)=>group.main_keyword==="it 就活 流れ").article_match.state,"同一記事候補","one WP article must belong to the better-supported keyword group");
 }
 pocDb.close();
+
+// §5: a derived_parent_candidate group must persist as unresolved, stay visible, and never be matched to or assigned a WP article.
+{
+  const baseFixture=JSON.parse(readFileSync(path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),"utf8"));
+  const template=baseFixture.groups.find((group)=>group.site_id==="it-shukatu.com");
+  const unresolvedGroup={...template,id:"unresolved-001",resolution_state:"unresolved",main_keyword:null,derived_parent_candidate:"転職 サイト",main_origin:"derived_parent_candidate（修飾語KWのみ・実在親KWなし・main未確定）",search_volume:null,intent_keywords:["転職 サイト おすすめ"],sibling_keywords:[],comparison_keywords:["転職 サイト おすすめ"],wp_article_id:null,state:"未施策",task_ids:[],shared_urls:[],
+    strategy:{...template.strategy,decision:"親KW未確定（PO確定またはDFS取得待ち）",main_basis:"derived_parent_candidate（未昇格）"},
+    article_gate:{status:"未成立",conditions:[{label:"対象KW群の確定",status:"blocked",detail:"main未確定"},...template.article_gate.conditions.slice(1)]}};
+  const dir=mkdtempSync(path.join(tmpdir(),"wp-dashboard-unresolved-"));
+  const fixturePath=path.join(dir,"fixture.json");
+  writeFileSync(fixturePath,JSON.stringify({...baseFixture,groups:[...baseFixture.groups,unresolvedGroup]}));
+  const db=buildDashboardDb({dbPath:path.join(dir,"dashboard.sqlite"),fixturePath,artifactRoot:path.resolve("artifacts/poc")});
+  const projected=projectDashboard(db).groups.find((group)=>group.id==="unresolved-001");
+  assert.equal(projected.resolution_state,"unresolved");
+  assert.equal(projected.main_keyword,null,"derived parent must not be promoted to main_keyword");
+  assert.equal(projected.derived_parent_candidate,"転職 サイト");
+  assert.equal(projected.article_match,null,"unresolved groups are excluded from article matching");
+  assert.equal(projected.wp_article_id,null);
+  assert.equal(projected.article_gate.status,"未成立");
+  assert.throws(()=>db.exec("INSERT INTO keyword_groups (group_id,site_id,resolution_state,main_keyword,derived_parent_candidate,main_origin,category,category_path_json,source_order_file,source_order_sheet,source_order_row,source_location,search_volume_json,search_volume_source,confidence,overlap_shared,overlap_depth,overlap_ratio,action_state,wp_article_id,cost) VALUES ('bad','it-shukatu.com','resolved',NULL,NULL,'x','c','[]',0,0,0,'l','null','s','single',0,5,0,'未施策',NULL,0)"),/CHECK/,"a resolved group without a main keyword must be rejected by the schema");
+  db.close();
+}
 
 const hierarchyRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-category-"));
 const hierarchyFixturePath=path.join(hierarchyRoot,"fixture.json");

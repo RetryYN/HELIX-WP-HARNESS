@@ -16,7 +16,7 @@ siteSelector.value=data.sites.some((site)=>site.site_id===requestedSite)?request
 pinnedSites.forEach((site)=>siteSelector.insertAdjacentHTML("beforeend",`<button type="button" role="tab" class="site-tab ${site.site_id===siteSelector.value?"active":""}" data-site="${escapeHtml(site.site_id)}">${escapeHtml(site.label)}</button>`));
 siteSelector.insertAdjacentHTML("beforeend",'<button type="button" class="site-directory-trigger">サイト一覧</button>');
 const metricLabels = {total_keywords:"対象KW",actionable_main_keywords:"施策メインKW",new_article_candidates:"新規記事候補",wp_articles_assigned:"記事ID割当"};
-function renderMetrics(groups){const metrics={total_keywords:groups.reduce((sum,group)=>sum+1+group.intent_keywords.length,0),actionable_main_keywords:groups.length,new_article_candidates:groups.filter((group)=>group.state==="未施策").length,wp_articles_assigned:groups.filter((group)=>group.wp_article_id!=null).length};document.querySelector("#metrics").innerHTML=Object.entries(metrics).map(([key,value])=>`<div class="metric"><span>${metricLabels[key]}</span><strong>${yen.format(value)}</strong><small>件</small></div>`).join("")}
+function renderMetrics(groups){const metrics={total_keywords:groups.reduce((sum,group)=>sum+1+group.intent_keywords.length,0),actionable_main_keywords:groups.filter((group)=>group.main_keyword!=null).length,new_article_candidates:groups.filter((group)=>group.state==="未施策").length,wp_articles_assigned:groups.filter((group)=>group.wp_article_id!=null).length};document.querySelector("#metrics").innerHTML=Object.entries(metrics).map(([key,value])=>`<div class="metric"><span>${metricLabels[key]}</span><strong>${yen.format(value)}</strong><small>件</small></div>`).join("")}
 
 document.querySelectorAll(".tab").forEach((tab)=>tab.addEventListener("click",()=>{
   document.querySelectorAll(".tab,.view").forEach((node)=>node.classList.remove("active"));
@@ -55,7 +55,7 @@ const queryPageSizeControl=document.querySelector("#query-page-size");
 const queryPagination=document.querySelector("#query-pagination");
 let queryPage=1;
 let queryCategoryDepth=1;
-function label(group){return group.main_keyword ?? group.sibling_keywords.join(" ／ ")}
+function label(group){return group.main_keyword ?? (group.derived_parent_candidate?`${group.derived_parent_candidate}（親KW未確定）`:group.sibling_keywords.join(" ／ "))}
 function articleForId(id){return data.article_query_summaries.find((article)=>article.site_id===siteSelector.value&&article.wp_article_id===id)}
 function articleMatchLabel(group){const match=group.article_match;if(!match)return "未照合";if(match.state==="確定")return `WP #${group.wp_article_id}`;if(match.state==="タイトル一致のみ"||match.state==="見出し一致のみ")return `候補 WP #${match.candidates[0]?.wp_article_id}`;if(match.state==="複数候補")return `候補 ${match.candidates.length}件`;if(match.state==="同一記事候補")return `他KW群と同じ記事`;return "対応記事なし"}
 function renderDetail(group){
@@ -72,7 +72,7 @@ function renderDetail(group){
     <div class="detail-block"><div class="detail-label">DFS Task ID</div>${group.task_ids.map((id)=>`<div class="detail-row"><code>${escapeHtml(id)}</code></div>`).join("")}</div>`;
 }
 const compareSourceOrder=(left,right)=>left.group.source_order.file-right.group.source_order.file||left.group.source_order.sheet-right.group.source_order.sheet||left.group.source_order.row-right.group.source_order.row;
-const allKeywordRows=data.groups.filter((group)=>group.main_keyword).map((group)=>({keyword:group.main_keyword,parent:group.main_keyword,group}));
+const allKeywordRows=data.groups.filter((group)=>group.main_keyword||group.derived_parent_candidate).map((group)=>({keyword:label(group),parent:group.main_keyword??group.derived_parent_candidate,group}));
 let keywordRows=[];
 const option=(value)=>`<option value="${escapeHtml(value)}">${escapeHtml(value)}</option>`;
 function resetFilter(select){while(select.options.length>1)select.remove(1);select.value="all"}
