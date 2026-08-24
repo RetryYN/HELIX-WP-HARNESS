@@ -1,0 +1,641 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231447-1317-0139-0000-84a57f4f4eb1",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "34.2151 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活の軸 it 文系",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:13"
+      },
+      "result": [
+        {
+          "keyword": "就活の軸 it 文系",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%81%AE%E8%BB%B8%20it%20%E6%96%87%E7%B3%BB&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:47:34 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 113,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "shinsotsu.mynavi-agent.jp",
+              "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+              "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shinsotsu.mynavi-agent.jp › 就活ノウハウ",
+              "website_name": "マイナビ新卒紹介",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/23 — IT業界向けの就活の軸【例文5選（150〜200文字）】 · 【価値観・貢献】業務効率化で現場を支える · 【技術・成長】学び続けて成長し、市場価値を高める.",
+              "pre_snippet": "03/23/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活の軸"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界での就活の軸の作り方...",
+                  "description": null,
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/#head2",
+                  "domain": "shinsotsu.mynavi-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界で評価される「就活の軸...",
+                  "description": null,
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/#head3",
+                  "domain": "shinsotsu.mynavi-agent.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-23 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]",
+              "domain": "typeshukatsu.jp",
+              "title": "IT内定者特別講演 文系・理系出身内定者が教える「私がIT業界 ...",
+              "url": "https://typeshukatsu.jp/s/article/eventreport/39117/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://typeshukatsu.jp › article › eventreport",
+              "website_name": "type就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2022/12/04 — 最終的にIT業界を選んだのは私の2つの就活軸に一番合っていたからです。 ... 特に2つめの軸から、柔軟にキャリア形成ができ、安定して働くことのできる企業 ...",
+              "pre_snippet": "12/04/2022 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活軸"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2022-12-04 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "文系学生がIT業界を目指す際の就活の軸は、`「なぜITなのか」「文系の強みをどう活かすか」を明確にすることが重要` です。課題解決、仕組みづくり、橋渡し役といった視点を軸に据えると、説得力が増します。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://note.com/joyful_ixora8520/n/n8a51acacadf9)\n\n文系向けの主な就活の軸の切り口\n\n- **課題解決（ソリューション）** ：ITを用いて、顧客や社会の非効率な部分をなくし、本質的な課題を解決したい。\n- **橋渡し（コミュニケーション）** ：顧客の要望を丁寧にヒアリングし、エンジニアと現場をつなぐ調整役として価値を出したい。\n- **仕組みづくり（業務効率化）** ：手作業やアナログな工程をシステム化し、働く人が働きやすい環境をつくりたい。\n- **キャリア成長（自走・挑戦）** ：変化の速いIT環境の中で、文系未経験からでも学び続け、市場価値を高めたい。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://note.com/joyful_ixora8520/n/n8a51acacadf9)\n\n例文テンプレート\n\n> 私の就活の軸は**「[文系の強み・価値観]を活かし、ITの力で[実現したいこと]を達成できる環境」** です。\n\n- **具体例（橋渡し・課題解決型）** > 「私の就活の軸は、相手の立場に立って課題を整理し、ITを用いて現場の業務効率化や変革を支えることです。アルバイトやゼミで培った傾聴力と調整力を活かし、お客様の真のニーズを引き出して最適な提案を行える企業で働きたいと考えています。」\n\nもしよろしければ、以下を教えていただけますか？\n\n- 志望している**職種** （営業職、ITコンサル、総合職・企画、あるいは文系から目指すエンジニアなど）\n- 学生時代に力を入れたこと（**ガクチカ**）\n\nあなたの経験に合わせた具体的な軸の調整をお手伝いします。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "文系学生がIT業界を目指す際の就活の軸は、 「なぜITなのか」「文系の強みをどう活かすか」を明確にすることが重要 です。課題解決、仕組みづくり、橋渡し役といった視点を軸に据えると、説得力が増します。",
+                  "markdown": "文系学生がIT業界を目指す際の就活の軸は、`「なぜITなのか」「文系の強みをどう活かすか」を明確にすることが重要` です。課題解決、仕組みづくり、橋渡し役といった視点を軸に据えると、説得力が増します。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://note.com/joyful_ixora8520/n/n8a51acacadf9)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "マイナビ新卒紹介",
+                      "domain": "shinsotsu.mynavi-agent.jp",
+                      "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+                      "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+                      "text": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説 * キャリパスLIVE紹介 ... 2026年3月23日 *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "note",
+                      "domain": "note.com",
+                      "url": "https://note.com/joyful_ixora8520/n/n8a51acacadf9",
+                      "title": "【文系必見】面接官の「なぜIT業界？」に刺さる回答例5選 - note",
+                      "text": "パターン③【強み活用型】文系スキル×IT業界での活かし方. 結論：自分の強みがIT業界でこそ活きると確信している。 「私..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "文系向けの主な就活の軸の切り口",
+                  "text": "課題解決（ソリューション） ：ITを用いて、顧客や社会の非効率な部分をなくし、本質的な課題を解決したい。 橋渡し（コミュニケーション） ：顧客の要望を丁寧にヒアリングし、エンジニアと現場をつなぐ調整役として価値を出したい。 仕組みづくり（業務効率化） ：手作業やアナログな工程をシステム化し、働く人が働きやすい環境をつくりたい。 キャリア成長（自走・挑戦） ：変化の速いIT環境の中で、文系未経験からでも学び続け、市場価値を高めたい。",
+                  "markdown": "- **課題解決（ソリューション）** ：ITを用いて、顧客や社会の非効率な部分をなくし、本質的な課題を解決したい。\n- **橋渡し（コミュニケーション）** ：顧客の要望を丁寧にヒアリングし、エンジニアと現場をつなぐ調整役として価値を出したい。\n- **仕組みづくり（業務効率化）** ：手作業やアナログな工程をシステム化し、働く人が働きやすい環境をつくりたい。\n- **キャリア成長（自走・挑戦）** ：変化の速いIT環境の中で、文系未経験からでも学び続け、市場価値を高めたい。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://note.com/joyful_ixora8520/n/n8a51acacadf9)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "マイナビ新卒紹介",
+                      "domain": "shinsotsu.mynavi-agent.jp",
+                      "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+                      "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+                      "text": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説 * キャリパスLIVE紹介 ... 2026年3月23日 *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "note",
+                      "domain": "note.com",
+                      "url": "https://note.com/joyful_ixora8520/n/n8a51acacadf9",
+                      "title": "【文系必見】面接官の「なぜIT業界？」に刺さる回答例5選 - note",
+                      "text": "パターン③【強み活用型】文系スキル×IT業界での活かし方. 結論：自分の強みがIT業界でこそ活きると確信している。 「私..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "例文テンプレート",
+                  "text": "私の就活の軸は 「[文系の強み・価値観]を活かし、ITの力で[実現したいこと]を達成できる環境」 です。",
+                  "markdown": "私の就活の軸は**「[文系の強み・価値観]を活かし、ITの力で[実現したいこと]を達成できる環境」** です。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "具体例（橋渡し・課題解決型） 「私の就活の軸は、相手の立場に立って課題を整理し、ITを用いて現場の業務効率化や変革を支えることです。アルバイトやゼミで培った傾聴力と調整力を活かし、お客様の真のニーズを引き出して最適な提案を行える企業で働きたいと考えています。」",
+                  "markdown": "- **具体例（橋渡し・課題解決型）** > 「私の就活の軸は、相手の立場に立って課題を整理し、ITを用いて現場の業務効率化や変革を支えることです。アルバイトやゼミで培った傾聴力と調整力を活かし、お客様の真のニーズを引き出して最適な提案を行える企業で働きたいと考えています。」",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "もしよろしければ、以下を教えていただけますか？志望している 職種 （営業職、ITコンサル、総合職・企画、あるいは文系から目指すエンジニアなど）\n学生時代に力を入れたこと（ ガクチカ ）\nあなたの経験に合わせた具体的な軸の調整をお手伝いします。",
+                  "markdown": "もしよろしければ、以下を教えていただけますか？\n\n- 志望している**職種** （営業職、ITコンサル、総合職・企画、あるいは文系から目指すエンジニアなど）\n- 学生時代に力を入れたこと（**ガクチカ**）\n\nあなたの経験に合わせた具体的な軸の調整をお手伝いします。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "マイナビ新卒紹介",
+                  "domain": "shinsotsu.mynavi-agent.jp",
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+                  "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+                  "text": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説 * キャリパスLIVE紹介 ... 2026年3月23日 *"
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "note",
+                  "domain": "note.com",
+                  "url": "https://note.com/joyful_ixora8520/n/n8a51acacadf9",
+                  "title": "【文系必見】面接官の「なぜIT業界？」に刺さる回答例5選 - note",
+                  "text": "パターン③【強み活用型】文系スキル×IT業界での活かし方. 結論：自分の強みがIT業界でこそ活きると確信している。 「私..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[4]/div[1]/div[1]",
+              "domain": "www.bold.ne.jp",
+              "title": "就活の軸は「業界軸」がオススメ。文系からでもなれる技術職 ...",
+              "url": "https://www.bold.ne.jp/engineer-club/job-hunting-shaft",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.bold.ne.jp › HOME › キャリア",
+              "website_name": "株式会社ボールド",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/11/19 — 就活の軸は「業界軸」がオススメ。文系からでもなれる技術職「ITエンジニア」の魅力 · 1．右肩上がりの「業界」を選ぼう。 · 2．令和の日本の「良い業界 ...",
+              "pre_snippet": "11/19/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "」がオスス"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-11-19 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "IT業界志望です。就活の軸はどう答えれば良いか教えてください。",
+              "url": "https://www.theport.jp/portcareer/qa/1386/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › トップ › 就活Q&A › 面接対策",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/07/10 — 現在、IT業界を中心に就活を進めている大学3年生です。新しい技術に触れることへの興味や、メカニック好きという観 ...",
+              "pre_snippet": "07/10/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-07-10 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[8]/div[1]/div[1]",
+              "domain": "supira.co.jp",
+              "title": "IT業界の就活の軸53選｜内定者の例文と本音を建て前 ... - Supira",
+              "url": "https://supira.co.jp/article/shukatsu-jiku-it/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://supira.co.jp › コラム › 就活 › 就活の軸",
+              "website_name": "supira.co.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2022/01/07 — 外資IT内定者が実際に使った就活の軸 · 自社でITプロダクトを持っている企業 · 新しい価値を生んでいる企業 · 売上の伸びている企業.",
+              "pre_snippet": "01/07/2022 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "自社でITプロダクトを持っている企業"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2022-01-07 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[10]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "文系でもIT業界に就ける？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[10]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT企業での就活の軸は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[10]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "文系でIT業界を志望する理由は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[10]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界は文系ですか?理系ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[10]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[12]/div[1]/div[1]",
+              "domain": "journal.rikunabi.com",
+              "title": "【文系からIT業界・SE職の就活事例】後悔しない＆活躍する ...",
+              "url": "https://journal.rikunabi.com/p/hint/31266.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://journal.rikunabi.com › 仕事の選び方・ヒント",
+              "website_name": "就職ジャーナル",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/06/06 — IT業界のSEというと、文系学生は「文系の自分には務まらない仕事」と捉え、初めから選択肢に加えないという方もいるようです。選択肢から外しても業界 ...",
+              "pre_snippet": "06/06/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "文系"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-06-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[14]/div[1]/div[1]",
+              "domain": "career-emon.com",
+              "title": "文系からIT業界へ！未経験でも挑戦したい - 就活・転職の軸",
+              "url": "https://career-emon.com/questions/7545/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career-emon.com › questions",
+              "website_name": "キャリエモン",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "いつもお世話になっております。 業界ごとに異なる軸をもっていまして、今回はIT業界の軸に関して添削をお願いいたします。 IT業界への軸：「将来性があり、自分の ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[15]/div[1]/div[1]/div[1]",
+              "domain": "www.youtube.com",
+              "title": "【SIer就活相談】ものづくりに興味がある文系学生、なぜIT ...",
+              "url": "https://www.youtube.com/watch?v=ThQ84gg-c_g",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "視聴回数: 1140 回以上  ·  1 年前",
+              "website_name": "YouTube · SIer就活チャンネル",
+              "is_image": false,
+              "is_video": true,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": [
+                "is_video"
+              ],
+              "description": null,
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-05-24 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[17]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "就活の軸はIT企業選びの失敗回避に使おう！ESや面接で使える ...",
+              "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15811/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › ユニゾン㊙対策",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "文系 が使えるIT 記事を読む. 【新卒向け】IT業界の志望動機の作り方！文系が使えるIT企業に刺さる例文を紹介. 1.志望動機でIT業界の採用担当者が確認したいことIT業界の ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "文系",
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "2.IT企業において就活の軸が大...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15811/#2IT%E4%BC%81%E6%A5%AD%E3%81%AB%E3%81%8A%E3%81%84%E3%81%A6%E5%B0%B1%E6%B4%BB%E3%81%AE%E8%BB%B8%E3%81%8C%E5%A4%A7%E5%88%87%E3%81%AA3%E3%81%A4%E3%81%AE%E7%90%86%E7%94%B1",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5.就活で使えるIT企業・職種別...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15811/#5%E5%B0%B1%E6%B4%BB%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8BIT%E4%BC%81%E6%A5%AD%E3%83%BB%E8%81%B7%E7%A8%AE%E5%88%A5%E3%83%BB%E5%B0%B1%E6%B4%BB%E3%81%AE%E8%BB%B8%E4%B8%80%E8%A6%A7",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "就活の軸 IT 例文",
+                "就活の軸 エンジニア 例",
+                "就活の軸 IT 知恵袋",
+                "SIer 就活の軸",
+                "It コンサル就活の軸",
+                "就活の軸 答え方",
+                "インフラエンジニア 就活の軸",
+                "エンジニア職就活の軸"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

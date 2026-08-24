@@ -1,0 +1,614 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231449-1317-0139-0000-90c43ecba33d",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "42.7250 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 it やりたいこと",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:55"
+      },
+      "result": [
+        {
+          "keyword": "就活 it やりたいこと",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20it%20%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:49:49 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 138,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "IT業界で具体的なやりたいことを探すには？ - Yahoo!知恵袋",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12175018907",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2017/06/05 — IT業界を志望している就活生です。 面接では絶対に「入社してからやりたいことは？、IT業界でやりたいことは？」と聞かれます。",
+              "pre_snippet": "06/05/2017 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活",
+                "やりたいこと"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "「入社後やりたいことは？」ＩＴ業界。",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1063534435",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT志望の就活生です。面 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10310785690",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+it+%E3%82%84%E3%82%8A%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwiVtrDZ_7aWAxUCdUEAHWFyOTYQrQIoAnoECCsQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2017-06-05 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "【例文付き】ITエンジニアの転職で入社後にしたいことの答え ...",
+              "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6939/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › エンジニア転職ガイド",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "本記事では、「入社後にしたいこと」の質問をされる理由から、回答方法を「考え方」、「伝え方」、「回答例」の3点に分けて徹底解説します。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "こと"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "2.エンジニアとして入社後にした...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6939/#2%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%A8%E3%81%97%E3%81%A6%E5%85%A5%E7%A4%BE%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%80%90%E8%80%83%E3%81%88%E6%96%B9%E7%B7%A8%E3%80%91",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5.エンジニア志望が入社後にした...",
+                  "description": null,
+                  "url": "https://unison-career.jp/engineer-media/article/it-engineer-knowledge/engineer/engineer-job-change/p6939/#5%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E5%BF%97%E6%9C%9B%E3%81%8C%E5%85%A5%E7%A4%BE%E5%BE%8C%E3%81%AB%E3%81%97%E3%81%9F%E3%81%84%E3%81%93%E3%81%A8%E3%82%92%E4%BC%9D%E3%81%88%E3%82%8B%E3%81%A8%E3%81%8D%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系を目指したい理由は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "社内SEは勝ち組ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界に向かない人は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT系で1番稼げる職業は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]",
+              "domain": "rookie.levtech.jp",
+              "title": "ESの「入社後にしたいこと」への効果的な回答方法！企業 ...",
+              "url": "https://rookie.levtech.jp/guide/detail/382/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://rookie.levtech.jp › guide › detail",
+              "website_name": "レバテックルーキー",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/02/02 — ESの「入社後にしたいこと」は、企業が志望度の高さを調べたり、求める人物像にマッチしているかを確認したりするための質問です。多くの就活生 ...",
+              "pre_snippet": "02/02/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "こと",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "2.企業がESで「入社後にしたいこ...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/382/#2",
+                  "domain": "rookie.levtech.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "3.ESに書く「入社後にしたいこと...",
+                  "description": null,
+                  "url": "https://rookie.levtech.jp/guide/detail/382/#3",
+                  "domain": "rookie.levtech.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-02-02 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/div[1]",
+              "domain": "shinsotsu.mynavi-agent.jp",
+              "title": "IT業界の就活の軸【例文45選】文系学生も使える業態別解説",
+              "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shinsotsu.mynavi-agent.jp › 就活ノウハウ",
+              "website_name": "マイナビ新卒紹介",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/23 — IT業界向けの就活の軸を例文45選で紹介。SIer・Web系・SESなど業態別の軸の定め方、採用担当者が見る評価ポイント、4ステップの作り方まで徹底解説。",
+              "pre_snippet": "03/23/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界で評価される「就活の軸...",
+                  "description": null,
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/#head3",
+                  "domain": "shinsotsu.mynavi-agent.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界向けの就活の軸【例文5選...",
+                  "description": null,
+                  "url": "https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/#head5",
+                  "domain": "shinsotsu.mynavi-agent.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-23 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]",
+              "domain": "note.com",
+              "title": "「やりたいことがわからない」から始まった私の就活。IT未経験 ...",
+              "url": "https://note.com/kogei_co/n/n09cfd2448473",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "高評価 6 件  ·  4 か月前",
+              "website_name": "note · 株式会社工芸精器製作所",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "自分だけで抱え込まず、他の人に頼ってみることも一つの方法です。 そうすることで、自分一人では思いつかなかったような選択肢や、新しい可能性に ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "こと"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[13]/div[1]/div[1]",
+              "domain": "it-shukatsu-terminal.com",
+              "title": "IT業界の志望動機（業界に興味を持ったきっかけ）を考える",
+              "url": "http://it-shukatsu-terminal.com/blog/it%E6%A5%AD%E7%95%8C%E3%81%AE%E5%BF%97%E6%9C%9B%E5%8B%95%E6%A9%9F%EF%BC%88%E6%A5%AD%E7%95%8C%E3%81%AB%E8%88%88%E5%91%B3%E3%82%92%E6%8C%81%E3%81%A3%E3%81%9F%E3%81%8D%E3%81%A3%E3%81%8B%E3%81%91-2/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "http://it-shukatsu-terminal.com › blog",
+              "website_name": "IT就活ターミナル",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "また私は将来趣味としてやりたいことがあるため、時間を最も重視してワークライフバランスのとれる仕事や、Webを使ったどの場所でもできる仕事がしたいと思っています。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "やりたいこと"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[15]/div[1]/div[1]",
+              "domain": "www.java-career.com",
+              "title": "ITエンジニアは「やりたいことがない」といけないのか？働き方の ...",
+              "url": "https://www.java-career.com/column/industry-knowledge/nothing-i-want-to-do/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.java-career.com › ホーム › 業界知識",
+              "website_name": "Javaキャリ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/08/23 — やりたいことがあるか、ないかということよりも、IT業界の動向に目を向け、常に情報収集を怠らず、動向の先を見据えて習得する技術を見定めたり、新たな ...",
+              "pre_snippet": "08/23/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "やりたいこと",
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "やりたいことがないは悪いこと？",
+                  "description": null,
+                  "url": "https://www.java-career.com/column/industry-knowledge/nothing-i-want-to-do/#i-2",
+                  "domain": "www.java-career.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "やりたいことがなくても転職はで...",
+                  "description": null,
+                  "url": "https://www.java-career.com/column/industry-knowledge/nothing-i-want-to-do/#i-11",
+                  "domain": "www.java-career.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-08-23 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[17]/div[1]/div[1]",
+              "domain": "career-emon.com",
+              "title": "IT業界を目指す理由は適切ですか？ - 「志望動機」の相談",
+              "url": "https://career-emon.com/questions/34178/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://career-emon.com › questions",
+              "website_name": "キャリエモン",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "エンジニアとして創造や修繕をしていくことがしたいのでしょうか 。それとも、お客様に良い製品を提供していきたいのでしょうか。 ・もし何をしていきたいのかが明確なので ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "エンジニアとして創造や修繕をしていくことがしたいのでしょうか"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[19]/div[1]/div[1]",
+              "domain": "tenshoku.mynavi.jp",
+              "title": "IT業界の志望動機の正しい伝え方とは？職種別の例文・NG例 ...",
+              "url": "https://tenshoku.mynavi.jp/knowhow/shibodoki/job50/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://tenshoku.mynavi.jp › shibodoki › job50",
+              "website_name": "マイナビ転職",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/05/07 — この記事では、企業が志望動機で見ているポイントやIT業界へ転職する際の志望動機の作り方を解説します。IT業界未経験者は強みとなる実績や経験が ...",
+              "pre_snippet": "05/07/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-05-07 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 10,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[21]/div[1]/div[1]",
+              "domain": "job.career-tasu.jp",
+              "title": "【業界研究】IT業界とは？4分類・職種・仕事内容や今後の ...",
+              "url": "https://job.career-tasu.jp/guide/study/069/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.career-tasu.jp › guide › study",
+              "website_name": "キャリタス就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/25 — IT業界の就活では、自己分析を深めることが重要です。自己分析することで、自分がどのような職種に興味があるか理解できます。また、それを軸にどのような ...",
+              "pre_snippet": "03/25/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活",
+                "こと"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-25 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "入社 後に したい こと IT業界 例文",
+                "It 業界 で チャレンジ したい こと",
+                "It 業界 で やりたい こと",
+                "入社 後に したい こと エンジニア 未経験",
+                "Sier 入社 後に やりたい こと",
+                "就活の軸 it 文系",
+                "エンジニア やりたい こと",
+                "エンジニア 将来 やりたい こと"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

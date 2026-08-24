@@ -1,0 +1,793 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231447-1317-0139-0000-5cb17a0c5f7f",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "31.5737 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "it 就活 時期",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:22"
+      },
+      "result": [
+        {
+          "keyword": "it 就活 時期",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=it%20%E5%B0%B1%E6%B4%BB%20%E6%99%82%E6%9C%9F&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:48:10 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 105,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "www.your-intern.com",
+              "title": "IT業界の就活は早い？就活のスケジュールや進め方について ...",
+              "url": "https://www.your-intern.com/plus/it-shukatsu-hayai/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.your-intern.com › HOME › 新卒 › 就職活動",
+              "website_name": "ユアターン",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/02/16 — 1月中旬頃は企業説明会 · 2月中旬～3月中旬頃にエントリー受付 · 3月中旬～3月末までには一次選考が終わっている · 4月からは本選考が始まる.",
+              "pre_snippet": "02/16/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "IT業界の就活が早く決まる理由と...",
+                  "description": null,
+                  "url": "https://www.your-intern.com/plus/it-shukatsu-hayai/#rtoc-1",
+                  "domain": "www.your-intern.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "IT業界の就活スケジュール",
+                  "description": null,
+                  "url": "https://www.your-intern.com/plus/it-shukatsu-hayai/#rtoc-4",
+                  "domain": "www.your-intern.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-02-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "IT業界の就活は、一般的な日本企業のスケジュールよりも3〜4ヶ月ほど早く進行します。`大学3年の夏頃（6〜8月）からサマーインターンが始まり、秋から冬にかけて早期選考が本格化。大学4年の春（3〜5月）には大手企業の内定が出始め、夏以降も中小・独立系や通年採用が続きます`。[](https://www.your-intern.com/plus/it-shukatsu-hayai/) [[1]](https://www.your-intern.com/plus/it-shukatsu-hayai/)[[2]](https://cloudint.jp/web-when-start/)[[3]](https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/)[[4]](https://note.com/kazuma_0804/n/nd32576951a8f)\n\n学年別の主な時期と動き\n\n- **大学3年・春（4〜5月）：** 業界研究や自己分析を始め、プログラミングやポートフォリオの準備をする。\n- **大学3年・夏（6〜8月）：** サマーインターンへの応募と参加（早い企業は5月から募集開始）。\n- **大学3年・秋〜冬（9〜2月）：** インターン経由やベンチャー・外資系ITの早期選考がスタート。\n- **大学4年・春（3〜5月）：** 一般的な本選考の解禁と同時に、一次・二次・最終面接ラッシュ。\n- **大学4年・夏以降（6月〜）：** 中小企業や独立系SIerの選考、通年採用での募集。[](https://www.your-intern.com/plus/it-shukatsu-hayai/) [[1]](https://www.your-intern.com/plus/it-shukatsu-hayai/)[[2]](https://shundiary.jp/blog/it-shukatsu-susumekata)[[3]](https://cloudint.jp/web-when-start/)[[4]](https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/)[[5]](https://techoffer.jp/rikeishukatsu/it-senkou-hayai/)[[6]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11321312281)[[7]](https://job.tracks.run/columns/engineer-job-hunting-offer)\n\nIT就活をスムーズに進めるために、教えてください：\n\n- 現在の**あなたの学年** （大学3年生、2年生など）\n- 志望している**職種** （プログラマー、SE、Web系、インフラなど）\n- プログラミングやITの**学習経験** の有無\n\n最適な準備の進め方や、おすすめのサービスをご提案します。",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "IT業界の就活は、一般的な日本企業のスケジュールよりも3〜4ヶ月ほど早く進行します 。 大学3年の夏頃（6〜8月）からサマーインターンが始まり、秋から冬にかけて早期選考が本格化。大学4年の春（3〜5月）には大手企業の内定が出始め、夏以降も中小・独立系や通年採用が続きます 。",
+                  "markdown": "IT業界の就活は、一般的な日本企業のスケジュールよりも3〜4ヶ月ほど早く進行します。`大学3年の夏頃（6〜8月）からサマーインターンが始まり、秋から冬にかけて早期選考が本格化。大学4年の春（3〜5月）には大手企業の内定が出始め、夏以降も中小・独立系や通年採用が続きます`。[](https://www.your-intern.com/plus/it-shukatsu-hayai/) [[1]](https://www.your-intern.com/plus/it-shukatsu-hayai/)[[2]](https://cloudint.jp/web-when-start/)[[3]](https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/)[[4]](https://note.com/kazuma_0804/n/nd32576951a8f)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ユアターン",
+                      "domain": "www.your-intern.com",
+                      "url": "https://www.your-intern.com/plus/it-shukatsu-hayai/",
+                      "title": "IT業界の就活は早い？就活のスケジュールや進め方について解説",
+                      "text": "1月中旬頃は企業説明会. IT業界は早いところだと大学3年次の秋から冬にかけて、もうすでに企業説明会をおこなっているとこ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "cloudint.jp",
+                      "domain": "cloudint.jp",
+                      "url": "https://cloudint.jp/web-when-start/",
+                      "title": "エンジニア就活はいつから開始すればいい？【Web系新卒のスケジュール ...",
+                      "text": "【中途】IT転職サイト・エージェント15選 * HOME > * エンジニア就職・転職 > * エンジニア就活はいつから..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアセレクト",
+                      "domain": "careerselect.jp",
+                      "url": "https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/",
+                      "title": "C-①リアルな就活スケジュール（IT業界） - Career Select",
+                      "text": "3年夏（6～8月）, サマーインターン（IT系は早いと5月応募）. 3年秋～冬（9～12月）, オータム・ウィンターイン..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "note",
+                      "domain": "note.com",
+                      "url": "https://note.com/kazuma_0804/n/nd32576951a8f",
+                      "title": "【27卒向け】IT業界の就活はいつから始めるべき？正直、〇年生の 月 ...",
+                      "text": "【27卒向け】IT業界の就活はいつから始めるべき？正直、〇年生の◯月です。 2. Kazuma. 2026年2月19日 ..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "学年別の主な時期と動き",
+                  "text": "大学3年・春（4〜5月）： 業界研究や自己分析を始め、プログラミングやポートフォリオの準備をする。 大学3年・夏（6〜8月）： サマーインターンへの応募と参加（早い企業は5月から募集開始）。 大学3年・秋〜冬（9〜2月）： インターン経由やベンチャー・外資系ITの早期選考がスタート。 大学4年・春（3〜5月）： 一般的な本選考の解禁と同時に、一次・二次・最終面接ラッシュ。 大学4年・夏以降（6月〜）： 中小企業や独立系SIerの選考、通年採用での募集。",
+                  "markdown": "- **大学3年・春（4〜5月）：** 業界研究や自己分析を始め、プログラミングやポートフォリオの準備をする。\n- **大学3年・夏（6〜8月）：** サマーインターンへの応募と参加（早い企業は5月から募集開始）。\n- **大学3年・秋〜冬（9〜2月）：** インターン経由やベンチャー・外資系ITの早期選考がスタート。\n- **大学4年・春（3〜5月）：** 一般的な本選考の解禁と同時に、一次・二次・最終面接ラッシュ。\n- **大学4年・夏以降（6月〜）：** 中小企業や独立系SIerの選考、通年採用での募集。[](https://www.your-intern.com/plus/it-shukatsu-hayai/) [[1]](https://www.your-intern.com/plus/it-shukatsu-hayai/)[[2]](https://shundiary.jp/blog/it-shukatsu-susumekata)[[3]](https://cloudint.jp/web-when-start/)[[4]](https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/)[[5]](https://techoffer.jp/rikeishukatsu/it-senkou-hayai/)[[6]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11321312281)[[7]](https://job.tracks.run/columns/engineer-job-hunting-offer)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "ユアターン",
+                      "domain": "www.your-intern.com",
+                      "url": "https://www.your-intern.com/plus/it-shukatsu-hayai/",
+                      "title": "IT業界の就活は早い？就活のスケジュールや進め方について解説",
+                      "text": "1月中旬頃は企業説明会. IT業界は早いところだと大学3年次の秋から冬にかけて、もうすでに企業説明会をおこなっているとこ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "shundiary.jp",
+                      "domain": "shundiary.jp",
+                      "url": "https://shundiary.jp/blog/it-shukatsu-susumekata",
+                      "title": "【IT就活の進め方】文系・未経験から内定までの完全ロードマップ",
+                      "text": "しゅんダイアリー編集部 2026年5月11日 * なぜ今、IT就活は「売り手市場」と呼ばれるのか ... 「ITエンジニ..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "cloudint.jp",
+                      "domain": "cloudint.jp",
+                      "url": "https://cloudint.jp/web-when-start/",
+                      "title": "エンジニア就活はいつから開始すればいい？【Web系新卒のスケジュール ...",
+                      "text": "【中途】IT転職サイト・エージェント15選 * HOME > * エンジニア就職・転職 > * エンジニア就活はいつから..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "キャリアセレクト",
+                      "domain": "careerselect.jp",
+                      "url": "https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/",
+                      "title": "C-①リアルな就活スケジュール（IT業界） - Career Select",
+                      "text": "3年夏（6～8月）, サマーインターン（IT系は早いと5月応募）. 3年秋～冬（9～12月）, オータム・ウィンターイン..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "techoffer.jp",
+                      "domain": "techoffer.jp",
+                      "url": "https://techoffer.jp/rikeishukatsu/it-senkou-hayai/",
+                      "title": "IT業界は選考が早い？早期選考に備えるスケジュール紹介！",
+                      "text": "IT業界は選考が早い？ 早期選考に備えるスケジュール紹介！ 理系学生のための総合就活サービスTECH OFFER. .."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "Yahoo!知恵袋",
+                      "domain": "detail.chiebukuro.yahoo.co.jp",
+                      "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11321312281",
+                      "title": "至急友人がIT企業からの内定を貰ったと言っていたのですが私と同...",
+                      "text": "IT企業から今の時期（2025年10月）に2027年卒の内定が出ることは、十分にあり得ます。多くのIT企業では採用活動が..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "job.tracks.run",
+                      "domain": "job.tracks.run",
+                      "url": "https://job.tracks.run/columns/engineer-job-hunting-offer",
+                      "title": "エンジニア就活の内定時期はいつ？完全ガイド - Track Job",
+                      "text": "サマーインターンやウィンターインターンを通じて早期選考に案内され、そのまま内定につながるケースが増えています。 対象層：..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "IT就活をスムーズに進めるために、教えてください：現在の あなたの学年 （大学3年生、2年生など）\n志望している 職種 （プログラマー、SE、Web系、インフラなど）\nプログラミングやITの 学習経験 の有無\n最適な準備の進め方や、おすすめのサービスをご提案します。",
+                  "markdown": "IT就活をスムーズに進めるために、教えてください：\n\n- 現在の**あなたの学年** （大学3年生、2年生など）\n- 志望している**職種** （プログラマー、SE、Web系、インフラなど）\n- プログラミングやITの**学習経験** の有無\n\n最適な準備の進め方や、おすすめのサービスをご提案します。",
+                  "links": null,
+                  "images": null,
+                  "references": null
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "ユアターン",
+                  "domain": "www.your-intern.com",
+                  "url": "https://www.your-intern.com/plus/it-shukatsu-hayai/",
+                  "title": "IT業界の就活は早い？就活のスケジュールや進め方について解説",
+                  "text": "1月中旬頃は企業説明会. IT業界は早いところだと大学3年次の秋から冬にかけて、もうすでに企業説明会をおこなっているとこ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "キャリアセレクト",
+                  "domain": "careerselect.jp",
+                  "url": "https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/",
+                  "title": "C-①リアルな就活スケジュール（IT業界） - Career Select",
+                  "text": "3年夏（6～8月）, サマーインターン（IT系は早いと5月応募）. 3年秋～冬（9～12月）, オータム・ウィンターイン..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "techoffer.jp",
+                  "domain": "techoffer.jp",
+                  "url": "https://techoffer.jp/rikeishukatsu/it-senkou-hayai/",
+                  "title": "IT業界は選考が早い？早期選考に備えるスケジュール紹介！",
+                  "text": "IT業界は選考が早い？ 早期選考に備えるスケジュール紹介！ 理系学生のための総合就活サービスTECH OFFER. .."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "shundiary.jp",
+                  "domain": "shundiary.jp",
+                  "url": "https://shundiary.jp/blog/it-shukatsu-susumekata",
+                  "title": "【IT就活の進め方】文系・未経験から内定までの完全ロードマップ",
+                  "text": "しゅんダイアリー編集部 2026年5月11日 * なぜ今、IT就活は「売り手市場」と呼ばれるのか ... 「ITエンジニ..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "Yahoo!知恵袋",
+                  "domain": "detail.chiebukuro.yahoo.co.jp",
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11321312281",
+                  "title": "至急友人がIT企業からの内定を貰ったと言っていたのですが私と同...",
+                  "text": "IT企業から今の時期（2025年10月）に2027年卒の内定が出ることは、十分にあり得ます。多くのIT企業では採用活動が..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "cloudint.jp",
+                  "domain": "cloudint.jp",
+                  "url": "https://cloudint.jp/web-when-start/",
+                  "title": "エンジニア就活はいつから開始すればいい？【Web系新卒のスケジュール ...",
+                  "text": "【中途】IT転職サイト・エージェント15選 * HOME > * エンジニア就職・転職 > * エンジニア就活はいつから..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "job.tracks.run",
+                  "domain": "job.tracks.run",
+                  "url": "https://job.tracks.run/columns/engineer-job-hunting-offer",
+                  "title": "エンジニア就活の内定時期はいつ？完全ガイド - Track Job",
+                  "text": "サマーインターンやウィンターインターンを通じて早期選考に案内され、そのまま内定につながるケースが増えています。 対象層：..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "note",
+                  "domain": "note.com",
+                  "url": "https://note.com/kazuma_0804/n/nd32576951a8f",
+                  "title": "【27卒向け】IT業界の就活はいつから始めるべき？正直、〇年生の 月 ...",
+                  "text": "【27卒向け】IT業界の就活はいつから始めるべき？正直、〇年生の◯月です。 2. Kazuma. 2026年2月19日 ..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]",
+              "domain": "careerselect.jp",
+              "title": "C-①リアルな就活スケジュール（IT業界）",
+              "url": "https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://careerselect.jp › ホーム › 就活ストーリー",
+              "website_name": "キャリアセレクト",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/05/12 — 3年夏（6～8月）, サマーインターン（IT系は早いと5月応募） ; 3年秋～冬（9～12月）, オータム・ウィンターインターン、本選考が始まる企業も一部あり ; 3 ...",
+              "pre_snippet": "05/12/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "年"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "平均的なスケジュール（IT業界）",
+                  "description": null,
+                  "url": "https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/#toc2",
+                  "domain": "careerselect.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5人のリアルな就活スケジュール...",
+                  "description": null,
+                  "url": "https://careerselect.jp/column/c-%E2%91%A0%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E5%B0%B1%E6%B4%BB%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%EF%BC%88it%E6%A5%AD%E7%95%8C%EF%BC%89/#toc3",
+                  "domain": "careerselect.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-05-12 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "27卒で5月に内定がないのはやばい？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活は3年11月から始めるべき？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT転職のベストな時期はいつですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界の繁忙期はいつですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/div[1]",
+              "domain": "typeshukatsu.jp",
+              "title": "ITエンジニア就活、いつから始める？スケジュールと準備内容を ...",
+              "url": "https://typeshukatsu.jp/s/article/step/75468/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://typeshukatsu.jp › article › step",
+              "website_name": "type就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "IT エンジニア就活のタイムライン · 早期選考で内定を得る場合は、大学3年生の冬〜大学4年生の春頃 本選考で内定を得る場合は、大学4年生の春〜初夏の頃 · 大学生の約40%が ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "□はじめに",
+                  "description": null,
+                  "url": "https://typeshukatsu.jp/s/article/step/75468/#10",
+                  "domain": "typeshukatsu.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "□ITエンジニア就活のタイムライン",
+                  "description": null,
+                  "url": "https://typeshukatsu.jp/s/article/step/75468/#20",
+                  "domain": "typeshukatsu.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "□ITエンジニアを目指すならこれ...",
+                  "description": null,
+                  "url": "https://typeshukatsu.jp/s/article/step/75468/#80",
+                  "domain": "typeshukatsu.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]",
+              "domain": "job.tracks.run",
+              "title": "エンジニア就活の内定時期はいつ？完全ガイド - Track Job",
+              "url": "https://job.tracks.run/columns/engineer-job-hunting-offer",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.tracks.run › engineer-job-hunting-offer",
+              "website_name": "tracks.run",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/03/06 — 大手IT系企業はインターン経由の内定ルートが多いです。 · 外資IT系企業は3年生夏〜秋に選考開始、冬までに内定が出ることも。ただし、年度や職種によって ...",
+              "pre_snippet": "03/06/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "大手IT系企業はインターン経由の内定ルートが多いです"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-03-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[13]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "至急友人がIT企業からの内定を貰ったと言っていたのですが私 ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11321312281",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/10/20 — IT企業から今の時期（2025年10月）に2027年卒の内定が出ることは、十分にあり得ます。多くのIT企業では採用活動が早期化・通年化しており、一般的な ...",
+              "pre_snippet": "10/20/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "時期"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "皆さんがIT企業へ就活を ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13294448368",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "20卒の就活生です。IT企業 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10202374005",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=it+%E5%B0%B1%E6%B4%BB+%E6%99%82%E6%9C%9F+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwi4lc-q_7aWAxWmhv0HHQoqOeMQrQIoAnoECD8QAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-10-20 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[15]/div[1]/div[1]",
+              "domain": "techoffer.jp",
+              "title": "IT業界は選考が早い？早期選考に備えるスケジュール紹介！",
+              "url": "https://techoffer.jp/rikeishukatsu/it-senkou-hayai/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://techoffer.jp › rikeishukatsu › it-senkou-hayai",
+              "website_name": "techoffer.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/10/29 — 企業説明会：早期は9月頃、多くは1月頃 · エントリーシート受付開始：早期は10月頃、多くは2月中旬～ · 一次選考：早期は11月頃、多くは3月中旬～ · 本選考： ...",
+              "pre_snippet": "10/29/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-10-29 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[17]/div[1]/div[1]",
+              "domain": "note.com",
+              "title": "【27卒向け】IT業界の就活はいつから始めるべき？正直",
+              "url": "https://note.com/kazuma_0804/n/nd32576951a8f",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "高評価 2 件  ·  6 か月前",
+              "website_name": "note · Kazuma",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "本気でITに行きたい人の戦略. を分かりやすくまとめます。 □ 結論：始めるべきは「大学2年の冬」. 27卒の場合の目安はこちら  . 時期やるべきこと大学2 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "時期"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[19]/div[1]/div[1]",
+              "domain": "cloudint.jp",
+              "title": "エンジニア就活はいつから開始すればいい？【Web系新卒の ...",
+              "url": "https://cloudint.jp/web-when-start/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://cloudint.jp › エンジニア就職・転職",
+              "website_name": "cloudint.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/30 — IT業界やWeb系企業の新卒採用のエントリーのタイミングは卒業前年度の秋頃（10月・11月）がベスト！ エントリーの時期が遅いと定員が埋まる可能性も. 「 ...",
+              "pre_snippet": "07/30/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "時期"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "人気Web系企業のエンジニア就...",
+                  "description": null,
+                  "url": "https://cloudint.jp/web-when-start/#Web",
+                  "domain": "cloudint.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "Web系新卒のエンジニア就活の...",
+                  "description": null,
+                  "url": "https://cloudint.jp/web-when-start/#Web-2",
+                  "domain": "cloudint.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-30 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[21]/div[1]/div[1]",
+              "domain": "www.onecareer.jp",
+              "title": "IT・通信の本選考一覧",
+              "url": "https://www.onecareer.jp/events/selection/business_categories/5",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.onecareer.jp › selection › business_categories",
+              "website_name": "ワンキャリア",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "また、卒業年度や業界、開催場所で絞り込んで探すことも可能です。各本選考エントリーのスケジュール詳細やクチコミを見れば、募集対象・学年や報酬・交通費支給の有無、 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "IT業界 就活スケジュール",
+                "IT業界 内定 早い",
+                "IT企業 エントリー締め切り",
+                "IT就活 成果物",
+                "IT就活サイト",
+                "SIer 就活スケジュール",
+                "It 就活 何 から 始める",
+                "It 業界 選考 時期"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

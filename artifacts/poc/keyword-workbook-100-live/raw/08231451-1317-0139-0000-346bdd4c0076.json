@@ -1,0 +1,609 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231451-1317-0139-0000-346bdd4c0076",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "18.9004 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活 小論文 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:97"
+      },
+      "result": [
+        {
+          "keyword": "就活 小論文 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%20%E5%B0%8F%E8%AB%96%E6%96%87%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:52:00 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 108,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "domain": "job.rikunabi.com",
+              "title": "【就活小論文】書き方の4つのポイント、テーマ、準備方法などを ...",
+              "url": "https://job.rikunabi.com/contents/howto/10235/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://job.rikunabi.com › contents › howto",
+              "website_name": "就活ならリクナビ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/29 — この記事でわかること. ・企業は小論文を通じて、テーマに対する自分の考えや考察力、自分の考えを表現する力などを評価しています。",
+              "pre_snippet": "07/29/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "小論文"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活小論文のために事前に準備...",
+                  "description": null,
+                  "url": "https://job.rikunabi.com/contents/howto/10235/#i-3",
+                  "domain": "job.rikunabi.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活小論文を書く上でのポイント",
+                  "description": null,
+                  "url": "https://job.rikunabi.com/contents/howto/10235/#i-4",
+                  "domain": "job.rikunabi.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-29 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]",
+              "domain": "matcher.jp",
+              "title": "就活で小論文は対策しないと落ちる？書き方や対策法3選を紹介",
+              "url": "https://matcher.jp/dictionary/articles/656",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://matcher.jp › dictionary › articles",
+              "website_name": "Matcher（マッチャー）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2022/08/03 — ... IT業界でも小論文を取り入れていることが多いです. ‌‌企業が採用過程で小論文を入れる目的. 企業が採用過程で小論文を取り入れている主な目的は下記5つ ...",
+              "pre_snippet": "08/03/2022 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "小論文"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2022-08-03 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[7]/div[1]/div[1]",
+              "domain": "offerbox.jp",
+              "title": "就活小論文は難しくない！ 書き方のポイントを押さえて評価 ...",
+              "url": "https://offerbox.jp/columns/25757.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://offerbox.jp › 就活コラム › 就活ノウハウ",
+              "website_name": "OfferBox",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/02/26 — 1 就活小論文で企業がチェックするポイント · 2 就活小論文で高得点を取るための対策 · 3 よく出題される小論文のテーマとは · 4 こうすれば好印象！ · 5 就活 ...",
+              "pre_snippet": "02/26/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活小論文",
+                "小論文",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活小論文で高得点を取るため...",
+                  "description": null,
+                  "url": "https://offerbox.jp/columns/25757.html#i-2",
+                  "domain": "offerbox.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "こうすれば好印象！ 就活小論文...",
+                  "description": null,
+                  "url": "https://offerbox.jp/columns/25757.html#i-4",
+                  "domain": "offerbox.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-02-26 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[9]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "至急就活生です。IT企業の選考フローの中に作文（小論文）が ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14296326699",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2024/04/10 — IT企業の選考フローの中に作文（小論文）があり、テーマが「IT業界のニュースについて」です。 就活に伴い、TwitterやインスタのSNS消しておりあまり時事 ...",
+              "pre_snippet": "04/10/2024 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "が"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活作文について、今後 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10307886525",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活で小論文があるので ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14266602434",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+%E5%B0%8F%E8%AB%96%E6%96%87+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjLx6yYgLeWAxVUlCsGHXavKRkQrQIoAnoECCIQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2024-04-10 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活の小論文で落ちることはありますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "小論文ですますで落ちることはありますか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "小論文でやってはいけない例は？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活の小論文でよく出るテーマは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[13]/div[1]/div[1]",
+              "domain": "careerpark-agent.jp",
+              "title": "就職活動の小論文の書き方4ステップ｜テーマ別の例文6選付き",
+              "url": "https://careerpark-agent.jp/column/11728",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://careerpark-agent.jp › ... › 筆記試験",
+              "website_name": "キャリアパークエージェント",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就職に役立つ小論文の書き方を4ステップで紹介します。キャリアアドバイザーが、基本的な構成を学ぶとともに小論文を書く際に気をつけるポイントも紹介しているので、 ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "小論文"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[15]/div[1]/div[1]",
+              "domain": "br-campus.jp",
+              "title": "【小論文対策】就活生向けに書き方ポイントとテーマを例文付き ...",
+              "url": "https://br-campus.jp/articles/report/2389",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://br-campus.jp › articles › report",
+              "website_name": "ビズリーチ・キャンパス",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/11/07 — 就活小論文は「序論・本論・結論」の3構成が基本です。 序論（イントロダクション）：テーマに対する自分の立場や主張を明確にする 本論（主張・根拠・ ...",
+              "pre_snippet": "11/07/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活小論文"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-11-07 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[17]/div[1]/div[1]",
+              "domain": "shukatsu-mirai.com",
+              "title": "【小論文のテーマ一覧】就活での出題例や書く際のポイント",
+              "url": "https://shukatsu-mirai.com/archives/74429",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shukatsu-mirai.com › 就活その他",
+              "website_name": "就活の未来",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/06/04 — 【小論文のテーマ一覧】就活での出題例や書く際のポイント · 未来についてのテーマ. ・あなたの夢を教えてください・10年後はどのような人材になりたいです ...",
+              "pre_snippet": "06/04/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "小論文",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活時に必要とされる小論文の...",
+                  "description": null,
+                  "url": "https://shukatsu-mirai.com/archives/74429#i-0",
+                  "domain": "shukatsu-mirai.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活時の小論文の目的",
+                  "description": null,
+                  "url": "https://shukatsu-mirai.com/archives/74429#i-1",
+                  "domain": "shukatsu-mirai.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "小論文とは",
+                  "description": null,
+                  "url": "https://shukatsu-mirai.com/archives/74429#i-4",
+                  "domain": "shukatsu-mirai.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-06-04 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[19]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "就職活動に活きる小論文の書き方を7ステップで解説！",
+              "url": "https://www.theport.jp/portcareer/article/34498/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › トップ › 筆記試験対策",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/02 — 就活は情報戦で情報を収集するだけでなく、いかに活かせるかが重要です。記事では企業研究ノートの作り方、必須の情報16項目から情報収集の方法まで ...",
+              "pre_snippet": "07/02/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "基本の7ステップ！ 就職活動の...",
+                  "description": null,
+                  "url": "https://www.theport.jp/portcareer/article/34498/#%E5%9F%BA%E6%9C%AC%E3%81%AE7%E3%82%B9%E3%83%86%E3%83%83%E3%83%97%EF%BC%81_%E5%B0%B1%E8%81%B7%E6%B4%BB%E5%8B%95%E3%81%AE%E5%B0%8F%E8%AB%96%E6%96%87%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9",
+                  "domain": "www.theport.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "文章が苦手な人も問題なし！ 小...",
+                  "description": null,
+                  "url": "https://www.theport.jp/portcareer/article/34498/#%E6%96%87%E7%AB%A0%E3%81%8C%E8%8B%A6%E6%89%8B%E3%81%AA%E4%BA%BA%E3%82%82%E5%95%8F%E9%A1%8C%E3%81%AA%E3%81%97%EF%BC%81_%E5%B0%8F%E8%AB%96%E6%96%87%E3%81%8C%E6%9B%B8%E3%81%91%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%AA%E3%82%8B%E4%BA%8B%E5%89%8D%E5%AF%BE%E7%AD%96",
+                  "domain": "www.theport.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-02 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[21]/div[1]/div[1]",
+              "domain": "www.ac-lab.jp",
+              "title": "就職小論文の書き方にはマイナス評価を避けるコツがある！",
+              "url": "https://www.ac-lab.jp/media/15879/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.ac-lab.jp › トップ › その他",
+              "website_name": "アクセス就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/07/06 — 苦手とする学生も多い「小論文」。こちらの記事では就職活動の際に小論文をもとめられたときの書き方について詳しく解説しています。",
+              "pre_snippet": "07/06/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "小論文"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "毎年実施の企業あり！ 小論文を...",
+                  "description": null,
+                  "url": "https://www.ac-lab.jp/media/15879/#%E6%AF%8E%E5%B9%B4%E5%AE%9F%E6%96%BD%E3%81%AE%E4%BC%81%E6%A5%AD%E3%81%82%E3%82%8A%EF%BC%81_%E5%B0%8F%E8%AB%96%E6%96%87%E3%82%92%E3%82%88%E3%81%8F%E5%87%BA%E3%81%99%E4%B8%BB%E3%81%AA4%E3%81%A4%E3%81%AE%E6%A5%AD%E7%95%8C",
+                  "domain": "www.ac-lab.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "企業によりさまざま！ 就職の小...",
+                  "description": null,
+                  "url": "https://www.ac-lab.jp/media/15879/#%E4%BC%81%E6%A5%AD%E3%81%AB%E3%82%88%E3%82%8A%E3%81%95%E3%81%BE%E3%81%96%E3%81%BE%EF%BC%81_%E5%B0%B1%E8%81%B7%E3%81%AE%E5%B0%8F%E8%AB%96%E6%96%87%E3%81%A7%E5%87%BA%E9%A1%8C%E3%81%95%E3%82%8C%E3%82%8B3%E3%81%A4%E3%81%AE%E3%83%86%E3%83%BC%E3%83%9E",
+                  "domain": "www.ac-lab.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-07-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "就活 小論文 800字 例文",
+                "就活 小論文 テーマ一覧",
+                "就活 小論文 例文",
+                "就活 小論文 ワード",
+                "就活 小論文 事前 提出",
+                "就活 小論文 対策",
+                "就活 小論文 書けなかった",
+                "就活 小論文 フォーマット"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

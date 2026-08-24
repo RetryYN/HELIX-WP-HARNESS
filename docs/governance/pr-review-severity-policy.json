@@ -1,0 +1,10 @@
+{
+  "schema_version": "wp-pr-review-severity-policy.v1",
+  "levels": {
+    "blocker": "要求違反、データ汚染、証跡切断、権限境界違反によりmergeできない",
+    "major": "主要機能または検証可能性に影響し、merge前の是正が望ましい",
+    "minor": "限定的な不備で、後続課題として分離可能",
+    "suggestion": "correctnessに影響しない改善提案"
+  },
+  "rule": "所見にはfile:line、再現手順、影響、期待する是正を付ける"
+}

@@ -1,0 +1,154 @@
+{
+  "schema_version": "wp-keyword-dashboard-prototype.v1",
+  "generated_at": "2026-08-23T11:27:00+09:00",
+  "provenance": "DataForSEO standard raw snapshots + supplied Excel JSON inspection",
+  "sites": [
+    {
+      "site_id": "solobiz-lab.com",
+      "label": "大人のひとりビジネスラボ",
+      "domain": "solobiz-lab.com",
+      "status": "active",
+      "is_pinned": true,
+      "display_order": 1
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "label": "IT就活大学",
+      "domain": "it-shukatu-college.com",
+      "status": "active",
+      "is_pinned": true,
+      "display_order": 2
+    }
+  ],
+  "sources": [],
+  "groups": [
+    {
+      "id": "intent-pair-001",
+      "site_id": "it-shukatu.com",
+      "main_keyword": "it 就活サイト",
+      "main_origin": "imported_keyword",
+      "source_order": {
+        "file": 2,
+        "sheet": 1,
+        "row": 16
+      },
+      "source_location": "IT就活大学キーワードマップ.xlsx / IT就活 / 16行",
+      "search_volume": 70,
+      "search_volume_source": "IT就活大学キーワードマップ.xlsx / IT就活",
+      "intent_keywords": [
+        "it 就活サイト 比較",
+        "it 就活サイト おすすめ"
+      ],
+      "sibling_keywords": [],
+      "comparison_keywords": [
+        "it 就活サイト 比較",
+        "it 就活サイト おすすめ"
+      ],
+      "confidence": "high",
+      "overlap": {
+        "shared": 4,
+        "depth": 5,
+        "ratio": 0.8
+      },
+      "state": "新規記事候補",
+      "wp_article_id": null,
+      "category": "IT就活",
+      "strategy": {
+        "decision": "施策候補",
+        "article_count": 1,
+        "main_basis": "修飾KWを除外した親トピック",
+        "aio_observed_queries": 2,
+        "aio_checked_queries": 2,
+        "click_opportunity": "AIO継続率の追加観測待ち"
+      },
+      "article_gate": {
+        "status": "未成立",
+        "conditions": [
+          { "label": "対象KW群の確定", "status": "pass", "detail": "main 1語・内包KW 2語" },
+          { "label": "WP記事IDの割当", "status": "blocked", "detail": "未割当" },
+          { "label": "main KW coverage", "status": "pending", "detail": "記事未作成" },
+          { "label": "比較・おすすめ構造", "status": "pending", "detail": "記事未作成" },
+          { "label": "required_topics coverage", "status": "blocked", "detail": "必須論点未確定" },
+          { "label": "事実情報の出典", "status": "pending", "detail": "記事未作成" }
+        ]
+      },
+      "cost": 0.0012,
+      "task_ids": [
+        "08231127-1317-0066-0000-27b983625bf0",
+        "08231127-1317-0066-0000-6695f73ea2c8"
+      ],
+      "shared_urls": [
+        "https://coeteco.jp/articles/14332",
+        "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site",
+        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+      ]
+    },
+    {
+      "id": "solobiz-writer-sidejob",
+      "site_id": "solobiz-lab.com",
+      "main_keyword": "ライター 副業",
+      "main_origin": "imported_keyword",
+      "source_order": {
+        "file": 1,
+        "sheet": 3,
+        "row": 7
+      },
+      "source_location": "大人のひとりビジネスラボ.xlsx / キーワード割り当て / 8行",
+      "search_volume": "1000-10000",
+      "search_volume_source": "大人のひとりビジネスラボ.xlsx / キーワード割り当て",
+      "intent_keywords": [
+        "記事作成 副業"
+      ],
+      "sibling_keywords": [],
+      "comparison_keywords": [
+        "記事作成 副業",
+        "ライター 副業"
+      ],
+      "confidence": "possible",
+      "overlap": {
+        "shared": 3,
+        "depth": 5,
+        "ratio": 0.6
+      },
+      "state": "新規記事候補",
+      "wp_article_id": null,
+      "category": "クライアントワーク",
+      "strategy": {
+        "decision": "施策候補",
+        "article_count": 1,
+        "main_basis": "SERP群内の検索Vol最大",
+        "aio_observed_queries": 1,
+        "aio_checked_queries": 2,
+        "click_opportunity": "AIO継続率の追加観測待ち"
+      },
+      "article_gate": {
+        "status": "未成立",
+        "conditions": [
+          { "label": "対象KW群の確定", "status": "pass", "detail": "main 1語・内包KW 1語" },
+          { "label": "WP記事IDの割当", "status": "blocked", "detail": "未割当" },
+          { "label": "main KW coverage", "status": "pending", "detail": "記事未作成" },
+          { "label": "内包KWの検索意図coverage", "status": "pending", "detail": "記事未作成" },
+          { "label": "required_topics coverage", "status": "blocked", "detail": "必須論点未確定" },
+          { "label": "事実情報の出典", "status": "pending", "detail": "記事未作成" }
+        ]
+      },
+      "cost": 0.0012,
+      "task_ids": [
+        "08231116-1317-0066-0000-3b748a72e76d",
+        "08231116-1317-0066-0000-2a5bb8fc7c4d"
+      ],
+      "shared_urls": []
+    }
+  ],
+  "normalization_aliases": [
+    {
+      "canonical": "it就活サイト",
+      "variants": [
+        "it 就活サイト",
+        "it 就活 サイト"
+      ],
+      "relation": "exact_alias"
+    }
+  ]
+}

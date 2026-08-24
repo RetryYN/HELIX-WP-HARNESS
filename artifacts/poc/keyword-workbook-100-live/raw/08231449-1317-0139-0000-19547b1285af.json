@@ -1,0 +1,605 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231449-1317-0139-0000-19547b1285af",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "23.0372 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "時事問題 就活 it",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:65"
+      },
+      "result": [
+        {
+          "keyword": "時事問題 就活 it",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E6%99%82%E4%BA%8B%E5%95%8F%E9%A1%8C%20%E5%B0%B1%E6%B4%BB%20it&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:50:11 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 112,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": true,
+              "markdown": null,
+              "items": null,
+              "references": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
+              "domain": "www.theport.jp",
+              "title": "【2026年】IT業界のニュース｜就活時事問題対策 | PORTキャリア",
+              "url": "https://www.theport.jp/portcareer/article/273704/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.theport.jp › トップ › その他",
+              "website_name": "ポート株式会社（PORT INC.）",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/13 — 私が最近最も気になったニュースは、米OpenAIが最新モデルGPT-5.6を搭載し、バックグラウンドで業務タスクを自律実行するChatGPT Workを発表し、企業向け ...",
+              "pre_snippet": "08/13/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "①電通総研と日鉄ソリューション...",
+                  "description": null,
+                  "url": "https://www.theport.jp/portcareer/article/273704/#%E2%91%A0%E9%9B%BB%E9%80%9A%E7%B7%8F%E7%A0%94%E3%81%A8%E6%97%A5%E9%89%84%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BA%EF%BC%88NSSOL%EF%BC%89%E3%81%8C%E5%8D%94%E6%A5%AD",
+                  "domain": "www.theport.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "面接での回答例（最近気になるニ...",
+                  "description": null,
+                  "url": "https://www.theport.jp/portcareer/article/273704/#%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%81%AE%E5%9B%9E%E7%AD%94%E4%BE%8B%EF%BC%88%E6%9C%80%E8%BF%91%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8B%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%EF%BC%89-2",
+                  "domain": "www.theport.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "関連ニュース",
+                  "description": null,
+                  "url": "https://www.theport.jp/portcareer/article/273704/#%E9%96%A2%E9%80%A3%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9-2",
+                  "domain": "www.theport.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-13 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
+              "domain": "engineer-shukatu.jp",
+              "title": "就活時期のニュースチェックの裏技教えます",
+              "url": "https://engineer-shukatu.jp/column/archives/22235",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://engineer-shukatu.jp › column › archives",
+              "website_name": "エンジニア就活",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活 の面接では時事問題が問われることも多く、日頃からニュースに触れる習慣が重要です。 · Reuters・CNN・日経新聞など信頼性の高いメディアを定期的にチェックしましょう ...",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活",
+                "時事問題"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
+              "domain": "shukatsu-venture.com",
+              "title": "【2026年最新版・例文5選】就活でIT業界の最新ニュース聞かれ ...",
+              "url": "https://shukatsu-venture.com/article/308192",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shukatsu-venture.com › article",
+              "website_name": "ベンチャー就活ナビ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/06/08 — 【IT業界の最近のニュース】就活で最近のニュースが聞かれる理由. 続いて、就活で最近のニュースについて質問される理由についても確認しておきましょう。",
+              "pre_snippet": "06/08/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "就活"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "▷ はじめに",
+                  "description": null,
+                  "url": "https://shukatsu-venture.com/article/308192#h2-1",
+                  "domain": "shukatsu-venture.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "▷ 【IT業界の最近のニュース】最...",
+                  "description": null,
+                  "url": "https://shukatsu-venture.com/article/308192#h2-5",
+                  "domain": "shukatsu-venture.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "▷ 【IT業界の最近のニュース】基...",
+                  "description": null,
+                  "url": "https://shukatsu-venture.com/article/308192#h2-7",
+                  "domain": "shukatsu-venture.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-06-08 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
+              "domain": "unison-career.jp",
+              "title": "IT業界の就活で使える最近のニュース一覧！情報収集と面接で ...",
+              "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unison-career.jp › ... › ユニゾン㊙対策",
+              "website_name": "unison-career.jp",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "記事の概要. IT業界の面接では、最近のニュースについて質問されることが多い。 面接官は応募者の業界への興味や、日頃の情報収集の習慣を確認している。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "2.IT業界の就活で使えるニュース...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/#2IT%E6%A5%AD%E7%95%8C%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9",
+                  "domain": "unison-career.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "5.就活で使えるIT業界の最新ニ...",
+                  "description": null,
+                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/#5%E5%B0%B1%E6%B4%BB%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8BIT%E6%A5%AD%E7%95%8C%E3%81%AE%E6%9C%80%E6%96%B0%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E4%B8%80%E8%A6%A7",
+                  "domain": "unison-career.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
+              "domain": "www.itmedia.co.jp",
+              "title": "「IT業界」関連の最新 ニュース・レビュー・解説 記事 まとめ",
+              "url": "https://www.itmedia.co.jp/keywords/it_industry.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://www.itmedia.co.jp › keywords › it_industry",
+              "website_name": "ITmedia",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "採用難に苦しむIT部門に追い打ちをかける女性人材の流出とIT離れ。優秀な人材が10年で姿を消す背景には、個人の問題ではなく、企業の“受け入れ態勢の限界”があった。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT",
+                "問題"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
+              "domain": "note.com",
+              "title": "【27卒・28卒向け】IT企業の面接で「最近気になるITニュースは ...",
+              "url": "https://note.com/mild_walrus6702/n/n14417b2d93c2",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "高評価 6 件  ·  3 か月前",
+              "website_name": "note · ITまる＠超大手IT現役SEの就活攻略",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "【27卒・28卒向け】IT企業の面接で「最近気になるITニュースは？」と聞かれた時の答え方｜文系・IT未経験向け · そもそも、なぜITニュースを聞かれるのか.",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "就活において気になるニュースは何がいいですか？ IT分野で ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14325393719",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/02/16 — IT分野で明後日面接があります。 最近はニュースを見れていないので少し調べてみたもののイマイチピンとくるものがなく困っています。 自分で調べろという ...",
+              "pre_snippet": "02/16/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-02-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
+              "domain": "unistyleinc.com",
+              "title": "【最新版】就活に役立つ時事問題ネタ15選！各業界への影響も ...",
+              "url": "https://unistyleinc.com/techniques/1759",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://unistyleinc.com › 就活テクニック",
+              "website_name": "unistyleinc.com",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/11/14 — 本記事では、unistyleに掲載されている業界研究記事を参考に近年話題を集めた時事問題ネタをまとめました。話題を集めたニュースや各業界との関連性を ...",
+              "pre_snippet": "11/14/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "時事問題"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "時事問題ネタ(1)新型コロナウイ...",
+                  "description": null,
+                  "url": "https://unistyleinc.com/techniques/1759#2",
+                  "domain": "unistyleinc.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "時事問題ネタ(5)SDGs",
+                  "description": null,
+                  "url": "https://unistyleinc.com/techniques/1759#6",
+                  "domain": "unistyleinc.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "時事問題ネタ(8)EC",
+                  "description": null,
+                  "url": "https://unistyleinc.com/techniques/1759#9",
+                  "domain": "unistyleinc.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-11-14 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活で一番つらい時期はいつですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "IT業界で1番稼げる仕事は何ですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "なぜIT企業はやめたほうがいいのでしょうか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活で時事問題とは？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
+              "domain": "tenshoku.mynavi.jp",
+              "title": "面接での「最近のニュース」の回答例文｜業界別の時事ネタ【 ...",
+              "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://tenshoku.mynavi.jp › ... › 面接対策ガイド",
+              "website_name": "マイナビ転職",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/02/12 — IT業界の最近のニュースとして、生成AIの進化とそれに伴う課題、クラウドやセキュリティなどが挙げられます。具体的な技術や企業の取り組みに触れ、 ...",
+              "pre_snippet": "02/12/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "IT"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "回答例文2【エレクトロニクス業界】",
+                  "description": null,
+                  "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/#eg02",
+                  "domain": "tenshoku.mynavi.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "回答例文3【IT業界】",
+                  "description": null,
+                  "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/#eg03",
+                  "domain": "tenshoku.mynavi.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "回答例文9【建築業界】",
+                  "description": null,
+                  "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/#eg09",
+                  "domain": "tenshoku.mynavi.jp"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-02-12 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "IT業界 ニュース 就活",
+                "IT業界 最近のニュース",
+                "IT 業界 ニュース AI",
+                "最近のニュース IT 面接",
+                "It 業界 ニュース 面接",
+                "IT業界 気になるニュース",
+                "ITニュース",
+                "ITニュース 面白い"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -10,18 +10,31 @@
     "requirements:helix-vmodel": "npm run helix -- vmodel lint",
     "poc:keyword-serp:test": "node scripts/test-keyword-serp.mjs",
     "poc:keyword-serp": "node scripts/poc-keyword-serp.mjs",
-    "poc:keyword-serp:evaluate": "node scripts/evaluate-keyword-serp.mjs",
+    "poc:keyword-serp:reprocess": "node scripts/reprocess-keyword-groups.mjs",
+    "poc:keyword-serp:verify": "node scripts/verify-poc-evidence.mjs",
     "poc:keyword-intent-pair": "node scripts/poc-keyword-intent-pair.mjs",
     "poc:required-topics:test": "node scripts/test-required-topics.mjs",
     "poc:required-topics": "node scripts/poc-required-topics.mjs",
     "poc:draft-article": "node scripts/poc-draft-article.mjs",
+    "poc:gsc-page-queries": "node scripts/poc-gsc-page-queries.mjs",
+    "poc:wp-headings": "node scripts/fetch-wp-heading-evidence.mjs",
+    "poc:keyword-article-match": "node scripts/poc-keyword-article-matching.mjs",
+    "prototype:keyword-dashboard": "node scripts/serve-keyword-dashboard.mjs",
+    "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",
+    "prototype:keyword-dashboard:test": "node scripts/test-keyword-dashboard-integration.mjs",
+    "prototype:keyword-dashboard:empty-state:test": "node scripts/test-keyword-dashboard-empty-state.mjs",
+    "poc:required": "npm run poc:keyword-serp:test && node scripts/test-keyword-hierarchy.mjs && node scripts/test-keyword-mindmap.mjs && node scripts/test-keyword-grouping.mjs && node scripts/test-serp-page-classification.mjs && node scripts/test-keyword-article-matching.mjs && npm run poc:keyword-serp:verify && npm run prototype:keyword-dashboard:test && npm run prototype:keyword-dashboard:empty-state:test && npm run poc:required-topics:test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel"
+    "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel && npm run poc:required"
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
     "helix": "github:RetryYN/HELIX-HARNESS#dcfbb845",
     "tsx": "^4.23.12",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "kuromoji": "^0.1.2",
+    "mermaid": "^11.17.0"
   }
 }

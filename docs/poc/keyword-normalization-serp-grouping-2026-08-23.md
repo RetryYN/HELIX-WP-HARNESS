@@ -4,7 +4,8 @@
 - 判定: **PASS（限定スコープ）**
 - 実データ: PO 提供 Excel 2 ファイルの8 KW
 - API: DataForSEO Google organic、standard queue、日本、ja、desktop
-- 実行証跡: `artifacts/poc/keyword-serp/result.json` と同ディレクトリの `raw/`
+- 実行証跡の正本: `artifacts/poc/keyword-workbook-100-live/result.json` と同ディレクトリの `raw/`
+- 旧8KW評価経路 `scripts/evaluate-keyword-serp.mjs` は廃止し、100実KWの取得・分類結果へ一本化した。
 
 ## 成立したこと
 
@@ -34,16 +35,20 @@ POが分割・統合を上書きできるようにする。
 
 - 評価対象: 8 KW
 - normalization alias: `it 就活サイト` / `it 就活 サイト`（5/5一致だが同一正規化語）
-- 高確度の内包キーワードグループ: 0
+- 同一施策KW群: 1（`ライター 副業` + `記事作成 副業`、3/5 URL一致=60%、confidence possible。
+  main は検索Vol最大の `ライター 副業` を採用）
+- 80%以上（high）のみの群: 0
 - 最終証跡に含まれる DFS 費用: $0.0048
 - ID結合修正とstandard queue timeout再試行を含む、このPoC作業全体のtask post費用: 約 $0.012
 
 ## 限界と次工程
 
 - 8 KW のPoCであり、全682 KWの精度を証明しない。
-- connected components は A≈B、B≈C の推移結合を起こし得る。全メンバー対の条件にするかは
-  truthsetで比較してL3設計時に確定する。
-- main KW選定は現在入力順であり、検索Vol・戦略優先度による決定規則が未実装。
+- クラスタ統合は complete-linkage（全メンバー対が60%以上の場合のみ統合）へ確定し、
+  connected components の推移結合（A≈B、B≈C で A・C 不一致）を排除した。60%ブリッジが
+  20%ペアを統合しないことは決定論テストで固定。truthset との精度比較は L3 設計時に行う。
+- main KW選定は derived_parent → 検索Vol最大（修飾語付きは除外）の順で決定するが、
+  検索Volは一部KWのscript内ハードコードであり、Excel/DFS からの取り込みは未実装。
 - coverage gateは「KWが存在する」最低線であり、自然さ、配置、過剰出現、意図充足は別ゲートとする。
 
 ## 修飾語ペアの追加実測

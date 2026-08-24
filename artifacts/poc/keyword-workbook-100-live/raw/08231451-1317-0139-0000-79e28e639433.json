@@ -1,0 +1,686 @@
+{
+  "status_code": 20000,
+  "status_message": "Aggregated live responses",
+  "cost": 0.20000000000000015,
+  "tasks": [
+    {
+      "id": "08231451-1317-0139-0000-79e28e639433",
+      "status_code": 20000,
+      "status_message": "Ok.",
+      "time": "32.3776 sec.",
+      "cost": 0.002,
+      "result_count": 1,
+      "path": [
+        "v3",
+        "serp",
+        "google",
+        "organic",
+        "live",
+        "advanced"
+      ],
+      "data": {
+        "api": "serp",
+        "function": "live",
+        "se": "google",
+        "se_type": "organic",
+        "keyword": "就活タイムズとは",
+        "location_code": 2392,
+        "language_code": "ja",
+        "device": "desktop",
+        "os": "windows",
+        "depth": 10,
+        "tag": "it-shukatu.com:IT就活:98"
+      },
+      "result": [
+        {
+          "keyword": "就活タイムズとは",
+          "type": "organic",
+          "se_domain": "google.com",
+          "location_code": 2392,
+          "language_code": "ja",
+          "check_url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%A8%E3%81%AF&hl=ja&gl=JP&ie=UTF-8&uule=w+CAIQIFISCS8Zf9cPTmc0EURSZnzUdUL1",
+          "datetime": "2026-08-23 14:52:16 +00:00",
+          "spell": null,
+          "refinement_chips": null,
+          "item_types": [
+            "ai_overview",
+            "organic",
+            "people_also_ask",
+            "related_searches"
+          ],
+          "se_results_count": 104,
+          "pages_count": 1,
+          "items_count": 12,
+          "items": [
+            {
+              "type": "ai_overview",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+              "asynchronous_ai_overview": false,
+              "markdown": "就活タイムズ は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://nihongokyoshi-job.com/company/shukatsutimes-review/) [[1]](https://nihongokyoshi-job.com/company/shukatsutimes-review/)[[2]](https://shukatsu-times.jp/events/6/)[[3]](https://prtimes.jp/main/html/rd/p/000000007.000103472.html)\n\n主な特徴と提供内容\n\n- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://nihongokyoshi-job.com/company/shukatsutimes-review/) [[1]](https://nihongokyoshi-job.com/company/shukatsutimes-review/)[[2]](https://shukatsu-times.jp/events/6/)[[3]](https://prtimes.jp/main/html/rd/p/000000007.000103472.html)\n\n評判と注意点\n\n- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://nihongokyoshi-job.com/company/shukatsutimes-review/) [[1]](https://nihongokyoshi-job.com/company/shukatsutimes-review/)[[2]](https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation)",
+              "items": [
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": null,
+                  "text": "就活タイムズ は、Ann株式会社が運営する、 新卒学生向けの 就活情報ポータルサイト です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。",
+                  "markdown": "就活タイムズ は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://nihongokyoshi-job.com/company/shukatsutimes-review/) [[1]](https://nihongokyoshi-job.com/company/shukatsutimes-review/)[[2]](https://shukatsu-times.jp/events/6/)[[3]](https://prtimes.jp/main/html/rd/p/000000007.000103472.html)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "日本語教師ジョブ",
+                      "domain": "nihongokyoshi-job.com",
+                      "url": "https://nihongokyoshi-job.com/company/shukatsutimes-review/",
+                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "就活タイムズ",
+                      "domain": "shukatsu-times.jp",
+                      "url": "https://shukatsu-times.jp/events/6/",
+                      "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                      "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "PR TIMES",
+                      "domain": "prtimes.jp",
+                      "url": "https://prtimes.jp/main/html/rd/p/000000007.000103472.html",
+                      "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                      "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "主な特徴と提供内容",
+                  "text": "就活お役立ち記事 : 業界研究、自己PR・志望動機、選考対策などの解説 イベント・エージェント紹介 : 就活イベントや個別支援サービスの案内 関連ツール連携 : SPIや面接対策用アプリなどの情報提供",
+                  "markdown": "- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://nihongokyoshi-job.com/company/shukatsutimes-review/) [[1]](https://nihongokyoshi-job.com/company/shukatsutimes-review/)[[2]](https://shukatsu-times.jp/events/6/)[[3]](https://prtimes.jp/main/html/rd/p/000000007.000103472.html)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "日本語教師ジョブ",
+                      "domain": "nihongokyoshi-job.com",
+                      "url": "https://nihongokyoshi-job.com/company/shukatsutimes-review/",
+                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "就活タイムズ",
+                      "domain": "shukatsu-times.jp",
+                      "url": "https://shukatsu-times.jp/events/6/",
+                      "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                      "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "PR TIMES",
+                      "domain": "prtimes.jp",
+                      "url": "https://prtimes.jp/main/html/rd/p/000000007.000103472.html",
+                      "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                      "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
+                    }
+                  ]
+                },
+                {
+                  "type": "ai_overview_element",
+                  "position": "left",
+                  "title": "評判と注意点",
+                  "text": "「怪しい・しつこい」と言われる理由 : 登録後の案内電話やメールの頻度が高く感じられることがあります。 利用時のポイント : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。",
+                  "markdown": "- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://nihongokyoshi-job.com/company/shukatsutimes-review/) [[1]](https://nihongokyoshi-job.com/company/shukatsutimes-review/)[[2]](https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation)",
+                  "links": null,
+                  "images": null,
+                  "references": [
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "日本語教師ジョブ",
+                      "domain": "nihongokyoshi-job.com",
+                      "url": "https://nihongokyoshi-job.com/company/shukatsutimes-review/",
+                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                    },
+                    {
+                      "type": "ai_overview_reference",
+                      "position": "left",
+                      "source": "就活攻略論",
+                      "domain": "shukatu-man.hatenablog.com",
+                      "url": "https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation",
+                      "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
+                      "text": "就活タイムズはやばいサイトか？怪しいか調査！ 就活タイムズの概要を見たところで、気になるのが「就活タイムズはやばいサイト..."
+                    }
+                  ]
+                }
+              ],
+              "references": [
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "日本語教師ジョブ",
+                  "domain": "nihongokyoshi-job.com",
+                  "url": "https://nihongokyoshi-job.com/company/shukatsutimes-review/",
+                  "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
+                  "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "就活攻略論",
+                  "domain": "shukatu-man.hatenablog.com",
+                  "url": "https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation",
+                  "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
+                  "text": "就活タイムズはやばいサイトか？怪しいか調査！ 就活タイムズの概要を見たところで、気になるのが「就活タイムズはやばいサイト..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "就活タイムズ",
+                  "domain": "shukatsu-times.jp",
+                  "url": "https://shukatsu-times.jp/events/6/",
+                  "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                  "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
+                },
+                {
+                  "type": "ai_overview_reference",
+                  "position": "right",
+                  "source": "PR TIMES",
+                  "domain": "prtimes.jp",
+                  "url": "https://prtimes.jp/main/html/rd/p/000000007.000103472.html",
+                  "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                  "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 2,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]",
+              "domain": "nihongokyoshi-job.com",
+              "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底 ...",
+              "url": "https://nihongokyoshi-job.com/company/shukatsutimes-review/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://nihongokyoshi-job.com › shukatsutimes-review",
+              "website_name": "日本語教師ジョブ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/12/16 — 連絡が頻繁に届く可能性がある. 就活タイムズは、新卒の就活に特化した情報提供やエージェントの紹介などを行っているサービスです。 登録することで就活 ...",
+              "pre_snippet": "12/16/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活タイムズ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-12-16 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "people_also_ask",
+              "rank_group": 1,
+              "rank_absolute": 3,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]",
+              "items": [
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活タイムズは怪しいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活タイムズはどんな会社？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就活タイムズからの電話はしつこいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                },
+                {
+                  "type": "people_also_ask_element",
+                  "title": "就職タイムズを退会するにはどうすればいいですか？",
+                  "seed_question": null,
+                  "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
+                  "expanded_element": [
+                    {
+                      "type": "people_also_ask_ai_overview_expanded_element",
+                      "items": null,
+                      "references": null,
+                      "asynchronous_ai_overview": true
+                    }
+                  ]
+                }
+              ],
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 2,
+              "rank_absolute": 4,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]",
+              "domain": "shukatu-man.hatenablog.com",
+              "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の ...",
+              "url": "https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shukatu-man.hatenablog.com › 就活サイト",
+              "website_name": "就活攻略論",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2026/08/05 — 結論から言うと、就活タイムズは運営会社がしっかりしていて、やばいサイトでも怪しいサイトでもないと言えます。 ではなぜ「 ...",
+              "pre_snippet": "08/05/2026 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活タイムズ"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "就活タイムズとは？",
+                  "description": null,
+                  "url": "https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%A8%E3%81%AF",
+                  "domain": "shukatu-man.hatenablog.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "補足】就活タイムズの退会方法",
+                  "description": null,
+                  "url": "https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation#%E8%A3%9C%E8%B6%B3%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AE%E9%80%80%E4%BC%9A%E6%96%B9%E6%B3%95",
+                  "domain": "shukatu-man.hatenablog.com"
+                },
+                {
+                  "type": "link_element",
+                  "title": "就活タイムズに関してよくある質問",
+                  "description": null,
+                  "url": "https://shukatu-man.hatenablog.com/entry/syukatu-times-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AB%E9%96%A2%E3%81%97%E3%81%A6%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F",
+                  "domain": "shukatu-man.hatenablog.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2026-08-05 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 5,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]",
+              "domain": "shukatsu-times.jp",
+              "title": "就活タイムズ",
+              "url": "https://shukatsu-times.jp/events/7/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shukatsu-times.jp › events",
+              "website_name": "就活タイムズ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活 生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立つコンテンツが満載。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 6,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[9]/div[1]/div[1]",
+              "domain": "x.com",
+              "title": "就活タイムズ運営事務局 (@shukatsu202303) / Posts / X",
+              "url": "https://x.com/shukatsu202303",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "20 人以上のフォロワー",
+              "website_name": "X · shukatsu202303",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活 準備として｢就活エージェント｣に登録しましょう！ 求人紹介だけでなく、就活相談や選考書類の添削、面接練習などのサポートを行っています。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 7,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[1]/div[1]",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
+              "title": "緊急です。今就活をしているのですが、就活タイムズという ...",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12274857132",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
+              "website_name": "Yahoo!知恵袋",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2023/02/01 — 緊急です。今就活をしているのですが、就活タイムズという登録をした覚えがない人から電話がかかってきてセミナーやらエージェントなどを8つほど ...",
+              "pre_snippet": "02/01/2023 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活タイムズ"
+              ],
+              "links": [
+                {
+                  "type": "link_element",
+                  "title": "登録した覚えの無い就活タ ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11299469786",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "自分は就職活動中の大学 ...",
+                  "description": null,
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13293225093",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
+                },
+                {
+                  "type": "link_element",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
+                  "description": null,
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%A8%E3%81%AF+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sxsrf=APpeQnsFJYuwUKouEaxqGe8OImAG0Pu4qw:1787496734621&sa=X&ved=2ahUKEwjcxZ2fgLeWAxXolSsGHbXWCmsQrQIoAnoECDYQAw",
+                  "domain": "www.google.com"
+                }
+              ],
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2023-02-01 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 8,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[13]/div[1]/div[1]",
+              "domain": "ann.inc",
+              "title": "会社情報",
+              "url": "https://ann.inc/service",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://ann.inc › service",
+              "website_name": "Ann株式会社",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "Ann株式会社の会社情報を掲載しております。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": null,
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 9,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[15]/div[1]/div[1]",
+              "domain": "rikupedia.careermart.co.jp",
+              "title": "就活タイムズはやばい？評判・口コミをもとにしつこいと言 ...",
+              "url": "https://rikupedia.careermart.co.jp/shukatsu-site/site-reputation/shukatsu-times-reputation/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://rikupedia.careermart.co.jp › site-reputation › shu...",
+              "website_name": "株式会社キャリアマート",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2025/03/28 — 就活コンテンツが充実していた. メールや電話で就活情報を受け取れるので、特に自分で調べなくても情報を手に入れることができます。調べる暇がない、調べ ...",
+              "pre_snippet": "03/28/2025 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活コンテンツが充実していた"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2025-03-28 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 8,
+              "rank_absolute": 10,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[17]/div[1]/div[1]",
+              "domain": "prtimes.jp",
+              "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業 ...",
+              "url": "https://prtimes.jp/main/html/rd/p/000000007.000103472.html",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://prtimes.jp › その他",
+              "website_name": "PR TIMES",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "2022/09/06 — 『就活タイムズ（https://shukatsu-times.jp/）』は、新卒就活に特化した、お役立ち情報満載のキャリア情報プラットフォームです。 就活に関する情報や、 ...",
+              "pre_snippet": "09/06/2022 00:00:00",
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活タイムズ"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": "2022-09-06 00:00:00 +00:00",
+              "rectangle": null
+            },
+            {
+              "type": "organic",
+              "rank_group": 9,
+              "rank_absolute": 11,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[19]/div[1]/div[1]",
+              "domain": "shukatsu-times.jp",
+              "title": "スピード内定を目指しませんか？",
+              "url": "https://shukatsu-times.jp/events/6/",
+              "cache_url": null,
+              "related_search_url": null,
+              "breadcrumb": "https://shukatsu-times.jp › events",
+              "website_name": "就活タイムズ",
+              "is_image": false,
+              "is_video": false,
+              "is_featured_snippet": false,
+              "is_malicious": false,
+              "is_web_story": false,
+              "checks": null,
+              "description": "就活 生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立つコンテンツが満載。",
+              "pre_snippet": null,
+              "extended_snippet": null,
+              "images": null,
+              "amp_version": false,
+              "rating": null,
+              "price": null,
+              "highlighted": [
+                "就活"
+              ],
+              "links": null,
+              "faq": null,
+              "extended_people_also_search": null,
+              "about_this_result": null,
+              "related_result": null,
+              "timestamp": null,
+              "rectangle": null
+            },
+            {
+              "type": "related_searches",
+              "rank_group": 1,
+              "rank_absolute": 12,
+              "page": 1,
+              "position": "left",
+              "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
+              "items": [
+                "就活タイムズ 登録してない",
+                "就活タイムズ やばい",
+                "就活タイムズ 退会",
+                "就活タイムズ ホームページ",
+                "就活タイムズ 電話 無視",
+                "就活 タイムズ 勝手 に 登録",
+                "就活 タイムズ 勝手 に 予約",
+                "就活タイムズ うざい"
+              ],
+              "rectangle": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

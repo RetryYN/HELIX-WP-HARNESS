@@ -6,3 +6,5 @@ node_modules/
 !.helix/memory/.gitkeep
 !.helix/memory/resume-point.md
 harness.db
+.helix/keyword-dashboard.sqlite*
+.helix/keyword-dashboard-runtime.json

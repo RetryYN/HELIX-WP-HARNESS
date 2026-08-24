@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { checkKeywordCoverage, groupBySerp, normalizeKeyword } from "./keyword-serp-core.mjs";
+import { checkKeywordCoverage, groupBySerp, normalizeKeyword,serpConfidence } from "./keyword-serp-core.mjs";
 
 assert.equal(normalizeKeyword("  ＳＥＯ　記事  "), "seo 記事");
 assert.equal(normalizeKeyword("Web\tライティング\n副業"), "web ライティング 副業");
@@ -13,6 +13,10 @@ const records = [
 const first = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 const second = groupBySerp(records, { highThreshold: 0.8, possibleThreshold: 0.6, comparisonDepth: 5 });
 assert.deepEqual(first, second);
+const scoped=groupBySerp(records.slice(0,2),{scopeById:new Map([[records[0].source_keyword_id,"general"],[records[1].source_keyword_id,"it"]])});
+assert.equal(scoped.pairs[0].intent_confidence,"context_separate");
+assert.equal(scoped.pairs[0].likely_same_intent,false,"SERP overlap must not cross a context root");
+assert.equal(serpConfidence(0),"separate");assert.equal(serpConfidence(0.59),"separate");assert.equal(serpConfidence(0.6),"possible");assert.equal(serpConfidence(0.8),"high");
 assert.deepEqual(first.clusters, [["a", "b", "c"], ["d"]]);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "b").ratio, 1);
 assert.equal(first.pairs.find((pair) => pair.left === "a" && pair.right === "c").intent_confidence, "possible");

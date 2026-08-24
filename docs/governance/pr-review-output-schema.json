@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "wp-pr-review-output.v1",
+  "type": "object",
+  "required": ["verdict", "findings", "verification"],
+  "properties": {
+    "verdict": { "enum": ["approve", "changes_requested", "blocked"] },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["severity", "evidence", "impact", "remediation"],
+        "properties": {
+          "severity": { "enum": ["blocker", "major", "minor", "suggestion"] },
+          "evidence": { "type": "string" },
+          "impact": { "type": "string" },
+          "remediation": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "verification": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
