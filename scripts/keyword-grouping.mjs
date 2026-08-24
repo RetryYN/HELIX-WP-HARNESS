@@ -1,14 +1,30 @@
 import {buildKeywordHierarchy} from "./keyword-hierarchy.mjs";
 import {digest,groupBySerp,normalizeKeyword} from "./keyword-serp-core.mjs";
+import {tokenizeMatchText} from "./keyword-article-matching.mjs";
 import {KEYWORD_POLICY_VERSION,modifierTerms} from "./keyword-policy.mjs";
 
 export const GROUPING_ALGORITHM="normalized-context-hierarchy-top5-complete-linkage.v4";
 export const GROUPING_DECISION="形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけの群は最寄りの実在親施策へ内包し、実在親がなければderived_parent_candidateとして未確定にする。";
 const pairKey=(left,right)=>[left,right].sort().join("\0");
-const trailingModifier=(keyword)=>modifierTerms.find((modifier)=>normalizeKeyword(keyword).endsWith(modifier));
-const isModifierKeyword=(keyword)=>Boolean(trailingModifier(keyword));
+// §2/§5: modifier judgment uses morphological token boundaries, not raw string suffixes,
+// so compounds like 比較的 are not treated as the modifier 比較. The versioned modifier
+// dictionary is matched as the longest trailing token sequence; splitting quirks of new
+// compounds are absorbed via keyword-policy.mjs (lexicalReplacements) with a version bump.
+const modifierTokenSequences=modifierTerms.map((modifier)=>tokenizeMatchText(modifier)).sort((left,right)=>right.length-left.length);
+const trailingModifierTokens=(keyword)=>{const tokens=tokenizeMatchText(keyword);return modifierTokenSequences.find((sequence)=>sequence.length<=tokens.length&&sequence.every((token,offset)=>tokens[tokens.length-sequence.length+offset]===token))??null};
+export const isModifierKeyword=(keyword)=>Boolean(trailingModifierTokens(keyword));
 // §5: remove only the trailing modifier phrase one level; never reduce further.
-export const deriveParentCandidate=(keyword)=>{const modifier=trailingModifier(keyword);const normalized=normalizeKeyword(keyword);return modifier?normalized.slice(0,normalized.length-modifier.length).trim()||null:null};
+export const deriveParentCandidate=(keyword)=>{
+  const sequence=trailingModifierTokens(keyword);
+  if(!sequence)return null;
+  let remainder=normalizeKeyword(keyword);
+  for(const token of sequence.slice().reverse()){
+    const trimmed=remainder.trimEnd();
+    if(!trimmed.endsWith(token))return null; // token surface no longer aligns with the raw tail (policy dictionary case)
+    remainder=trimmed.slice(0,trimmed.length-token.length);
+  }
+  return remainder.trim()||null;
+};
 // One digest definition shared by the live DFS run and offline regrouping so the same evidence yields the same value.
 export const evidenceDigest=({tasks,algorithm,hierarchy,grouping,articleKeywordGroups})=>digest({snapshots:tasks.map(({source_keyword_id,response_digest})=>({source_keyword_id,response_digest})),algorithm,hierarchy,grouping,articleKeywordGroups});
 

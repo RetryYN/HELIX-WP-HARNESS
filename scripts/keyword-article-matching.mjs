@@ -135,7 +135,16 @@ export function matchKeywordGroupToArticles(group,articles){
   const selected=leading.length===1?leading[0]:strongestQueryCandidates.length===1?strongestQueryCandidates[0]:strongestH2Candidates.length===1?strongestH2Candidates[0]:strongestH3Candidates.length===1?strongestH3Candidates[0]:null;
   const displayed=selected?[selected]:queryCandidates.length>1?strongestQueryCandidates:h2Candidates.length?strongestH2Candidates:h3Candidates.length?strongestH3Display:titleCandidates;
   const state=candidates.length===0?"新規記事候補":selected?"確定":displayed.length===1&&displayed[0].title_score===0?"見出し一致のみ":displayed.length===1?"タイトル一致のみ":"複数候補";
-  return {group_id:group.id,main_keyword:group.main_keyword,state,wp_article_id:selected?.wp_article_id??null,candidates:displayed};
+  // Intent-keyword sub-matching: an absorbed modifier keyword may have its own existing
+  // article. Keep that correspondence as evidence per intent keyword; it never selects
+  // or reassigns the group article (§5: derived/absorbed keywords are not main).
+  const intentCandidates=group.intent_keywords.flatMap((keyword)=>articles
+    .map((article)=>({article,evidence:titleEvidence(keyword,tokenizeMatchText(article.title),{main:true})}))
+    .filter((item)=>item.evidence.matches)
+    .sort((left,right)=>right.evidence.weight-left.evidence.weight)
+    .slice(0,3)
+    .map((item)=>({matched_keyword:keyword,wp_article_id:item.article.wp_article_id,title:item.article.title,url:item.article.url,title_score:item.evidence.weight,is_group_article:item.article.wp_article_id===(selected?.wp_article_id??null)})));
+  return {group_id:group.id,main_keyword:group.main_keyword,state,wp_article_id:selected?.wp_article_id??null,candidates:displayed,intent_candidates:intentCandidates};
 }
 
 export function reconcileArticleAssignments(matches){

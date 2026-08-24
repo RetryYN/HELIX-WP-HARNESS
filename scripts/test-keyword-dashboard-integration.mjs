@@ -75,6 +75,17 @@ if(hasGscEvidence){
   if(hasHeadingEvidence){assert.equal(confirmed.get("就活 人気企業 it"),628);assert.equal(confirmed.get("it 就活 文系"),267);assert.equal(confirmed.get("it 就活 職種"),499);assert.equal(confirmed.get("it 就活 質問"),1207)}
   assert.equal(actual.groups.find((group)=>group.main_keyword==="it 就活 流れ").article_match.state,"同一記事候補","one WP article must belong to the better-supported keyword group");
 }
+// Intent-keyword sub-matching (§5): an absorbed modifier keyword keeps its existing-article
+// correspondence as evidence, without selecting or reassigning the group article.
+if(hasGscEvidence){
+  const intentRows=pocDb.prepare("SELECT group_id,wp_article_id,matched_keyword FROM keyword_article_match_candidates WHERE matched_role='intent'").all();
+  assert.ok(intentRows.some((row)=>row.wp_article_id===197&&row.matched_keyword==="it 就活 おすすめ"),"the absorbed modifier keyword must retain its dedicated existing article as evidence");
+  const groupOf197=pocDb.prepare("SELECT g.main_keyword,g.wp_article_id FROM keyword_groups g JOIN keyword_article_match_candidates c ON c.group_id=g.group_id WHERE c.wp_article_id=197 AND c.matched_role='intent'").get();
+  assert.equal(groupOf197.main_keyword,"it 就活");
+  assert.equal(groupOf197.wp_article_id,195,"intent candidates must not reassign the group article");
+  assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE wp_article_id IN (SELECT wp_article_id FROM keyword_article_match_candidates WHERE matched_role='intent' AND wp_article_id NOT IN (SELECT wp_article_id FROM keyword_article_match_candidates WHERE matched_role='main')) AND wp_article_id=197").get().count,0,"an intent-only article must not become a group article");
+  assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_candidates WHERE matched_role NOT IN ('main','intent')").get().count,0);
+}
 pocDb.close();
 
 // §5: a derived_parent_candidate group must persist as unresolved, stay visible, and never be matched to or assigned a WP article.

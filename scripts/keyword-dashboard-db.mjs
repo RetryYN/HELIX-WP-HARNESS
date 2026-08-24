@@ -8,7 +8,7 @@ import { primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
 import { assessKeywordAcquisition, matchKeywordGroupToArticles, reconcileArticleAssignments } from "./keyword-article-matching.mjs";
 import {buildKeywordHierarchy} from "./keyword-hierarchy.mjs";
 
-const schemaVersion = "keyword-dashboard.v5";
+const schemaVersion = "keyword-dashboard.v6";
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
 
 function rawSnapshots(artifactRoot) {
@@ -47,7 +47,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE shared_urls (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), url_order INTEGER NOT NULL, url TEXT NOT NULL, PRIMARY KEY(group_id, url_order));
     CREATE TABLE article_links (link_id TEXT PRIMARY KEY, site_id TEXT NOT NULL REFERENCES sites(site_id), source_group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), target_group_id TEXT REFERENCES keyword_groups(group_id), trigger_type TEXT NOT NULL, trigger_text TEXT NOT NULL, source_section TEXT, state TEXT NOT NULL);
     CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','見出し一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
-    CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, heading_score INTEGER NOT NULL, heading_matches_json TEXT NOT NULL, coverage_rate REAL NOT NULL, coverage_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id));
+    CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, matched_keyword TEXT NOT NULL, matched_role TEXT NOT NULL CHECK(matched_role IN ('main','intent')), title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, heading_score INTEGER NOT NULL, heading_matches_json TEXT NOT NULL, coverage_rate REAL NOT NULL, coverage_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id,matched_keyword));
   `);
   const metadata = db.prepare("INSERT INTO dashboard_metadata VALUES (?, ?)");
   metadata.run("schema_version", schemaVersion); metadata.run("generated_at", fixture.generated_at); metadata.run("normalization_aliases", JSON.stringify(fixture.normalization_aliases ?? []));
@@ -100,7 +100,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   }
   const beforeMatch=projectDashboard(db);
   const insertMatchRun=db.prepare("INSERT INTO keyword_article_match_runs VALUES (?, ?, ?)");
-  const insertMatchCandidate=db.prepare("INSERT INTO keyword_article_match_candidates VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  const insertMatchCandidate=db.prepare("INSERT INTO keyword_article_match_candidates VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const assignArticle=db.prepare("UPDATE keyword_groups SET wp_article_id = ?, action_state = '公開中' WHERE group_id = ?");
   for(const site of fixture.sites){
     const articles=beforeMatch.article_query_summaries.filter((article)=>article.site_id===site.site_id);
@@ -109,7 +109,9 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     const matches=reconcileArticleAssignments(siteGroups.map((group)=>matchKeywordGroupToArticles(group,articles)));
     for(const match of matches){
       insertMatchRun.run(match.group_id,match.state,match.wp_article_id);
-      match.candidates.forEach((candidate)=>insertMatchCandidate.run(match.group_id,candidate.wp_article_id,candidate.title_score,JSON.stringify(candidate.title_matches),JSON.stringify(candidate.query_matches),candidate.heading_score,JSON.stringify(candidate.heading_matches),candidate.coverage_rate,JSON.stringify(candidate.planned_keyword_coverage)));
+      match.candidates.forEach((candidate)=>insertMatchCandidate.run(match.group_id,candidate.wp_article_id,match.main_keyword,"main",candidate.title_score,JSON.stringify(candidate.title_matches),JSON.stringify(candidate.query_matches),candidate.heading_score,JSON.stringify(candidate.heading_matches),candidate.coverage_rate,JSON.stringify(candidate.planned_keyword_coverage)));
+      // Intent-keyword sub-candidates are evidence only; they never participate in selection or wp_article_id assignment.
+      (match.intent_candidates??[]).filter((candidate)=>!match.candidates.some((item)=>item.wp_article_id===candidate.wp_article_id&&match.main_keyword===candidate.matched_keyword)).forEach((candidate)=>insertMatchCandidate.run(match.group_id,candidate.wp_article_id,candidate.matched_keyword,"intent",candidate.title_score,"[]","[]",0,"[]",0,"[]"));
       if(match.state==="確定")assignArticle.run(match.wp_article_id,match.group_id);
     }
   }
@@ -138,8 +140,10 @@ export function projectDashboard(db) {
     const shared_urls = db.prepare("SELECT url FROM shared_urls WHERE group_id = ? ORDER BY url_order").all(row.group_id).map((item) => item.url);
     const categoryPath=JSON.parse(row.category_path_json);
     const matchRun=db.prepare("SELECT state,selected_wp_article_id FROM keyword_article_match_runs WHERE group_id = ?").get(row.group_id);
-    const matchCandidates=db.prepare("SELECT wp_article_id,title_score,title_matches_json,query_matches_json,heading_score,heading_matches_json,coverage_rate,coverage_json FROM keyword_article_match_candidates WHERE group_id = ? ORDER BY title_score DESC,heading_score DESC,coverage_rate DESC,wp_article_id").all(row.group_id).map(({title_matches_json,query_matches_json,heading_matches_json,coverage_json,...candidate})=>({...candidate,title_matches:JSON.parse(title_matches_json),query_matches:JSON.parse(query_matches_json),heading_matches:JSON.parse(heading_matches_json),planned_keyword_coverage:JSON.parse(coverage_json)}));
-    return { id: row.group_id, site_id: row.site_id, resolution_state: row.resolution_state, main_keyword: row.main_keyword, derived_parent_candidate: row.derived_parent_candidate, main_origin: row.main_origin, source_order: { file: row.source_order_file, sheet: row.source_order_sheet, row: row.source_order_row }, source_location: row.source_location, search_volume: JSON.parse(row.search_volume_json), search_volume_source: row.search_volume_source, intent_keywords: list("intent"), sibling_keywords: list("sibling"), comparison_keywords: list("comparison"), confidence: row.confidence, overlap: { shared: row.overlap_shared, depth: row.overlap_depth, ratio: row.overlap_ratio }, state: row.action_state, wp_article_id: row.wp_article_id, article_match:matchRun?{state:matchRun.state,selected_wp_article_id:matchRun.selected_wp_article_id,candidates:matchCandidates}:null, category: categoryPath.join(" ＞ "), category_path: categoryPath, strategy: { ...strategy, aio_observed_queries: Number(aio.observed), aio_checked_queries: Number(aio.checked) }, article_gate: { status: conditions.every((item) => item.status === "pass") ? "成立" : "未成立", conditions }, cost: row.cost, task_ids, shared_urls };
+    const allCandidates=db.prepare("SELECT wp_article_id,matched_keyword,matched_role,title_score,title_matches_json,query_matches_json,heading_score,heading_matches_json,coverage_rate,coverage_json FROM keyword_article_match_candidates WHERE group_id = ? ORDER BY title_score DESC,heading_score DESC,coverage_rate DESC,wp_article_id").all(row.group_id).map(({title_matches_json,query_matches_json,heading_matches_json,coverage_json,...candidate})=>({...candidate,title_matches:JSON.parse(title_matches_json),query_matches:JSON.parse(query_matches_json),heading_matches:JSON.parse(heading_matches_json),planned_keyword_coverage:JSON.parse(coverage_json)}));
+    const matchCandidates=allCandidates.filter((candidate)=>candidate.matched_role==="main");
+    const intentCandidates=allCandidates.filter((candidate)=>candidate.matched_role==="intent").map(({wp_article_id,matched_keyword,title_score})=>({wp_article_id,matched_keyword,title_score}));
+    return { id: row.group_id, site_id: row.site_id, resolution_state: row.resolution_state, main_keyword: row.main_keyword, derived_parent_candidate: row.derived_parent_candidate, main_origin: row.main_origin, source_order: { file: row.source_order_file, sheet: row.source_order_sheet, row: row.source_order_row }, source_location: row.source_location, search_volume: JSON.parse(row.search_volume_json), search_volume_source: row.search_volume_source, intent_keywords: list("intent"), sibling_keywords: list("sibling"), comparison_keywords: list("comparison"), confidence: row.confidence, overlap: { shared: row.overlap_shared, depth: row.overlap_depth, ratio: row.overlap_ratio }, state: row.action_state, wp_article_id: row.wp_article_id, article_match:matchRun?{state:matchRun.state,selected_wp_article_id:matchRun.selected_wp_article_id,candidates:matchCandidates,intent_candidates:intentCandidates}:null, category: categoryPath.join(" ＞ "), category_path: categoryPath, strategy: { ...strategy, aio_observed_queries: Number(aio.observed), aio_checked_queries: Number(aio.checked) }, article_gate: { status: conditions.every((item) => item.status === "pass") ? "成立" : "未成立", conditions }, cost: row.cost, task_ids, shared_urls };
   });
   const articleQueries=db.prepare("SELECT q.site_id,q.wp_article_id,a.url,a.title,a.category_ids_json,q.query,q.normalized_query,q.clicks,q.impressions,q.ctr,q.position,q.window_days,q.observed_at FROM gsc_query_results q JOIN articles a USING(site_id,wp_article_id) ORDER BY q.site_id,q.wp_article_id,q.query").all().map(({category_ids_json,...row})=>({...row,category_paths:categoryPathsForIds(JSON.parse(category_ids_json))}));
   const gscArticles=db.prepare("SELECT site_id,wp_article_id,url,title,category_ids_json,headings_json,gsc_status FROM articles ORDER BY site_id,wp_article_id").all();

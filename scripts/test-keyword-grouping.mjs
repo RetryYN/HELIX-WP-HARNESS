@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {buildLatestKeywordGroups,deriveParentCandidate,evidenceDigest} from "./keyword-grouping.mjs";
+import {buildLatestKeywordGroups,deriveParentCandidate,evidenceDigest,isModifierKeyword} from "./keyword-grouping.mjs";
 
 const urls=(prefix)=>Array.from({length:5},(_,index)=>`https://${prefix}.example/${index}`);
 const records=[
@@ -29,6 +29,14 @@ assert.equal(unresolved.derived_parent_candidate,"転職 サイト","only the tr
 assert.deepEqual(unresolved.intent_keywords,["転職 サイト おすすめ"]);
 assert.equal(deriveParentCandidate("it 就活サイト おすすめ"),"it 就活サイト");
 assert.equal(deriveParentCandidate("it 就活"),null);
+
+// §2: modifier judgment follows morphological token boundaries, not string suffixes.
+assert.equal(isModifierKeyword("it 就活ランキング"),true,"no-space modifier tails are still detected via tokens");
+assert.equal(deriveParentCandidate("it 就活ランキング"),"it 就活","stripping follows the token boundary inside a no-space tail");
+assert.equal(deriveParentCandidate("it 就活人気ランキング"),"it 就活人気");
+assert.equal(isModifierKeyword("就活 比較的"),false,"比較的 is one token, not the modifier 比較");
+assert.equal(isModifierKeyword("就活 歩き方"),false,"a lexical tail that is not a modifier token sequence is kept");
+assert.equal(deriveParentCandidate("おすすめ"),null,"a modifier-only keyword has no derivable parent");
 
 // Absorption must consider every member's ancestor chain: here the first cluster member is itself a root with no parent,
 // while the second member's actual parent lives in another cluster.
