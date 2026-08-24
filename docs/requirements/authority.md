@@ -6,7 +6,7 @@
 - lifecycle: `elicited`
 - freeze: **未実施**
 - authority owner: PO
-- updated: 2026-08-25
+- updated: 2026-08-23
 
 ## 正本境界
 
@@ -14,19 +14,17 @@
 | --- | --- | --- | --- |
 | L1 | `docs/requirements/l1/` の5 sub-doc | confirmed input | G1 content/pair/traceのPO承認 |
 | L2 | `docs/requirements/discovery/events.jsonl` と同イベントから生成する `candidate-projection.json` | non-canonical candidate | 未決事項の解消、画面prototype reaction、PO agreement |
-| L3 | `requirements-ir/manifest.json` と5 stable-ID shard | canonical JSON / elicited_not_frozen | L2 agreement後の再compile、L10 oracleとのpair、G3 PO/TL承認 |
+| L3 | `docs/requirements/l3/requirements-ir.json` | draft compile preview | L2 agreement後の再compile、L10 oracleとのpair、G3 PO/TL承認 |
 
 既存の `l1-plan-autonomous-wp-harness.md`、`l2-req-slice1-keyword-to-article.md`、
 `l2-req-r6-dashboard.md` は情報源として維持するが、単独のfreeze根拠にはしない。
 既存文書中の `confirmed` は「当時の対話内容を保存済み」の意味であり、G1/G2/G3 freezeを意味しない。
 
-`docs/requirements/l3/*.json` は移行元との照合に限るread-only compatibility inputであり、semantic readや通常更新の正本ではない。
-authority policyは`config/requirement-ir-authority.json`、envelope schemaは`config/requirement-ir-schema.json`を参照する。
 AIはPOの回答、prototype合意、freezeを推測しない。未決事項は`human_decision_required`のまま保持する。
 
 ## トレーサビリティ
 
-`L1 BR/FR/NFR/TR/SCR → L2 candidate/surface → requirement → system contract → acceptance → system test`
+`L1 BR/FR/NFR/TR/SCR → L2 candidate/surface → L3 WP-* → WP-AC-* → WP-AT-*`
 をstable IDで接続する。孤児、重複ID、存在しない参照、受入条件のない要求はL3進行を拒否する。
 
 ## PoCの扱い
