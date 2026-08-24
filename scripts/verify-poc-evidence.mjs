@@ -16,6 +16,8 @@ assert.ok(existsSync(headingSummaryPath),"WP H2 real-data attestation is require
 const keyword=JSON.parse(readFileSync(keywordPath,"utf8"));
 const gsc=JSON.parse(readFileSync(gscSummaryPath,"utf8"));
 const headings=JSON.parse(readFileSync(headingSummaryPath,"utf8"));
+const gscFixtureRoot=fromRepo(gsc.fixture_path);
+const gscManifest=JSON.parse(readFileSync(path.join(gscFixtureRoot,"manifest.json"),"utf8"));
 assert.equal(keyword.tasks.length,100,"real DFS task count");
 assert.equal(keyword.article_keyword_groups.length,64,"real SERP group count after normalization/context hierarchy");
 assert.equal(keyword.article_keyword_groups.filter((group)=>group.resolution_state==="unresolved").length,1,"separate modifier-only SERP group must remain unresolved");
@@ -28,7 +30,8 @@ assert.equal(gsc.window_days,28);
 assert.equal(gsc.query_rows,681);
 assert.equal(gsc.raw_policy,"committed_reproducible_fixture");
 assert.match(gsc.local_evidence_tree_sha256,/^[a-f0-9]{64}$/,"original GSC export tree anchor");
-assert.equal(fixtureDigest(fromRepo(gsc.fixture_path)),gsc.evidence_fixture_tree_sha256,"committed GSC fixture digest");
+assert.equal(gscManifest.derived_from_local_evidence_tree_sha256,gsc.local_evidence_tree_sha256,"fixture must declare the original export tree it was derived from");
+assert.equal(fixtureDigest(gscFixtureRoot),gsc.evidence_fixture_tree_sha256,"committed GSC fixture digest");
 assert.equal(headings.schema_version,"wp-heading-attestation.v2");
 assert.equal(headings.articles,59);assert.equal(headings.h2,381);assert.ok(headings.h3>0);assert.match(headings.tree_sha256,/^[a-f0-9]{64}$/);
 console.log(`required PoC evidence: OK (DFS 100 real KW / 64 groups, 1 unresolved modifier group, GSC 59 articles / 681 queries over 28 days, WP 59 articles / ${headings.h2} H2 / ${headings.h3} H3)`);

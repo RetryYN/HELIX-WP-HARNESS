@@ -3,20 +3,21 @@
   "workflow_style": "v_model",
   "case_model": "poc",
   "specialist_process": "none",
-  "behavior_contract_id": "PR-5-READ-ONLY-REVIEW",
+  "behavior_contract_id": "PR-5-REVIEW-SCOPE",
   "responsibility_owner": "wp-dashboard-review",
   "allowed_paths": [
     "artifacts/poc",
     "docs/prototypes/wp-ops-dashboard",
+    "docs/governance",
     "docs/requirements",
     "scripts",
     "package.json"
   ],
   "forbidden_paths": [],
-  "severity_policy_digest": "sha256:57a45bf1c15b863ce393f86889e93708d90dc44d49968b3081d19d66dac3a886",
-  "required_output_schema": "sha256:53e309d1f3d2d2029eeb8be4fc2ad943085d1fd7a5cc61ecc4c3ea030b250449",
+  "severity_policy_digest": "sha256:fbef76df873f9cc6d6d6c70da8b42a68ab6e9554bdeb8a7a030ebe78e6e0cb76",
+  "required_output_schema": "sha256:2053cb084f6a354d7d0186967f2a7a8a669f177c70a80c6920849653e7a820df",
   "budget": {
-    "time_ms": 120000,
-    "token_limit": 8000
+    "time_ms": 300000,
+    "token_limit": 30000
   }
 }
