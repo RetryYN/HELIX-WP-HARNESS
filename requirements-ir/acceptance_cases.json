@@ -1,0 +1,632 @@
+{
+  "WP-AC-KW-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-KW-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-KW-01",
+    "requirement_id": "WP-FR-KW-01",
+    "polarity": "positive",
+    "oracle": "既知Excelの戦略field、原文、provenanceが保持される",
+    "system_test_ids": [
+      "WP-AT-KW-01"
+    ],
+    "semantic_digest": "sha256:ee4761da60020b69e1b3d35479f587f5107e36ec2c076c385d5b67fbb1b95085"
+  },
+  "WP-AC-KW-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-KW-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-KW-01",
+    "requirement_id": "WP-FR-KW-01",
+    "polarity": "negative",
+    "oracle": "header不明・破損fileは解析正本を変更せず拒否される",
+    "system_test_ids": [
+      "WP-AT-KW-01"
+    ],
+    "semantic_digest": "sha256:1aa7a6c097e69ec36960eee9daafec46f5be88dc40d5af941d70bb4737f7dd75"
+  },
+  "WP-AC-KW-02A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-KW-02A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-KW-02",
+    "requirement_id": "WP-FR-KW-02",
+    "polarity": "positive",
+    "oracle": "同一snapshotと規則versionから同一分類・理由を得る",
+    "system_test_ids": [
+      "WP-AT-KW-02"
+    ],
+    "semantic_digest": "sha256:2a68de660777bf0ed9af0222afe3ba2d294500172b67bf98a3184af810d3b36a"
+  },
+  "WP-AC-KW-02B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-KW-02B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-KW-02",
+    "requirement_id": "WP-FR-KW-02",
+    "polarity": "boundary",
+    "oracle": "記事型pageが3未満なら判定不能として自動生成を止める",
+    "system_test_ids": [
+      "WP-AT-KW-02"
+    ],
+    "semantic_digest": "sha256:4433c141959829175549152a31d9e0ac2db93c1196bea5c9a6677aa5e4f4fe0e"
+  },
+  "WP-AC-KW-02C": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-KW-02C",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-KW-02",
+    "requirement_id": "WP-FR-KW-02",
+    "polarity": "negative",
+    "oracle": "source_keyword_idからDFS task、raw snapshot、候補判定、cluster、WP記事IDまで逆引きできない行が1件でもあれば解析gateが失敗しUIで成功表示されない",
+    "system_test_ids": [
+      "WP-AT-KW-02"
+    ],
+    "semantic_digest": "sha256:a5ccdf5884b5eea580601fc87205833d00e81abaa106705efd9853411e13678a"
+  },
+  "WP-AC-KW-03A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-KW-03A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-KW-03",
+    "requirement_id": "WP-FR-KW-03",
+    "polarity": "positive",
+    "oracle": "全KWがexactly one分類へ帰属し母集団差分が0になる",
+    "system_test_ids": [
+      "WP-AT-KW-03"
+    ],
+    "semantic_digest": "sha256:eb139ca88633acd17ffa8a182d64757e8d9cfa69b319b7fc60da497e32baefeb"
+  },
+  "WP-AC-KW-03B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-KW-03B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-KW-03",
+    "requirement_id": "WP-FR-KW-03",
+    "polarity": "negative",
+    "oracle": "重複帰属または孤児が1件でもあればgateが失敗する",
+    "system_test_ids": [
+      "WP-AT-KW-03"
+    ],
+    "semantic_digest": "sha256:1a662b8c4070b5443301bf63866093a621560873ea2b6b52fa563ff820d0d2c2"
+  },
+  "WP-AC-DOC-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-DOC-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-DOC-01",
+    "requirement_id": "WP-FR-DOC-01",
+    "polarity": "positive",
+    "oracle": "doc_typeに対応するendpointとadapterだけが選択される",
+    "system_test_ids": [
+      "WP-AT-DOC-01"
+    ],
+    "semantic_digest": "sha256:e833db9aef65e80cc940524673eb28e896ca99b99054dd37f27838c7da326e65"
+  },
+  "WP-AC-DOC-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-DOC-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-DOC-01",
+    "requirement_id": "WP-FR-DOC-01",
+    "polarity": "negative",
+    "oracle": "未知doc_typeは外部write前に拒否される",
+    "system_test_ids": [
+      "WP-AT-DOC-01"
+    ],
+    "semantic_digest": "sha256:e446f3dccdee38f83ae68b39486ba539424832409eb54261c8f90bbdc124ae2d"
+  },
+  "WP-AC-DOC-02A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-DOC-02A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-DOC-02",
+    "requirement_id": "WP-FR-DOC-02",
+    "polarity": "positive",
+    "oracle": "既知fixtureの逆変換・再render後にsemantic digestが一致する",
+    "system_test_ids": [
+      "WP-AT-DOC-02"
+    ],
+    "semantic_digest": "sha256:2b9c2cc747610941db2720568a05dc3225e8b0847763997a299a14417c7dca5d"
+  },
+  "WP-AC-DOC-02B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-DOC-02B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-DOC-02",
+    "requirement_id": "WP-FR-DOC-02",
+    "polarity": "boundary",
+    "oracle": "未知blockは破棄・推測変換されずrawとして保全される",
+    "system_test_ids": [
+      "WP-AT-DOC-02"
+    ],
+    "semantic_digest": "sha256:dc3c704de10aeb31344f86e09ed5896348cb459a6658215720cff1a92a507e96"
+  },
+  "WP-AC-TR-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-TR-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-TR-DOC-01",
+    "requirement_id": "WP-TR-DOC-01",
+    "polarity": "positive",
+    "oracle": "schema valid JSONから生成したtheme blockのeditor warningが0件",
+    "system_test_ids": [
+      "WP-AT-TR-01"
+    ],
+    "semantic_digest": "sha256:98ba59698ca39fac3976043572ac5684529389d184144fdc18415dc802f73f1a"
+  },
+  "WP-AC-TR-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-TR-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-TR-DOC-01",
+    "requirement_id": "WP-TR-DOC-01",
+    "polarity": "negative",
+    "oracle": "未知field/typeまたはinvalid markupは投稿前に拒否される",
+    "system_test_ids": [
+      "WP-AT-TR-01"
+    ],
+    "semantic_digest": "sha256:1df40d94f32258e326a80067ded4dad0821736bed1d5cb6050e21949a5406db3"
+  },
+  "WP-AC-POST-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-POST-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-POST-01",
+    "requirement_id": "WP-FR-POST-01",
+    "polarity": "positive",
+    "oracle": "1要求から1投稿だけ作成しID、status、経路、時刻を記録する",
+    "system_test_ids": [
+      "WP-AT-POST-01"
+    ],
+    "semantic_digest": "sha256:df46048522fd855f2b0aee5c317b99e5dadb0e8b033a49ec29e22f6ddc8bb8f4"
+  },
+  "WP-AC-POST-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-POST-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-POST-01",
+    "requirement_id": "WP-FR-POST-01",
+    "polarity": "boundary",
+    "oracle": "timeout後に既存結果を照会し重複投稿を作成しない",
+    "system_test_ids": [
+      "WP-AT-POST-01"
+    ],
+    "semantic_digest": "sha256:687ffd784c13fe009f3524b0a2e7f0fbe1086d1771f400fe7a27558082ad39b5"
+  },
+  "WP-AC-POST-02A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-POST-02A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-POST-02",
+    "requirement_id": "WP-FR-POST-02",
+    "polarity": "positive",
+    "oracle": "current action digestへ束縛した有効なPO承認時だけwriteする",
+    "system_test_ids": [
+      "WP-AT-POST-02"
+    ],
+    "semantic_digest": "sha256:da621d4c02de03ed494f9b84d2a356a82fb4e5cbaf7d3d121d12a30354e1fa56"
+  },
+  "WP-AC-POST-02B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-POST-02B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-POST-02",
+    "requirement_id": "WP-FR-POST-02",
+    "polarity": "negative",
+    "oracle": "未承認、期限切れ、対象/digest不一致のwriteを拒否する",
+    "system_test_ids": [
+      "WP-AT-POST-02"
+    ],
+    "semantic_digest": "sha256:d7e15f2e9f9504ea5a850df0c7c733efb75fdb822c454fe327f411a9ea1e5ba9"
+  },
+  "WP-AC-POST-03A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-POST-03A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-POST-03",
+    "requirement_id": "WP-FR-POST-03",
+    "polarity": "positive",
+    "oracle": "全公開前条件green後に同一post IDがpublishとなりURLと取得結果を検証する",
+    "system_test_ids": [
+      "WP-AT-POST-03"
+    ],
+    "semantic_digest": "sha256:b100ebe5954c0cc7592ee8e3a4483fdfd8cf37fc30395768fe4ce94d25d8b901"
+  },
+  "WP-AC-POST-03B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-POST-03B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-POST-03",
+    "requirement_id": "WP-FR-POST-03",
+    "polarity": "negative",
+    "oracle": "gate欠落・red、modified/digest競合、rollback未準備のいずれかで公開を拒否する",
+    "system_test_ids": [
+      "WP-AT-POST-03"
+    ],
+    "semantic_digest": "sha256:53dce7999f906cbb6a5fdc94ded0b4470e515b8347ed78e7cc03275bd450ed2b"
+  },
+  "WP-AC-UI-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-UI-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-UI-01",
+    "requirement_id": "WP-FR-UI-01",
+    "polarity": "positive",
+    "oracle": "要承認、異常、成果、次回予定が証跡由来で表示される",
+    "system_test_ids": [
+      "WP-AT-UI-01"
+    ],
+    "semantic_digest": "sha256:90ee9efd6308d76752d6940d614eba20fed9d4062442ad88f1a5f57dd9dca11f"
+  },
+  "WP-AC-UI-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-UI-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-UI-01",
+    "requirement_id": "WP-FR-UI-01",
+    "polarity": "boundary",
+    "oracle": "空DBではdummy値を表示せず正常性と次回予定の有無を明示する",
+    "system_test_ids": [
+      "WP-AT-UI-01"
+    ],
+    "semantic_digest": "sha256:4fa0e80b4f949098499ae0b2c18f07a54c925fd79f1ae446af37cb49c9dd0c39"
+  },
+  "WP-AC-AUDIT-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-AUDIT-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-AUDIT-01",
+    "requirement_id": "WP-FR-AUDIT-01",
+    "polarity": "positive",
+    "oracle": "任意のKWから判定、承認、外部結果へ全edgeを辿れる",
+    "system_test_ids": [
+      "WP-AT-AUDIT-01"
+    ],
+    "semantic_digest": "sha256:d35512eed679692ee53011ff2adf3b598086fcd1d24621be916c5cfa2d3bcc63"
+  },
+  "WP-AC-AUDIT-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-AUDIT-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-FR-AUDIT-01",
+    "requirement_id": "WP-FR-AUDIT-01",
+    "polarity": "negative",
+    "oracle": "存在しないevidence参照または手書き状態をtrace gateが拒否する",
+    "system_test_ids": [
+      "WP-AT-AUDIT-01"
+    ],
+    "semantic_digest": "sha256:7bef6ae7e4db3a1fa80e6e34faf4d05a4a89d4f0c98e043cf4cfbfdcf9e5788a"
+  },
+  "WP-AC-SEC-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-SEC-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-SEC-01",
+    "requirement_id": "WP-NFR-SEC-01",
+    "polarity": "positive",
+    "oracle": "認証済みactorがleast privilege範囲だけを操作できる",
+    "system_test_ids": [
+      "WP-AT-SEC-01"
+    ],
+    "semantic_digest": "sha256:d8405de6eccbcb9fc0aea24bf639b3075724c8d8a5d3a5516fafb541f2d3e52d"
+  },
+  "WP-AC-SEC-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-SEC-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-SEC-01",
+    "requirement_id": "WP-NFR-SEC-01",
+    "polarity": "negative",
+    "oracle": "未認証、CSRF、private IP fetch、secret出力、外部instructionを拒否する",
+    "system_test_ids": [
+      "WP-AT-SEC-01"
+    ],
+    "semantic_digest": "sha256:2c3c850def67b80a6901702425ef9fefb448087ef12a4cfd755c27e016e040ab"
+  },
+  "WP-AC-REL-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-REL-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-REL-01",
+    "requirement_id": "WP-NFR-REL-01",
+    "polarity": "positive",
+    "oracle": "failure recoveryが同一operation chainへ収束する",
+    "system_test_ids": [
+      "WP-AT-REL-01"
+    ],
+    "semantic_digest": "sha256:e26342485d1824a82754f555292e50133efd7170c5f9df750e8e652c15f03dac"
+  },
+  "WP-AC-REL-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-REL-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-REL-01",
+    "requirement_id": "WP-NFR-REL-01",
+    "polarity": "negative",
+    "oracle": "不明応答を成功扱いせず無条件再送しない",
+    "system_test_ids": [
+      "WP-AT-REL-01"
+    ],
+    "semantic_digest": "sha256:6cbbdb2b1d556adb5a50d2ec58c17d51c5bcbb8f5665937bf6a228e599eb1b2a"
+  },
+  "WP-AC-PERF-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-PERF-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-PERF-01",
+    "requirement_id": "WP-NFR-PERF-01",
+    "polarity": "positive",
+    "oracle": "指定datasetと環境でcold p95 1秒、操作p95 300ms以内",
+    "system_test_ids": [
+      "WP-AT-PERF-01"
+    ],
+    "semantic_digest": "sha256:98e7ca48d6ad4f77efeebe8aabdd1c078a48b4101dc39c4011fea9d1bc355908"
+  },
+  "WP-AC-PERF-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-PERF-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-PERF-01",
+    "requirement_id": "WP-NFR-PERF-01",
+    "polarity": "boundary",
+    "oracle": "workload、環境、sampling不足の測定を合格根拠にしない",
+    "system_test_ids": [
+      "WP-AT-PERF-01"
+    ],
+    "semantic_digest": "sha256:f0c2c8f79b6cd2477b98065dac05ebbedd5ae9beee5f7e8b26d6b25cc795d2d3"
+  },
+  "WP-AC-COST-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-COST-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-COST-01",
+    "requirement_id": "WP-NFR-COST-01",
+    "polarity": "positive",
+    "oracle": "standard queue、cache、週次取得、月次費用を再現できる",
+    "system_test_ids": [
+      "WP-AT-COST-01"
+    ],
+    "semantic_digest": "sha256:56595f3705ac400a8a7a0471fc95de14a6b03583935d65a97133677cacbe80d8"
+  },
+  "WP-AC-COST-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-COST-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-COST-01",
+    "requirement_id": "WP-NFR-COST-01",
+    "polarity": "negative",
+    "oracle": "月5 USD上限を超える要求を外部送信前に停止する",
+    "system_test_ids": [
+      "WP-AT-COST-01"
+    ],
+    "semantic_digest": "sha256:18f9c3492ad472b1420602a37b45963258781456017628b000f0abdf46aaecd3"
+  },
+  "WP-AC-PRIV-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-PRIV-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-PRIV-01",
+    "requirement_id": "WP-NFR-PRIV-01",
+    "polarity": "positive",
+    "oracle": "全datasetに目的、class、保持期間、purge、ownerが存在する",
+    "system_test_ids": [
+      "WP-AT-PRIV-01"
+    ],
+    "semantic_digest": "sha256:c98e26114bdd64037d5df25c9017b46b7378d24473f6ae5f3c4fd21c6f3ce768"
+  },
+  "WP-AC-PRIV-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-PRIV-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-PRIV-01",
+    "requirement_id": "WP-NFR-PRIV-01",
+    "polarity": "negative",
+    "oracle": "期限超過または目的不明dataを解析正本へ昇格しない",
+    "system_test_ids": [
+      "WP-AT-PRIV-01"
+    ],
+    "semantic_digest": "sha256:0a7a6f17e47e218f2755984169e5b03956d02676ecf35bd3ca1c19d49550974d"
+  },
+  "WP-AC-PERM-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-PERM-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-PERM-01",
+    "requirement_id": "WP-NFR-PERM-01",
+    "polarity": "positive",
+    "oracle": "actorは許可された操作と対象siteだけを実行できる",
+    "system_test_ids": [
+      "WP-AT-PERM-01"
+    ],
+    "semantic_digest": "sha256:0dbdf9d42b6a4e61667e6b0ce6fedcbf3f65ecbdddec915d008c49a146239e01"
+  },
+  "WP-AC-PERM-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-PERM-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-PERM-01",
+    "requirement_id": "WP-NFR-PERM-01",
+    "polarity": "negative",
+    "oracle": "read credentialでwrite、draft credentialでpublish/deleteを拒否する",
+    "system_test_ids": [
+      "WP-AT-PERM-01"
+    ],
+    "semantic_digest": "sha256:6faf68f03d396ae30220ef8ae247d36af652a9f4668f2c71ceecc5449086cc17"
+  },
+  "WP-AC-LEGAL-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-LEGAL-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-LEGAL-01",
+    "requirement_id": "WP-NFR-LEGAL-01",
+    "polarity": "positive",
+    "oracle": "外部sourceに規約、license、引用/cache条件、取得日時が束縛される",
+    "system_test_ids": [
+      "WP-AT-LEGAL-01"
+    ],
+    "semantic_digest": "sha256:07315d060e8c4e28e2b8cf2eb258e511afb0eb51c79acd49bb2cc6bf6786a08e"
+  },
+  "WP-AC-LEGAL-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-LEGAL-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-LEGAL-01",
+    "requirement_id": "WP-NFR-LEGAL-01",
+    "polarity": "negative",
+    "oracle": "条件不明または転載禁止scopeの利用を自動採用せずhuman reviewへ送る",
+    "system_test_ids": [
+      "WP-AT-LEGAL-01"
+    ],
+    "semantic_digest": "sha256:2728052b8926853d21a042ed4278802e50effb5b77cab7b2608d842219e240d5"
+  },
+  "WP-AC-OBS-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-OBS-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-OBS-01",
+    "requirement_id": "WP-NFR-OBS-01",
+    "polarity": "positive",
+    "oracle": "correlation IDから入力、gate、承認、外部結果、recoveryを再構築できる",
+    "system_test_ids": [
+      "WP-AT-OBS-01"
+    ],
+    "semantic_digest": "sha256:e463f0e1c4ebbde8cd5dc66f335107f486b89ee69204fecc1781ea973c135e28"
+  },
+  "WP-AC-OBS-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-OBS-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-OBS-01",
+    "requirement_id": "WP-NFR-OBS-01",
+    "polarity": "negative",
+    "oracle": "orphan event、時刻なし、digestなしを完了証跡として拒否する",
+    "system_test_ids": [
+      "WP-AT-OBS-01"
+    ],
+    "semantic_digest": "sha256:fdd27401a09edeb693d978188af02a115c519413f58c04b923255216131a8861"
+  },
+  "WP-AC-A11Y-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-A11Y-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-A11Y-01",
+    "requirement_id": "WP-NFR-A11Y-01",
+    "polarity": "positive",
+    "oracle": "主要flowをkeyboardだけで完了しfocus/name/contrast検査がgreen",
+    "system_test_ids": [
+      "WP-AT-A11Y-01"
+    ],
+    "semantic_digest": "sha256:6430b9303f2d8b57c836ac7608ab4ae81ac65496840aa94e1c57246ea32c9163"
+  },
+  "WP-AC-A11Y-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-A11Y-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-A11Y-01",
+    "requirement_id": "WP-NFR-A11Y-01",
+    "polarity": "negative",
+    "oracle": "色だけの状態、focus喪失、accessible name欠落をgateが検出する",
+    "system_test_ids": [
+      "WP-AT-A11Y-01"
+    ],
+    "semantic_digest": "sha256:dbb5cb7148a5925377a5d950bee0c252061e34640c416d661eb9f9ecb60e1882"
+  },
+  "WP-AC-REC-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-REC-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-REC-01",
+    "requirement_id": "WP-NFR-REC-01",
+    "polarity": "positive",
+    "oracle": "backupから隔離環境へrestoreしRTO内・digest一致を記録する",
+    "system_test_ids": [
+      "WP-AT-REC-01"
+    ],
+    "semantic_digest": "sha256:dc6ea1ba695399b8f1d08c03156f71d6135ca1fb8dd9041f7aaf8d1bbc0dbf4f"
+  },
+  "WP-AC-REC-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-REC-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-REC-01",
+    "requirement_id": "WP-NFR-REC-01",
+    "polarity": "negative",
+    "oracle": "restore未検証、期限切れ、対象不一致backupでは本番変更を許可しない",
+    "system_test_ids": [
+      "WP-AT-REC-01"
+    ],
+    "semantic_digest": "sha256:6605aaba8623e0ff8781b3dc9deba6d7ba92993f2f77ec45a0e680b706bb6197"
+  },
+  "WP-AC-CRED-01A": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-CRED-01A",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-CRED-01",
+    "requirement_id": "WP-NFR-CRED-01",
+    "polarity": "positive",
+    "oracle": "fixture credentialを含む全保存・証跡・応答surfaceで秘密値と復元可能な派生値が0件",
+    "system_test_ids": [
+      "WP-AT-CRED-01"
+    ],
+    "semantic_digest": "sha256:474b63976f3dac5dafb6a9a516bedbdbad08d6a9229c0ca8738950ff33c10c5f"
+  },
+  "WP-AC-CRED-01B": {
+    "schema_version": "wp-acceptance-case.v2",
+    "acceptance_id": "WP-AC-CRED-01B",
+    "revision": 1,
+    "lifecycle_status": "candidate_inventory",
+    "system_contract_id": "WP-SC-NFR-CRED-01",
+    "requirement_id": "WP-NFR-CRED-01",
+    "polarity": "negative",
+    "oracle": "credentialを含む入力・外部応答・例外を受けても永続化前にredactし、redact不能なら処理を拒否する",
+    "system_test_ids": [
+      "WP-AT-CRED-01"
+    ],
+    "semantic_digest": "sha256:6e9d0f07f50c0ff2577174091df8656460c2460f16620f0d9b9bba29296015e9"
+  }
+}

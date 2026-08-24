@@ -1,0 +1,422 @@
+{
+  "WP-AT-KW-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-KW-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-KW-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-KW-01A",
+      "WP-AC-KW-01B"
+    ],
+    "scenario": "サイト設計Excelをheader契約で取り込み、戦略層を改変せず原文とprovenanceを保持する",
+    "required_evidence": [
+      "既知Excelの戦略field、原文、provenanceが保持される",
+      "header不明・破損fileは解析正本を変更せず拒否される"
+    ],
+    "semantic_digest": "sha256:7873486ea6a491cc5f516ef7769028fe3ea000c4af0ecbc338c095cc33da6baa"
+  },
+  "WP-AT-KW-02": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-KW-02",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-KW-02"
+    ],
+    "acceptance_ids": [
+      "WP-AC-KW-02A",
+      "WP-AC-KW-02B",
+      "WP-AC-KW-02C"
+    ],
+    "scenario": "各source_keyword_idをDFS task・raw snapshotへ結合し、候補照合、足切り、SERP統合、戦場選定、WP記事ID割当を決定論実行して全入力値・規則version・理由を記録する",
+    "required_evidence": [
+      "同一snapshotと規則versionから同一分類・理由を得る",
+      "記事型pageが3未満なら判定不能として自動生成を止める",
+      "source_keyword_idからDFS task、raw snapshot、候補判定、cluster、WP記事IDまで逆引きできない行が1件でもあれば解析gateが失敗しUIで成功表示されない"
+    ],
+    "semantic_digest": "sha256:eacc5309348207b09175b37e1d3a4916b233690fd9b97bc2ffaf3469461b7cd7"
+  },
+  "WP-AT-KW-03": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-KW-03",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-KW-03"
+    ],
+    "acceptance_ids": [
+      "WP-AC-KW-03A",
+      "WP-AC-KW-03B"
+    ],
+    "scenario": "全KWを記事割当、未割当、足切り、取込失敗のexactly oneへ分類し母集団差分を0にする",
+    "required_evidence": [
+      "全KWがexactly one分類へ帰属し母集団差分が0になる",
+      "重複帰属または孤児が1件でもあればgateが失敗する"
+    ],
+    "semantic_digest": "sha256:84df27744d0ad1550ca5c2094354b7fb36d6f2754a7b7743a5cb1279f5aaf34e"
+  },
+  "WP-AT-DOC-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-DOC-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-DOC-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-DOC-01A",
+      "WP-AC-DOC-01B"
+    ],
+    "scenario": "post、page、LPをdoc_type付き中間JSONで表現し、投稿先を明示adapterで選択する",
+    "required_evidence": [
+      "doc_typeに対応するendpointとadapterだけが選択される",
+      "未知doc_typeは外部write前に拒否される"
+    ],
+    "semantic_digest": "sha256:696d92c40ed2d8729fa3854dd306aeac78ece25c4ff7fa261cdd19628cd3ba67"
+  },
+  "WP-AT-DOC-02": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-DOC-02",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-DOC-02"
+    ],
+    "acceptance_ids": [
+      "WP-AC-DOC-02A",
+      "WP-AC-DOC-02B"
+    ],
+    "scenario": "既存markupを中間JSONへ逆変換し、未知blockをraw保全して情報損失を防ぐ",
+    "required_evidence": [
+      "既知fixtureの逆変換・再render後にsemantic digestが一致する",
+      "未知blockは破棄・推測変換されずrawとして保全される"
+    ],
+    "semantic_digest": "sha256:5b761b40aedd7d6499d8562ee1d1f90b04e1d8d34732b6aae9fd5c81e3c954e1"
+  },
+  "WP-AT-TR-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-TR-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-TR-DOC-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-TR-01A",
+      "WP-AC-TR-01B"
+    ],
+    "scenario": "中間JSONはschema_version、strict validation、未知type fail-closeを持ち、theme adapterは収穫markupに準拠する",
+    "required_evidence": [
+      "schema valid JSONから生成したtheme blockのeditor warningが0件",
+      "未知field/typeまたはinvalid markupは投稿前に拒否される"
+    ],
+    "semantic_digest": "sha256:9f188eb725acca26fa3524d6ad0ce43775149d21a98dd400ceb5a1aef79d2cea"
+  },
+  "WP-AT-POST-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-POST-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-POST-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-POST-01A",
+      "WP-AC-POST-01B"
+    ],
+    "scenario": "下書き作成後はWordPressのpost IDを状態identityとし、status、modified、content digest、検証時刻、相関IDだけを保持して本文・全応答を重複保存しない",
+    "required_evidence": [
+      "1要求から1投稿だけ作成しID、status、経路、時刻を記録する",
+      "timeout後に既存結果を照会し重複投稿を作成しない"
+    ],
+    "semantic_digest": "sha256:558fdcc8f3daa26fda44a37cdf3576bf2af8f6495f2330ee9f4ff23ed80f1a4b"
+  },
+  "WP-AT-POST-02": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-POST-02",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-POST-02"
+    ],
+    "acceptance_ids": [
+      "WP-AC-POST-02A",
+      "WP-AC-POST-02B"
+    ],
+    "scenario": "公開、更新、削除など外部writeは対象post ID、期待modified/content digest、risk class、rollbackを同一actionへ束縛したPO承認なしに実行しない",
+    "required_evidence": [
+      "current action digestへ束縛した有効なPO承認時だけwriteする",
+      "未承認、期限切れ、対象/digest不一致のwriteを拒否する"
+    ],
+    "semantic_digest": "sha256:83da1da08c1e2cee260af6f9af2500c68ed5791cf19fc98c2272244406d88773"
+  },
+  "WP-AT-POST-03": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-POST-03",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-POST-03"
+    ],
+    "acceptance_ids": [
+      "WP-AC-POST-03A",
+      "WP-AC-POST-03B"
+    ],
+    "scenario": "公開はdraft再取得一致、schema/editor/provenance/content gate green、承認束縛、公開直前compare-and-set、draftへ戻すrollback、公開後status/URL確認が全て成立した場合だけ許可する",
+    "required_evidence": [
+      "全公開前条件green後に同一post IDがpublishとなりURLと取得結果を検証する",
+      "gate欠落・red、modified/digest競合、rollback未準備のいずれかで公開を拒否する"
+    ],
+    "semantic_digest": "sha256:c7711d5ce8132b211c2376f25d7e4c67e575d322c0bfad484d74123c1e3b7b2b"
+  },
+  "WP-AT-UI-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-UI-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-UI-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-UI-01A",
+      "WP-AC-UI-01B"
+    ],
+    "scenario": "ホームは要承認、異常、成果、次回予定を証跡由来で表示し、判断対象が0件でも正常性を示す",
+    "required_evidence": [
+      "要承認、異常、成果、次回予定が証跡由来で表示される",
+      "空DBではdummy値を表示せず正常性と次回予定の有無を明示する"
+    ],
+    "semantic_digest": "sha256:8200b2e914da905fbb540748a1d3b57ec72a8528908e5c8be3f7227c1ca89dbe"
+  },
+  "WP-AT-AUDIT-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-AUDIT-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-FR-AUDIT-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-AUDIT-01A",
+      "WP-AC-AUDIT-01B"
+    ],
+    "scenario": "任意のcluster、gate、投稿について入力、規則version、判定、PO override、外部結果を一気通貫追跡できる",
+    "required_evidence": [
+      "任意のKWから判定、承認、外部結果へ全edgeを辿れる",
+      "存在しないevidence参照または手書き状態をtrace gateが拒否する"
+    ],
+    "semantic_digest": "sha256:7e20aab3c26035b425a9e85c3e2a38cc6e438aad9a86947a9416f3f4fedc2fc6"
+  },
+  "WP-AT-SEC-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-SEC-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-SEC-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-SEC-01A",
+      "WP-AC-SEC-01B"
+    ],
+    "scenario": "UIとagentは認証、least privilege、CSRF、rate limit、secret redaction、localhost限定管理port、prompt injection隔離を満たす",
+    "required_evidence": [
+      "認証済みactorがleast privilege範囲だけを操作できる",
+      "未認証、CSRF、private IP fetch、secret出力、外部instructionを拒否する"
+    ],
+    "semantic_digest": "sha256:8a9807b48aa541bbc6f1544f8ebe951fef70c806383fe1c075902947e32f9a30"
+  },
+  "WP-AT-REL-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-REL-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-REL-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-REL-01A",
+      "WP-AC-REL-01B"
+    ],
+    "scenario": "timeout、不明応答、stale data、schema driftを明示状態にし、重複writeや黙った欠測を生じさせない",
+    "required_evidence": [
+      "failure recoveryが同一operation chainへ収束する",
+      "不明応答を成功扱いせず無条件再送しない"
+    ],
+    "semantic_digest": "sha256:bae5aa19207cef708085371de0a739c8c57bc339791476f2c1670e214ebcb484"
+  },
+  "WP-AT-PERF-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-PERF-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-PERF-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-PERF-01A",
+      "WP-AC-PERF-01B"
+    ],
+    "scenario": "KW1000、記事100、版1000の基準datasetで一覧cold p95 1秒、操作p95 300msを測定する",
+    "required_evidence": [
+      "指定datasetと環境でcold p95 1秒、操作p95 300ms以内",
+      "workload、環境、sampling不足の測定を合格根拠にしない"
+    ],
+    "semantic_digest": "sha256:4bd25f12e8c32827d115a956e59c09de386c752ada763e280aa6e7b99bc6574d"
+  },
+  "WP-AT-COST-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-COST-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-COST-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-COST-01A",
+      "WP-AC-COST-01B"
+    ],
+    "scenario": "DFSはstandard queue、100重点KW、週次、月5 USD上限、cache TTLの統制下で使用し超過前に停止する",
+    "required_evidence": [
+      "standard queue、cache、週次取得、月次費用を再現できる",
+      "月5 USD上限を超える要求を外部送信前に停止する"
+    ],
+    "semantic_digest": "sha256:ebafe1d179adac232e2d00bb4d688fa1f66a6713d2ecc6a90705d1ba6cb39bed"
+  },
+  "WP-AT-PRIV-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-PRIV-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-PRIV-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-PRIV-01A",
+      "WP-AC-PRIV-01B"
+    ],
+    "scenario": "datasetごとに目的、data class、最小field、保持期間、purge trigger、legal hold、ownerを定義し目的外保持を拒否する",
+    "required_evidence": [
+      "全datasetに目的、class、保持期間、purge、ownerが存在する",
+      "期限超過または目的不明dataを解析正本へ昇格しない"
+    ],
+    "semantic_digest": "sha256:524f6bd20d1aec60d7cd28ac5455e5f9f939d7012e9941a67f63fece4e7880e5"
+  },
+  "WP-AT-PERM-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-PERM-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-PERM-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-PERM-01A",
+      "WP-AC-PERM-01B"
+    ],
+    "scenario": "read、draft、publish、update、delete、contract actionを別permissionとしてactorとcredential scopeへ束縛する",
+    "required_evidence": [
+      "actorは許可された操作と対象siteだけを実行できる",
+      "read credentialでwrite、draft credentialでpublish/deleteを拒否する"
+    ],
+    "semantic_digest": "sha256:6fcd455b798ca9aa6a04fe23b12e9f58ced6edfcf1f0667de69d83c3212e6ca3"
+  },
+  "WP-AT-LEGAL-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-LEGAL-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-LEGAL-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-LEGAL-01A",
+      "WP-AC-LEGAL-01B"
+    ],
+    "scenario": "外部content/APIごとに利用規約、license、引用範囲、cache/表示制約、取得日時を記録し違反可能性をhuman reviewへ送る",
+    "required_evidence": [
+      "外部sourceに規約、license、引用/cache条件、取得日時が束縛される",
+      "条件不明または転載禁止scopeの利用を自動採用せずhuman reviewへ送る"
+    ],
+    "semantic_digest": "sha256:5672a946ce0b6adfe473c5ade48772e9b1e18fa61d4d1d0e05d4f668a3df1025"
+  },
+  "WP-AT-OBS-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-OBS-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-OBS-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-OBS-01A",
+      "WP-AC-OBS-01B"
+    ],
+    "scenario": "全operation、gate、approval、external call、failure、recoveryをcorrelation ID、時刻、result、evidence digestで追跡可能にする",
+    "required_evidence": [
+      "correlation IDから入力、gate、承認、外部結果、recoveryを再構築できる",
+      "orphan event、時刻なし、digestなしを完了証跡として拒否する"
+    ],
+    "semantic_digest": "sha256:41c4059708043668e591b06a48c1e3d5a12eff4910a6a308f6f8a498d09359c7"
+  },
+  "WP-AT-A11Y-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-A11Y-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-A11Y-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-A11Y-01A",
+      "WP-AC-A11Y-01B"
+    ],
+    "scenario": "主要判断・承認操作はkeyboard、visible focus、accessible name、色非依存、WCAG AA contrastを満たす",
+    "required_evidence": [
+      "主要flowをkeyboardだけで完了しfocus/name/contrast検査がgreen",
+      "色だけの状態、focus喪失、accessible name欠落をgateが検出する"
+    ],
+    "semantic_digest": "sha256:dab3a39995f6a035a4cb4f3265c97cce86634de8258ed0f857a0dc594c441886"
+  },
+  "WP-AT-REC-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-REC-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-REC-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-REC-01A",
+      "WP-AC-REC-01B"
+    ],
+    "scenario": "本番変更前backup、rollback point、restore rehearsal、RTO、結果digestをactionへ束縛し未検証backupを回復可能とみなさない",
+    "required_evidence": [
+      "backupから隔離環境へrestoreしRTO内・digest一致を記録する",
+      "restore未検証、期限切れ、対象不一致backupでは本番変更を許可しない"
+    ],
+    "semantic_digest": "sha256:ea5439c28094344651296594aabde5562c2268817b5ca7976e52bd6a3a9a73d6"
+  },
+  "WP-AT-CRED-01": {
+    "schema_version": "wp-system-test.v1",
+    "system_test_id": "WP-AT-CRED-01",
+    "revision": 1,
+    "status": "designed_not_implemented",
+    "system_contract_ids": [
+      "WP-SC-NFR-CRED-01"
+    ],
+    "acceptance_ids": [
+      "WP-AC-CRED-01A",
+      "WP-AC-CRED-01B"
+    ],
+    "scenario": "credential、token、cookie、認証headerおよび復元可能な派生値をrepository、DB、evidence、log、UI/API responseへ永続化または露出しない",
+    "required_evidence": [
+      "fixture credentialを含む全保存・証跡・応答surfaceで秘密値と復元可能な派生値が0件",
+      "credentialを含む入力・外部応答・例外を受けても永続化前にredactし、redact不能なら処理を拒否する"
+    ],
+    "semantic_digest": "sha256:f7ab9a94c4c13f4912a61968ae93447115049566657c90467b1a189cd336aada"
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "WP-RC-001": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-001",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-01",
+      "WP-CAND-KW"
+    ],
+    "requirement_ids": [
+      "WP-FR-KW-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-KW-01"
+    ],
+    "semantic_digest": "sha256:8feddd54607a24de9e83024412c3b884181aef918c4372a3a117fde79ccb6b35"
+  },
+  "WP-RC-002": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-002",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-02",
+      "WP-CAND-KW"
+    ],
+    "requirement_ids": [
+      "WP-FR-KW-02",
+      "WP-FR-KW-03"
+    ],
+    "system_test_ids": [
+      "WP-AT-KW-02",
+      "WP-AT-KW-03"
+    ],
+    "semantic_digest": "sha256:16e1742f2d2adc499e8086209a5762e7a9a369373e5efb8d80e33f9d656f8510"
+  },
+  "WP-RC-003": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-003",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-02",
+      "WP-CAND-UI"
+    ],
+    "requirement_ids": [
+      "WP-FR-AUDIT-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-AUDIT-01"
+    ],
+    "semantic_digest": "sha256:16f5fd38c507833dd6755d557caf1def14ff653c92948764626383ee1961443b"
+  },
+  "WP-RC-004": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-004",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-03",
+      "WP-CAND-POST"
+    ],
+    "requirement_ids": [
+      "WP-FR-POST-01",
+      "WP-FR-POST-02",
+      "WP-FR-POST-03"
+    ],
+    "system_test_ids": [
+      "WP-AT-POST-01",
+      "WP-AT-POST-02",
+      "WP-AT-POST-03"
+    ],
+    "semantic_digest": "sha256:f7ee4027dcf95b62d53ef7a25ba7ea19d1f83ddb96b3f03263e14ca2edebda46"
+  },
+  "WP-RC-005": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-005",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-04",
+      "WP-CAND-DOC"
+    ],
+    "requirement_ids": [
+      "WP-FR-DOC-01",
+      "WP-FR-DOC-02",
+      "WP-TR-DOC-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-DOC-01",
+      "WP-AT-DOC-02",
+      "WP-AT-TR-01"
+    ],
+    "semantic_digest": "sha256:acc4bbbce5bf246e7b176edbf8f908a8a4c1a543870811605262afb9590f4e38"
+  },
+  "WP-RC-006": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-006",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-05",
+      "WP-CAND-UI"
+    ],
+    "requirement_ids": [
+      "WP-FR-UI-01",
+      "WP-FR-AUDIT-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-UI-01",
+      "WP-AT-AUDIT-01"
+    ],
+    "semantic_digest": "sha256:7b719590b1e2bbe8db39a4d57a865edbb60d697a1ad7c9ac3585d78269b8664e"
+  },
+  "WP-RC-007": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-007",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-06",
+      "WP-CAND-POST"
+    ],
+    "requirement_ids": [
+      "WP-FR-POST-02"
+    ],
+    "system_test_ids": [
+      "WP-AT-POST-02"
+    ],
+    "semantic_digest": "sha256:efa17f0f8f0419fcd18ef516910ac06e2f19f8493a25b608a8907eff5606abb2"
+  },
+  "WP-RC-008": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-008",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-FRL1-07",
+      "WP-CAND-UI"
+    ],
+    "requirement_ids": [
+      "WP-NFR-REL-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-REL-01"
+    ],
+    "semantic_digest": "sha256:f16c8dd643751d016426078137e6647232ba9cc83ce61041e94e075830e91d26"
+  },
+  "WP-RC-009": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-009",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-01",
+      "WP-CAND-POST"
+    ],
+    "requirement_ids": [
+      "WP-NFR-SEC-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-SEC-01"
+    ],
+    "semantic_digest": "sha256:9cf08fd9f9d0a75815beed16de96da61f06a85f7b8b5e0e88ecc03f70783aba6"
+  },
+  "WP-RC-010": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-010",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-02",
+      "WP-CAND-POST"
+    ],
+    "requirement_ids": [
+      "WP-NFR-REL-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-REL-01"
+    ],
+    "semantic_digest": "sha256:5d1de6fb6f33088054f340380c6b1b4e061e1f9912698ac5680eb516fc46f9f2"
+  },
+  "WP-RC-011": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-011",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-03",
+      "WP-CAND-UI"
+    ],
+    "requirement_ids": [
+      "WP-NFR-PERF-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-PERF-01"
+    ],
+    "semantic_digest": "sha256:c1eec21d2d3e68dd88e9308d4dfd91bd134ce87929afa0f4cc4cf66fecbe9b7c"
+  },
+  "WP-RC-012": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-012",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-04",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-A11Y-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-A11Y-01"
+    ],
+    "semantic_digest": "sha256:27808be0058961949049f4d9392c3fd1fac063a5632d68568405398970297195"
+  },
+  "WP-RC-013": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-013",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-05",
+      "WP-CAND-UI"
+    ],
+    "requirement_ids": [
+      "WP-NFR-REL-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-REL-01"
+    ],
+    "semantic_digest": "sha256:73e60e24a45d569414d28df14bdaca7c1fc4e89c4118a90d99dd272947932304"
+  },
+  "WP-RC-014": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-014",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-06",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-REC-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-REC-01"
+    ],
+    "semantic_digest": "sha256:652e93bf875a657b0adc830821f8dd7465618eed47361af96ad49efb502ce688"
+  },
+  "WP-RC-015": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-015",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-07",
+      "WP-CAND-KW"
+    ],
+    "requirement_ids": [
+      "WP-NFR-COST-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-COST-01"
+    ],
+    "semantic_digest": "sha256:eecee5743cc4a563503767586b86dc4982ca72e5a10e18eaa164e7d1db1c5975"
+  },
+  "WP-RC-016": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-016",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-08",
+      "WP-CAND-UI"
+    ],
+    "requirement_ids": [
+      "WP-NFR-SEC-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-SEC-01"
+    ],
+    "semantic_digest": "sha256:8c2bb95bc7db6fc2a3bd553ce147185f3f12c79fa7e73ea03847ebb262e468dc"
+  },
+  "WP-RC-017": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-017",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-09",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-PRIV-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-PRIV-01"
+    ],
+    "semantic_digest": "sha256:171d39c45245b6cdda249fd0ff195d9b786bb6d9a7dc7e7a5679a9f45a45e9b3"
+  },
+  "WP-RC-018": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-018",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-10",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-PERM-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-PERM-01"
+    ],
+    "semantic_digest": "sha256:b48cd54a868ce99eca69a0c705d4a2a1ff6ea56a9358c42db0c1c071a22474a3"
+  },
+  "WP-RC-019": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-019",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-11",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-LEGAL-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-LEGAL-01"
+    ],
+    "semantic_digest": "sha256:3f6c5a40f10f5d3602c5c62762231155c5ccf1c7c7cd3dbe11fd7a0a49edb51d"
+  },
+  "WP-RC-020": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-020",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-12",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-OBS-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-OBS-01"
+    ],
+    "semantic_digest": "sha256:53219279b6ff61dcb6acb38b6d60073fdbb8154b89fc920796f6522ad4656cc6"
+  },
+  "WP-RC-021": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-021",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-13",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-A11Y-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-A11Y-01"
+    ],
+    "semantic_digest": "sha256:52e594e0002a9340ea063a9273a63f89fe51d72da7dab538bea59fc1ce1d910b"
+  },
+  "WP-RC-022": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-022",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-NFRL1-14",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-REC-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-REC-01"
+    ],
+    "semantic_digest": "sha256:00e5cf59363e7ee6a8b0256e5861097fcb018686f3fffd856a7ee4efa5ef90d0"
+  },
+  "WP-RC-023": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-023",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-TRL1-02",
+      "WP-CAND-DOC"
+    ],
+    "requirement_ids": [
+      "WP-TR-DOC-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-TR-01"
+    ],
+    "semantic_digest": "sha256:bcfa850028f4f0a98a46c1803f9d0ab3f962e1c61becf83bdc1ffa065167793a"
+  },
+  "WP-RC-024": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-024",
+    "revision": 1,
+    "lifecycle_status": "draft",
+    "source_ids": [
+      "WP-TRL1-06",
+      "WP-CAND-QUALITY"
+    ],
+    "requirement_ids": [
+      "WP-NFR-CRED-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-CRED-01"
+    ],
+    "semantic_digest": "sha256:0a4ec2acdfd1ff5c2197b94db43a283ddf0393dc3b0f1561e2a31718a9dd8234"
+  },
+  "WP-RC-PR5-KW-001": {
+    "schema_version": "wp-requirement-refinement.v1",
+    "refinement_contract_id": "WP-RC-PR5-KW-001",
+    "revision": 1,
+    "lifecycle_status": "specified",
+    "source_ids": [
+      "WP-FR-KW-02",
+      "WP-FR-UI-01"
+    ],
+    "requirement_ids": [
+      "WP-FR-KW-02",
+      "WP-FR-UI-01"
+    ],
+    "system_test_ids": [
+      "WP-AT-KW-02",
+      "WP-AT-UI-01"
+    ],
+    "behavior": [
+      "raw keywordは監査用に保持し、一覧のmain keywordは正規化済みtokenを語境界付きで表示する",
+      "表示treeのroot_source_keyword_idとSERP比較境界context_scope_idを分離する",
+      "IT就活文脈と一般就活文脈を別scopeとし、main keyword選定とSERP群数を混線させない",
+      "実DFS 100 keywordを処理し64 SERP群、確定63、未確定1、記事ID確定13の再現性をrequired CIで拘束する"
+    ],
+    "acceptance_oracles": [
+      "raw 就活ねくたいは一覧で就活 ネクタイ、raw 就活つらいは一覧で就活 つらいと表示される",
+      "context:it 84 keywordとcontext:general 16 keywordが別SERP scopeとして処理される",
+      "表示treeを単一就活rootへ変更しても64群・確定63・未確定1・記事ID確定13が不変である",
+      "topic-0 keyword-4等の架空keywordを実データ検証へ混入させない"
+    ],
+    "semantic_digest": "sha256:ab898fc894dba1c478ad5668033f8952d57b291be3620d6f78d751ecb2fc80fb"
+  }
+}

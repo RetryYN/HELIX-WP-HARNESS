@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "helix": "tsx node_modules/helix/src/cli.ts",
+    "requirements:migrate-compatibility": "node scripts/migrate-requirement-ir.mjs",
     "requirements:validate": "node scripts/validate-requirements.mjs",
     "requirements:helix-l1-l2": "node scripts/validate-helix-l1-l2.mjs",
     "requirements:helix-vmodel": "npm run helix -- vmodel lint",

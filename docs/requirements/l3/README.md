@@ -1,6 +1,7 @@
 # 撤回済みprecompile gap inventory
 
-`requirements-ir.json`はL2での漏れ検査用inventoryであり、L3成果物ではない。
+このディレクトリのJSONは移行照合用のread-only compatibility inputであり、L3正本ではない。
+L3正本はリポジトリ直下の`requirements-ir/manifest.json`と5 shardである。
 画面prototypeのPO reaction／agreement前に作られたため、2026-08-23のPO判断によりprecompileとして撤回した。
 現時点ではcanonical、specified、frozenのいずれでもない。
 `acceptance-cases.json`と`traceability.json`を分離し、`npm run requirements:validate`が次をfail-closeする。

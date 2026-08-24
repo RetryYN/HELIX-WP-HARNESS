@@ -1,7 +1,10 @@
 # 要求
 
-正本入口は [`authority.md`](./authority.md)。L1の5 sub-doc、L2 discovery/prototype、L3 compile preview、
+正本入口は [`authority.md`](./authority.md)。L1の5 sub-doc、L2 discovery/prototype、L3 canonical JSON、
 L10～L12 test designを分離している。既存の大判文書は情報源であり、単独でfreezeを表さない。
+
+L3のsemantic readはリポジトリ直下の`requirements-ir/manifest.json`から5 shardを読む。
+旧`docs/requirements/l3/*.json`は移行照合専用で、正本として更新しない。
 
 ```bash
 npm run requirements:validate

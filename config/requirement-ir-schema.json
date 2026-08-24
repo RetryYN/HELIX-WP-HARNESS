@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://helix-wp.local/schemas/requirement-ir.v2.json",
+  "title": "HELIX WP Requirement IR canonical envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "authority",
+    "source_authority",
+    "partition",
+    "lifecycle",
+    "initiative_id",
+    "shards",
+    "baseline_root_digest",
+    "root_digest"
+  ],
+  "properties": {
+    "schema_version": { "const": "helix-requirement-ir.v2" },
+    "authority": { "const": "canonical" },
+    "source_authority": { "const": "json_stable_id_shards" },
+    "partition": { "const": "stable_id_keyed_shards" },
+    "lifecycle": { "enum": ["elicited_not_frozen", "specified", "frozen"] },
+    "initiative_id": { "const": "WP-AUTONOMOUS-OPS" },
+    "shards": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "path", "count", "digest"],
+        "properties": {
+          "kind": { "enum": ["requirements", "system_contracts", "acceptance_cases", "system_tests", "refinement_contracts"] },
+          "path": { "type": "string", "pattern": "^requirements-ir/[a-z_]+\\.json$" },
+          "count": { "type": "integer", "minimum": 0 },
+          "digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "baseline_root_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "root_digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

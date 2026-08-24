@@ -1,6 +1,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { resolve } from "node:path";
+import { isDeepStrictEqual } from "node:util";
 
 const root = process.cwd();
 const readJson = (path) => JSON.parse(readFileSync(resolve(root, path), "utf8"));
@@ -82,7 +83,48 @@ for (const candidate of projection.candidates) {
   for (const source of candidate.source_event_ids) if (!eventIds.has(source)) fail(`unknown event ${source}`);
   if (candidate.state === "frozen") fail(`L2 candidate cannot be frozen: ${candidate.candidate_id}`);
 }
-const ir = readJson("docs/requirements/l3/requirements-ir.json");
+const authority = readJson("config/requirement-ir-authority.json");
+const manifest = readJson(authority.canonical_root);
+exactKeys(manifest, ["schema_version", "authority", "source_authority", "partition", "lifecycle", "initiative_id", "shards", "baseline_root_digest", "root_digest"], "canonical IR manifest");
+if (manifest.schema_version !== "helix-requirement-ir.v2" || manifest.authority !== "canonical" || manifest.source_authority !== "json_stable_id_shards" || manifest.partition !== "stable_id_keyed_shards") fail("canonical IR envelope differs from HELIX v2 format");
+if (manifest.lifecycle === "frozen" && authority.lifecycle_policy.freeze_authority !== "PO") fail("canonical IR claims freeze without PO authority");
+const expectedShardKinds = ["requirements", "system_contracts", "acceptance_cases", "system_tests", "refinement_contracts"];
+if (manifest.shards.length !== expectedShardKinds.length || manifest.shards.some((shard, index) => shard.kind !== expectedShardKinds[index])) fail("canonical IR must contain the ordered five HELIX shards");
+const canonical = {};
+for (const shard of manifest.shards) {
+  const text = readFileSync(resolve(root, shard.path), "utf8");
+  if (`sha256:${createHash("sha256").update(text).digest("hex")}` !== shard.digest) fail(`canonical shard digest drift ${shard.path}`);
+  canonical[shard.kind] = JSON.parse(text);
+  if (Object.keys(canonical[shard.kind]).length !== shard.count) fail(`canonical shard count drift ${shard.path}`);
+  for (const [id, record] of Object.entries(canonical[shard.kind])) {
+    const identityKey = ({ requirements: "requirement_id", system_contracts: "system_contract_id", acceptance_cases: "acceptance_id", system_tests: "system_test_id", refinement_contracts: "refinement_contract_id" })[shard.kind];
+    const identity = record[identityKey];
+    if (id !== identity) fail(`stable ID key mismatch ${shard.path}#${id}`);
+    if (!/^sha256:[0-9a-f]{64}$/.test(record.semantic_digest)) fail(`invalid semantic digest ${shard.path}#${id}`);
+    const { semantic_digest: declaredSemanticDigest, ...semanticRecord } = record;
+    const actualSemanticDigest = `sha256:${createHash("sha256").update(`${JSON.stringify(semanticRecord, null, 2)}\n`).digest("hex")}`;
+    if (declaredSemanticDigest !== actualSemanticDigest) fail(`semantic digest drift ${shard.path}#${id}`);
+  }
+}
+const calculatedRootDigest = `sha256:${createHash("sha256").update(`${JSON.stringify(manifest.shards.map(({ kind, count, digest }) => ({ kind, count, digest })), null, 2)}\n`).digest("hex")}`;
+if (calculatedRootDigest !== manifest.root_digest) fail("canonical IR root digest drift");
+
+// Compatibility files retain only migration metadata and a fail-closed projection receipt.
+// All semantic validation below reads the canonical shards.
+const compatibilityIr = readJson("docs/requirements/l3/requirements-ir.json");
+const ir = {
+  ...compatibilityIr,
+  initiative_id: manifest.initiative_id,
+  requirements: Object.values(canonical.requirements).map((item) => ({
+    id: item.requirement_id, kind: item.kind, status: item.lifecycle_status,
+    source_ids: item.source_ids, statement: item.statement, priority: item.priority,
+    actor_ids: item.actor_ids, surface_ids: item.surface_ids,
+    acceptance_ids: item.acceptance_ids, test_ids: item.system_test_ids,
+    ...(item.pending_resolution.length ? { pending_resolution: item.pending_resolution } : {}),
+    ...(!item.surface_ids.length ? { non_ui_na: compatibilityIr.requirements.find((old) => old.id === item.requirement_id)?.non_ui_na } : {}),
+  })),
+};
+if (!isDeepStrictEqual(ir.requirements, compatibilityIr.requirements)) fail("read-only requirement compatibility projection drift");
 exactKeys(ir, ["schema_version", "initiative_id", "authority", "source_authority", "compile_result", "freeze", "actors", "requirements"], "IR");
 if (ir.authority === "canonical" && ir.compile_result !== "completed") fail("canonical IR without completed compile");
 if (ir.freeze.g3 === "frozen" && (!projection.agreement || projection.compile_status !== "completed")) fail("G3 freeze without agreement");
@@ -144,7 +186,9 @@ for (const requirement of ir.requirements) {
   if (requirement.status === "human_decision_required" && !requirement.pending_resolution?.length) fail(`${requirement.id} lacks pending decisions`);
 }
 unique(acceptanceIds, "acceptance id");
-const acceptance = readJson("docs/requirements/l3/acceptance-cases.json");
+const compatibilityAcceptance = readJson("docs/requirements/l3/acceptance-cases.json");
+const acceptance = { schema_version: compatibilityAcceptance.schema_version, cases: Object.values(canonical.acceptance_cases).map((item) => ({ id: item.acceptance_id, requirement_id: item.requirement_id, polarity: item.polarity, oracle: item.oracle })) };
+if (!isDeepStrictEqual(acceptance, compatibilityAcceptance)) fail("read-only acceptance compatibility projection drift");
 exactKeys(acceptance, ["schema_version", "cases"], "acceptance registry");
 const definedAcceptance = unique(acceptance.cases.map((item) => item.id), "defined acceptance id");
 for (const id of acceptanceIds) if (!definedAcceptance.has(id)) fail(`undefined acceptance ${id}`);
@@ -166,7 +210,9 @@ for (const mapping of s1Mapping.mappings) {
   if (!s1SourceIds.has(mapping.source_acceptance_id) || !mapping.candidate_acceptance_ids.length) fail(`invalid S1 mapping ${mapping.source_acceptance_id}`);
   for (const id of mapping.candidate_acceptance_ids) if (!definedAcceptance.has(id)) fail(`S1 mapping references unknown acceptance ${id}`);
 }
-const trace = readJson("docs/requirements/l3/traceability.json");
+const compatibilityTrace = readJson("docs/requirements/l3/traceability.json");
+const trace = { schema_version: compatibilityTrace.schema_version, initiative_id: manifest.initiative_id, relations: Object.values(canonical.refinement_contracts).filter((item) => /^WP-RC-\d{3}$/.test(item.refinement_contract_id)).map((item) => ({ l1: item.source_ids[0], l2: item.source_ids[1], l3: item.requirement_ids, tests: item.system_test_ids })) };
+if (!isDeepStrictEqual(trace, compatibilityTrace)) fail("read-only trace compatibility projection drift");
 exactKeys(trace, ["schema_version", "initiative_id", "relations"], "trace registry");
 unique(trace.relations.map((relation) => `${relation.l1}\0${relation.l2}`), "trace relation");
 const tracedRequirements = new Set(trace.relations.flatMap((relation) => relation.l3));
