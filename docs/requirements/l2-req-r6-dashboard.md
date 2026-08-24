@@ -213,7 +213,7 @@
   記事・行・tree digestをcommitし、第三者とCIが同じ数値を再計算できること。
 - **整合性と真正性の境界**: CIが保証するのは、commit済みfixtureのツリーdigest、取得原本anchorの宣言値、
   DB投影値の相互整合性である。自己commitしたdigestだけでGoogle返却値の真正性は証明できない。
-  受入時はPOまたは独立reviewerがGSCから少なくと5記事を同一期間窓で再取得し、記事ID、query、clicks、impressions、
+  受入時はPOまたは独立reviewerがGSCから少なくとも5記事を同一期間窓で再取得し、記事ID、query、clicks、impressions、
   期間窓をcommit済みfixtureと突合する。この外部再取得の記録がない限り「真正性確認済み」とは表現しない。
 - loading/error/stale/normalを区別し、データ行があるnormal状態ではemptyコンテナが余白を確保しない。
 - フィルター変更時は1ページ目へ戻り、サイト変更時は両一覧のフィルターをそのサイト用に再構築する。
