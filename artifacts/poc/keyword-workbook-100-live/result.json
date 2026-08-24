@@ -2327,8 +2327,8 @@
     }
   ],
   "grouping": {
-    "algorithm": "normalized-context-hierarchy-top5-complete-linkage.v4",
-    "decision": "形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけのSERP群は親の実在有無にかかわらずderived_parent_candidateとして未確定にし、SERP不一致の親施策へ吸収しない。",
+    "algorithm": "normalized-context-scope-trie-top5-complete-linkage.v5",
+    "decision": "形態素正規化と語順alias統合、df順連鎖トライを先に確定する。表示ツリーと分離したcontext_scope_idが同じ代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけのSERP群は親の実在有無にかかわらderived_parent_candidateとして未確定にし、SERP不一致の親施策へ吸収しない。",
     "threshold_operator": ">=",
     "linkage": "complete",
     "high_threshold": 0.8,
@@ -5179,8 +5179,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5235,8 +5235,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5249,8 +5249,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5319,8 +5319,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5403,8 +5403,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5557,8 +5557,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5683,8 +5683,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5711,8 +5711,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -5781,8 +5781,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -6327,8 +6327,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -6383,8 +6383,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -6411,8 +6411,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -6425,8 +6425,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -6453,8 +6453,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -6467,8 +6467,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -11981,8 +11981,8 @@
         "denominator": 5,
         "ratio": 0.2,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0.2,
         "decision_source": "representative_serp"
@@ -11995,8 +11995,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -12065,8 +12065,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -12149,8 +12149,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -12303,8 +12303,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -12429,8 +12429,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -12457,8 +12457,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -12527,8 +12527,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -13073,8 +13073,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -13129,8 +13129,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -13157,8 +13157,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -13171,8 +13171,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -13199,8 +13199,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -13213,8 +13213,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -17078,8 +17078,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -17148,8 +17148,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -17232,8 +17232,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -17386,8 +17386,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -17512,8 +17512,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -17540,8 +17540,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -17610,8 +17610,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18156,8 +18156,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18212,8 +18212,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18240,8 +18240,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18254,8 +18254,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18282,8 +18282,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18296,8 +18296,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18366,8 +18366,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18450,8 +18450,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18604,8 +18604,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18730,8 +18730,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18758,8 +18758,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -18828,8 +18828,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -19374,8 +19374,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -19430,8 +19430,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -19458,8 +19458,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -19472,8 +19472,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -19500,8 +19500,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -19514,8 +19514,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -24383,8 +24383,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -24537,8 +24537,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -24663,8 +24663,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -24691,8 +24691,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -24761,8 +24761,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -25307,8 +25307,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -25363,8 +25363,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -25391,8 +25391,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -25405,8 +25405,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -25433,8 +25433,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -25447,8 +25447,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -31165,8 +31165,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -31291,8 +31291,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -31319,8 +31319,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -31389,8 +31389,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -31935,8 +31935,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -31991,8 +31991,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -32019,8 +32019,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -32033,8 +32033,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -32061,8 +32061,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -32075,8 +32075,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42172,8 +42172,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42200,8 +42200,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42270,8 +42270,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42816,8 +42816,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42872,8 +42872,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42900,8 +42900,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42914,8 +42914,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -42961,8 +42961,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -49836,8 +49836,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -49906,8 +49906,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -50452,8 +50452,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -50508,8 +50508,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -50536,8 +50536,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -50550,8 +50550,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -50578,8 +50578,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -50592,8 +50592,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -51435,8 +51435,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -51981,8 +51981,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -52037,8 +52037,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -52065,8 +52065,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -52079,8 +52079,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -52107,8 +52107,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -52121,8 +52121,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -55619,8 +55619,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -55675,8 +55675,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -55703,8 +55703,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -55717,8 +55717,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -55745,8 +55745,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -55759,8 +55759,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -71685,8 +71685,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -71713,8 +71713,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -71727,8 +71727,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -71755,8 +71755,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -71769,8 +71769,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72133,8 +72133,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72147,8 +72147,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72175,8 +72175,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72189,8 +72189,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72273,8 +72273,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72301,8 +72301,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72315,8 +72315,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72343,8 +72343,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72357,8 +72357,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -72399,8 +72399,8 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
-        "same_context": false,
-        "intent_confidence": "context_separate",
+        "same_context": true,
+        "intent_confidence": "separate",
         "likely_same_intent": false,
         "decision_ratio": 0,
         "decision_source": "representative_serp"
@@ -73225,8 +73225,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 140,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "就活 itニュース",
         "時事問題 就活 it",
@@ -73247,8 +73248,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "就活 it 成果物"
       ],
@@ -73265,8 +73267,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:101",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:101"
@@ -73280,8 +73283,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 390,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 1,
       "intent_keywords": [
         "it 企業 就活",
         "就活it企業",
@@ -73304,8 +73308,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 260,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活の軸",
         "就活の軸 it 文系",
@@ -73334,8 +73339,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 2,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [
         "it 就活 ランキング",
         "就活 it 企業 ランキング",
@@ -73358,8 +73364,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 70,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:15",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:15"
@@ -73373,8 +73380,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 70,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活 サイト"
       ],
@@ -73391,8 +73399,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 70,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:19",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:19"
@@ -73406,8 +73415,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 8100,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:2",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:2"
@@ -73421,8 +73431,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 50,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活 エージェント"
       ],
@@ -73439,8 +73450,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 50,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活 早い",
         "it 就活 スケジュール"
@@ -73459,8 +73471,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 50,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:24",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:24"
@@ -73474,8 +73487,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 30,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:25"
@@ -73489,8 +73503,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 30,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:26"
@@ -73504,8 +73519,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 30,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:27"
@@ -73519,8 +73535,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 20,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活イベント"
       ],
@@ -73537,8 +73554,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 1900,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:3",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:3"
@@ -73552,8 +73570,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 20,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:31"
@@ -73567,8 +73586,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 20,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活 偏差値",
         "it 就活偏差値",
@@ -73589,8 +73609,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 20,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [
         "就活 it 志望動機",
         "就活 志望動機 例文 it",
@@ -73613,8 +73634,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:37"
@@ -73628,8 +73650,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:39"
@@ -73643,8 +73666,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 1600,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:4",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [
         "就活タイムズとは"
       ],
@@ -73661,8 +73685,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:41"
@@ -73676,8 +73701,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:42"
@@ -73691,8 +73717,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活 面接",
         "就活 面接 質問 it",
@@ -73713,8 +73740,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:44"
@@ -73728,8 +73756,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:46"
@@ -73743,8 +73772,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:47"
@@ -73758,8 +73788,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:48",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:48"
@@ -73773,8 +73804,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 5,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:49"
@@ -73788,8 +73820,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 720,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:5",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:5"
@@ -73803,8 +73836,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:50"
@@ -73818,8 +73852,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 10,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:51"
@@ -73833,8 +73868,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:54",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:54"
@@ -73848,8 +73884,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:55"
@@ -73863,8 +73900,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:57"
@@ -73878,8 +73916,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:59"
@@ -73893,8 +73932,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:62"
@@ -73908,8 +73948,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 2,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:63"
@@ -73923,8 +73964,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:67"
@@ -73938,8 +73980,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:68"
@@ -73953,8 +73996,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 2,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:69"
@@ -73968,8 +74012,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 320,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:7"
@@ -73983,8 +74028,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:71"
@@ -73998,8 +74044,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活 試験"
       ],
@@ -74016,8 +74063,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:73"
@@ -74031,8 +74079,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:74"
@@ -74046,8 +74095,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:77"
@@ -74061,8 +74111,9 @@
       "main_keyword_origin": "derived_parent_candidate",
       "derived_parent_candidate": "it 就活",
       "main_search_volume": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [
         "it 就活 おすすめ"
       ],
@@ -74078,8 +74129,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:82"
@@ -74093,8 +74145,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:86"
@@ -74108,8 +74161,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:87"
@@ -74123,8 +74177,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:89"
@@ -74138,8 +74193,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 210,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:9",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:9"
@@ -74153,8 +74209,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:90"
@@ -74168,8 +74225,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:91"
@@ -74183,8 +74241,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:92"
@@ -74198,8 +74257,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:93",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 3,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:93"
@@ -74213,8 +74273,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:95",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:95"
@@ -74228,8 +74289,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:96",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:96"
@@ -74243,8 +74305,9 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "hierarchy_depth": 1,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:it",
+      "hierarchy_depth": 2,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:97"
@@ -74258,15 +74321,16 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 0,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:99",
-      "hierarchy_depth": 0,
+      "root_source_keyword_id": "derived:就活",
+      "context_scope_id": "context:general",
+      "hierarchy_depth": 1,
       "intent_keywords": [],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:99"
       ]
     }
   ],
-  "reproducibility_digest": "1b7418112af372da289d60245c01c746d9be51ffb0e8af7c357d0ba870a9182f",
+  "reproducibility_digest": "a52f680304a689ec83a9bce2ad2ff05d9eb0fbf3f2aab57c1c7836ee6e6c07f8",
   "keyword_hierarchy": [
     {
       "source_keyword_id": "it-shukatu.com:IT就活:10",
@@ -74276,14 +74340,21 @@
         "ニュース",
         "就活"
       ],
+      "normalized_keyword": "it ニュース 就活",
+      "tree_path": [
+        "就活",
+        "it",
+        "ニュース"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:10",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:100",
@@ -74291,17 +74362,23 @@
       "normalized_terms": [
         "就活",
         "it",
-        "成果",
-        "物"
+        "成果物"
       ],
-      "term_count": 4,
+      "normalized_keyword": "就活 it 成果物",
+      "tree_path": [
+        "就活",
+        "it",
+        "成果物"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:100",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:101",
@@ -74310,14 +74387,20 @@
         "けい",
         "就活"
       ],
+      "normalized_keyword": "けい 就活",
+      "tree_path": [
+        "就活",
+        "けい"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:101",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:101",
-      "root_keyword": "けい 就活",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:11",
@@ -74327,14 +74410,21 @@
         "就活",
         "軸"
       ],
+      "normalized_keyword": "it 就活 軸",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:12",
@@ -74344,14 +74434,21 @@
         "企業",
         "就活"
       ],
+      "normalized_keyword": "it 企業 就活",
+      "tree_path": [
+        "就活",
+        "it",
+        "企業"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:12",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:13",
@@ -74362,14 +74459,22 @@
         "it",
         "文系"
       ],
+      "normalized_keyword": "就活 軸 it 文系",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸",
+        "文系"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:13",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_keyword": "就活の軸it",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:14",
@@ -74379,14 +74484,21 @@
         "就活",
         "ランキング"
       ],
+      "normalized_keyword": "it 就活 ランキング",
+      "tree_path": [
+        "就活",
+        "it",
+        "ランキング"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:14",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:15",
@@ -74395,14 +74507,20 @@
         "就活",
         "ツール"
       ],
+      "normalized_keyword": "就活 ツール",
+      "tree_path": [
+        "就活",
+        "ツール"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:15",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:15",
-      "root_keyword": "就活ツール",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:16",
@@ -74412,14 +74530,21 @@
         "就活",
         "サイト"
       ],
+      "normalized_keyword": "it 就活 サイト",
+      "tree_path": [
+        "就活",
+        "it",
+        "サイト"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:16",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:17",
@@ -74429,14 +74554,21 @@
         "就活",
         "サイト"
       ],
+      "normalized_keyword": "it 就活 サイト",
+      "tree_path": [
+        "就活",
+        "it",
+        "サイト"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:16",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:18",
@@ -74447,14 +74579,22 @@
         "例文",
         "it"
       ],
+      "normalized_keyword": "就活 軸 例文 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸",
+        "例文"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:18",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_keyword": "就活の軸it",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:19",
@@ -74463,14 +74603,20 @@
         "就活",
         "ネット"
       ],
+      "normalized_keyword": "就活 ネット",
+      "tree_path": [
+        "就活",
+        "ネット"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:19",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:19",
-      "root_keyword": "就活ネット",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:2",
@@ -74479,14 +74625,20 @@
         "就活",
         "ネクタイ"
       ],
+      "normalized_keyword": "就活 ネクタイ",
+      "tree_path": [
+        "就活",
+        "ネクタイ"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:2",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:2",
-      "root_keyword": "就活ねくたい",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:20",
@@ -74496,14 +74648,21 @@
         "就活",
         "エージェント"
       ],
+      "normalized_keyword": "it 就活 エージェント",
+      "tree_path": [
+        "就活",
+        "it",
+        "エージェント"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:20",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:21",
@@ -74513,14 +74672,21 @@
         "就活",
         "軸"
       ],
+      "normalized_keyword": "it 就活 軸",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:22",
@@ -74530,14 +74696,21 @@
         "就活",
         "時期"
       ],
+      "normalized_keyword": "it 就活 時期",
+      "tree_path": [
+        "就活",
+        "it",
+        "時期"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:22",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:23",
@@ -74547,14 +74720,21 @@
         "就活",
         "エージェント"
       ],
+      "normalized_keyword": "it 就活 エージェント",
+      "tree_path": [
+        "就活",
+        "it",
+        "エージェント"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:20",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:24",
@@ -74563,14 +74743,20 @@
         "就活",
         "ネタ"
       ],
+      "normalized_keyword": "就活 ネタ",
+      "tree_path": [
+        "就活",
+        "ネタ"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:24",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:24",
-      "root_keyword": "就活ネタ",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:25",
@@ -74580,14 +74766,21 @@
         "就活",
         "資格"
       ],
+      "normalized_keyword": "it 就活 資格",
+      "tree_path": [
+        "就活",
+        "it",
+        "資格"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:25",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:26",
@@ -74595,17 +74788,23 @@
       "normalized_terms": [
         "it",
         "就活",
-        "なん",
-        "j"
+        "なんj"
       ],
-      "term_count": 4,
+      "normalized_keyword": "it 就活 なんj",
+      "tree_path": [
+        "就活",
+        "it",
+        "なんj"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:26",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:27",
@@ -74615,14 +74814,21 @@
         "就活",
         "文系"
       ],
+      "normalized_keyword": "it 就活 文系",
+      "tree_path": [
+        "就活",
+        "it",
+        "文系"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:27",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:28",
@@ -74634,14 +74840,23 @@
         "方",
         "it"
       ],
+      "normalized_keyword": "就活 軸 答える 方 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸",
+        "答える",
+        "方"
+      ],
       "term_count": 5,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:28",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_keyword": "就活の軸it",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 4
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:29",
@@ -74651,14 +74866,21 @@
         "就活",
         "イベント"
       ],
+      "normalized_keyword": "it 就活 イベント",
+      "tree_path": [
+        "就活",
+        "it",
+        "イベント"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:29",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:3",
@@ -74667,14 +74889,20 @@
         "就活",
         "つらい"
       ],
+      "normalized_keyword": "就活 つらい",
+      "tree_path": [
+        "就活",
+        "つらい"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:3",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:3",
-      "root_keyword": "就活つらい",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:30",
@@ -74684,14 +74912,21 @@
         "就活",
         "イベント"
       ],
+      "normalized_keyword": "it 就活 イベント",
+      "tree_path": [
+        "就活",
+        "it",
+        "イベント"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:29",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:31",
@@ -74701,14 +74936,21 @@
         "it",
         "就活"
       ],
+      "normalized_keyword": "外資 it 就活",
+      "tree_path": [
+        "就活",
+        "it",
+        "外資"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:31",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:32",
@@ -74716,17 +74958,23 @@
       "normalized_terms": [
         "it",
         "就活",
-        "難易",
-        "度"
+        "難易度"
       ],
-      "term_count": 4,
+      "normalized_keyword": "it 就活 難易度",
+      "tree_path": [
+        "就活",
+        "it",
+        "難易度"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:32",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:33",
@@ -74737,14 +74985,22 @@
         "動機",
         "it"
       ],
+      "normalized_keyword": "就活 志望 動機 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "志望",
+        "動機"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:33",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:34",
@@ -74755,14 +75011,22 @@
         "一覧",
         "it"
       ],
+      "normalized_keyword": "就活 軸 一覧 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸",
+        "一覧"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:34",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_keyword": "就活の軸it",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:35",
@@ -74773,14 +75037,22 @@
         "志望",
         "動機"
       ],
+      "normalized_keyword": "就活 it 志望 動機",
+      "tree_path": [
+        "就活",
+        "it",
+        "志望",
+        "動機"
+      ],
       "term_count": 4,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:33",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:36",
@@ -74790,14 +75062,21 @@
         "it",
         "ニュース"
       ],
+      "normalized_keyword": "就活 it ニュース",
+      "tree_path": [
+        "就活",
+        "it",
+        "ニュース"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:10",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:37",
@@ -74807,14 +75086,21 @@
         "就活",
         "本"
       ],
+      "normalized_keyword": "it 就活 本",
+      "tree_path": [
+        "就活",
+        "it",
+        "本"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:37",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:38",
@@ -74826,32 +75112,47 @@
         "例文",
         "it"
       ],
+      "normalized_keyword": "就活 志望 動機 例文 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "志望",
+        "動機",
+        "例文"
+      ],
       "term_count": 5,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:38",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:33",
       "parent_keyword": "就活 志望動機 it",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 4
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:39",
       "keyword": "就活 自己pr it",
       "normalized_terms": [
         "就活",
-        "自己",
-        "pr",
+        "自己pr",
         "it"
       ],
-      "term_count": 4,
+      "normalized_keyword": "就活 自己pr it",
+      "tree_path": [
+        "就活",
+        "it",
+        "自己pr"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:39",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:4",
@@ -74860,14 +75161,20 @@
         "就活",
         "タイムズ"
       ],
+      "normalized_keyword": "就活 タイムズ",
+      "tree_path": [
+        "就活",
+        "タイムズ"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:4",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:4",
-      "root_keyword": "就活タイムズ",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:40",
@@ -74877,14 +75184,21 @@
         "就活",
         "早い"
       ],
+      "normalized_keyword": "it 就活 早い",
+      "tree_path": [
+        "就活",
+        "it",
+        "早い"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:40",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:41",
@@ -74892,35 +75206,47 @@
       "normalized_terms": [
         "就活",
         "it",
-        "未",
-        "経験"
+        "未経験"
       ],
-      "term_count": 4,
+      "normalized_keyword": "就活 it 未経験",
+      "tree_path": [
+        "就活",
+        "it",
+        "未経験"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:41",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:42",
       "keyword": "就活 キャリアプラン it",
       "normalized_terms": [
         "就活",
-        "キャリア",
-        "プラン",
+        "キャリアプラン",
         "it"
       ],
-      "term_count": 4,
+      "normalized_keyword": "就活 キャリアプラン it",
+      "tree_path": [
+        "就活",
+        "it",
+        "キャリアプラン"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:42",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:43",
@@ -74930,14 +75256,21 @@
         "就活",
         "質問"
       ],
+      "normalized_keyword": "it 就活 質問",
+      "tree_path": [
+        "就活",
+        "it",
+        "質問"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:43",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:44",
@@ -74947,14 +75280,21 @@
         "就活",
         "新卒"
       ],
+      "normalized_keyword": "it 就活 新卒",
+      "tree_path": [
+        "就活",
+        "it",
+        "新卒"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:44",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:45",
@@ -74965,14 +75305,22 @@
         "志望",
         "動機"
       ],
+      "normalized_keyword": "it 就活 志望 動機",
+      "tree_path": [
+        "就活",
+        "it",
+        "志望",
+        "動機"
+      ],
       "term_count": 4,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:33",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:46",
@@ -74980,17 +75328,23 @@
       "normalized_terms": [
         "it",
         "就活",
-        "2",
-        "ch"
+        "2ch"
       ],
-      "term_count": 4,
+      "normalized_keyword": "it 就活 2ch",
+      "tree_path": [
+        "就活",
+        "it",
+        "2ch"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:46",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:47",
@@ -75000,14 +75354,21 @@
         "倍率",
         "it"
       ],
+      "normalized_keyword": "就活 倍率 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "倍率"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:47",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:48",
@@ -75017,14 +75378,21 @@
         "select",
         "就活"
       ],
+      "normalized_keyword": "suit select 就活",
+      "tree_path": [
+        "就活",
+        "suit",
+        "select"
+      ],
       "term_count": 3,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:48",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:48",
-      "root_keyword": "suit select 就活",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:49",
@@ -75037,14 +75405,24 @@
         "こと",
         "it"
       ],
+      "normalized_keyword": "就活 入社 後 する こと it",
+      "tree_path": [
+        "就活",
+        "it",
+        "こと",
+        "入社",
+        "後",
+        "する"
+      ],
       "term_count": 6,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:49",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 5
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:5",
@@ -75053,14 +75431,20 @@
         "就活",
         "クチコミ"
       ],
+      "normalized_keyword": "就活 クチコミ",
+      "tree_path": [
+        "就活",
+        "クチコミ"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:5",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:5",
-      "root_keyword": "就活クチコミ",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:50",
@@ -75071,14 +75455,22 @@
         "夢",
         "it"
       ],
+      "normalized_keyword": "就活 将来 夢 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "将来",
+        "夢"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:50",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:51",
@@ -75088,14 +75480,21 @@
         "it",
         "系"
       ],
+      "normalized_keyword": "就活 it 系",
+      "tree_path": [
+        "就活",
+        "it",
+        "系"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:51",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:52",
@@ -75105,14 +75504,21 @@
         "it",
         "企業"
       ],
+      "normalized_keyword": "就活 it 企業",
+      "tree_path": [
+        "就活",
+        "it",
+        "企業"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:12",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:53",
@@ -75121,14 +75527,20 @@
         "就活",
         "it"
       ],
+      "normalized_keyword": "就活 it",
+      "tree_path": [
+        "就活",
+        "it"
+      ],
       "term_count": 2,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:54",
@@ -75137,14 +75549,20 @@
         "就活",
         "twitter"
       ],
+      "normalized_keyword": "就活 twitter",
+      "tree_path": [
+        "就活",
+        "twitter"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:54",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:54",
-      "root_keyword": "就活ツイッター",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:55",
@@ -75155,14 +75573,22 @@
         "やる",
         "こと"
       ],
+      "normalized_keyword": "就活 it やる こと",
+      "tree_path": [
+        "就活",
+        "it",
+        "こと",
+        "やる"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:55",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:56",
@@ -75170,17 +75596,23 @@
       "normalized_terms": [
         "it",
         "就活",
-        "成果",
-        "物"
+        "成果物"
       ],
-      "term_count": 4,
+      "normalized_keyword": "it 就活 成果物",
+      "tree_path": [
+        "就活",
+        "it",
+        "成果物"
+      ],
+      "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:100",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:57",
@@ -75191,14 +75623,22 @@
         "学校",
         "就活"
       ],
+      "normalized_keyword": "it 専門 学校 就活",
+      "tree_path": [
+        "就活",
+        "it",
+        "専門",
+        "学校"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:57",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:58",
@@ -75206,17 +75646,23 @@
       "normalized_terms": [
         "it",
         "就活",
-        "偏差",
-        "値"
+        "偏差値"
       ],
-      "term_count": 4,
+      "normalized_keyword": "it 就活 偏差値",
+      "tree_path": [
+        "就活",
+        "it",
+        "偏差値"
+      ],
+      "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:58",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:59",
@@ -75226,14 +75672,21 @@
         "就活",
         "知識"
       ],
+      "normalized_keyword": "it 就活 知識",
+      "tree_path": [
+        "就活",
+        "it",
+        "知識"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:59",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:6",
@@ -75242,14 +75695,20 @@
         "it",
         "就活"
       ],
+      "normalized_keyword": "it 就活",
+      "tree_path": [
+        "就活",
+        "it"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:60",
@@ -75257,17 +75716,23 @@
       "normalized_terms": [
         "it",
         "就活",
-        "偏差",
-        "値"
+        "偏差値"
       ],
-      "term_count": 4,
+      "normalized_keyword": "it 就活 偏差値",
+      "tree_path": [
+        "就活",
+        "it",
+        "偏差値"
+      ],
+      "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:58",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:61",
@@ -75278,14 +75743,22 @@
         "企業",
         "ランキング"
       ],
+      "normalized_keyword": "就活 it 企業 ランキング",
+      "tree_path": [
+        "就活",
+        "it",
+        "企業",
+        "ランキング"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:61",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:12",
       "parent_keyword": "it 企業 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:62",
@@ -75295,14 +75768,21 @@
         "就活",
         "it"
       ],
+      "normalized_keyword": "理系 就活 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "理系"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:62",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:63",
@@ -75313,14 +75793,22 @@
         "試験",
         "it"
       ],
+      "normalized_keyword": "就活 筆記 試験 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "試験",
+        "筆記"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:63",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:76",
       "parent_keyword": "it 就活 試験",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:64",
@@ -75333,14 +75821,24 @@
         "集",
         "it"
       ],
+      "normalized_keyword": "就活 志望 動機 例文 集 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "志望",
+        "動機",
+        "例文",
+        "集"
+      ],
       "term_count": 6,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:64",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:38",
       "parent_keyword": "就活 志望動機 例文 it",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 3
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 5
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:65",
@@ -75351,14 +75849,22 @@
         "就活",
         "it"
       ],
+      "normalized_keyword": "時事 問題 就活 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "時事",
+        "問題"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:65",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:66",
@@ -75366,17 +75872,23 @@
       "normalized_terms": [
         "it",
         "就活",
-        "難易",
-        "度"
+        "難易度"
       ],
-      "term_count": 4,
+      "normalized_keyword": "it 就活 難易度",
+      "tree_path": [
+        "就活",
+        "it",
+        "難易度"
+      ],
+      "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:32",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:67",
@@ -75386,14 +75898,21 @@
         "就活",
         "流れ"
       ],
+      "normalized_keyword": "it 就活 流れ",
+      "tree_path": [
+        "就活",
+        "it",
+        "流れ"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:67",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:68",
@@ -75403,14 +75922,21 @@
         "就活",
         "コツ"
       ],
+      "normalized_keyword": "it 就活 コツ",
+      "tree_path": [
+        "就活",
+        "it",
+        "コツ"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:68",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:69",
@@ -75421,14 +75947,22 @@
         "逆",
         "質問"
       ],
+      "normalized_keyword": "it 就活 逆 質問",
+      "tree_path": [
+        "就活",
+        "it",
+        "質問",
+        "逆"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:69",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:43",
       "parent_keyword": "it 就活 質問",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:7",
@@ -75438,14 +75972,21 @@
         "パスポート",
         "就活"
       ],
+      "normalized_keyword": "it パスポート 就活",
+      "tree_path": [
+        "就活",
+        "it",
+        "パスポート"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:7",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:70",
@@ -75457,14 +75998,23 @@
         "ニュース",
         "it"
       ],
+      "normalized_keyword": "就活 気 なる ニュース it",
+      "tree_path": [
+        "就活",
+        "it",
+        "ニュース",
+        "気",
+        "なる"
+      ],
       "term_count": 5,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:70",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:10",
       "parent_keyword": "it ニュース 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 4
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:71",
@@ -75474,14 +76024,21 @@
         "髪型",
         "it"
       ],
+      "normalized_keyword": "就活 髪型 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "髪型"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:71",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:72",
@@ -75491,14 +76048,21 @@
         "就活",
         "テスト"
       ],
+      "normalized_keyword": "it 就活 テスト",
+      "tree_path": [
+        "就活",
+        "it",
+        "テスト"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:72",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:73",
@@ -75509,14 +76073,22 @@
         "検査",
         "it"
       ],
+      "normalized_keyword": "就活 適性 検査 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "適性",
+        "検査"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:73",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:74",
@@ -75526,14 +76098,21 @@
         "特技",
         "it"
       ],
+      "normalized_keyword": "就活 特技 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "特技"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:74",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:75",
@@ -75543,14 +76122,21 @@
         "就活",
         "スケジュール"
       ],
+      "normalized_keyword": "it 就活 スケジュール",
+      "tree_path": [
+        "就活",
+        "it",
+        "スケジュール"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:75",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:76",
@@ -75560,14 +76146,21 @@
         "就活",
         "試験"
       ],
+      "normalized_keyword": "it 就活 試験",
+      "tree_path": [
+        "就活",
+        "it",
+        "試験"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:76",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:77",
@@ -75577,14 +76170,21 @@
         "就活",
         "職種"
       ],
+      "normalized_keyword": "it 就活 職種",
+      "tree_path": [
+        "就活",
+        "it",
+        "職種"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:77",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:78",
@@ -75594,14 +76194,21 @@
         "就活",
         "面接"
       ],
+      "normalized_keyword": "it 就活 面接",
+      "tree_path": [
+        "就活",
+        "it",
+        "面接"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:78",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:79",
@@ -75612,14 +76219,22 @@
         "質問",
         "it"
       ],
+      "normalized_keyword": "就活 面接 質問 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "質問",
+        "面接"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:79",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:43",
       "parent_keyword": "it 就活 質問",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:8",
@@ -75629,14 +76244,21 @@
         "軸",
         "it"
       ],
+      "normalized_keyword": "就活 軸 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:80",
@@ -75646,14 +76268,21 @@
         "it",
         "メーカー"
       ],
+      "normalized_keyword": "就活 it メーカー",
+      "tree_path": [
+        "就活",
+        "it",
+        "メーカー"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:80",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:81",
@@ -75663,14 +76292,21 @@
         "就活",
         "おすすめ"
       ],
+      "normalized_keyword": "it 就活 おすすめ",
+      "tree_path": [
+        "就活",
+        "it",
+        "おすすめ"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:81",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:82",
@@ -75680,14 +76316,21 @@
         "就活",
         "落ちる"
       ],
+      "normalized_keyword": "it 就活 落ちる",
+      "tree_path": [
+        "就活",
+        "it",
+        "落ちる"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:82",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:83",
@@ -75697,14 +76340,21 @@
         "就活",
         "ランキング"
       ],
+      "normalized_keyword": "it 就活 ランキング",
+      "tree_path": [
+        "就活",
+        "it",
+        "ランキング"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:14",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:84",
@@ -75715,14 +76365,22 @@
         "人気",
         "ランキング"
       ],
+      "normalized_keyword": "it 就活 人気 ランキング",
+      "tree_path": [
+        "就活",
+        "it",
+        "ランキング",
+        "人気"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:84",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:85",
@@ -75732,14 +76390,21 @@
         "就活",
         "軸"
       ],
+      "normalized_keyword": "it 就活 軸",
+      "tree_path": [
+        "就活",
+        "it",
+        "軸"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:8",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:86",
@@ -75749,14 +76414,21 @@
         "it",
         "就活"
       ],
+      "normalized_keyword": "ベンチャー it 就活",
+      "tree_path": [
+        "就活",
+        "it",
+        "ベンチャー"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:86",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:87",
@@ -75766,14 +76438,21 @@
         "ポートフォリオ",
         "就活"
       ],
+      "normalized_keyword": "it ポートフォリオ 就活",
+      "tree_path": [
+        "就活",
+        "it",
+        "ポートフォリオ"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:87",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:88",
@@ -75783,34 +76462,47 @@
         "面接",
         "it"
       ],
+      "normalized_keyword": "就活 面接 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "面接"
+      ],
       "term_count": 3,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:78",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:89",
       "keyword": "就活 5年後の自分 it",
       "normalized_terms": [
         "就活",
-        "5",
-        "年",
-        "後",
+        "5年後",
         "自分",
         "it"
       ],
-      "term_count": 6,
+      "normalized_keyword": "就活 5年後 自分 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "自分",
+        "5年後"
+      ],
+      "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:89",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:9",
@@ -75819,34 +76511,46 @@
         "就活",
         "nnt"
       ],
+      "normalized_keyword": "就活 nnt",
+      "tree_path": [
+        "就活",
+        "nnt"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:9",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:9",
-      "root_keyword": "就活nnt",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:90",
       "keyword": "就活 10年後の自分 it",
       "normalized_terms": [
         "就活",
-        "10",
-        "年",
-        "後",
+        "10年後",
         "自分",
         "it"
       ],
-      "term_count": 6,
+      "normalized_keyword": "就活 10年後 自分 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "自分",
+        "10年後"
+      ],
+      "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:90",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:91",
@@ -75856,14 +76560,21 @@
         "作文",
         "it"
       ],
+      "normalized_keyword": "就活 作文 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "作文"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:91",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:92",
@@ -75874,14 +76585,22 @@
         "常識",
         "it"
       ],
+      "normalized_keyword": "就活 一般 常識 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "一般",
+        "常識"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:92",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:93",
@@ -75892,14 +76611,22 @@
         "company",
         "就活"
       ],
+      "normalized_keyword": "the suit company 就活",
+      "tree_path": [
+        "就活",
+        "suit",
+        "the",
+        "company"
+      ],
       "term_count": 4,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:93",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:93",
-      "root_keyword": "the suit company 就活",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:94",
@@ -75910,14 +76637,22 @@
         "企業",
         "it"
       ],
+      "normalized_keyword": "就活 人気 企業 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "企業",
+        "人気"
+      ],
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:94",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:12",
       "parent_keyword": "it 企業 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 2
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 3
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:95",
@@ -75926,14 +76661,20 @@
         "就活",
         "ネットワーク"
       ],
+      "normalized_keyword": "就活 ネットワーク",
+      "tree_path": [
+        "就活",
+        "ネットワーク"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:95",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:95",
-      "root_keyword": "就活ネットワーク",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:96",
@@ -75943,14 +76684,21 @@
         "就活",
         "会議"
       ],
+      "normalized_keyword": "muit 就活 会議",
+      "tree_path": [
+        "就活",
+        "muit",
+        "会議"
+      ],
       "term_count": 3,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:96",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:96",
-      "root_keyword": "muit 就活会議",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:97",
@@ -75960,14 +76708,21 @@
         "小論文",
         "it"
       ],
+      "normalized_keyword": "就活 小論文 it",
+      "tree_path": [
+        "就活",
+        "it",
+        "小論文"
+      ],
       "term_count": 3,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:97",
       "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
       "parent_keyword": "it 就活",
-      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
-      "root_keyword": "it 就活",
-      "depth": 1
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:it",
+      "depth": 2
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:98",
@@ -75976,14 +76731,20 @@
         "就活",
         "タイムズ"
       ],
+      "normalized_keyword": "就活 タイムズ",
+      "tree_path": [
+        "就活",
+        "タイムズ"
+      ],
       "term_count": 2,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:4",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:4",
-      "root_keyword": "就活タイムズ",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:99",
@@ -75992,15 +76753,21 @@
         "就活",
         "タトゥー"
       ],
+      "normalized_keyword": "就活 タトゥー",
+      "tree_path": [
+        "就活",
+        "タトゥー"
+      ],
       "term_count": 2,
-      "relation": "root",
+      "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:99",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "it-shukatu.com:IT就活:99",
-      "root_keyword": "就活タトゥー",
-      "depth": 0
+      "root_source_keyword_id": "derived:就活",
+      "root_keyword": "就活",
+      "context_scope_id": "context:general",
+      "depth": 1
     }
   ],
-  "keyword_policy_version": "ja-seo-keyword-policy.v1"
+  "keyword_policy_version": "ja-seo-keyword-policy.v2"
 }

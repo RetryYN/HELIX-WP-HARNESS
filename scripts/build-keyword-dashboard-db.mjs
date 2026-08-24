@@ -24,7 +24,9 @@ const processedGroups=poc.article_keyword_groups.map((group,index)=>{
   const resolved=group.resolution_state!=="unresolved"&&group.main_keyword!=null;
   const main=resolved?rows.find((row)=>row.keyword===group.main_keyword):null;
   if(resolved&&!main)throw new Error(`main keyword is not an actual group member: ${group.group_id}`);
-  const categoryPath=categoryPathForKeywords(rows.map((row)=>row.keyword));
+  const inferredCategoryPath=categoryPathForKeywords(rows.map((row)=>row.keyword));
+  const contextCategory=group.context_scope_id==="context:it"?"IT就活":"就活";
+  const categoryPath=[contextCategory,...inferredCategoryPath.filter((part)=>part!==contextCategory&&!(group.context_scope_id==="context:general"&&part==="IT就活"))];
   const mainBasis="文脈・語数階層内の実在KWから検索Vol最大（修飾語はmain除外）";
   return {
     id:`it-shukatu-serp-${String(index+1).padStart(3,"0")}`,site_id:"it-shukatu.com",resolution_state:resolved?"resolved":"unresolved",main_keyword:resolved?group.main_keyword:null,derived_parent_candidate:resolved?null:group.derived_parent_candidate??null,

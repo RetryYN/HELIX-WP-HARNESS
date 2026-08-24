@@ -47,8 +47,8 @@ const chain=buildLatestKeywordGroups([
   {source_keyword_id:"c-actual-parent",keyword:"おすすめ 転職 理由",search_volume:200,source_file_digest:"a",source_sheet:"s",source_row:3,organic_urls:urls("reason")},
 ]);
 assert.equal(chain.hierarchy.find((row)=>row.source_keyword_id==="a-root-modifier").parent_source_keyword_id,null);
-assert.equal(chain.hierarchy.find((row)=>row.source_keyword_id==="b-child-modifier").parent_source_keyword_id,"c-actual-parent");
-assert.equal(chain.articleKeywordGroups.length,3,"different hierarchy roots must not be joined only because modifier SERPs match");
+assert.equal(chain.hierarchy.find((row)=>row.source_keyword_id==="b-child-modifier").context_scope_id,"context:general");
+assert.equal(chain.articleKeywordGroups.length,2,"SERP grouping uses the explicit context scope, not display-tree roots");
 const unresolvedChains=chain.articleKeywordGroups.filter((group)=>group.resolution_state==="unresolved");
 assert.deepEqual(new Set(unresolvedChains.flatMap((group)=>group.intent_keywords)),new Set(["転職 おすすめ","転職 理由 面接 おすすめ"]));
 

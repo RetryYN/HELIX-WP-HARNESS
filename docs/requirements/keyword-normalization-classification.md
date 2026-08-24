@@ -6,15 +6,15 @@
 
 ## 1. 処理順序
 
-`原文保持 → 表記正規化 → SEO意味語化 → context root/語数ツリー → alias統合 → 同じroot内のSERP照合 → 記事KW群 → WP記事照合 → SEOゲート`
+`原文保持 → 表記正規化 → SEO意味語化 → df順連鎖トライ/context_scope → alias統合 → 同じcontext_scope内のSERP照合 → 記事KW群 → WP記事照合 → SEOゲート`
 
-SEO意味語化の直後に全取込KWの語彙ツリーを生成する。同一term multisetは同一階層のalias、親のterm multisetへ
-意味語を追加したKWは子とし、包含する実在KWのうち意味語数が最大のものを直近親にする。語数は階層生成に使うが、
-同一施策への統合可否は後段のSERP照合で決める。例: `it 就活` → `it ニュース 就活` →
-`就活 気になるニュース it`。この階層を作らず全KWを同じ記事照合フィルターへ投入しない。
+SEO意味語化の直後に全取込KWの語彙ツリーを生成する。termを「そのtermを含むKW数（document frequency）の降順、
+同値は元KW内の出現順」で並べ、prefixを1語ずつ追加する連鎖トライとする。入力KWにないprefixは導出中間ノードとして
+表示するが、`main_keyword`へは昇格させない。同一term multisetは同一ノードのaliasとする。
 
-語彙包含よりコンテキスト境界を優先する。`IT`は対象業界を固定する意味語なので、`就活`と`IT就活`は親子化せず
-別ルートにする。IT文脈の子KWは親候補にも`IT`を必須とし、親探索時にコンテキスト語を脱落させない。
+表示ツリーの親子とSERP比較境界は分離する。表示上は`就活`を単一根とし`IT就活`もその子に置くが、
+`context_scope_id`は`IT`の有無で`context:it` / `context:general`に分ける。SERP照合は同一scope内だけで行い、
+表示根を繋げたことで比較対象を広げない。
 
 文字列の正規化と検索意図の判定を混同しない。原文、出典ファイルdigest、シート、行、DFS task、
 raw snapshotは常に逆引き可能にする。
@@ -87,7 +87,7 @@ SEO意味語数は補助値として保持するが、空白区切り数や形�
 順位の一致は要求せず、URL集合を比較する。比較URL、比率、取得条件、snapshot digestを保存する。
 
 SERP一致率60%以上を同一施策KW群の境界とし、施策記事数は正規化・alias統合後のSERP群数とする。
-ただし比較対象は同一`site_id`かつ同一context rootの代表KWに限定する。別root間はURLが重なっても
+ただし比較対象は同一`site_id`かつ同一`context_scope_id`の代表KWに限定する。別scope間はURLが重なっても
 `context_separate`とし、同じ施策へ統合しない。
 `high` / `possible`は群を分ける状態ではなく、群内のSERP証跡の確度として保持する。
 

@@ -133,6 +133,7 @@
 - **並び**: 取込DBの`source_order`を既定とし、Excelファイル名やシート名を画面見出しに出さない。
 - **カテゴリー出典**: キーワード一覧のカテゴリーは戦略層取込が完成するまで暫定推測として明示し、
   WP taxonomy由来の記事カテゴリーと同一の正本であるかのように表示しない。
+  暫定期間も第1階層は形態素解析後の`context_scope_id`から`IT就活` / `就活`を決め、非IT KWをフォールバックで`IT就活`へ入れない。
 - **集計**: 対象KW数、施策main KW数、未施策数、記事ID割当数をサイト単位で表示する。
 - **詳細**: main選定根拠、intent KW、群内最低SERP一致数/率、共通URL、AIO観測数、施策判断、
   記事成立gate、DFS task ID、費用、KW別の上位10 SERPページ分類を表示する。ページ分類は`記事` / `PDF` /
@@ -167,10 +168,9 @@
 #### 3.2.2 キーワードツリー
 
 - サイト単位の全取込KWを形態素の基本形term multisetで階層化し、DBの`keyword_hierarchy`を正本とする。
-- 同一term multisetは表記・語順alias、真部分集合のうち語数最大の実在KWを直近親とし、語数・深度・検索Volを保持する。
-- UIは独立した`キーワードツリー`タブでMermaid表示し、ルートKWで絞り込める。サイトを跨いだ親子化をしない。
-- 語彙親子は情報階層であり、同一記事への統合は確定しない。ツリー枝を先に確定し、その枝内でSERP群・記事照合を行う。
-- `就活`と`IT就活`のように対象文脈を変える語は部分集合でも別ルートとする。IT文脈の親探索で`IT`を脱落させない。
+- termのdocument frequency降順と元KW内出現順で連鎖トライを作り、入力にないprefixは導出中間ノードとして投影する。
+- UIは独立した`キーワードツリー`タブでMermaid表示し、`IT就活` / `就活`の`context_scope_id`で絞り込める。
+- 表示ツリーの根は`就活`に連結するが、SERP比較は別フィールド`context_scope_id`を境界とする。ツリー連結で比較対象を広げない。
 
 #### 3.2.3 記事獲得クエリ（実績側）
 
@@ -207,7 +207,7 @@
 - DBと証跡がない場合は設計済みemptyを表示し、fixtureやページ別/クエリ別の推測値で画面を埋めない。
 - 実データ版DB buildはGSC証跡を必須とし、欠落時はfail-closeする。empty-state試験だけは
   `WP_ALLOW_EMPTY_GSC=1`と`WP_ALLOW_EMPTY_HEADINGS=1`を明示した隔離テストとして実行し、実データPoC成功判定へ流用しない。
-- required CIの既存`npm test`は100実KW/64群のDFS provenance（形態素正規化・語順alias・文脈root・語数ツリーを先に確定し、同じ枝内でSERP比較。修飾語だけで別SERP群になった1群は、実在親があっても吸収せず`derived_parent_candidate`として`main_keyword`なしの未確定行で保持・表示し、記事照合・記事ID割当の対象外とする）、GSC実測attestation（28日窓・59記事/681クエリ）、
+- required CIの既存`npm test`は100実KW/64群のDFS provenance（形態素正規化・語順alias・df順連鎖トライ・`context_scope_id`を先に確定し、同じscope内でSERP比較。修飾語だけで別SERP群になった1群は、実在親があっても吸収せず`derived_parent_candidate`として`main_keyword`なしの未確定行で保持・表示し、記事照合・記事ID割当の対象外とする）、GSC実測attestation（28日窓・59記事/681クエリ）、
   WP見出し実測attestation（59記事・381 H2・1089 H3）、
   SQLite→API→frontend契約を検査する。GSCは取得原本を保全した上で、実測681行の再現用fixtureと
   記事・行・tree digestをcommitし、第三者とCIが同じ数値を再計算できること。

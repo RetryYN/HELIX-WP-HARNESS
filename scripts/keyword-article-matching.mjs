@@ -1,7 +1,7 @@
 import { normalizeKeyword } from "./keyword-serp-core.mjs";
 import kuromoji from "kuromoji";
 import { fileURLToPath } from "node:url";
-import {genericMatchTokens,lexicalReplacements} from "./keyword-policy.mjs";
+import {compoundTerms,genericMatchTokens,lexicalReplacements} from "./keyword-policy.mjs";
 
 const genericTokens=new Set(genericMatchTokens);
 const tokenAlias=(token)=>["x","twitter","ツイッター"].includes(token)?"twitter":token;
@@ -11,6 +11,7 @@ const ignoredParts=new Set(["記号","フィラー"]);
 const analysisCache=new Map();
 const matchTokenCache=new Map();
 const lexicalNormalize=(value)=>lexicalReplacements.reduce((text,[from,to])=>text.replaceAll(from,to),normalizeKeyword(value));
+const compoundTokenSequences=compoundTerms.map((term)=>({term,parts:tokenizer.tokenize(term).filter((token)=>!ignoredParts.has(token.pos)&&!grammarParts.has(token.pos)).map((token)=>tokenAlias((token.basic_form==="*"?token.surface_form:token.basic_form).toLowerCase()))})).sort((left,right)=>right.parts.length-left.parts.length);
 
 export function analyzeJapaneseText(value){
   const normalized=lexicalNormalize(value);
@@ -33,8 +34,10 @@ export function tokenizeMatchText(value){
     if(content[index]==="就"&&content[index+1]==="活"){merged.push("就活");index+=1}
     else merged.push(content[index]);
   }
-  matchTokenCache.set(normalized,merged);
-  return merged;
+  const compounds=[];
+  for(let index=0;index<merged.length;index+=1){const match=compoundTokenSequences.find(({parts})=>parts.length>1&&parts.every((part,offset)=>merged[index+offset]===part));if(match){compounds.push(match.term);index+=match.parts.length-1}else compounds.push(merged[index])}
+  matchTokenCache.set(normalized,compounds);
+  return compounds;
 }
 
 export function canonicalMatchText(value){

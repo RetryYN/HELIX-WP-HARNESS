@@ -50,6 +50,9 @@ assert.match(missingHeadingBuild.stderr,/WP heading evidence is required/);
 const pocDb = new DatabaseSync(pocDbPath, { readOnly: true });
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com'").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy").get().count,100,"every imported keyword must have a hierarchy row");
+assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT root_source_keyword_id) AS count FROM keyword_hierarchy").get().count,1,"display trie has one lexical root");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy WHERE context_scope_id='context:it'").get().count,84);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy WHERE context_scope_id='context:general'").get().count,16);
 assert.equal(pocDb.prepare("SELECT h.term_count FROM keyword_hierarchy h JOIN imported_keywords k USING(source_keyword_id) WHERE k.raw_keyword='就活ねくたい'").get().term_count,2,"domain compounds must not inherit raw morphological mis-segmentation");
 assert.equal(pocDb.prepare("SELECT p.raw_keyword AS parent FROM keyword_hierarchy h JOIN imported_keywords k ON k.source_keyword_id=h.source_keyword_id LEFT JOIN imported_keywords p ON p.source_keyword_id=h.parent_source_keyword_id WHERE k.raw_keyword='it ニュース 就活'").get().parent,"it 就活");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = '施策KW群割当済み'").get().count, 100);
@@ -68,6 +71,9 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE normalized_query = ''").get().count,0);
 {
   const actual=projectDashboard(pocDb);
+  assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
+  assert.equal(actual.groups.find((group)=>group.main_keyword==="就活ねくたい").display_keyword,"就活 ネクタイ","keyword list uses normalized display tokens while retaining raw main_keyword");
+  assert.ok(actual.groups.filter((group)=>group.category_path[0]==="就活").every((group)=>!group.category_path.includes("IT就活")),"general job-search scope must not fall back into the IT category");
   assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");
   assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),678,"raw 681 rows must project to 678 normalized query groups");
   assert.equal(actual.article_query_summaries.filter((row)=>row.primary_query).length,52);
