@@ -4,7 +4,7 @@ import {tokenizeMatchText} from "./keyword-article-matching.mjs";
 import {KEYWORD_POLICY_VERSION,modifierTerms} from "./keyword-policy.mjs";
 
 export const GROUPING_ALGORITHM="normalized-context-hierarchy-top5-complete-linkage.v4";
-export const GROUPING_DECISION="形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけの群は最寄りの実在親施策へ内包し、実在親がなければderived_parent_candidateとして未確定にする。";
+export const GROUPING_DECISION="形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけのSERP群は親の実在有無にかかわらずderived_parent_candidateとして未確定にし、SERP不一致の親施策へ吸収しない。";
 const pairKey=(left,right)=>[left,right].sort().join("\0");
 // §2/§5: modifier judgment uses morphological token boundaries, not raw string suffixes,
 // so compounds like 比較的 are not treated as the modifier 比較. The versioned modifier
@@ -46,29 +46,19 @@ export function buildLatestKeywordGroups(records,{highThreshold=0.8,possibleThre
   });
   const membersByRepresentative=new Map();
   for(const row of hierarchy){const members=membersByRepresentative.get(row.representative_source_keyword_id)??[];members.push(row.source_keyword_id);membersByRepresentative.set(row.representative_source_keyword_id,members)}
-  const conceptClusters=representativeGrouping.clusters.map((cluster)=>cluster.slice());
-  for(let index=conceptClusters.length-1;index>=0;index-=1){
-    const cluster=conceptClusters[index];
-    if(!cluster.every((id)=>isModifierKeyword(recordById.get(id).keyword)))continue;
-    // Walk every member's ancestor chain (nearest first) so the absorption target does not depend on member order.
-    const ancestors=[];
-    for(const memberId of cluster){let parentId=hierarchyById.get(memberId).parent_source_keyword_id;let distance=1;while(parentId){ancestors.push({id:hierarchyById.get(parentId).representative_source_keyword_id,distance});parentId=hierarchyById.get(parentId).parent_source_keyword_id;distance+=1}}
-    ancestors.sort((left,right)=>left.distance-right.distance);
-    for(const ancestor of ancestors){
-      const targetIndex=conceptClusters.findIndex((candidate,candidateIndex)=>candidateIndex!==index&&candidate.includes(ancestor.id));
-      if(targetIndex>=0){conceptClusters[targetIndex].push(...cluster);conceptClusters.splice(index,1);break}
-    }
-  }
-  const clusters=conceptClusters.map((cluster)=>cluster.flatMap((id)=>membersByRepresentative.get(id)).sort());
+  // SERP clusters are the article-count boundary. A modifier-only cluster is
+  // never folded into an ancestor that failed the >=60% complete-link test.
+  const clusters=representativeGrouping.clusters.map((cluster)=>cluster.flatMap((id)=>membersByRepresentative.get(id)).sort());
   const articleKeywordGroups=clusters.map((members,index)=>{
     const rows=members.map((id)=>recordById.get(id));
-    const eligible=rows.filter((row)=>!isModifierKeyword(row.keyword)&&Number.isFinite(Number(row.search_volume)));
+    const eligible=rows.filter((row)=>!isModifierKeyword(row.keyword)&&typeof row.search_volume==="number"&&Number.isFinite(row.search_volume));
     const ranked=eligible.slice().sort((left,right)=>Number(right.search_volume)-Number(left.search_volume)||hierarchyById.get(left.source_keyword_id).depth-hierarchyById.get(right.source_keyword_id).depth||String(left.source_file_digest).localeCompare(String(right.source_file_digest))||String(left.source_sheet).localeCompare(String(right.source_sheet),"ja")||left.source_row-right.source_row);
     const main=ranked[0];
     if(!main){
       // §5: no actual (non-modifier, measured) keyword can be main. Keep the group as an unresolved derived_parent_candidate; never promote the derived value.
       const anchor=rows.slice().sort((left,right)=>Number(right.search_volume??0)-Number(left.search_volume??0)||left.source_row-right.source_row)[0];
-      return{group_id:`article-group-${index+1}`,site_id:siteId,resolution_state:"unresolved",main_keyword:null,main_keyword_origin:"derived_parent_candidate",derived_parent_candidate:deriveParentCandidate(anchor.keyword),main_search_volume:null,root_source_keyword_id:hierarchyById.get(anchor.source_keyword_id).root_source_keyword_id,hierarchy_depth:hierarchyById.get(anchor.source_keyword_id).depth,intent_keywords:rows.map((row)=>row.keyword),source_keyword_ids:members};
+      const parentCandidates=[...new Set(rows.map((row)=>deriveParentCandidate(row.keyword)).filter(Boolean))];
+      return{group_id:`article-group-${index+1}`,site_id:siteId,resolution_state:"unresolved",main_keyword:null,main_keyword_origin:"derived_parent_candidate",derived_parent_candidate:parentCandidates.length===1?parentCandidates[0]:null,main_search_volume:null,root_source_keyword_id:hierarchyById.get(anchor.source_keyword_id).root_source_keyword_id,hierarchy_depth:hierarchyById.get(anchor.source_keyword_id).depth,intent_keywords:rows.map((row)=>row.keyword),source_keyword_ids:members};
     }
     return{group_id:`article-group-${index+1}`,site_id:siteId,resolution_state:"resolved",main_keyword:main.keyword,main_keyword_origin:"actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",derived_parent_candidate:null,main_search_volume:main.search_volume,root_source_keyword_id:hierarchyById.get(main.source_keyword_id).root_source_keyword_id,hierarchy_depth:hierarchyById.get(main.source_keyword_id).depth,intent_keywords:rows.filter((row)=>row.source_keyword_id!==main.source_keyword_id).map((row)=>row.keyword),source_keyword_ids:members};
   });

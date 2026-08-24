@@ -2328,7 +2328,7 @@
   ],
   "grouping": {
     "algorithm": "normalized-context-hierarchy-top5-complete-linkage.v4",
-    "decision": "形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけの群は最寄りの実在親施策へ内包し、実在親がなければderived_parent_candidateとして未確定にする。",
+    "decision": "形態素正規化と語順alias統合、文脈root境界、語数ツリーを先に確定する。同じroot内の代表KWだけを比較し、上位5 URL一致率60%以上なら同一施策KW群。80%以上はhigh。修飾語だけのSERP群は親の実在有無にかかわらずderived_parent_candidateとして未確定にし、SERP不一致の親施策へ吸収しない。",
     "threshold_operator": ">=",
     "linkage": "complete",
     "high_threshold": 0.8,
@@ -73004,8 +73004,7 @@
         "it-shukatu.com:IT就活:52",
         "it-shukatu.com:IT就活:53",
         "it-shukatu.com:IT就活:6",
-        "it-shukatu.com:IT就活:80",
-        "it-shukatu.com:IT就活:81"
+        "it-shukatu.com:IT就活:80"
       ],
       [
         "it-shukatu.com:IT就活:11",
@@ -73174,6 +73173,9 @@
         "it-shukatu.com:IT就活:77"
       ],
       [
+        "it-shukatu.com:IT就活:81"
+      ],
+      [
         "it-shukatu.com:IT就活:82"
       ],
       [
@@ -73284,16 +73286,14 @@
         "it 企業 就活",
         "就活it企業",
         "就活it",
-        "就活 it メーカー",
-        "it 就活 おすすめ"
+        "就活 it メーカー"
       ],
       "source_keyword_ids": [
         "it-shukatu.com:IT就活:12",
         "it-shukatu.com:IT就活:52",
         "it-shukatu.com:IT就活:53",
         "it-shukatu.com:IT就活:6",
-        "it-shukatu.com:IT就活:80",
-        "it-shukatu.com:IT就活:81"
+        "it-shukatu.com:IT就活:80"
       ]
     },
     {
@@ -74056,6 +74056,23 @@
     {
       "group_id": "article-group-51",
       "site_id": "it-shukatu.com",
+      "resolution_state": "unresolved",
+      "main_keyword": null,
+      "main_keyword_origin": "derived_parent_candidate",
+      "derived_parent_candidate": "it 就活",
+      "main_search_volume": null,
+      "root_source_keyword_id": "it-shukatu.com:IT就活:6",
+      "hierarchy_depth": 1,
+      "intent_keywords": [
+        "it 就活 おすすめ"
+      ],
+      "source_keyword_ids": [
+        "it-shukatu.com:IT就活:81"
+      ]
+    },
+    {
+      "group_id": "article-group-52",
+      "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "it 就活 落ちる",
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
@@ -74069,7 +74086,7 @@
       ]
     },
     {
-      "group_id": "article-group-52",
+      "group_id": "article-group-53",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "ベンチャー it 就活",
@@ -74084,7 +74101,7 @@
       ]
     },
     {
-      "group_id": "article-group-53",
+      "group_id": "article-group-54",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "it ポートフォリオ 就活",
@@ -74099,7 +74116,7 @@
       ]
     },
     {
-      "group_id": "article-group-54",
+      "group_id": "article-group-55",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活 5年後の自分 it",
@@ -74114,7 +74131,7 @@
       ]
     },
     {
-      "group_id": "article-group-55",
+      "group_id": "article-group-56",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活nnt",
@@ -74129,7 +74146,7 @@
       ]
     },
     {
-      "group_id": "article-group-56",
+      "group_id": "article-group-57",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活 10年後の自分 it",
@@ -74144,7 +74161,7 @@
       ]
     },
     {
-      "group_id": "article-group-57",
+      "group_id": "article-group-58",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活 作文 it",
@@ -74159,7 +74176,7 @@
       ]
     },
     {
-      "group_id": "article-group-58",
+      "group_id": "article-group-59",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活 一般常識 it",
@@ -74174,7 +74191,7 @@
       ]
     },
     {
-      "group_id": "article-group-59",
+      "group_id": "article-group-60",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "the suit company 就活",
@@ -74189,7 +74206,7 @@
       ]
     },
     {
-      "group_id": "article-group-60",
+      "group_id": "article-group-61",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活ネットワーク",
@@ -74204,7 +74221,7 @@
       ]
     },
     {
-      "group_id": "article-group-61",
+      "group_id": "article-group-62",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "muit 就活会議",
@@ -74219,7 +74236,7 @@
       ]
     },
     {
-      "group_id": "article-group-62",
+      "group_id": "article-group-63",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活 小論文 it",
@@ -74234,7 +74251,7 @@
       ]
     },
     {
-      "group_id": "article-group-63",
+      "group_id": "article-group-64",
       "site_id": "it-shukatu.com",
       "resolution_state": "resolved",
       "main_keyword": "就活タトゥー",
@@ -74249,7 +74266,7 @@
       ]
     }
   ],
-  "reproducibility_digest": "f1be833da0d7f9cf353944c24981270fa678564e90b7b0b202a76b29f61765b3",
+  "reproducibility_digest": "dc695540ead09b872383293ee811a386487936804606da415b1c5bf9e069c53b",
   "keyword_hierarchy": [
     {
       "source_keyword_id": "it-shukatu.com:IT就活:10",

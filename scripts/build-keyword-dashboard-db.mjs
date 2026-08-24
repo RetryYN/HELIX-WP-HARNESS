@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { buildDashboardDb } from "./keyword-dashboard-db.mjs";
 import { categoryPathForKeywords } from "./keyword-category-taxonomy.mjs";
+import {serpConfidence} from "./keyword-serp-core.mjs";
 
 const dbPath = path.resolve(process.env.WP_DASHBOARD_DB ?? ".helix/keyword-dashboard.sqlite");
 mkdirSync(path.dirname(dbPath), { recursive: true });
@@ -27,7 +28,7 @@ const processedGroups=poc.article_keyword_groups.map((group,index)=>{
     main_origin:resolved?mainBasis:"derived_parent_candidate（修飾語KWのみ・実在親KWなし・main未確定）",
     source_order:{file:0,sheet:0,row:Math.min(...rows.map((row)=>row.source_row))},source_location:`DB取込 / IT就活 / ${(main??rows[0]).source_row}行`,search_volume:resolved?group.main_search_volume:null,search_volume_source:"取込DB（DataForSEO検索Vol）",
     intent_keywords:rows.filter((row)=>row.keyword!==group.main_keyword).map((row)=>row.keyword),sibling_keywords:[],comparison_keywords:rows.map((row)=>row.keyword),
-    confidence:weakest?((weakest.decision_ratio??weakest.ratio)>=0.8?"high":"possible"):"single",overlap:{shared:weakest?.shared_count??0,depth:5,ratio:weakest?.decision_ratio??weakest?.ratio??0},state:"未施策",wp_article_id:null,category:categoryPath.at(-1),category_path:categoryPath,
+    confidence:weakest?serpConfidence(weakest.decision_ratio??weakest.ratio):"single",overlap:{shared:weakest?.shared_count??0,depth:5,ratio:weakest?.decision_ratio??weakest?.ratio??0},state:"未施策",wp_article_id:null,category:categoryPath.at(-1),category_path:categoryPath,
     strategy:{decision:resolved?(rows.length>1?"1記事に統合":"単独施策候補"):"親KW未確定（PO確定またはDFS取得待ち）",article_count:1,main_basis:resolved?mainBasis:"derived_parent_candidate（未昇格）",click_opportunity:"AIO出現クエリは施策評価で別管理"},
     article_gate:{status:"未成立",conditions:[
       resolved?{label:"対象KW群の確定",status:"pass",detail:`main 1語・内包KW ${rows.length-1}語`}:{label:"対象KW群の確定",status:"blocked",detail:`main未確定・導出候補「${group.derived_parent_candidate??"—"}」・修飾語KW ${rows.length}語`},{label:"WP記事IDの割当",status:"blocked",detail:"未割当"},{label:"main KW coverage",status:"pending",detail:"記事未作成"},{label:"内包KWの検索意図coverage",status:rows.length>1?"pending":"pass",detail:rows.length>1?"記事未作成":"内包KWなし"},{label:"required_topics coverage",status:"blocked",detail:"PAA・関連検索の論点化待ち"},{label:"事実情報の出典",status:"pending",detail:"記事未作成"}

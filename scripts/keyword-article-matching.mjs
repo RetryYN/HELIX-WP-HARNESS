@@ -135,9 +135,8 @@ export function matchKeywordGroupToArticles(group,articles){
   const selected=leading.length===1?leading[0]:strongestQueryCandidates.length===1?strongestQueryCandidates[0]:strongestH2Candidates.length===1?strongestH2Candidates[0]:strongestH3Candidates.length===1?strongestH3Candidates[0]:null;
   const displayed=selected?[selected]:queryCandidates.length>1?strongestQueryCandidates:h2Candidates.length?strongestH2Candidates:h3Candidates.length?strongestH3Display:titleCandidates;
   const state=candidates.length===0?"新規記事候補":selected?"確定":displayed.length===1&&displayed[0].title_score===0?"見出し一致のみ":displayed.length===1?"タイトル一致のみ":"複数候補";
-  // Intent-keyword sub-matching: an absorbed modifier keyword may have its own existing
-  // article. Keep that correspondence as evidence per intent keyword; it never selects
-  // or reassigns the group article (§5: derived/absorbed keywords are not main).
+  // Intent-keyword sub-matching keeps contained-keyword article correspondence as
+  // evidence; it never selects or reassigns the group article.
   const intentCandidates=group.intent_keywords.flatMap((keyword)=>articles
     .map((article)=>({article,evidence:titleEvidence(keyword,tokenizeMatchText(article.title),{main:true})}))
     .filter((item)=>item.evidence.matches)

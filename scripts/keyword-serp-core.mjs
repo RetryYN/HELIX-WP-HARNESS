@@ -57,6 +57,10 @@ export function overlap(left, right) {
   };
 }
 
+export function serpConfidence(ratio,{highThreshold=0.8,possibleThreshold=0.6}={}){
+  return ratio>=highThreshold?"high":ratio>=possibleThreshold?"possible":"separate";
+}
+
 export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 0.6, comparisonDepth = 5, scopeById = null } = {}) {
   const pairs = [];
   for (let i = 0; i < records.length; i += 1) {
@@ -64,7 +68,7 @@ export function groupBySerp(records, { highThreshold = 0.8, possibleThreshold = 
       const result = overlap(records[i].organic_urls.slice(0, comparisonDepth), records[j].organic_urls.slice(0, comparisonDepth));
       const comparable = result.denominator === comparisonDepth;
       const sameScope = !scopeById || scopeById.get(records[i].source_keyword_id) === scopeById.get(records[j].source_keyword_id);
-      const confidence = !sameScope ? "context_separate" : !comparable ? "insufficient" : result.ratio >= highThreshold ? "high" : result.ratio >= possibleThreshold ? "possible" : "separate";
+      const confidence = !sameScope ? "context_separate" : !comparable ? "insufficient" : serpConfidence(result.ratio,{highThreshold,possibleThreshold});
       const candidate = confidence === "high" || confidence === "possible";
       pairs.push({ left: records[i].source_keyword_id, right: records[j].source_keyword_id, ...result, comparable, same_context: sameScope, intent_confidence: confidence, likely_same_intent: candidate });
     }
