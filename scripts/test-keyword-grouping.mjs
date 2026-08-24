@@ -48,10 +48,9 @@ const chain=buildLatestKeywordGroups([
 ]);
 assert.equal(chain.hierarchy.find((row)=>row.source_keyword_id==="a-root-modifier").parent_source_keyword_id,null);
 assert.equal(chain.hierarchy.find((row)=>row.source_keyword_id==="b-child-modifier").parent_source_keyword_id,"c-actual-parent");
-assert.equal(chain.articleKeywordGroups.length,2);
-const ambiguous=chain.articleKeywordGroups.find((group)=>group.resolution_state==="unresolved");
-assert.deepEqual(new Set(ambiguous.intent_keywords),new Set(["転職 おすすめ","転職 理由 面接 おすすめ"]));
-assert.equal(ambiguous.derived_parent_candidate,null,"different derived parents must remain ambiguous instead of depending on member order");
+assert.equal(chain.articleKeywordGroups.length,3,"different hierarchy roots must not be joined only because modifier SERPs match");
+const unresolvedChains=chain.articleKeywordGroups.filter((group)=>group.resolution_state==="unresolved");
+assert.deepEqual(new Set(unresolvedChains.flatMap((group)=>group.intent_keywords)),new Set(["転職 おすすめ","転職 理由 面接 おすすめ"]));
 
 for(const missingVolume of [null,""]){
   const missing=buildLatestKeywordGroups([{source_keyword_id:`missing-${String(missingVolume)}`,keyword:"it 就活 求人",search_volume:missingVolume,source_file_digest:"a",source_sheet:"s",source_row:1,organic_urls:urls("missing")}]).articleKeywordGroups[0];

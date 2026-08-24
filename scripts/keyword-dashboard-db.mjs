@@ -4,7 +4,7 @@ import path from "node:path";
 import { parseCsv } from "./read-csv.mjs";
 import { normalizeKeyword } from "./keyword-serp-core.mjs";
 import { categoryPathsForIds } from "./keyword-category-taxonomy.mjs";
-import { primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
+import { aggregateNormalizedQueries,primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
 import { assessKeywordAcquisition, matchKeywordGroupToArticles, reconcileArticleAssignments } from "./keyword-article-matching.mjs";
 import {buildKeywordHierarchy} from "./keyword-hierarchy.mjs";
 import {classifySerpResult,recommendPageType} from "./serp-page-classification.mjs";
@@ -149,7 +149,8 @@ export function projectDashboard(db) {
     const intentCandidates=allCandidates.filter((candidate)=>candidate.matched_role==="intent").map(({wp_article_id,matched_keyword,title_score})=>({wp_article_id,matched_keyword,title_score}));
     return { id: row.group_id, site_id: row.site_id, resolution_state: row.resolution_state, main_keyword: row.main_keyword, derived_parent_candidate: row.derived_parent_candidate, main_origin: row.main_origin, source_order: { file: row.source_order_file, sheet: row.source_order_sheet, row: row.source_order_row }, source_location: row.source_location, search_volume: JSON.parse(row.search_volume_json), search_volume_source: row.search_volume_source, intent_keywords: list("intent"), sibling_keywords: list("sibling"), comparison_keywords: list("comparison"), confidence: row.confidence, overlap: { shared: row.overlap_shared, depth: row.overlap_depth, ratio: row.overlap_ratio }, state: row.action_state, wp_article_id: row.wp_article_id, article_match:matchRun?{state:matchRun.state,selected_wp_article_id:matchRun.selected_wp_article_id,candidates:matchCandidates,intent_candidates:intentCandidates}:null, category: categoryPath.join(" ＞ "), category_path: categoryPath, strategy: { ...strategy, aio_observed_queries: Number(aio.observed), aio_checked_queries: Number(aio.checked),recommended_page_type:recommendedPageType,serp_classification:serpTasks }, article_gate: { status: conditions.every((item) => item.status === "pass") ? "成立" : "未成立", conditions }, cost: row.cost, task_ids, shared_urls };
   });
-  const articleQueries=db.prepare("SELECT q.site_id,q.wp_article_id,a.url,a.title,a.category_ids_json,q.query,q.normalized_query,q.clicks,q.impressions,q.ctr,q.position,q.window_days,q.observed_at FROM gsc_query_results q JOIN articles a USING(site_id,wp_article_id) ORDER BY q.site_id,q.wp_article_id,q.query").all().map(({category_ids_json,...row})=>({...row,category_paths:categoryPathsForIds(JSON.parse(category_ids_json))}));
+  const rawArticleQueries=db.prepare("SELECT q.site_id,q.wp_article_id,a.url,a.title,a.category_ids_json,q.query,q.normalized_query,q.clicks,q.impressions,q.ctr,q.position,q.window_days,q.observed_at FROM gsc_query_results q JOIN articles a USING(site_id,wp_article_id) ORDER BY q.site_id,q.wp_article_id,q.query").all().map(({category_ids_json,...row})=>({...row,category_paths:categoryPathsForIds(JSON.parse(category_ids_json))}));
+  const articleQueries=aggregateNormalizedQueries(rawArticleQueries);
   const gscArticles=db.prepare("SELECT site_id,wp_article_id,url,title,category_ids_json,headings_json,gsc_status FROM articles ORDER BY site_id,wp_article_id").all();
   const rankingBySite=Object.fromEntries(sites.map((site)=>[site.site_id,primaryQueryStats(articleQueries.filter((row)=>row.site_id===site.site_id))]));
   const articleQuerySummaries=gscArticles.map(({category_ids_json,headings_json,...article})=>{

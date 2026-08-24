@@ -28,3 +28,15 @@ export function rankPrimaryQueries(rows, impressionP95) {
       || left.position - right.position
       || left.normalized_query.localeCompare(right.normalized_query, "ja"));
 }
+
+export function aggregateNormalizedQueries(rows){
+  const groups=new Map();
+  for(const row of rows){const key=[row.site_id,row.wp_article_id,row.normalized_query,row.window_days,row.observed_at].join("\0");const values=groups.get(key)??[];values.push(row);groups.set(key,values)}
+  return[...groups.values()].map((values)=>{
+    const representative=values.slice().sort((left,right)=>right.impressions-left.impressions||right.clicks-left.clicks||left.query.localeCompare(right.query,"ja"))[0];
+    const clicks=values.reduce((sum,row)=>sum+Number(row.clicks),0),impressions=values.reduce((sum,row)=>sum+Number(row.impressions),0);
+    const positionWeight=values.reduce((sum,row)=>sum+(Number(row.impressions)>0?Number(row.impressions):1),0);
+    const position=positionWeight?values.reduce((sum,row)=>sum+Number(row.position)*(Number(row.impressions)>0?Number(row.impressions):1),0)/positionWeight:0;
+    return{...representative,query:representative.query,raw_queries:values.map((row)=>row.query),clicks,impressions,ctr:impressions?clicks/impressions:0,position};
+  });
+}

@@ -6,7 +6,7 @@ import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { buildDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
 import { categoryPathForKeywords, categoryPathsForIds, wpCategoryTaxonomy } from "./keyword-category-taxonomy.mjs";
-import { primaryQueryScore, primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
+import { aggregateNormalizedQueries,primaryQueryScore, primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
 
 assert.equal(wpCategoryTaxonomy.length,17);
 assert.deepEqual(categoryPathForKeywords(["it 就活 文系"]),["IT就活","文系就活"]);
@@ -23,6 +23,11 @@ const rankingFixture=[
 assert.equal(primaryQueryStats(rankingFixture).impression_p95,53);
 assert.equal(rankPrimaryQueries(rankingFixture,14)[0].query,"均衡","one click plus meaningful impressions should beat impressions alone");
 assert.ok(primaryQueryScore(rankingFixture[0],14)>primaryQueryScore(rankingFixture[1],14),"tiny-sample CTR must not dominate a high-impression query");
+const normalizedAggregate=aggregateNormalizedQueries([
+  {site_id:"s",wp_article_id:1,query:"ｿﾌﾄ",normalized_query:"ソフト",clicks:1,impressions:10,ctr:.1,position:2,window_days:28,observed_at:"x"},
+  {site_id:"s",wp_article_id:1,query:"ソフト",normalized_query:"ソフト",clicks:2,impressions:30,ctr:.066,position:4,window_days:28,observed_at:"x"},
+]);
+assert.equal(normalizedAggregate.length,1);assert.equal(normalizedAggregate[0].query,"ソフト");assert.equal(normalizedAggregate[0].clicks,3);assert.equal(normalizedAggregate[0].impressions,40);assert.deepEqual(normalizedAggregate[0].raw_queries,["ｿﾌﾄ","ソフト"]);
 
 const dbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-db-")), "dashboard.sqlite");
 buildDashboardDb({ dbPath, fixturePath: path.resolve("docs/prototypes/wp-ops-dashboard/data.json"), artifactRoot: path.resolve("artifacts/poc") }).close();
@@ -63,14 +68,14 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
 if(hasGscEvidence){
   const actual=projectDashboard(pocDb);
   assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");
-  assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),681,"details must retain every observed GSC query");
+  assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),678,"raw 681 rows must project to 678 normalized query groups");
   assert.equal(actual.article_query_summaries.filter((row)=>row.primary_query).length,52);
   assert.equal(actual.article_query_summaries.filter((row)=>!row.primary_query).length,7,"unobserved articles must remain visible");
   assert.equal(actual.article_query_summaries.filter((row)=>row.keyword_acquisition.group_id).length,hasHeadingEvidence?13:9,"confirmed keyword groups must join article details by WP ID");
   assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.headings.length,0),hasHeadingEvidence?1470:0,"actual WP H2/H3 evidence must remain attached to its article ID");
   assert.equal(actual.article_query_summaries.find((row)=>row.wp_article_id===132).keyword_acquisition.coverage_rate,1,"actual GSC queries must produce keyword acquisition coverage");
   assert.equal(actual.article_query_summaries.find((row)=>row.wp_article_id===17).keyword_acquisition.coverage_rate,null,"unobserved GSC must not be displayed as 0% coverage");
-  assert.equal(actual.primary_query_ranking["it-shukatu.com"].impression_p95,38,"ranking threshold must be derived per site from actual GSC distribution");
+  assert.equal(actual.primary_query_ranking["it-shukatu.com"].impression_p95,41,"ranking threshold must be derived from normalized actual GSC distribution");
   const confirmed=new Map(actual.groups.filter((group)=>group.site_id==="it-shukatu.com"&&group.article_match?.state==="確定").map((group)=>[group.main_keyword,group.wp_article_id]));
   assert.equal(confirmed.size,hasHeadingEvidence?13:9);assert.equal(confirmed.get("it 就活"),195);assert.equal(confirmed.get("it パスポート 就活"),1112);assert.equal(confirmed.get("就活の軸it"),130);assert.equal(confirmed.get("就活nnt"),793);assert.equal(confirmed.get("it 就活エージェント"),17);assert.equal(confirmed.get("it 就活 新卒"),559);assert.equal(confirmed.get("就活 入社後にしたいこと it"),1020);assert.equal(confirmed.get("就活ツイッター"),132);assert.equal(confirmed.get("就活 it やりたいこと"),92);
   if(hasHeadingEvidence){assert.equal(confirmed.get("就活 人気企業 it"),628);assert.equal(confirmed.get("it 就活 文系"),267);assert.equal(confirmed.get("it 就活 職種"),499);assert.equal(confirmed.get("it 就活 質問"),1207)}

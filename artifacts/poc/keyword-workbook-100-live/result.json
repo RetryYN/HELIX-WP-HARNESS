@@ -74266,7 +74266,7 @@
       ]
     }
   ],
-  "reproducibility_digest": "dc695540ead09b872383293ee811a386487936804606da415b1c5bf9e069c53b",
+  "reproducibility_digest": "1b7418112af372da289d60245c01c746d9be51ffb0e8af7c357d0ba870a9182f",
   "keyword_hierarchy": [
     {
       "source_keyword_id": "it-shukatu.com:IT就活:10",
@@ -75718,11 +75718,11 @@
       "term_count": 4,
       "relation": "child",
       "representative_source_keyword_id": "it-shukatu.com:IT就活:84",
-      "parent_source_keyword_id": "it-shukatu.com:IT就活:14",
-      "parent_keyword": "it 就活 ランキング",
+      "parent_source_keyword_id": "it-shukatu.com:IT就活:6",
+      "parent_keyword": "it 就活",
       "root_source_keyword_id": "it-shukatu.com:IT就活:6",
       "root_keyword": "it 就活",
-      "depth": 2
+      "depth": 1
     },
     {
       "source_keyword_id": "it-shukatu.com:IT就活:85",

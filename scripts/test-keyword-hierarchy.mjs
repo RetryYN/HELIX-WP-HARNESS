@@ -16,4 +16,10 @@ assert.equal(tree.find((row)=>row.source_keyword_id==="news-order").relation,"re
 assert.equal(tree.find((row)=>row.source_keyword_id==="news-order").root_source_keyword_id,"root","an alias must inherit the representative concept root");
 assert.equal(tree.find((row)=>row.source_keyword_id==="detail").parent_source_keyword_id,"news");
 assert.equal(tree.find((row)=>row.source_keyword_id==="detail").depth,2);
+const modifierTree=buildKeywordHierarchy([
+  {source_keyword_id:"base",raw_keyword:"it 就活",search_volume:390},
+  {source_keyword_id:"modifier-parent",raw_keyword:"it 就活 ランキング",search_volume:100},
+  {source_keyword_id:"child",raw_keyword:"it 就活人気ランキング",search_volume:50},
+]);
+assert.equal(modifierTree.find((row)=>row.source_keyword_id==="child").parent_source_keyword_id,"base","a modifier keyword must not become a hierarchy parent");
 console.log("keyword token hierarchy: OK");
