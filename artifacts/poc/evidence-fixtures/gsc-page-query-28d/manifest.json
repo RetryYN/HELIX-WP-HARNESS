@@ -1,5 +1,7 @@
 {
   "schema_version": "wp-gsc-page-query-poc.v1",
+  "evidence_kind": "committed_derivative_fixture",
+  "derived_from_local_evidence_tree_sha256": "c29b6af0d982fddd3d3e04cfccf381284a4716b592451b3e937a3834c47eebaa",
   "generated_at": "2026-08-23T17:18:29.969Z",
   "site_id": "it-shukatu.com",
   "site_url": "https://it-shukatu-college.com/",

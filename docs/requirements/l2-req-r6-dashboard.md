@@ -206,7 +206,7 @@
 - 一覧の全行は`source_keyword_id`からDFS task、クラスタ、WP記事ID、GSC証跡までdrill-downできる。
 - DBと証跡がない場合は設計済みemptyを表示し、fixtureやページ別/クエリ別の推測値で画面を埋めない。
 - 実データ版DB buildはGSC証跡を必須とし、欠落時はfail-closeする。empty-state試験だけは
-  `WP_ALLOW_EMPTY_GSC=1`を明示した隔離テストとして実行し、実データPoC成功判定へ流用しない。
+  `WP_ALLOW_EMPTY_GSC=1`と`WP_ALLOW_EMPTY_HEADINGS=1`を明示した隔離テストとして実行し、実データPoC成功判定へ流用しない。
 - required CIの既存`npm test`は100実KW/64群のDFS provenance（形態素正規化・語順alias・文脈root・語数ツリーを先に確定し、同じ枝内でSERP比較。修飾語だけで別SERP群になった1群は、実在親があっても吸収せず`derived_parent_candidate`として`main_keyword`なしの未確定行で保持・表示し、記事照合・記事ID割当の対象外とする）、GSC実測attestation（28日窓・59記事/681クエリ）、
   WP見出し実測attestation（59記事・381 H2・1089 H3）、
   SQLite→API→frontend契約を検査する。GSCは取得原本を保全した上で、実測681行の再現用fixtureと
