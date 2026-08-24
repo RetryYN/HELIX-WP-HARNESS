@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
 import path from "node:path";
 import { parseCsv } from "./read-csv.mjs";
@@ -15,13 +15,14 @@ const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","
 function rawSnapshots(artifactRoot) {
   const snapshots = new Map();
   for (const entry of readdirSync(artifactRoot, { recursive: true, withFileTypes: true })) {
-    if (!entry.isFile() || !entry.name.endsWith(".json") || entry.name === "result.json") continue;
+    if (!entry.isFile() || !entry.name.endsWith(".json") || path.basename(entry.parentPath) !== "raw") continue;
     const file = `${entry.parentPath}/${entry.name}`;
     const body = JSON.parse(readFileSync(file, "utf8"));
     const task = body.tasks?.[0];
     const result = task?.result?.[0];
     if (!task?.id || !result) continue;
     const serpPages=classifySerpResult(result,10);
+    if(snapshots.has(task.id))throw new Error(`duplicate DFS task snapshot ${task.id}: ${snapshots.get(task.id).snapshot_path} and ${file}`);
     snapshots.set(task.id, { task_id: task.id, keyword: task.data?.keyword, snapshot_path: file, observed_at: result.datetime, aio_present: Number(result.item_types?.includes("ai_overview") ?? false), cost: Number(task.cost ?? 0),serp_pages:serpPages,recommended_page_type:recommendPageType(serpPages) });
   }
   return snapshots;
@@ -30,6 +31,17 @@ function rawSnapshots(artifactRoot) {
 export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], gscEvidencePath, headingEvidencePath }) {
   const fixture = JSON.parse(readFileSync(fixturePath, "utf8"));
   const snapshots = rawSnapshots(artifactRoot);
+  if(existsSync(dbPath)&&statSync(dbPath).size>0){
+    let existing;
+    try{
+      existing=new DatabaseSync(dbPath,{readOnly:true});
+      const version=existing.prepare("SELECT value FROM dashboard_metadata WHERE key = 'schema_version'").get()?.value;
+      if(version!==schemaVersion)throw new Error(`refusing to replace non-dashboard DB: schema ${version??"missing"}`);
+    }catch(error){
+      if(String(error.message).startsWith("refusing to replace"))throw error;
+      throw new Error(`refusing to replace unrecognized DB at ${dbPath}: ${error.message}`);
+    }finally{existing?.close()}
+  }
   const db = new DatabaseSync(dbPath);
   db.exec(`
     PRAGMA foreign_keys = OFF;
@@ -103,7 +115,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const beforeMatch=projectDashboard(db);
   const insertMatchRun=db.prepare("INSERT INTO keyword_article_match_runs VALUES (?, ?, ?)");
   const insertMatchCandidate=db.prepare("INSERT INTO keyword_article_match_candidates VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-  const assignArticle=db.prepare("UPDATE keyword_groups SET wp_article_id = ?, action_state = '公開中' WHERE group_id = ?");
+  const assignArticle=db.prepare("UPDATE keyword_groups SET wp_article_id = ? WHERE group_id = ?");
   for(const site of fixture.sites){
     const articles=beforeMatch.article_query_summaries.filter((article)=>article.site_id===site.site_id);
     // Unresolved groups have no main keyword; they must not be matched to or assigned an article (§5: derived value never promoted).

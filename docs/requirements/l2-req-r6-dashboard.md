@@ -209,7 +209,8 @@
   `WP_ALLOW_EMPTY_GSC=1`を明示した隔離テストとして実行し、実データPoC成功判定へ流用しない。
 - required CIの既存`npm test`は100実KW/64群のDFS provenance（形態素正規化・語順alias・文脈root・語数ツリーを先に確定し、同じ枝内でSERP比較。修飾語だけで別SERP群になった1群は、実在親があっても吸収せず`derived_parent_candidate`として`main_keyword`なしの未確定行で保持・表示し、記事照合・記事ID割当の対象外とする）、GSC実測attestation（28日窓・59記事/681クエリ）、
   WP見出し実測attestation（59記事・381 H2・1089 H3）、
-  SQLite→API→frontend契約を検査する。GSC rawはlocal-onlyとし、集計とtree digestだけをcommitする。
+  SQLite→API→frontend契約を検査する。GSCは取得原本を保全した上で、実測681行の再現用fixtureと
+  記事・行・tree digestをcommitし、第三者とCIが同じ数値を再計算できること。
 - loading/error/stale/normalを区別し、データ行があるnormal状態ではemptyコンテナが余白を確保しない。
 - フィルター変更時は1ページ目へ戻り、サイト変更時は両一覧のフィルターをそのサイト用に再構築する。
 

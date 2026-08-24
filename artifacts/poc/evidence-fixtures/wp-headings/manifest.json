@@ -1,0 +1,7889 @@
+{
+  "schema_version": "wp-heading-evidence.v1",
+  "generated_at": "2026-08-23T18:19:14.861Z",
+  "site_id": "it-shukatu.com",
+  "site_url": "https://it-shukatu-college.com/",
+  "articles": [
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 17,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agents/",
+      "title": "【2027年最新版】新卒向けIT就活エージェントおすすめ比較ランキング完全ガイド",
+      "modified": "2026-07-24T00:10:32",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT就活エージェントの種類と選び方"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "ナビサイト型（求人サイト型）"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "スカウト型（オファー型）"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "求人紹介型（エージェント型）"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "プログラミングスクール型"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "IT就活エージェントのおすすめ比較ランキング"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "1位：ユニゾンキャリア就活"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "2位：レバテックルーキー"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "3位：TECH-BASE（テックベース）就活"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "4位：paiza新卒（パイザ）"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "IT専門就活カオスマップとサービス一覧"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "【IT就活攻略】タイプ別IT就活サービスの立ち回り"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "文系学生におすすめ！IT就活サービス最強の立ち回り"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "理系学生におすすめ！IT就活サービス最強の立ち回り"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "大学院生におすすめ！IT就活サービス最強の立ち回り"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "IT就活エージェントを使うべき学生マップ"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "IT就活エージェントを活用するためのポイント"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "IT業界に進むという覚悟は持っておく"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "自分なりに業界・自己分析をしておく"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "アドバイザーに気持ちよく働いてもらう"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "IT就活エージェント利用の流れ"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 38,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/shukatu-cards/",
+      "title": "新卒カード（新卒チケット）のメリット・デメリットと成功する就活方法",
+      "modified": "2025-04-27T16:50:22",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒カード（新卒チケット）とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "新卒カードの基本"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "新卒カードの歴史と背景"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "新卒カード（新卒チケット）の使い方"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "新卒カード（新卒チケット）のメリット"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "実績では判断されないため、採用されやすい"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "情報へのアクセスのしやすさ"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "新卒しか入れない企業の選択肢が広がる"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "転職では得られない手厚い研修やサポート"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "新卒カード（新卒チケット）のデメリット"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "新卒カードには時間制限が存在する"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ベンチャー企業への入社には不向き"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "ライバルが多く、競争が激しい"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "企業選択を失敗すると終わる"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "新卒カードを活用するためのポイント"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "明確な目標設定"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "視野を広げる"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "積極的に情報収集"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "面接練習の重要性"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "新卒カード（新卒チケット）まとめ"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 92,
+      "url": "https://it-shukatu-college.com/it-shukatu/what-i-want-to-do/",
+      "title": "IT業界の就活で「やりたいこと（したいこと）」を明確にする方法とポイント",
+      "modified": "2025-04-27T16:50:18",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "企業が面接で「やりたいこと」を聞く理由"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "企業のビジョンとの一致"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "具体的な計画性の確認"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "自社での成長意欲"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "効果的に「やりたいこと」を伝える考え方"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "自己分析を徹底する"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "企業研究を深める"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "なぜその企業でなければならないかを考える"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "「やりたいこと」をうまく伝える方法"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "具体的な仕事内容に言及"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "自己PRと絡める"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "実現するための具体的な行動計画を話す"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "「やりたいこと」の注意すべきポイントとNG例"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "志望動機と混同しない"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "ネガティブな表現を避ける"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "仕事への熱意を持って伝える"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "面接や書類は全てPREP法で伝えよう！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 107,
+      "url": "https://it-shukatu-college.com/it-shukatu/humanities-dangerous/",
+      "title": "文系からIT業界はやばい？挑戦と現実、就活方法を解説",
+      "modified": "2025-04-27T16:50:15",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【結論】IT就活に文系がやばいことはない"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "文系がIT業界に挑戦！不安と現実"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "知識やスキルの不足が不安材料"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "働き方のイメージに苦労する可能性"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "コミュニケーション能力はプラスに生かせる"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "文系就活者がIT業界で成功するために必要なスキル"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "プログラミングの基礎知識を身に付ける"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "資格取得が意外にも重要"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "プロジェクト管理のスキルを身に付ける"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "IT業界で活躍する文系出身者の特徴"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "積極的に知識を吸収する姿勢"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "問題解決能力が高い"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "柔軟性が高い"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "文系からIT業界に挑戦するためのステップ"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "基本的なIT知識を学ぶ"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "プログラミングの実践演習をする"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "業界のイベントやコミュニティに参加する"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "開発エンジニアを目指すなら就活がチャンス！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 130,
+      "url": "https://it-shukatu-college.com/it-shukatu/axis-of-shuukatu/",
+      "title": "IT業界で成功するための就活の軸とは？ポイントや例文を紹介",
+      "modified": "2025-04-29T03:05:59",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活の軸とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "基本的な考え方"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "なぜ重要なのか"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "就活の軸を設定するメリット"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "人生設計をしやすくなる"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "自己分析が深まる"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "企業選びがスムーズになる"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "効果的な自己PRができる"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "就活の軸は「職種」で決めるのがベスト"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "IT業界で聞かれる回答でおすすめの就活の軸"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "技術革新に興味がある"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "成長環境を求める"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "社会課題の解決"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "IT業界で避けるべき就活の軸"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "待遇のみを重視する"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "他の業界でも通用する軸"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "短期間での転職を前提とする"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "IT業界における就活の軸の作り方と注意点"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "自己分析で人生設計"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "業界研究で職種を選択"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "企業の情報収集でカスタマイズ"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "IT業界の就活の軸は他人の意見も取り入れよう！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 132,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/x-twitter/",
+      "title": "あなたもできる！X（Twitter）を活用した就活成功術",
+      "modified": "2025-04-27T16:50:09",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "X（Twitter）を活用した就活のメリット"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "企業研究が手軽にできる"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "人脈を広げるチャンス"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "イベントやセミナー情報の取得"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "就活用X（Twitter）アカウントの作り方"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "プロフィール設定"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "適切なフォロー"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "定期的なツイートでアクティブアピール"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "X（Twitter）で気をつけるべきポイント"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "ネガティブな発言を避ける"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "プライベートと分ける"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "個人情報の管理"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "X（Twitter）を使った就活成功事例"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "成功事例1：企業からのダイレクトメッセージ"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "成功事例2：インターンシップの参加"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "成功事例3：業界のキーパーソンとのつながり"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "まとめ"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 134,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/sns-management/",
+      "title": "就活中のSNS管理法｜見られることを前提に備えるべきポイント",
+      "modified": "2025-04-27T16:50:12",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "企業がSNSをチェックする理由"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "企業がSNSを確認する背景"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "SNSチェックがもたらすメリット"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "就活で見られやすいSNSの種類"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "X（旧Twitter）"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "Instagram"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "Facebook"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "SNSによる内定取り消しのリスク"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "企業が嫌がる投稿内容"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "過度な飲酒や喫煙の投稿"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "トラブルに巻き込まれた内容"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "就活でSNSで悪い印象を与えないための方法"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "アカウントを鍵にする"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "怪しい投稿は削除する"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "就活におけるSNSの上手な活用法"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "プラスの印象を与える投稿とは？"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "自己PRの場として活用する"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "就活とSNSを通じてメタ認知能力を高めよう！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 158,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/akalik/",
+      "title": "アカリクとは？理系・院生の就活サポートガイド｜就活の情報戦を制する！",
+      "modified": "2025-04-27T16:50:04",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "アカリクの概要"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "アカリクとは？"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "アカリクの主なサービスの内容"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "アカリクを利用するメリット"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "アカリクの3つの特徴"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "理系・院生特化のスカウト機能"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "プロのアドバイザー"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "少数性のオンライン就活イベント"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "アカリクの利用方法"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "会員登録"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "スカウトが届く"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "応募して選考スタート"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "理系学生・院生の就活はアカリク登録からスタート"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 193,
+      "url": "https://it-shukatu-college.com/it-shukatu/it-industry-humanities/",
+      "title": "【文系からIT業界】を目指す方必見！IT就活パーフェクトガイド！",
+      "modified": "2025-04-27T16:49:59",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT業界・IT企業とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "IT業界の種類"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "【IT業界の7分類別】代表的なIT企業例"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "IT業界の3つの業態（ビジネスモデル）と企業例"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "IT業界に就職＝エンジニアである事実"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "「IT業界＝エンジニア」になるわけ"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "IT業界の代表職種一覧と就活難易度"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "就活は業界より職種で選ぶべし！"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "スキルは職業に、業界は年収に"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "職種未経験は転職で不利になる事実"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "文系からのIT業界への道のり"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "文系でも問題なくIT業界に進める"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "IT業界で求められる資質"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "大手企業vsベンチャー企業"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "IT就活に必要な知識とスキル"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "ITの知識は資格で身につけよ！"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "プログラミングで学ぶべき言語"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "【文系学生向け】IT就活の重要なポイント"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "綺麗な言葉や魅力的なワードに要注意"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "IT就活は面接対策次第で年収が上がる"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "IT就活は特化型エージェントがおすすめ"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 195,
+      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-companies/",
+      "title": "【文系のIT就活】IT企業と職種がよくわかる｜IT企業完全ガイド",
+      "modified": "2025-04-27T16:49:50",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "文系就活生が知るべきIT業界の今"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "IT業界の人材不足と環境変化"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "実は文理で変わらない就職率"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "ITを目指す学生は約3割に上る"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "文系からIT業界の就活4ステップ"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "➀職種を選択して方向性を決める"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "②対応するIT業界の企業を選ぶ"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "③企業別に面接対策を行う"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "➃IT特化の就活エージェントで答え合わせ"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "文系学生におすすめなIT職種は5つ"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "システムエンジニア（SE）"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "プログラマー（PG）"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "QAエンジニア（テストエンジニア）"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "インフラエンジニア"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "ITコンサルタント（IT企画）"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "文系学生におすすめのIT企業の種類"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "SIer（システムインテグレータ）企業"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "SES（システムエンジニアリングサービス）企業"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "ITコンサルティング企業"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "自社開発企業"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "通信系自社企業"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "【職種＆企業】IT企業タイプ別の職種対応表"
+        },
+        {
+          "position": 22,
+          "level": 2,
+          "text": "【業界＆企業例】IT業界の業界分類別「有名企業」"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "インターネット・Web業界の代表企業例"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "通信業界の代表企業例"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "情報処理サービス（SIer）業界の代表企業例"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "ハードウェア業界の代表企業例"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "ソフトウェア業界の代表企業例"
+        },
+        {
+          "position": 28,
+          "level": 2,
+          "text": "【企業タイプ別】有名なIT企業35選"
+        },
+        {
+          "position": 29,
+          "level": 2,
+          "text": "文系就活生が使うべき就活エージェント"
+        },
+        {
+          "position": 30,
+          "level": 3,
+          "text": "1位：ユニゾンキャリア"
+        },
+        {
+          "position": 31,
+          "level": 3,
+          "text": "2位：レバテックルーキー"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 197,
+      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-occupations/",
+      "title": "【文系のIT業界就活】おすすめ職種9選を徹底解説｜文系IT職種完全ガイド",
+      "modified": "2025-04-27T16:49:54",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "文系学生がIT業界に就職するための基礎知識"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "IT業界の5つの主要分野"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "今後のIT業界の市場動向"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "開発エンジニアとインフラエンジニアとデータエンジニア"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "文系学生は開発エンジニアかインフラエンジニア"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "文系からなれるおすすめ開発系IT職種3選"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "Webエンジニア（バックエンドエンジニア）"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "アプリケーションエンジニア（バックエンドエンジニア）"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "テストエンドエンジニア（QAエンジニア）"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "文系からなれるインフラ系IT職種3選"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "ネットワークエンジニア"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "サーバーエンジニア"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "データベースエンジニア"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "文系からなれるプロジェクト管理職種3選"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "システムエンジニア（上流工程）"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "ブリッジSE（オフショア開発）"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "ITコンサルタント（IT企画）"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "文系就活生がIT業界で内定を取るための準備"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "基本的なIT知識を学ぶ"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "職種に合った知識を学ぶ"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "IT業界の就活情報を手に入れる"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "文系がIT業界に就職するための手段3選"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "独学で資格を取得して応募する"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "プログラミングスクールに通う"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "IT就活エージェントを利用する"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 267,
+      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-industry-stop/",
+      "title": "【文系の就活】IT業界はやめとけ？理由5選と誤解を解説！失敗しないIT就活",
+      "modified": "2025-04-27T16:49:48",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "文系就活生にIT業界はおすすめである！"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "IT人材不足による人材獲得競争"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "IT業界における文系就活生の割合"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "文系就活生がIT業界はやめとけと言われる理由5選"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "ITのスキル・知識が不足"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "長時間労働・離職率のイメージ"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "初任給は低めに設定されている"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "IT業界の3割がブラック企業である"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "プログラミングの習得が難しい"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "IT業界における文系学生の3つの可能性"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "コミュニケーション能力を活かせる"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ドキュメント作成能力の高さ"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "AI活用による上流工程での活躍"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "文系学生がIT業界の就活で有利になる方法"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "ITパスポートなどの資格取得"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "IT業界の職種と企業を理解する"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "面接対策で年収アップを図る"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "文系学生がIT業界の就活で失敗しない方法"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "エンジニアのキャリアを理解する"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "IT企業の優良穴場企業を見つける"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "IT業界特化の就活エージェントを使う"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "文系就活生におすすめの就活エージェント"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "1位：ユニゾンキャリア就活"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "2位：レベテックルーキー"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "3位：TECH-BASE（テックベース）就活"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 269,
+      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-industry-tough/",
+      "title": "文系学生にIT業界はきつい？理解すべきポイントと失敗しない方法を解説！",
+      "modified": "2025-04-27T16:49:42",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "結論：文系学生はIT業界がきついわけではない！"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "文系学生がIT業界を目指すべき5つの理由"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "ジョブ型雇用に対する対応が可能"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "コミュニケーション能力を活かせる"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "ドキュメント作成スキルが活かせる"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "資格取得で暗記能力を活かせる"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "実は数学的な思考はあまり必要ない"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "文系出身者がIT業界できついと感じること"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "プログラミングが予想以上に難しい"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "理系出身者に理詰めされる"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "スキル市場主義な部分がある"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "リモートワークが意外とできない"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "意外と地味で根気が必要になる"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "【企業別】文系学生が理解すべき3つのポイント"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "SES（客先常駐）の働き方を理解する"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "SIer（受託開発）は残業が多め"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "自社開発はスキルに偏りが生まれる"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "【職種別】文系学生が理解すべきポイント"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "開発エンジニアは激務が発生しやすい"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "インフラエンジニアは夜勤が存在する"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "IT業界の適正判断「向いている・向いていない」"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "IT業界が向いている人の特徴"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "IT業界が向いていない人の特長"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "文系学生がIT就活で失敗しない3つの方法"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "職種を理解して選択する"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "ITパスポートの勉強をする"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "IT就活エージェントを利用する"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 276,
+      "url": "https://it-shukatu-college.com/it-shukatu/humanities-ai-engineer/",
+      "title": "文系出身でAIエンジニアになれるのか？AI人材との違いを解説！",
+      "modified": "2025-04-27T16:49:39",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "文系学生でAIエンジニアを目指すのは厳しい"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "AIエンジニアは専門的な知識が必要"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "AI開発で有名な研究室は東大の松尾研究所"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "AIエンジニアとAI人材は大きく異なる"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "AIエンジニアはAIの開発者"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "AI人材はAIの扱いに長けた者"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "文系がIT業界に行くならAI人材を目指せ！"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "プログラミングはいつかAIが代替する"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "上流工程で考える力が大事になる"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "文系学生に求められるAI人材としての役割"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "コミュニケーション能力を活かした折衝"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "難しい内容を言語化する能力"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "ビジネス視点でのコンサルティング"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "文系学生はまずはエンジニアからスタート！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 328,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-industry/",
+      "title": "【新卒・就活生】IT業界とは？業界分類・職種・代表企業・働き方を解説",
+      "modified": "2025-04-27T16:48:35",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT業界とは？就活で知るべき知識"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "IT業界の5分類と代表企業例"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "インターネット/Web業界と代表企業"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "ソフトウェア業界と代表企業"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "ハードウェア業界と代表企業"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "通信業界と代表企業"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "情報処理サービス/SIer業界と代表企業"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "IT業界の将来性と需要の動向"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "IT業界の市場規模と将来性"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "IT業界の需要動向と技術トレンド"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "IT業界の各職業と平均年収"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ITエンジニア職"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "ITセールス（営業）職"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "デザイナー（Web）職"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "マーケティング（Web）職"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "事務（経理・人事・総務）職"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "IT業界に進むならITエンジニアがおすすめ！"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "エンジニアの人材不足と偏り"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "飽和して高難易度なWeb業界"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "ジョブ型雇用への対応とスキル"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "IT業界の多重下請け構造"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "IT業界のビジネスモデル"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "自社開発企業の特長と代表企業"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "SIer企業の特長と代表企業"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "SES企業の特長と代表企業"
+        },
+        {
+          "position": 25,
+          "level": 2,
+          "text": "IT業界への就活は3つのステップ"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "ITエンジニアの職種を理解する"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "IT業界のビジネスモデルを理解する"
+        },
+        {
+          "position": 28,
+          "level": 3,
+          "text": "IT業界特有の面接対策に備える"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 351,
+      "url": "https://it-shukatu-college.com/it-industry-research/stop-the-it-industry/",
+      "title": "【就活生必見】新卒でIT業界はやめとけ？就活と転職の違いと失敗しない方法",
+      "modified": "2025-04-27T16:49:36",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒でIT業界に行くのはお得である！"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "転職では難しい開発職に進める"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "1社目から優良企業が狙える"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "転職に比べて研修制度が充実"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "IT業界がやめとけと言われる理由5選"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "人手不足で長時間労働が常態化"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "多重下請け構造の下層は成長が難しい"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "給与が労働に見合わない"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "下流工程はAIに代替される可能性がある"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "IT業界はジョブ型雇用が進んでいる"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "就活生がIT業界を目指す5つのメリット"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ITスキルは市場価値が高い"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "デジタルネイティブ世代である"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "IT業界は世代交代が見込まれている"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "転職で年収アップをしやすい"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "キャリアチェンジもしやすい"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "IT業界に向いている人の5つの特徴"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "新しい技術に興味を持てる"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "論理的思考力が高い"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "計画性と忍耐力が高い"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "コミュニケーション能力が高い"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "チームマネジメントが得意"
+        },
+        {
+          "position": 22,
+          "level": 2,
+          "text": "IT業界に向いていない人の3つの特徴"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "自分で情報を調べられない"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "受け身の姿勢で勉強しない"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "コミュニケーションが苦手"
+        },
+        {
+          "position": 26,
+          "level": 2,
+          "text": "IT就活は企業選びの失敗が命取り！"
+        },
+        {
+          "position": 27,
+          "level": 2,
+          "text": "IT業界への就活を成功させるポイント"
+        },
+        {
+          "position": 28,
+          "level": 3,
+          "text": "IT業界の職種と働き方を理解する"
+        },
+        {
+          "position": 29,
+          "level": 3,
+          "text": "IT業界のキャリアパスを理解する"
+        },
+        {
+          "position": 30,
+          "level": 3,
+          "text": "IT専門の就活エージェントを利用する"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 354,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-features/",
+      "title": "IT業界の特徴と大きな誤解！Fラン大学生でも勝てる就活の必勝法",
+      "modified": "2025-04-27T16:49:28",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【就活生向け】IT業界の5つの特徴"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "IT業界はエンジニアが資本になる"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "IT業界の人手不足には偏りがある"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "IT業界はジョブ型雇用の先端である"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "IT業界の大手企業は離職率が高め"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "IT業界はスキルで給料が決まっていく"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "就活生が知るべきIT業界の市場動向"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "コロナがきっかけで需要が爆増"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "高スキル人材には破格の給料"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "Web業界は充足している"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "【就活生必見】情報処理サービス/SIer業界を狙え！"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "実務レベルでのスキルが身に付く"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "最初はSIerよりSES企業がおすすめ"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "大手はゆるブラック企業に要注意"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "IT業界の魅力は「高年収」と「安定性」が2強"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "自分の努力で年収を上げられる"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "IT業界は企業に頼らない安定性"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "【Fラン大学生必読】IT就活必勝法！"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "とにかくスピード勝負で就活せよ"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "ITパスポートで学歴差を埋めよ"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "3年の9月以降はIT専門の就活エージェントを使え"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 356,
+      "url": "https://it-shukatu-college.com/it-industry-research/multiple-subcontracting-structure/",
+      "title": "【就活生必見】IT業界の多重下請け構造でわかる失敗しないIT就活",
+      "modified": "2025-04-27T16:49:32",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT業界は多重下請け構造"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "IT業界の根幹は情報処理サービス/SIer業界である"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "発注企業とベンダー企業の関係"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "SIer企業とSES企業の関係"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "企業とフリーランスの関係"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "Web業界は就活で要注意！？"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "Web業界は人手が足りている"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "Web業界に行くならポートフォリオが超重要"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "行くならJava Silverを取得せよ"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "IT業界の理解を深める開発工程と構築行程"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "システム開発の基本行程（ウォーターフォール開発）"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ITインフラ構築の基本（構築から運用）"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "IT就活は優良企業の入社が必須"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 358,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-software-industry/",
+      "title": "【就活生必見】ソフトウェア業界とIT業界の特徴と違いをわかりやすく解説",
+      "modified": "2025-04-27T16:49:25",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "ソフトウェア業界とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "ソフトウェア業界の役割"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "主なソフトウェアの種類"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "ソフトウェア業界の主要企業"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "ソフトウェア業界とIT業界の違い"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "IT業界とソフトウェア業界のビジネスモデルの違い"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "IT業界とソフトウェア業界の市場規模の違い"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "IT業界とソフトウェア業界のエンジニアスキルの違い"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "ソフトウェア業界のエンジニア"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "システムエンジニア（SE）"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "アプリケーションエンジニア"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "組み込みエンジニア"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "ソフトウェア業界は情報学部生におすすめ"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "高度な開発技術と知識が必要"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "情報学部学生におすすめの就活エージェント"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 406,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-is-changing-rapidly/",
+      "title": "【IT就活】IT業界は変化が激しい？理由と未来を見据えた将来性の高いキャリア戦略",
+      "modified": "2025-04-27T16:49:22",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT業界が変化が激しい5つの理由"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "技術が思考の一歩先に進んでいる"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "IT技術の民主化が進んでいる"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "ベンチャー企業にチャンスがある"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "社会がデジタル化している"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "レガシーシステムの刷新が急務"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "IT業界の特徴と将来性について"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "IT技術は軍事研究が最先端"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "予想を遥かに超える進歩"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "技術はあるため将来性が高い"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "変化に強いポジション取りが重要"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ITインフラなら安定性が高い"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "AIの代替えが少ない上流に進む"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "【就活生必見】変化に強いIT業界のキャリア戦略"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "インフラエンジニアを選択する"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "就活でSES企業に入り経験を積む"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "転職でSIer企業にキャリアアップ"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "上流の経験を経て社内SEへ転職"
+        },
+        {
+          "position": 18,
+          "level": 2,
+          "text": "IT技術の進歩で見える明るい未来"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "AIの進歩で簡単な業務は自動化"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "クラウドサービスでWeb上で完結"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "Iotでいつでもどこでもつながる"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 409,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-internet-web-industry/",
+      "title": "【就活生必見】インターネット・Web業界とIT業界の違いをわかりやすく解説",
+      "modified": "2025-04-27T16:49:19",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "インターネット・Web業界とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "インターネット・Web業界の役割"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "主なインターネット・Web業界のサービス"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "インターネット・Web業界の主要企業"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "IT業界とインターネット・Web業界の違い"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "IT業界とインターネット・Web業界のビジネスモデルの違い"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "IT業界とインターネット・Web業界の市場規模の違い"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "IT業界とインターネット・Web業界のエンジニアスキルの違い"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "インターネット・Web業界のエンジニア"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "システムエンジニア"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "Webエンジニア"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "フロントエンドエンジニア"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "バックエンドエンジニア"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "インフラエンジニア"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "インターネット・Web業界の特殊な職種"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "Webデザイナー"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "Webマーケター"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "IT業界とWeb業界はまるで別物と心得よ！"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "Web業界は人材が飽和状態"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "就活での入社難易度は激むず"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "インターネット・Web業界はやめとけ！"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "高スキル人材は入社が可能"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "Webデザイナーは美大生でもきつい"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 412,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-sier-industry/",
+      "title": "【就活生必見】情報処理サービス・SIer業界（SI業界）とIT業界の違いをわかりやすく解説",
+      "modified": "2025-04-27T16:49:16",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "情報処理サービス・SIer業界（SI業界）とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "SIer業界（SI業界）の役割"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "主なSIer業界（SI業界）のサービス"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "SIer業界（SI業界）の主要企業"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "SIer業界（SI業界）とIT業界の違い"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "IT業界と情報処理サービス・SIer業界（SI業界）のビジネスモデルの違い"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "IT業界と情報処理サービス・SIer業界（SI業界）の市場規模の違い"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "IT業界と情報処理サービス・SIer業界（SI業界）のエンジニアスキルの違い"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "SIer業界（SI業界）のエンジニア"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "システムエンジニア"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "プログラマー"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "テストエンジニア"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "組み込みエンジニア"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "インフラエンジニア"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "SIer業界（SI業界）の別職種"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "ITコンサルタント"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "プロジェクトリーダー"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "プロジェクトマネージャー"
+        },
+        {
+          "position": 18,
+          "level": 2,
+          "text": "SIer業界（SI業界）のビジネスモデル"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "SIer（システムインテグレータ）"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "SES（システムエンジニアリングサービス）"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "就活生はSIer業界（SI業界）を目指せ！"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "SIer業界（SI業界）はスキルが磨ける"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "SIer業界（SI業界）は入社しやすい"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "SIer業界（SI業界）におすすめのIT就活エージェント"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 444,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-garbage/",
+      "title": "【就活の闇】就活エージェントはゴミなのか？短絡的な思考に終止符を！",
+      "modified": "2025-04-27T16:49:13",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活エージェントはゴミなのか？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "質の悪い就活エージェントは実在する"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "就活アドバイザー個人の問題も多い"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "結局は対人間のコミュニケーション"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "ゴミと言う学生を企業は採用しない"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "ゴミという言葉に知性を感じない"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "SNSに重要情報を載せる危険性がある"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "自分の努力不足を表現している"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "就活エージェントの顧客は企業である"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "就活生はwin-winの関係に過ぎない"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "紹介できる人材か判断する必要がある"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "質の悪い就活アドバイザーの5つの特徴"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "ヒアリングを行わずに話を進める"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "業界や仕事内容の知識に乏しい"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "合意なしで大量に求人応募する"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "書類通過率をやたらと押してくる"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "面接対策に時間を取らずに進める"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "優良就活アドバイザーに共通する3つの特徴"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "悪い面もしっかりと教えてくれる"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "あなたのダメな行動を叱ってくれる"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "業界に精通してキャリアを教えてくれる"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "就活エージェントは複数使用が大前提"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "就活アドバイザーの比較ができる"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "就活アドバイザーを変えられる"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "就活で盲目的になるリスクを回避"
+        },
+        {
+          "position": 25,
+          "level": 2,
+          "text": "業界特化型エージェントが最強である"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "総合型エージェントは広く浅く"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "特化型エージェントは狭く深く"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 446,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-suspicious/",
+      "title": "【就活の闇】就活エージェントは怪しい？無料で使える理由と不満は別々で考えろ！",
+      "modified": "2025-04-27T16:49:07",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活エージェントが怪しい理由は大きく2つ"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "無料で使える理由を知らない"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "サービスに対する満足度の不満"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "就活エージェントが無料で使える理由"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "就活エージェントのビジネスモデル"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "就活エージェントの顧客は企業である"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "就活生はあくまでパートナーである"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "就活エージェントに対するよくある不満"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "就活エージェントの電話がしつこい"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "書類添削や面接対策のサポート不足"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "内定した企業が断りにくい"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "希望の企業の求人をもらえない"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "就活エージェントを正しく利用するメリット"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "求人サイト以外の企業と接点が持てる"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "通ったはずの企業で無駄に落ちにくい"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "年収や内定の交渉でプッシュしてくれる"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "就活エージェントで失敗しない3つの心構え"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "対人マナーで気持ち良い関係を"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "ビジネスなので交渉は問題ない"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "複数のエージェントを利用する"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "就活エージェントの得意・不得意を理解する"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "情報収集に向いている総合型エージェント"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "優良企業の内定に向いている特化型エージェント"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 450,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-phone-persistent/",
+      "title": "【就活の闇】就活エージェントのしつこい電話は無視？折り返し？着信拒否？リスクと対処法",
+      "modified": "2025-04-27T16:49:10",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活エージェントの電話がしつこい理由"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "就活エージェントはビジネスだから"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "就活アドバイザーが真剣な人だから"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "電話をしないと上司に怒られるから"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "就活エージェントの電話は無視しても良い？"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "忙しい時に出ないのは問題はない"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "使いたいときに若干気まずくなる"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "人間なので対応が悪くなることも"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "就活エージェントが電話をかける意味は3つ"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "本人確認と登録事項の確認"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "放置すると就活の意向が下がる"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "就活で出遅れないようにする"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "就活エージェントの電話がしつこいと感じる心理"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "あまり真剣度が高くなかった"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "自分のペースで進めたい"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "現在の意識が就活に向いていない"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "正しい就活エージェントの電話対応法"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "忙しいが出れる状況の対応法"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "忙しくて出れない状況の対応法"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "現在は使う気がない時の対応法"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "一生使う気がない時の対応法"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "就活エージェントはあなたでなくても問題ない"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "連絡が付かないのであれば✕が付くだけ"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "再登録しても相手してもらえない可能性"
+        },
+        {
+          "position": 24,
+          "level": 2,
+          "text": "電話応対が嫌いな人向け就活エージェント3選"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "キャリアチケット"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "JobSpring Scout"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "キミスカ"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 453,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-stop/",
+      "title": "【就活の闇】就活エージェントはやめとけ？5つの理由とやばいサービスの特徴",
+      "modified": "2025-04-27T16:49:03",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活エージェントがやめとけと言われる理由5選"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "就活エージェントの電話がしつこい"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "就活エージェントにはずれが多い"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "就活エージェントにカモにされる"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "就活エージェントの内定を断りにくい"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "就活エージェントで内定がもらえない"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "検索結果の大半がおすすめという怪しい結論"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "おすすめしたいという魂胆がまる見え"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "ぶっちゃけ使う人と企業次第でしょ？"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "やめておくべき就活エージェントの特徴3選"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "みんなが使う総合型のエージェント"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "勝手に書類の内容を変更して応募する"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "SNSのDMで就活エージェントにつながる"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "就活エージェントは無料で使えて怪しい？"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "就活エージェントの顧客は企業である"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "就活生はパートナー関係が正しい理解"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "就活エージェントには一定のメリットがある"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "エージェント経由のみの求人がある"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "当たりアドバイザーはサポートが丁寧"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "業界特化なら自分で調べるより早い"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "就活エージェントを利用すべき人の特徴は5つ"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "就職活動ですでに出遅れてしまっている"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "内定はあるが就職活動をやり直したい"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "ESや履歴書の書類選考が全然通過しない"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "面接で毎回落とされてしまっている"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "一人暮らしで友達が少なく交友関係が狭い"
+        },
+        {
+          "position": 26,
+          "level": 2,
+          "text": "就活エージェントで失敗しないための方法"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "就活エージェントは複数併用して比較"
+        },
+        {
+          "position": 28,
+          "level": 3,
+          "text": "IT業界は当サイトの厳選エージェントを使う"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 489,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/levatec-rookie/",
+      "title": "【新卒就活生必見】レバテックルーキーとは？サービス特徴・評判・対象者をまるっと解説!",
+      "modified": "2025-04-27T16:48:41",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "レバテックルーキーとは"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "サービスの特徴"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "運営会社情報"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "レバテックルーキーの評判"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "良い口コミ評価"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "悪い口コミ評価"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "レバテックルーキーがおすすめな人"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "高学歴で求人を自分で決めたい"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "エンジニア就活の情報収集をしたい"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "レバテックルーキーがおすすめではない人"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "GMRCH未満の大学に在籍"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "手厚いサポートを受けたい"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "しつこく電話をされるのが嫌"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "レバテックルーキーの上手な活用方法"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "業界を知るための情報収集として登録"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "サポートの手厚いサービスを併用する"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "レバテックルーキーの利用の流れ"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "ステップ1…会員登録をする"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "ステップ2…担当者面談をする"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "ステップ3…求人紹介を受ける"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "ステップ4…求人応募をする"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "ステップ5…面接対策をする"
+        },
+        {
+          "position": 22,
+          "level": 2,
+          "text": "総評：レバテックルーキーは高学歴におすすめ"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 497,
+      "url": "https://it-shukatu-college.com/it-industry-research/what-is-a-system-engineer/",
+      "title": "【就活生向け】システムエンジニアとは？仕事内容・年収・スキル・適正をわかりやすく解説",
+      "modified": "2025-04-27T16:49:00",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【就活生必見】システムエンジニア（SE）とは？"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "システム開発と運用の基礎知識"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "システム開発はリリース前とリリース後がある"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "システム開発工程の基本的な流れ"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "システムエンジニアの仕事内容"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "【上流工程】要件定義から詳細設計"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "【下流工程】実装からテスト工程"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "【リリース後】システム運用・保守"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "システムエンジニアの新卒年収と平均年収"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "システムエンジニアの新卒年収"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "システムエンジニアの平均年収"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "プログラマー（PG）とシステムエンジニアの違い"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "システムエンジニアは上流工程がメイン"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "プログラマーは下流工程がメイン"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "新卒のシステムエンジニア配属は両方"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "システムエンジニアに必要なスキル"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "システム全体の理解と設計スキル"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "コミュニケーションとマネジメントスキル"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "論理的思考力とプログラミングスキル"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "システムエンジニアに向いている人の特徴"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "好奇心旺盛で何でも吸収したい"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "チームや団体で動くのが好き"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "謎解きや問題を解くのが好き"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "システムエンジニアは文系学生にもおすすめ"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "文系・理系の割合は意外にも半々"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "ドキュメント作成や顧客折衝が多い"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "資格の取得が評価対象に入っている"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 499,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-occupations/",
+      "title": "【新卒・就活生】IT業界の職種とは？全7分類29種類の仕事内容と難易度一覧",
+      "modified": "2025-04-27T16:48:54",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【就活生必見】IT業界の職種大分類"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "エンジニア職種"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "事務職種"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "セールス（営業）系職種"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "コンサルタント職種"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "デザイナー職種"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "マーケティング職種"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "カスタマーサポート職種"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "【IT業界】エンジニア職の分類"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "システムエンジニア（SE）"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "プログラマ（PG）"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "テストエンジニア"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "インフラエンジニア"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "データエンジニア"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "ゲームエンジニア"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "【IT業界】事務職の分類"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "営業事務"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "人事・総務"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "経理・財務"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "法務"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "【IT業界】セールス（営業）職の分類"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "BtoB（企業向け）セールス"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "BtoC（個人向け）セールス"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "【IT業界】コンサルタント職の分類"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "ITコンサルタント"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "Webコンサルタント"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "事業戦略コンサルタント"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "経営戦略コンサルタント"
+        },
+        {
+          "position": 28,
+          "level": 2,
+          "text": "【IT業界】デザイナー職の分類"
+        },
+        {
+          "position": 29,
+          "level": 3,
+          "text": "グラフィックデザイナー"
+        },
+        {
+          "position": 30,
+          "level": 3,
+          "text": "Webデザイナー"
+        },
+        {
+          "position": 31,
+          "level": 3,
+          "text": "UI・UXデザイナー"
+        },
+        {
+          "position": 32,
+          "level": 3,
+          "text": "モーショングラフィックデザイナー"
+        },
+        {
+          "position": 33,
+          "level": 2,
+          "text": "【IT業界】マーケティング職の分類"
+        },
+        {
+          "position": 34,
+          "level": 3,
+          "text": "経営・事業戦略マーケター"
+        },
+        {
+          "position": 35,
+          "level": 3,
+          "text": "デジタル・Webマーケター"
+        },
+        {
+          "position": 36,
+          "level": 3,
+          "text": "広報・ブランディング"
+        },
+        {
+          "position": 37,
+          "level": 3,
+          "text": "Web広告（宣伝）マーケター"
+        },
+        {
+          "position": 38,
+          "level": 3,
+          "text": "データサイエンティスト（アナリスト）"
+        },
+        {
+          "position": 39,
+          "level": 2,
+          "text": "【IT業界】カスタマーサポート職の分類"
+        },
+        {
+          "position": 40,
+          "level": 3,
+          "text": "ヘルプデスク"
+        },
+        {
+          "position": 41,
+          "level": 3,
+          "text": "テクニカルサポート"
+        },
+        {
+          "position": 42,
+          "level": 3,
+          "text": "サービスデスク"
+        },
+        {
+          "position": 43,
+          "level": 3,
+          "text": "コールセンター"
+        },
+        {
+          "position": 44,
+          "level": 2,
+          "text": "【IT業界の職種一覧】難易度とおすすめ度"
+        },
+        {
+          "position": 45,
+          "level": 2,
+          "text": "IT業界の職種は「エンジニア職」がおすすめ"
+        },
+        {
+          "position": 46,
+          "level": 3,
+          "text": "市場価値が高くて年収を上げやすい"
+        },
+        {
+          "position": 47,
+          "level": 3,
+          "text": "IT社会においてシステム理解は強み"
+        },
+        {
+          "position": 48,
+          "level": 3,
+          "text": "他職種とスキルの掛け合わせが可能"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 559,
+      "url": "https://it-shukatu-college.com/it-shukatu/how-to-become-a-new-graduate-engineer/",
+      "title": "【IT就活】新卒でITエンジニアになるには？方法・資格・職種の最速ルートがわかる！",
+      "modified": "2025-04-27T16:48:51",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒でITエンジニアになるには？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "職種を選ばなければ面接対策でなれる"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "おすすめはインフラエンジニア"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "開発職種は資格取得までおすすめ"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "プログラミングスキルは入社時に必要？"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "インフラエンジニアなら必要なし"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "開発ならバックエンド言語が推奨"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "新卒でITエンジニアになるための最速ルート"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "インフラエンジニアを選択する"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "IT専門の就活エージェントに相談する"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "資格取得の勉強を並行して行う"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "新卒で開発エンジニアを目指すとどうなる？"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "転職で狙うより難易度は極めて低い"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "システムエンジニア（SE）はチャンス"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "アプリケーションエンジニアは資格推奨"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "Webエンジニアはポートフォリオが必要"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "開発エンジニアにおすすめのプログラミング言語"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "1位…Java"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "2位…Python"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "3位…PHP"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "4位…Ruby"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "5位…Java Script"
+        },
+        {
+          "position": 22,
+          "level": 2,
+          "text": "新卒インフラエンジニアおすすめ資格ランキング"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "1位…基本情報技術者試験"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "2位…CCNA（Cisco認定資格）"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "3位…LPIC or LinuC"
+        },
+        {
+          "position": 26,
+          "level": 2,
+          "text": "新卒開発エンジニアおすすめ資格ランキング"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "1位…Java Silver"
+        },
+        {
+          "position": 28,
+          "level": 3,
+          "text": "2位…Python3エンジニア認定試験"
+        },
+        {
+          "position": 29,
+          "level": 3,
+          "text": "3位…PHP技術者認定初級試験"
+        },
+        {
+          "position": 30,
+          "level": 2,
+          "text": "文系学生は就活エージェントの利用がおすすめ"
+        },
+        {
+          "position": 31,
+          "level": 3,
+          "text": "周囲に仲間が少なく孤立しやすい"
+        },
+        {
+          "position": 32,
+          "level": 3,
+          "text": "IT業界との関わりが理系より少ない"
+        },
+        {
+          "position": 33,
+          "level": 2,
+          "text": "就活エージェントはサポートの充実度で選ぶのが重要！"
+        },
+        {
+          "position": 34,
+          "level": 3,
+          "text": "おすすめ度1位…ユニゾンキャリア就活"
+        },
+        {
+          "position": 35,
+          "level": 3,
+          "text": "おすすめ度2位…レバテックルーキ"
+        },
+        {
+          "position": 36,
+          "level": 3,
+          "text": "おすすめ度3位…TECH-BASE（テックベース）就活"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 578,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/fresh-graduate-se-sukatu-agent/",
+      "title": "【新卒向け】システムエンジニア（SE）志望におすすめの就活エージェントランキング！",
+      "modified": "2025-04-27T16:48:47",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒SE用の就活エージェントの選び方"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "エンジニア専門の支援サービスを選択"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "丁寧でスピード感あるサポート体制"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "新卒内定の体験談数や口コミの件数と評価"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "新卒SEの就活で総合型は絶対やめとけ！"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "おすすめの新卒SE向け就活エージェント4選"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "第1位…ユニゾンキャリア"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "第2位…レバテックルーキー"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "第3位…TECH-BASE（テックベース）"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "第5位…paiza新卒（パイザ）"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "就活エージェントの賢い利用方法"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "複数の就活エージェントを利用"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "仕事に詳しい担当者に依頼する"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "自己開示をして要望のすり合わせ"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "Q＆A：新卒SE向けエージェント活用の疑問"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "プログラミング経験なくても内定取れる？"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "インターンは参加したほうがいい？"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "適正診断は意味ありますか？"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 581,
+      "url": "https://it-shukatu-college.com/it-shukatu/humanities-se-quit/",
+      "title": "【新卒就活生必見】文系からSEは本当にやめとけ？その理由と解決策を解説",
+      "modified": "2025-04-27T16:48:44",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "『結論』文系で営業が嫌な人にSEはおすすめ"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "文系からSEはやめとけと言われる理由5選"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "IT技術の理解に時間がかかる"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "プログラミングができない"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "スキル習得に時間がかかる"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "予想以上に地道な作業が多い"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "企業を選定できずにブラックな働き方"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "文系がSEとして大成する3つの心構え"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "ITスキルを段階的に習得すること"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "短期で年収が上がる職種ではない"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "都度転職を考えて動くこと"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "文系がSEを選択する3つのメリット"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "市場価値の高いスキルが身に付く"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "長期的には年収で逆転できる"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "リモートワークが可能になる"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "文系からSEに向いている人の3つの特徴"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "コツコツと勉強や努力ができる"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "コミュニケーション能力が高い"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "論理的に物事を理解できる"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "文系がSEになるために必要な3つのこと"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "最低限ITパスポートの勉強をする"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "プログラミング言語に触ってみる"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "IT専門の就活エージェントを利用"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 628,
+      "url": "https://it-shukatu-college.com/it-industry-research/it-companies/",
+      "title": "【新卒・就活生】IT業界の企業とは？企業ランキングに意味なし！企業の種類とポイント解説",
+      "modified": "2025-04-27T16:48:37",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT企業ランキングはクソである！"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "好条件であなたを釣るのが目的"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "学歴フィルターで大半が書類落ち"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "スキルが付けば後から入れる"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "IT企業ではなく職種で選ぶべき理由！"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "スキルは職種にしか宿らない"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "案件ベースでの仕事が基本"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "キャリアの方向性を決められる"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "IT業界の企業形態（ビジネスモデル）は3種類"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "スキルが磨けるSES企業"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "ハイクラスならSIer企業"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "スキルがあるなら自社開発企業"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "【各ビジネスモデル別】IT企業の有名企業"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "有名なSES企業5選"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "有名なSIer企業5選"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "有名な自社開発企業5選"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "IT企業のビジネスモデルは複数部署ある"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "SES・SIerの両方を扱うケース"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "SIerと自社開発のどちらもやるケース"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "結論：IT業界はスキルが付く優良企業に入れ！"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "エンジニアは技術職だと心得ろ"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "IT業界に詳しい人に相談せよ"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 650,
+      "url": "https://it-shukatu-college.com/it-industry-research/what-is-an-infrastructure-engineer/",
+      "title": "【就活生向け】インフラエンジニアとは？仕事内容・年収・スキル・キャリアをわかりやすく解説",
+      "modified": "2025-04-27T16:48:26",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "インフラエンジニアとは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "ITインフラを支えるエンジニアの総称"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "インフラエンジニアと開発エンジニア"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "インフラエンジニアは5種類ある"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "インフラエンジニア5種類"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "種類はインフラの実務経験後に選択"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "インフラエンジニアの仕事内容（工程）"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "要件定義（リリース前）"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "設計・構築（リリース前）"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "導入・テスト（リリース前）"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "保守・構築（リリース後）"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "運用・監視（リリース後）"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "インフラエンジニアは不況に強い将来性の高い職種"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "コロナ禍でも需要が増加した"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "AI・Iot・クラウドなど将来性が高い"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "インフラエンジニアの新卒年収と平均年収"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "インフラエンジニアの平均年収"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "インフラエンジニアの新卒年収"
+        },
+        {
+          "position": 18,
+          "level": 2,
+          "text": "【新卒向け】インフラエンジニアに必要な知識・スキル"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "基本的なPCスキル（Word・Excel）"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "ITインフラの基礎知識（基本情報技術者）"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "コミュニケーションスキル"
+        },
+        {
+          "position": 22,
+          "level": 2,
+          "text": "新卒インフラエンジニアのキャリアパス"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "管理職：プロジェクトマネージャー（PM）"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "技術職：スペシャリスト（領域特化）"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "企画職：ITコンサルタント（導入支援）"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "個人事業：フリーランスエンジニア"
+        },
+        {
+          "position": 27,
+          "level": 2,
+          "text": "文系の就活生にインフラエンジニアはおすすめ！"
+        },
+        {
+          "position": 28,
+          "level": 3,
+          "text": "内定取得にプログラミング学習が不要"
+        },
+        {
+          "position": 29,
+          "level": 3,
+          "text": "コミュニケーション能力が活かしやすい"
+        },
+        {
+          "position": 30,
+          "level": 3,
+          "text": "資格取得がキャリアアップに直結"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 654,
+      "url": "https://it-shukatu-college.com/it-shukatu/infrastructure-engineer-stop/",
+      "title": "【就活生向け】新卒でインフラエンジニアはやめとけ？文系にチャンスな理由と失敗要素を解説",
+      "modified": "2025-04-27T16:48:21",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【理由5選】なぜインフラエンジニアはやめとけ？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "キャリア初期には夜勤業務が発生"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "緊急対応で休日出勤が稀にある"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "開発エンジニアに下に見られている"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "キャリアアップには自己学習が必要"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "ブラック企業はスキルが身に付かない"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "結論：新卒文系にインフラエンジニアはおすすめ"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "社会的な需要が高く安定している"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "平均年収はエンジニアの中でも高い"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "優良企業への内定が取りやすい"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "プログラミング学習が必要ない"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "資格取得でキャリアアップが可能"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "インフラエンジニアに向いている人の特徴"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "じっくり作業を続けられる忍耐力"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "論理的に物事を考える能力"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "他者と協力して業務を遂行する力"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "インフラエンジニアで描けるキャリアパス"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "管理職のプロジェクトマネージャー"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "専門性を高めてフリーランス"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "企画職のITコンサルタント"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "インフラエンジニアの就活で失敗する要素"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "スキルが付かない下請けSESに入社"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "適正に合わせて配属先を決める企業"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "総合型就活エージェントを利用する"
+        },
+        {
+          "position": 24,
+          "level": 2,
+          "text": "インフラ就活はIT専門エージェントが推奨"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "IT企業の内部情報に詳しく失敗しにくい"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "エンジニアのキャリアを熟知している"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "採用担当者の求める人材を理解している"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 656,
+      "url": "https://it-shukatu-college.com/it-industry-research/what-is-an-application-engineer/",
+      "title": "【就活生向け】アプリケーションエンジニアとは？仕事内容・難易度・スキル・資格を解説",
+      "modified": "2025-04-27T16:48:19",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【就活生必見】アプリケーションエンジニアとは？"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "【基礎知識】アプリケーションは3種類存在する"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "業務系アプリケーション"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "Web系アプリケーション"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "スマホアプリケーション"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "アプリケーションエンジニアの仕事内容"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "企画立案・要件定義"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "設計（基本設計・詳細設計）"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "開発（プログラミング・コーディング）"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "テスト（単体テスト・複合テスト・結合テスト）"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "リリース（運用・保守）"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "アプリケーションエンジニアに必要なスキル"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "プログラミング言語"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "ビジネススキル"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "コミュニケーションスキル"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "アプリケーションエンジニアに向いている人の特徴"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "探求心と好奇心がある"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "問題解決力が高い"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "チームワークを重んじる"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "アプリケーションエンジニアのおすすめ資格"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "業務系アプリケーション向け資格"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "Web系アプリケーション向け資格"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "スマホアプリケーション向け資格"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "アプリケーションエンジニアの就活難易度"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "GMRCH以上なら文系でも内定可能"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "Java・C言語・PHPができると高年収"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "日東駒専以下でスキル無しなら厳しい"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 704,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/unison-carrier/",
+      "title": "ユニゾンキャリア就活とは？おすすめ度、対象者、評判、メリット・デメリットを解説",
+      "modified": "2025-04-27T16:48:31",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "ユニゾンキャリアとは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "【ITエンジニア専門】新卒者向け支援サービス"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "【ITエンジニア専門】転職者向け支援サービス"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "ユニゾンキャリアの運営会社情報"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "株式会社ユニゾン・テクノロジー"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "ユニゾン・テクノロジーの新卒採用情報"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "ユニゾンキャリア就活を利用するメリット"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "豊富なITエンジニア求人"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "最短1週間の内定獲得"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "専門性の高い就活サポート"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "Google口コミ4.8の安心支援"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "ユニゾンキャリア就活のデメリット"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "求人地域に関する制限"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "IT業界専門のサポート制限"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "ユニゾンキャリア就活がおすすめの人"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "手厚いサポートを受けたい人"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "長期キャリアの形成をしたい人"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "IT業界の就活で失敗したくない人"
+        },
+        {
+          "position": 18,
+          "level": 2,
+          "text": "ユニゾンキャリア就活の利用方法"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "登録から面談までの流れ"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "求人紹介から面接対策"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "内定交渉と内定後のフォロー"
+        },
+        {
+          "position": 22,
+          "level": 2,
+          "text": "ユニゾンキャリア就活は圧倒的におすすめ！"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "他社エージェントよりも圧倒的に手厚い"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "学生のうちにキャリア感を理解できる"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 706,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/tech-base/",
+      "title": "【TECH-BASE】エンジニア就活とは？特徴・メリット・デメリットから対象者を解説",
+      "modified": "2025-04-27T16:48:28",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【TECH-BASE】エンジニア就活とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "プログラミング学習"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "インターンシップの参加"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "企業のスカウトサービス"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "就活エージェント"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "【TECH-BASE】エンジニア就活の特徴"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "大学の単位認定がもらえる"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "他社とは異なる選考プロセス"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "エンジニア就活の一式セット"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "【TECH-BASE】エンジニア就活のメリット"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "スキルを身につけられる"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ポートフォリオ作成に役立つ"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "エンジニアの現場を見れる"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "【TECH-BASE】エンジニア就活のデメリット"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "忙しい人は時間が取れない"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "スキルがないと難易度は高め"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "【TECH-BASE】エンジニア就活がおすすめな人"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "プログラミング経験がある人"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "エンジニアの現場を知りたい人"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "早期選考ルートを確保したい人"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "【TECH-BASE】エンジニア就活利用の流れ"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "ガイダンス動画視聴"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "コース選択・申込"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "選択コースを受講"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "受講修了"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "無料就活サポート"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 793,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/shukatu-nnt/",
+      "title": "【IT就活向け】NNT就活生からの脱却方法！内定獲得でANTへ転身せよ！",
+      "modified": "2025-04-27T16:48:16",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活におけるNNTとは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "NNTの意味とANTとの違い"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "NNT状態の現状と割合"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "NNTになりやすい就活生の特徴"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "NNTを脱却するための具体的な対策"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "自己分析の徹底"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "企業研究の深掘り"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "選考対策の強化"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "就活エージェントの活用"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "就活エージェントとは？"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "おすすめの就活エージェント"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "就活エージェント選びのポイント"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "NNTからの逆転内定に向けて"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "焦らず計画的に行動"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "前向きな気持ちを保つ"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "諦めずに挑戦"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 796,
+      "url": "https://it-shukatu-college.com/it-industry-research/ctc/",
+      "title": "【就活難易度】伊藤忠テクノソリューションズ(CTC)の内定に必要な学歴と能力",
+      "modified": "2025-04-27T16:48:12",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "伊藤忠テクノソリューションズ（CTC）とは"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "CTCの事業概要と強み"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "CTCが求める人物像"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "新卒が活躍できるフィールド"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "伊藤忠テクノソリューションズ（CTC）の新卒採用情報"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "募集職種と応募資格"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "選考プロセスとスケジュール"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "入社後の研修とキャリアパス"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "伊藤忠テクノソリューションズ（CTC）で働く魅力"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "働きがいのある環境"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "充実した福利厚生"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "グローバルな活躍の機会"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "伊藤忠テクノソリューションズ（CTC）の学歴フィルター"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "文系のGMRCHクラスでもSE内定可能"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "求められるのはコミュニケーション能力"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "伊藤忠テクノソリューションズ（CTC）の合格者のレベル感"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "CTCの内定獲得はIT専門就活エージェントがおすすめ"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "おすすめ度1位…ユニゾンキャリア"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "おすすめ度2位…レバテックルーキー"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 805,
+      "url": "https://it-shukatu-college.com/it-industry-research/ntt-data/",
+      "title": "【就活難易度】NTTデータ新卒採用の内定獲得｜学歴、選考突破の鍵、業界内の実態",
+      "modified": "2025-04-27T16:48:10",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "NTTデータとは"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "NTTデータの事業内容"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "NTTデータの求める人物像"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "NTTデータの人気が高い理由"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "SNS（特にX）でよく名前が上がるから"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "インフルエンサーが無駄に評価を上げがち"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "NTTデータの就職難易度"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "競合他社との比較"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "難易度が高い理由"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "NTTデータの採用大学と学歴フィルター"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "採用大学ランキングの分析"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "学歴フィルターの有無"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "NTTデータの選考プロセスと対策"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "選考フローの概要"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "エントリーシート対策"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "面接対策"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "NTTデータは人気が高いだけでじつは微妙"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "NTTデータは天下り先で自由度低め"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "エンジニア界隈での評価はいまいち"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "うつ病や自殺者のうわさも絶えない"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "NTTデータは入っても良いが転職が前提"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 812,
+      "url": "https://it-shukatu-college.com/it-shukatu/it-humanities-or-sciences/",
+      "title": "【就活生必見】IT業界で活躍するのは文系？理系？どっちだ！",
+      "modified": "2025-04-27T16:48:06",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT業界は文系でも理系でもない"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "ハードウェア業界は理系学部に該当"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "ITコンサルタントは文系学部に該当"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "IT業界全体は情報学部に該当する"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "IT業界における文系と理系の優位性"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "性質的には理系の方が有利"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "顧客折衝などは文系の方が有利"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "就活においての遜色はないに等しい"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "IT業界で理系が有利なポイント3選"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "システム理解などの論理的思考力の高さ"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "データ関連の数学的思考力の高さ"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "アルゴリズムなどのロジック解析能力"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "IT業界で文系が有利なポイント3選"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "顧客とのコミュニケーション能力"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "レポート作成などの文章能力"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "顧客ニーズの理解力"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "文系出身者がIT業界に増えている状況"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "情報学部生以外は入社後の努力がカギ"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "スキルを磨きIT業界で活躍する方法"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "技術力だけでなくソフトスキルも重要"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 820,
+      "url": "https://it-shukatu-college.com/it-industry-research/ses/",
+      "title": "【就活生向け】SESとは？契約形態、メリット・デメリット、企業の見分け方を解説",
+      "modified": "2025-04-27T16:48:02",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "SES（システムエンジニアリングサービス）とは"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "SESの基本的な定義"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "SES契約の主な特徴"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "SESと派遣契約の違い"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "SES契約の種類と特徴"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "準委任契約とは"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "請負契約との違い"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "委任契約との違い"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "SESのメリットとデメリット"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "SESを利用するメリット"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "SESを利用するデメリット"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "エンジニアにとってのメリット"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "優良SES企業を見極めるポイント"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "元請け企業との直取引が多い"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "求人サイトで探すと超危険"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "面接で業務内容の詳細を聞く"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "SESとその他の契約形態"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "SIer（システムインテグレーター）との違い"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "自社開発との違い"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "新卒にSESはおすすめである"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "新卒の優良企業は大手SESが最適"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "SIer企業は実務経験が積みにくい"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 830,
+      "url": "https://it-shukatu-college.com/it-industry-research/sier/",
+      "title": "【就活生向け】SIerとは？仕事内容、種類、企業例を徹底解説",
+      "modified": "2025-04-27T16:47:59",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "SIer（システムインテグレーター）とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "SIerの定義とシステム開発の位置づけ"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "SIerとSESの違いとは？"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "SIerの歴史と変遷"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "SIerの主な仕事内容"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "システム開発における各フェーズでの業務"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "プロジェクトマネジメントの重要性"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "顧客とのコミュニケーション"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "SIerの種類と特徴"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "メーカー系SIerと企業例"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "ユーザー系SIerと企業例"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "独立系SIerと企業例"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "外資系SIerと企業例"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "新卒でSIerに入るメリットとデメリット"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "SIerのメリット"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "SIerのデメリット"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "SIer業界の現状と今後の動向"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "業界の最新動向と技術トレンド"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "SIerの今後の展望と課題"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "SIerとして活躍するためには？"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "必要なスキルと能力"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "キャリアパスと成長戦略"
+        },
+        {
+          "position": 22,
+          "level": 2,
+          "text": "新卒はSIerがおすすめだが…"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "大手はスキルが身に付かない"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "ねらい目は中小SIerが最適"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "大手SESのほうが成長につながる"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 839,
+      "url": "https://it-shukatu-college.com/it-industry-research/in-house-development/",
+      "title": "【就活生向け】自社開発企業とは？メリットとデメリット受託開発の違い、難易度を解説",
+      "modified": "2025-04-27T16:47:54",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "自社開発企業とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "自社開発の基本的な概念"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "自社開発の種類"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "自社開発と受託開発・SESとの違い"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "受託開発との違い"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "SESとの違い"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "新卒が自社開発企業に入るメリット5選"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "スキルを存分に活かせる"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "企画から一気通貫できる"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "技術ファーストの社風"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "働く環境の変化が少ない"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "ユーザーの反応がダイレクト"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "新卒が自社開発企業に入るデメリット3選"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "スキルがないとただの地獄"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "身に付くスキルの汎用性が低い"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "小さい企業はつぶれやすい"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "自社開発企業を選ぶ際の注意点"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "企業の安定性と将来性"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "開発体制と技術スタック"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "企業文化と福利厚生"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "自社開発企業は入社難易度が非常に高い"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "早慶・国立以上の学歴が必要"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "学歴がなければスキルが必須"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 857,
+      "url": "https://it-shukatu-college.com/it-industry-research/the-future-of-the-it-industry/",
+      "title": "【就活向け】IT業界の今後の市場動向と現状課題｜将来性は？未来がない？トレンド解説",
+      "modified": "2025-04-27T16:47:52",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒こそ将来性・需要の高いIT業界へ"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "IT業界を目指す学生は全体の30％"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "転職のチャンスは27歳までが限界"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "IT業界の現状課題と今後の市場動向"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "DX推進と市場規模の拡大"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "IT人材不足と市場価値の高騰"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "IT業界の課題は構造的ヒエラルキー"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "成長分野はSI業界とITインフラ"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "Web業界は人材充足で未来がない"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "注目すべき今後のITトレンド5選"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "AI・機械学習・ビックデータ"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "クラウドコンピューティング"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "サイバーセキュリティ"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "ブロックチェーン・メタバース"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "量子コンピューター"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "新卒に今後おすすめの職種・業種・業態"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "職種：おすすめはエンジニア職一択"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "業種：チャンスがあるのはSIer業界"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "業態：スキルが磨ける大手SESがねらい目"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "IT業界を選択するならスキルが最重要"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "終身雇用の終焉とジョブ型雇用"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "スキル依存の年収・給料"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "集中する高スキル人材への需要"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "IT専門の就活エージェントを利用せよ！"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "総合型は技術職に明るくない"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "技術職のキャリアは戦略が重要"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 888,
+      "url": "https://it-shukatu-college.com/it-industry-research/web-industry-stop/",
+      "title": "【新卒・就活】Web業界はガチでやめとけ！オワコンな理由と職種と無駄金スクール",
+      "modified": "2025-04-27T16:47:48",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒でWeb業界に行くのはやめとけ！"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "Web業界はオワコン！やめとくべき理由5選"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "そもそも市場規模は大きくない"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "ワークライフバランスは最悪"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "ビジネス参入しやすく競争激化"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "クライアントとの板挟み必至"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "AIで代替できる人材が大半"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "Web業界で絶対アウトなやめとけ職種5選"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "Webデザイナーの入社難易度は激むず"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "Webマーケターの大半はオペレーター"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "Web広告は激務＆入社難易度が激むず"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "WebライターはもうAIで充分すぎる件"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "Webエンジニアはスキルがないと詰む"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "Web業界の人手不足の本当の意味"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "スキルがある人材の不足が真実"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "地頭が良くない人はすぐに離職"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "仕事に魂を売れる人材が欲しい"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "【無駄金】Web業界のヤバい落とし穴3選"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "フロント言語をさせるプログラミングスクール"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "マーケティングスクールは未経験と変わらない"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "Webデザイナー専門学校を出ても内定は出ない"
+        },
+        {
+          "position": 21,
+          "level": 2,
+          "text": "新卒でWeb業界で活躍するのに必要な条件"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "早慶・国立以上の学力と一般教養"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "自分で学習計画を組み立てられる"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "情報収集を辞めたらすぐに抜かれる覚悟"
+        },
+        {
+          "position": 25,
+          "level": 2,
+          "text": "中途半端な覚悟ならWeb業界はやめとけ！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 902,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/job-hunting-agent-construction-management-stop/",
+      "title": "就活エージェントで施工管理は絶対にやめとけ！IT就活の闇を解説",
+      "modified": "2025-04-27T16:47:45",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活エージェントがおすすめする施工管理とは？"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "原価管理"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "工程管理"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "品質管理"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "安全管理"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "就活エージェントが施工管理をおすすめする理由"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "釣り文言で施工管理をおすすめする業務フローである"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "ITエンジニアの就活で難航しそうと判断された"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "アドバイザーがITエンジニアの就活に対する知識がない"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "就活エージェントで施工管理をやめとくべき理由5選"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "施工管理はスキルがなくてもなれる職種"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "年収は高いが潰しが効かない"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "現場のおっさんに精神を潰されがち"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "中間管理なので板挟みで病む"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "ふつうに肉体労働も発生する"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "施工管理をおすすめする就活エージェントはやめとけ！"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "施工管理を勧められたときの就活エージェント撃退法"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "施工管理はやりたくないと伝える"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "担当アドバイザーの変更を申し出る"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "電話もメールもブロックして就活エージェントと縁を切る"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "ITエンジニアになれる就活エージェント3選"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "おすすめ度1位…ユニゾンキャリア就活"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "おすすめ度2位…エンジニア就活（テックベース）"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "おすすめ度3位…レバテックルーキー"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 909,
+      "url": "https://it-shukatu-college.com/it-industry-research/ses-stop/",
+      "title": "【SESの闇】新卒でSESはやめとけ？理由とメリット・優良企業の見分け方を解説",
+      "modified": "2025-04-27T16:47:42",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒でSES企業に行くのは悪くない"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "SESは技術力を身につけやすい環境"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "世の中のエンジニアの7割はSESに在籍"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "案件に依存するのはSIerも同じこと"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "新卒が「SESはやめとけ」と言われる理由5選"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "【SESの闇】中小SESにはブラック企業が多い"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "【現場ガチャ】常駐先の環境変化リスク"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "【責任の所在】指揮命令系統の曖昧さ"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "【悪徳企業】家電量販店・コールセンター派遣"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "【案件面談】経歴詐称で実力を誤魔化す企業"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "新卒がSES企業に入社する5つのメリット"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "就活の難易度は低めで入りやすい"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "短期間で幅広いスキルが身に付く"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "基本的に残業が少ない雇用形態"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "案件次第で大手企業で働ける"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "リモートワークも進んでいる"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "ホワイトなSES企業を見抜くポイント"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "福利厚生と給与体系"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "口コミと評判の確認"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "教育制度と研修体制"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "新卒で入社するなら大手SES企業がおすすめ"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "未経験からでも安心できる研修制度"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "チームで案件にアサインされる体制"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "大手企業の直案件を請け負っている"
+        },
+        {
+          "position": 24,
+          "level": 2,
+          "text": "ITエンジニアにおすすめの就活エージェント"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "第1位…ユニゾンキャリア就活"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "第2位…エンジニア就活（テックベース）"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "第3位…レバテックルーキー"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 911,
+      "url": "https://it-shukatu-college.com/it-industry-research/sier-stop/",
+      "title": "【SIerの闇】新卒でSIerはやめとけ？理由・キャリア・ホワイト企業の見極め方を解説",
+      "modified": "2025-04-27T16:47:38",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒で技術力をつけるならSIerはやめとけ"
+        },
+        {
+          "position": 1,
+          "level": 2,
+          "text": "新卒でSIerはやめとけと言われる理由5選"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "スキルが身につきにくい構造"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "SESよりも残業時間が長い"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "SIerにも客先常駐が発生する"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "責任の所在はSIerにある"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "古い風習がしみついている"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "新卒でSIerに向いていない人の特徴3選"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "プログラミングを主体的に行いたい人"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "マネジメント業務を避けたい人"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "コミュニケーションを重視しない人"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "新卒でSIerを選ぶメリット"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "転職に比べて入社しやすい"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "安定した収入が期待できる"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "大規模システムに関わりやすい"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "ホワイトSIer企業選びのポイント"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "受託開発以外の事業の強みを確認する"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "直案件（プライム案件）の比率を確認する"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "大手はブラック企業の傾向が強めである"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "後悔しないエンジニアのキャリア戦略"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "下流工程もできる中小SIerか大手SESに入社"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "スキルがついたら大手SIerか自社開発に転職"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "PM経験後フリーランスかITコンサルタントへ"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "新卒なら大手より中小SIerがおすすめ"
+        },
+        {
+          "position": 24,
+          "level": 2,
+          "text": "ITエンジニアにおすすめの就活エージェント"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "第1位…ユニゾンキャリア就活"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "第2位…エンジニア就活（テックベース）"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "第3位…レバテックルーキー"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1020,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
+      "title": "【就活生向け】IT業界の「入社後にしたいこと」の回答方法｜職種と企業の理解で勝つる！",
+      "modified": "2025-04-27T16:47:34",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "【採用目線】就活で入社後にしたいことを聞く理由"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "仕事に対する理解度の確認"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "企業ビジョンへの共感性の確認"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "企業の事業理解に対する確認"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "就活生の思考力を確認"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "職種に対するキャリア理解の確認"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "ITエンジニアの「入社後にしたいこと」必要・十分条件"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "必要条件➀…エンジニアの職種理解"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "必要条件②…エンジニアのキャリア理解"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "必要条件③…エンジニアの社内ポジションの理解"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "十分条件➀…技術的な成長への意欲"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "十分条件②…技術的な成長に対する計画性"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "必要十分条件…エンジニアのキャリア理解と企業とのマッチング"
+        },
+        {
+          "position": 13,
+          "level": 2,
+          "text": "ITエンジニアの「入社後にしたいこと」に対する準備"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "選択職種の仕事内容と技術領域を整理する"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "自身の強み・弱みの明確化"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "企業の強み・弱みの分析"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "対企業向けのアピールポイントを用意"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "過去の実体験に基づく論理的な説明"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "ITエンジニアの「入社後にしたいこと」の回答例3選"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "会社の事業と自身の技術的興味のマッチングをPR"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "社内ポジションとキャリア感のマッチングをPR"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "キャリアパスに対する理解と自身の学習計画をPR"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "ITエンジニアの「入社後にしたいこと」の伝え方"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "結論ファーストで回答する"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "落ち着いてはきはきと回答する"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "笑顔で目を輝かせながら回答する"
+        },
+        {
+          "position": 27,
+          "level": 2,
+          "text": "企業の特性を考えた「入社後にしたいこと」を答えよう！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1112,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/it-passport-job-hunting/",
+      "title": "ITパスポートは就活に有利？意味ない？就職を有利にする方法",
+      "modified": "2025-04-28T13:41:46",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "ITパスポートとは？就活で評価される理由"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "ITパスポート試験の概要"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "就活で評価される理由"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "ITパスポートの具体的な活用方法"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "履歴書・ESへの記載方法"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "面接でのアピールポイント"
+        },
+        {
+          "position": 6,
+          "level": 2,
+          "text": "ITパスポート勉強ロードマップ"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "学習の始め方と参考書選び"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "学習スケジュール例"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "よくある質問（FAQ）"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "試験の難易度・合格率はどれくらい？"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "勉強時間の目安は？"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "ITパスポートは履歴書に書いてもいい？"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "IT業界以外でも役に立つ？"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1119,
+      "url": "https://it-shukatu-college.com/it-industry-research/regrets-of-a-new-graduate-ses/",
+      "title": "【就活生必見！】新卒のSES就職は後悔する理由7選！優良企業の選び方",
+      "modified": "2025-04-29T13:52:18",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "SESとは？仕組み・契約・商流"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "SES＝準委任契約で「時間を売る」ビジネス"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "多重下請け構造とマージンの実態"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "客先常駐のリアル：配属ガチャ問題"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "新卒がSESで後悔する7つの典型パターン"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "“研修充実”を信じたら座学2週間で現場放置"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "テスト・運用監視専属で開発スキルが身につかない"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "帰属意識ゼロでメンタルが摩耗"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "残業・待機＝収入“ゼロ”問題"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "多重派遣でコミュニケーションコストが高い"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "年功序列＆単価ピンハネで年収が頭打ち"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "キャリアパスが曖昧なまま30歳を迎える"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "それでも新卒SESを選ぶメリット"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "未経験でもIT業界に滑り込める敷居の低さ"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "多様な業界・技術スタックを体験できる"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "大手プライムの現場で学べる可能性"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "後悔しないSES企業の見極めポイント"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "直請け比率と商流の深さを数値で確認"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "選択制度・拒否権の有無"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "研修内容と配属後フォロー"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "評価制度と昇給ペース"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "帰社日・コミュニティ施策"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "待機期間の給与保証"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "SES企業は求人票だけで判断すると危険な理由"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "求人票の“研修充実・自社開発あり”は要裏取り"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "面接官は“配属後研修”を濁しがち"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "口コミサイトは断片情報：一次情報を取りに行く"
+        },
+        {
+          "position": 27,
+          "level": 2,
+          "text": "IT業界専門就活エージェントを使うメリット"
+        },
+        {
+          "position": 28,
+          "level": 3,
+          "text": "商流・案件内容まで開示してくれる"
+        },
+        {
+          "position": 29,
+          "level": 3,
+          "text": "企業詳細＆条件交渉でブラック回避"
+        },
+        {
+          "position": 30,
+          "level": 3,
+          "text": "キャリアプラン相談で5年後を逆算"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1133,
+      "url": "https://it-shukatu-college.com/it-industry-research/only-ses-new-graduates/",
+      "title": "【新卒でSESしかない？】就活でSES企業以外の内定を取る方法を解説！",
+      "modified": "2025-05-05T23:12:29",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "新卒が「SESしかない」と感じる理由と現状"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "なぜ新卒はSESに集中してしまうのか？"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "「SESしかない」と検索する就活生が急増する背景"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "就活生が知るべきSES企業のメリット・デメリット"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "SES企業のメリット① 多様な現場経験が積める"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "SES企業のメリット② 未経験でも内定を得やすい"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "SES企業のデメリット① 客先常駐型でキャリアが不安定"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "SES企業のデメリット② 将来的なキャリアアップ・収入面への懸念"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "就活生がSES以外の企業から内定を得る方法"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "就活初期に明確な目標設定をする"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "実践的なスキルを効率的に身につける"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "大学のキャリアセンターや専門エージェントを利用する"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "ブラックSES企業を見抜く！求人票チェックポイント"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "勤務地・勤務時間が「プロジェクトによる」と曖昧に記載"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "必須スキルがぼんやりしている／未経験大量募集"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "固定残業代・みなし残業◯時間含むと明記"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "待機期間（ベンチ）の給与保証が曖昧または減額"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "多重下請け構造・客先常駐の階層が深いと示唆"
+        },
+        {
+          "position": 18,
+          "level": 2,
+          "text": "新卒でSES企業に入社した場合のキャリア構築方法"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "SESで市場価値を高めるスキルを身につける"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "プロジェクト経験をキャリアの棚卸しに活かす"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "SESの経験を足がかりに自社開発や社内SEを目指す"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1138,
+      "url": "https://it-shukatu-college.com/it-industry-research/difference-between-ses-and-sier/",
+      "title": "【SESとSIerの違い】就活の企業選びを比較表で完全解説！",
+      "modified": "2025-05-06T02:10:52",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "SESとは？仕組み・契約形態・働き方"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "SESの仕組み"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "SESの雇用形態"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "SESの働き方"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "SIerとは？役割・商流・プロジェクト体制"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "SIerの役割と商流"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "SIerの契約形態"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "SIerのプロジェクト体制"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "SESとSIer8つの違い【比較表で一目瞭然】"
+        },
+        {
+          "position": 9,
+          "level": 2,
+          "text": "就活生が知るべきSESとSIerのメリット・デメリット"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "新卒でSESに入るメリット"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "新卒でSESに入るデメリット"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "新卒でSIerに入るメリット"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "新卒でSIerに入るデメリット"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "【一覧表】SESとSIerの違いでわかる向き・不向き"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "就活生のSIerとSESのよくある質問"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "Q1. SESとSIerはどちらが残業が少ない？"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "Q2. 新卒でSESに入ってもキャリアアップできますか？"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "Q3. SIerはブラック企業が多いって本当？"
+        },
+        {
+          "position": 19,
+          "level": 2,
+          "text": "就活で失敗しない企業リサーチ４か条"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "契約形態を確認"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "商流の深さを質問"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "配属フローの透明性"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "待機期間の給与保証"
+        },
+        {
+          "position": 24,
+          "level": 2,
+          "text": "【SESとSIer】就活生のためのキャリア選択の違い"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "上流志向ならSIer"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "現場志向ならSES"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1142,
+      "url": "https://it-shukatu-college.com/it-industry-research/dont-do-client-site-assignments/",
+      "title": "新卒で客先常駐はやめとけ？就活で後悔しない企業選びのコツ",
+      "modified": "2025-05-06T17:40:18",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "客先常駐とは？就活生が知るべき IT 業界の働き方"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "インターン・説明会では見えにくい「常駐」の実態"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "SES と多重下請け構造を図解で理解"
+        },
+        {
+          "position": 3,
+          "level": 2,
+          "text": "新卒で客先常駐が「やめとけ」と言われる３つの理由"
+        },
+        {
+          "position": 4,
+          "level": 3,
+          "text": "配属ガチャで現場選択権がほぼない"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "教育体制が社外頼みになりがち"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "初任給レンジが低く昇給も横並び"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "客先常駐が向いている新卒の特徴"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "現場で泥臭く学びたいタイプ"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "人脈を資産に変えられるコミュ力"
+        },
+        {
+          "position": 10,
+          "level": 2,
+          "text": "新卒が選べる３つの代替ルート"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "自社開発企業は技術志向が強い人向け"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "受託開発企業は案件多様性を求める人向け"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "社内SEは安定志向・ワークライフバランス重視"
+        },
+        {
+          "position": 14,
+          "level": 2,
+          "text": "【就活チェックリスト】説明会・面接で必ず聞くべき１０項目"
+        },
+        {
+          "position": 15,
+          "level": 2,
+          "text": "内定後に客先常駐で後悔しないための５つの対策"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "オファー面談を実施してもらう"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "研修内容の詳細を教えてもらう"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "学生のうちに基礎資格（IT パスポート等）取得"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "入社１年目の学習ロードマップを先取り"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "IT業界専門の就活エージェントに企業の相談"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1146,
+      "url": "https://it-shukatu-college.com/it-shukatu-agent/it-job-recruitment-agent/",
+      "title": "【第二新卒】IT専門転職エージェント比較21選｜おすすめを未経験OK・キャリアアップ別に解説",
+      "modified": "2025-05-23T02:07:28",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活と転職は何が違う？第二新卒が押さえるべき3ポイント"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "評価軸の違い：ポテンシャル重視から即戦力＋再現性へ"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "選考スピードの違い：平均2週間で内定が出る転職市場"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "年収交渉のポイント：オファー面談と市場相場の活用"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "第二新卒がIT転職エージェントを使うべき理由と知識"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "内定獲得率が自己応募の3倍程度ある"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "ブラック企業を排除しやすい仕組み"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "面接対策・年収交渉をプロに任せられる"
+        },
+        {
+          "position": 8,
+          "level": 2,
+          "text": "【経験別】転職エージェントのランキング選定基準"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "未経験からITエンジニアになりたい"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "現役エンジニアでキャリアアップしたい"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "【第二新卒】未経験向けエージェント比較ランキングTOP11"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "1位：ユニゾンキャリア転職"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "2位：キッカケエージェント"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "3位：UZUZ第二新卒"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "4位：テックゲート転職"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "5位：IT転職エージェント＠PRO人"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "6位：キャリアパーク就職エージェント"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "7位：レバテックキャリア"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "8位：クラウドリンク"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "9位：ビジョン・キャリア"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "10位：EDBエージェント"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "11位：GEEKLY（ギークリー）"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "【第二新卒】経験者向けエージェント比較ランキングTOP10"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "1位：TechGo（テックゴー）"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "2位：テックゲートエキスパート"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "3位：社内SE転職ナビ"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "4位：キッカケエージェント"
+        },
+        {
+          "position": 28,
+          "level": 3,
+          "text": "5位：ユニゾンキャリア転職"
+        },
+        {
+          "position": 29,
+          "level": 3,
+          "text": "6位：レバテックキャリア"
+        },
+        {
+          "position": 30,
+          "level": 3,
+          "text": "7位：アクシスコンサルティング"
+        },
+        {
+          "position": 31,
+          "level": 3,
+          "text": "8位：TechClipsエージェント"
+        },
+        {
+          "position": 32,
+          "level": 3,
+          "text": "9位：クラウドリンク"
+        },
+        {
+          "position": 33,
+          "level": 3,
+          "text": "10位：GEEKLY（ギークリー）"
+        },
+        {
+          "position": 34,
+          "level": 2,
+          "text": "第二新卒がエージェントを選ぶ5つのチェックリスト"
+        },
+        {
+          "position": 35,
+          "level": 3,
+          "text": "① 求人数と面接対策の手厚さ"
+        },
+        {
+          "position": 36,
+          "level": 3,
+          "text": "② 直近3年の年収アップ実績"
+        },
+        {
+          "position": 37,
+          "level": 3,
+          "text": "③ 取引企業の一次請け比率"
+        },
+        {
+          "position": 38,
+          "level": 3,
+          "text": "④ 担当者のエンジニア経験／保有資格"
+        },
+        {
+          "position": 39,
+          "level": 3,
+          "text": "⑤ サービス継続利用者の口コミ評価"
+        },
+        {
+          "position": 40,
+          "level": 2,
+          "text": "迷ったらここ！第二新卒におすすめの転職エージェントまとめ"
+        },
+        {
+          "position": 41,
+          "level": 3,
+          "text": "【第二新卒】未経験から開発職のIT転職エージェントおすすめ布陣"
+        },
+        {
+          "position": 42,
+          "level": 3,
+          "text": "【第二新卒】未経験からインフラ職のIT転職エージェントおすすめ布陣"
+        },
+        {
+          "position": 43,
+          "level": 3,
+          "text": "【第二新卒】経験者の開発職におすすめのIT転職エージェントの布陣"
+        },
+        {
+          "position": 44,
+          "level": 3,
+          "text": "【第二新卒】経験者のインフラ職におすすめのIT転職エージェントの布陣"
+        },
+        {
+          "position": 45,
+          "level": 3,
+          "text": "【第二新卒】経験者の年収アップにおすすめのIT転職エージェントの布陣"
+        },
+        {
+          "position": 46,
+          "level": 3,
+          "text": "【第二新卒】経験者のスキルアップにおすすめのIT転職エージェントの布陣"
+        },
+        {
+          "position": 47,
+          "level": 3,
+          "text": "【第二新卒】経験者のワークライフバランス調整におすすめのIT転職エージェントの布陣"
+        },
+        {
+          "position": 48,
+          "level": 2,
+          "text": "第二新卒のエージェント利用の流れと成功率を高めるポイント"
+        },
+        {
+          "position": 49,
+          "level": 3,
+          "text": "ステップ1：無料登録〜初回カウンセリング"
+        },
+        {
+          "position": 50,
+          "level": 3,
+          "text": "ステップ2：履歴書・職務経歴書の最適化"
+        },
+        {
+          "position": 51,
+          "level": 3,
+          "text": "ステップ3：企業ごとのカスタム面接対策"
+        },
+        {
+          "position": 52,
+          "level": 3,
+          "text": "ステップ4：内定後の条件交渉と年収UP術"
+        },
+        {
+          "position": 53,
+          "level": 2,
+          "text": "【Q&A】第二新卒のIT転職でよくある質問"
+        },
+        {
+          "position": 54,
+          "level": 3,
+          "text": "Q1. 第二新卒でも未経験からITエンジニアになれますか？"
+        },
+        {
+          "position": 55,
+          "level": 3,
+          "text": "Q2. 第二新卒の未経験から狙える職種は何ですか？"
+        },
+        {
+          "position": 56,
+          "level": 3,
+          "text": "Q3. 現職が忙しくても面談は受けられますか？"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1207,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/it-industry-interview-questions/",
+      "title": "【IT業界の面接対策】新卒の頻出質問33選と回答例",
+      "modified": "2025-07-22T08:28:42",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "IT業界志望の新卒が使うべき面接回答の構成"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "ビジネス現場で最も使われるPREP法"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "汎用性が高いSDS法"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "体験談を語りやすいSTRA法"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "面接の質問に回答する想定の学生レベル"
+        },
+        {
+          "position": 5,
+          "level": 2,
+          "text": "【基本質問】面接でよく聞かれる7つの質問"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "自己紹介をお願いします。（兼自己PR）"
+        },
+        {
+          "position": 7,
+          "level": 3,
+          "text": "学生時代に力を入れたことは？（ガクチカ）"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "長所と短所を教えてください（自己分析）"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "なぜIT業界を志望していますか？（選定理由）"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "なぜ○○エンジニア志望なんですか？（職種理由）"
+        },
+        {
+          "position": 11,
+          "level": 3,
+          "text": "なぜ弊社に応募したのですか？（志望理由）"
+        },
+        {
+          "position": 12,
+          "level": 2,
+          "text": "【技術質問】IT企業が確認する技術力に関する7つの質問"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "ITスキルはどの程度ありますか？"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "いま勉強していることはありますか？"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "プログラミングを学んだ経験はありますか？"
+        },
+        {
+          "position": 16,
+          "level": 3,
+          "text": "プログラミングを始めたきっかけは何ですか？"
+        },
+        {
+          "position": 17,
+          "level": 3,
+          "text": "使用したことがあるプログラミング言語・ツールは何ですか？"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "プログラミングの学習方法・習得の工夫を教えてください"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "これまでに開発したアプリやサービスはありますか？"
+        },
+        {
+          "position": 20,
+          "level": 2,
+          "text": "【価値観質問】仕事観・価値観を問う7つの質問"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "チームでの経験や役割について教えてください"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "周囲と意見が合わないとき、どのように対処しますか？"
+        },
+        {
+          "position": 23,
+          "level": 3,
+          "text": "失敗した経験とそこから学んだことは何ですか？"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "あなたが責任をもって取り組んだことは？"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "新しいことに挑戦した経験は？"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "5年後・10年後のキャリアプランは？"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "趣味や特技を教えてください"
+        },
+        {
+          "position": 28,
+          "level": 2,
+          "text": "【対応力質問】トラブル対応力を問う5つの質問"
+        },
+        {
+          "position": 29,
+          "level": 3,
+          "text": "予期せぬトラブルが発生したとき、どのように対応しますか？"
+        },
+        {
+          "position": 30,
+          "level": 3,
+          "text": "周囲と意見が合わないとき、どのように対処しますか？"
+        },
+        {
+          "position": 31,
+          "level": 3,
+          "text": "苦手な人とどうやって協力しますか？"
+        },
+        {
+          "position": 32,
+          "level": 3,
+          "text": "複数のタスクを同時に任された場合、どのように優先順位を付けますか？"
+        },
+        {
+          "position": 33,
+          "level": 3,
+          "text": "ストレスやプレッシャーがかかる状況で、どのようにモチベーションを保ちますか？"
+        },
+        {
+          "position": 34,
+          "level": 2,
+          "text": "【ケース質問】トラブルやケーススタディ形式の4つの質問"
+        },
+        {
+          "position": 35,
+          "level": 3,
+          "text": "IT業界の最新トレンドやニュースで気になるものはありますか？"
+        },
+        {
+          "position": 36,
+          "level": 3,
+          "text": "最近気になっている技術・ITサービスは何ですか？"
+        },
+        {
+          "position": 37,
+          "level": 3,
+          "text": "当社のサービス／製品に関して改善したい点や要望はありますか？"
+        },
+        {
+          "position": 38,
+          "level": 3,
+          "text": "文系出身ですがどう活躍できると思いますか？"
+        },
+        {
+          "position": 39,
+          "level": 2,
+          "text": "【志望度質問】IT業界の面接で聞かれる質問と回答例4選"
+        },
+        {
+          "position": 40,
+          "level": 3,
+          "text": "他に選考を受けている業界・企業は？"
+        },
+        {
+          "position": 41,
+          "level": 3,
+          "text": "入社後にやりたいことはありますか？"
+        },
+        {
+          "position": 42,
+          "level": 3,
+          "text": "現在の就職活動の状況（他社選考状況）を教えてください"
+        },
+        {
+          "position": 43,
+          "level": 3,
+          "text": "最後に質問はありますか？（逆質問）"
+        },
+        {
+          "position": 44,
+          "level": 2,
+          "text": "【3大トラブル】面接で起こりがちな3つのトラブル"
+        },
+        {
+          "position": 45,
+          "level": 3,
+          "text": "文章化できるけど話せない問題"
+        },
+        {
+          "position": 46,
+          "level": 3,
+          "text": "話せるけど表情が暗い問題"
+        },
+        {
+          "position": 47,
+          "level": 3,
+          "text": "面接マナーで落とされる問題"
+        },
+        {
+          "position": 48,
+          "level": 2,
+          "text": "確かなフィードバックはIT就活エージェントにお任せ！"
+        }
+      ]
+    },
+    {
+      "site_id": "it-shukatu.com",
+      "wp_article_id": 1234,
+      "url": "https://it-shukatu-college.com/job-hunting-measures/self-introduction/",
+      "title": "IT業界の面接対策！新卒向けに自己紹介の回答パターン4つを解説",
+      "modified": "2025-07-22T08:28:32",
+      "headings": [
+        {
+          "position": 0,
+          "level": 2,
+          "text": "就活生が知るべき自己紹介の3つの重要性"
+        },
+        {
+          "position": 1,
+          "level": 3,
+          "text": "自己紹介は面接の印象を決める"
+        },
+        {
+          "position": 2,
+          "level": 3,
+          "text": "自己紹介は面接の流れを決める"
+        },
+        {
+          "position": 3,
+          "level": 3,
+          "text": "自己紹介は面接の時間を決める"
+        },
+        {
+          "position": 4,
+          "level": 2,
+          "text": "就活面接で理解すべき自己紹介と自己PRの違い"
+        },
+        {
+          "position": 5,
+          "level": 3,
+          "text": "自己紹介は面接官に経歴から質問を考えてもらう"
+        },
+        {
+          "position": 6,
+          "level": 3,
+          "text": "自己PRは面接官に自分を売り込む"
+        },
+        {
+          "position": 7,
+          "level": 2,
+          "text": "就活生にIT業界の自己紹介で求められること"
+        },
+        {
+          "position": 8,
+          "level": 3,
+          "text": "①過去と現在の親和性"
+        },
+        {
+          "position": 9,
+          "level": 3,
+          "text": "②過去と未来への意気込み"
+        },
+        {
+          "position": 10,
+          "level": 3,
+          "text": "③気になるテーマの盛り込み"
+        },
+        {
+          "position": 11,
+          "level": 2,
+          "text": "IT業界の就活で効果的な自己紹介例4選"
+        },
+        {
+          "position": 12,
+          "level": 3,
+          "text": "文系からIT業界を目指すパターン"
+        },
+        {
+          "position": 13,
+          "level": 3,
+          "text": "理系でIT業界を目指すパターン"
+        },
+        {
+          "position": 14,
+          "level": 3,
+          "text": "情報系でIT業界を目指すパターン"
+        },
+        {
+          "position": 15,
+          "level": 3,
+          "text": "開発経験ありでIT業界を目指すパターン"
+        },
+        {
+          "position": 16,
+          "level": 2,
+          "text": "今すぐ使える！自己紹介のフレームワーク解説"
+        },
+        {
+          "position": 17,
+          "level": 2,
+          "text": "IT業界の自己紹介で評価される5つのポイント"
+        },
+        {
+          "position": 18,
+          "level": 3,
+          "text": "ハキハキと話せる元気のよさ"
+        },
+        {
+          "position": 19,
+          "level": 3,
+          "text": "賢さを感じさせる情報整理"
+        },
+        {
+          "position": 20,
+          "level": 3,
+          "text": "興味を持たせる情報の伝え方"
+        },
+        {
+          "position": 21,
+          "level": 3,
+          "text": "言葉使いでわかる礼儀正しさ"
+        },
+        {
+          "position": 22,
+          "level": 3,
+          "text": "終始笑顔で伝える愛嬌のよさ"
+        },
+        {
+          "position": 23,
+          "level": 2,
+          "text": "就活生がやりがちな自己紹介あるある"
+        },
+        {
+          "position": 24,
+          "level": 3,
+          "text": "自己紹介でおどおどスタート"
+        },
+        {
+          "position": 25,
+          "level": 3,
+          "text": "自己紹介と他の回答に矛盾発生"
+        },
+        {
+          "position": 26,
+          "level": 3,
+          "text": "自己紹介でドヤ顔アピール"
+        },
+        {
+          "position": 27,
+          "level": 3,
+          "text": "自己紹介で不自然すぎる敬語"
+        },
+        {
+          "position": 28,
+          "level": 2,
+          "text": "自己紹介で詰まるならIT専門の就活エージェントに相談を！"
+        }
+      ]
+    }
+  ]
+}

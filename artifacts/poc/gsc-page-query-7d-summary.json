@@ -8,6 +8,9 @@
   "articles_error": 0,
   "articles_without_queries": 11,
   "query_rows": 318,
+  "status": "superseded",
+  "superseded_by": "artifacts/poc/gsc-page-query-28d-summary.json",
+  "purpose": "取得疎通・急変確認の補助証跡のみ（標準観測窓ではない）",
   "local_evidence_tree_sha256": "b5c18e27a0b5d4396efed2a672cc6b29584c9586c4a4273b602ca3cd97be2ce1",
   "raw_policy": "local_only_not_committed"
 }

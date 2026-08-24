@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawn, spawnSync } from "node:child_process";
-import { existsSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
@@ -39,9 +39,7 @@ assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE re
 persisted.close();
 
 const pocDbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-poc-db-")), "dashboard.sqlite");
-const hasGscEvidence=existsSync(path.resolve(".helix/evidence/gsc-page-query-28d/manifest.json"));
-const hasHeadingEvidence=existsSync(path.resolve(".helix/evidence/wp-headings/manifest.json"));
-const buildPoc = spawnSync(process.execPath, ["scripts/build-keyword-dashboard-db.mjs"], { env: { ...process.env, WP_DASHBOARD_DB: pocDbPath, ...(!hasGscEvidence?{WP_ALLOW_EMPTY_GSC:"1"}:{}) }, encoding: "utf8" });
+const buildPoc = spawnSync(process.execPath, ["scripts/build-keyword-dashboard-db.mjs"], { env: { ...process.env, WP_DASHBOARD_DB: pocDbPath }, encoding: "utf8" });
 assert.equal(buildPoc.status, 0, buildPoc.stderr);
 const missingEvidenceBuild=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:path.join(mkdtempSync(path.join(tmpdir(),"wp-dashboard-no-gsc-")),"dashboard.sqlite"),WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_ALLOW_EMPTY_GSC:"0"},encoding:"utf8"});
 assert.notEqual(missingEvidenceBuild.status,0,"dashboard build must fail closed without GSC evidence");
@@ -55,33 +53,33 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHER
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com'").get().count, 64);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND resolution_state = 'resolved' AND main_keyword IS NOT NULL").get().count, 63, "every real group currently resolves to an actual main keyword");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword IS NULL OR resolution_state = 'unresolved'").get().count, 1);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND action_state = '未施策'").get().count, hasGscEvidence?(hasHeadingEvidence?51:55):64);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND action_state = '公開中'").get().count, hasGscEvidence?(hasHeadingEvidence?13:9):0);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE state = '確定'").get().count,hasGscEvidence?(hasHeadingEvidence?13:9):0);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND action_state = '未施策'").get().count,64,"article matching must not infer workflow state");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND action_state = '公開中'").get().count,0,"published state requires separate WP lifecycle evidence");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE state = '確定'").get().count,13);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE action_state NOT IN ('未施策','予約済','下書き','公開中')").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE group_id IN (SELECT group_id FROM keyword_groups WHERE site_id = 'it-shukatu.com')").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword GLOB 'topic-*' OR main_keyword GLOB 'keyword-*'").get().count, 0);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,hasGscEvidence?59:0);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,hasGscEvidence?681:0);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,59);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,681);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE source_file = '' OR window_days != 28").get().count,0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE normalized_query = ''").get().count,0);
-if(hasGscEvidence){
+{
   const actual=projectDashboard(pocDb);
   assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");
   assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.query_count,0),678,"raw 681 rows must project to 678 normalized query groups");
   assert.equal(actual.article_query_summaries.filter((row)=>row.primary_query).length,52);
   assert.equal(actual.article_query_summaries.filter((row)=>!row.primary_query).length,7,"unobserved articles must remain visible");
-  assert.equal(actual.article_query_summaries.filter((row)=>row.keyword_acquisition.group_id).length,hasHeadingEvidence?13:9,"confirmed keyword groups must join article details by WP ID");
-  assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.headings.length,0),hasHeadingEvidence?1470:0,"actual WP H2/H3 evidence must remain attached to its article ID");
+  assert.equal(actual.article_query_summaries.filter((row)=>row.keyword_acquisition.group_id).length,13,"confirmed keyword groups must join article details by WP ID");
+  assert.equal(actual.article_query_summaries.reduce((sum,row)=>sum+row.headings.length,0),1470,"actual WP H2/H3 evidence must remain attached to its article ID");
   assert.equal(actual.article_query_summaries.find((row)=>row.wp_article_id===132).keyword_acquisition.coverage_rate,1,"actual GSC queries must produce keyword acquisition coverage");
   assert.equal(actual.article_query_summaries.find((row)=>row.wp_article_id===17).keyword_acquisition.coverage_rate,null,"unobserved GSC must not be displayed as 0% coverage");
   assert.equal(actual.primary_query_ranking["it-shukatu.com"].impression_p95,41,"ranking threshold must be derived from normalized actual GSC distribution");
   const confirmed=new Map(actual.groups.filter((group)=>group.site_id==="it-shukatu.com"&&group.article_match?.state==="確定").map((group)=>[group.main_keyword,group.wp_article_id]));
-  assert.equal(confirmed.size,hasHeadingEvidence?13:9);assert.equal(confirmed.get("it 就活"),195);assert.equal(confirmed.get("it パスポート 就活"),1112);assert.equal(confirmed.get("就活の軸it"),130);assert.equal(confirmed.get("就活nnt"),793);assert.equal(confirmed.get("it 就活エージェント"),17);assert.equal(confirmed.get("it 就活 新卒"),559);assert.equal(confirmed.get("就活 入社後にしたいこと it"),1020);assert.equal(confirmed.get("就活ツイッター"),132);assert.equal(confirmed.get("就活 it やりたいこと"),92);
-  if(hasHeadingEvidence){assert.equal(confirmed.get("就活 人気企業 it"),628);assert.equal(confirmed.get("it 就活 文系"),267);assert.equal(confirmed.get("it 就活 職種"),499);assert.equal(confirmed.get("it 就活 質問"),1207)}
+  assert.equal(confirmed.size,13);assert.equal(confirmed.get("it 就活"),195);assert.equal(confirmed.get("it パスポート 就活"),1112);assert.equal(confirmed.get("就活の軸it"),130);assert.equal(confirmed.get("就活nnt"),793);assert.equal(confirmed.get("it 就活エージェント"),17);assert.equal(confirmed.get("it 就活 新卒"),559);assert.equal(confirmed.get("就活 入社後にしたいこと it"),1020);assert.equal(confirmed.get("就活ツイッター"),132);assert.equal(confirmed.get("就活 it やりたいこと"),92);
+  assert.equal(confirmed.get("就活 人気企業 it"),628);assert.equal(confirmed.get("it 就活 文系"),267);assert.equal(confirmed.get("it 就活 職種"),499);assert.equal(confirmed.get("it 就活 質問"),1207);
   assert.equal(actual.groups.find((group)=>group.main_keyword==="it 就活 流れ").article_match.state,"同一記事候補","one WP article must belong to the better-supported keyword group");
 }
-if(hasGscEvidence){
+{
   const modifier=pocDb.prepare("SELECT group_id,resolution_state,main_keyword,derived_parent_candidate,confidence,overlap_ratio,wp_article_id FROM keyword_groups WHERE derived_parent_candidate='it 就活'").get();
   assert.equal(modifier.resolution_state,"unresolved");assert.equal(modifier.main_keyword,null);assert.equal(modifier.confidence,"single");assert.equal(modifier.wp_article_id,null);
   assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE group_id=?").get(modifier.group_id).count,0,"a separate modifier SERP must not be article-matched through its lexical parent");

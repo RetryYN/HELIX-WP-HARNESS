@@ -1,9 +1,12 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
 
 const keywordPath="artifacts/poc/keyword-workbook-100-live/result.json";
 const gscSummaryPath="artifacts/poc/gsc-page-query-28d-summary.json";
 const headingSummaryPath="artifacts/poc/wp-heading-summary.json";
+const fixtureDigest=(root)=>{const hash=createHash("sha256");const files=readdirSync(root,{recursive:true,withFileTypes:true}).filter((entry)=>entry.isFile()).map((entry)=>path.join(entry.parentPath,entry.name)).sort();for(const file of files){hash.update(path.relative(root,file));hash.update("\0");hash.update(readFileSync(file));hash.update("\0")}return hash.digest("hex")};
 assert.ok(existsSync(keywordPath),"100-keyword real DFS result is required");
 assert.ok(existsSync(gscSummaryPath),"GSC real-data attestation is required");
 assert.ok(existsSync(headingSummaryPath),"WP H2 real-data attestation is required");
@@ -20,7 +23,8 @@ assert.equal(gsc.articles,59);
 assert.equal(gsc.articles_ok+gsc.articles_error,gsc.articles);
 assert.equal(gsc.window_days,28);
 assert.equal(gsc.query_rows,681);
-assert.match(gsc.local_evidence_tree_sha256,/^[a-f0-9]{64}$/);
+assert.equal(gsc.raw_policy,"committed_reproducible_fixture");
+assert.equal(fixtureDigest(gsc.fixture_path),gsc.evidence_fixture_tree_sha256,"committed GSC fixture digest");
 assert.equal(headings.schema_version,"wp-heading-attestation.v2");
 assert.equal(headings.articles,59);assert.equal(headings.h2,381);assert.ok(headings.h3>0);assert.match(headings.tree_sha256,/^[a-f0-9]{64}$/);
 console.log(`required PoC evidence: OK (DFS 100 real KW / 64 groups, 1 unresolved modifier group, GSC 59 articles / 681 queries over 28 days, WP 59 articles / ${headings.h2} H2 / ${headings.h3} H3)`);

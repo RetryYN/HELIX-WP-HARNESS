@@ -8,6 +8,7 @@
   "articles_error": 0,
   "articles_without_queries": 7,
   "query_rows": 681,
-  "local_evidence_tree_sha256": "c29b6af0d982fddd3d3e04cfccf381284a4716b592451b3e937a3834c47eebaa",
-  "raw_policy": "local_only_not_committed"
+  "evidence_fixture_tree_sha256": "7ad8a26e0c7578921fa13c7b31695630847c9b36285cf710047e870a84c50b06",
+  "raw_policy": "committed_reproducible_fixture",
+  "fixture_path": "artifacts/poc/evidence-fixtures/gsc-page-query-28d"
 }

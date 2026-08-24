@@ -1,4 +1,5 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { digest, groupBySerp, normalizeKeyword, organicUrls } from "./keyword-serp-core.mjs";
 import {GROUPING_ALGORITHM,GROUPING_DECISION,buildLatestKeywordGroups,evidenceDigest} from "./keyword-grouping.mjs";
@@ -21,7 +22,8 @@ const fixedInput = [
   { source_keyword_id: "4769dfab:IT就活:17", source_file_digest: "4769dfab", source_sheet: "IT就活", source_row: 17, keyword: "it 就活 サイト" },
 ];
 const workbookPath=process.env.WP_KEYWORD_WORKBOOK;
-const input=(workbookPath?readXlsxKeywordSheet(workbookPath,{sheetNumber:Number(process.env.WP_KEYWORD_SHEET_NUMBER??1),sheetName:process.env.WP_KEYWORD_SHEET_NAME??"IT就活",limit:Number(process.env.WP_KEYWORD_LIMIT??100)}).map((row)=>({source_keyword_id:`it-shukatu.com:${row.source_sheet}:${row.source_row}`,source_file_digest:"4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e",source_sheet:row.source_sheet,source_row:row.source_row,keyword:row.raw_keyword,search_volume:row.search_volume,cpc:row.cpc,competition:row.competition})):fixedInput).map((row) => ({ ...row, normalized_keyword: normalizeKeyword(row.keyword) }));
+const workbookDigest=workbookPath?createHash("sha256").update(await readFile(workbookPath)).digest("hex"):null;
+const input=(workbookPath?readXlsxKeywordSheet(workbookPath,{sheetNumber:Number(process.env.WP_KEYWORD_SHEET_NUMBER??1),sheetName:process.env.WP_KEYWORD_SHEET_NAME??"IT就活",limit:Number(process.env.WP_KEYWORD_LIMIT??100)}).map((row)=>({source_keyword_id:`it-shukatu.com:${row.source_sheet}:${row.source_row}`,source_file_digest:workbookDigest,source_sheet:row.source_sheet,source_row:row.source_row,keyword:row.raw_keyword,search_volume:row.search_volume,cpc:row.cpc,competition:row.competition})):fixedInput).map((row) => ({ ...row, normalized_keyword: normalizeKeyword(row.keyword) }));
 
 const auth = `Basic ${Buffer.from(`${login}:${password}`).toString("base64")}`;
 async function request(endpoint, init = {}) {
@@ -155,10 +157,12 @@ const evidence = {
   generated_at: new Date().toISOString(),
   query_contract: { provider: "DataForSEO", queue: "standard", location_code: 2392, language_code: "ja", device: "desktop", depth: 10 },
   normalization: { version: "nfkc-space-casefold.v1", input_count: input.length, input_digest: digest(input) },
-  sources: [
-    { file: "大人のひとりビジネスラボ.xlsx", file_sha256: "bec89ab9d505d50cc687893733ba21f1512a3ee8ac5e366fea1755c27a8c39ca" },
-    { file: "IT就活大学キーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
-  ],
+  sources: workbookPath
+    ? [{ file: path.basename(workbookPath), file_sha256: workbookDigest }]
+    : [
+      { file: "大人のひとりビジネスラボ.xlsx", file_sha256: "bec89ab9d505d50cc687893733ba21f1512a3ee8ac5e366fea1755c27a8c39ca" },
+      { file: "IT就活大学キーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
+    ],
   tasks: completed,
   grouping: { algorithm: GROUPING_ALGORITHM, decision: GROUPING_DECISION, ...grouping },
   keyword_hierarchy:hierarchy,
