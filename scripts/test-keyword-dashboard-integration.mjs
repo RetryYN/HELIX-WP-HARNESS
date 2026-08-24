@@ -194,7 +194,7 @@ assert.match(app, /categoryDepth=Math\.max/);
 assert.match(app, /category-grandchild-head/);
 assert.match(app, /syncCategoryFilters/);
 assert.match(app, /data\.article_query_summaries/);
-assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);assert.match(app,/lines=\["mindmap"\]/);assert.match(app,/branchForRow/);assert.match(html,/data-view="keyword-tree"/);assert.match(html,/id="tree-branch-filter"/);
+assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);assert.match(html,/data-view="keyword-tree"/);assert.match(html,/id="tree-branch-filter"/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
 assert.match(app, /empty\.hidden=rows\.length>0/);

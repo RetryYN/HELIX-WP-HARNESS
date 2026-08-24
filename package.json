@@ -20,7 +20,7 @@
     "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",
     "prototype:keyword-dashboard:test": "node scripts/test-keyword-dashboard-integration.mjs",
     "prototype:keyword-dashboard:empty-state:test": "node scripts/test-keyword-dashboard-empty-state.mjs",
-    "poc:required": "npm run poc:keyword-serp:test && node scripts/test-keyword-hierarchy.mjs && node scripts/test-keyword-grouping.mjs && node scripts/test-serp-page-classification.mjs && node scripts/test-keyword-article-matching.mjs && npm run poc:keyword-serp:verify && npm run prototype:keyword-dashboard:test && npm run prototype:keyword-dashboard:empty-state:test",
+    "poc:required": "npm run poc:keyword-serp:test && node scripts/test-keyword-hierarchy.mjs && node scripts/test-keyword-mindmap.mjs && node scripts/test-keyword-grouping.mjs && node scripts/test-serp-page-classification.mjs && node scripts/test-keyword-article-matching.mjs && npm run poc:keyword-serp:verify && npm run prototype:keyword-dashboard:test && npm run prototype:keyword-dashboard:empty-state:test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel && npm run poc:required"
   },
