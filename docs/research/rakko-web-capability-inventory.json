@@ -5,7 +5,8 @@
     "https://rakkokeyword.com/knowledge/1332/",
     "https://rakkokeyword.com/pricing",
     "https://rakkokeyword.com/knowledge/1338/",
-    "https://rakkokeyword.com/knowledge/manual/function/"
+    "https://rakkokeyword.com/knowledge/manual/function/",
+    "https://rakkokeyword.com/knowledge/tool/"
   ],
   "capabilities":[
     {"id":"suggest","name":"サジェストキーワード","surfaces":["Google","YouTube","Amazon","楽天","Bing","Google動画","Google画像","Googleショッピング"],"input":"seed keyword + surface/options","output":"suggest keywords + optional metrics/appearance time","public_limit":"通常約1,000、増量時約10,000超の場合あり","credits":"1/search on pricing table","history":"unknown","export":["copy","CSV"],"provider_relation":"provider_mix","helix_status":"planned","gap":"全surface、増量、出現時期、指標未実装"},
@@ -36,7 +37,7 @@
     {"id":"google_trends","name":"Googleトレンド","input":"keyword","output":"5-year interest and regional interest","public_limit":"5 years","credits":"public exact amount unknown","history":"embedded trend","export":["unknown"],"provider_relation":"google_trends","helix_status":"planned","gap":"trend timeseries未取得"},
     {"id":"news","name":"ニュース・話題の記事","input":"keyword","output":"recent news/articles","public_limit":"unknown","credits":"2/search under other functions","history":"unknown","export":["copy"],"provider_relation":"news_provider_mix","helix_status":"planned","gap":"news corpus未取得"},
     {"id":"quick_search","name":"クイックサーチ","input":"selected/entered keyword","output":"shortcut into research features","public_limit":"unknown","credits":"depends on destination feature","history":"none","export":[],"provider_relation":"ui_orchestration","helix_status":"planned","gap":"cross-feature launcher未実装"},
-    {"id":"auxiliary_tools","name":"補助ツール","input":"tool-specific","output":"8 utilities including bulk regional keyword generation","public_limit":"unknown","credits":"unknown","history":"unknown","export":["copy"],"provider_relation":"deterministic_transform","helix_status":"planned","gap":"8 tool identities/contractsの追加調査が必要"},
+    {"id":"auxiliary_tools","name":"補助ツール","input":"tool-specific","output":"9 utilities including bulk regional keyword generation","public_limit":"browser-local operations","credits":"補助ツール公開ページに消費記載なし","history":"none","export":["copy"],"provider_relation":"deterministic_transform","helix_status":"partial","gap":"公式現行一覧は9件。掛け合わせ、A/B除外・重複、差分、置換、重複除去、正規化、文字数、競合/自サイト重複除去の8操作をbrowser-local実装。地域キーワード生成の行政区域datasetのみ未接続"},
     {"id":"data_output","name":"データ出力・copy/filter/sort URL state","input":"current result/filter/sort","output":"copy/CSV/JSON and shareable URL state","public_limit":"page size up to 1,000 where supported","credits":"copy/download/filter/sort consume none except site-search filter","history":"browser URL state","export":["copy","CSV","JSON"],"provider_relation":"consumer_ui","helix_status":"partial","gap":"質問・潜在需要のfiltered CSV/JSON downloadとquery/type共有URL stateを実装。全dashboard view共通export/copy/sort stateは未実装"},
     {"id":"bookmarklet","name":"ブックマークレット","input":"current browser page/keyword","output":"feature shortcut","public_limit":"unknown","credits":"destination-dependent","history":"none","export":[],"provider_relation":"browser_integration","helix_status":"planned","gap":"未実装"},
     {"id":"public_api","name":"ラッコキーワードAPI","input":"24-operation OpenAPI contract","output":"JSON","public_limit":"standard+; API uses 1.5x credits","credits":"successful retrieval only","history":"operation-dependent","export":["JSON"],"provider_relation":"integration_surface","helix_status":"partial","gap":"HELIX API exists but Rakko-compatible contractではない"},

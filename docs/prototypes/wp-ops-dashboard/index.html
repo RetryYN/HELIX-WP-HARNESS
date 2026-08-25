@@ -19,6 +19,7 @@
     <button class="tab active" data-view="keywords">キーワード一覧</button>
     <button class="tab" data-view="keyword-tree">キーワードツリー</button>
     <button class="tab" data-view="lexical-explorer">類語・連想語</button>
+    <button class="tab" data-view="keyword-utilities">補助ツール</button>
     <button class="tab" data-view="demand-search">質問・潜在需要</button>
     <button class="tab" data-view="article-queries">記事獲得クエリ</button>
     <button class="tab" data-view="content-plans">コンテンツ設計</button>
@@ -74,6 +75,13 @@
       <div class="table-wrap"><table><thead><tr><th>variant</th><th>件数</th><th>元sheet・row</th><th>導出規則</th></tr></thead><tbody id="lexical-variant-rows"></tbody></table></div>
       <div class="subsection-head"><h3>行共起による連想語</h3><p>document supportとcosine score。記号・数字・無関係な外国語断片はrankingから除外します</p></div>
       <div class="table-wrap"><table><thead><tr><th>基準語</th><th>連想語</th><th>順位</th><th>共起行</th><th>cosine</th><th>証拠行</th></tr></thead><tbody id="lexical-association-rows"></tbody></table><div id="lexical-empty" class="empty-state"></div></div>
+    </section>
+
+    <section id="keyword-utilities" class="view">
+      <div class="section-head"><div><h2>キーワード補助ツール</h2><p>ブラウザ内で実行し、通信・クレジット消費なし。入力内容はDBへ保存しません</p></div></div>
+      <div class="filters"><select id="utility-mode"><option value="combine">キーワード掛け合わせ</option><option value="exclude">AからBを除外</option><option value="intersection">A/B重複抽出</option><option value="diff">差分チェック</option><option value="replace">テキスト置換</option><option value="dedupe">重複キーワード除去</option><option value="normalize">キーワード正規化</option><option value="count">文字数カウント</option><option value="overlap_remove">競合/自サイト重複除去</option></select><input id="utility-search" type="text" placeholder="置換前"><input id="utility-replacement" type="text" placeholder="置換後"><button id="utility-run" type="button">実行</button><button id="utility-copy" type="button">結果をコピー</button></div>
+      <div class="utility-grid"><label>リストA<textarea id="utility-left" rows="14" placeholder="1行1キーワード"></textarea></label><label>リストB<textarea id="utility-right" rows="14" placeholder="掛け合わせ・比較対象"></textarea></label><label>結果<textarea id="utility-result" rows="14" readonly></textarea></label></div>
+      <div id="utility-summary" class="empty-state"><strong>未実行</strong><span>地域キーワード生成のみ、行政区域dataset未接続のため未実装です。</span></div>
     </section>
 
     <section id="article-queries" class="view">

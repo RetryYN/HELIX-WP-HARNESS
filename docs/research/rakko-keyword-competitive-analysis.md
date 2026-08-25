@@ -404,6 +404,16 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 792候補を最大20件ずつ提案する。全候補は実在source row、`proposed`、SHA-256 evidenceを持ち、LLMが
 作った語とは称さない。候補がない4 groupも空を維持し、無関係語で埋めない。
 
+### 10.11 補助ツール再監査
+
+公式現行一覧は更新履歴の「8件」から1件増え、9件掲載されている。掛け合わせ、リストA/B除外・
+重複抽出、差分、置換、重複除去、NFKC正規化、Unicode code point文字数、競合/自サイト重複除去の
+8操作をbrowser-localで実装した。入力はnetwork送信・DB保存せず、結果だけcopy可能。地域キーワード
+生成は都道府県・市区町村・郡町村・駅のversioned行政区域datasetが必要なため、未接続を明示する。
+
+- 公式補助ツール一覧: <https://rakkokeyword.com/knowledge/tool/>
+- 地域キーワード生成仕様: <https://rakkokeyword.com/techo/generate-local-keywords/>
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
