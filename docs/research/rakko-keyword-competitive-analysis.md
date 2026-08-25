@@ -48,7 +48,7 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/related-keywords` | 部分一致DB検索、最大2.5万件 | 独自蓄積index + metrics | gap |
 | `POST /v1/other-keywords` | LSI/PAAを最大2階層再帰取得 | Google SERP recursion | 1階層rawあり、再帰/importance gap |
 | `POST /v1/question-search` | 質問DBを相対需要順に最大1,000件 | 蓄積質問index | gap |
-| `POST /v1/ranking-keywords` | 上位ページの同時rank KW、最大5,000件 | rank database / page intersection | SERP URL overlapのみ実装、rank DB gap |
+| `POST /v1/ranking-keywords` | 上位ページの同時rank KW、最大5,000件 | rank database / page intersection | 100KW×上位10のpage-keyword graph実装。rank DB gap |
 | `POST /v1/search-volume` | volume、月次推移、CPC、競合性、SEO難易度 | Google Ads + SERP/link metrics | 一部取込のみ、取得pipeline gap |
 | `POST /v1/influx-keywords` | domain/URL別rank KW、推定流入 | ranked keywords DB | gap |
 | `POST /v1/influx-pages` | 集客page、KW数、traffic value | relevant/ranked pages DB | gap |
@@ -151,6 +151,7 @@ seed keyword / site / URL
 
 - `site_id`を全分析へ束縛し、別サイト混在をfail-closeできる。
 - DFS task ID、raw snapshot、digest、costから画面表示へ逆引きできる。
+- 観測926 organic edgeから339同時rank keyword関係・226競合domain coverageを再現し、共有URLへ逆引きできる。
 - keyword hierarchy、64 article group、SERP URL overlapを決定論で再現できる。
 - main/intent keywordと実WP article ID、title、heading、GSC queryを同じDBで照合できる。
 - 「提案」と「承認済みrequired topic」を分離し、AI出力を自動的な正本にしない。

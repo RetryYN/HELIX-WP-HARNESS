@@ -1,6 +1,6 @@
 {
   "schema_version": "rakko-openapi-inventory.v1",
-  "generated_at": "2026-08-25T17:54:38.417Z",
+  "generated_at": "2026-08-25T18:07:38.554Z",
   "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
@@ -124,7 +124,7 @@
         "500": "object",
         "503": "object"
       },
-      "status": "planned",
+      "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
       "dfs_candidates": [
@@ -132,9 +132,10 @@
         "SERP URL intersection"
       ],
       "helix_evidence": [
-        "serp_organic_results"
+        "serp_page_keyword_edges",
+        "simultaneous_keyword_relations"
       ],
-      "gap": "searchTop/searchRange別の同時rank keyword集合を未取得"
+      "gap": "観測100KW内の上位10 URL交差は実装。Labs全rank keywordと可変searchTop/searchRangeは未取得"
     },
     {
       "operation": "POST /v1/search-volume",
