@@ -252,8 +252,8 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 | PAA回答本文・参照URL | `people_also_ask_click_depth`なし。現在は質問396件だけで回答0件 |
 | SERP pixel位置 | `calculate_rectangles`なし |
 | 競合page H1-H6・本文・内部/外部link | v14で上位3候補190 URLを全件処理済み。180成功、robots拒否3、HTTP error 5、fetch error 2 |
-| 最新volume、4年月次、CPC、competition、SEO difficulty | Keywords Data / Labs未実行 |
-| domain/URL ranked KW、集客page、競合domain、履歴 | Labs dataset未実行 |
+| 最新volume、4年月次、CPC、competition、SEO difficulty | v22で課金前plan・公式価格上限・account balance確認・raw evidence保存pipelineを実装。live取得は未実行 |
+| domain/URL ranked KW、集客page、競合domain、履歴 | v22で自domain ranked keywords最大1,000件の課金前planと保存pipelineを実装。live取得は未実行 |
 | multi-engine suggest、質問DB、trend、news、Q&A、hashtag | 対応provider取得なし |
 
 この区別により、再取得なしで救出できるデータと、費用・利用規約・freshnessを伴う新規取得を混同しない。
@@ -265,7 +265,24 @@ entity 1、選択支援1、画像1、動画1、commercial 3、表記補正1。�
 `task_id:organic rank`へ逆引きでき、SHA-256 evidence digestを持つ。タイトル・見出し・必要素材のguidanceは
 全件`proposed`であり、観測だけから公開内容を自動確定しない。
 
-### 10.5 競合content取得の実装・実測（2026-08-26）
+### 10.5 追加課金データの取得契約（DB v22時点）
+
+`npm run poc:dfs-enrichment:plan` はnetwork callを行わず、現行100 keywordに対するrequest body、
+provider上限、公式公開価格に基づく上限見積を出力する。既定選択はGoogle Ads Search Volume liveと
+Labs Bulk Keyword Difficulty liveで、上限見積は合計`$0.114`。自domain Ranked Keywords最大1,000件を
+加えた全planは`$0.246`。
+
+課金実行には`--live`に加え、`WP_DFS_ENRICHMENT_LIVE=1`、jobの明示選択、見積以上の
+`WP_DFS_ENRICHMENT_MAX_USD`、DFS credentialsがすべて必要。課金前に無料のUser Data endpointから
+balanceとaccount pricing snapshotを取得し、残高不足なら停止する。response、reported cost、SHA-256、
+request planをrun単位のmanifestへ保存する。clickstreamは明示的にfalseで、意図しない倍額課金を避ける。
+
+- Google Ads Search Volume live: <https://docs.dataforseo.com/v3/keywords_data-google_ads-search_volume-live/>
+- Labs Bulk Keyword Difficulty live: <https://docs.dataforseo.com/v3/dataforseo_labs-google-bulk_keyword_difficulty-live/>
+- Labs Ranked Keywords live: <https://docs.dataforseo.com/v3/dataforseo_labs-google-ranked_keywords-live/>
+- User Data（無料、balance・account pricing）: <https://docs.dataforseo.com/v3/appendix-user-data/>
+
+### 10.6 競合content取得の実装・実測（2026-08-26）
 
 `scripts/fetch-competitor-content-evidence.mjs` を追加し、現行SERPの上位3位から自domainを除外した
 190 URLを候補化・全件処理した。180 URLのHTML取得に成功し、robots拒否3、HTTP error 5、fetch error 2だった。
