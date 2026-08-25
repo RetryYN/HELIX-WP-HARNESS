@@ -552,6 +552,15 @@ article、evidence digestへ逆引きできる。本文テキストはparagraph/
 Gutenberg block commentとJSON-LD scriptが含まれなかったため、この取得面のblock/schemaは0件であり、
 「存在しない」とは一般化しない。内部リンク画面と全view JSON exportへ接続した。
 
+### 10.27 SERP根拠付き内部リンク候補
+
+WP記事が確定した13 groupについて、group間の同時ランク関係をtask pairから集約し、非汎用modifier tokenも
+補助根拠にする。実測記事間linkが既にある方向は除外し、source/target WP記事、anchor候補、source section候補、
+共通SERP URL数、reciprocal rank score、元relation ID、evidence digest付きの `proposed` 候補だけを返す。
+現在は17方向が該当する。scoreは共通URL数、reciprocal rank、modifier、section一致から算出するが、公開記事へ
+自動挿入せず編集判断を要求する。これにより単なるlink graphではなく、検索意図の近さと現行link欠損を同時に
+満たす施策候補へ閉ループ化する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
