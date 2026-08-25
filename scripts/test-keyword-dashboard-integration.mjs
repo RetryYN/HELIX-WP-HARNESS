@@ -108,6 +108,10 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_proposal
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_evidence").get().count,1188,"every PAA/related-search occurrence must bind to exactly one proposal in its source group");
 assert.equal(pocDb.prepare("SELECT SUM(occurrence_count) AS count FROM content_topic_proposals").get().count,1188,"proposal occurrence totals must reconcile to the raw demand population");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_proposals WHERE status!='proposed'").get().count,0,"deterministic analysis must not self-approve content topics");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_coverage").get().count,878,"every evidence-bound topic must receive an explicit article coverage state");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_coverage WHERE coverage_status='unassigned'").get().count,658,"topics without a confirmed article must remain distinct from missing article coverage");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_coverage WHERE coverage_status!='unassigned'").get().count,220,"only topics belonging to the 13 confirmed article assignments may be assessed against WP headings");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_coverage WHERE coverage_status IN ('covered_title','covered_heading') AND (matched_text IS NULL OR match_source IS NULL)").get().count,0,"covered topics must retain the exact title or heading evidence");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_structure_candidates").get().count,63,"only resolved keyword groups may receive structure candidates");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword GLOB 'topic-*' OR main_keyword GLOB 'keyword-*'").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,59);
@@ -126,6 +130,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_ai_overviews.length,68);
   assert.equal(actual.serp_ai_overviews.reduce((sum,row)=>sum+row.references.length,0),96,"AIO citation references must remain available to the API consumer");
   assert.equal(actual.content_topic_proposals.length,878);
+  assert.equal(actual.content_topic_coverage.length,878);assert.equal(actual.content_topic_coverage.filter((row)=>row.coverage_status!=="unassigned").length,220);assert.ok(actual.content_topic_coverage.every((row)=>row.evidence_digest.length===64));
   assert.equal(actual.content_topic_proposals.reduce((sum,row)=>sum+row.evidence_occurrence_ids.length,0),1188);
   assert.equal(actual.content_structure_candidates.length,63);
   assert.ok(actual.content_structure_candidates.every((candidate)=>candidate.status==="proposed"&&candidate.candidate_digest.length===64));
@@ -246,6 +251,7 @@ assert.match(app, /data\.article_query_summaries/);
 assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);assert.match(html,/data-view="keyword-tree"/);assert.match(html,/id="tree-branch-filter"/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);
+assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
 assert.match(app, /empty\.hidden=rows\.length>0/);

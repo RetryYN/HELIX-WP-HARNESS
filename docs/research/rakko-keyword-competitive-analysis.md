@@ -151,9 +151,10 @@ seed keyword / site / URL
 
 - `site_id`を全分析へ束縛し、別サイト混在をfail-closeできる。
 - DFS task ID、raw snapshot、digest、costから画面表示へ逆引きできる。
-- 観測926 organic edgeから339同時rank keyword関係・226競合domain coverageを再現し、共有URLへ逆引きできる。
+- 観測926 organic edgeから565 page coverage・339同時rank keyword関係・226競合domain coverageを再現し、共有URLへ逆引きできる。
 - keyword hierarchy、64 article group、SERP URL overlapを決定論で再現できる。
 - main/intent keywordと実WP article ID、title、heading、GSC queryを同じDBで照合できる。
+- PAA/関連検索878論点を実WP title/H1-H6へ厳格照合し、covered・missing・記事未割当を混同せず逆引きできる。現行実測は評価可能220論点中title 3、heading 1、missing 216。
 - 「提案」と「承認済みrequired topic」を分離し、AI出力を自動的な正本にしない。
 - 公開後のGSC実績から施策KW獲得率と想定外queryを閉ループ評価できる。
 
@@ -164,17 +165,17 @@ traceable lifecycleを完成させることが主要な勝ち筋になる。
 
 ### P0: content planを成立させる差分
 
-1. raw PAA / related searchesをoccurrence付き正規化tableへ格納する。
+1. raw PAA / related searchesのoccurrence付き正規化tableは実装済み（1,188 occurrence / 878 proposal）。
 2. 2階層recursionと出現回数ベースimportanceを再現可能にする。
-3. 上位SERP pageのtitle/description/heading/text取得契約を追加する。
-4. page-topic、heading-topic、co-occurrenceをsite数と出現箇所別に集計する。
-5. required topic proposalをPAA、related、競合heading、co-occurrence別の根拠付きで生成する。
-6. title/heading候補を生成し、入力snapshot digest、model、prompt version、coverageを保存する。
+3. 上位SERP pageのtitle/description/heading/text取得契約は上位3候補190 URLで実装済み（180成功）。上位20対応が残る。
+4. heading/co-occurrenceのpage・task・group別集計は実装済み。page-topicの意味分類が残る。
+5. PAA、related、競合co-occurrence由来の根拠付きproposalは実装済み。承認workflowが残る。
+6. 決定論title/heading候補とevidence digest・coverageは実装済み。LLM model/prompt version付き生成が残る。
 
 ### P1: strategyを上回る差分
 
-1. keyword-page bipartite graphによる同時rank KWとintent proximity。
-2. 自site対競合のcontent gap、weak-domain opportunity、SERP volatility。
+1. keyword-page bipartite graphと観測内の同時rank KWは実装済み。Labs全rank母集団による拡張が残る。
+2. 自site title/heading対PAA/関連検索のcontent gapは実装済み。weak-domain opportunity、SERP volatilityが残る。
 3. rank history、GSC、page versionを結んだ変更前後impact評価。
 4. cannibalization、consolidate、refresh、new pageの排他的decision proposal。
 5. query clusterごとのAIO/AI Mode引用源・非引用gap。
@@ -246,7 +247,7 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 |---|---|
 | PAA回答本文・参照URL | `people_also_ask_click_depth`なし。現在は質問396件だけで回答0件 |
 | SERP pixel位置 | `calculate_rectangles`なし |
-| 競合page H1-H6・本文・内部/外部link | v13で上位候補60 URLを取得・投影済み（56成功）。候補190 URL中130 URLは未取得 |
+| 競合page H1-H6・本文・内部/外部link | v14で上位3候補190 URLを全件処理済み。180成功、robots拒否3、HTTP error 5、fetch error 2 |
 | 最新volume、4年月次、CPC、competition、SEO difficulty | Keywords Data / Labs未実行 |
 | domain/URL ranked KW、集客page、競合domain、履歴 | Labs dataset未実行 |
 | multi-engine suggest、質問DB、trend、news、Q&A、hashtag | 対応provider取得なし |
