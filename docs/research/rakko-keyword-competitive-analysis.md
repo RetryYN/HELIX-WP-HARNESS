@@ -279,6 +279,10 @@ request planをrun単位のmanifestへ保存する。clickstreamは明示的にf
 `dfs-enrichment-normalized.v1` は取得後のresponseを、keyword metrics、年月別volume、difficulty、
 ranked keyword summary、ranked keyword明細へ分離する。観測値`0`は欠損へ変換せず、providerが返さなかった
 入力語はcoverageの`missing_keywords`へ残す。全明細はsource job、raw SHA-256、行単位evidence digestを持つ。
+DB v23はこのmanifestを`dfs_enrichment_runs`、`keyword_market_metrics`、`keyword_monthly_searches`、
+`keyword_difficulty_enrichment`、`domain_ranked_keyword_summaries`、`domain_ranked_keywords`へ正規化し、
+APIと「市場データ」画面へ投影する。manifest未指定時は空配列と`not_acquired`を返し、workbook由来の
+既存値を最新取得値として偽装しない。
 
 - Google Ads Search Volume live: <https://docs.dataforseo.com/v3/keywords_data-google_ads-search_volume-live/>
 - Labs Bulk Keyword Difficulty live: <https://docs.dataforseo.com/v3/dataforseo_labs-google-bulk_keyword_difficulty-live/>

@@ -23,6 +23,7 @@
     <button class="tab" data-view="competitor-domains">競合ドメイン</button>
     <button class="tab" data-view="aio-citations">AIO引用</button>
     <button class="tab" data-view="acquisition-health">取得状態</button>
+    <button class="tab" data-view="market-data">市場データ</button>
     <button class="tab" data-view="internal-links">内部リンクマップ</button>
   </nav>
 
@@ -119,6 +120,15 @@
       <div class="table-wrap"><table class="special-feature-table"><thead><tr><th>対象KW</th><th>feature</th><th>順位</th><th>タイトル</th><th>URL</th></tr></thead><tbody id="special-feature-rows"></tbody></table></div>
       <div class="subsection-head"><h3>raw取得台帳（分析未接続）</h3><p>別PoCなどで取得済みだが、現在選択中の分析母集団へ混ぜていないsnapshotを明示します</p></div>
       <div class="table-wrap"><table class="raw-inventory-table"><thead><tr><th>対象KW</th><th>取得dataset</th><th>取得日時</th><th>費用</th><th>SERP feature</th><th>未接続理由</th></tr></thead><tbody id="raw-inventory-rows"></tbody></table></div>
+    </section>
+
+    <section id="market-data" class="view">
+      <div class="section-head table-toolbar"><div><h2>検索市場・獲得キーワード</h2><p>最新volume、4年月次、CPC、広告競合度、SEO難易度と、Labs全rank DBの獲得KWを分離表示します</p></div><div class="filters"><input id="market-data-search" type="search" placeholder="KW・意図・URL検索" aria-label="市場データ検索"></div></div>
+      <div id="market-data-metrics" class="metrics"></div><div id="market-data-pending" class="empty-state"></div>
+      <div class="subsection-head"><h3>キーワード市場指標</h3><p>検索量0とprovider未返却を区別し、年月別観測数を表示します</p></div>
+      <div class="table-wrap"><table class="market-keyword-table"><thead><tr><th>キーワード</th><th>最新volume</th><th>SEO難易度</th><th>CPC</th><th>広告競合度</th><th>月次履歴</th><th>更新状態</th></tr></thead><tbody id="market-keyword-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>自ドメイン獲得キーワード</h3><p>Labsの検索意図、順位、URL、ETV、順位変化を表示します</p></div>
+      <div class="table-wrap"><table class="market-ranked-table"><thead><tr><th>獲得KW</th><th>意図</th><th>順位</th><th>URL</th><th>volume</th><th>ETV</th><th>順位変化</th></tr></thead><tbody id="market-ranked-rows"></tbody></table></div>
     </section>
 
     <section id="internal-links" class="view">
