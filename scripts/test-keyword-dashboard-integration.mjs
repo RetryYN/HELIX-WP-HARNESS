@@ -39,6 +39,19 @@ assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE le
 assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE recommended_page_type = '' OR serp_pages_json = '[]'").get().count,0);
 persisted.close();
 
+const competitorRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-competitor-"));
+const competitorManifestPath=path.join(competitorRoot,"manifest.json");
+const competitorGroup=JSON.parse(readFileSync(path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),"utf8")).groups[0].id;
+writeFileSync(competitorManifestPath,JSON.stringify({schema_version:"competitor-content-evidence.v1",generated_at:"2026-08-26T00:00:00.000Z",selection:{max_rank:3,page_limit:1,selected_count:1},pages:[{url:"https://competitor.example/article",domain:"competitor.example",status:"ok",fetched_at:"2026-08-26T00:00:00.000Z",http_status:200,content_type:"text/html",final_url:"https://competitor.example/article",title:"競合記事",canonical_url:null,snapshot_path:"/evidence/a.html",snapshot_digest:"a".repeat(64),text_length:100,text_digest:"b".repeat(64),internal_link_count:2,external_link_count:1,headings:[{position:0,level:1,text:"SEO記事"},{position:1,level:2,text:"構成案"}],terms:[{term:"構成",count:4,in_heading:true},{term:"検索意図",count:2,in_heading:false}],groups:[{group_id:competitorGroup,best_rank:1,task_ids:["task-seo-article"]}]}]}));
+const competitorDbPath=path.join(competitorRoot,"dashboard.sqlite");
+buildDashboardDb({dbPath:competitorDbPath,fixturePath:path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),artifactRoot:path.resolve("artifacts/poc"),competitorEvidencePath:competitorManifestPath}).close();
+const competitorDb=new DatabaseSync(competitorDbPath,{readOnly:true});
+assert.equal(competitorDb.prepare("SELECT COUNT(*) AS count FROM competitor_pages WHERE status='ok' AND length(snapshot_digest)=64 AND length(text_digest)=64").get().count,1);
+assert.equal(competitorDb.prepare("SELECT COUNT(*) AS count FROM competitor_headings").get().count,2);
+assert.equal(competitorDb.prepare("SELECT page_count FROM competitor_terms WHERE group_id=? AND term='構成'").get(competitorGroup).page_count,1);
+const competitorProjection=projectDashboard(competitorDb);assert.equal(competitorProjection.competitor_pages.length,1);assert.deepEqual(competitorProjection.competitor_page_evidence[0].task_ids,["task-seo-article"]);assert.equal(competitorProjection.competitor_terms[0].evidence_page_ids.length,1);
+competitorDb.close();
+
 const pocDbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-poc-db-")), "dashboard.sqlite");
 const buildPoc = spawnSync(process.execPath, ["scripts/build-keyword-dashboard-db.mjs"], { env: { ...process.env, WP_DASHBOARD_DB: pocDbPath }, encoding: "utf8" });
 assert.equal(buildPoc.status, 0, buildPoc.stderr);
@@ -230,6 +243,10 @@ assert.match(html, /id="content-plan-list"/);
 assert.match(html, /提案のみ・未承認/);
 assert.match(app, /data\.content_topic_proposals/);
 assert.match(app, /data\.content_structure_candidates/);
+assert.match(app, /data\.competitor_page_evidence/);
+assert.match(app, /data\.competitor_headings/);
+assert.match(app, /data\.competitor_terms/);
+assert.match(app, /競合共起語/);
 assert.match(app, /renderContentPlans/);
 assert.match(html, /<th>主クエリ<\/th>/);
 assert.match(html, /<th>自サイト記事<\/th>/);

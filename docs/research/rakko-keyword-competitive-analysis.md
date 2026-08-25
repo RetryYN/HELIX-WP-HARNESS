@@ -220,12 +220,28 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 |---|---|
 | PAA回答本文・参照URL | `people_also_ask_click_depth`なし。現在は質問396件だけで回答0件 |
 | SERP pixel位置 | `calculate_rectangles`なし |
-| 競合page H1-H6・本文・内部/外部link | 上位URLへのcontent parsing未実行 |
+| 競合page H1-H6・本文・内部/外部link | v13で上位候補60 URLを取得・投影済み（56成功）。候補190 URL中130 URLは未取得 |
 | 最新volume、4年月次、CPC、competition、SEO difficulty | Keywords Data / Labs未実行 |
 | domain/URL ranked KW、集客page、競合domain、履歴 | Labs dataset未実行 |
 | multi-engine suggest、質問DB、trend、news、Q&A、hashtag | 対応provider取得なし |
 
 この区別により、再取得なしで救出できるデータと、費用・利用規約・freshnessを伴う新規取得を混同しない。
+
+### 10.5 競合content取得の実装・実測（2026-08-26）
+
+`scripts/fetch-competitor-content-evidence.mjs` を追加し、現行SERPの上位3位から自domainを除外した
+190 URLを候補化した。初回はrankと複数groupへの寄与で上位60 URLを選択し、56 URLのHTML取得に成功、
+HTTP error 3、fetch error 1だった。失敗も欠損行として保持し、成功ページだけに分析結果を付与する。
+
+- `robots.txt`をorigin単位で確認し、denyされたURLは本文を取得しない。
+- raw HTML、SHA-256、最終URL、HTTP status、content type、取得時刻を保存する。
+- title、canonical、H1-H6、本文digest/文字数、内部・外部link数を分離保存する。
+- kuromojiで名詞・動詞・形容詞を抽出し、単純総出現数だけでなくpage count、heading page count、rank加重scoreをgroup単位で集計する。
+- DB v13では60 page、1,830 heading、28,780 group×termを保持し、各termから根拠page IDへ逆引きできる。
+- UIの「コンテンツ設計」でgroupごとの競合page数、heading数、上位共起語と `page count / heading page count` を表示する。
+
+これは先行60 URLの実測であり、候補190 URL全件や全SERP深度の取得完了を意味しない。残り130 URLは
+freshness、取得負荷、利用条件を明示した追加runとして扱う。
 
 ### 10.4 DFS以外の入力監査
 

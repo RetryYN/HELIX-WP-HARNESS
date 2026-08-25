@@ -10,9 +10,10 @@ import { assessKeywordAcquisition, matchKeywordGroupToArticles, reconcileArticle
 import {buildKeywordHierarchy} from "./keyword-hierarchy.mjs";
 import {classifySerpResult,recommendPageType} from "./serp-page-classification.mjs";
 import {buildContentStructureCandidates,buildContentTopicProposals} from "./content-topic-proposals.mjs";
+import {aggregateCompetitorTerms} from "./competitor-content-core.mjs";
 
-const schemaVersion = "keyword-dashboard.v12";
-const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v11","keyword-dashboard.v10","keyword-dashboard.v9","keyword-dashboard.v8","keyword-dashboard.v7"]);
+const schemaVersion = "keyword-dashboard.v13";
+const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v12","keyword-dashboard.v11","keyword-dashboard.v10","keyword-dashboard.v9","keyword-dashboard.v8","keyword-dashboard.v7"]);
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
 
 function serpDemandOccurrences(result) {
@@ -49,7 +50,7 @@ function rawSnapshots(artifactRoot) {
   return snapshots;
 }
 
-export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], gscEvidencePath, headingEvidencePath }) {
+export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], gscEvidencePath, headingEvidencePath, competitorEvidencePath }) {
   const fixture = JSON.parse(readFileSync(fixturePath, "utf8"));
   const snapshots = rawSnapshots(artifactRoot);
   if(existsSync(dbPath)&&statSync(dbPath).size>0){
@@ -66,7 +67,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const db = new DatabaseSync(dbPath);
   db.exec(`
     PRAGMA foreign_keys = OFF;
-    DROP TABLE IF EXISTS keyword_article_match_candidates; DROP TABLE IF EXISTS keyword_article_match_runs; DROP TABLE IF EXISTS content_structure_candidates; DROP TABLE IF EXISTS content_topic_evidence; DROP TABLE IF EXISTS content_topic_proposals; DROP TABLE IF EXISTS serp_ai_overviews; DROP TABLE IF EXISTS serp_organic_results; DROP TABLE IF EXISTS serp_demand_occurrences; DROP TABLE IF EXISTS gsc_query_results; DROP TABLE IF EXISTS articles; DROP TABLE IF EXISTS keyword_hierarchy; DROP TABLE IF EXISTS imported_keywords; DROP TABLE IF EXISTS article_links; DROP TABLE IF EXISTS shared_urls; DROP TABLE IF EXISTS dfs_tasks; DROP TABLE IF EXISTS gate_runs; DROP TABLE IF EXISTS strategy_decisions; DROP TABLE IF EXISTS group_keywords; DROP TABLE IF EXISTS keyword_groups; DROP TABLE IF EXISTS sites; DROP TABLE IF EXISTS dashboard_metadata;
+    DROP TABLE IF EXISTS competitor_terms; DROP TABLE IF EXISTS competitor_headings; DROP TABLE IF EXISTS competitor_page_group_evidence; DROP TABLE IF EXISTS competitor_pages; DROP TABLE IF EXISTS keyword_article_match_candidates; DROP TABLE IF EXISTS keyword_article_match_runs; DROP TABLE IF EXISTS content_structure_candidates; DROP TABLE IF EXISTS content_topic_evidence; DROP TABLE IF EXISTS content_topic_proposals; DROP TABLE IF EXISTS serp_ai_overviews; DROP TABLE IF EXISTS serp_organic_results; DROP TABLE IF EXISTS serp_demand_occurrences; DROP TABLE IF EXISTS gsc_query_results; DROP TABLE IF EXISTS articles; DROP TABLE IF EXISTS keyword_hierarchy; DROP TABLE IF EXISTS imported_keywords; DROP TABLE IF EXISTS article_links; DROP TABLE IF EXISTS shared_urls; DROP TABLE IF EXISTS dfs_tasks; DROP TABLE IF EXISTS gate_runs; DROP TABLE IF EXISTS strategy_decisions; DROP TABLE IF EXISTS group_keywords; DROP TABLE IF EXISTS keyword_groups; DROP TABLE IF EXISTS sites; DROP TABLE IF EXISTS dashboard_metadata;
     PRAGMA foreign_keys = ON;
     CREATE TABLE dashboard_metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     CREATE TABLE imported_keywords (source_keyword_id TEXT PRIMARY KEY, site_id TEXT NOT NULL, source_sheet TEXT NOT NULL, source_row INTEGER NOT NULL, raw_keyword TEXT NOT NULL, search_volume INTEGER, cpc REAL, competition REAL, processing_state TEXT NOT NULL);
@@ -85,6 +86,10 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE content_topic_proposals (proposal_id TEXT PRIMARY KEY, group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), topic_kind TEXT NOT NULL CHECK(topic_kind IN ('paa','related_search')), normalized_topic TEXT NOT NULL, display_topic TEXT NOT NULL, relation TEXT NOT NULL CHECK(relation IN ('same_group','cross_group','unmatched')), occurrence_count INTEGER NOT NULL, task_count INTEGER NOT NULL, relevance_score REAL NOT NULL, priority_score INTEGER NOT NULL, target_group_ids_json TEXT NOT NULL, status TEXT NOT NULL CHECK(status IN ('proposed','approved','rejected')), evidence_digest TEXT NOT NULL CHECK(length(evidence_digest)=64), UNIQUE(group_id,topic_kind,normalized_topic));
     CREATE TABLE content_topic_evidence (proposal_id TEXT NOT NULL REFERENCES content_topic_proposals(proposal_id), occurrence_id TEXT NOT NULL REFERENCES serp_demand_occurrences(occurrence_id), PRIMARY KEY(proposal_id,occurrence_id));
     CREATE TABLE content_structure_candidates (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), title_candidate TEXT NOT NULL, heading_candidates_json TEXT NOT NULL, source_topic_ids_json TEXT NOT NULL, status TEXT NOT NULL CHECK(status IN ('proposed','approved','rejected')), candidate_digest TEXT NOT NULL CHECK(length(candidate_digest)=64));
+    CREATE TABLE competitor_pages (page_id TEXT PRIMARY KEY, url TEXT NOT NULL UNIQUE, domain TEXT NOT NULL, status TEXT NOT NULL, fetched_at TEXT NOT NULL, http_status INTEGER, content_type TEXT, final_url TEXT, title TEXT, canonical_url TEXT, snapshot_path TEXT, snapshot_digest TEXT CHECK(snapshot_digest IS NULL OR length(snapshot_digest)=64), text_length INTEGER, text_digest TEXT CHECK(text_digest IS NULL OR length(text_digest)=64), internal_link_count INTEGER, external_link_count INTEGER, error TEXT);
+    CREATE TABLE competitor_page_group_evidence (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), page_id TEXT NOT NULL REFERENCES competitor_pages(page_id), best_rank INTEGER NOT NULL, task_ids_json TEXT NOT NULL, PRIMARY KEY(group_id,page_id));
+    CREATE TABLE competitor_headings (page_id TEXT NOT NULL REFERENCES competitor_pages(page_id), position INTEGER NOT NULL, level INTEGER NOT NULL CHECK(level BETWEEN 1 AND 6), text TEXT NOT NULL, PRIMARY KEY(page_id,position));
+    CREATE TABLE competitor_terms (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), term TEXT NOT NULL, page_count INTEGER NOT NULL, total_count INTEGER NOT NULL, heading_page_count INTEGER NOT NULL, weighted_score REAL NOT NULL, evidence_page_ids_json TEXT NOT NULL, PRIMARY KEY(group_id,term));
     CREATE TABLE shared_urls (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), url_order INTEGER NOT NULL, url TEXT NOT NULL, PRIMARY KEY(group_id, url_order));
     CREATE TABLE article_links (link_id TEXT PRIMARY KEY, site_id TEXT NOT NULL REFERENCES sites(site_id), source_group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), target_group_id TEXT REFERENCES keyword_groups(group_id), trigger_type TEXT NOT NULL, trigger_text TEXT NOT NULL, source_section TEXT, state TEXT NOT NULL);
     CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','見出し一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
@@ -146,6 +151,21 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
       snapshot.ai_overviews.forEach((item)=>insertAio.run(taskId,item.rank_absolute,item.rank_group,item.asynchronous,item.markdown,JSON.stringify(item.items),JSON.stringify(item.references)));
     });
     group.shared_urls.forEach((url, index) => insertUrl.run(group.id, index, url));
+  }
+  if(competitorEvidencePath){
+    const manifest=JSON.parse(readFileSync(competitorEvidencePath,"utf8"));
+    if(manifest.schema_version!=="competitor-content-evidence.v1")throw new Error(`competitor evidence schema mismatch: ${manifest.schema_version}`);
+    const insertPage=db.prepare("INSERT INTO competitor_pages VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    const insertPageGroup=db.prepare("INSERT INTO competitor_page_group_evidence VALUES (?, ?, ?, ?)");
+    const insertHeading=db.prepare("INSERT INTO competitor_headings VALUES (?, ?, ?, ?)");
+    const insertTerm=db.prepare("INSERT INTO competitor_terms VALUES (?, ?, ?, ?, ?, ?, ?)");
+    const termPagesByGroup=new Map();
+    db.exec("BEGIN");
+    try{
+      for(const page of manifest.pages){const pageId=createHash("sha256").update(page.url).digest("hex").slice(0,24);insertPage.run(pageId,page.url,page.domain,page.status,page.fetched_at,page.http_status??null,page.content_type??null,page.final_url??null,page.title??null,page.canonical_url??null,page.snapshot_path??null,page.snapshot_digest??null,page.text_length??null,page.text_digest??null,page.internal_link_count??null,page.external_link_count??null,page.error??null);(page.headings??[]).forEach((heading)=>insertHeading.run(pageId,heading.position,heading.level,heading.text));for(const evidence of page.groups??[]){if(!fixture.groups.some((group)=>group.id===evidence.group_id))throw new Error(`competitor evidence references unknown group: ${evidence.group_id}`);insertPageGroup.run(evidence.group_id,pageId,evidence.best_rank,JSON.stringify(evidence.task_ids));if(page.status==="ok"){const rows=termPagesByGroup.get(evidence.group_id)??[];rows.push({url:page.url,page_id:pageId,best_rank:evidence.best_rank,terms:page.terms??[]});termPagesByGroup.set(evidence.group_id,rows)}}}
+      for(const [groupId,pages] of termPagesByGroup)for(const term of aggregateCompetitorTerms(pages)){const ids=term.evidence_urls.map((url)=>pages.find((page)=>page.url===url).page_id);insertTerm.run(groupId,term.term,term.page_count,term.total_count,term.heading_page_count,term.weighted_score,JSON.stringify(ids))}
+      metadata.run("competitor_evidence_generated_at",manifest.generated_at);metadata.run("competitor_evidence_selection",JSON.stringify(manifest.selection));db.exec("COMMIT");
+    }catch(error){db.exec("ROLLBACK");throw error}
   }
   const occurrenceRows=db.prepare("SELECT occurrence_id,group_id,task_id,demand_type,value,normalized_value,snapshot_digest FROM serp_demand_occurrences ORDER BY occurrence_id").all();
   const topicProposals=buildContentTopicProposals(fixture.groups,occurrenceRows);
@@ -223,5 +243,9 @@ export function projectDashboard(db) {
   const serpAiOverviews=db.prepare("SELECT * FROM serp_ai_overviews ORDER BY task_id").all().map(({items_json,references_json,...row})=>({...row,asynchronous:Boolean(row.asynchronous),items:JSON.parse(items_json),references:JSON.parse(references_json)}));
   const contentTopicProposals=db.prepare("SELECT * FROM content_topic_proposals ORDER BY priority_score DESC,proposal_id").all().map(({target_group_ids_json,...row})=>({...row,target_group_ids:JSON.parse(target_group_ids_json),evidence_occurrence_ids:db.prepare("SELECT occurrence_id FROM content_topic_evidence WHERE proposal_id=? ORDER BY occurrence_id").all(row.proposal_id).map((item)=>item.occurrence_id)}));
   const contentStructureCandidates=db.prepare("SELECT * FROM content_structure_candidates ORDER BY group_id").all().map(({heading_candidates_json,source_topic_ids_json,...row})=>({...row,heading_candidates:JSON.parse(heading_candidates_json),source_topic_ids:JSON.parse(source_topic_ids_json)}));
-  return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), keyword_hierarchy:keywordHierarchy, normalization_aliases: JSON.parse(metadata.normalization_aliases), serp_demand_occurrences:demandOccurrences, serp_demands:serpDemands, serp_organic_results:serpOrganicResults, serp_ai_overviews:serpAiOverviews, content_topic_proposals:contentTopicProposals, content_structure_candidates:contentStructureCandidates, article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, article_query_summaries: articleQuerySummaries, primary_query_ranking: Object.fromEntries(Object.entries(rankingBySite).map(([siteId,ranking])=>[siteId,{...ranking,method:"log_impressions_plus_clicks_at_p95"}])), gsc_articles: gscArticles.map(({category_ids_json,headings_json,...article})=>article) };
+  const competitorPages=db.prepare("SELECT * FROM competitor_pages ORDER BY page_id").all();
+  const competitorPageEvidence=db.prepare("SELECT * FROM competitor_page_group_evidence ORDER BY group_id,best_rank,page_id").all().map(({task_ids_json,...row})=>({...row,task_ids:JSON.parse(task_ids_json)}));
+  const competitorHeadings=db.prepare("SELECT * FROM competitor_headings ORDER BY page_id,position").all();
+  const competitorTerms=db.prepare("SELECT * FROM competitor_terms ORDER BY group_id,page_count DESC,heading_page_count DESC,weighted_score DESC").all().map(({evidence_page_ids_json,...row})=>({...row,evidence_page_ids:JSON.parse(evidence_page_ids_json)}));
+  return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), keyword_hierarchy:keywordHierarchy, normalization_aliases: JSON.parse(metadata.normalization_aliases), serp_demand_occurrences:demandOccurrences, serp_demands:serpDemands, serp_organic_results:serpOrganicResults, serp_ai_overviews:serpAiOverviews, content_topic_proposals:contentTopicProposals, content_structure_candidates:contentStructureCandidates, competitor_pages:competitorPages, competitor_page_evidence:competitorPageEvidence, competitor_headings:competitorHeadings, competitor_terms:competitorTerms, article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, article_query_summaries: articleQuerySummaries, primary_query_ranking: Object.fromEntries(Object.entries(rankingBySite).map(([siteId,ranking])=>[siteId,{...ranking,method:"log_impressions_plus_clicks_at_p95"}])), gsc_articles: gscArticles.map(({category_ids_json,headings_json,...article})=>article) };
 }

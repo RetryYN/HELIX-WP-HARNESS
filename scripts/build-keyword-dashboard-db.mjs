@@ -50,7 +50,8 @@ if(!hasGscEvidence&&process.env.WP_ALLOW_EMPTY_GSC!=="1")throw new Error(`GSC ev
 const headingEvidencePath=fromRepo(process.env.WP_HEADING_EVIDENCE??"artifacts/poc/evidence-fixtures/wp-headings/manifest.json");
 const hasHeadingEvidence=existsSync(headingEvidencePath);
 if(!hasHeadingEvidence&&process.env.WP_ALLOW_EMPTY_HEADINGS!=="1")throw new Error(`WP heading evidence is required: ${headingEvidencePath}. Set WP_ALLOW_EMPTY_HEADINGS=1 only for an explicit empty-state test.`);
-const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: fromRepo("artifacts/poc"), importedKeywords, gscEvidencePath:hasGscEvidence?gscEvidencePath:undefined, headingEvidencePath:hasHeadingEvidence?headingEvidencePath:undefined });
-const counts = Object.fromEntries(["sites", "imported_keywords", "keyword_groups", "dfs_tasks", "serp_demand_occurrences", "serp_organic_results", "serp_ai_overviews", "content_topic_proposals", "content_structure_candidates", "gate_runs", "articles", "gsc_query_results", "article_links"].map((table) => [table, Number(db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count)]));
+const competitorEvidencePath=fromRepo(process.env.WP_COMPETITOR_EVIDENCE??".helix/evidence/competitor-content/manifest.json");
+const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: fromRepo("artifacts/poc"), importedKeywords, gscEvidencePath:hasGscEvidence?gscEvidencePath:undefined, headingEvidencePath:hasHeadingEvidence?headingEvidencePath:undefined, competitorEvidencePath:existsSync(competitorEvidencePath)?competitorEvidencePath:undefined });
+const counts = Object.fromEntries(["sites", "imported_keywords", "keyword_groups", "dfs_tasks", "serp_demand_occurrences", "serp_organic_results", "serp_ai_overviews", "content_topic_proposals", "content_structure_candidates", "competitor_pages", "competitor_headings", "competitor_terms", "gate_runs", "articles", "gsc_query_results", "article_links"].map((table) => [table, Number(db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count)]));
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));
