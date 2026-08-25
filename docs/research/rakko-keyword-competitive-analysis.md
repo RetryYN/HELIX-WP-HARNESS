@@ -409,10 +409,14 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 公式現行一覧は更新履歴の「8件」から1件増え、9件掲載されている。掛け合わせ、リストA/B除外・
 重複抽出、差分、置換、重複除去、NFKC正規化、Unicode code point文字数、競合/自サイト重複除去の
 8操作をbrowser-localで実装した。入力はnetwork送信・DB保存せず、結果だけcopy可能。地域キーワード
-生成は都道府県・市区町村・郡町村・駅のversioned行政区域datasetが必要なため、未接続を明示する。
+生成は日本郵便の2026-07-31更新UTF-8全国CSVをsource archive digest付きで取り込み、47都道府県と
+1,892市区町村・郡町村を実装した。公式CSVは約12万住所行だが、町域を候補へ混ぜず自治体単位にdedupeする。
+駅は国交省の2025年度N02（2025-12-31時点、CC BY 4.0）を正本候補と確認済みだが、取込は未完了である。
 
 - 公式補助ツール一覧: <https://rakkokeyword.com/knowledge/tool/>
 - 地域キーワード生成仕様: <https://rakkokeyword.com/techo/generate-local-keywords/>
+- 日本郵便UTF-8全国CSV: <https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html>
+- 国土数値情報・鉄道2025年度版: <https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html>
 
 ### 10.12 横断クイック検索
 
