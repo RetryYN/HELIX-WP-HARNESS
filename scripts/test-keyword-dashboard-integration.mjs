@@ -99,6 +99,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_organic_results")
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_page_keyword_edges").get().count,926,"every organic observation in the top-10 corpus must become one page-keyword edge");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM simultaneous_keyword_relations").get().count,339,"observed shared URLs must form deterministic simultaneous-ranking keyword relations");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_domain_coverage").get().count,226,"domain coverage must preserve the observed SERP competitor population");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_page_coverage").get().count,565,"page coverage must preserve every canonical SERP page");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM simultaneous_keyword_relations WHERE shared_url_count<1 OR overlap_ratio<=0 OR shared_urls_json='[]'").get().count,0,"every simultaneous keyword relation must retain URL evidence");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_organic_results WHERE description IS NOT NULL AND description!=''").get().count,918,"available organic descriptions must not be discarded");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_ai_overviews").get().count,68,"all observed AIO records, including asynchronous placeholders, must be projected");
@@ -121,7 +122,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
   assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
   assert.equal(actual.serp_organic_results.length,926);
-  assert.equal(actual.serp_page_keyword_edges.length,926);assert.equal(actual.simultaneous_keyword_relations.length,339);assert.equal(actual.serp_domain_coverage.length,226);assert.ok(actual.simultaneous_keyword_relations.every((item)=>item.shared_urls.length===item.shared_url_count));
+  assert.equal(actual.serp_page_keyword_edges.length,926);assert.equal(actual.simultaneous_keyword_relations.length,339);assert.equal(actual.serp_page_coverage.length,565);assert.equal(actual.serp_domain_coverage.length,226);assert.ok(actual.simultaneous_keyword_relations.every((item)=>item.shared_urls.length===item.shared_url_count));assert.ok(actual.serp_page_coverage.every((item)=>item.top_task_id&&item.top_keyword&&item.best_rank>=1));
   assert.equal(actual.serp_ai_overviews.length,68);
   assert.equal(actual.serp_ai_overviews.reduce((sum,row)=>sum+row.references.length,0),96,"AIO citation references must remain available to the API consumer");
   assert.equal(actual.content_topic_proposals.length,878);
@@ -244,7 +245,7 @@ assert.match(app, /syncCategoryFilters/);
 assert.match(app, /data\.article_query_summaries/);
 assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);assert.match(html,/data-view="keyword-tree"/);assert.match(html,/id="tree-branch-filter"/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
-assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);
+assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
 assert.match(app, /empty\.hidden=rows\.length>0/);

@@ -51,8 +51,8 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/ranking-keywords` | 上位ページの同時rank KW、最大5,000件 | rank database / page intersection | 100KW×上位10のpage-keyword graph実装。rank DB gap |
 | `POST /v1/search-volume` | volume、月次推移、CPC、競合性、SEO難易度 | Google Ads + SERP/link metrics | 一部取込のみ、取得pipeline gap |
 | `POST /v1/influx-keywords` | domain/URL別rank KW、推定流入 | ranked keywords DB | gap |
-| `POST /v1/influx-pages` | 集客page、KW数、traffic value | relevant/ranked pages DB | gap |
-| `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | gap |
+| `POST /v1/influx-pages` | 集客page、KW数、traffic value | relevant/ranked pages DB | 観測565 pageのKW/group/rank/top-KW集計とUI実装。全rank DB・traffic/value/history gap |
+| `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | 観測100KW内で225競合、107複数KW、78複数記事群を実装。全rank DB・traffic/value gap |
 | `POST /v1/bulk-site-research` | 最大100 URLの規模・推移比較 | domain metrics history | gap |
 | `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | gap |
 | `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位3page実測・6,887 heading。上位20/除外条件 gap |

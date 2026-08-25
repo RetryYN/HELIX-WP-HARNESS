@@ -1,6 +1,6 @@
 {
   "schema_version": "rakko-openapi-inventory.v1",
-  "generated_at": "2026-08-25T18:07:38.554Z",
+  "generated_at": "2026-08-25T18:20:01.547Z",
   "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
@@ -316,15 +316,19 @@
         "500": "object",
         "503": "object"
       },
-      "status": "planned",
+      "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
       "dfs_candidates": [
         "Labs relevant_pages",
         "ranked_keywords aggregation"
       ],
-      "helix_evidence": [],
-      "gap": "集客pageとtop keyword/traffic集計未取得"
+      "helix_evidence": [
+        "serp_page_keyword_edges",
+        "serp_page_coverage",
+        "competitor-pages dashboard"
+      ],
+      "gap": "観測565 pageのkeyword/group/best-rank/top-keyword集計は実装。全rank DB、推定traffic/value/historyは未取得"
     },
     {
       "operation": "POST /v1/competitive",
@@ -341,14 +345,18 @@
         "500": "object",
         "503": "object"
       },
-      "status": "planned",
+      "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
       "dfs_candidates": [
         "Labs competitors_domain"
       ],
-      "helix_evidence": [],
-      "gap": "domain競合graphとintersection指標未取得"
+      "helix_evidence": [
+        "serp_page_keyword_edges",
+        "serp_domain_coverage",
+        "competitor-domains dashboard"
+      ],
+      "gap": "観測100KW内のdomain被覆・keyword/group/page/rank集計は実装。全rank DBの重複率分母、推定traffic/valueは未取得"
     },
     {
       "operation": "POST /v1/bulk-site-research",
