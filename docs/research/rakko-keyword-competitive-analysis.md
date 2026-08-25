@@ -600,12 +600,21 @@ REST本文scopeの欠落を公開navigation証拠で補完し、単純な孤立�
 
 ### 10.32 title・heading生成品質oracle v3（DB v34）
 
-699生成候補について、候補文字列だけの採点から、根拠IDの実在、SERP需要文言の包含率、同一group競合title/
+731生成候補について、候補文字列だけの採点から、根拠IDの実在、SERP需要文言の包含率、同一group競合title/
 headingとの文字trigram最大類似、90%以上のcopy risk、75%以上の類似review、group内・group横断重複、既存WP
 title/heading衝突、主KW、文字数、見出し階層、反復語を組み合わせる`evidence-bound-review.v3`へ更新した。
 無関係テーマとの誤検出を避けるため競合類似は同じKW groupの取得pageだけを比較する。各候補はoracle入力結果、
 issue、collision、quality score、review state、review digestへ逆引きできる。これはLLM品質を主観的に保証する
 ものではなく、証拠欠落・コピー・構造破綻を公開前にfail closedする決定的gateである。
+
+### 10.33 重複抑制title生成と証拠付きfallback
+
+需要titleはmain keywordと需要文をそのまま連結せず、需要文からmain keyword tokenと汎用語を除いたaxisだけを
+抽出し、`main keyword + axis + わかりやすく解説`へ構成する。需要根拠tokenの60%以上を含むことをoracle gateとし、
+完全文字列一致による表記揺れ誤判定を避ける。需要titleが作れない場合でも競合heading evidenceがあれば、その
+最上位editorial termから`competitor_heading_fallback`を作り、根拠page IDを保持する。fallbackは32件、title候補は
+175件となり、draft packageのbrief readyは52→61/63 groupへ改善した。残るgroup 60は候補証拠ゼロ、group 61は
+証拠付きheadingが2件だけでoutline minimum 3を満たさないため、推測補完せずblockedを維持する。
 
 ## 11. 未検証事項
 
