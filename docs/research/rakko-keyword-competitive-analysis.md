@@ -227,9 +227,9 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 | field/data | 実データ量 | 現状 |
 |---|---:|---|
 | organic description | 918 / 926 result | v10 DB/APIへ救出済み。v17競合content検索へ接続済み |
-| organic highlighted terms | 839 result | v10 DB/APIへ救出済み。分析接続待ち |
+| organic highlighted terms | 839 result | v10 DB/APIへ救出済み。v17競合content検索へ接続済み |
 | organic pre-snippet | 492 result | v10 DB/APIへ救出済み。分析接続待ち |
-| organic timestamp | 511 result | v10 DB/APIへ救出済み。分析接続待ち |
+| organic timestamp | 511 result | v10 DB/APIへ救出済み。v17競合content検索の公開日時filterへ接続済み |
 | organic sitelinks | 257 result | v10 DB/APIへ救出済み。分析接続待ち |
 | AIO markdown | 17 / 68 AIO | v10 DB/APIへ救出済み。topic分析待ち |
 | AIO elements | 69 element | v10 DB/APIへ救出済み。section分解待ち |

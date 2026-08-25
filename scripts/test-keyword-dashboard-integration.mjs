@@ -252,6 +252,7 @@ assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);
 assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatches/);assert.match(app,/SERP説明文/);assert.match(app,/keywordMatches/);
+assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert.match(app,/強調語あり/);assert.match(app,/日時あり/);
 assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
