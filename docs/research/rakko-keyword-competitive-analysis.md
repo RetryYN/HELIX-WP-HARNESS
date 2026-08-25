@@ -598,6 +598,15 @@ sitemap 70 URLを公開取得し、HTML本文を保存せずdocument digest、SE
 sitemap記載URLが別の最終canonical URLへredirectするため、sitemap正規URL更新候補として分離する。これにより
 REST本文scopeの欠落を公開navigation証拠で補完し、単純な孤立判定を避ける。
 
+### 10.32 title・heading生成品質oracle v3（DB v34）
+
+699生成候補について、候補文字列だけの採点から、根拠IDの実在、SERP需要文言の包含率、同一group競合title/
+headingとの文字trigram最大類似、90%以上のcopy risk、75%以上の類似review、group内・group横断重複、既存WP
+title/heading衝突、主KW、文字数、見出し階層、反復語を組み合わせる`evidence-bound-review.v3`へ更新した。
+無関係テーマとの誤検出を避けるため競合類似は同じKW groupの取得pageだけを比較する。各候補はoracle入力結果、
+issue、collision、quality score、review state、review digestへ逆引きできる。これはLLM品質を主観的に保証する
+ものではなく、証拠欠落・コピー・構造破綻を公開前にfail closedする決定的gateである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
