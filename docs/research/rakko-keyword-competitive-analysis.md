@@ -236,12 +236,12 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 | AIO markdown | 17 / 68 AIO | v10 DB/APIへ救出済み。topic分析待ち |
 | AIO elements | 69 element | v19でsection単位に正規化し、35見出しを既存WP title/heading gapへ接続済み |
 | AIO references | 96 reference | v18で38 domainへ正規化し、通常SERP URL/domain交差と自site citation gapへ接続済み |
-| spell correction | 1 query | v20 DB/APIへ救出し、取得状態画面で検出可能。alias/normalization接続待ち |
+| spell correction | 1 query | v22で正規表記候補と元query保持のタイトルguidanceへ接続。自動置換せずproposed |
 | organic xpath / flags / checks / AMP | 926 result | v20 DB/APIへ救出済み。表示形式・品質分析への接続待ち |
-| knowledge graph | 1 query | v20 DB/API/取得状態画面へraw payloadごと救出。entity分析待ち |
-| people-also-search | 1 query | v20 DB/API/取得状態画面へraw payloadごと救出。demand graph接続待ち |
-| image/video packs | 各1 query | v20 DB/API/取得状態画面へraw payloadごと救出。content format判断待ち |
-| price / rating | 6 / 2 organic result | commercial SERP分析へ未接続 |
+| knowledge graph | 1 query | v22でentity定義・一次情報citationの構成guidanceへ接続 |
+| people-also-search | 1 query | v22で商品・サービスの比較軸／選び方guidanceへ接続 |
+| image/video packs | 各1 query | v22でoriginal image・gallery・alt、video・要約・transcriptの素材guidanceへ接続 |
+| price / rating | 6 / 2 organic result | v22で価格比較表・更新日・評価件数／方法／出典guidanceへ接続 |
 | task status/time/result count/check URL/result counts | 全taskに存在 | v20 DB/APIへ救出し、provider health・再現性を取得状態画面へ投影済み |
 | 現行分析fixture未接続のraw snapshot | 10 / raw全110 task | v21 raw取得台帳へ救出。現行IT就活100 taskとは分離し、SEO系8 task・比較PoC 2 task（jobs feature 1件を含む）を未接続理由付きで表示 |
 
@@ -257,6 +257,13 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 | multi-engine suggest、質問DB、trend、news、Q&A、hashtag | 対応provider取得なし |
 
 この区別により、再取得なしで救出できるデータと、費用・利用規約・freshnessを伴う新規取得を混同しない。
+
+### 10.4 SERP実測からの記事形式・構成施策（DB v22）
+
+現行100 taskのうち、特殊feature、spell、price/ratingの実測がある8 taskを施策候補へ変換した。内訳は
+entity 1、選択支援1、画像1、動画1、commercial 3、表記補正1。各候補はfeature IDまたは
+`task_id:organic rank`へ逆引きでき、SHA-256 evidence digestを持つ。タイトル・見出し・必要素材のguidanceは
+全件`proposed`であり、観測だけから公開内容を自動確定しない。
 
 ### 10.5 競合content取得の実装・実測（2026-08-26）
 

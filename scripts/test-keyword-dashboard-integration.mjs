@@ -100,6 +100,9 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_task_metadata WHE
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_feature_occurrences").get().count,270,"every non-organic SERP container occurrence must retain its queryable rank and payload");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_feature_occurrences WHERE feature_type IN ('knowledge_graph','people_also_search','images','video')").get().count,4,"rare SERP features must not be dropped");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_organic_attributes").get().count,926,"every organic result must retain xpath and boolean SERP attributes");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_action_signals").get().count,8,"observed spelling, special features and commerce evidence must become proposed actions");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_action_signals WHERE evidence_json='[]' OR status!='proposed' OR length(evidence_digest)!=64").get().count,0,"every action must remain evidence-bound and unapproved by default");
+assert.equal(pocDb.prepare("SELECT SUM(priced_result_count) AS count FROM serp_action_signals").get().count,6);assert.equal(pocDb.prepare("SELECT SUM(rated_result_count) AS count FROM serp_action_signals").get().count,2);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE demand_type='paa'").get().count,396,"all PAA occurrences in the 100 DFS snapshots must be preserved");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE demand_type='related_search'").get().count,792,"all related-search occurrences in the 100 DFS snapshots must be preserved");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE normalized_value='' OR snapshot_path='' OR length(snapshot_digest)!=64").get().count,0,"every demand occurrence must retain normalized value and raw provenance");
@@ -147,6 +150,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
   assert.equal(actual.serp_organic_results.length,926);
   assert.equal(actual.raw_snapshot_inventory.length,110);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="connected").length,100);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="unconnected").length,10);assert.ok(actual.raw_snapshot_inventory.some((row)=>row.analysis_status==="unconnected"&&row.item_types.includes("jobs")));
+  assert.equal(actual.serp_action_signals.length,8);assert.ok(actual.serp_action_signals.some((row)=>row.signal_types.includes("visual")&&row.recommended_formats.includes("original_images")));assert.ok(actual.serp_action_signals.some((row)=>row.signal_types.includes("commercial")&&row.rated_result_count===2));assert.ok(actual.serp_action_signals.some((row)=>row.signal_types.includes("spelling")&&row.corrected_keyword==="就活ネクタイ"));assert.ok(actual.serp_action_signals.every((row)=>row.status==="proposed"&&row.evidence.length>0));
   assert.equal(actual.serp_task_metadata.length,100);assert.equal(actual.serp_task_metadata.filter((row)=>row.spell!=null).length,1);assert.equal(actual.serp_special_features.length,4);assert.equal(actual.serp_feature_summary.reduce((sum,row)=>sum+row.occurrence_count,0),270);assert.ok(actual.serp_organic_results.every((row)=>row.attributes?.type==="organic"));
   assert.equal(actual.serp_page_keyword_edges.length,926);assert.equal(actual.simultaneous_keyword_relations.length,339);assert.equal(actual.serp_page_coverage.length,565);assert.equal(actual.serp_domain_coverage.length,226);assert.ok(actual.simultaneous_keyword_relations.every((item)=>item.shared_urls.length===item.shared_url_count));assert.ok(actual.serp_page_coverage.every((item)=>item.top_task_id&&item.top_keyword&&item.best_rank>=1));
   assert.equal(actual.serp_ai_overviews.length,68);
@@ -281,6 +285,7 @@ assert.match(app,/data\.aio_citation_references/);assert.match(app,/data\.aio_ci
 assert.match(app,/data\.aio_content_elements/);assert.match(app,/AIO回答要素/);assert.match(app,/既存記事の論点不足/);assert.match(app,/statusLabels/);
 assert.match(app,/data\.serp_task_metadata/);assert.match(app,/data\.serp_special_features/);assert.match(app,/renderAcquisitionHealth/);assert.match(app,/平均処理秒/);assert.match(app,/希少feature/);
 assert.match(app,/data\.raw_snapshot_inventory/);assert.match(app,/分析未接続/);assert.match(app,/rawInventoryRows/);
+assert.match(app,/data\.serp_action_signals/);assert.match(app,/SERP実測からの形式・構成施策/);assert.match(app,/推奨素材/);assert.match(app,/未承認/);
 assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
