@@ -190,22 +190,23 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 
 - task ID、seed keyword、cost、observed time、snapshot path、SHA-256 digest
 - organicのrank、URL、domain、titleと導出page type
+- organicのdescription、pre-snippet、breadcrumb、highlight、timestamp、sitelink、rating、price
 - PAA質問396 occurrence
 - related searches 792 occurrence
-- AIOの有無
+- AIO 68件の有無、取得できた本文17件、69要素、96参照
 
-### 10.2 取得済みだがrawにしかない
+### 10.2 監査で検出したraw-only fieldと救出状況
 
 | field/data | 実データ量 | 現状 |
 |---|---:|---|
-| organic description | 918 / 926 result | title/heading生成に未使用 |
-| organic highlighted terms | 839 result | query-term強調分析に未使用 |
-| organic pre-snippet | 492 result | snippet構造分析に未使用 |
-| organic timestamp | 511 result | freshness分析に未使用 |
-| organic sitelinks | 257 result | site structure分析に未使用 |
-| AIO markdown | 17 / 68 AIO | 本文・topic coverageに未使用 |
-| AIO elements | 69 element | section/topicへ未分解 |
-| AIO references | 96 reference | citation domain/page gapに未使用 |
+| organic description | 918 / 926 result | v10 DB/APIへ救出済み。分析接続待ち |
+| organic highlighted terms | 839 result | v10 DB/APIへ救出済み。分析接続待ち |
+| organic pre-snippet | 492 result | v10 DB/APIへ救出済み。分析接続待ち |
+| organic timestamp | 511 result | v10 DB/APIへ救出済み。分析接続待ち |
+| organic sitelinks | 257 result | v10 DB/APIへ救出済み。分析接続待ち |
+| AIO markdown | 17 / 68 AIO | v10 DB/APIへ救出済み。topic分析待ち |
+| AIO elements | 69 element | v10 DB/APIへ救出済み。section分解待ち |
+| AIO references | 96 reference | v10 DB/APIへ救出済み。citation gap分析待ち |
 | spell correction | 1 query | alias/normalizationへ未接続 |
 | knowledge graph | 1 query | entity分析へ未接続 |
 | people-also-search | 1 query | demand graphへ未接続 |

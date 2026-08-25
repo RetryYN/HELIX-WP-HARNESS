@@ -8,7 +8,8 @@ const present=(value)=>value!==null&&value!==undefined&&value!==""&&(!Array.isAr
 
 const projectedFields=new Set([
   "task.id","task.cost","task.data.keyword","result.datetime","result.item_types",
-  "organic.rank_absolute","organic.domain","organic.title","organic.url",
+  "organic.rank_group","organic.rank_absolute","organic.page","organic.position","organic.domain","organic.title","organic.url","organic.breadcrumb","organic.website_name","organic.description","organic.pre_snippet","organic.timestamp","organic.highlighted","organic.links","organic.rating","organic.price",
+  "ai_overview.rank_group","ai_overview.rank_absolute","ai_overview.asynchronous_ai_overview","ai_overview.markdown",
   "people_also_ask.items.title","people_also_ask.items.seed_question",
   "related_searches.items"
 ]);

@@ -78,6 +78,10 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrence
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE normalized_value='' OR snapshot_path='' OR length(snapshot_digest)!=64").get().count,0,"every demand occurrence must retain normalized value and raw provenance");
 assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT task_id) AS count FROM serp_demand_occurrences WHERE demand_type='paa'").get().count,99,"the one SERP without PAA must remain an explicit absence rather than a fabricated row");
 assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT task_id) AS count FROM serp_demand_occurrences WHERE demand_type='related_search'").get().count,99,"the one SERP without related searches must remain an explicit absence rather than a fabricated row");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_organic_results").get().count,926,"all organic result records must be projected from raw snapshots");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_organic_results WHERE description IS NOT NULL AND description!=''").get().count,918,"available organic descriptions must not be discarded");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_ai_overviews").get().count,68,"all observed AIO records, including asynchronous placeholders, must be projected");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_ai_overviews WHERE markdown IS NOT NULL AND markdown!=''").get().count,17,"available AIO answer text must not be discarded");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword GLOB 'topic-*' OR main_keyword GLOB 'keyword-*'").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,59);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,681);
@@ -89,6 +93,9 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_demand_occurrences.length,1188,"API projection must preserve the full PAA/related-search occurrence population");
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
   assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
+  assert.equal(actual.serp_organic_results.length,926);
+  assert.equal(actual.serp_ai_overviews.length,68);
+  assert.equal(actual.serp_ai_overviews.reduce((sum,row)=>sum+row.references.length,0),96,"AIO citation references must remain available to the API consumer");
   assert.equal(actual.groups.find((group)=>group.main_keyword==="就活ねくたい").display_keyword,"就活 ネクタイ","keyword list uses normalized display tokens while retaining raw main_keyword");
   assert.ok(actual.groups.filter((group)=>group.category_path[0]==="就活").every((group)=>!group.category_path.includes("IT就活")),"general job-search scope must not fall back into the IT category");
   assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");

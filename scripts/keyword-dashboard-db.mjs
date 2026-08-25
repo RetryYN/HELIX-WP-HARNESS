@@ -10,8 +10,8 @@ import { assessKeywordAcquisition, matchKeywordGroupToArticles, reconcileArticle
 import {buildKeywordHierarchy} from "./keyword-hierarchy.mjs";
 import {classifySerpResult,recommendPageType} from "./serp-page-classification.mjs";
 
-const schemaVersion = "keyword-dashboard.v9";
-const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v8","keyword-dashboard.v7"]);
+const schemaVersion = "keyword-dashboard.v10";
+const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v9","keyword-dashboard.v8","keyword-dashboard.v7"]);
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
 
 function serpDemandOccurrences(result) {
@@ -41,7 +41,9 @@ function rawSnapshots(artifactRoot) {
     if (!task?.id || !result) continue;
     const serpPages=classifySerpResult(result,10);
     if(snapshots.has(task.id))throw new Error(`duplicate DFS task snapshot ${task.id}: ${snapshots.get(task.id).snapshot_path} and ${file}`);
-    snapshots.set(task.id, { task_id: task.id, keyword: task.data?.keyword, snapshot_path: file, snapshot_digest:createHash("sha256").update(raw).digest("hex"), observed_at: result.datetime, aio_present: Number(result.item_types?.includes("ai_overview") ?? false), cost: Number(task.cost ?? 0),serp_pages:serpPages,recommended_page_type:recommendPageType(serpPages),demand_occurrences:serpDemandOccurrences(result) });
+    const organic_results=(result.items??[]).filter((item)=>item.type==="organic"&&item.url).map((item)=>({rank_group:item.rank_group,rank_absolute:item.rank_absolute,page:item.page,position:item.position,domain:item.domain,title:item.title,url:item.url,breadcrumb:item.breadcrumb,website_name:item.website_name,description:item.description,pre_snippet:item.pre_snippet,timestamp:item.timestamp,highlighted:item.highlighted??[],links:item.links??[],rating:item.rating??null,price:item.price??null}));
+    const ai_overviews=(result.items??[]).filter((item)=>item.type==="ai_overview").map((item)=>({rank_group:item.rank_group,rank_absolute:item.rank_absolute,asynchronous:Number(item.asynchronous_ai_overview??false),markdown:item.markdown??null,items:item.items??[],references:item.references??[]}));
+    snapshots.set(task.id, { task_id: task.id, keyword: task.data?.keyword, snapshot_path: file, snapshot_digest:createHash("sha256").update(raw).digest("hex"), observed_at: result.datetime, aio_present: Number(result.item_types?.includes("ai_overview") ?? false), cost: Number(task.cost ?? 0),serp_pages:serpPages,recommended_page_type:recommendPageType(serpPages),demand_occurrences:serpDemandOccurrences(result),organic_results,ai_overviews });
   }
   return snapshots;
 }
@@ -63,7 +65,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const db = new DatabaseSync(dbPath);
   db.exec(`
     PRAGMA foreign_keys = OFF;
-    DROP TABLE IF EXISTS keyword_article_match_candidates; DROP TABLE IF EXISTS keyword_article_match_runs; DROP TABLE IF EXISTS serp_demand_occurrences; DROP TABLE IF EXISTS gsc_query_results; DROP TABLE IF EXISTS articles; DROP TABLE IF EXISTS keyword_hierarchy; DROP TABLE IF EXISTS imported_keywords; DROP TABLE IF EXISTS article_links; DROP TABLE IF EXISTS shared_urls; DROP TABLE IF EXISTS dfs_tasks; DROP TABLE IF EXISTS gate_runs; DROP TABLE IF EXISTS strategy_decisions; DROP TABLE IF EXISTS group_keywords; DROP TABLE IF EXISTS keyword_groups; DROP TABLE IF EXISTS sites; DROP TABLE IF EXISTS dashboard_metadata;
+    DROP TABLE IF EXISTS keyword_article_match_candidates; DROP TABLE IF EXISTS keyword_article_match_runs; DROP TABLE IF EXISTS serp_ai_overviews; DROP TABLE IF EXISTS serp_organic_results; DROP TABLE IF EXISTS serp_demand_occurrences; DROP TABLE IF EXISTS gsc_query_results; DROP TABLE IF EXISTS articles; DROP TABLE IF EXISTS keyword_hierarchy; DROP TABLE IF EXISTS imported_keywords; DROP TABLE IF EXISTS article_links; DROP TABLE IF EXISTS shared_urls; DROP TABLE IF EXISTS dfs_tasks; DROP TABLE IF EXISTS gate_runs; DROP TABLE IF EXISTS strategy_decisions; DROP TABLE IF EXISTS group_keywords; DROP TABLE IF EXISTS keyword_groups; DROP TABLE IF EXISTS sites; DROP TABLE IF EXISTS dashboard_metadata;
     PRAGMA foreign_keys = ON;
     CREATE TABLE dashboard_metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
     CREATE TABLE imported_keywords (source_keyword_id TEXT PRIMARY KEY, site_id TEXT NOT NULL, source_sheet TEXT NOT NULL, source_row INTEGER NOT NULL, raw_keyword TEXT NOT NULL, search_volume INTEGER, cpc REAL, competition REAL, processing_state TEXT NOT NULL);
@@ -77,6 +79,8 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE gate_runs (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), gate_order INTEGER NOT NULL, gate_label TEXT NOT NULL, status TEXT NOT NULL CHECK(status IN ('pass','pending','blocked')), detail TEXT NOT NULL, PRIMARY KEY(group_id, gate_order));
     CREATE TABLE dfs_tasks (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), task_order INTEGER NOT NULL, task_id TEXT NOT NULL, keyword TEXT NOT NULL, snapshot_path TEXT NOT NULL, snapshot_digest TEXT NOT NULL CHECK(length(snapshot_digest)=64), observed_at TEXT NOT NULL, aio_present INTEGER NOT NULL, cost REAL NOT NULL, recommended_page_type TEXT NOT NULL, serp_pages_json TEXT NOT NULL, PRIMARY KEY(group_id, task_order), UNIQUE(task_id));
     CREATE TABLE serp_demand_occurrences (occurrence_id TEXT PRIMARY KEY, group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), task_id TEXT NOT NULL REFERENCES dfs_tasks(task_id), source_keyword TEXT NOT NULL, demand_type TEXT NOT NULL CHECK(demand_type IN ('paa','related_search')), value TEXT NOT NULL, normalized_value TEXT NOT NULL, occurrence_order INTEGER NOT NULL, serp_item_rank INTEGER, recursion_depth INTEGER NOT NULL CHECK(recursion_depth >= 1), seed_value TEXT, snapshot_path TEXT NOT NULL, snapshot_digest TEXT NOT NULL CHECK(length(snapshot_digest)=64), observed_at TEXT NOT NULL, UNIQUE(task_id,demand_type,occurrence_order));
+    CREATE TABLE serp_organic_results (task_id TEXT NOT NULL REFERENCES dfs_tasks(task_id), rank_absolute INTEGER NOT NULL, rank_group INTEGER NOT NULL, page INTEGER NOT NULL, position TEXT, domain TEXT NOT NULL, title TEXT NOT NULL, url TEXT NOT NULL, breadcrumb TEXT, website_name TEXT, description TEXT, pre_snippet TEXT, published_at TEXT, highlighted_json TEXT NOT NULL, links_json TEXT NOT NULL, rating_json TEXT, price_json TEXT, PRIMARY KEY(task_id,rank_absolute));
+    CREATE TABLE serp_ai_overviews (task_id TEXT PRIMARY KEY REFERENCES dfs_tasks(task_id), rank_absolute INTEGER NOT NULL, rank_group INTEGER NOT NULL, asynchronous INTEGER NOT NULL, markdown TEXT, items_json TEXT NOT NULL, references_json TEXT NOT NULL);
     CREATE TABLE shared_urls (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), url_order INTEGER NOT NULL, url TEXT NOT NULL, PRIMARY KEY(group_id, url_order));
     CREATE TABLE article_links (link_id TEXT PRIMARY KEY, site_id TEXT NOT NULL REFERENCES sites(site_id), source_group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), target_group_id TEXT REFERENCES keyword_groups(group_id), trigger_type TEXT NOT NULL, trigger_text TEXT NOT NULL, source_section TEXT, state TEXT NOT NULL);
     CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','見出し一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
@@ -115,6 +119,8 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const insertGate = db.prepare("INSERT INTO gate_runs VALUES (?, ?, ?, ?, ?)");
   const insertTask = db.prepare("INSERT INTO dfs_tasks VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const insertDemand = db.prepare("INSERT INTO serp_demand_occurrences VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  const insertOrganic = db.prepare("INSERT INTO serp_organic_results VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  const insertAio = db.prepare("INSERT INTO serp_ai_overviews VALUES (?, ?, ?, ?, ?, ?, ?)");
   const insertUrl = db.prepare("INSERT INTO shared_urls VALUES (?, ?, ?)");
   for (const group of fixture.groups) {
     const actionState={"新規記事候補":"未施策","記事ID割当済み":"予約済"}[group.state]??group.state;
@@ -130,6 +136,8 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
       if (!group.comparison_keywords.includes(snapshot.keyword)) throw new Error(`DFS task keyword is not in group ${group.id}: ${snapshot.keyword}`);
       insertTask.run(group.id, index, taskId, snapshot.keyword, snapshot.snapshot_path, snapshot.snapshot_digest, snapshot.observed_at, snapshot.aio_present, snapshot.cost,snapshot.recommended_page_type,JSON.stringify(snapshot.serp_pages));
       snapshot.demand_occurrences.forEach((occurrence)=>insertDemand.run(`${taskId}:${occurrence.type}:${occurrence.order}`,group.id,taskId,snapshot.keyword,occurrence.type,occurrence.value,normalizeKeyword(occurrence.value),occurrence.order,occurrence.rank,occurrence.depth,occurrence.seed,snapshot.snapshot_path,snapshot.snapshot_digest,snapshot.observed_at));
+      snapshot.organic_results.forEach((item)=>insertOrganic.run(taskId,item.rank_absolute,item.rank_group,item.page,item.position,item.domain,item.title,item.url,item.breadcrumb,item.website_name,item.description,item.pre_snippet,item.timestamp,JSON.stringify(item.highlighted),JSON.stringify(item.links),item.rating==null?null:JSON.stringify(item.rating),item.price==null?null:JSON.stringify(item.price)));
+      snapshot.ai_overviews.forEach((item)=>insertAio.run(taskId,item.rank_absolute,item.rank_group,item.asynchronous,item.markdown,JSON.stringify(item.items),JSON.stringify(item.references)));
     });
     group.shared_urls.forEach((url, index) => insertUrl.run(group.id, index, url));
   }
@@ -198,5 +206,7 @@ export function projectDashboard(db) {
   const demandMap=new Map();
   for(const occurrence of demandOccurrences){const key=`${occurrence.demand_type}\0${occurrence.normalized_value}`;const current=demandMap.get(key)??{demand_type:occurrence.demand_type,normalized_value:occurrence.normalized_value,representative_value:occurrence.value,occurrence_count:0,task_ids:new Set(),source_keywords:new Set(),group_ids:new Set()};current.occurrence_count+=1;current.task_ids.add(occurrence.task_id);current.source_keywords.add(occurrence.source_keyword);current.group_ids.add(occurrence.group_id);demandMap.set(key,current)}
   const serpDemands=[...demandMap.values()].map((item)=>({...item,task_count:item.task_ids.size,group_count:item.group_ids.size,task_ids:[...item.task_ids],source_keywords:[...item.source_keywords],group_ids:[...item.group_ids]})).sort((left,right)=>right.occurrence_count-left.occurrence_count||left.normalized_value.localeCompare(right.normalized_value,"ja"));
-  return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), keyword_hierarchy:keywordHierarchy, normalization_aliases: JSON.parse(metadata.normalization_aliases), serp_demand_occurrences:demandOccurrences, serp_demands:serpDemands, article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, article_query_summaries: articleQuerySummaries, primary_query_ranking: Object.fromEntries(Object.entries(rankingBySite).map(([siteId,ranking])=>[siteId,{...ranking,method:"log_impressions_plus_clicks_at_p95"}])), gsc_articles: gscArticles.map(({category_ids_json,headings_json,...article})=>article) };
+  const serpOrganicResults=db.prepare("SELECT * FROM serp_organic_results ORDER BY task_id,rank_absolute").all().map(({highlighted_json,links_json,rating_json,price_json,...row})=>({...row,highlighted:JSON.parse(highlighted_json),links:JSON.parse(links_json),rating:rating_json==null?null:JSON.parse(rating_json),price:price_json==null?null:JSON.parse(price_json)}));
+  const serpAiOverviews=db.prepare("SELECT * FROM serp_ai_overviews ORDER BY task_id").all().map(({items_json,references_json,...row})=>({...row,asynchronous:Boolean(row.asynchronous),items:JSON.parse(items_json),references:JSON.parse(references_json)}));
+  return { generated_at: metadata.generated_at, sites, groups, keyword_inventory: db.prepare("SELECT * FROM imported_keywords ORDER BY site_id, source_sheet, source_row").all(), keyword_hierarchy:keywordHierarchy, normalization_aliases: JSON.parse(metadata.normalization_aliases), serp_demand_occurrences:demandOccurrences, serp_demands:serpDemands, serp_organic_results:serpOrganicResults, serp_ai_overviews:serpAiOverviews, article_links: db.prepare("SELECT * FROM article_links ORDER BY link_id").all(), article_queries: articleQueries, article_query_summaries: articleQuerySummaries, primary_query_ranking: Object.fromEntries(Object.entries(rankingBySite).map(([siteId,ranking])=>[siteId,{...ranking,method:"log_impressions_plus_clicks_at_p95"}])), gsc_articles: gscArticles.map(({category_ids_json,headings_json,...article})=>article) };
 }
