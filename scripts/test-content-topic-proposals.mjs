@@ -29,6 +29,8 @@ const generation=buildEvidenceBoundGenerationCandidates(groups,proposals,new Map
 ]]]));
 assert.ok(generation.some((item)=>item.content_type==="heading"&&item.text==="it 就活 エージェントの選び方"&&item.evidence_type==="competitor_term"));
 assert.ok(generation.some((item)=>item.content_type==="title"&&item.text==="it 就活 エージェントの選び方を解説"));
+assert.ok(generation.some((item)=>item.generation.variant_key==="demand_explainer"));
+assert.ok(generation.every((item)=>item.generation.generator_kind==="deterministic_rule"&&item.generation.input_digest.length===64));
 assert.ok(!generation.some((item)=>item.text.includes("する")),"non-editorial co-occurrence terms must not enter generated structures");
 assert.ok(generation.every((item)=>item.status==="proposed"&&item.candidate_digest.length===64&&item.evidence_ids.length>0));
 console.log("content topic proposals: OK (same/cross/unmatched, occurrence preservation, evidence-bound candidates)");

@@ -307,6 +307,7 @@ APIと「市場データ」画面へ投影する。manifest未指定時は空配
 - UIの「コンテンツ設計」でgroupごとの競合page数、heading数、上位共起語と `page count / heading page count` を表示する。
 - evidence-bound生成候補642件を追加した。内訳はPAA/関連検索由来title 57・heading 376、競合共起語由来title 29・heading 180。全件`proposed`で、根拠IDが空の候補は0件。
 - DB v24で全642候補に品質reviewを付与した。主KW包含、文字数heuristic、根拠数、H2/H3親関係、候補内重複、既存WP title/heading完全衝突を検査し、641件`ready`、1件`blocked`（WP #130 H2との衝突）となった。判定は候補と同じく自動承認せず、policy名とSHA-256 review digestを保持する。
+- DB v25では需要複合・需要解説・競合解説のtitle variantと、PAA質問・関連検索・競合軸のheading variantを分離した。全候補に`deterministic_rule`、generator version、variant key、入力SHA-256を付け、LLM生成と区別する。区切り前後の意味重複も品質review対象とし、生成数だけを品質と誤認しない。
 
 現行取得は各検索KWの上位3pageであり、ラッコの上位20サイト深度とは異なる。取得母集団190 URLについては差分0だが、
 上位20深度への拡張は追加SERP取得・freshness・取得負荷・利用条件を伴う別runとして扱う。
