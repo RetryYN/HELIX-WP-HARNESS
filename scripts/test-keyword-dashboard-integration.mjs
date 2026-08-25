@@ -165,6 +165,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_task_metadata.length,100);assert.equal(actual.serp_task_metadata.filter((row)=>row.spell!=null).length,1);assert.equal(actual.serp_special_features.length,4);assert.equal(actual.serp_feature_summary.reduce((sum,row)=>sum+row.occurrence_count,0),270);assert.ok(actual.serp_organic_results.every((row)=>row.attributes?.type==="organic"));
   assert.equal(actual.serp_page_keyword_edges.length,926);assert.equal(actual.simultaneous_keyword_relations.length,339);assert.equal(actual.serp_page_coverage.length,565);assert.equal(actual.serp_domain_coverage.length,226);assert.ok(actual.simultaneous_keyword_relations.every((item)=>item.shared_urls.length===item.shared_url_count));assert.ok(actual.serp_page_coverage.every((item)=>item.top_task_id&&item.top_keyword&&item.best_rank>=1));
   assert.equal(actual.serp_ai_overviews.length,68);
+  assert.equal(actual.content_structure_candidates.filter((item)=>item.draft_package).length,63);assert.ok(actual.content_structure_candidates.every((item)=>item.draft_package.body_state==="not_generated"));assert.ok(actual.content_structure_candidates.every((item)=>item.draft_package.input_digest.length===64&&item.draft_package.package_digest.length===64));assert.ok(actual.content_structure_candidates.some((item)=>item.draft_package.gates.some((gate)=>gate.gate==="citation_approval"&&gate.status==="pending")));
   assert.equal(actual.serp_ai_overviews.reduce((sum,row)=>sum+row.references.length,0),96,"AIO citation references must remain available to the API consumer");
   assert.equal(actual.aio_citation_references.length,96);assert.equal(actual.aio_citation_domains.length,38);assert.equal(actual.aio_citation_references.filter((row)=>row.organic_url_rank!=null).length,61);assert.equal(actual.aio_citation_references.filter((row)=>row.organic_domain_rank!=null).length,71);assert.equal(actual.aio_citation_references.filter((row)=>row.is_own_domain).length,0);
   assert.equal(actual.aio_content_elements.length,69);assert.equal(actual.aio_content_elements.filter((row)=>row.coverage_status==="missing").length,16);assert.ok(actual.aio_content_elements.every((row)=>row.evidence_digest.length===64));
@@ -311,6 +312,7 @@ assert.match(html, /id="content-plan-list"/);
 assert.match(html, /提案のみ・未承認/);
 assert.match(app, /data\.content_topic_proposals/);
 assert.match(app, /data\.content_structure_candidates/);
+assert.match(app,/本文生成package/);assert.match(app,/draft_package/);assert.match(app,/引用未承認のため公開不可/);
 assert.match(app, /data\.content_generation_candidates/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);

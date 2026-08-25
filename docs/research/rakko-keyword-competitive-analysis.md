@@ -383,6 +383,14 @@ H2/H3だけである。本文全量を重複保持しない方針自体は正し
 
 本文そのものを永続化せず、上記の構造化派生値とdigestだけを保存するのが適切な是正となる。
 
+### 10.9 本文生成packageと公開前gate（DB v26）
+
+resolved 63 groupごとに、品質`ready`のtitle、最大50の根拠付きheading、topic proposal IDs、
+AIO citation候補、SERP形式signalを`content-draft-package.v1`へ固定した。52 packageはbrief入力が成立し、
+11件はtitleまたは3見出しgate不足でblocked。全63件の本文は`not_generated`であり、生成済みと偽装しない。
+AIO引用候補がある12件も`unreviewed`のためcitation gateはpending、候補なし51件はblockedである。
+入力とpackageは別々のSHA-256を持ち、後続LLMのmodel/prompt/output履歴と再現比較できる。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
