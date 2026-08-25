@@ -19,6 +19,7 @@
     <button class="tab active" data-view="keywords">キーワード一覧</button>
     <button class="tab" data-view="keyword-tree">キーワードツリー</button>
     <button class="tab" data-view="article-queries">記事獲得クエリ</button>
+    <button class="tab" data-view="content-plans">コンテンツ設計</button>
     <button class="tab" data-view="internal-links">内部リンクマップ</button>
   </nav>
 
@@ -72,6 +73,15 @@
         <div id="query-empty" class="empty-state"></div>
         <div id="query-pagination" class="pagination" aria-live="polite"></div>
       </div>
+    </section>
+
+    <section id="content-plans" class="view">
+      <div class="section-head">
+        <div><h2>根拠付きコンテンツ設計</h2><p>PAA・関連検索の実測値から、タイトルと見出しの候補を生成。すべて提案状態で、自動承認はしません</p></div>
+        <span class="proposal-warning">提案のみ・未承認</span>
+      </div>
+      <div id="content-plan-metrics" class="metrics"></div>
+      <div id="content-plan-list" class="content-plan-list" aria-live="polite"></div>
     </section>
 
     <section id="internal-links" class="view">
