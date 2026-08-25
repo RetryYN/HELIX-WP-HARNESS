@@ -18,6 +18,7 @@
   <nav class="tabs" aria-label="表示切替">
     <button class="tab active" data-view="keywords">キーワード一覧</button>
     <button class="tab" data-view="keyword-tree">キーワードツリー</button>
+    <button class="tab" data-view="demand-search">質問・潜在需要</button>
     <button class="tab" data-view="article-queries">記事獲得クエリ</button>
     <button class="tab" data-view="content-plans">コンテンツ設計</button>
     <button class="tab" data-view="competitor-domains">競合ドメイン</button>
@@ -57,6 +58,12 @@
     <section id="keyword-tree" class="view">
       <div class="section-head table-toolbar"><div><h2>キーワードマインドマップ</h2><p>中心語から正規化トークンを放射状に表示。SERP比較境界と枝を絞り込めます</p></div><div class="filters"><select id="tree-root-filter" aria-label="文脈スコープ"><option value="all">全文脈</option></select><select id="tree-branch-filter" aria-label="キーワード枝"><option value="all">すべての枝</option></select></div></div>
       <div class="tree-summary" id="tree-summary"></div><div class="keyword-tree-canvas" id="keyword-tree-canvas" aria-live="polite"></div><div class="tree-detail" id="tree-detail"></div>
+    </section>
+
+    <section id="demand-search" class="view">
+      <div class="section-head table-toolbar"><div><h2>質問・潜在需要検索</h2><p>PAAと関連検索の実測を横断集計。重要度は検索量ではなく観測task・group・出現回数の相対scoreです</p></div><div class="filters"><input id="demand-search-input" type="search" placeholder="質問・関連語・取得元KWを検索" aria-label="需要検索"><select id="demand-type-filter"><option value="all">すべて</option><option value="paa">PAA質問</option><option value="related_search">関連検索</option></select></div></div>
+      <div id="demand-search-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>需要</th><th>種別</th><th>重要度</th><th>出現</th><th>取得元KW</th><th>group</th><th>SERP位置</th><th>観測期間</th></tr></thead><tbody id="demand-search-rows"></tbody></table><div id="demand-search-empty" class="empty-state"></div></div>
     </section>
 
     <section id="article-queries" class="view">

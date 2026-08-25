@@ -267,7 +267,15 @@ entity 1、選択支援1、画像1、動画1、commercial 3、表記補正1。�
 `task_id:organic rank`へ逆引きでき、SHA-256 evidence digestを持つ。タイトル・見出し・必要素材のguidanceは
 全件`proposed`であり、観測だけから公開内容を自動確定しない。
 
-### 10.5 追加課金データの取得契約（DB v22時点）
+### 10.5 質問・潜在需要の横断index
+
+100 SERP snapshotにある1,188 occurrenceを、PAA 221固有質問・関連検索493固有語へ正規化した。
+独立画面で本文と取得元KWを検索し、種別filter、occurrence数、task数、group数、SERP位置、再帰depth、
+初回・最終観測を表示する。重要度は検索量と偽装せず、同じ需要種別内のtask数60%、group数25%、
+occurrence数15%を各最大値で正規化した`observed-demand-relative.v1`（0–100）として明示する。
+現状は1階層・100 seed由来であり、PAA回答、2階層再帰、大規模質問indexは未取得のままである。
+
+### 10.6 追加課金データの取得契約（DB v22時点）
 
 `npm run poc:dfs-enrichment:plan` はnetwork callを行わず、現行100 keywordに対するrequest body、
 provider上限、公式公開価格に基づく上限見積を出力する。既定選択はGoogle Ads Search Volume liveと
@@ -291,7 +299,7 @@ APIと「市場データ」画面へ投影する。manifest未指定時は空配
 - Labs Ranked Keywords live: <https://docs.dataforseo.com/v3/dataforseo_labs-google-ranked_keywords-live/>
 - User Data（無料、balance・account pricing）: <https://docs.dataforseo.com/v3/appendix-user-data/>
 
-### 10.6 競合content取得の実装・実測（2026-08-26）
+### 10.7 競合content取得の実装・実測（2026-08-26）
 
 `scripts/fetch-competitor-content-evidence.mjs` を追加し、現行SERPの上位3位から自domainを除外した
 190 URLを候補化・全件処理した。180 URLのHTML取得に成功し、robots拒否3、HTTP error 5、fetch error 2だった。
@@ -315,7 +323,7 @@ APIと「市場データ」画面へ投影する。manifest未指定時は空配
 公式仕様で確認できた集計軸は、本文共起回数、title共起回数、heading共起回数、本文出現site数、heading出現site数である。
 当実装はこれらにtitle出現page数、検索KW別統計、記事KW群別統計、rank加重score、page ID逆引きを加える。
 
-### 10.4 DFS以外の入力監査
+### 10.8 DFS以外の入力監査
 
 #### 元キーワードExcel
 

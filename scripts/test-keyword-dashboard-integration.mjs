@@ -156,6 +156,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
   assert.equal(actual.serp_demand_occurrences.length,1188,"API projection must preserve the full PAA/related-search occurrence population");
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
+  assert.ok(actual.serp_demands.every((row)=>row.importance_score>=0&&row.importance_score<=100&&row.importance_policy==="observed-demand-relative.v1"));assert.ok(actual.serp_demands.every((row)=>row.first_observed_at&&row.last_observed_at&&row.max_recursion_depth>=1));
   assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
   assert.equal(actual.serp_organic_results.length,926);
   assert.equal(actual.raw_snapshot_inventory.length,110);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="connected").length,100);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="unconnected").length,10);assert.ok(actual.raw_snapshot_inventory.some((row)=>row.analysis_status==="unconnected"&&row.item_types.includes("jobs")));
@@ -287,6 +288,7 @@ assert.match(app, /category-grandchild-head/);
 assert.match(app, /syncCategoryFilters/);
 assert.match(app, /data\.article_query_summaries/);
 assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);assert.match(html,/data-view="keyword-tree"/);assert.match(html,/id="tree-branch-filter"/);
+assert.match(html,/data-view="demand-search"/);assert.match(app,/renderDemandSearch/);assert.match(app,/importance_score/);assert.match(app,/importance_policy/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);
 assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatches/);assert.match(app,/SERP説明文/);assert.match(app,/keywordMatches/);
