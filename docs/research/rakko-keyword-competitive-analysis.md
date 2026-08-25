@@ -524,6 +524,14 @@ contract/auth parity 2、export/state coverage 1に分類した。監査全体�
 テストは34 IDの全包含、証拠pathの実在、未完成機能のblocker非空、digestを検証する。画面では取得状態から
 全文を検索できる。
 
+### 10.24 全viewの再現可能JSON snapshot
+
+dashboard上部の「現在ビューJSON」は16 viewすべてをsite-scopedで出力する。schema version、生成日時、
+出力日時、site、view、URL query filter stateと、`retained_evidence_only`、外部取得なし、credential露出なしを
+envelopeへ付ける。複合viewは単純な表示表だけでなく、構成候補と生成候補、AIO domain/reference/element、
+取得処遇・完成監査・raw/task・provider plan等を名前付きdatasetへ分離する。既存の需要・サジェスト・質問の
+filtered CSV/JSONは維持する。全viewのfilter/sortを共通URL契約へ統一する作業と検索履歴は残存gapである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

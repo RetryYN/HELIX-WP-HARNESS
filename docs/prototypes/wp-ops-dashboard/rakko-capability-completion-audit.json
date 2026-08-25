@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "5a8b544c1b897d871ae2c8d5df714bb1eba1867b63f043b2a183c4e382339c07",
+  "inventory_digest": "d80f773254a81f1ee3d92065dfd010e75322aec47ae57ef51fac59d35520a2c4",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -632,7 +632,7 @@
       "blocker_classes": [
         "export_and_state_coverage"
       ],
-      "remaining_gap": "実測需要、保有サジェスト、根拠付き質問候補のfiltered CSV/JSONとquery/mode/type共有URL stateを実装。補助ツールcopyも実装。全dashboard view共通export/sort stateと検索履歴は未実装",
+      "remaining_gap": "実測需要、保有サジェスト、根拠付き質問候補のfiltered CSV/JSONとquery/mode/type共有URL state、補助ツールcopy、全16 dashboard viewのsite-scoped JSON snapshot exportを実装。全viewのfilter/sort URL state統一と検索履歴は未実装",
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
         "docs/prototypes/wp-ops-dashboard/index.html",
@@ -641,7 +641,7 @@
       "verification_commands": [
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "3451faf3e57063c4383be487af95af3831c274691d4b3a27b3dd29a770bb803e"
+      "evidence_digest": "40ede57207597f855b6bcda2aa59d4428600c12ca104a33196e654347ab6ef30"
     },
     {
       "capability_id": "bookmarklet",
@@ -726,5 +726,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "546a2046e6587223110823a698fbe67c67f1e2bfd529847764a8a4ec3e652cfd"
+  "audit_digest": "60d0dd103f818b4c143497cb215233705dd5c99dcae6d73f1e67ff55fcd7f061"
 }
