@@ -391,6 +391,14 @@ AIO citation候補、SERP形式signalを`content-draft-package.v1`へ固定し�
 AIO引用候補がある12件も`unreviewed`のためcitation gateはpending、候補なし51件はblockedである。
 入力とpackageは別々のSHA-256を持ち、後続LLMのmodel/prompt/output履歴と再現比較できる。
 
+### 10.10 類語・表記variant・連想語（DB v27）
+
+全10,694行のnormalized token multisetから921の表記variant clusterを作り、source sheet・rowへ
+逆引き可能にした。これは意味的同義語辞書ではなく、語順・空白・表記差の実測clusterである。
+generic語と記号・数字・無関係な外国語断片をranking対象外にし、7,087有効documentから585基準語、
+1,636連想関係を抽出した。各関係はpair support、両語document count、cosine score、最大20 source ID、
+導出policy、SHA-256を持つ。元行自体は削除せず、ranking品質filterと台帳保持を分離する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

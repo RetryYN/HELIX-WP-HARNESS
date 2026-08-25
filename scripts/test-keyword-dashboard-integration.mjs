@@ -95,6 +95,7 @@ assert.equal(pocDb.prepare("SELECT h.term_count FROM keyword_hierarchy h JOIN im
 assert.equal(pocDb.prepare("SELECT p.raw_keyword AS parent FROM keyword_hierarchy h JOIN imported_keywords k ON k.source_keyword_id=h.source_keyword_id LEFT JOIN imported_keywords p ON p.source_keyword_id=h.parent_source_keyword_id WHERE k.raw_keyword='it ニュース 就活'").get().parent,"it 就活");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = '施策KW群割当済み'").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = 'SERP未取得'").get().count,10594,"unacquired workbook rows must remain explicit rather than disappearing");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_variant_clusters WHERE site_id='it-shukatu.com'").get().count,921);assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_term_associations WHERE site_id='it-shukatu.com'").get().count,1636);assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_term_associations WHERE term='.' OR (term GLOB '[0-9]*' AND term NOT GLOB '*[^0-9]*')").get().count,0,"punctuation/numeric corpus noise must not enter the association ranking");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com'").get().count, 64);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND resolution_state = 'resolved' AND main_keyword IS NOT NULL").get().count, 63, "every real group currently resolves to an actual main keyword");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword IS NULL OR resolution_state = 'unresolved'").get().count, 1);
@@ -154,6 +155,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
 {
   const actual=projectDashboard(pocDb);
   assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
+  assert.equal(actual.sites[0].lexical_index.variant_clusters.length,921);assert.equal(actual.sites[0].lexical_index.associations.length,1636);assert.ok(actual.sites[0].lexical_index.associations.every((item)=>item.evidence_source_keyword_ids.length>0&&item.evidence_digest.length===64));
   assert.equal(actual.serp_demand_occurrences.length,1188,"API projection must preserve the full PAA/related-search occurrence population");
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
   assert.ok(actual.serp_demands.every((row)=>row.importance_score>=0&&row.importance_score<=100&&row.importance_policy==="observed-demand-relative.v1"));assert.ok(actual.serp_demands.every((row)=>row.first_observed_at&&row.last_observed_at&&row.max_recursion_depth>=1));
@@ -290,6 +292,7 @@ assert.match(app, /syncCategoryFilters/);
 assert.match(app, /data\.article_query_summaries/);
 assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);assert.match(html,/data-view="keyword-tree"/);assert.match(html,/id="tree-branch-filter"/);
 assert.match(html,/data-view="demand-search"/);assert.match(app,/renderDemandSearch/);assert.match(app,/importance_score/);assert.match(app,/importance_policy/);
+assert.match(html,/data-view="lexical-explorer"/);assert.match(app,/renderLexicalExplorer/);assert.match(app,/cosine_score/);assert.match(app,/lexical_index/);
 assert.match(html,/demand-export-csv/);assert.match(app,/downloadDemand/);assert.match(app,/history\.replaceState/);assert.match(app,/observed-demand\.\$\{format\}/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);

@@ -18,6 +18,7 @@
   <nav class="tabs" aria-label="表示切替">
     <button class="tab active" data-view="keywords">キーワード一覧</button>
     <button class="tab" data-view="keyword-tree">キーワードツリー</button>
+    <button class="tab" data-view="lexical-explorer">類語・連想語</button>
     <button class="tab" data-view="demand-search">質問・潜在需要</button>
     <button class="tab" data-view="article-queries">記事獲得クエリ</button>
     <button class="tab" data-view="content-plans">コンテンツ設計</button>
@@ -64,6 +65,15 @@
       <div class="section-head table-toolbar"><div><h2>質問・潜在需要検索</h2><p>PAAと関連検索の実測を横断集計。重要度は検索量ではなく観測task・group・出現回数の相対scoreです</p></div><div class="filters"><input id="demand-search-input" type="search" placeholder="質問・関連語・取得元KWを検索" aria-label="需要検索"><select id="demand-type-filter"><option value="all">すべて</option><option value="paa">PAA質問</option><option value="related_search">関連検索</option></select><button id="demand-export-csv" type="button">CSV</button><button id="demand-export-json" type="button">JSON</button></div></div>
       <div id="demand-search-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>需要</th><th>種別</th><th>重要度</th><th>出現</th><th>取得元KW</th><th>group</th><th>SERP位置</th><th>観測期間</th></tr></thead><tbody id="demand-search-rows"></tbody></table><div id="demand-search-empty" class="empty-state"></div></div>
+    </section>
+
+    <section id="lexical-explorer" class="view">
+      <div class="section-head table-toolbar"><div><h2>類語・表記variant・連想語</h2><p>10,694行の保有corpusから導出。外部辞書の意味的同義語とは区別します</p></div><div class="filters"><input id="lexical-search" type="search" placeholder="語・variantを検索" aria-label="語彙検索"></div></div>
+      <div id="lexical-metrics" class="metrics"></div>
+      <div class="subsection-head"><h3>同一token集合の表記variant</h3><p>語順・空白・表記が異なる元行をsource identity付きで束ねます</p></div>
+      <div class="table-wrap"><table><thead><tr><th>variant</th><th>件数</th><th>元sheet・row</th><th>導出規則</th></tr></thead><tbody id="lexical-variant-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>行共起による連想語</h3><p>document supportとcosine score。記号・数字・無関係な外国語断片はrankingから除外します</p></div>
+      <div class="table-wrap"><table><thead><tr><th>基準語</th><th>連想語</th><th>順位</th><th>共起行</th><th>cosine</th><th>証拠行</th></tr></thead><tbody id="lexical-association-rows"></tbody></table><div id="lexical-empty" class="empty-state"></div></div>
     </section>
 
     <section id="article-queries" class="view">
