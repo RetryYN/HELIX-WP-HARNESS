@@ -11,6 +11,7 @@ authority: planning-input
 
 本書は `HELIX-WP-HARNESS` の上位スコープと論理配置境界を固定する planning input である。
 L2 freeze / L3 design を宣言せず、既存要求・PoC・実装の意味を縮退させないためのガードレールとする。
+本書の対象は論理ディレクトリ構成と責務境界であり、後続の物理移設・実装・E2E 完了を本書の受入条件には含めない。
 
 WP HARNESS は SEO 専用ハーネスではない。複数の WordPress サイトを対象に、集客、コンテンツ、
 販売導線、分析、改善・再生、WordPress 運用保守を継続実行するマルチサイト運用基盤である。
@@ -70,7 +71,7 @@ credential_ref      # credential値ではなく安全な参照
 5. 通常の site view で他サイトの KW、記事、GSC、内部リンク、操作を混在させない。
 6. cross-site 集計は portfolio projection でのみ明示的に行う。
 7. `standalone_installation` と `wp_multisite_network` の両方を表現可能にする。
-8. 2サイト以上の実データE2Eで site isolation を検証するまでマルチサイト完成を宣言しない。
+8. 後続実装では、2サイト以上の実データE2Eで site isolation を検証するまでマルチサイト完成を宣言しない。
 
 ## 4. 論理ディレクトリ境界
 
