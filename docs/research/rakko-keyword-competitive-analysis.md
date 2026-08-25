@@ -427,6 +427,12 @@ digestまで逆引きできる費用台帳をAPI/UIへ追加した。取得費�
 再計算して二重計上しない。Rakko creditとの換算根拠はないため `null` のまま保持し、API keyやcredentialは
 DB・投影・画面のいずれにも保存しない。Rakko account側のcredit履歴とkey lifecycleは未取得である。
 
+### 10.14 ブックマークレット
+
+閲覧ページの選択文字、未選択時はpage titleだけをsite-scoped `quick_q` として渡し、横断クイック検索を
+別tabで開くbookmarkletを実装した。本文、DOM、閲覧履歴は送信・保存しない。launcherは取得を実行せず、
+provider課金を発生させない。生成URLは現在のdashboard originを使い、既存query/hashを持ち越さない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

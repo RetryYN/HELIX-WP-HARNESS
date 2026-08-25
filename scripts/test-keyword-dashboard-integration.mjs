@@ -324,6 +324,7 @@ assert.match(app,/本文生成package/);assert.match(app,/draft_package/);assert
 assert.match(app, /data\.content_generation_candidates/);
 assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳からの関連KW候補/);assert.match(app,/concept dedupe済み/);
 assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);
+assert.match(app,/buildQuickSearchBookmarklet/);assert.match(app,/quick_q/);assert.match(html,/quick-search-bookmarklet/);assert.match(html,/ページ本文は送信・保存しません/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);
 assert.match(app, /data\.competitor_headings/);
