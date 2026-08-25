@@ -164,6 +164,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
   assert.equal(actual.serp_organic_results.length,926);
   assert.equal(actual.raw_snapshot_inventory.length,110);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="connected").length,100);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="unconnected").length,10);assert.ok(actual.raw_snapshot_inventory.some((row)=>row.analysis_status==="unconnected"&&row.item_types.includes("jobs")));
+  assert.equal(actual.sites[0].provider_cost_ledger.entry_count,100);assert.equal(actual.sites[0].provider_cost_ledger.total_cost_usd,actual.serp_task_metadata.reduce((sum,row)=>sum+Number(row.cost),0));assert.equal(actual.sites[0].provider_cost_ledger.api_key_stored,false);assert.equal(actual.sites[0].provider_cost_ledger.rakko_credit_equivalence,null);assert.ok(actual.sites[0].provider_cost_ledger.entries.every((entry)=>entry.source_digest.length===64));
   assert.equal(actual.dfs_enrichment_status.state,"not_acquired");assert.deepEqual(actual.keyword_market_metrics,[]);assert.deepEqual(actual.keyword_monthly_searches,[]);assert.deepEqual(actual.keyword_difficulties,[]);assert.deepEqual(actual.domain_ranked_keywords,[]);
   assert.equal(actual.serp_action_signals.length,8);assert.ok(actual.serp_action_signals.some((row)=>row.signal_types.includes("visual")&&row.recommended_formats.includes("original_images")));assert.ok(actual.serp_action_signals.some((row)=>row.signal_types.includes("commercial")&&row.rated_result_count===2));assert.ok(actual.serp_action_signals.some((row)=>row.signal_types.includes("spelling")&&row.corrected_keyword==="就活ネクタイ"));assert.ok(actual.serp_action_signals.every((row)=>row.status==="proposed"&&row.evidence.length>0));
   assert.equal(actual.serp_task_metadata.length,100);assert.equal(actual.serp_task_metadata.filter((row)=>row.spell!=null).length,1);assert.equal(actual.serp_special_features.length,4);assert.equal(actual.serp_feature_summary.reduce((sum,row)=>sum+row.occurrence_count,0),270);assert.ok(actual.serp_organic_results.every((row)=>row.attributes?.type==="organic"));
@@ -322,6 +323,7 @@ assert.match(app, /data\.content_structure_candidates/);
 assert.match(app,/本文生成package/);assert.match(app,/draft_package/);assert.match(app,/引用未承認のため公開不可/);
 assert.match(app, /data\.content_generation_candidates/);
 assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳からの関連KW候補/);assert.match(app,/concept dedupe済み/);
+assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);
 assert.match(app, /data\.competitor_headings/);

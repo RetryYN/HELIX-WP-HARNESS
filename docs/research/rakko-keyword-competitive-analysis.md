@@ -420,6 +420,13 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 単一入力で検索し、各結果から既存filterまたはkeyword treeへ遷移する。launcher自体は新規取得をせず、
 未取得provider datasetを結果に混ぜない。source別の全hit数と上位8 previewを分離して表示する。
 
+### 10.13 取得費用とcredentialの保持境界
+
+取得済みDFS taskのUSD原価をsite別に集約し、日付、provider、endpoint、task/run ID、raw snapshot
+digestまで逆引きできる費用台帳をAPI/UIへ追加した。取得費用はtask metadataを正本とし、group合計から
+再計算して二重計上しない。Rakko creditとの換算根拠はないため `null` のまま保持し、API keyやcredentialは
+DB・投影・画面のいずれにも保存しない。Rakko account側のcredit履歴とkey lifecycleは未取得である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
