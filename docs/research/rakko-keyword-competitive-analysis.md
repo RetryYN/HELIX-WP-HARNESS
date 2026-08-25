@@ -63,6 +63,23 @@ scope: public-product-research-and-reproducible-inference
 | metadata languages | language contract | provider metadata | `ja`固定のみ |
 | AI生成群（Web UI） | title、heading、body、questions、related KW | SERP/heading/co-occurrence + LLM | evidence-bound title/heading 642候補。LLM/body gap |
 
+### 3.1 Web UI・料金・運用inventory
+
+API外を含む公開機能は `docs/research/rakko-web-capability-inventory.json` に34 capabilityとして整理した。
+各行にinput、output、公開上限、credit、履歴、export、推定provider層、HELIX状態、gapを必須化している。
+`scripts/test-rakko-web-capability-inventory.mjs` が主要34 IDの欠落と未記入fieldを検出する。
+
+料金と課金条件は `docs/research/rakko-pricing-policy.json` に分離した。確認できた現行planはfree、entry、light、
+standard、pro、enterpriseの6つ。年払い時の月額は順に0、660、990、2,475、4,950、9,900円で、
+月払いは0、1,320、1,980、4,950、9,900、19,800円。動的料金表から確認できたcreditは
+free 50/週、entry 400/月、light 1,000/月、standard 3,000/月であり、pro/enterpriseの割当量は
+今回保存した公開根拠だけでは確定できないためnullのまま残した。
+
+課金は「Webの結果表示成功」「API/MCPのデータ取得成功」が基本で、API/MCPは原則Web基準の1.5倍。
+0件、1時間以内の同一keyword再検索、error、残高不足、表示前cancelはWebで原則非消費だが、
+一括キーワード調査・検索順位チェックは取得実行時、site-searchはfilter変更時に消費する例外がある。
+copy/CSV/JSON downloadと通常filter/sortは非消費である。
+
 ## 4. DataForSEO対応仮説
 
 ### 4.1 高い対応があるもの
@@ -316,7 +333,7 @@ H2/H3だけである。本文全量を重複保持しない方針自体は正し
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
-- 各Web UI機能のfilter、sort、export、履歴、上限、empty/error/stale状態
+- Web UI 34 capabilityのinput/output/主要limit/credit/history/export棚卸しは完了。動的料金表の全セルと8補助ツール個別契約は未完了
 - SEO難易度の公開説明とDFS Labs指標の数式・分布比較
 - 同一seedでのラッコ出力とDFS出力の合法的なside-by-side実測
 - AI title/headingの入力選択、重複抑制、文字数、coverage quality oracle
