@@ -236,12 +236,13 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 | AIO markdown | 17 / 68 AIO | v10 DB/APIへ救出済み。topic分析待ち |
 | AIO elements | 69 element | v19でsection単位に正規化し、35見出しを既存WP title/heading gapへ接続済み |
 | AIO references | 96 reference | v18で38 domainへ正規化し、通常SERP URL/domain交差と自site citation gapへ接続済み |
-| spell correction | 1 query | alias/normalizationへ未接続 |
-| knowledge graph | 1 query | entity分析へ未接続 |
-| people-also-search | 1 query | demand graphへ未接続 |
-| image/video packs | 各1 query | content format判断へ未接続 |
+| spell correction | 1 query | v20 DB/APIへ救出し、取得状態画面で検出可能。alias/normalization接続待ち |
+| organic xpath / flags / checks / AMP | 926 result | v20 DB/APIへ救出済み。表示形式・品質分析への接続待ち |
+| knowledge graph | 1 query | v20 DB/API/取得状態画面へraw payloadごと救出。entity分析待ち |
+| people-also-search | 1 query | v20 DB/API/取得状態画面へraw payloadごと救出。demand graph接続待ち |
+| image/video packs | 各1 query | v20 DB/API/取得状態画面へraw payloadごと救出。content format判断待ち |
 | price / rating | 6 / 2 organic result | commercial SERP分析へ未接続 |
-| task status/time/result count/check URL/result counts | 全taskに存在 | provider health・再現性画面へ未投影 |
+| task status/time/result count/check URL/result counts | 全taskに存在 | v20 DB/APIへ救出し、provider health・再現性を取得状態画面へ投影済み |
 
 ### 10.3 取得自体をしていない
 

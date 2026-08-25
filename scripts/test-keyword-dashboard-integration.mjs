@@ -90,6 +90,12 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE s
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE state = '確定'").get().count,13);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE action_state NOT IN ('未施策','予約済','下書き','公開中')").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE group_id IN (SELECT group_id FROM keyword_groups WHERE site_id = 'it-shukatu.com')").get().count, 100);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_task_metadata").get().count,100,"every DFS task must retain execution and result metadata");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_task_metadata WHERE status_code=20000 AND status_message='Ok.' AND check_url!=''").get().count,100,"provider health and replay URLs must be queryable without reopening raw snapshots");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_task_metadata WHERE spell_json IS NOT NULL").get().count,1,"the observed spell correction must not remain raw-only");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_feature_occurrences").get().count,270,"every non-organic SERP container occurrence must retain its queryable rank and payload");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_feature_occurrences WHERE feature_type IN ('knowledge_graph','people_also_search','images','video')").get().count,4,"rare SERP features must not be dropped");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_organic_attributes").get().count,926,"every organic result must retain xpath and boolean SERP attributes");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE demand_type='paa'").get().count,396,"all PAA occurrences in the 100 DFS snapshots must be preserved");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE demand_type='related_search'").get().count,792,"all related-search occurrences in the 100 DFS snapshots must be preserved");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE normalized_value='' OR snapshot_path='' OR length(snapshot_digest)!=64").get().count,0,"every demand occurrence must retain normalized value and raw provenance");
@@ -136,6 +142,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
   assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
   assert.equal(actual.serp_organic_results.length,926);
+  assert.equal(actual.serp_task_metadata.length,100);assert.equal(actual.serp_task_metadata.filter((row)=>row.spell!=null).length,1);assert.equal(actual.serp_special_features.length,4);assert.equal(actual.serp_feature_summary.reduce((sum,row)=>sum+row.occurrence_count,0),270);assert.ok(actual.serp_organic_results.every((row)=>row.attributes?.type==="organic"));
   assert.equal(actual.serp_page_keyword_edges.length,926);assert.equal(actual.simultaneous_keyword_relations.length,339);assert.equal(actual.serp_page_coverage.length,565);assert.equal(actual.serp_domain_coverage.length,226);assert.ok(actual.simultaneous_keyword_relations.every((item)=>item.shared_urls.length===item.shared_url_count));assert.ok(actual.serp_page_coverage.every((item)=>item.top_task_id&&item.top_keyword&&item.best_rank>=1));
   assert.equal(actual.serp_ai_overviews.length,68);
   assert.equal(actual.serp_ai_overviews.reduce((sum,row)=>sum+row.references.length,0),96,"AIO citation references must remain available to the API consumer");
@@ -267,6 +274,7 @@ assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatc
 assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert.match(app,/強調語あり/);assert.match(app,/日時あり/);
 assert.match(app,/data\.aio_citation_references/);assert.match(app,/data\.aio_citation_domains/);assert.match(app,/renderAioCitations/);assert.match(app,/通常SERP同一URL/);assert.match(app,/自サイト引用/);
 assert.match(app,/data\.aio_content_elements/);assert.match(app,/AIO回答要素/);assert.match(app,/既存記事の論点不足/);assert.match(app,/statusLabels/);
+assert.match(app,/data\.serp_task_metadata/);assert.match(app,/data\.serp_special_features/);assert.match(app,/renderAcquisitionHealth/);assert.match(app,/平均処理秒/);assert.match(app,/希少feature/);
 assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
