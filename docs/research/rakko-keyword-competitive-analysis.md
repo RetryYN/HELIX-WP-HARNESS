@@ -213,7 +213,9 @@ traceable lifecycleを完成させることが主要な勝ち筋になる。
 ## 10. 現行100KWの取得・drop監査
 
 `scripts/audit-serp-data-coverage.mjs` でraw 100ファイルをfield単位に走査する。
-raw snapshot自体は保持しているため再投影は可能だが、現行DB/UIが利用していない情報が多い。
+raw snapshot自体は保持しているため再投影は可能である。v23再監査では、現行100 snapshot内の
+non-empty fieldはすべて専用列または`serp_feature_occurrences.payload_json`へ投影済みで、rawにしか
+残らないfieldは0件だった。ただし「保存済み」と「意思決定へ接続済み」は別であり、後者は未接続が残る。
 
 ### 10.1 rawからDBへ投影済み
 

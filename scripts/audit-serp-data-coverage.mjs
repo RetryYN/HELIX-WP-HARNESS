@@ -7,12 +7,20 @@ const defaultRoot=path.resolve(repoRoot,"artifacts/poc/keyword-workbook-100-live
 const present=(value)=>value!==null&&value!==undefined&&value!==""&&(!Array.isArray(value)||value.length>0);
 
 const projectedFields=new Set([
-  "task.id","task.cost","task.data.keyword","result.datetime","result.item_types",
-  "organic.rank_group","organic.rank_absolute","organic.page","organic.position","organic.domain","organic.title","organic.url","organic.breadcrumb","organic.website_name","organic.description","organic.pre_snippet","organic.timestamp","organic.highlighted","organic.links","organic.rating","organic.price",
-  "ai_overview.rank_group","ai_overview.rank_absolute","ai_overview.asynchronous_ai_overview","ai_overview.markdown",
+  "task.id","task.status_code","task.status_message","task.time","task.cost","task.result_count","task.path","task.data.keyword",
+  "result.keyword","result.type","result.se_domain","result.location_code","result.language_code","result.check_url","result.datetime","result.spell","result.refinement_chips","result.item_types","result.se_results_count","result.pages_count","result.items_count",
+  "organic.type","organic.rank_group","organic.rank_absolute","organic.page","organic.position","organic.xpath","organic.domain","organic.title","organic.url","organic.breadcrumb","organic.website_name","organic.description","organic.pre_snippet","organic.timestamp","organic.highlighted","organic.links","organic.rating","organic.price","organic.is_image","organic.is_video","organic.is_featured_snippet","organic.is_malicious","organic.is_web_story","organic.amp_version","organic.checks",
+  "ai_overview.type","ai_overview.rank_group","ai_overview.rank_absolute","ai_overview.page","ai_overview.position","ai_overview.xpath","ai_overview.asynchronous_ai_overview","ai_overview.markdown","ai_overview.references",
   "people_also_ask.items.title","people_also_ask.items.seed_question",
   "related_searches.items"
 ]);
+const genericallyProjectedItemFields=new Set(["type","rank_group","rank_absolute","page","position","xpath","title","url"]);
+const payloadProjectedItemTypes=new Set(["people_also_ask","related_searches","ai_overview","knowledge_graph","people_also_search","images","video"]);
+const decisionConnectedFields=new Set([
+  "result.spell","result.item_types","organic.rank_group","organic.rank_absolute","organic.domain","organic.title","organic.url","organic.description","organic.timestamp","organic.highlighted","organic.rating","organic.price",
+  "ai_overview.markdown","ai_overview.references","people_also_ask.items.title","people_also_ask.items.seed_question","related_searches.items"
+]);
+const isProjected=(field)=>projectedFields.has(field)||payloadProjectedItemTypes.has(field.slice(0,field.indexOf(".")))||genericallyProjectedItemFields.has(field.slice(field.indexOf(".")+1));
 
 export function auditSerpDataCoverage(rawRoot=defaultRoot){
   const files=readdirSync(rawRoot).filter((name)=>name.endsWith(".json")).sort();
@@ -34,11 +42,13 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
       if(item.type==="ai_overview"){aioItems+=(item.items??[]).length;aioReferences+=(item.references??[]).length}
     }
   }
-  const capturedAndProjected=[...captured].filter(([field])=>projectedFields.has(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
-  const capturedRawOnly=[...captured].filter(([field])=>!projectedFields.has(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
+  const capturedAndProjected=[...captured].filter(([field])=>isProjected(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
+  const capturedRawOnly=[...captured].filter(([field])=>!isProjected(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
+  const projectedButNotDecisionConnected=capturedAndProjected.filter(({field})=>!decisionConnectedFields.has(field));
   return {
-    schema_version:"serp-data-coverage-audit.v1",raw_files:files.length,
+    schema_version:"serp-data-coverage-audit.v2",raw_files:files.length,
     item_type_counts:Object.fromEntries(itemTypes),captured_and_projected:capturedAndProjected,captured_raw_only:capturedRawOnly,
+    projected_but_not_decision_connected:projectedButNotDecisionConnected,
     acquired_but_empty_or_incomplete:{paa_questions:paaQuestions,paa_answer_items:paaAnswers,paa_references:paaReferences,aio_items:aioItems,aio_references:aioReferences},
     not_acquired:[
       {dataset:"PAA expanded answers/references",reason:"people_also_ask_click_depth was not requested"},
