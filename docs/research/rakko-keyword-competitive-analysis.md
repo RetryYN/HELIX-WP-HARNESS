@@ -481,10 +481,12 @@ GSC query、競合page、質問候補、provider費用を横断表示する。�
 
 ### 10.20 読み取り専用REST API
 
-`/api/v1` にsites、keywords、demands、questions、group brief、acquisitionの6 GET operationを追加し、
-OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、最大100行、cursor paginationとし、
-全responseに `retained_evidence_only`、外部取得なし、credential露出なしを付ける。Rakkoの24 operationと
-同一契約・認証・credit体系ではなく、未実装operationを互換扱いしない。
+`/api/v1` に22 GET routeを実装し、OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、
+最大100行、cursor paginationとし、全responseに `retained_evidence_only`、外部取得なし、credential露出なしを
+付ける。`operation-coverage` はRakko公開OpenAPIの全24 operation IDを保持証跡projectionへ対応付け、登録系2件は
+`plan_only_no_mutation` と明示する。suggest/related/demand/question、同時rank、page/domain/content/heading/
+cooccurrence/SERP、market metadata/status/result、rank empty state、WP linkを提供する。Rakko wire contract、認証、
+credit体系とは同一と称さず、provider mutationを実行しない。
 
 ### 10.21 provider依存データの課金前計画
 

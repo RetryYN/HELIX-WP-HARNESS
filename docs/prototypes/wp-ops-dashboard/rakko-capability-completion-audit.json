@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "c21050b59af9e0b748f5def764c8c4c6d8b468766a37244323f85d2ce20f8747",
+  "inventory_digest": "f1e7a643ee98f79f502dffa9630924e50e17ffcb528b1a7a8f14b4b9dedad78d",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -670,7 +670,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1にsite、KW、需要、質問、brief、取得状態の6 GET operationとOpenAPIを実装。site gate、cursor、外部取得/credentialなしprovenance付き。Rakko 24-operation互換、認証、credit、外部取得operationは未実装",
+      "remaining_gap": "/api/v1に22 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。site gate、cursor、provenance、operation coverage付き。Rakko wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -681,7 +681,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "b44e9233da2661413b52484d792806b6cf233dee7dd60b316243eb822732cbf8"
+      "evidence_digest": "8badaaef1ddee7fc50b515dfa0b8d05ba9f0385af20b434534e82c2bc520f62f"
     },
     {
       "capability_id": "mcp",
@@ -726,5 +726,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "b8ac17fcb24be53d9dd03db2558dd891364d4eb0063b94b7eca17f05d9db1a20"
+  "audit_digest": "f0b3ad381183752c93c19e64cb3e91b8d4044d4a5f28294894d77afd0f431197"
 }
