@@ -296,6 +296,7 @@ assert.match(app,/data\.keyword_hierarchy/);assert.match(app,/mermaid\.render/);
 assert.match(html,/data-view="demand-search"/);assert.match(app,/renderDemandSearch/);assert.match(app,/importance_score/);assert.match(app,/importance_policy/);
 assert.match(html,/data-view="lexical-explorer"/);assert.match(app,/renderLexicalExplorer/);assert.match(app,/cosine_score/);assert.match(app,/lexical_index/);
 assert.match(html,/data-view="keyword-utilities"/);assert.match(app,/runKeywordUtility/);assert.match(app,/executeUtility/);assert.match(html,/競合\/自サイト重複除去/);
+assert.match(html,/data-view="quick-search"/);assert.match(app,/renderQuickSearch/);assert.match(app,/navigateQuickResult/);assert.match(app,/6種類の保持データ/);
 assert.match(html,/demand-export-csv/);assert.match(app,/downloadDemand/);assert.match(app,/history\.replaceState/);assert.match(app,/observed-demand\.\$\{format\}/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);

@@ -414,6 +414,12 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 - 公式補助ツール一覧: <https://rakkokeyword.com/knowledge/tool/>
 - 地域キーワード生成仕様: <https://rakkokeyword.com/techo/generate-local-keywords/>
 
+### 10.12 横断クイック検索
+
+同一site内の元KW台帳、施策group、質問・潜在需要、類語・連想語、GSC記事/queries、競合contentを
+単一入力で検索し、各結果から既存filterまたはkeyword treeへ遷移する。launcher自体は新規取得をせず、
+未取得provider datasetを結果に混ぜない。source別の全hit数と上位8 previewを分離して表示する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

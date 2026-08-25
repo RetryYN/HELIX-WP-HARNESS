@@ -20,6 +20,7 @@
     <button class="tab" data-view="keyword-tree">キーワードツリー</button>
     <button class="tab" data-view="lexical-explorer">類語・連想語</button>
     <button class="tab" data-view="keyword-utilities">補助ツール</button>
+    <button class="tab" data-view="quick-search">クイック検索</button>
     <button class="tab" data-view="demand-search">質問・潜在需要</button>
     <button class="tab" data-view="article-queries">記事獲得クエリ</button>
     <button class="tab" data-view="content-plans">コンテンツ設計</button>
@@ -82,6 +83,11 @@
       <div class="filters"><select id="utility-mode"><option value="combine">キーワード掛け合わせ</option><option value="exclude">AからBを除外</option><option value="intersection">A/B重複抽出</option><option value="diff">差分チェック</option><option value="replace">テキスト置換</option><option value="dedupe">重複キーワード除去</option><option value="normalize">キーワード正規化</option><option value="count">文字数カウント</option><option value="overlap_remove">競合/自サイト重複除去</option></select><input id="utility-search" type="text" placeholder="置換前"><input id="utility-replacement" type="text" placeholder="置換後"><button id="utility-run" type="button">実行</button><button id="utility-copy" type="button">結果をコピー</button></div>
       <div class="utility-grid"><label>リストA<textarea id="utility-left" rows="14" placeholder="1行1キーワード"></textarea></label><label>リストB<textarea id="utility-right" rows="14" placeholder="掛け合わせ・比較対象"></textarea></label><label>結果<textarea id="utility-result" rows="14" readonly></textarea></label></div>
       <div id="utility-summary" class="empty-state"><strong>未実行</strong><span>地域キーワード生成のみ、行政区域dataset未接続のため未実装です。</span></div>
+    </section>
+
+    <section id="quick-search" class="view">
+      <div class="section-head table-toolbar"><div><h2>横断クイック検索</h2><p>元KW、施策group、質問需要、語彙、GSC記事、競合contentを一度に検索します</p></div><div class="filters"><input id="quick-search-input" type="search" placeholder="キーワード・URL・記事タイトル" aria-label="横断検索"></div></div>
+      <div id="quick-search-metrics" class="metrics"></div><div id="quick-search-results" class="cards"></div>
     </section>
 
     <section id="article-queries" class="view">
