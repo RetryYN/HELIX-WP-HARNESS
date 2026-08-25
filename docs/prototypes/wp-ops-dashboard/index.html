@@ -20,6 +20,7 @@
     <button class="tab" data-view="keyword-tree">キーワードツリー</button>
     <button class="tab" data-view="lexical-explorer">類語・連想語</button>
     <button class="tab" data-view="keyword-utilities">補助ツール</button>
+    <button class="tab" data-view="suggest-explorer">サジェスト</button>
     <button class="tab" data-view="quick-search">クイック検索</button>
     <button class="tab" data-view="demand-search">質問・潜在需要</button>
     <button class="tab" data-view="article-queries">記事獲得クエリ</button>
@@ -89,6 +90,13 @@
       <div class="section-head table-toolbar"><div><h2>横断クイック検索</h2><p>元KW、施策group、質問需要、語彙、GSC記事、競合contentを一度に検索します</p></div><div class="filters"><input id="quick-search-input" type="search" placeholder="キーワード・URL・記事タイトル" aria-label="横断検索"><a id="quick-search-bookmarklet" class="detail-button" href="#">選択語をHELIXで調査</a></div></div>
       <div class="notice"><span>上のリンクをブックマークバーへドラッグ。閲覧ページの選択文字（未選択時はページタイトル）を、このsiteの横断検索で開きます。ページ本文は送信・保存しません。</span></div>
       <div id="quick-search-metrics" class="metrics"></div><div id="quick-search-results" class="cards"></div>
+    </section>
+
+    <section id="suggest-explorer" class="view">
+      <div class="section-head table-toolbar"><div><h2>保有コーパス・サジェスト</h2><p>10,694件の元KWを直接検索。Google等のsurface由来と推測せず、workbook証跡を表示します</p></div><div class="filters"><input id="suggest-input" type="search" placeholder="seed keyword" aria-label="サジェスト検索"><select id="suggest-mode"><option value="prefix">前方一致</option><option value="contains">部分一致</option><option value="tokens">全token一致</option></select></div></div>
+      <div id="suggest-metrics" class="metrics"></div>
+      <div id="suggest-empty" class="empty-state"><strong>seedを入力</strong><span>外部surfaceへの通信・課金は行いません。</span></div>
+      <div class="table-wrap"><table><thead><tr><th>候補KW</th><th>一致</th><th>検索Vol</th><th>取得状態</th><th>出典sheet</th><th>source row</th></tr></thead><tbody id="suggest-rows"></tbody></table></div>
     </section>
 
     <section id="article-queries" class="view">

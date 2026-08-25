@@ -433,6 +433,12 @@ DB・投影・画面のいずれにも保存しない。Rakko account側のcredi
 別tabで開くbookmarkletを実装した。本文、DOM、閲覧履歴は送信・保存しない。launcherは取得を実行せず、
 provider課金を発生させない。生成URLは現在のdashboard originを使い、既存query/hashを持ち越さない。
 
+### 10.15 保有コーパス・サジェスト
+
+全10,694元KWを前方一致、部分一致、全token一致で検索し、検索量、取得状態、source sheet/rowを
+最大500件まで表示する。これはworkbook由来の候補であり、Google、YouTube、Amazon、楽天、Bing等の
+autocomplete surface由来とは称さない。外部surface、増量取得、appearance historyは未取得のまま明示する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
