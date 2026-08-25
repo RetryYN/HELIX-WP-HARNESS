@@ -344,7 +344,7 @@ assert.match(app,/renderSuggestExplorer/);assert.match(app,/processing_state/);a
 assert.match(app,/renderAiQuestions/);assert.match(app,/ai_question_candidates/);assert.match(html,/ai-questions/);assert.match(html,/実測PAAはそのまま保持/);
 assert.match(app,/suggestExportRows/);assert.match(app,/questionExportRows/);assert.match(app,/suggest_q/);assert.match(app,/question_kind/);assert.match(html,/suggest-export-csv/);assert.match(html,/ai-question-export-json/);
 assert.match(app,/portfolio_metrics/);assert.match(app,/renderSitePortfolio/);assert.match(html,/site-portfolio/);assert.match(html,/未登録サイトは0件として作らず/);
-assert.match(app,/providerPlan/);assert.match(app,/providerPlanRows/);assert.match(html,/provider依存データ取得計画/);assert.match(html,/費用不明またはprovider gap/);
+assert.match(app,/providerPlan/);assert.match(app,/providerPlanRows/);assert.match(app,/estimated_executable_cost_usd/);assert.match(html,/provider依存データ取得計画/);assert.match(html,/明示live指定・credentials・承認上限/);
 assert.match(app,/locationData\.stations/);assert.match(app,/station_source/);assert.match(app,/生成上限20,000行/);assert.match(html,/locality-prefecture/);assert.match(html,/国交省2025年度駅dataset/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);

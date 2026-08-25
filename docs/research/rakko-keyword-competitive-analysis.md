@@ -476,8 +476,8 @@ dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し�
 登録siteをlabel/domainで検索し、同一定義の元KW、SERP取得/未取得とcoverage、group解決、task、WP記事、
 GSC query、競合page、質問候補、provider費用を横断表示する。投影とUIは2-site fixtureで分離を検証するが、
 現在の本番母集団は1 siteだけである。未登録siteを0件として水増しせず、未知domain index、推定traffic、
-10-100 URLのLabs一括取得、trendは未取得と明示する。GSCは正規化後678 queryと元681行を別fieldで保持し、
-正規化で3行が統合されたことを「破棄」と誤認しないようにする。
+10-100 URLのLabs一括取得、trendは未取得と明示する。標準fixtureのGSCは正規化後678 queryと元681行、
+現在のruntimeは7日分を加えた元999行を別fieldで保持し、正規化統合を「破棄」と誤認しないようにする。
 
 ### 10.20 読み取り専用REST API
 
@@ -490,10 +490,16 @@ OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須�
 
 63確定main KWを正本に、Google Trends Explore Standardは最大5語/batchで13 job、Google News Standardは
 63 job、YouTube Organic Standardはsocial proxyとして63 jobを生成した。合計139 jobはすべて
-`not_executed`、費用は `unknown_until_provider_quote`、credential非保存、明示承認必須である。YouTube SERPを
+`not_executed`、credential非保存、明示承認必須である。2026-08-26確認の公式公開単価はTrends Standard
+$0.0027/task、News/YouTube Standard normal $0.0006/base requestで、実行対象Trends+Newsは$0.0729、
+任意proxyは$0.0378、全planは$0.1107と見積もる。実行直前にaccount pricingを再確認し、明示live flag、
+environment credential、見積以上の厳密な承認上限のいずれかがなければgateで拒否する。YouTube SERPを
 hashtag取得済みとは扱わない。Q&A専用endpointは確認できず、Google operator queryは公式上5倍課金のため
 jobを作らずprovider gapにした。
 
+- DFS Google Trends pricing: <https://dataforseo.com/pricing/keywords-data/google-trends>
+- DFS Google News pricing: <https://dataforseo.com/pricing/serp/google-news-serp-api>
+- DFS YouTube pricing: <https://dataforseo.com/pricing/serp/youtube-serp-api>
 - DFS Google Trends Explore: <https://docs.dataforseo.com/v3/keywords-data-google-trends-explore-task_post/>
 - DFS Google News: <https://docs.dataforseo.com/v3/serp-google-news-task_post/>
 - DFS YouTube Organic: <https://docs.dataforseo.com/v3/serp-youtube-organic-task_post/>
