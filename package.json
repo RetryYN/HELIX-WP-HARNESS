@@ -18,6 +18,8 @@
     "poc:wp-content-structure": "node scripts/fetch-wp-content-structure.mjs",
     "poc:wp-page-seo:test": "node scripts/test-wp-page-seo-metadata.mjs",
     "poc:wp-page-seo-audit:test": "node scripts/test-wp-page-seo-audit.mjs",
+    "poc:site-surface": "node scripts/fetch-site-surface-inventory.mjs",
+    "poc:site-surface:test": "node scripts/test-site-surface-inventory.mjs",
     "poc:competitor-content": "node scripts/fetch-competitor-content-evidence.mjs",
     "poc:dfs-enrichment:plan": "node scripts/acquire-dfs-enrichment.mjs",
     "poc:dfs-enrichment:live": "node scripts/acquire-dfs-enrichment.mjs --live",

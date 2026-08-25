@@ -579,6 +579,15 @@ informational 59で、情報事項は全記事の`json_ld_not_observed`のみ。
 観測上の編集目安として扱い、JSON-LD未観測もサイト全体の不在へ一般化しない。画面とread-only API
 `/api/v1/wordpress/seo-audits`へ接続する。
 
+### 10.30 sitemap母集団とposts分析scopeの分離（DB v32）
+
+robots.txtに宣言されたsitemap indexと配下3 urlsetを取得し、XML本文とrobots本文は保存せずsource digest、
+lastmod、sitemap provenance、正規URLだけを保持した。公開母集団は70 URLで、post 59、固定page 9、home 1、
+HTML sitemap 1。post 59はWP REST/GSC/SEO head分析へ全件接続できた。一方、残る11 URLは現行のpost本文由来
+内部リンク証拠でもincomingを観測できず`surface_only_unconnected`となる。ただし本文RESTはheader/footerを含まない
+ため、これは公開サイト全体の孤立を意味せず「現在保持する分析証拠へ未接続」と限定する。画面とread-only API
+`/api/v1/wordpress/surface`へ接続し、固定ページ等を記事欠落へ誤分類しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
