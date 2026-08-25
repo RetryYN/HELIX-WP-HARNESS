@@ -588,6 +588,16 @@ HTML sitemap 1。post 59はWP REST/GSC/SEO head分析へ全件接続できた。
 ため、これは公開サイト全体の孤立を意味せず「現在保持する分析証拠へ未接続」と限定する。画面とread-only API
 `/api/v1/wordpress/surface`へ接続し、固定ページ等を記事欠落へ誤分類しない。
 
+### 10.31 公開document全体のnavigation再観測（DB v33）
+
+sitemap 70 URLを公開取得し、HTML本文を保存せずdocument digest、SEO head、全anchorのsource URL・region
+（header/main/footer/document）・解決URL・anchor textだけを保持した。70/70がHTTP 200、全link 12,586件、
+同一origin 11,707件。REST本文では未接続だったhomeは69 sourceから413 link、問い合わせpageは5 sourceから
+5 main linkを観測し、実サイト上の接続を証明できた。残る9 URLは観測した70 documentから参照なし。ただし
+外部サイト、JS生成、未収載URLからのlinkまでは証明しない。固定pageのうち5件はnoindex。カテゴリlanding 4件は
+sitemap記載URLが別の最終canonical URLへredirectするため、sitemap正規URL更新候補として分離する。これにより
+REST本文scopeの欠落を公開navigation証拠で補完し、単純な孤立判定を避ける。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
