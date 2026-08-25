@@ -109,6 +109,11 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_domains")
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_references WHERE is_own_domain=1").get().count,0,"the actual corpus has no own-site AIO citation and must expose that gap");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_references WHERE organic_url_rank IS NOT NULL").get().count,61,"AIO citation exact-URL overlap must be matched against the canonical same-query top-10 corpus");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_references WHERE organic_domain_rank IS NOT NULL").get().count,71,"URL and domain overlap must remain separate AIO citation signals");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_content_elements").get().count,69,"every structured AIO answer element must be normalized without discarding text or markdown");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_content_elements WHERE coverage_status='no_title'").get().count,34,"untitled AIO prose must remain distinct from heading gaps");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_content_elements WHERE coverage_status='unassigned'").get().count,19,"titled AIO sections without confirmed WP articles must remain unassessed");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_content_elements WHERE coverage_status='missing'").get().count,16,"assigned articles must expose titled AIO sections absent from current WP headings");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_content_elements WHERE coverage_status IN ('covered_title','covered_heading')").get().count,0,"the strict actual corpus currently covers no titled AIO section and must not fabricate coverage");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_proposals").get().count,878,"canonical topics must aggregate repeated demand occurrences within each keyword group");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_evidence").get().count,1188,"every PAA/related-search occurrence must bind to exactly one proposal in its source group");
 assert.equal(pocDb.prepare("SELECT SUM(occurrence_count) AS count FROM content_topic_proposals").get().count,1188,"proposal occurrence totals must reconcile to the raw demand population");
@@ -135,6 +140,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_ai_overviews.length,68);
   assert.equal(actual.serp_ai_overviews.reduce((sum,row)=>sum+row.references.length,0),96,"AIO citation references must remain available to the API consumer");
   assert.equal(actual.aio_citation_references.length,96);assert.equal(actual.aio_citation_domains.length,38);assert.equal(actual.aio_citation_references.filter((row)=>row.organic_url_rank!=null).length,61);assert.equal(actual.aio_citation_references.filter((row)=>row.organic_domain_rank!=null).length,71);assert.equal(actual.aio_citation_references.filter((row)=>row.is_own_domain).length,0);
+  assert.equal(actual.aio_content_elements.length,69);assert.equal(actual.aio_content_elements.filter((row)=>row.coverage_status==="missing").length,16);assert.ok(actual.aio_content_elements.every((row)=>row.evidence_digest.length===64));
   assert.equal(actual.content_topic_proposals.length,878);
   assert.equal(actual.content_topic_coverage.length,878);assert.equal(actual.content_topic_coverage.filter((row)=>row.coverage_status!=="unassigned").length,220);assert.ok(actual.content_topic_coverage.every((row)=>row.evidence_digest.length===64));
   assert.equal(actual.content_topic_proposals.reduce((sum,row)=>sum+row.evidence_occurrence_ids.length,0),1188);
@@ -260,6 +266,7 @@ assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_p
 assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatches/);assert.match(app,/SERP説明文/);assert.match(app,/keywordMatches/);
 assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert.match(app,/強調語あり/);assert.match(app,/日時あり/);
 assert.match(app,/data\.aio_citation_references/);assert.match(app,/data\.aio_citation_domains/);assert.match(app,/renderAioCitations/);assert.match(app,/通常SERP同一URL/);assert.match(app,/自サイト引用/);
+assert.match(app,/data\.aio_content_elements/);assert.match(app,/AIO回答要素/);assert.match(app,/既存記事の論点不足/);assert.match(app,/statusLabels/);
 assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
