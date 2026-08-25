@@ -166,6 +166,8 @@
       <div class="table-wrap"><table class="acquisition-table"><thead><tr><th>対象KW</th><th>status</th><th>処理時間</th><th>費用</th><th>items</th><th>検索結果概数</th><th>SERP feature</th><th>再現URL</th></tr></thead><tbody id="acquisition-health-rows"></tbody></table></div>
       <div class="subsection-head"><h3>provider費用台帳</h3><p>取得元・endpoint・task・raw digestまでUSD原価を追跡します。Rakko credit換算なし／API key非保存です</p></div>
       <div class="table-wrap"><table><thead><tr><th>取得日</th><th>provider</th><th>種別</th><th>endpoint</th><th>source</th><th>費用</th><th>証跡digest</th></tr></thead><tbody id="provider-cost-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>provider依存データ取得計画</h3><p>Google Trends・News・YouTubeはrequestを生成済みですが未実行です。費用不明またはprovider gapのまま自動実行しません</p></div>
+      <div class="table-wrap"><table><thead><tr><th>機能</th><th>状態</th><th>job</th><th>coverage</th><th>未解決条件</th></tr></thead><tbody id="provider-plan-rows"></tbody></table></div>
       <div class="subsection-head"><h3>希少SERP featureのraw投影</h3><p>knowledge graph、people also search、画像、動画をpayload付きで保持します</p></div>
       <div class="table-wrap"><table class="special-feature-table"><thead><tr><th>対象KW</th><th>feature</th><th>順位</th><th>タイトル</th><th>URL</th></tr></thead><tbody id="special-feature-rows"></tbody></table></div>
       <div class="subsection-head"><h3>raw取得台帳（分析未接続）</h3><p>別PoCなどで取得済みだが、現在選択中の分析母集団へ混ぜていないsnapshotを明示します</p></div>

@@ -483,6 +483,18 @@ OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須�
 全responseに `retained_evidence_only`、外部取得なし、credential露出なしを付ける。Rakkoの24 operationと
 同一契約・認証・credit体系ではなく、未実装operationを互換扱いしない。
 
+### 10.21 provider依存データの課金前計画
+
+63確定main KWを正本に、Google Trends Explore Standardは最大5語/batchで13 job、Google News Standardは
+63 job、YouTube Organic Standardはsocial proxyとして63 jobを生成した。合計139 jobはすべて
+`not_executed`、費用は `unknown_until_provider_quote`、credential非保存、明示承認必須である。YouTube SERPを
+hashtag取得済みとは扱わない。Q&A専用endpointは確認できず、Google operator queryは公式上5倍課金のため
+jobを作らずprovider gapにした。
+
+- DFS Google Trends Explore: <https://docs.dataforseo.com/v3/keywords-data-google-trends-explore-task_post/>
+- DFS Google News: <https://docs.dataforseo.com/v3/serp-google-news-task_post/>
+- DFS YouTube Organic: <https://docs.dataforseo.com/v3/serp-youtube-organic-task_post/>
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
