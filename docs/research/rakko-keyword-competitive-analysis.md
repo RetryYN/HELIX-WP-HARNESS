@@ -54,7 +54,7 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/influx-pages` | 集客page、KW数、traffic value | relevant/ranked pages DB | 観測565 pageのKW/group/rank/top-KW集計とUI実装。全rank DB・traffic/value/history gap |
 | `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | 観測100KW内で225競合、107複数KW、78複数記事群を実装。全rank DB・traffic/value gap |
 | `POST /v1/bulk-site-research` | 最大100 URLの規模・推移比較 | domain metrics history | gap |
-| `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | gap |
+| `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | 取得成功180 page・6,887 headingのtitle/H1-H6検索とrank/KW逆引き実装。全page/description/traffic gap |
 | `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位3page実測・6,887 heading。上位20/除外条件 gap |
 | `POST /v1/co-occurrence` | 上位20pageの本文/title/heading頻出語 | SERP + page parsing + token statistics | task/group別実装済み。上位20/getDetails互換 gap |
 | `POST /v1/search-rank` | 指定site/KWの最新順位とSERP | live/queued SERP | raw SERPあり。継続rank tracking gap |
