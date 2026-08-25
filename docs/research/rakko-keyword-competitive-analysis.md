@@ -451,6 +451,13 @@ autocomplete surface由来とは称さない。外部surface、増量取得、ap
 SERP occurrence ID、generator version、input/evidence digest、review stateを保持する。外部LLMは実行せず、
 model/prompt由来の候補が存在するようには表示しない。
 
+### 10.17 出力と再現可能なfilter state
+
+実測需要に加え、保有コーパス・サジェストと根拠付き質問候補も現在のsite/query/mode/typeで絞った
+全件をCSV/JSON出力できる。表示上限500件はサジェスト表だけに適用し、exportでは一致全件を落とさない。
+filterは `suggest_q` / `suggest_mode` / `question_q` / `question_kind` としてURLに保持し、再読み込み時に
+対象viewを復元する。未取得surfaceや非表示データをexportへ混ぜない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

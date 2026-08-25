@@ -72,7 +72,7 @@
     </section>
 
     <section id="ai-questions" class="view">
-      <div class="section-head table-toolbar"><div><h2>根拠付き質問候補</h2><p>実測PAAはそのまま保持し、関連検索からの派生質問とは明確に分離します</p></div><div class="filters"><input id="ai-question-search" type="search" placeholder="質問・元トピックを検索" aria-label="質問候補検索"><select id="ai-question-kind"><option value="all">すべて</option><option value="observed_question">実測PAA</option><option value="derived_question">派生候補</option></select></div></div>
+      <div class="section-head table-toolbar"><div><h2>根拠付き質問候補</h2><p>実測PAAはそのまま保持し、関連検索からの派生質問とは明確に分離します</p></div><div class="filters"><input id="ai-question-search" type="search" placeholder="質問・元トピックを検索" aria-label="質問候補検索"><select id="ai-question-kind"><option value="all">すべて</option><option value="observed_question">実測PAA</option><option value="derived_question">派生候補</option></select><button id="ai-question-export-csv" type="button">CSV</button><button id="ai-question-export-json" type="button">JSON</button></div></div>
       <div id="ai-question-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>質問</th><th>区分</th><th>施策KW</th><th>元トピック</th><th>証拠</th><th>生成規則</th><th>レビュー</th></tr></thead><tbody id="ai-question-rows"></tbody></table><div id="ai-question-empty" class="empty-state"></div></div>
     </section>
@@ -100,7 +100,7 @@
     </section>
 
     <section id="suggest-explorer" class="view">
-      <div class="section-head table-toolbar"><div><h2>保有コーパス・サジェスト</h2><p>10,694件の元KWを直接検索。Google等のsurface由来と推測せず、workbook証跡を表示します</p></div><div class="filters"><input id="suggest-input" type="search" placeholder="seed keyword" aria-label="サジェスト検索"><select id="suggest-mode"><option value="prefix">前方一致</option><option value="contains">部分一致</option><option value="tokens">全token一致</option></select></div></div>
+      <div class="section-head table-toolbar"><div><h2>保有コーパス・サジェスト</h2><p>10,694件の元KWを直接検索。Google等のsurface由来と推測せず、workbook証跡を表示します</p></div><div class="filters"><input id="suggest-input" type="search" placeholder="seed keyword" aria-label="サジェスト検索"><select id="suggest-mode"><option value="prefix">前方一致</option><option value="contains">部分一致</option><option value="tokens">全token一致</option></select><button id="suggest-export-csv" type="button">CSV</button><button id="suggest-export-json" type="button">JSON</button></div></div>
       <div id="suggest-metrics" class="metrics"></div>
       <div id="suggest-empty" class="empty-state"><strong>seedを入力</strong><span>外部surfaceへの通信・課金は行いません。</span></div>
       <div class="table-wrap"><table><thead><tr><th>候補KW</th><th>一致</th><th>検索Vol</th><th>取得状態</th><th>出典sheet</th><th>source row</th></tr></thead><tbody id="suggest-rows"></tbody></table></div>

@@ -299,7 +299,7 @@ assert.match(html,/data-view="demand-search"/);assert.match(app,/renderDemandSea
 assert.match(html,/data-view="lexical-explorer"/);assert.match(app,/renderLexicalExplorer/);assert.match(app,/cosine_score/);assert.match(app,/lexical_index/);
 assert.match(html,/data-view="keyword-utilities"/);assert.match(app,/runKeywordUtility/);assert.match(app,/executeUtility/);assert.match(html,/競合\/自サイト重複除去/);
 assert.match(html,/data-view="quick-search"/);assert.match(app,/renderQuickSearch/);assert.match(app,/navigateQuickResult/);assert.match(app,/6種類の保持データ/);
-assert.match(html,/demand-export-csv/);assert.match(app,/downloadDemand/);assert.match(app,/history\.replaceState/);assert.match(app,/observed-demand\.\$\{format\}/);
+assert.match(html,/demand-export-csv/);assert.match(app,/downloadDemand/);assert.match(app,/downloadRows/);assert.match(app,/history\.replaceState/);assert.match(app,/observed-demand/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);
 assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatches/);assert.match(app,/SERP説明文/);assert.match(app,/keywordMatches/);
@@ -328,6 +328,7 @@ assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);
 assert.match(app,/buildQuickSearchBookmarklet/);assert.match(app,/quick_q/);assert.match(html,/quick-search-bookmarklet/);assert.match(html,/ページ本文は送信・保存しません/);
 assert.match(app,/renderSuggestExplorer/);assert.match(app,/processing_state/);assert.match(html,/suggest-explorer/);assert.match(html,/保有コーパス・サジェスト/);
 assert.match(app,/renderAiQuestions/);assert.match(app,/ai_question_candidates/);assert.match(html,/ai-questions/);assert.match(html,/実測PAAはそのまま保持/);
+assert.match(app,/suggestExportRows/);assert.match(app,/questionExportRows/);assert.match(app,/suggest_q/);assert.match(app,/question_kind/);assert.match(html,/suggest-export-csv/);assert.match(html,/ai-question-export-json/);
 assert.match(app,/locationData\.stations/);assert.match(app,/station_source/);assert.match(app,/生成上限20,000行/);assert.match(html,/locality-prefecture/);assert.match(html,/国交省2025年度駅dataset/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);
