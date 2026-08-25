@@ -341,6 +341,7 @@ assert.match(app, /data\.content_generation_candidates/);
 assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳からの関連KW候補/);assert.match(app,/concept dedupe済み/);
 assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);
 assert.match(app,/data_disposition/);assert.match(app,/data-disposition-rows/);assert.match(html,/データ処遇台帳/);assert.match(html,/正規化統合/);
+assert.match(app,/rakko-capability-completion-audit\.json/);assert.match(app,/capabilityAudit\.summary/);assert.match(html,/ラッコ34機能・完成監査/);assert.match(html,/capability-audit-rows/);
 assert.match(app,/buildQuickSearchBookmarklet/);assert.match(app,/quick_q/);assert.match(html,/quick-search-bookmarklet/);assert.match(html,/ページ本文は送信・保存しません/);
 assert.match(app,/renderSuggestExplorer/);assert.match(app,/processing_state/);assert.match(html,/suggest-explorer/);assert.match(html,/保有コーパス・サジェスト/);
 assert.match(app,/renderAiQuestions/);assert.match(app,/ai_question_candidates/);assert.match(html,/ai-questions/);assert.match(html,/実測PAAはそのまま保持/);

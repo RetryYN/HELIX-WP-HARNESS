@@ -1,0 +1,730 @@
+{
+  "schema_version": "rakko-capability-completion-audit.v1",
+  "evidence_cutoff": "2026-08-26",
+  "inventory_digest": "5a8b544c1b897d871ae2c8d5df714bb1eba1867b63f043b2a183c4e382339c07",
+  "completion_claim": "not_proven",
+  "summary": {
+    "capability_count": 34,
+    "proven_complete_count": 3,
+    "incomplete_count": 31,
+    "blocker_counts": {
+      "contract_or_auth_parity": 2,
+      "corpus_or_acquisition_depth": 17,
+      "export_and_state_coverage": 1,
+      "external_provider_or_account_data": 5,
+      "generation_runtime_or_quality_oracle": 6
+    }
+  },
+  "capabilities": [
+    {
+      "capability_id": "suggest",
+      "name": "サジェストキーワード",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "10,694元KWの前方/部分/all-token検索をvolume順・sheet/row・取得状態付きで実装。Google/Bing/YouTube/Amazon等surface、増量、appearance historyは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "31c8ac427dcf049e6431ef0abcb96b21ac894518e674b56c46416a7780066ab4"
+    },
+    {
+      "capability_id": "related_keywords",
+      "name": "関連キーワード",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "10,594未取得実在KWから60 group・792 concept-deduped候補をtoken overlap/association/volume/source ID付きで実装。外部大規模index・match type・appearance timeは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "f777919e54cdf6826693bcc226f5594011f245ea34229ca3d773c706738b19bb"
+    },
+    {
+      "capability_id": "question_search",
+      "name": "よくある質問検索",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "実測PAA 221固有質問を横断検索・相対重要度・取得元KW/group/観測期間付きで実装。100 seed外の大規模質問index・相対検索量は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "1d1aa918d15023fe2a7564fdfdef74d9a326dc53e6412b5d89ab7c0a0d60561e"
+    },
+    {
+      "capability_id": "lsi_paa",
+      "name": "潜在的な検索キーワード/質問（LSI/PAA）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "PAA 221 + 関連検索493固有需要を横断DB化し、task/group/occurrence相対importanceと観測期間を実装。回答・2階層・appearance historyは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "8dca320a6be04d7e7047f9b73030542d15576b1686ba8059741b4a20695da31c"
+    },
+    {
+      "capability_id": "simultaneous_ranking",
+      "name": "同時ランクインキーワード",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "観測100KW×上位10 URLの二部graphは実装。最大5,000件のrank DB母集団は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "d7cebec743e7331bfaf67e68ad117d01c3764aaade67096aab96291f0e5ea76a"
+    },
+    {
+      "capability_id": "bulk_keyword_research",
+      "name": "一括キーワード調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "15 sheet・10,694 workbook rowsをsource identity付きで全量DB/階層化。SERP実測は100件のみで、latest/monthly/difficulty/job lifecycle gap",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "4cf2e5c339b8668e9b25420973c47df365a9e973a889e231d2513cc46930b285"
+    },
+    {
+      "capability_id": "influx_keywords",
+      "name": "獲得キーワード調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "観測100KW×上位10 URL内はdomain/page→獲得KW・順位を逆引き可能。全rank keyword DB、subdomain/directory match、推定traffic/value/historyは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "5085078aa3450499a2733b2feab8688a323be47fe03f01d211756a6d8fd0daba"
+    },
+    {
+      "capability_id": "influx_pages",
+      "name": "獲得ページ調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "観測100KW×上位10の565ページをKW/group/rank/top-KW別に集約しUI実装。全rank keyword母集団、推定traffic/value/historyは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "259797e780045b9098704618a9e7a382618674f3bab2ab0e2b433a4ef2d00b92"
+    },
+    {
+      "capability_id": "competitive_domains",
+      "name": "競合サイト抽出",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIは実装。全rank keyword母集団、重複率分母、推定traffic/valueは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "c376b1c53b07e2787a271516f53583ea61c291399f112ade462f5dd42684c9dd"
+    },
+    {
+      "capability_id": "bulk_site_research",
+      "name": "一括サイト調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "site-scoped同一定義の11指標を横断比較するAPI/UIを実装し2-site isolation fixtureで検証。本番登録は1 siteのみで、外部10-100 URL一括Labs指標・trendは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js"
+      ],
+      "verification_commands": [
+        "npm run prototype:research-api:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "d22c61c000f7e14f149e255941281a4473a7e1243bc3c9a6d73005aaf751d47f"
+    },
+    {
+      "capability_id": "site_search",
+      "name": "サイト検索",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移を実装。外部domain/content index、推定trafficによる未知site検索は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js"
+      ],
+      "verification_commands": [
+        "npm run prototype:research-api:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "8d6653589f979ce3c287ea61a1e92fe0d564b92c7be481febb47246744e7bb0e"
+    },
+    {
+      "capability_id": "content_search",
+      "name": "集客コンテンツ検索",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "取得成功180ページのtitle/H1-H6、SERP description、観測獲得KW検索と順位逆引きUIは実装。全page/rank index、推定top keyword、traffic metricsは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "0958a1a0ed70d5386bb5fb2f757ec53e2a2e42a43610d50d8f5d222892a9f2e5"
+    },
+    {
+      "capability_id": "search_rank",
+      "name": "検索順位チェック",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "single snapshot corpus only。target ranking/history/retrieval options gap",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "4ed63aa7b6e441fe3ea95dc91809e48f7e1d69503264861a6b8243c445725cbf"
+    },
+    {
+      "capability_id": "headline",
+      "name": "見出し抽出",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "top3 acquired。top20 and exclusion/average compatibility gap",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "7132ee4bf6599db77b30174e1b56c599784aca8c690a9647cd106621d75c3c0d"
+    },
+    {
+      "capability_id": "cooccurrence",
+      "name": "共起語",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "top3 only。task/group evidence and extra metrics implemented",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "0475de90624dc7612d787180788d6fa9700432355162fd17c3c0a71a21de8ebe"
+    },
+    {
+      "capability_id": "ai_keyword_proposal",
+      "name": "キーワード提案AI",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。LLM model/prompt/output metadataは未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "dcc8319112bf71d9f2ae2c305d5578b68e76aa67771bb6132421290b116cb5e0"
+    },
+    {
+      "capability_id": "ai_title",
+      "name": "記事タイトル生成（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "demand/competitor別deterministic variants、generator version/input digest、主KW/文字数/冗長性/根拠/既存WP衝突review implemented。LLM model/prompt/output metadata gap",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "28959849ad0f57ac7c3b737a5b8b0df6397679e281a2bf0be8b2781c56de26db"
+    },
+    {
+      "capability_id": "ai_heading",
+      "name": "記事見出し生成（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "question/related/competitor別deterministic variants、generator metadata、文字数/根拠/H2-H3階層/既存WP衝突review implemented。LLM outline variants/model/prompt gap",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "4c514f1b65660db77ae8c644c30882c3f78345b2899964a53f9d1b1e9a8c2008"
+    },
+    {
+      "capability_id": "ai_body",
+      "name": "記事本文生成（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "63記事のversioned input package、3-50見出しgate、evidence trace、AIO引用候補、citation approval/fact verification gateを実装。本文LLM実行・claim citation・draft履歴/exportは未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "2b2f10494e8c493ce43821c17ea0dfa5ebcf588c2bd40742b71387779343954a"
+    },
+    {
+      "capability_id": "ai_questions",
+      "name": "関連する疑問（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。外部LLMによる新規質問生成・model/prompt metadataは未実行",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "78a27f6fd68a9a8021908f409663068c916a03c128dc40708cbafcdb7ab1f113"
+    },
+    {
+      "capability_id": "ai_related_keywords",
+      "name": "関連キーワード（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。LLMによる新語生成・model/prompt metadataは未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "5a3b007292d541125bd42f508f35a0190cca813fef398f47c99c2453df731ff5"
+    },
+    {
+      "capability_id": "hashtags",
+      "name": "関連ハッシュタグ",
+      "parity_status": "incomplete",
+      "helix_status": "planned",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "63 seed×YouTube Organicのproxy requestは計画済み・未実行。ただしSERP結果はauthoritative hashtag datasetを保証せず、TikTok providerも未接続のためsocial data未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "a03bfc7b7f7e48714e64423c0129596e14e16bebfb2269501d794c3d216e7e8e"
+    },
+    {
+      "capability_id": "synonyms",
+      "name": "類語・同義語",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "10,694元KWから同一normalized token集合の表記variant 921 clusterをsource sheet/row証拠付きで実装。意味的同義語の外部辞書は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "2fd86ee5b9fe9e8acda4c1eb199e5411633974fa3bd497198465ee979bb1e710"
+    },
+    {
+      "capability_id": "associations",
+      "name": "周辺語・連想語",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "7,087有効keyword documentから585基準語・1,636関係をsupport/cosine/evidence row付きで実装。外部association corpusは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "294d2bd88f696a28cb67743b1b7245a24eee7e665f0ebd71b77073fe28f3745b"
+    },
+    {
+      "capability_id": "qa_sites",
+      "name": "Q&Aサイト検索",
+      "parity_status": "incomplete",
+      "helix_status": "planned",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "専用DFS endpointを確認できず、Google operator queryは公式記載上5倍課金のためjobを生成せずprovider_gap化。PAAは別機能で保持済みだがQ&A site dataは未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "c6e0a87bcf76bebb3084d7dd4be6ec523d5d9268c92664e1cd1183a53bb80baf"
+    },
+    {
+      "capability_id": "google_trends",
+      "name": "Googleトレンド",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "DFS Google Trends Explore Standardへ63 seedを最大5語ずつ13 job、past_5_years graph/mapでrequest計画済み。公式公開単価による見積$0.0351、live/credential/承認上限gate付きで未実行、timeseries/mapは未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "ec58846075edcc9d26936ada54069775ea086890ab91dcea10acc8bb3ad806a3"
+    },
+    {
+      "capability_id": "news",
+      "name": "ニュース・話題の記事",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "DFS Google News Standardへ63 seed・63 jobのrequest計画済み。公式公開単価による見積$0.0378、live/credential/承認上限gate付きで未実行、news corpusは未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "cab50795f2f8690d770fa26e12a85b05a951c116d8943a7587094793124faed2"
+    },
+    {
+      "capability_id": "quick_search",
+      "name": "クイックサーチ",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "元KW、施策group、質問需要、類語連想、GSC記事、競合contentの6 source横断検索と各filter/treeへの遷移を実装。未取得provider datasetは検索対象外",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "3571de22114ba9586f01245e6f7670cc716cf923e67d882463bde7f9ab23d7ff"
+    },
+    {
+      "capability_id": "auxiliary_tools",
+      "name": "補助ツール",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "9操作を実装。地域生成は日本郵便2026-07-31版の47都道府県/1,892市区町村・郡町村と国交省2025年度版の9,046駅groupをarchive/evidence digest付きで使用",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "cfa4151250f7022868977c58769d86bd2831bdac88bfd8bee8afddfde4d23dbb"
+    },
+    {
+      "capability_id": "data_output",
+      "name": "データ出力・copy/filter/sort URL state",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "export_and_state_coverage"
+      ],
+      "remaining_gap": "実測需要、保有サジェスト、根拠付き質問候補のfiltered CSV/JSONとquery/mode/type共有URL stateを実装。補助ツールcopyも実装。全dashboard view共通export/sort stateと検索履歴は未実装",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "3451faf3e57063c4383be487af95af3831c274691d4b3a27b3dd29a770bb803e"
+    },
+    {
+      "capability_id": "bookmarklet",
+      "name": "ブックマークレット",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "選択文字、未選択時page titleをquick_qへ渡しsite別横断検索を別tabで開く。本文送信・保存なし",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "2f0b4fe1d2eb8d45afa444ff34f4f9afb9e0a3030c5f607123686092b45ded45"
+    },
+    {
+      "capability_id": "public_api",
+      "name": "ラッコキーワードAPI",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "contract_or_auth_parity"
+      ],
+      "remaining_gap": "/api/v1にsite、KW、需要、質問、brief、取得状態の6 GET operationとOpenAPIを実装。site gate、cursor、外部取得/credentialなしprovenance付き。Rakko 24-operation互換、認証、credit、外部取得operationは未実装",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
+        "scripts/test-keyword-dashboard-api.mjs",
+        "scripts/test-keyword-dashboard-mcp.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:research-api:test",
+        "npm run prototype:mcp:test"
+      ],
+      "evidence_digest": "b44e9233da2661413b52484d792806b6cf233dee7dd60b316243eb822732cbf8"
+    },
+    {
+      "capability_id": "mcp",
+      "name": "ラッコキーワードMCP",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "contract_or_auth_parity"
+      ],
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/call、site-scoped KW/需要/質問/brief/取得状態の5 read-only toolを実装。Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
+        "scripts/test-keyword-dashboard-api.mjs",
+        "scripts/test-keyword-dashboard-mcp.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:research-api:test",
+        "npm run prototype:mcp:test"
+      ],
+      "evidence_digest": "fb5d3d61226de11a37f00b81f240cb04204854e6b01715971e2ce43b6bd343f6"
+    },
+    {
+      "capability_id": "credit_history",
+      "name": "クレジット消費履歴/API key management",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "DFSのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。Rakko credit換算・Rakko account/API key lifecycleは未取得・未実装",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
+    }
+  ],
+  "audit_digest": "546a2046e6587223110823a698fbe67c67f1e2bfd529847764a8a4ec3e652cfd"
+}

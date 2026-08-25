@@ -21,6 +21,8 @@
     "research:rakko-openapi:refresh": "node scripts/refresh-rakko-openapi-inventory.mjs",
     "research:rakko-openapi:test": "node scripts/test-rakko-openapi-inventory.mjs",
     "research:rakko-web:test": "node scripts/test-rakko-web-capability-inventory.mjs",
+    "research:rakko-completion:build": "node scripts/build-rakko-capability-completion-audit.mjs",
+    "research:rakko-completion:test": "node scripts/test-rakko-capability-completion-audit.mjs",
     "reference:japan-locations:refresh": "node scripts/acquire-japan-location-data.mjs",
     "reference:japan-locations:test": "node scripts/test-japan-location-data.mjs",
     "prototype:ai-questions:test": "node scripts/test-ai-question-candidates.mjs",
@@ -33,7 +35,7 @@
     "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",
     "prototype:keyword-dashboard:test": "node scripts/test-keyword-dashboard-integration.mjs",
     "prototype:keyword-dashboard:empty-state:test": "node scripts/test-keyword-dashboard-empty-state.mjs",
-    "poc:required": "npm run research:rakko-openapi:test && npm run research:rakko-web:test && npm run poc:keyword-serp:test && node scripts/test-serp-page-keyword-graph.mjs && node scripts/test-serp-action-signals.mjs && node scripts/test-dfs-enrichment-plan.mjs && node scripts/test-dfs-enrichment-evidence.mjs && node scripts/test-aio-citation-analysis.mjs && node scripts/test-aio-content-gap-analysis.mjs && node scripts/test-keyword-hierarchy.mjs && node scripts/test-keyword-mindmap.mjs && node scripts/test-keyword-grouping.mjs && node scripts/test-serp-page-classification.mjs && node scripts/test-keyword-article-matching.mjs && node scripts/test-serp-data-coverage.mjs && node scripts/test-content-topic-proposals.mjs && node scripts/test-content-gap-analysis.mjs && node scripts/test-competitor-content-core.mjs && npm run poc:keyword-serp:verify && npm run prototype:keyword-dashboard:test && npm run prototype:keyword-dashboard:empty-state:test",
+    "poc:required": "npm run research:rakko-openapi:test && npm run research:rakko-web:test && npm run research:rakko-completion:test && npm run poc:keyword-serp:test && node scripts/test-serp-page-keyword-graph.mjs && node scripts/test-serp-action-signals.mjs && node scripts/test-dfs-enrichment-plan.mjs && node scripts/test-dfs-enrichment-evidence.mjs && node scripts/test-aio-citation-analysis.mjs && node scripts/test-aio-content-gap-analysis.mjs && node scripts/test-keyword-hierarchy.mjs && node scripts/test-keyword-mindmap.mjs && node scripts/test-keyword-grouping.mjs && node scripts/test-serp-page-classification.mjs && node scripts/test-keyword-article-matching.mjs && node scripts/test-serp-data-coverage.mjs && node scripts/test-content-topic-proposals.mjs && node scripts/test-content-gap-analysis.mjs && node scripts/test-competitor-content-core.mjs && npm run poc:keyword-serp:verify && npm run prototype:keyword-dashboard:test && npm run prototype:keyword-dashboard:empty-state:test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run requirements:validate && npm run requirements:helix-l1-l2 && npm run requirements:helix-vmodel && npm run poc:required"
   },

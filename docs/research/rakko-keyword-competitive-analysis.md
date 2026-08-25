@@ -514,6 +514,16 @@ window内正規化統合6行、競合content取得失敗10 URL、PAA回答未取
 WordPress本文は全量非保持という方針と、link/image/block/section digestまで未抽出という実装不足を同じ
 「取得失敗」にせず、構造派生値の再取得課題として表示する。
 
+### 10.23 34機能の完成証拠監査
+
+`rakko-capability-completion-audit.v1` は34機能それぞれについて、完成判定、残存gap、blocker class、
+権威実装path、検証command、行単位evidence digestを固定する。現時点で完成を証明できるのはquick search、
+補助ツール、bookmarkletの3機能だけで、31機能は残存gapが完成主張を反証する。blockerは重複を許して、
+corpus/acquisition depth 17、generation runtime/quality oracle 6、external provider/account data 5、
+contract/auth parity 2、export/state coverage 1に分類した。監査全体の `completion_claim` は `not_proven` とし、
+テストは34 IDの全包含、証拠pathの実在、未完成機能のblocker非空、digestを検証する。画面では取得状態から
+全文を検索できる。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
