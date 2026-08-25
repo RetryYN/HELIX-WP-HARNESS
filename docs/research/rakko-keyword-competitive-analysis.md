@@ -570,6 +570,15 @@ Open Graph、Twitter Card、JSON-LDを観測できない。robots.txtの許可�
 description、robotsは59/59件。JSON-LD型は0/59件だったため、「サイトに構造化データがない」ではなく
 「今回取得した公開headにJSON-LD scriptが観測されなかった」と限定して扱う。
 
+### 10.29 公開SEO headの証拠境界付き監査
+
+59記事の公開head証拠へ`wp-public-seo-audit.v1`を適用し、HTTP失敗、noindex、canonical欠落・不一致、title・
+description欠落/観測目安外、OG不一致、重複title/description/canonicalを記事単位で検査する。各結果は元の
+evidence digest、finding、severity、audit digestへ逆引きできる。現在の実測はcritical 0、warning 0、
+informational 59で、情報事項は全記事の`json_ld_not_observed`のみ。文字数範囲はランキング保証ではなく
+観測上の編集目安として扱い、JSON-LD未観測もサイト全体の不在へ一般化しない。画面とread-only API
+`/api/v1/wordpress/seo-audits`へ接続する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
