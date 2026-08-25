@@ -10,8 +10,8 @@ import { assessKeywordAcquisition, matchKeywordGroupToArticles, reconcileArticle
 import {buildKeywordHierarchy} from "./keyword-hierarchy.mjs";
 import {classifySerpResult,recommendPageType} from "./serp-page-classification.mjs";
 
-const schemaVersion = "keyword-dashboard.v10";
-const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v9","keyword-dashboard.v8","keyword-dashboard.v7"]);
+const schemaVersion = "keyword-dashboard.v11";
+const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v10","keyword-dashboard.v9","keyword-dashboard.v8","keyword-dashboard.v7"]);
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
 
 function serpDemandOccurrences(result) {
@@ -71,7 +71,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE imported_keywords (source_keyword_id TEXT PRIMARY KEY, site_id TEXT NOT NULL, source_sheet TEXT NOT NULL, source_row INTEGER NOT NULL, raw_keyword TEXT NOT NULL, search_volume INTEGER, cpc REAL, competition REAL, processing_state TEXT NOT NULL);
     CREATE TABLE keyword_hierarchy (source_keyword_id TEXT PRIMARY KEY REFERENCES imported_keywords(source_keyword_id), representative_source_keyword_id TEXT NOT NULL, parent_source_keyword_id TEXT, root_source_keyword_id TEXT NOT NULL, context_scope_id TEXT NOT NULL, normalized_terms_json TEXT NOT NULL, tree_path_json TEXT NOT NULL, term_count INTEGER NOT NULL, depth INTEGER NOT NULL, relation TEXT NOT NULL CHECK(relation IN ('root','child','reordered_alias')));
     CREATE TABLE sites (site_id TEXT PRIMARY KEY, label TEXT NOT NULL, domain TEXT NOT NULL, status TEXT NOT NULL, is_pinned INTEGER NOT NULL, display_order INTEGER NOT NULL);
-    CREATE TABLE articles (site_id TEXT NOT NULL REFERENCES sites(site_id), wp_article_id INTEGER NOT NULL, url TEXT NOT NULL, title TEXT NOT NULL, category_ids_json TEXT NOT NULL, headings_json TEXT NOT NULL, gsc_status TEXT NOT NULL CHECK(gsc_status IN ('ok','error')), PRIMARY KEY(site_id, wp_article_id), UNIQUE(site_id, url));
+    CREATE TABLE articles (site_id TEXT NOT NULL REFERENCES sites(site_id), wp_article_id INTEGER NOT NULL, url TEXT NOT NULL, title TEXT NOT NULL, modified_at TEXT, headings_digest TEXT CHECK(headings_digest IS NULL OR length(headings_digest)=64), category_ids_json TEXT NOT NULL, headings_json TEXT NOT NULL, gsc_status TEXT NOT NULL CHECK(gsc_status IN ('ok','error')), PRIMARY KEY(site_id, wp_article_id), UNIQUE(site_id, url));
     CREATE TABLE gsc_query_results (site_id TEXT NOT NULL, wp_article_id INTEGER NOT NULL, query TEXT NOT NULL, normalized_query TEXT NOT NULL, clicks INTEGER NOT NULL, impressions INTEGER NOT NULL, ctr REAL NOT NULL, position REAL NOT NULL, window_days INTEGER NOT NULL, observed_at TEXT NOT NULL, source_file TEXT NOT NULL, PRIMARY KEY(site_id, wp_article_id, query, window_days, observed_at), FOREIGN KEY(site_id, wp_article_id) REFERENCES articles(site_id, wp_article_id));
     CREATE TABLE keyword_groups (group_id TEXT PRIMARY KEY, site_id TEXT NOT NULL REFERENCES sites(site_id), resolution_state TEXT NOT NULL CHECK(resolution_state IN ('resolved','unresolved')), main_keyword TEXT, derived_parent_candidate TEXT, main_origin TEXT NOT NULL, category TEXT NOT NULL, category_path_json TEXT NOT NULL, source_order_file INTEGER NOT NULL, source_order_sheet INTEGER NOT NULL, source_order_row INTEGER NOT NULL, source_location TEXT NOT NULL, search_volume_json TEXT NOT NULL, search_volume_source TEXT NOT NULL, confidence TEXT NOT NULL, overlap_shared INTEGER NOT NULL, overlap_depth INTEGER NOT NULL, overlap_ratio REAL NOT NULL, action_state TEXT NOT NULL CHECK(action_state IN ('未施策','予約済','下書き','公開中')), wp_article_id INTEGER, cost REAL NOT NULL, CHECK((resolution_state = 'resolved' AND main_keyword IS NOT NULL) OR (resolution_state = 'unresolved' AND main_keyword IS NULL)));
     CREATE TABLE group_keywords (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), keyword TEXT NOT NULL, role TEXT NOT NULL CHECK(role IN ('intent','sibling','comparison')), position INTEGER NOT NULL, PRIMARY KEY(group_id, role, position));
@@ -91,14 +91,16 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const insertSite = db.prepare("INSERT INTO sites VALUES (?, ?, ?, ?, ?, ?)");
   for (const site of fixture.sites) insertSite.run(site.site_id, site.label, site.domain, site.status, Number(site.is_pinned), site.display_order);
   const headingManifest=headingEvidencePath?JSON.parse(readFileSync(headingEvidencePath,"utf8")):null;
-  const headingsByArticle=new Map((headingManifest?.articles??[]).map((article)=>[`${article.site_id}\0${article.wp_article_id}`,article.headings]));
+  const headingEvidenceByArticle=new Map((headingManifest?.articles??[]).map((article)=>[`${article.site_id}\0${article.wp_article_id}`,article]));
   if(gscEvidencePath){
     const manifest=JSON.parse(readFileSync(gscEvidencePath,"utf8"));
     const root=path.dirname(gscEvidencePath);
-    const insertArticle=db.prepare("INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?)");
+    const insertArticle=db.prepare("INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     const insertQuery=db.prepare("INSERT INTO gsc_query_results VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     for(const article of manifest.articles){
-      insertArticle.run(article.site_id,article.wp_article_id,article.url,article.title,JSON.stringify(article.categories??[]),JSON.stringify(headingsByArticle.get(`${article.site_id}\0${article.wp_article_id}`)??[]),article.status);
+      const headingEvidence=headingEvidenceByArticle.get(`${article.site_id}\0${article.wp_article_id}`),headings=headingEvidence?.headings??[];
+      const headingsDigest=headingEvidence?createHash("sha256").update(JSON.stringify(headings)).digest("hex"):null;
+      insertArticle.run(article.site_id,article.wp_article_id,article.url,article.title,headingEvidence?.modified??null,headingsDigest,JSON.stringify(article.categories??[]),JSON.stringify(headings),article.status);
       if(article.status!=="ok")continue;
       const queryPath=path.join(root,article.query_file);
       for(const row of parseCsv(readFileSync(queryPath,"utf8"))){
@@ -193,7 +195,7 @@ export function projectDashboard(db) {
   });
   const rawArticleQueries=db.prepare("SELECT q.site_id,q.wp_article_id,a.url,a.title,a.category_ids_json,q.query,q.normalized_query,q.clicks,q.impressions,q.ctr,q.position,q.window_days,q.observed_at FROM gsc_query_results q JOIN articles a USING(site_id,wp_article_id) ORDER BY q.site_id,q.wp_article_id,q.query").all().map(({category_ids_json,...row})=>({...row,category_paths:categoryPathsForIds(JSON.parse(category_ids_json))}));
   const articleQueries=aggregateNormalizedQueries(rawArticleQueries);
-  const gscArticles=db.prepare("SELECT site_id,wp_article_id,url,title,category_ids_json,headings_json,gsc_status FROM articles ORDER BY site_id,wp_article_id").all();
+  const gscArticles=db.prepare("SELECT site_id,wp_article_id,url,title,modified_at,headings_digest,category_ids_json,headings_json,gsc_status FROM articles ORDER BY site_id,wp_article_id").all();
   const rankingBySite=Object.fromEntries(sites.map((site)=>[site.site_id,primaryQueryStats(articleQueries.filter((row)=>row.site_id===site.site_id))]));
   const articleQuerySummaries=gscArticles.map(({category_ids_json,headings_json,...article})=>{
     const queries=rankPrimaryQueries(articleQueries.filter((row)=>row.site_id===article.site_id&&row.wp_article_id===article.wp_article_id),rankingBySite[article.site_id].impression_p95);

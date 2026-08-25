@@ -227,6 +227,62 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 
 この区別により、再取得なしで救出できるデータと、費用・利用規約・freshnessを伴う新規取得を混同しない。
 
+### 10.4 DFS以外の入力監査
+
+#### 元キーワードExcel
+
+`IT就活大学キーワードマップ.xlsx` は15 sheet、A列に値があるkeyword行だけで10,694行ある。
+現行PoCは先頭sheet `IT就活` の先頭100行だけを取得している。
+
+| sheet | keyword行 |
+|---|---:|
+| IT就活 | 104 |
+| IT 文系 | 112 |
+| ITインターン | 153 |
+| IT新卒 | 231 |
+| IT業界 | 935 |
+| SES | 1,342 |
+| SIer | 1,059 |
+| Webマーケター | 166 |
+| Webデザイナー | 636 |
+| ITエンジニア | 679 |
+| 新卒 | 1,583 |
+| 就活 | 1,684 |
+| 就活エージェント | 380 |
+| レバテックルーキー | 76 |
+| インターン | 1,554 |
+
+したがって、現行100KWは全体の約0.94%であり、残り10,594行は未取得である。
+さらに別入力として競合メディアkeyword workbook 14 sheet、サイトコンセプト・カテゴリー・
+ライティングregulation workbookが存在するが、現行SEO DBへ未取込である。
+
+#### GSC
+
+現行証跡は59記事について `page filter × query`、過去28日、search type=`web` のCSVだけを取得している。
+681 raw query行はDBへ保持し、678 normalized queryへ集約しているため、この母集団内でのdropはない。
+一方、次は取得していない。
+
+- 日別推移（date dimension）
+- country、device、search appearance
+- Discover、Google News、image、video等のsearch type
+- site全体queryとpage別queryのintersection
+- API row limit、匿名化queryによる欠測量の推定
+- 7/28/90日など同一取得時刻の複数window
+
+#### WordPress
+
+WP RESTから59記事の`content.rendered`を一時取得しているが、fixtureへ残すのはtitle、URL、modified、
+H2/H3だけである。本文全量を重複保持しない方針自体は正しいが、現状は次の派生証跡も捨てている。
+
+- content digest（公開直前compare-and-setに必要）
+- paragraph/section位置とsectionごとのtext digest
+- internal/external link、anchor、所属H2/H3
+- image、alt、caption、table/list/FAQ/schema/block type
+- author、status、date、modified GMT、slug、categories/tagsの完全なidentity snapshot
+- H1およびH4-H6（現行抽出はH2/H3のみ）
+
+本文そのものを永続化せず、上記の構造化派生値とdigestだけを保存するのが適切な是正となる。
+
 ## 11. 未検証事項
 
 - 公開API全41 schemaのfield-level対応表

@@ -84,6 +84,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_ai_overviews").ge
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_ai_overviews WHERE markdown IS NOT NULL AND markdown!=''").get().count,17,"available AIO answer text must not be discarded");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword GLOB 'topic-*' OR main_keyword GLOB 'keyword-*'").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,59);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id='it-shukatu.com' AND modified_at IS NOT NULL AND length(headings_digest)=64").get().count,59,"WP modified time and heading evidence digest must survive projection");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,681);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE source_file = '' OR window_days != 28").get().count,0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE normalized_query = ''").get().count,0);
