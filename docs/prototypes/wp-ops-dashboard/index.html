@@ -94,9 +94,9 @@
       <div class="table-wrap"><table class="competitor-domain-table"><thead><tr><th>競合ドメイン</th><th>獲得KW</th><th>横断記事群</th><th>ランクURL</th><th>最高順位</th><th>被覆KWと順位</th></tr></thead><tbody id="competitor-domain-rows"></tbody></table><div id="competitor-domain-empty" class="empty-state"></div></div>
       <div class="subsection-head"><h3>競合の獲得ページ</h3><p>同じ観測SERPをURL単位に集約。全rank DB由来の推定流入・集客価値は未取得のため表示しません</p></div>
       <div class="table-wrap"><table class="competitor-page-table"><thead><tr><th>競合ページ</th><th>獲得KW</th><th>横断記事群</th><th>最高順位</th><th>主KW</th><th>被覆KWと順位</th></tr></thead><tbody id="competitor-page-rows"></tbody></table><div id="competitor-page-empty" class="empty-state"></div></div>
-      <div class="subsection-head table-toolbar"><div><h3>競合コンテンツ検索</h3><p>取得済みページのタイトル・H1–H6を全文検索。検索順位と対象KWまで逆引きできます</p></div><div class="filters"><input id="competitor-content-search" type="search" placeholder="タイトル・見出しを検索" aria-label="競合コンテンツ検索"><select id="competitor-content-target" aria-label="検索対象"><option value="all">タイトル＋見出し</option><option value="title">タイトルのみ</option><option value="heading">見出しのみ</option></select></div></div>
+      <div class="subsection-head table-toolbar"><div><h3>競合コンテンツ検索</h3><p>取得済みページのタイトル・H1–H6・SERP説明文・観測獲得KWを検索。検索順位と取得証跡まで逆引きできます</p></div><div class="filters"><input id="competitor-content-search" type="search" placeholder="タイトル・見出し・説明文・KWを検索" aria-label="競合コンテンツ検索"><select id="competitor-content-target" aria-label="検索対象"><option value="all">すべて</option><option value="title">タイトルのみ</option><option value="heading">見出しのみ</option><option value="description">SERP説明文のみ</option><option value="top-keyword">観測獲得KWのみ</option></select></div></div>
       <div id="competitor-content-metrics" class="metrics"></div>
-      <div class="table-wrap"><table class="competitor-content-table"><thead><tr><th>競合ページ</th><th>最高順位</th><th>対象KW</th><th>一致タイトル・見出し</th></tr></thead><tbody id="competitor-content-rows"></tbody></table><div id="competitor-content-empty" class="empty-state"></div></div>
+      <div class="table-wrap"><table class="competitor-content-table"><thead><tr><th>競合ページ</th><th>最高順位</th><th>対象KW</th><th>一致した取得証跡</th></tr></thead><tbody id="competitor-content-rows"></tbody></table><div id="competitor-content-empty" class="empty-state"></div></div>
     </section>
 
     <section id="internal-links" class="view">

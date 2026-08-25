@@ -1,6 +1,6 @@
 {
   "schema_version": "rakko-openapi-inventory.v1",
-  "generated_at": "2026-08-25T18:23:51.092Z",
+  "generated_at": "2026-08-25T18:31:51.882Z",
   "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
@@ -412,10 +412,11 @@
       "helix_evidence": [
         "competitor_pages",
         "competitor_headings",
+        "serp_organic_results.description",
         "competitor_page_task_evidence",
         "competitor-content dashboard"
       ],
-      "gap": "観測180 pageのtitle/H1-H6検索とrank/KW逆引きは実装。description/topKeywordCollapse、全page index、traffic metrics未取得"
+      "gap": "観測180 pageのtitle/H1-H6/SERP description/獲得KW検索とrank逆引きは実装。全page index、推定topKeywordCollapse、traffic metrics未取得"
     },
     {
       "operation": "POST /v1/headline",
