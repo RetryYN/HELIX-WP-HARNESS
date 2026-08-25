@@ -458,6 +458,16 @@ model/prompt由来の候補が存在するようには表示しない。
 filterは `suggest_q` / `suggest_mode` / `question_q` / `question_kind` としてURLに保持し、再読み込み時に
 対象viewを復元する。未取得surfaceや非表示データをexportへ混ぜない。
 
+### 10.18 読み取り専用MCP
+
+dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し、`initialize`、`ping`、
+`tools/list`、`tools/call`を実装した。toolはsite-scopedの元KW検索、実測需要検索、質問候補、content brief、
+取得状態/費用台帳の5種で、最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを
+許可し、bodyは1MiB、protocol versionは2025-03-26/06-18/11-25に制限する。Rakko OAuthやcredit連携とは称さない。
+
+- MCP Tools仕様: <https://modelcontextprotocol.io/specification/2025-06-18/server/tools>
+- MCP Streamable HTTP仕様: <https://modelcontextprotocol.io/specification/2025-03-26/basic/transports>
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

@@ -262,6 +262,12 @@ async function readDashboard(port) {
 const port = 4187;
 let server = await start(port);
 const first = await readDashboard(port);
+const mcpInitialize=await fetch(`http://127.0.0.1:${port}/mcp`,{
+  method:"POST",headers:{"content-type":"application/json","accept":"application/json, text/event-stream"},
+  body:JSON.stringify({jsonrpc:"2.0",id:1,method:"initialize",params:{protocolVersion:"2025-06-18",capabilities:{},clientInfo:{name:"integration-test",version:"1"}}})
+});assert.equal(mcpInitialize.status,200);assert.equal((await mcpInitialize.json()).result.capabilities.tools.listChanged,false);
+const mcpTools=await fetch(`http://127.0.0.1:${port}/mcp`,{method:"POST",headers:{"content-type":"application/json","mcp-protocol-version":"2025-06-18"},body:JSON.stringify({jsonrpc:"2.0",id:2,method:"tools/list"})});assert.equal(mcpTools.status,200);assert.equal((await mcpTools.json()).result.tools.length,5);
+assert.equal((await fetch(`http://127.0.0.1:${port}/mcp`,{headers:{origin:"https://evil.example"}})).status,403);assert.equal((await fetch(`http://127.0.0.1:${port}/mcp`)).status,405);
 assert.equal(first.sites.length, 2);
 assert.equal(first.groups.length, 2);
 const solo = first.groups.filter((group) => group.site_id === "solobiz-lab.com");
