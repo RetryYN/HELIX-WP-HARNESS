@@ -157,6 +157,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   const actual=projectDashboard(pocDb);
   assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
   assert.equal(actual.sites[0].lexical_index.variant_clusters.length,921);assert.equal(actual.sites[0].lexical_index.associations.length,1636);assert.ok(actual.sites[0].lexical_index.associations.every((item)=>item.evidence_source_keyword_ids.length>0&&item.evidence_digest.length===64));
+  assert.ok(actual.sites[0].ai_question_candidates.length>0);assert.ok(actual.sites[0].ai_question_candidates.some((row)=>row.candidate_kind==="observed_question"&&row.generator_kind==="observed_passthrough"));assert.ok(actual.sites[0].ai_question_candidates.some((row)=>row.candidate_kind==="derived_question"&&row.generator_kind==="deterministic_rule"));assert.ok(actual.sites[0].ai_question_candidates.every((row)=>row.evidence_occurrence_ids.length>0&&row.input_digest.length===64&&row.evidence_digest.length===64));
   assert.equal(actual.groups.reduce((sum,group)=>sum+group.related_keyword_proposals.length,0),792);assert.ok(actual.groups.flatMap((group)=>group.related_keyword_proposals).every((item)=>item.evidence.representative_source_keyword_id&&item.evidence_digest.length===64));
   assert.equal(actual.serp_demand_occurrences.length,1188,"API projection must preserve the full PAA/related-search occurrence population");
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
@@ -326,6 +327,7 @@ assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳�
 assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);
 assert.match(app,/buildQuickSearchBookmarklet/);assert.match(app,/quick_q/);assert.match(html,/quick-search-bookmarklet/);assert.match(html,/ページ本文は送信・保存しません/);
 assert.match(app,/renderSuggestExplorer/);assert.match(app,/processing_state/);assert.match(html,/suggest-explorer/);assert.match(html,/保有コーパス・サジェスト/);
+assert.match(app,/renderAiQuestions/);assert.match(app,/ai_question_candidates/);assert.match(html,/ai-questions/);assert.match(html,/実測PAAはそのまま保持/);
 assert.match(app,/locationData\.stations/);assert.match(app,/station_source/);assert.match(app,/生成上限20,000行/);assert.match(html,/locality-prefecture/);assert.match(html,/国交省2025年度駅dataset/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);

@@ -23,6 +23,7 @@
     "research:rakko-web:test": "node scripts/test-rakko-web-capability-inventory.mjs",
     "reference:japan-locations:refresh": "node scripts/acquire-japan-location-data.mjs",
     "reference:japan-locations:test": "node scripts/test-japan-location-data.mjs",
+    "prototype:ai-questions:test": "node scripts/test-ai-question-candidates.mjs",
     "poc:keyword-article-match": "node scripts/poc-keyword-article-matching.mjs",
     "prototype:keyword-dashboard": "node scripts/serve-keyword-dashboard.mjs",
     "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",

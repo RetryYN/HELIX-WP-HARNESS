@@ -444,6 +444,13 @@ provider課金を発生させない。生成URLは現在のdashboard originを�
 最大500件まで表示する。これはworkbook由来の候補であり、Google、YouTube、Amazon、楽天、Bing等の
 autocomplete surface由来とは称さない。外部surface、増量取得、appearance historyは未取得のまま明示する。
 
+### 10.16 根拠付き質問候補
+
+同一groupの上位12需要を入力に、実測PAAは文言を変えない `observed_passthrough`、関連検索は
+`evidence-bound-question.v1` の規則で疑問形へ変換する。両者をDB/API/UIで別区分とし、source topic、
+SERP occurrence ID、generator version、input/evidence digest、review stateを保持する。外部LLMは実行せず、
+model/prompt由来の候補が存在するようには表示しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
