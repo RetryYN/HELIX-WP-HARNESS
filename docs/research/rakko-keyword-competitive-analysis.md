@@ -559,7 +559,8 @@ WP記事が確定した13 groupについて、group間の同時ランク関係�
 共通SERP URL数、reciprocal rank score、元relation ID、evidence digest付きの `proposed` 候補だけを返す。
 現在は17方向が該当する。scoreは共通URL数、reciprocal rank、modifier、section一致から算出するが、公開記事へ
 自動挿入せず編集判断を要求する。これにより単なるlink graphではなく、検索意図の近さと現行link欠損を同時に
-満たす施策候補へ閉ループ化する。
+満たす施策候補へ閉ループ化する。さらに63 content briefへoutgoing/incoming候補とplan digestを戻し、本文生成
+packageとは別の未承認link planとして表示する。17候補はそれぞれ1つのsource briefへ一意に接続される。
 
 ## 11. 未検証事項
 
