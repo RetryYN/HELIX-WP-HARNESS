@@ -530,7 +530,15 @@ dashboard上部の「現在ビューJSON」は16 viewすべてをsite-scopedで�
 出力日時、site、view、URL query filter stateと、`retained_evidence_only`、外部取得なし、credential露出なしを
 envelopeへ付ける。複合viewは単純な表示表だけでなく、構成候補と生成候補、AIO domain/reference/element、
 取得処遇・完成監査・raw/task・provider plan等を名前付きdatasetへ分離する。既存の需要・サジェスト・質問の
-filtered CSV/JSONは維持する。全viewのfilter/sortを共通URL契約へ統一する作業と検索履歴は残存gapである。
+filtered CSV/JSONは維持する。任意column sortと全filterを共通URL契約へ統一する作業は残存gapである。
+
+### 10.25 view URL stateとブラウザ内検索履歴
+
+tab切替時に16 viewのIDを `view` queryへ保存し、再読込で同じ画面を復元する。quick、suggest、需要、質問の
+確定検索はsite・種別・時刻とともに最大50件をlocalStorageだけへ保持し、クリックで該当画面へ再実行できる。
+同一site・種別・値は最新1件へdedupeし、全消去操作を設ける。サーバー、DB、providerへ履歴を送信しない。
+主要tableの任意column sortと、カテゴリー等を含む全filterの共通URL contractは未実装のため、data output機能は
+まだpartial判定を維持する。
 
 ## 11. 未検証事項
 

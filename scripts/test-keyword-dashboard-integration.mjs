@@ -347,6 +347,7 @@ assert.match(app,/renderSuggestExplorer/);assert.match(app,/processing_state/);a
 assert.match(app,/renderAiQuestions/);assert.match(app,/ai_question_candidates/);assert.match(html,/ai-questions/);assert.match(html,/実測PAAはそのまま保持/);
 assert.match(app,/suggestExportRows/);assert.match(app,/questionExportRows/);assert.match(app,/suggest_q/);assert.match(app,/question_kind/);assert.match(html,/suggest-export-csv/);assert.match(html,/ai-question-export-json/);
 assert.match(app,/helix-dashboard-view-export\.v1/);assert.match(app,/retained_evidence_only/);assert.match(app,/currentViewPayload/);assert.match(html,/current-view-export/);assert.match(html,/現在ビューJSON/);
+assert.match(app,/helix-seo-research-history\.v1/);assert.match(app,/localStorage/);assert.match(app,/searchParams\.set\("view"/);assert.match(html,/ブラウザ内検索履歴/);assert.match(html,/履歴を全消去/);
 assert.match(app,/portfolio_metrics/);assert.match(app,/renderSitePortfolio/);assert.match(html,/site-portfolio/);assert.match(html,/未登録サイトは0件として作らず/);
 assert.match(app,/providerPlan/);assert.match(app,/providerPlanRows/);assert.match(app,/estimated_executable_cost_usd/);assert.match(html,/provider依存データ取得計画/);assert.match(html,/明示live指定・credentials・承認上限/);
 assert.match(app,/locationData\.stations/);assert.match(app,/station_source/);assert.match(app,/生成上限20,000行/);assert.match(html,/locality-prefecture/);assert.match(html,/国交省2025年度駅dataset/);
