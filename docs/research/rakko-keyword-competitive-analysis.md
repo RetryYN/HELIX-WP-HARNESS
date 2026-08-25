@@ -375,7 +375,7 @@ DB v25で15 sheet全10,694行をsource sheet・row identity付きでキーワー
 #### WordPress
 
 WP RESTから59記事の`content.rendered`を一時取得しているが、fixtureへ残すのはtitle、URL、modified、
-H2/H3だけである。本文全量を重複保持しない方針自体は正しいが、現状は次の派生証跡も捨てている。
+H2/H3だけであった。本文全量を重複保持しない方針自体は正しいが、DB v29まで次の派生証跡を捨てていた。
 
 - content digest（公開直前compare-and-setに必要）
 - paragraph/section位置とsectionごとのtext digest
@@ -511,8 +511,8 @@ jobを作らずprovider gapにした。
 `intentionally_not_retained` を分け、観測数、期待数、差分、理由、是正方法、SHA-256 evidence digestを保持する。
 現在runtimeでは元KW10,694行はdrop 0、SERP未取得10,594行、分析未接続raw 10件、GSC raw 999行、
 window内正規化統合6行、競合content取得失敗10 URL、PAA回答未取得221固有質問を明示する。
-WordPress本文は全量非保持という方針と、link/image/block/section digestまで未抽出という実装不足を同じ
-「取得失敗」にせず、構造派生値の再取得課題として表示する。
+WordPress本文は全量非保持という方針と、構造派生値の取得状態を同じ「取得失敗」にせず表示する。DB v30では
+link/image/section/paragraph digestまで救出済みで、rendered HTMLに含まれなかったblock comment/schemaは0件とする。
 
 ### 10.23 34機能の完成証拠監査
 
@@ -539,6 +539,16 @@ tab切替時に16 viewのIDを `view` queryへ保存し、再読込で同じ画�
 同一site・種別・値は最新1件へdedupeし、全消去操作を設ける。サーバー、DB、providerへ履歴を送信しない。
 主要tableの任意column sortと、カテゴリー等を含む全filterの共通URL contractは未実装のため、data output機能は
 まだpartial判定を維持する。
+
+### 10.26 WordPress本文の非保持構造化（DB v30）
+
+公開WP RESTの59記事を再取得し、`content.rendered` 自体はmanifest・DBへ保存せずSHA-256だけを保持した。
+実測からsection 1,499件、paragraph/list/table等8,050件のtext length/digest、link 2,539件、image 1,222件を
+正規化した。linkのうち2,061件は同一origin、2,047件は59記事のURL正本へ解決でき、全59記事が少なくとも
+1本のincoming/outgoing記事間linkを持つ。各linkはsource article、section、anchor、元href、解決URL、target
+article、evidence digestへ逆引きできる。本文テキストはparagraph/section rowへ残さない。rendered HTMLには
+Gutenberg block commentとJSON-LD scriptが含まれなかったため、この取得面のblock/schemaは0件であり、
+「存在しない」とは一般化しない。内部リンク画面と全view JSON exportへ接続した。
 
 ## 11. 未検証事項
 
