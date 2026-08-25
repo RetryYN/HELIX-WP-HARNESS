@@ -476,6 +476,13 @@ GSC query、競合page、質問候補、provider費用を横断表示する。�
 10-100 URLのLabs一括取得、trendは未取得と明示する。GSCは正規化後678 queryと元681行を別fieldで保持し、
 正規化で3行が統合されたことを「破棄」と誤認しないようにする。
 
+### 10.20 読み取り専用REST API
+
+`/api/v1` にsites、keywords、demands、questions、group brief、acquisitionの6 GET operationを追加し、
+OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、最大100行、cursor paginationとし、
+全responseに `retained_evidence_only`、外部取得なし、credential露出なしを付ける。Rakkoの24 operationと
+同一契約・認証・credit体系ではなく、未実装operationを互換扱いしない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

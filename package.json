@@ -25,6 +25,7 @@
     "reference:japan-locations:test": "node scripts/test-japan-location-data.mjs",
     "prototype:ai-questions:test": "node scripts/test-ai-question-candidates.mjs",
     "prototype:mcp:test": "node scripts/test-keyword-dashboard-mcp.mjs",
+    "prototype:research-api:test": "node scripts/test-keyword-dashboard-api.mjs",
     "poc:keyword-article-match": "node scripts/poc-keyword-article-matching.mjs",
     "prototype:keyword-dashboard": "node scripts/serve-keyword-dashboard.mjs",
     "prototype:keyword-dashboard:db:build": "node scripts/build-keyword-dashboard-db.mjs",
