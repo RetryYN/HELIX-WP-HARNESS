@@ -504,6 +504,16 @@ jobを作らずprovider gapにした。
 - DFS Google News: <https://docs.dataforseo.com/v3/serp-google-news-task_post/>
 - DFS YouTube Organic: <https://docs.dataforseo.com/v3/serp-youtube-organic-task_post/>
 
+### 10.22 データ処遇台帳
+
+取得状態画面にsite別の `data_disposition` を追加した。単なるnull件数ではなく、`retained`、
+`not_acquired`、`acquired_unconnected`、`normalized_merge`、`acquisition_failed`、
+`intentionally_not_retained` を分け、観測数、期待数、差分、理由、是正方法、SHA-256 evidence digestを保持する。
+現在runtimeでは元KW10,694行はdrop 0、SERP未取得10,594行、分析未接続raw 10件、GSC raw 999行、
+window内正規化統合6行、競合content取得失敗10 URL、PAA回答未取得221固有質問を明示する。
+WordPress本文は全量非保持という方針と、link/image/block/section digestまで未抽出という実装不足を同じ
+「取得失敗」にせず、構造派生値の再取得課題として表示する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
