@@ -17,16 +17,15 @@ export function parseCompetitorHtml(html,url){
   return {url,title,canonical_url:canonical?new URL(canonical,url).href:null,headings,text,text_length:text.length,text_digest:digest(text),internal_link_count:links.filter((link)=>new URL(link).origin===origin).length,external_link_count:links.filter((link)=>new URL(link).origin!==origin).length};
 }
 
-const allowedPos=new Set(["名詞","動詞","形容詞"]),ignoredPosDetail=new Set(["数","非自立","代名詞","接尾"]);
+const allowedPos=new Set(["名詞","形容詞"]),ignoredPosDetail=new Set(["数","非自立","代名詞","接尾"]);
 export function contentTerms(parsed,tokenize){
-  const headingText=parsed.headings.map((item)=>item.text).join(" "),headingTerms=new Set(tokenize(headingText).filter((token)=>allowedPos.has(token.pos)&&!ignoredPosDetail.has(token.pos_detail_1)).map((token)=>token.basic_form==="*"?token.surface_form:token.basic_form).filter((term)=>term.length>1));
-  const counts=new Map();
-  for(const token of tokenize(parsed.text)){if(!allowedPos.has(token.pos)||ignoredPosDetail.has(token.pos_detail_1))continue;const term=token.basic_form==="*"?token.surface_form:token.basic_form;if(term.length<=1||/^\d+$/.test(term))continue;counts.set(term,(counts.get(term)??0)+1)}
-  return [...counts].map(([term,count])=>({term,count,in_heading:headingTerms.has(term)})).sort((a,b)=>b.count-a.count||a.term.localeCompare(b.term,"ja"));
+  const extract=(value)=>tokenize(value).filter((token)=>allowedPos.has(token.pos)&&!ignoredPosDetail.has(token.pos_detail_1)).map((token)=>token.basic_form==="*"?token.surface_form:token.basic_form).filter((term)=>term.length>1&&!/^\d+$/.test(term));
+  const count=(values)=>{const result=new Map();for(const value of values)result.set(value,(result.get(value)??0)+1);return result},body=count(extract(parsed.text)),title=count(extract(parsed.title)),heading=count(extract(parsed.headings.map((item)=>item.text).join(" ")));
+  return [...body].map(([term,total])=>({term,count:total,title_count:title.get(term)??0,heading_count:heading.get(term)??0,in_title:title.has(term),in_heading:heading.has(term)})).sort((a,b)=>b.count-a.count||a.term.localeCompare(b.term,"ja"));
 }
 
-export function aggregateCompetitorTerms(pageEvidence){
+export function aggregateCompetitorTerms(pageEvidence,{minPageCount=2}={}){
   const aggregate=new Map();
-  for(const page of pageEvidence)for(const term of page.terms){const row=aggregate.get(term.term)??{term:term.term,page_count:0,total_count:0,heading_page_count:0,weighted_score:0,evidence_urls:[]};row.page_count+=1;row.total_count+=term.count;row.heading_page_count+=Number(term.in_heading);row.weighted_score+=1+Math.log1p(term.count)+(term.in_heading?2:0)+Math.max(0,4-page.best_rank)*.25;row.evidence_urls.push(page.url);aggregate.set(term.term,row)}
-  return [...aggregate.values()].sort((a,b)=>b.page_count-a.page_count||b.heading_page_count-a.heading_page_count||b.weighted_score-a.weighted_score||a.term.localeCompare(b.term,"ja"));
+  for(const page of pageEvidence)for(const term of page.terms){const row=aggregate.get(term.term)??{term:term.term,page_count:0,total_count:0,title_count:0,heading_count:0,title_page_count:0,heading_page_count:0,weighted_score:0,evidence_urls:[]};row.page_count+=1;row.total_count+=term.count;row.title_count+=term.title_count??0;row.heading_count+=term.heading_count??Number(term.in_heading);row.title_page_count+=Number(term.in_title??false);row.heading_page_count+=Number(term.in_heading);row.weighted_score+=1+Math.log1p(term.count)+(term.in_title?3:0)+(term.in_heading?2:0)+Math.max(0,4-page.best_rank)*.25;row.evidence_urls.push(page.url);aggregate.set(term.term,row)}
+  return [...aggregate.values()].filter((row)=>row.page_count>=minPageCount).sort((a,b)=>b.page_count-a.page_count||b.heading_page_count-a.heading_page_count||b.title_page_count-a.title_page_count||b.weighted_score-a.weighted_score||a.term.localeCompare(b.term,"ja"));
 }

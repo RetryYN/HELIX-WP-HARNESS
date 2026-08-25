@@ -32,3 +32,20 @@ export function buildContentStructureCandidates(groups,proposals,{maxHeadings=8,
     return{group_id:group.id,title_candidate:title,heading_candidates:ranked.map((item,index)=>({level:index===0?2:3,text:item.display_topic,topic_proposal_id:item.proposal_id,evidence_digest:item.evidence_digest})),source_topic_ids:ranked.map((item)=>item.proposal_id),status:"proposed",candidate_digest:digest([group.id,title,ranked.map((item)=>item.evidence_digest)])};
   });
 }
+
+const editorialTerms=new Set(["メリット","デメリット","注意点","対策","方法","理由","原因","選び方","使い方","違い","比較","ランキング","評判","口コミ","年収","仕事内容","資格","面接","例文","時期","流れ","準備","構成","選考","内定","業界","企業","職種","アピール","勉強","取得","服装","印象","結び方"]);
+export function buildEvidenceBoundGenerationCandidates(groups,proposals,competitorTerms,{maxCompetitorHeadings=3}={}){
+  const results=[];
+  for(const group of groups.filter((item)=>item.main_keyword)){
+    const topics=proposals.filter((item)=>item.group_id===group.id&&item.relation==="same_group").slice(0,8),primaryTitle=topics.slice(0,2).map((item)=>item.display_topic),titleText=primaryTitle.length?`${group.main_keyword}｜${primaryTitle.join("・")}`:group.main_keyword;
+    const add=(contentType,level,textValue,evidenceType,evidenceIds,coverage)=>results.push({candidate_id:digest([group.id,contentType,level,textValue,evidenceType,evidenceIds]).slice(0,24),group_id:group.id,content_type:contentType,heading_level:level,text:textValue,evidence_type:evidenceType,evidence_ids:evidenceIds,coverage,status:"proposed",candidate_digest:digest([group.id,contentType,level,textValue,evidenceType,evidenceIds,coverage])});
+    if(topics.length)add("title",null,titleText,"serp_demand",topics.slice(0,2).map((item)=>item.proposal_id),{topic_count:Math.min(2,topics.length)});
+    topics.forEach((item,index)=>add("heading",index===0?2:3,item.display_topic,"serp_demand",[item.proposal_id],{occurrence_count:item.occurrence_count,task_count:item.task_count}));
+    const competitive=(competitorTerms.get(group.id)??[]).filter((term)=>editorialTerms.has(term.term)&&!normalizeForContains(group.main_keyword).includes(normalizeForContains(term.term))).slice(0,maxCompetitorHeadings);
+    for(const term of competitive)add("heading",2,`${group.main_keyword}の${term.term}`,"competitor_term",term.evidence_page_ids,{page_count:term.page_count,title_count:term.title_count,heading_count:term.heading_count,title_page_count:term.title_page_count,heading_page_count:term.heading_page_count});
+    const titleTerms=competitive.filter((term)=>term.title_page_count>=2).slice(0,2);if(titleTerms.length)add("title",null,`${group.main_keyword}の${titleTerms.map((term)=>term.term).join("・")}を解説`,"competitor_term",[...new Set(titleTerms.flatMap((term)=>term.evidence_page_ids))],{terms:titleTerms.map((term)=>term.term),minimum_title_page_count:Math.min(...titleTerms.map((term)=>term.title_page_count))});
+  }
+  return results;
+}
+
+const normalizeForContains=(value)=>String(value??"").normalize("NFKC").toLocaleLowerCase("ja-JP").replace(/[\s\p{P}\p{S}]+/gu,"");

@@ -230,18 +230,24 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 ### 10.5 競合content取得の実装・実測（2026-08-26）
 
 `scripts/fetch-competitor-content-evidence.mjs` を追加し、現行SERPの上位3位から自domainを除外した
-190 URLを候補化した。初回はrankと複数groupへの寄与で上位60 URLを選択し、56 URLのHTML取得に成功、
-HTTP error 3、fetch error 1だった。失敗も欠損行として保持し、成功ページだけに分析結果を付与する。
+190 URLを候補化・全件処理した。180 URLのHTML取得に成功し、robots拒否3、HTTP error 5、fetch error 2だった。
+失敗も欠損行として保持し、成功ページだけに分析結果を付与する。
 
 - `robots.txt`をorigin単位で確認し、denyされたURLは本文を取得しない。
 - raw HTML、SHA-256、最終URL、HTTP status、content type、取得時刻を保存する。
 - title、canonical、H1-H6、本文digest/文字数、内部・外部link数を分離保存する。
-- kuromojiで名詞・動詞・形容詞を抽出し、単純総出現数だけでなくpage count、heading page count、rank加重scoreをgroup単位で集計する。
-- DB v13では60 page、1,830 heading、28,780 group×termを保持し、各termから根拠page IDへ逆引きできる。
+- kuromojiで意味語（名詞・形容詞）を抽出し、機能動詞を除外する。本文・title・headingの出現回数、各出現page数、rank加重scoreを分離する。
+- 公式仕様と同じく2 page未満にしか現れない語を共起語集計から除外する。
+- DB v14では190 page、6,887 heading、16,995 group×term、24,052 task×termを保持し、各termから根拠page IDへ逆引きできる。
+- group集計だけでなくDFS task（検索KW）単位の上位3page集計も保持するため、記事KW群への統合前後を比較できる。
 - UIの「コンテンツ設計」でgroupごとの競合page数、heading数、上位共起語と `page count / heading page count` を表示する。
+- evidence-bound生成候補642件を追加した。内訳はPAA/関連検索由来title 57・heading 376、競合共起語由来title 29・heading 180。全件`proposed`で、根拠IDが空の候補は0件。
 
-これは先行60 URLの実測であり、候補190 URL全件や全SERP深度の取得完了を意味しない。残り130 URLは
-freshness、取得負荷、利用条件を明示した追加runとして扱う。
+現行取得は各検索KWの上位3pageであり、ラッコの上位20サイト深度とは異なる。取得母集団190 URLについては差分0だが、
+上位20深度への拡張は追加SERP取得・freshness・取得負荷・利用条件を伴う別runとして扱う。
+
+公式仕様で確認できた集計軸は、本文共起回数、title共起回数、heading共起回数、本文出現site数、heading出現site数である。
+当実装はこれらにtitle出現page数、検索KW別統計、記事KW群別統計、rank加重score、page ID逆引きを加える。
 
 ### 10.4 DFS以外の入力監査
 
