@@ -96,6 +96,7 @@ assert.equal(pocDb.prepare("SELECT p.raw_keyword AS parent FROM keyword_hierarch
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = '施策KW群割当済み'").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = 'SERP未取得'").get().count,10594,"unacquired workbook rows must remain explicit rather than disappearing");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_variant_clusters WHERE site_id='it-shukatu.com'").get().count,921);assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_term_associations WHERE site_id='it-shukatu.com'").get().count,1636);assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_term_associations WHERE term='.' OR (term GLOB '[0-9]*' AND term NOT GLOB '*[^0-9]*')").get().count,0,"punctuation/numeric corpus noise must not enter the association ranking");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM related_keyword_proposals").get().count,792);assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT group_id) AS count FROM related_keyword_proposals").get().count,60);assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM related_keyword_proposals WHERE status!='proposed' OR derivation_policy!='inventory-related-keyword.v2'").get().count,0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com'").get().count, 64);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND resolution_state = 'resolved' AND main_keyword IS NOT NULL").get().count, 63, "every real group currently resolves to an actual main keyword");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword IS NULL OR resolution_state = 'unresolved'").get().count, 1);
@@ -156,6 +157,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   const actual=projectDashboard(pocDb);
   assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
   assert.equal(actual.sites[0].lexical_index.variant_clusters.length,921);assert.equal(actual.sites[0].lexical_index.associations.length,1636);assert.ok(actual.sites[0].lexical_index.associations.every((item)=>item.evidence_source_keyword_ids.length>0&&item.evidence_digest.length===64));
+  assert.equal(actual.groups.reduce((sum,group)=>sum+group.related_keyword_proposals.length,0),792);assert.ok(actual.groups.flatMap((group)=>group.related_keyword_proposals).every((item)=>item.evidence.representative_source_keyword_id&&item.evidence_digest.length===64));
   assert.equal(actual.serp_demand_occurrences.length,1188,"API projection must preserve the full PAA/related-search occurrence population");
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
   assert.ok(actual.serp_demands.every((row)=>row.importance_score>=0&&row.importance_score<=100&&row.importance_policy==="observed-demand-relative.v1"));assert.ok(actual.serp_demands.every((row)=>row.first_observed_at&&row.last_observed_at&&row.max_recursion_depth>=1));
@@ -317,6 +319,7 @@ assert.match(app, /data\.content_topic_proposals/);
 assert.match(app, /data\.content_structure_candidates/);
 assert.match(app,/本文生成package/);assert.match(app,/draft_package/);assert.match(app,/引用未承認のため公開不可/);
 assert.match(app, /data\.content_generation_candidates/);
+assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳からの関連KW候補/);assert.match(app,/concept dedupe済み/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);
 assert.match(app, /data\.competitor_headings/);

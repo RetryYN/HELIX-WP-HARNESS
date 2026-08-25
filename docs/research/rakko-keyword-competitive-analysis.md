@@ -399,6 +399,11 @@ generic語と記号・数字・無関係な外国語断片をranking対象外に
 1,636連想関係を抽出した。各関係はpair support、両語document count、cosine score、最大20 source ID、
 導出policy、SHA-256を持つ。元行自体は削除せず、ranking品質filterと台帳保持を分離する。
 
+DB v28では、この連想indexとgroup token集合を10,594未取得KWへ戻し、token overlap、最大association
+cosine、workbook検索量を別々に採点した。表記variantはrepresentative concept IDでdedupeし、60 groupへ
+792候補を最大20件ずつ提案する。全候補は実在source row、`proposed`、SHA-256 evidenceを持ち、LLMが
+作った語とは称さない。候補がない4 groupも空を維持し、無関係語で埋めない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
