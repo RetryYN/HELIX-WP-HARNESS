@@ -35,6 +35,7 @@ const persisted = new DatabaseSync(dbPath, { readOnly: true });
 assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks").get().count, 4);
 assert.equal(persisted.prepare("SELECT SUM(aio_present) AS count FROM dfs_tasks").get().count, 3);
 assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE snapshot_path = ''").get().count, 0);
+assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE length(snapshot_digest) != 64").get().count, 0);
 assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE recommended_page_type = '' OR serp_pages_json = '[]'").get().count,0);
 persisted.close();
 
@@ -72,6 +73,11 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE s
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE state = '確定'").get().count,13);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE action_state NOT IN ('未施策','予約済','下書き','公開中')").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE group_id IN (SELECT group_id FROM keyword_groups WHERE site_id = 'it-shukatu.com')").get().count, 100);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE demand_type='paa'").get().count,396,"all PAA occurrences in the 100 DFS snapshots must be preserved");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE demand_type='related_search'").get().count,792,"all related-search occurrences in the 100 DFS snapshots must be preserved");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_demand_occurrences WHERE normalized_value='' OR snapshot_path='' OR length(snapshot_digest)!=64").get().count,0,"every demand occurrence must retain normalized value and raw provenance");
+assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT task_id) AS count FROM serp_demand_occurrences WHERE demand_type='paa'").get().count,99,"the one SERP without PAA must remain an explicit absence rather than a fabricated row");
+assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT task_id) AS count FROM serp_demand_occurrences WHERE demand_type='related_search'").get().count,99,"the one SERP without related searches must remain an explicit absence rather than a fabricated row");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword GLOB 'topic-*' OR main_keyword GLOB 'keyword-*'").get().count, 0);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM articles WHERE site_id = 'it-shukatu.com' AND gsc_status = 'ok'").get().count,59);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHERE site_id = 'it-shukatu.com'").get().count,681);
@@ -80,6 +86,9 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
 {
   const actual=projectDashboard(pocDb);
   assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
+  assert.equal(actual.serp_demand_occurrences.length,1188,"API projection must preserve the full PAA/related-search occurrence population");
+  assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
+  assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
   assert.equal(actual.groups.find((group)=>group.main_keyword==="就活ねくたい").display_keyword,"就活 ネクタイ","keyword list uses normalized display tokens while retaining raw main_keyword");
   assert.ok(actual.groups.filter((group)=>group.category_path[0]==="就活").every((group)=>!group.category_path.includes("IT就活")),"general job-search scope must not fall back into the IT category");
   assert.equal(actual.article_query_summaries.length,59,"one summary row is required per WP article");

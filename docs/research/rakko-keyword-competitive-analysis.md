@@ -181,7 +181,52 @@ traceable lifecycleを完成させることが主要な勝ち筋になる。
 - DataForSEO Google Ads Search Volume: <https://docs.dataforseo.com/v3/keywords_data-google_ads-search_volume-live/>
 - DataForSEO OnPage Content Parsing: <https://docs.dataforseo.com/v3/on_page-content_parsing-live/>
 
-## 10. 未検証事項
+## 10. 現行100KWの取得・drop監査
+
+`scripts/audit-serp-data-coverage.mjs` でraw 100ファイルをfield単位に走査する。
+raw snapshot自体は保持しているため再投影は可能だが、現行DB/UIが利用していない情報が多い。
+
+### 10.1 rawからDBへ投影済み
+
+- task ID、seed keyword、cost、observed time、snapshot path、SHA-256 digest
+- organicのrank、URL、domain、titleと導出page type
+- PAA質問396 occurrence
+- related searches 792 occurrence
+- AIOの有無
+
+### 10.2 取得済みだがrawにしかない
+
+| field/data | 実データ量 | 現状 |
+|---|---:|---|
+| organic description | 918 / 926 result | title/heading生成に未使用 |
+| organic highlighted terms | 839 result | query-term強調分析に未使用 |
+| organic pre-snippet | 492 result | snippet構造分析に未使用 |
+| organic timestamp | 511 result | freshness分析に未使用 |
+| organic sitelinks | 257 result | site structure分析に未使用 |
+| AIO markdown | 17 / 68 AIO | 本文・topic coverageに未使用 |
+| AIO elements | 69 element | section/topicへ未分解 |
+| AIO references | 96 reference | citation domain/page gapに未使用 |
+| spell correction | 1 query | alias/normalizationへ未接続 |
+| knowledge graph | 1 query | entity分析へ未接続 |
+| people-also-search | 1 query | demand graphへ未接続 |
+| image/video packs | 各1 query | content format判断へ未接続 |
+| price / rating | 6 / 2 organic result | commercial SERP分析へ未接続 |
+| task status/time/result count/check URL/result counts | 全taskに存在 | provider health・再現性画面へ未投影 |
+
+### 10.3 取得自体をしていない
+
+| dataset | 原因・必要な取得 |
+|---|---|
+| PAA回答本文・参照URL | `people_also_ask_click_depth`なし。現在は質問396件だけで回答0件 |
+| SERP pixel位置 | `calculate_rectangles`なし |
+| 競合page H1-H6・本文・内部/外部link | 上位URLへのcontent parsing未実行 |
+| 最新volume、4年月次、CPC、competition、SEO difficulty | Keywords Data / Labs未実行 |
+| domain/URL ranked KW、集客page、競合domain、履歴 | Labs dataset未実行 |
+| multi-engine suggest、質問DB、trend、news、Q&A、hashtag | 対応provider取得なし |
+
+この区別により、再取得なしで救出できるデータと、費用・利用規約・freshnessを伴う新規取得を混同しない。
+
+## 11. 未検証事項
 
 - 公開API全41 schemaのfield-level対応表
 - 各Web UI機能のfilter、sort、export、履歴、上限、empty/error/stale状態
