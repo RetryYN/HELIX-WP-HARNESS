@@ -411,7 +411,8 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 8操作をbrowser-localで実装した。入力はnetwork送信・DB保存せず、結果だけcopy可能。地域キーワード
 生成は日本郵便の2026-07-31更新UTF-8全国CSVをsource archive digest付きで取り込み、47都道府県と
 1,892市区町村・郡町村を実装した。公式CSVは約12万住所行だが、町域を候補へ混ぜず自治体単位にdedupeする。
-駅は国交省の2025年度N02（2025-12-31時点、CC BY 4.0）を正本候補と確認済みだが、取込は未完了である。
+駅は国交省の2025年度N02（2025-12-31時点、CC BY 4.0）から10,234 featureをgroup codeで
+9,046駅へdedupeし、路線・運営会社とarchive digestを保持した。これで公式現行一覧の9操作を実装済みとした。
 
 - 公式補助ツール一覧: <https://rakkokeyword.com/knowledge/tool/>
 - 地域キーワード生成仕様: <https://rakkokeyword.com/techo/generate-local-keywords/>

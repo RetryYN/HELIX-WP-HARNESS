@@ -326,7 +326,7 @@ assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳�
 assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);
 assert.match(app,/buildQuickSearchBookmarklet/);assert.match(app,/quick_q/);assert.match(html,/quick-search-bookmarklet/);assert.match(html,/ページ本文は送信・保存しません/);
 assert.match(app,/renderSuggestExplorer/);assert.match(app,/processing_state/);assert.match(html,/suggest-explorer/);assert.match(html,/保有コーパス・サジェスト/);
-assert.match(app,/locationData/);assert.match(app,/生成上限20,000行/);assert.match(html,/locality-prefecture/);assert.match(html,/日本郵便の公式月次住所dataset/);
+assert.match(app,/locationData\.stations/);assert.match(app,/station_source/);assert.match(app,/生成上限20,000行/);assert.match(html,/locality-prefecture/);assert.match(html,/国交省2025年度駅dataset/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);
 assert.match(app, /data\.competitor_headings/);
