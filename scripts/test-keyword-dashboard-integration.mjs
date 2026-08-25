@@ -29,6 +29,11 @@ const normalizedAggregate=aggregateNormalizedQueries([
   {site_id:"s",wp_article_id:1,query:"ソフト",normalized_query:"ソフト",clicks:2,impressions:30,ctr:.066,position:4,window_days:28,observed_at:"x"},
 ]);
 assert.equal(normalizedAggregate.length,1);assert.equal(normalizedAggregate[0].query,"ソフト");assert.equal(normalizedAggregate[0].clicks,3);assert.equal(normalizedAggregate[0].impressions,40);assert.deepEqual(normalizedAggregate[0].raw_queries,["ｿﾌﾄ","ソフト"]);
+const separateWindowAggregate=aggregateNormalizedQueries([
+  {site_id:"s",wp_article_id:1,query:"ソフト",normalized_query:"ソフト",clicks:1,impressions:10,ctr:.1,position:2,window_days:7,observed_at:"x"},
+  {site_id:"s",wp_article_id:1,query:"ソフト",normalized_query:"ソフト",clicks:2,impressions:30,ctr:.066,position:4,window_days:28,observed_at:"y"},
+]);
+assert.equal(separateWindowAggregate.length,2,"GSC windows must remain separate observations rather than being added together");
 
 const dbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-db-")), "dashboard.sqlite");
 buildDashboardDb({ dbPath, fixturePath: path.resolve("docs/prototypes/wp-ops-dashboard/data.json"), artifactRoot: path.resolve("artifacts/poc") }).close();

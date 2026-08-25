@@ -63,7 +63,7 @@ function rawSnapshots(artifactRoot) {
   return snapshots;
 }
 
-export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], serpAcquiredSourceKeywordIds, gscEvidencePath, headingEvidencePath, competitorEvidencePath, dfsEnrichmentEvidencePath }) {
+export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], serpAcquiredSourceKeywordIds, gscEvidencePath, gscEvidencePaths, headingEvidencePath, competitorEvidencePath, dfsEnrichmentEvidencePath }) {
   const fixture = JSON.parse(readFileSync(fixturePath, "utf8"));
   const snapshots = rawSnapshots(artifactRoot);
   if(existsSync(dbPath)&&statSync(dbPath).size>0){
@@ -160,21 +160,26 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   }
   const headingManifest=headingEvidencePath?JSON.parse(readFileSync(headingEvidencePath,"utf8")):null;
   const headingEvidenceByArticle=new Map((headingManifest?.articles??[]).map((article)=>[`${article.site_id}\0${article.wp_article_id}`,article]));
-  if(gscEvidencePath){
-    const manifest=JSON.parse(readFileSync(gscEvidencePath,"utf8"));
-    const root=path.dirname(gscEvidencePath);
+  const gscPaths=gscEvidencePaths??(gscEvidencePath?[gscEvidencePath]:[]);
+  if(gscPaths.length){
     const insertArticle=db.prepare("INSERT INTO articles VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
     const insertQuery=db.prepare("INSERT INTO gsc_query_results VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    for(const article of manifest.articles){
-      const headingEvidence=headingEvidenceByArticle.get(`${article.site_id}\0${article.wp_article_id}`),headings=headingEvidence?.headings??[];
-      const headingsDigest=headingEvidence?createHash("sha256").update(JSON.stringify(headings)).digest("hex"):null;
-      insertArticle.run(article.site_id,article.wp_article_id,article.url,article.title,headingEvidence?.modified??null,headingsDigest,JSON.stringify(article.categories??[]),JSON.stringify(headings),article.status);
-      if(article.status!=="ok")continue;
-      const queryPath=path.join(root,article.query_file);
-      for(const row of parseCsv(readFileSync(queryPath,"utf8"))){
-        const expected=["上位のクエリ","クリック数","表示回数","CTR","掲載順位"];
-        if(!expected.every((field)=>field in row))throw new Error(`GSC query CSV schema mismatch: ${queryPath}`);
-        insertQuery.run(article.site_id,article.wp_article_id,row["上位のクエリ"],normalizeKeyword(row["上位のクエリ"]),numeric(row["クリック数"],"clicks"),numeric(row["表示回数"],"impressions"),numeric(row["CTR"],"CTR")/100,numeric(row["掲載順位"],"position"),manifest.days,manifest.generated_at,queryPath);
+    const articleIdentity=new Map();
+    for(const [manifestIndex,manifestPath] of gscPaths.entries()){
+      const manifest=JSON.parse(readFileSync(manifestPath,"utf8")),root=path.dirname(manifestPath);
+      if(!Number.isInteger(manifest.days)||manifest.days<1)throw new Error(`GSC manifest days is invalid: ${manifestPath}`);
+      for(const article of manifest.articles){
+        const identity=JSON.stringify([article.url,article.title,article.categories??[]]),key=`${article.site_id}\0${article.wp_article_id}`;
+        if(articleIdentity.has(key)&&articleIdentity.get(key)!==identity)throw new Error(`GSC article identity changed across windows: ${key}`);
+        articleIdentity.set(key,identity);
+        if(manifestIndex===0){const headingEvidence=headingEvidenceByArticle.get(key),headings=headingEvidence?.headings??[],headingsDigest=headingEvidence?createHash("sha256").update(JSON.stringify(headings)).digest("hex"):null;insertArticle.run(article.site_id,article.wp_article_id,article.url,article.title,headingEvidence?.modified??null,headingsDigest,JSON.stringify(article.categories??[]),JSON.stringify(headings),article.status)}
+        if(article.status!=="ok")continue;
+        const queryPath=path.join(root,article.query_file);
+        for(const row of parseCsv(readFileSync(queryPath,"utf8"))){
+          const expected=["上位のクエリ","クリック数","表示回数","CTR","掲載順位"];
+          if(!expected.every((field)=>field in row))throw new Error(`GSC query CSV schema mismatch: ${queryPath}`);
+          insertQuery.run(article.site_id,article.wp_article_id,row["上位のクエリ"],normalizeKeyword(row["上位のクエリ"]),numeric(row["クリック数"],"clicks"),numeric(row["表示回数"],"impressions"),numeric(row["CTR"],"CTR")/100,numeric(row["掲載順位"],"position"),manifest.days,manifest.generated_at,queryPath);
+        }
       }
     }
   }
@@ -268,11 +273,12 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   const reviewByCandidate=new Map(generationReviewRows.map((row)=>[row.candidate_id,row])),draftCandidates=generationCandidates.map((candidate)=>({...candidate,review:reviewByCandidate.get(candidate.candidate_id)})),draftAioReferences=db.prepare("SELECT citation_id,group_id,url,domain,title FROM aio_citation_references").all(),draftActionSignals=db.prepare("SELECT task_id,group_id,signal_types_json,evidence_digest FROM serp_action_signals").all().map(({signal_types_json,...row})=>({...row,signal_types:JSON.parse(signal_types_json)})),insertDraftPackage=db.prepare("INSERT INTO content_draft_packages VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
   for(const draft of buildContentDraftPackages(fixture.groups,draftCandidates,topicProposals,{aioReferences:draftAioReferences,actionSignals:draftActionSignals}))insertDraftPackage.run(draft.group_id,draft.package_version,draft.generation_state,draft.body_state,JSON.stringify(draft.input),JSON.stringify(draft.gates),draft.input_digest,draft.package_digest);
   const beforeMatch=projectDashboard(db);
+  const analyticalArticles=[...beforeMatch.article_query_summaries.reduce((selected,article)=>{const key=`${article.site_id}\0${article.wp_article_id}`,current=selected.get(key);if(!current||Number(article.window_days??0)>Number(current.window_days??0)||(article.window_days===current.window_days&&String(article.observed_at??"")>String(current.observed_at??"")))selected.set(key,article);return selected},new Map()).values()];
   const insertMatchRun=db.prepare("INSERT INTO keyword_article_match_runs VALUES (?, ?, ?)");
   const insertMatchCandidate=db.prepare("INSERT INTO keyword_article_match_candidates VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const assignArticle=db.prepare("UPDATE keyword_groups SET wp_article_id = ? WHERE group_id = ?");
   for(const site of fixture.sites){
-    const articles=beforeMatch.article_query_summaries.filter((article)=>article.site_id===site.site_id);
+    const articles=analyticalArticles.filter((article)=>article.site_id===site.site_id);
     // Unresolved groups have no main keyword; they must not be matched to or assigned an article (§5: derived value never promoted).
     const siteGroups=beforeMatch.groups.filter((item)=>item.site_id===site.site_id&&item.resolution_state==="resolved");
     const matches=reconcileArticleAssignments(siteGroups.map((group)=>matchKeywordGroupToArticles(group,articles)));
@@ -285,8 +291,8 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     }
   }
   const coverageGroups=db.prepare("SELECT group_id AS id,site_id,wp_article_id FROM keyword_groups").all(),insertTopicCoverage=db.prepare("INSERT INTO content_topic_coverage VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-  for(const row of assessContentTopicCoverage(coverageGroups,topicProposals,beforeMatch.article_query_summaries))insertTopicCoverage.run(row.proposal_id,row.group_id,row.site_id,row.wp_article_id,row.coverage_status,row.match_source,row.matched_heading_level,row.matched_heading_position,row.matched_text,row.evidence_digest);
-  const aioElements=buildAioContentElements(db.prepare("SELECT task_id,group_id,keyword FROM dfs_tasks").all(),db.prepare("SELECT task_id,items_json FROM serp_ai_overviews").all().map(({items_json,...row})=>({...row,items:JSON.parse(items_json)})),coverageGroups,beforeMatch.article_query_summaries),insertAioElement=db.prepare("INSERT INTO aio_content_elements VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  for(const row of assessContentTopicCoverage(coverageGroups,topicProposals,analyticalArticles))insertTopicCoverage.run(row.proposal_id,row.group_id,row.site_id,row.wp_article_id,row.coverage_status,row.match_source,row.matched_heading_level,row.matched_heading_position,row.matched_text,row.evidence_digest);
+  const aioElements=buildAioContentElements(db.prepare("SELECT task_id,group_id,keyword FROM dfs_tasks").all(),db.prepare("SELECT task_id,items_json FROM serp_ai_overviews").all().map(({items_json,...row})=>({...row,items:JSON.parse(items_json)})),coverageGroups,analyticalArticles),insertAioElement=db.prepare("INSERT INTO aio_content_elements VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
   for(const row of aioElements)insertAioElement.run(row.element_id,row.task_id,row.group_id,row.source_keyword,row.element_order,row.title,row.text,row.markdown,row.link_count,row.image_count,row.reference_count,row.wp_article_id,row.coverage_status,row.matched_heading_level,row.matched_heading_position,row.matched_text,row.evidence_digest);
   db.exec("PRAGMA optimize");
   return db;
@@ -330,12 +336,14 @@ export function projectDashboard(db) {
   const articleQueries=aggregateNormalizedQueries(rawArticleQueries);
   const gscArticles=db.prepare("SELECT site_id,wp_article_id,url,title,modified_at,headings_digest,category_ids_json,headings_json,gsc_status FROM articles ORDER BY site_id,wp_article_id").all();
   const rankingBySite=Object.fromEntries(sites.map((site)=>[site.site_id,primaryQueryStats(articleQueries.filter((row)=>row.site_id===site.site_id))]));
-  const articleQuerySummaries=gscArticles.map(({category_ids_json,headings_json,...article})=>{
-    const queries=rankPrimaryQueries(articleQueries.filter((row)=>row.site_id===article.site_id&&row.wp_article_id===article.wp_article_id),rankingBySite[article.site_id].impression_p95);
+  const articleQuerySummaries=gscArticles.flatMap(({category_ids_json,headings_json,...article})=>{
+    const articleRows=articleQueries.filter((row)=>row.site_id===article.site_id&&row.wp_article_id===article.wp_article_id),windows=[...new Map(articleRows.map((row)=>[[row.window_days,row.observed_at].join("\0"),{window_days:row.window_days,observed_at:row.observed_at}])).values()];
+    if(!windows.length)windows.push({window_days:null,observed_at:null});
+    return windows.map((window)=>{const windowRows=articleRows.filter((row)=>row.window_days===window.window_days&&row.observed_at===window.observed_at),windowStats=primaryQueryStats(articleQueries.filter((row)=>row.site_id===article.site_id&&row.window_days===window.window_days&&row.observed_at===window.observed_at)),queries=rankPrimaryQueries(windowRows,windowStats.impression_p95);
     const primary=queries[0]??null;
     const group=groups.find((item)=>item.site_id===article.site_id&&item.wp_article_id===article.wp_article_id);
     const keywordAcquisition=assessKeywordAcquisition(group,queries);
-    return {...article,headings:JSON.parse(headings_json),category_paths:categoryPathsForIds(JSON.parse(category_ids_json)),query_count:queries.length,total_clicks:queries.reduce((sum,row)=>sum+row.clicks,0),total_impressions:queries.reduce((sum,row)=>sum+row.impressions,0),window_days:primary?.window_days??null,observed_at:primary?.observed_at??null,primary_query:primary,queries,keyword_acquisition:keywordAcquisition};
+    return {...article,headings:JSON.parse(headings_json),category_paths:categoryPathsForIds(JSON.parse(category_ids_json)),query_count:queries.length,total_clicks:queries.reduce((sum,row)=>sum+row.clicks,0),total_impressions:queries.reduce((sum,row)=>sum+row.impressions,0),window_days:window.window_days,observed_at:window.observed_at,primary_query:primary,queries,keyword_acquisition:keywordAcquisition}});
   });
   const demandOccurrences=db.prepare("SELECT occurrence_id,group_id,task_id,source_keyword,demand_type,value,normalized_value,occurrence_order,serp_item_rank,recursion_depth,seed_value,snapshot_path,snapshot_digest,observed_at FROM serp_demand_occurrences ORDER BY task_id,demand_type,occurrence_order").all();
   const demandMap=new Map();

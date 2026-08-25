@@ -358,8 +358,11 @@ DB v25で15 sheet全10,694行をsource sheet・row identity付きでキーワー
 
 #### GSC
 
-現行証跡は59記事について `page filter × query`、過去28日、search type=`web` のCSVだけを取得している。
-681 raw query行はDBへ保持し、678 normalized queryへ集約しているため、この母集団内でのdropはない。
+現行証跡は59記事について `page filter × query`、search type=`web` のCSVを取得している。
+過去28日は681 raw query行（678 normalized）、過去7日は318 raw query行を確認した。従来ビルドは単一manifest
+しか受けず7日分を未接続にしていたが、DB v29の複数manifest入力で合計999 raw行を保持するよう是正した。
+同じqueryでもwindowと取得時刻が異なる観測は加算せず分離し、記事マッチング等の単一時点分析には最大windowの
+最新観測だけを用いる。現在の実行環境では7日・28日の両方を投影し、リポジトリ標準fixtureは28日のみである。
 一方、次は取得していない。
 
 - 日別推移（date dimension）
@@ -367,7 +370,7 @@ DB v25で15 sheet全10,694行をsource sheet・row identity付きでキーワー
 - Discover、Google News、image、video等のsearch type
 - site全体queryとpage別queryのintersection
 - API row limit、匿名化queryによる欠測量の推定
-- 7/28/90日など同一取得時刻の複数window
+- 90日等の追加window、および厳密に同一取得時刻へ揃えたwindow比較
 
 #### WordPress
 
