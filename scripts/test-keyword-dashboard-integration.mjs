@@ -54,6 +54,7 @@ const competitorTerm=competitorDb.prepare("SELECT page_count,title_count,heading
 assert.equal(competitorDb.prepare("SELECT COUNT(*) AS count FROM competitor_page_task_evidence").get().count,2);assert.equal(competitorDb.prepare("SELECT page_count FROM competitor_task_terms WHERE task_id=? AND term='構成'").get(competitorTask).page_count,2);
 const competitorProjection=projectDashboard(competitorDb);assert.equal(competitorProjection.competitor_pages.length,2);assert.deepEqual(competitorProjection.competitor_page_evidence[0].task_ids,[competitorTask]);assert.equal(competitorProjection.competitor_terms[0].evidence_page_ids.length,2);assert.equal(competitorProjection.competitor_task_terms[0].evidence_page_ids.length,2);
 assert.ok(competitorProjection.content_generation_candidates.some((item)=>item.group_id===competitorGroup&&item.evidence_type==="competitor_term"&&item.content_type==="heading"&&item.evidence_ids.length===2));assert.ok(competitorProjection.content_generation_candidates.every((item)=>item.status==="proposed"&&item.candidate_digest.length===64));
+assert.ok(competitorProjection.content_generation_candidates.every((item)=>item.review&&item.review.review_digest.length===64));assert.ok(competitorProjection.content_generation_candidates.every((item)=>["ready","needs_review","blocked"].includes(item.review.review_state)));
 assert.deepEqual(competitorProjection.competitor_summary,{page_count:2,successful_page_count:2,heading_count:4,term_count:2,task_term_count:2,projected_term_count:2,group_count:1,task_count:1});
 competitorDb.close();
 
