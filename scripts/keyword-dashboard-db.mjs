@@ -59,7 +59,7 @@ function rawSnapshots(artifactRoot) {
   return snapshots;
 }
 
-export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], gscEvidencePath, headingEvidencePath, competitorEvidencePath, dfsEnrichmentEvidencePath }) {
+export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], serpAcquiredSourceKeywordIds, gscEvidencePath, headingEvidencePath, competitorEvidencePath, dfsEnrichmentEvidencePath }) {
   const fixture = JSON.parse(readFileSync(fixturePath, "utf8"));
   const snapshots = rawSnapshots(artifactRoot);
   if(existsSync(dbPath)&&statSync(dbPath).size>0){
@@ -170,9 +170,9 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
   }
   const insertImported=db.prepare("INSERT INTO imported_keywords VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const processedKeywords=new Set(fixture.groups.flatMap((group)=>group.comparison_keywords.map((keyword)=>`${group.site_id}\0${keyword}`)));
-  importedKeywords.forEach((row)=>insertImported.run(row.source_keyword_id,row.site_id,row.source_sheet,row.source_row,row.raw_keyword,row.search_volume,row.cpc,row.competition,processedKeywords.has(`${row.site_id}\0${row.raw_keyword}`)?"施策KW群割当済み":"SERP未取得"));
-  const insertHierarchy=db.prepare("INSERT INTO keyword_hierarchy VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-  for(const site of fixture.sites)for(const row of buildKeywordHierarchy(importedKeywords.filter((item)=>item.site_id===site.site_id)))insertHierarchy.run(row.source_keyword_id,row.representative_source_keyword_id,row.parent_source_keyword_id,row.root_source_keyword_id,row.context_scope_id,JSON.stringify(row.normalized_terms),JSON.stringify(row.tree_path),row.term_count,row.depth,row.relation);
+  const acquiredSourceIds=serpAcquiredSourceKeywordIds==null?null:new Set(serpAcquiredSourceKeywordIds);
+  const insertHierarchy=db.prepare("INSERT INTO keyword_hierarchy VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");db.exec("BEGIN");
+  try{importedKeywords.forEach((row)=>insertImported.run(row.source_keyword_id,row.site_id,row.source_sheet,row.source_row,row.raw_keyword,row.search_volume,row.cpc,row.competition,(acquiredSourceIds?acquiredSourceIds.has(row.source_keyword_id):processedKeywords.has(`${row.site_id}\0${row.raw_keyword}`))?"施策KW群割当済み":"SERP未取得"));for(const site of fixture.sites)for(const row of buildKeywordHierarchy(importedKeywords.filter((item)=>item.site_id===site.site_id)))insertHierarchy.run(row.source_keyword_id,row.representative_source_keyword_id,row.parent_source_keyword_id,row.root_source_keyword_id,row.context_scope_id,JSON.stringify(row.normalized_terms),JSON.stringify(row.tree_path),row.term_count,row.depth,row.relation);db.exec("COMMIT")}catch(error){db.exec("ROLLBACK");throw error}
   const insertGroup = db.prepare("INSERT INTO keyword_groups VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
   const insertKeyword = db.prepare("INSERT INTO group_keywords VALUES (?, ?, ?, ?)");
   const insertStrategy = db.prepare("INSERT INTO strategy_decisions VALUES (?, ?, ?, ?, ?)");

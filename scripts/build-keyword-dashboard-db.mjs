@@ -4,6 +4,7 @@ import path from "node:path";
 import { buildDashboardDb } from "./keyword-dashboard-db.mjs";
 import { categoryPathForKeywords } from "./keyword-category-taxonomy.mjs";
 import {serpConfidence} from "./keyword-serp-core.mjs";
+import {readXlsxKeywordWorkbook} from "./read-xlsx-keywords.mjs";
 
 const repoRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const fromRepo=(value)=>path.isAbsolute(value)?value:path.resolve(repoRoot,value);
@@ -12,7 +13,8 @@ mkdirSync(path.dirname(dbPath), { recursive: true });
 const baseFixture=JSON.parse(readFileSync(fromRepo("docs/prototypes/wp-ops-dashboard/data.json"),"utf8"));
 const pocPath=fromRepo(process.env.WP_KEYWORD_POC_RESULT??"artifacts/poc/keyword-workbook-100-live/result.json");
 const poc=JSON.parse(readFileSync(pocPath,"utf8"));
-const importedKeywords=poc.tasks.map((row)=>({source_keyword_id:row.source_keyword_id,site_id:"it-shukatu.com",source_sheet:row.source_sheet,source_row:row.source_row,raw_keyword:row.keyword,search_volume:row.search_volume,cpc:row.cpc,competition:row.competition}));
+const keywordWorkbookPath=fromRepo(process.env.WP_KEYWORD_WORKBOOK??"../poc-wp/data/IT就活大学キーワードマップ.xlsx"),workbookRows=existsSync(keywordWorkbookPath)?readXlsxKeywordWorkbook(keywordWorkbookPath):null;
+const importedKeywords=(workbookRows??poc.tasks).map((row)=>({source_keyword_id:row.source_keyword_id??`it-shukatu.com:${row.source_sheet}:${row.source_row}`,site_id:"it-shukatu.com",source_sheet:row.source_sheet,source_row:row.source_row,raw_keyword:row.raw_keyword??row.keyword,search_volume:row.search_volume,cpc:row.cpc,competition:row.competition}));
 const taskById=new Map(poc.tasks.map((task)=>[task.source_keyword_id,task]));
 const pairByIds=new Map(poc.grouping.pairs.map((pair)=>[[pair.left,pair.right].sort().join("\0"),pair]));
 const processedGroups=poc.article_keyword_groups.map((group,index)=>{
@@ -52,7 +54,7 @@ const hasHeadingEvidence=existsSync(headingEvidencePath);
 if(!hasHeadingEvidence&&process.env.WP_ALLOW_EMPTY_HEADINGS!=="1")throw new Error(`WP heading evidence is required: ${headingEvidencePath}. Set WP_ALLOW_EMPTY_HEADINGS=1 only for an explicit empty-state test.`);
 const competitorEvidencePath=fromRepo(process.env.WP_COMPETITOR_EVIDENCE??".helix/evidence/competitor-content/manifest.json");
 const dfsEnrichmentEvidencePath=process.env.WP_DFS_ENRICHMENT_EVIDENCE?fromRepo(process.env.WP_DFS_ENRICHMENT_EVIDENCE):undefined;if(dfsEnrichmentEvidencePath&&!existsSync(dfsEnrichmentEvidencePath))throw new Error(`DFS enrichment evidence not found: ${dfsEnrichmentEvidencePath}`);
-const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: fromRepo("artifacts/poc"), importedKeywords, gscEvidencePath:hasGscEvidence?gscEvidencePath:undefined, headingEvidencePath:hasHeadingEvidence?headingEvidencePath:undefined, competitorEvidencePath:existsSync(competitorEvidencePath)?competitorEvidencePath:undefined,dfsEnrichmentEvidencePath });
+const db = buildDashboardDb({ dbPath, fixturePath, artifactRoot: fromRepo("artifacts/poc"), importedKeywords, serpAcquiredSourceKeywordIds:poc.tasks.map((row)=>row.source_keyword_id), gscEvidencePath:hasGscEvidence?gscEvidencePath:undefined, headingEvidencePath:hasHeadingEvidence?headingEvidencePath:undefined, competitorEvidencePath:existsSync(competitorEvidencePath)?competitorEvidencePath:undefined,dfsEnrichmentEvidencePath });
 const counts = Object.fromEntries(["sites", "imported_keywords", "keyword_groups", "dfs_enrichment_runs", "keyword_market_metrics", "keyword_monthly_searches", "keyword_difficulty_enrichment", "domain_ranked_keywords", "raw_snapshot_inventory", "dfs_tasks", "serp_task_metadata", "serp_action_signals", "serp_feature_occurrences", "serp_organic_attributes", "serp_demand_occurrences", "serp_organic_results", "serp_page_keyword_edges", "simultaneous_keyword_relations", "serp_page_coverage", "serp_domain_coverage", "serp_ai_overviews", "aio_citation_references", "aio_citation_domains", "aio_content_elements", "content_topic_proposals", "content_topic_coverage", "content_structure_candidates", "content_generation_candidates", "competitor_pages", "competitor_headings", "competitor_terms", "competitor_task_terms", "gate_runs", "articles", "gsc_query_results", "article_links"].map((table) => [table, Number(db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count)]));
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));

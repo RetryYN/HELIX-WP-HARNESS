@@ -86,14 +86,15 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory WHERE analysis_status='connected'").get().count,100,"the current workbook tasks must be explicitly connected");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory WHERE analysis_status='unconnected'").get().count,10,"independently acquired PoC tasks must remain visible without contaminating the current site analysis");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory WHERE analysis_status='unconnected' AND item_types_json LIKE '%jobs%'").get().count,1,"the orphaned jobs SERP feature must be discoverable in the ledger");
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com'").get().count, 100);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy").get().count,100,"every imported keyword must have a hierarchy row");
-assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT root_source_keyword_id) AS count FROM keyword_hierarchy").get().count,1,"display trie has one lexical root");
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy WHERE context_scope_id='context:it'").get().count,84);
-assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy WHERE context_scope_id='context:general'").get().count,16);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com'").get().count,10694);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy").get().count,10694,"every imported keyword across all 15 sheets must have a hierarchy row");
+assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT source_sheet) AS count FROM imported_keywords").get().count,15);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy WHERE context_scope_id='context:it'").get().count,2048);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy WHERE context_scope_id='context:general'").get().count,8646);
 assert.equal(pocDb.prepare("SELECT h.term_count FROM keyword_hierarchy h JOIN imported_keywords k USING(source_keyword_id) WHERE k.raw_keyword='就活ねくたい'").get().term_count,2,"domain compounds must not inherit raw morphological mis-segmentation");
 assert.equal(pocDb.prepare("SELECT p.raw_keyword AS parent FROM keyword_hierarchy h JOIN imported_keywords k ON k.source_keyword_id=h.source_keyword_id LEFT JOIN imported_keywords p ON p.source_keyword_id=h.parent_source_keyword_id WHERE k.raw_keyword='it ニュース 就活'").get().parent,"it 就活");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = '施策KW群割当済み'").get().count, 100);
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com' AND processing_state = 'SERP未取得'").get().count,10594,"unacquired workbook rows must remain explicit rather than disappearing");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com'").get().count, 64);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE site_id = 'it-shukatu.com' AND resolution_state = 'resolved' AND main_keyword IS NOT NULL").get().count, 63, "every real group currently resolves to an actual main keyword");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_groups WHERE main_keyword IS NULL OR resolution_state = 'unresolved'").get().count, 1);
@@ -293,6 +294,7 @@ assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert
 assert.match(app,/data\.aio_citation_references/);assert.match(app,/data\.aio_citation_domains/);assert.match(app,/renderAioCitations/);assert.match(app,/通常SERP同一URL/);assert.match(app,/自サイト引用/);
 assert.match(app,/data\.aio_content_elements/);assert.match(app,/AIO回答要素/);assert.match(app,/既存記事の論点不足/);assert.match(app,/statusLabels/);
 assert.match(app,/data\.serp_task_metadata/);assert.match(app,/data\.serp_special_features/);assert.match(app,/renderAcquisitionHealth/);assert.match(app,/平均処理秒/);assert.match(app,/希少feature/);
+assert.match(app,/元KW台帳/);assert.match(app,/siteInventory\.filter/);
 assert.match(app,/data\.raw_snapshot_inventory/);assert.match(app,/分析未接続/);assert.match(app,/rawInventoryRows/);
 assert.match(app,/data\.serp_action_signals/);assert.match(app,/SERP実測からの形式・構成施策/);assert.match(app,/推奨素材/);assert.match(app,/未承認/);
 assert.match(app,/data\.dfs_enrichment_status/);assert.match(app,/data\.keyword_market_metrics/);assert.match(app,/data\.keyword_monthly_searches/);assert.match(app,/data\.domain_ranked_keywords/);assert.match(app,/追加市場データは未取得です/);assert.match(app,/renderMarketData/);
