@@ -30,6 +30,7 @@
     <button class="tab" data-view="aio-citations">AIO引用</button>
     <button class="tab" data-view="acquisition-health">取得状態</button>
     <button class="tab" data-view="market-data">市場データ</button>
+    <button class="tab" data-view="site-portfolio">サイト比較</button>
     <button class="tab" data-view="internal-links">内部リンクマップ</button>
   </nav>
 
@@ -178,6 +179,12 @@
       <div class="table-wrap"><table class="market-keyword-table"><thead><tr><th>キーワード</th><th>最新volume</th><th>SEO難易度</th><th>CPC</th><th>広告競合度</th><th>月次履歴</th><th>更新状態</th></tr></thead><tbody id="market-keyword-rows"></tbody></table></div>
       <div class="subsection-head"><h3>自ドメイン獲得キーワード</h3><p>Labsの検索意図、順位、URL、ETV、順位変化を表示します</p></div>
       <div class="table-wrap"><table class="market-ranked-table"><thead><tr><th>獲得KW</th><th>意図</th><th>順位</th><th>URL</th><th>volume</th><th>ETV</th><th>順位変化</th></tr></thead><tbody id="market-ranked-rows"></tbody></table></div>
+    </section>
+
+    <section id="site-portfolio" class="view">
+      <div class="section-head table-toolbar"><div><h2>サイト横断ポートフォリオ</h2><p>同じ定義でKW・取得率・記事・競合・質問・費用を比較します。未登録サイトは0件として作らず、母集団外です</p></div><div class="filters"><input id="portfolio-search" type="search" placeholder="サイト名・domain検索" aria-label="サイト比較検索"></div></div>
+      <div id="portfolio-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>サイト</th><th>元KW</th><th>SERP取得</th><th>group</th><th>task</th><th>WP記事</th><th>GSC query</th><th>競合page</th><th>質問候補</th><th>provider費用</th><th></th></tr></thead><tbody id="portfolio-rows"></tbody></table><div id="portfolio-empty" class="empty-state"></div></div>
     </section>
 
     <section id="internal-links" class="view">

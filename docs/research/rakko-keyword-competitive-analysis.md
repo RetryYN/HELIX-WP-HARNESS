@@ -468,6 +468,14 @@ dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し�
 - MCP Tools仕様: <https://modelcontextprotocol.io/specification/2025-06-18/server/tools>
 - MCP Streamable HTTP仕様: <https://modelcontextprotocol.io/specification/2025-03-26/basic/transports>
 
+### 10.19 サイト検索と横断比較
+
+登録siteをlabel/domainで検索し、同一定義の元KW、SERP取得/未取得とcoverage、group解決、task、WP記事、
+GSC query、競合page、質問候補、provider費用を横断表示する。投影とUIは2-site fixtureで分離を検証するが、
+現在の本番母集団は1 siteだけである。未登録siteを0件として水増しせず、未知domain index、推定traffic、
+10-100 URLのLabs一括取得、trendは未取得と明示する。GSCは正規化後678 queryと元681行を別fieldで保持し、
+正規化で3行が統合されたことを「破棄」と誤認しないようにする。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

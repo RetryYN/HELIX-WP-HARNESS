@@ -158,6 +158,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.groups.length,64);assert.equal(actual.groups.filter((group)=>group.resolution_state==="resolved").length,63);assert.equal(actual.groups.filter((group)=>group.resolution_state==="unresolved").length,1,"tree projection must not change the SERP article boundary");
   assert.equal(actual.sites[0].lexical_index.variant_clusters.length,921);assert.equal(actual.sites[0].lexical_index.associations.length,1636);assert.ok(actual.sites[0].lexical_index.associations.every((item)=>item.evidence_source_keyword_ids.length>0&&item.evidence_digest.length===64));
   assert.ok(actual.sites[0].ai_question_candidates.length>0);assert.ok(actual.sites[0].ai_question_candidates.some((row)=>row.candidate_kind==="observed_question"&&row.generator_kind==="observed_passthrough"));assert.ok(actual.sites[0].ai_question_candidates.some((row)=>row.candidate_kind==="derived_question"&&row.generator_kind==="deterministic_rule"));assert.ok(actual.sites[0].ai_question_candidates.every((row)=>row.evidence_occurrence_ids.length>0&&row.input_digest.length===64&&row.evidence_digest.length===64));
+  assert.equal(actual.sites[0].portfolio_metrics.keyword_count,10694);assert.equal(actual.sites[0].portfolio_metrics.serp_acquired_keyword_count,100);assert.equal(actual.sites[0].portfolio_metrics.serp_unacquired_keyword_count,10594);assert.equal(actual.sites[0].portfolio_metrics.task_count,100);assert.equal(actual.sites[0].portfolio_metrics.gsc_query_count,678);assert.equal(actual.sites[0].portfolio_metrics.gsc_query_row_count,681,"normalized query count and retained source rows must both remain visible");assert.equal(actual.sites[0].portfolio_metrics.question_candidate_count,actual.sites[0].ai_question_candidates.length);
   assert.equal(actual.groups.reduce((sum,group)=>sum+group.related_keyword_proposals.length,0),792);assert.ok(actual.groups.flatMap((group)=>group.related_keyword_proposals).every((item)=>item.evidence.representative_source_keyword_id&&item.evidence_digest.length===64));
   assert.equal(actual.serp_demand_occurrences.length,1188,"API projection must preserve the full PAA/related-search occurrence population");
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
@@ -269,6 +270,7 @@ const mcpInitialize=await fetch(`http://127.0.0.1:${port}/mcp`,{
 const mcpTools=await fetch(`http://127.0.0.1:${port}/mcp`,{method:"POST",headers:{"content-type":"application/json","mcp-protocol-version":"2025-06-18"},body:JSON.stringify({jsonrpc:"2.0",id:2,method:"tools/list"})});assert.equal(mcpTools.status,200);assert.equal((await mcpTools.json()).result.tools.length,5);
 assert.equal((await fetch(`http://127.0.0.1:${port}/mcp`,{headers:{origin:"https://evil.example"}})).status,403);assert.equal((await fetch(`http://127.0.0.1:${port}/mcp`)).status,405);
 assert.equal(first.sites.length, 2);
+assert.equal(first.sites.find((site)=>site.site_id==="solobiz-lab.com").portfolio_metrics.group_count,1);assert.equal(first.sites.find((site)=>site.site_id==="it-shukatu.com").portfolio_metrics.group_count,1,"portfolio metrics must remain site scoped rather than use the two-site total");
 assert.equal(first.groups.length, 2);
 const solo = first.groups.filter((group) => group.site_id === "solobiz-lab.com");
 assert.equal(solo.length, 1, "site_id scope must not mix groups");
@@ -335,6 +337,7 @@ assert.match(app,/buildQuickSearchBookmarklet/);assert.match(app,/quick_q/);asse
 assert.match(app,/renderSuggestExplorer/);assert.match(app,/processing_state/);assert.match(html,/suggest-explorer/);assert.match(html,/保有コーパス・サジェスト/);
 assert.match(app,/renderAiQuestions/);assert.match(app,/ai_question_candidates/);assert.match(html,/ai-questions/);assert.match(html,/実測PAAはそのまま保持/);
 assert.match(app,/suggestExportRows/);assert.match(app,/questionExportRows/);assert.match(app,/suggest_q/);assert.match(app,/question_kind/);assert.match(html,/suggest-export-csv/);assert.match(html,/ai-question-export-json/);
+assert.match(app,/portfolio_metrics/);assert.match(app,/renderSitePortfolio/);assert.match(html,/site-portfolio/);assert.match(html,/未登録サイトは0件として作らず/);
 assert.match(app,/locationData\.stations/);assert.match(app,/station_source/);assert.match(app,/生成上限20,000行/);assert.match(html,/locality-prefecture/);assert.match(html,/国交省2025年度駅dataset/);
 assert.match(app, /競合根拠からの生成候補/);
 assert.match(app, /data\.competitor_page_evidence/);
