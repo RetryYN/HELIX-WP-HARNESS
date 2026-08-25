@@ -50,6 +50,7 @@ assert.equal(competitorDb.prepare("SELECT COUNT(*) AS count FROM competitor_page
 assert.equal(competitorDb.prepare("SELECT COUNT(*) AS count FROM competitor_headings").get().count,2);
 assert.equal(competitorDb.prepare("SELECT page_count FROM competitor_terms WHERE group_id=? AND term='構成'").get(competitorGroup).page_count,1);
 const competitorProjection=projectDashboard(competitorDb);assert.equal(competitorProjection.competitor_pages.length,1);assert.deepEqual(competitorProjection.competitor_page_evidence[0].task_ids,["task-seo-article"]);assert.equal(competitorProjection.competitor_terms[0].evidence_page_ids.length,1);
+assert.deepEqual(competitorProjection.competitor_summary,{page_count:1,successful_page_count:1,heading_count:2,term_count:2,projected_term_count:2,group_count:1});
 competitorDb.close();
 
 const pocDbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-poc-db-")), "dashboard.sqlite");
