@@ -1,6 +1,6 @@
 {
   "schema_version": "rakko-openapi-inventory.v1",
-  "generated_at": "2026-08-25T18:22:36.136Z",
+  "generated_at": "2026-08-25T18:23:51.092Z",
   "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
@@ -292,14 +292,19 @@
         "500": "object",
         "503": "object"
       },
-      "status": "planned",
+      "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
       "dfs_candidates": [
         "Labs ranked_keywords"
       ],
-      "helix_evidence": [],
-      "gap": "domain/URL ranked keyword、traffic、position、collapse未取得"
+      "helix_evidence": [
+        "serp_page_keyword_edges",
+        "serp_page_coverage",
+        "serp_domain_coverage",
+        "competitor-domains dashboard"
+      ],
+      "gap": "観測100KW内のdomain/page別keyword・position逆引きは実装。全rank DB、subdomain/directory match、traffic/value/historyは未取得"
     },
     {
       "operation": "POST /v1/influx-pages",

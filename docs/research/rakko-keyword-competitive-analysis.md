@@ -50,7 +50,7 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/question-search` | 質問DBを相対需要順に最大1,000件 | 蓄積質問index | gap |
 | `POST /v1/ranking-keywords` | 上位ページの同時rank KW、最大5,000件 | rank database / page intersection | 100KW×上位10のpage-keyword graph実装。rank DB gap |
 | `POST /v1/search-volume` | volume、月次推移、CPC、競合性、SEO難易度 | Google Ads + SERP/link metrics | 一部取込のみ、取得pipeline gap |
-| `POST /v1/influx-keywords` | domain/URL別rank KW、推定流入 | ranked keywords DB | gap |
+| `POST /v1/influx-keywords` | domain/URL別rank KW、推定流入 | ranked keywords DB | 観測100KW内のdomain/page→KW・順位逆引き実装。全rank DB・traffic/value/history gap |
 | `POST /v1/influx-pages` | 集客page、KW数、traffic value | relevant/ranked pages DB | 観測565 pageのKW/group/rank/top-KW集計とUI実装。全rank DB・traffic/value/history gap |
 | `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | 観測100KW内で225競合、107複数KW、78複数記事群を実装。全rank DB・traffic/value gap |
 | `POST /v1/bulk-site-research` | 最大100 URLの規模・推移比較 | domain metrics history | gap |
