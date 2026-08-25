@@ -243,6 +243,7 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 | image/video packs | 各1 query | v20 DB/API/取得状態画面へraw payloadごと救出。content format判断待ち |
 | price / rating | 6 / 2 organic result | commercial SERP分析へ未接続 |
 | task status/time/result count/check URL/result counts | 全taskに存在 | v20 DB/APIへ救出し、provider health・再現性を取得状態画面へ投影済み |
+| 現行分析fixture未接続のraw snapshot | 10 / raw全110 task | v21 raw取得台帳へ救出。現行IT就活100 taskとは分離し、SEO系8 task・比較PoC 2 task（jobs feature 1件を含む）を未接続理由付きで表示 |
 
 ### 10.3 取得自体をしていない
 

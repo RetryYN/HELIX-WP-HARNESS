@@ -74,6 +74,10 @@ const mismatchedAnchorVerify=spawnSync(process.execPath,["scripts/verify-poc-evi
 assert.notEqual(mismatchedAnchorVerify.status,0,"GSC fixture derivation anchor mismatch must fail closed");
 assert.match(mismatchedAnchorVerify.stderr,/fixture must declare the original export tree it was derived from/);
 const pocDb = new DatabaseSync(pocDbPath, { readOnly: true });
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory").get().count,110,"every acquired raw snapshot must appear in the acquisition ledger");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory WHERE analysis_status='connected'").get().count,100,"the current workbook tasks must be explicitly connected");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory WHERE analysis_status='unconnected'").get().count,10,"independently acquired PoC tasks must remain visible without contaminating the current site analysis");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM raw_snapshot_inventory WHERE analysis_status='unconnected' AND item_types_json LIKE '%jobs%'").get().count,1,"the orphaned jobs SERP feature must be discoverable in the ledger");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM imported_keywords WHERE site_id = 'it-shukatu.com'").get().count, 100);
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM keyword_hierarchy").get().count,100,"every imported keyword must have a hierarchy row");
 assert.equal(pocDb.prepare("SELECT COUNT(DISTINCT root_source_keyword_id) AS count FROM keyword_hierarchy").get().count,1,"display trie has one lexical root");
@@ -142,6 +146,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_demands.reduce((sum,row)=>sum+row.occurrence_count,0),1188,"canonical demand aggregation must reconcile exactly to occurrences");
   assert.ok(actual.serp_demands.some((row)=>row.occurrence_count>1&&row.task_count>1),"repeated demands across seed keywords must expose recurrence evidence");
   assert.equal(actual.serp_organic_results.length,926);
+  assert.equal(actual.raw_snapshot_inventory.length,110);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="connected").length,100);assert.equal(actual.raw_snapshot_inventory.filter((row)=>row.analysis_status==="unconnected").length,10);assert.ok(actual.raw_snapshot_inventory.some((row)=>row.analysis_status==="unconnected"&&row.item_types.includes("jobs")));
   assert.equal(actual.serp_task_metadata.length,100);assert.equal(actual.serp_task_metadata.filter((row)=>row.spell!=null).length,1);assert.equal(actual.serp_special_features.length,4);assert.equal(actual.serp_feature_summary.reduce((sum,row)=>sum+row.occurrence_count,0),270);assert.ok(actual.serp_organic_results.every((row)=>row.attributes?.type==="organic"));
   assert.equal(actual.serp_page_keyword_edges.length,926);assert.equal(actual.simultaneous_keyword_relations.length,339);assert.equal(actual.serp_page_coverage.length,565);assert.equal(actual.serp_domain_coverage.length,226);assert.ok(actual.simultaneous_keyword_relations.every((item)=>item.shared_urls.length===item.shared_url_count));assert.ok(actual.serp_page_coverage.every((item)=>item.top_task_id&&item.top_keyword&&item.best_rank>=1));
   assert.equal(actual.serp_ai_overviews.length,68);
@@ -275,6 +280,7 @@ assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert
 assert.match(app,/data\.aio_citation_references/);assert.match(app,/data\.aio_citation_domains/);assert.match(app,/renderAioCitations/);assert.match(app,/通常SERP同一URL/);assert.match(app,/自サイト引用/);
 assert.match(app,/data\.aio_content_elements/);assert.match(app,/AIO回答要素/);assert.match(app,/既存記事の論点不足/);assert.match(app,/statusLabels/);
 assert.match(app,/data\.serp_task_metadata/);assert.match(app,/data\.serp_special_features/);assert.match(app,/renderAcquisitionHealth/);assert.match(app,/平均処理秒/);assert.match(app,/希少feature/);
+assert.match(app,/data\.raw_snapshot_inventory/);assert.match(app,/分析未接続/);assert.match(app,/rawInventoryRows/);
 assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
