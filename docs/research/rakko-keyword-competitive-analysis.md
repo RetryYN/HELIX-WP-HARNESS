@@ -276,6 +276,9 @@ Labs Bulk Keyword Difficulty liveで、上限見積は合計`$0.114`。自domain
 `WP_DFS_ENRICHMENT_MAX_USD`、DFS credentialsがすべて必要。課金前に無料のUser Data endpointから
 balanceとaccount pricing snapshotを取得し、残高不足なら停止する。response、reported cost、SHA-256、
 request planをrun単位のmanifestへ保存する。clickstreamは明示的にfalseで、意図しない倍額課金を避ける。
+`dfs-enrichment-normalized.v1` は取得後のresponseを、keyword metrics、年月別volume、difficulty、
+ranked keyword summary、ranked keyword明細へ分離する。観測値`0`は欠損へ変換せず、providerが返さなかった
+入力語はcoverageの`missing_keywords`へ残す。全明細はsource job、raw SHA-256、行単位evidence digestを持つ。
 
 - Google Ads Search Volume live: <https://docs.dataforseo.com/v3/keywords_data-google_ads-search_volume-live/>
 - Labs Bulk Keyword Difficulty live: <https://docs.dataforseo.com/v3/dataforseo_labs-google-bulk_keyword_difficulty-live/>
