@@ -31,8 +31,16 @@ scope: public-product-research-and-reproducible-inference
 
 ## 3. 公開API inventory（2026-08-26）
 
-公開 OpenAPI は24 operation、41 schemaを持つ。機能 operation は次の18系統で、
-非同期機能には登録・status・results・history・SERP detailが追加される。
+公開 OpenAPI は24 operation、41 schemaを持つ。`scripts/refresh-rakko-openapi-inventory.mjs` が
+公開Swaggerからsnapshotを保存し、952 nested fieldをflattenして全operationへ実装状態・DFS候補・推論確度・gapを割り当てる。
+`scripts/test-rakko-openapi-inventory.mjs` は未割当operation、古いmapping、schema/field欠落をfailさせる。
+
+- 正本snapshot: `docs/research/evidence/rakko-openapi.json`
+- field inventory: `docs/research/rakko-openapi-inventory.json`
+- 判断台帳: `docs/research/rakko-capability-decisions.json`
+- snapshot SHA-256: `9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573`
+
+機能operationは次の18系統で、非同期機能には登録・status・results・history・SERP detailが追加される。
 
 | 公開API | 公開上の処理 | 推定入力層 | 現行HELIX |
 |---|---|---|---|
@@ -47,13 +55,13 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | gap |
 | `POST /v1/bulk-site-research` | 最大100 URLの規模・推移比較 | domain metrics history | gap |
 | `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | gap |
-| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 自サイトheadingのみ。競合取得 gap |
-| `POST /v1/co-occurrence` | 上位20pageの本文/title/heading頻出語 | SERP + page parsing + token statistics | gap |
+| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位3page実測・6,887 heading。上位20/除外条件 gap |
+| `POST /v1/co-occurrence` | 上位20pageの本文/title/heading頻出語 | SERP + page parsing + token statistics | task/group別実装済み。上位20/getDetails互換 gap |
 | `POST /v1/search-rank` | 指定site/KWの最新順位とSERP | live/queued SERP | raw SERPあり。継続rank tracking gap |
 | `POST /v1/site-search` | contentとdomain metricsによるsite検索 | domain/content index | gap |
 | metadata locations | region contract | provider metadata | location code固定のみ |
 | metadata languages | language contract | provider metadata | `ja`固定のみ |
-| AI生成群（Web UI） | title、heading、body、questions、related KW | SERP/heading/co-occurrence + LLM | gap |
+| AI生成群（Web UI） | title、heading、body、questions、related KW | SERP/heading/co-occurrence + LLM | evidence-bound title/heading 642候補。LLM/body gap |
 
 ## 4. DataForSEO対応仮説
 
@@ -307,7 +315,7 @@ H2/H3だけである。本文全量を重複保持しない方針自体は正し
 
 ## 11. 未検証事項
 
-- 公開API全41 schemaのfield-level対応表
+- 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
 - 各Web UI機能のfilter、sort、export、履歴、上限、empty/error/stale状態
 - SEO難易度の公開説明とDFS Labs指標の数式・分布比較
 - 同一seedでのラッコ出力とDFS出力の合法的なside-by-side実測
