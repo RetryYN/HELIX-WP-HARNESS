@@ -155,6 +155,7 @@ seed keyword / site / URL
 - keyword hierarchy、64 article group、SERP URL overlapを決定論で再現できる。
 - main/intent keywordと実WP article ID、title、heading、GSC queryを同じDBで照合できる。
 - PAA/関連検索878論点を実WP title/H1-H6へ厳格照合し、covered・missing・記事未割当を混同せず逆引きできる。現行実測は評価可能220論点中title 3、heading 1、missing 216。
+- AIO 96引用を38 domainへ正規化し、同一query通常SERPとの同一URL 61件・同一domain 71件、自site引用0件を分離してcitation gapを説明できる。
 - 「提案」と「承認済みrequired topic」を分離し、AI出力を自動的な正本にしない。
 - 公開後のGSC実績から施策KW獲得率と想定外queryを閉ループ評価できる。
 
@@ -178,7 +179,7 @@ traceable lifecycleを完成させることが主要な勝ち筋になる。
 2. 自site title/heading対PAA/関連検索のcontent gapは実装済み。weak-domain opportunity、SERP volatilityが残る。
 3. rank history、GSC、page versionを結んだ変更前後impact評価。
 4. cannibalization、consolidate、refresh、new pageの排他的decision proposal。
-5. query clusterごとのAIO/AI Mode引用源・非引用gap。
+5. 観測AIOの引用URL/domain・通常SERP交差・自site非引用gapは実装済み。AI Mode、引用本文topic coverage、時系列が残る。
 
 ### P2: discovery面の拡張
 
@@ -233,7 +234,7 @@ raw snapshot自体は保持しているため再投影は可能だが、現行DB
 | organic sitelinks | 257 result | v10 DB/APIへ救出済み。分析接続待ち |
 | AIO markdown | 17 / 68 AIO | v10 DB/APIへ救出済み。topic分析待ち |
 | AIO elements | 69 element | v10 DB/APIへ救出済み。section分解待ち |
-| AIO references | 96 reference | v10 DB/APIへ救出済み。citation gap分析待ち |
+| AIO references | 96 reference | v18で38 domainへ正規化し、通常SERP URL/domain交差と自site citation gapへ接続済み |
 | spell correction | 1 query | alias/normalizationへ未接続 |
 | knowledge graph | 1 query | entity分析へ未接続 |
 | people-also-search | 1 query | demand graphへ未接続 |

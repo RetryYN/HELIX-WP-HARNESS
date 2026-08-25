@@ -104,6 +104,11 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM simultaneous_keyword_r
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_organic_results WHERE description IS NOT NULL AND description!=''").get().count,918,"available organic descriptions must not be discarded");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_ai_overviews").get().count,68,"all observed AIO records, including asynchronous placeholders, must be projected");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM serp_ai_overviews WHERE markdown IS NOT NULL AND markdown!=''").get().count,17,"available AIO answer text must not be discarded");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_references").get().count,96,"every AIO citation occurrence must be normalized without losing its raw reference fields");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_domains").get().count,38,"AIO citations must aggregate to the observed domain population");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_references WHERE is_own_domain=1").get().count,0,"the actual corpus has no own-site AIO citation and must expose that gap");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_references WHERE organic_url_rank IS NOT NULL").get().count,61,"AIO citation exact-URL overlap must be matched against the canonical same-query top-10 corpus");
+assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM aio_citation_references WHERE organic_domain_rank IS NOT NULL").get().count,71,"URL and domain overlap must remain separate AIO citation signals");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_proposals").get().count,878,"canonical topics must aggregate repeated demand occurrences within each keyword group");
 assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM content_topic_evidence").get().count,1188,"every PAA/related-search occurrence must bind to exactly one proposal in its source group");
 assert.equal(pocDb.prepare("SELECT SUM(occurrence_count) AS count FROM content_topic_proposals").get().count,1188,"proposal occurrence totals must reconcile to the raw demand population");
@@ -129,6 +134,7 @@ assert.equal(pocDb.prepare("SELECT COUNT(*) AS count FROM gsc_query_results WHER
   assert.equal(actual.serp_page_keyword_edges.length,926);assert.equal(actual.simultaneous_keyword_relations.length,339);assert.equal(actual.serp_page_coverage.length,565);assert.equal(actual.serp_domain_coverage.length,226);assert.ok(actual.simultaneous_keyword_relations.every((item)=>item.shared_urls.length===item.shared_url_count));assert.ok(actual.serp_page_coverage.every((item)=>item.top_task_id&&item.top_keyword&&item.best_rank>=1));
   assert.equal(actual.serp_ai_overviews.length,68);
   assert.equal(actual.serp_ai_overviews.reduce((sum,row)=>sum+row.references.length,0),96,"AIO citation references must remain available to the API consumer");
+  assert.equal(actual.aio_citation_references.length,96);assert.equal(actual.aio_citation_domains.length,38);assert.equal(actual.aio_citation_references.filter((row)=>row.organic_url_rank!=null).length,61);assert.equal(actual.aio_citation_references.filter((row)=>row.organic_domain_rank!=null).length,71);assert.equal(actual.aio_citation_references.filter((row)=>row.is_own_domain).length,0);
   assert.equal(actual.content_topic_proposals.length,878);
   assert.equal(actual.content_topic_coverage.length,878);assert.equal(actual.content_topic_coverage.filter((row)=>row.coverage_status!=="unassigned").length,220);assert.ok(actual.content_topic_coverage.every((row)=>row.evidence_digest.length===64));
   assert.equal(actual.content_topic_proposals.reduce((sum,row)=>sum+row.evidence_occurrence_ids.length,0),1188);
@@ -253,6 +259,7 @@ assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観�
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);
 assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatches/);assert.match(app,/SERP説明文/);assert.match(app,/keywordMatches/);
 assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert.match(app,/強調語あり/);assert.match(app,/日時あり/);
+assert.match(app,/data\.aio_citation_references/);assert.match(app,/data\.aio_citation_domains/);assert.match(app,/renderAioCitations/);assert.match(app,/通常SERP同一URL/);assert.match(app,/自サイト引用/);
 assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);
 assert.match(app, /query-page-size/);
 assert.match(app, /syncQueryCategoryFilters/);
