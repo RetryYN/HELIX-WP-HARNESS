@@ -562,6 +562,14 @@ WP記事が確定した13 groupについて、group間の同時ランク関係�
 満たす施策候補へ閉ループ化する。さらに63 content briefへoutgoing/incoming候補とplan digestを戻し、本文生成
 packageとは別の未承認link planとして表示する。17候補はそれぞれ1つのsource briefへ一意に接続される。
 
+### 10.28 WordPress公開SEO headの別観測（DB v31）
+
+`content.rendered`だけではSEOプラグインが公開ページの`head`へ出すtitle、meta description、robots、canonical、
+Open Graph、Twitter Card、JSON-LDを観測できない。robots.txtの許可範囲内で59公開記事を別取得し、HTML本体を
+保存せず、派生値とhead digestだけを`wp_page_seo_metadata`へ保持する。今回の観測ではHTTP 200、canonical、
+description、robotsは59/59件。JSON-LD型は0/59件だったため、「サイトに構造化データがない」ではなく
+「今回取得した公開headにJSON-LD scriptが観測されなかった」と限定して扱う。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
