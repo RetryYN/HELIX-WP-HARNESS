@@ -641,6 +641,14 @@ baseと追加clickを合わせ最大$0.0750とする。PAAが存在しない場�
 文字数、内部・外部link、競合copy oracleへは混入させない。これにより追加取得なしで検索結果上の訴求文脈を救出しつつ、
 SERPによる要約と公開本文という異なる証拠scopeを分離する。
 
+### 10.37 organic SERP message・rich resultの分析接続
+
+926 organic結果で保持済みフィールドを再監査し、description 918、pre-snippet 492、breadcrumb 926、highlight 839、
+sitelinkあり257、rating 2、price 6、video属性19を確認した。従来は一部がDB/API projection止まりだったため、競合
+content検索へpre-snippet、breadcrumb、sitelink title、rating値・投票数、表示価格を独立targetとして接続した。
+`/api/v1/serp-results`も同じtarget検索とvideo/sitelinks/rated/priced feature filterへ対応する。画面では本文由来の
+TITLE/H1-H6と、検索エンジン表示由来のSERP DESC/PRE/PATH/SITELINK/COMMERCEを別labelで表示し、証拠scopeを混同しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

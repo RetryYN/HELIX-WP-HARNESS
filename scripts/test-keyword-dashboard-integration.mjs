@@ -332,6 +332,7 @@ assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観�
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);
 assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatches/);assert.match(app,/SERP説明文/);assert.match(app,/keywordMatches/);
 assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert.match(app,/強調語あり/);assert.match(app,/日時あり/);
+assert.match(app,/preSnippetMatches/);assert.match(app,/breadcrumbMatches/);assert.match(app,/sitelinkMatches/);assert.match(app,/commerceMatches/);assert.match(app,/SERP snippetのみ/);assert.match(html,/pre-snippetのみ/);assert.match(html,/rating・priceのみ/);
 assert.match(app,/data\.aio_citation_references/);assert.match(app,/data\.aio_citation_domains/);assert.match(app,/renderAioCitations/);assert.match(app,/通常SERP同一URL/);assert.match(app,/自サイト引用/);
 assert.match(app,/data\.aio_content_elements/);assert.match(app,/AIO回答要素/);assert.match(app,/既存記事の論点不足/);assert.match(app,/statusLabels/);
 assert.match(app,/data\.serp_task_metadata/);assert.match(app,/data\.serp_special_features/);assert.match(app,/renderAcquisitionHealth/);assert.match(app,/平均処理秒/);assert.match(app,/希少feature/);

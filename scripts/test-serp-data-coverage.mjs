@@ -16,5 +16,5 @@ assert.deepEqual(audit.captured_raw_only,[],"every non-empty field in the curren
 assert.ok(audit.captured_and_projected.some((row)=>row.field==="organic.description"&&row.nonempty_count===918),"organic descriptions must be projected for content planning");
 assert.ok(audit.captured_and_projected.some((row)=>row.field==="ai_overview.markdown"&&row.nonempty_count===17),"AIO text must be projected for citation/topic analysis");
 assert.ok(audit.not_acquired.some((row)=>row.dataset==="competitor H1-H6/body/link graph"));
-assert.ok(audit.projected_but_not_decision_connected.some((row)=>row.field==="organic.pre_snippet"),"preserved-but-unused fields must remain explicit");
+assert.ok(!audit.projected_but_not_decision_connected.some((row)=>["organic.pre_snippet","organic.breadcrumb","organic.links"].includes(row.field)),"retained SERP message and sitelink fields must be decision-connected");
 console.log("SERP data coverage audit: OK (projected/unused vs raw-only vs not-acquired are explicit)");

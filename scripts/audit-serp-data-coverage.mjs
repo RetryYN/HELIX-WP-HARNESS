@@ -17,7 +17,7 @@ const projectedFields=new Set([
 const genericallyProjectedItemFields=new Set(["type","rank_group","rank_absolute","page","position","xpath","title","url"]);
 const payloadProjectedItemTypes=new Set(["people_also_ask","related_searches","ai_overview","knowledge_graph","people_also_search","images","video"]);
 const decisionConnectedFields=new Set([
-  "result.spell","result.item_types","organic.rank_group","organic.rank_absolute","organic.domain","organic.title","organic.url","organic.description","organic.timestamp","organic.highlighted","organic.rating","organic.price",
+  "result.spell","result.item_types","organic.rank_group","organic.rank_absolute","organic.domain","organic.title","organic.url","organic.breadcrumb","organic.description","organic.pre_snippet","organic.timestamp","organic.highlighted","organic.links","organic.rating","organic.price","organic.is_video","organic.checks",
   "ai_overview.markdown","ai_overview.references","people_also_ask.items.title","people_also_ask.items.seed_question","related_searches.items"
 ]);
 const isProjected=(field)=>projectedFields.has(field)||payloadProjectedItemTypes.has(field.slice(0,field.indexOf(".")))||genericallyProjectedItemFields.has(field.slice(field.indexOf(".")+1));
