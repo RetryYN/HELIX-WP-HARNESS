@@ -4,9 +4,10 @@ import {createServer} from "node:http";
 import path from "node:path";
 import {openDashboardDb,projectDashboard} from "./keyword-dashboard-db.mjs";
 import {handleMcpMessage,isAllowedMcpOrigin} from "./keyword-dashboard-mcp.mjs";
-import {routeResearchApi} from "./keyword-dashboard-api.mjs";
+import {routeResearchApi,setResearchDb} from "./keyword-dashboard-api.mjs";
 
 const root=path.resolve("docs/prototypes/wp-ops-dashboard"),mermaidRoot=path.resolve("node_modules/mermaid/dist"),dbPath=path.resolve(process.env.WP_DASHBOARD_DB??".helix/keyword-dashboard.sqlite"),dashboardDb=openDashboardDb(dbPath),port=Number(process.env.WP_DASHBOARD_PORT??4173),host=process.env.WP_DASHBOARD_HOST??"0.0.0.0",types={".html":"text/html; charset=utf-8",".css":"text/css; charset=utf-8",".js":"text/javascript; charset=utf-8",".json":"application/json; charset=utf-8"};
+setResearchDb(dashboardDb);
 const json=(res,status,body)=>{res.writeHead(status,{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"});res.end(JSON.stringify(body))};
 const readJson=async(req)=>{const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>1048576){const error=new Error("payload too large");error.status=413;throw error}chunks.push(chunk)}try{return JSON.parse(Buffer.concat(chunks).toString("utf8"))}catch{const error=new Error("invalid JSON");error.status=400;throw error}};
 async function serveMcp(req,res){if(!isAllowedMcpOrigin(req.headers.origin)){res.writeHead(403);res.end("Forbidden origin");return}if(req.method!=="POST"){res.writeHead(405,{Allow:"POST"});res.end();return}const version=req.headers["mcp-protocol-version"];if(version&&!['2025-03-26','2025-06-18','2025-11-25'].includes(version)){res.writeHead(400);res.end("Unsupported MCP protocol version");return}let input;try{input=await readJson(req)}catch(error){json(res,error.status??400,{jsonrpc:"2.0",id:null,error:{code:-32700,message:error.message}});return}const data=projectDashboard(dashboardDb),messages=Array.isArray(input)?input:[input],responses=messages.map((message)=>handleMcpMessage(message,data)).filter(Boolean);if(!responses.length){res.writeHead(202);res.end();return}json(res,200,Array.isArray(input)?responses:responses[0])}

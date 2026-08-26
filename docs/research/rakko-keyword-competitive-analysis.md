@@ -665,6 +665,19 @@ dashboard内の静的・動的tableを共通初期化し、全headerで任意列
 MutationObserverによる動的table再適用を含む。既存のfiltered CSV/JSON、16 view JSON snapshot、browser内50件履歴、copyと
 合わせ、公開観測できたdata output契約範囲を実装済みと判定する。
 
+### 10.40 未取得・非保持・projection切り捨ての横断監査
+
+取得元からDB、`/api/dashboard`、read-only API、画面までを再照合した。raw SERPで観測した99 fieldはraw-only 0のままだが、
+競合共起語はDBにgroup別16,995件、task別24,052件ある一方、初期dashboard JSONでは表示性能のため各identity上位20件、
+合計1,260件・2,000件へ切り詰めていた。これは取得欠損ではなくprojection欠損なので、初期previewは維持しつつ
+`GET /api/v1/cooccurrence?site_id=...`でgroup別全量、`scope=task`でtask別全量をcursor paginationするよう修正した。
+実DBテストでそれぞれ16,995件・24,052件への到達を検証する。
+
+意図的非保持も欠損と分離した。WordPress 8,050段落は位置、要素種別、所属section、文字数、digestを保持するが、本文文字列と
+公開HTMLは保持しない。GSC raw queryは正規化集約後もraw tableを残す。競合本文取得失敗10ページは失敗statusを消さずSERP
+snippetだけを別証拠として保持する。未取得の主要母集団はSERP 10,594 source row、PAA回答、market/rank履歴で、課金取得は
+既存provider planの明示承認gateを越えず自動実行しない。これらの処遇をdashboardのデータ処遇台帳へ常設する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
