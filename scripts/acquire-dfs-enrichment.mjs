@@ -4,7 +4,7 @@ import path from "node:path";
 import {buildDfsEnrichmentPlan,selectDfsEnrichmentJobs} from "./dfs-enrichment-plan.mjs";
 
 const api="https://api.dataforseo.com/v3",repoRoot=path.resolve(import.meta.dirname,".."),poc=JSON.parse(await readFile(path.join(repoRoot,"artifacts/poc/keyword-workbook-100-live/result.json"),"utf8")),fixture=JSON.parse(await readFile(path.join(repoRoot,".helix/keyword-dashboard-runtime.json"),"utf8"));
-const site=fixture.sites[0],basePlan=buildDfsEnrichmentPlan({keywords:poc.tasks.map((row)=>row.keyword),target:site.domain}),selected=(process.env.WP_DFS_ENRICHMENT_JOBS??"keyword_metrics,keyword_difficulty").split(",").map((value)=>value.trim()).filter(Boolean),plan=selectDfsEnrichmentJobs(basePlan,selected);
+const site=fixture.sites[0],basePlan=buildDfsEnrichmentPlan({siteId:site.site_id,keywords:poc.tasks.map((row)=>row.keyword),target:site.domain}),selected=(process.env.WP_DFS_ENRICHMENT_JOBS??"keyword_metrics,keyword_difficulty").split(",").map((value)=>value.trim()).filter(Boolean),plan=selectDfsEnrichmentJobs(basePlan,selected);
 if(!process.argv.includes("--live")){console.log(JSON.stringify(plan,null,2));process.exit(0)}
 if(process.env.WP_DFS_ENRICHMENT_LIVE!=="1")throw new Error("charged acquisition requires WP_DFS_ENRICHMENT_LIVE=1");
 const ceiling=Number(process.env.WP_DFS_ENRICHMENT_MAX_USD);if(!Number.isFinite(ceiling)||ceiling<plan.estimated_max_usd)throw new Error(`WP_DFS_ENRICHMENT_MAX_USD must cover the selected official-price estimate $${plan.estimated_max_usd}`);

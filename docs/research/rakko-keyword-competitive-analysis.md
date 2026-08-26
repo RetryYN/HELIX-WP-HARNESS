@@ -860,6 +860,17 @@ market enrichment tableは現時点で空だがsite identity列を持たない�
 `canonical_url`へ統一し、単なる自己整合ではなく主siteの既知母数565件も固定assertする。runtimeでもpages total 565、
 `detail.chiebukuro.yahoo.co.jp`は44 page・61 KWと確認した。
 
+### 10.55 DFS市場enrichmentのsite identity
+
+live取得前監査で、検索量・月次推移・難易度・獲得KW・取得runの6テーブルに`site_id`がなく、`/market/status`、
+`/market/results`、画面、JSON export、費用台帳がglobal値を参照していることを確認した。現行DBは追加市場データ0件のため
+漏洩はまだ発生していないが、最初の取得後に別siteへ同じ結果と費用を表示するschema欠陥だった。
+
+取得planを`dfs-enrichment-plan.v2`へ上げて`site_id`を必須化し、normalized evidenceの全row、SQLite v37の主キー、
+投影status、API、画面、export、data disposition、費用台帳まで同じidentityを伝播する。未登録siteのevidenceはDB buildを
+fail closedする。2-site fixtureでは`it-shukatu.com`だけに市場証拠を投入し、同siteのmarket APIは1件／acquired、
+`solobiz-lab.com`は0件／not_acquiredになることを独立assertした。新規provider取得やAPI公開は行っていない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
