@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "650d8469ebd4726cdb24cacb77597b917fd054588be5d50fa45466e263a557cc",
+  "inventory_digest": "5f8e8ae0ebf10875f25a42c3501f1dbaeff0801d6726bb9219e8a7a6925a2d2d",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -360,7 +360,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "demand/competitor別deterministic variants、generator version/input digest、主KW/文字数/冗長性/根拠/既存WP衝突review implemented。LLM model/prompt/output metadata gap",
+      "remaining_gap": "demand/competitor別deterministic variants、generator version/input digest、主KW/文字数/冗長性/根拠/既存WP衝突review、競合title文字数benchmark、63記事群の決定論推奨policy/API/UIを実装。自動承認なし。LLM model/prompt/output metadata gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -372,7 +372,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "28959849ad0f57ac7c3b737a5b8b0df6397679e281a2bf0be8b2781c56de26db"
+      "evidence_digest": "d559e24d222991ecef481a1463a9607712301b2a872bc8671bb0b2972aea5c20"
     },
     {
       "capability_id": "ai_heading",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "8b416df42404bdf69b93b3033f57ac1519304a64a6657bb1521750ad692bad25"
+  "audit_digest": "e72ea7c72588b6d9e318436e6a9edae1b6e0cc1bc957025f88c5bf6df9b70748"
 }

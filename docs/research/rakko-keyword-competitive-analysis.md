@@ -729,6 +729,18 @@ PAA回答、4年月次指標、全rank database、traffic/value/historyは依然
 18,431見出しを使う専用テストでfilter、除外、page集約、平均値、task scope、外部取得非発火を検証する。
 上位11〜20は未取得のため、headline機能の完成判定は引き続き`partial`とする。
 
+### 10.46 タイトル候補の競合benchmark・選定policy
+
+`GET /api/v1/titles`を追加し、site内のtitle候補を`state`、`evidence_type`、`issue`、`variant`、`group_id`、`q`で
+絞り込めるようにした。各候補へ記事群、品質oracle、根拠、現行WP title、同じ記事群で観測した競合titleと順位、
+競合title文字数の平均・中央値・最小・最大を接続する。別siteのgroup IDは404とする。
+
+`evidence-title-selection.v1`はblockedを除外し、review state、quality score、根拠数、35字からの距離、競合類似度を
+固定順序で比較し、各記事群に推奨候補を最大1件付ける。同点はcandidate IDで決定し、`auto_approval:false`を返す。
+現行実測は179候補・63記事群・63推奨で、根拠解決179/179。画面では品質、文字数、根拠種別、競合文字数分布、
+類似度、issueを同じ行で比較できる。これは候補選定の再現性を高めるが、LLM model/prompt/output metadataを生成した
+ものではないため、AI title機能の完成判定は`partial`のままとする。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

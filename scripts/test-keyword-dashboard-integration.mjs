@@ -359,6 +359,7 @@ assert.match(app, /data\.content_structure_candidates/);
 assert.match(app,/本文生成package/);assert.match(app,/draft_package/);assert.match(app,/引用未承認のため公開不可/);
 assert.match(app, /data\.content_generation_candidates/);
 assert.match(app,/生成品質oracle/);assert.match(app,/evidence_reference_resolved/);assert.match(app,/nearest_competitor_similarity/);assert.match(app,/review_policy/);
+assert.match(html,/title-analysis-search/);assert.match(html,/タイトル候補・競合比較/);assert.match(app,/renderTitleAnalysis/);assert.match(app,/selection_score/);assert.match(app,/自動承認なし/);
 assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳からの関連KW候補/);assert.match(app,/concept dedupe済み/);
 assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);
 assert.match(app,/data_disposition/);assert.match(app,/data-disposition-rows/);assert.match(html,/データ処遇台帳/);assert.match(html,/正規化統合/);
