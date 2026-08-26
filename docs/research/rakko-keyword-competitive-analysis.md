@@ -791,6 +791,19 @@ SERP field監査では`organic.is_video`をdecision connectedとしていたが�
 自domain出現も別集計し、現行実測は1件である。`GET /api/v1/brands`と競合画面からbrand/domain両viewを検索でき、
 未知domain推定、traffic推定、brand同一性の自動統合は行わない。
 
+### 10.51 AIO非同期placeholderと回答取得済み母数の分離
+
+AIO containerは68 taskで観測したが、内訳は本文・items・referencesを持つresolved 17件と、
+`asynchronous_ai_overview=true`かつ全回答payloadが空の51件に完全分離された。従来の「AIO 68件」という表示は
+引用・論点分析可能な母数を過大に見せるため、`aio-response-state.v1`で`resolved`、`async_pending`、`empty`を付与し、
+分析可能率25%、再取得対象task ID 51件をsite別に保持する。AIO画面は観測68、回答取得済み17、非同期未回収51を
+同時表示し、取得状態台帳にも`aio_answer_payloads`として差分51を追加した。
+
+`GET /api/v1/aio-overviews`はstate filterと同じsummaryを返し、再取得mutationは行わない。field監査でも
+`ai_overview.asynchronous_ai_overview`と、前節で施策化した`organic.website_name`をdecision connectedへ移し、
+分類は30 decision connected、69 evidence-only、0 unclassifiedとなった。resolved 17件の96引用・69回答要素だけを
+引用／論点分析へ使用し、51 placeholderから回答や引用を補完しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

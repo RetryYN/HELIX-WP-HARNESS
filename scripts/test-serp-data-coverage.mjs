@@ -15,6 +15,8 @@ assert.equal(audit.schema_version,"serp-data-coverage-audit.v3");
 assert.deepEqual(audit.captured_raw_only,[],"every non-empty field in the current 100 snapshots must remain queryable in a dedicated or generic projection");
 assert.ok(audit.captured_and_projected.some((row)=>row.field==="organic.description"&&row.nonempty_count===918),"organic descriptions must be projected for content planning");
 assert.ok(audit.captured_and_projected.some((row)=>row.field==="ai_overview.markdown"&&row.nonempty_count===17),"AIO text must be projected for citation/topic analysis");
+assert.ok(audit.decision_connected.some((row)=>row.field==="organic.website_name"&&row.nonempty_count===926),"SERP display brand must be connected to brand occupancy analysis");
+assert.ok(audit.decision_connected.some((row)=>row.field==="ai_overview.asynchronous_ai_overview"&&row.nonempty_count===68),"AIO async state must distinguish unresolved placeholders from analyzable answers");
 assert.ok(audit.not_acquired.some((row)=>row.dataset==="competitor H1-H6/body/link graph"));
 assert.ok(!audit.projected_but_not_decision_connected.some((row)=>["organic.pre_snippet","organic.breadcrumb","organic.links"].includes(row.field)),"retained SERP message and sitelink fields must be decision-connected");
 assert.deepEqual(audit.projected_but_unclassified,[],"every projected field must have an explicit decision or evidence-only purpose");
