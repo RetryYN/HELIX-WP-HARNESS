@@ -844,6 +844,22 @@ SQLite全70テーブルのうちpopulate済み61テーブルを`projectDashboard
 section検索とpaginationを提供する。APIは本文文字列を返さず、`text_retained:false`を明示する。これによりSQLiteの
 populate済みテーブルは61/61でread pathを持つ。本文全文検索を後付けしたわけではなく、非保持境界は維持する。
 
+### 10.54 page/domain集約APIのsite境界
+
+`GET /api/v1/pages`は`site_id`を必須にしながら、globalな`serp_page_coverage`全565行をそのまま返しており、複数site
+fixtureで別site URLが混入した。`GET /api/v1/domains`はdomain自体をsite taskで絞っていたが、keyword/group/page数と
+rank scoreはglobal集約値をspreadしていたため、共有domainでは別site分の指標が混ざる設計だった。
+
+両routeを選択siteの`serp_page_keyword_edges`からrequest時に再集約し、URL/domain、task、group、best rank、reciprocal
+rank score、top KWを同じsite境界で計算する。各rowへ`scope.site_id`と`full_rank_database:false`を付ける。2-site fixtureで
+siteごとの期待URL/domain集合・件数・scopeを照合し、別siteのURLだけでなく共有domainの集計値も越境させない。
+market enrichment tableは現時点で空だがsite identity列を持たないため、live取得前のschema課題として残す。
+
+初回修正ではedge列を`url`と誤記し、全URLが`undefined` keyへ集約されて565件が1件になる不具合をruntimeで検出した。
+テスト側も同じ誤列名を使って期待値1を作っていたため、誤実装と誤oracleが同時に通っていた。実schemaの
+`canonical_url`へ統一し、単なる自己整合ではなく主siteの既知母数565件も固定assertする。runtimeでもpages total 565、
+`detail.chiebukuro.yahoo.co.jp`は44 page・61 KWと確認した。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
