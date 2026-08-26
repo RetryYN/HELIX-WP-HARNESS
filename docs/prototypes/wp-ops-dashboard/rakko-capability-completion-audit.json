@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "35acf5226f4a1e3cd9db19bbd0eed4948e243efda4290d359d8d6b9c0b78a91c",
+  "inventory_digest": "ceceb9b274649048ffe6bede31be68075bb3bbc2159e8e058cf3c84f547b3fb3",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -406,7 +406,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。SQLite v44でAIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを語彙・query・organic順位別score付きで推薦。API/MCP/UI/text/HTMLへ接続し、全候補unreviewed、publication blocked、自動承認なし。LLM実行、事実claimの一次情報検証・引用承認、複数revision履歴、list/table本文生成は未実装",
+      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v54では統合対象2記事の12 claim・根拠21件・citation推薦21件を統合draftへ損失なくlineage化し、API/MCP/UIへ接続。全候補unreviewed、publication blocked、自動承認なし。LLM実行、事実claimの一次情報検証・引用承認、複数revision履歴、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -418,7 +418,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "db2d37b5c7e5232054a8f6abd4e93bc90dc995eae4ea8b0420326dedba2f8238"
+      "evidence_digest": "9f9a013a10a4affb51f2e6349dc902eaf520a3f0debc25c5dca11e2f574d6849"
     },
     {
       "capability_id": "ai_questions",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "9a0784f58adda528f9be32d40889a58c8961fc4e2728d7225e1c35183aa4a19d"
+  "audit_digest": "f2bb606ede1c16b23e11e6fe978250321640d9fe60b412ca60aef3289da843bc"
 }

@@ -1035,6 +1035,19 @@ title側も同じ損失監査を行った。存続候補titleは需要根拠2件
 `GET /api/v1/consolidation-blueprints`、MCP `review_content_consolidation`、監査画面の統合編集判断・
 統合タイトルbrief・統合後アウトライン・統合根拠lineageへ同じ証拠を接続し、`auto_mutation:false`を維持する。
 
+### 10.66 統合draftのclaim・根拠・citation lineage（DB v54）
+
+統合前2記事のdraft revisionも、見出し統合後に捨てない。実データでは元12 claimを、intro 1件と
+統合outline 7見出しに対応する計8 claimへまとめた。各統合claimは元claim ID、元group ID、元heading
+candidate IDを保持するため、圧縮後も12/12件を逆引きできる。元draftの根拠ID union 21件は21/21件、
+citation ID 14件は14件を保持し、citation推薦21件はすべて統合先claim IDへ再マップした。
+
+このpreviewは検索観測から安全に言える検討論点だけを生成し、未検証の事実本文は補わない。
+`primary_source_verification_pending`と`citation_approval_pending`を常にgate理由として保持し、
+`publication_state: blocked`、`review_only_not_applied`、`auto_approval:false`とする。SQLite v54、
+`GET /api/v1/consolidation-blueprints`（OpenAPI 2.2.0）、MCP `review_content_consolidation`、監査画面の
+統合draft packageへ同一のlineageとdigestを接続した。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
