@@ -466,7 +466,7 @@ filterは `suggest_q` / `suggest_mode` / `question_q` / `question_kind` とし�
 dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し、`initialize`、`ping`、
 `tools/list`、`tools/call`を実装した。toolはsite-scopedの元KW検索、実測需要検索、質問候補、content brief、
 取得状態/費用台帳に加え、title候補、競合heading、outline、競合domain、SERP field、保持rank履歴、市場データの
-計12種に、特殊SERP featureのnested item検索とtitle×outline構成整合reviewを加えた計14種。追加9種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
+計12種に、特殊SERP featureのnested item検索、title×outline構成整合review、証拠境界draft読取を加えた計15種。追加10種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
 最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを許可し、bodyは1MiB、
 protocol versionは2025-03-26/06-18/11-25に制限する。Rakko OAuthやcredit連携とは称さない。
 
@@ -927,7 +927,7 @@ ready 33→48、needs_review 30→15となった。
 `content-evidence-draft.v1`は63のbrief-ready packageを、title、H2/H3、段落、claimの固定構造へ決定論的に変換する。
 検索結果で観測した論点であることだけを文章化し、数値・制度・固有事実を補完しない。全573 claimにkind、内部evidence ID、
 一次情報検証状態を持たせ、draft revisionはsource package digestと独立したSHA-256を持つ。SQLiteの
-`content_draft_revisions`へrevision単位で保存し、`GET /api/v1/drafts`、コンテンツ施策画面、現在view JSON、個別text/HTML
+`content_draft_revisions`へrevision単位で保存し、`GET /api/v1/drafts`、MCP `read_content_drafts`、コンテンツ施策画面、現在view JSON、個別text/HTML
 downloadへ同じ値を接続した。
 
 現時点は63/63 draftが生成済みだが、verified claim 0、publication blocked 63、auto approval 0である。AIO citation候補も

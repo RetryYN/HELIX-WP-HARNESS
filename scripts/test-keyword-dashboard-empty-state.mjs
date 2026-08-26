@@ -1,11 +1,12 @@
 import assert from "node:assert/strict";
 import {spawnSync} from "node:child_process";
-import {mkdtempSync} from "node:fs";
+import {mkdtempSync,rmSync} from "node:fs";
 import {tmpdir} from "node:os";
 import path from "node:path";
 import {DatabaseSync} from "node:sqlite";
 
-const dbPath=path.join(mkdtempSync(path.join(tmpdir(),"wp-dashboard-empty-gsc-")),"dashboard.sqlite");
+const temporaryRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-empty-gsc-"));process.on("exit",()=>rmSync(temporaryRoot,{recursive:true,force:true}));
+const dbPath=path.join(temporaryRoot,"dashboard.sqlite");
 const result=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:dbPath,WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_HEADING_EVIDENCE:path.join(tmpdir(),"missing-heading-evidence.json"),WP_ALLOW_EMPTY_GSC:"1",WP_ALLOW_EMPTY_HEADINGS:"1"},encoding:"utf8"});
 assert.equal(result.status,0,result.stderr);
 const db=new DatabaseSync(dbPath,{readOnly:true});

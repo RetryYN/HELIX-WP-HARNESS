@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {createHash} from "node:crypto";
 import { spawn, spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
@@ -9,6 +9,10 @@ import { buildDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
 import { routeResearchApi } from "./keyword-dashboard-api.mjs";
 import { categoryPathForKeywords, categoryPathsForIds, wpCategoryTaxonomy } from "./keyword-category-taxonomy.mjs";
 import { aggregateNormalizedQueries,primaryQueryScore, primaryQueryStats, rankPrimaryQueries } from "./gsc-primary-query.mjs";
+
+const temporaryRoots=[];
+const temporaryRoot=(prefix)=>{const directory=mkdtempSync(path.join(tmpdir(),prefix));temporaryRoots.push(directory);return directory};
+process.on("exit",()=>{for(const directory of temporaryRoots)rmSync(directory,{recursive:true,force:true})});
 
 assert.equal(wpCategoryTaxonomy.length,17);
 assert.deepEqual(categoryPathForKeywords(["it 就活 文系"]),["IT就活","文系就活"]);
@@ -36,7 +40,7 @@ const separateWindowAggregate=aggregateNormalizedQueries([
 ]);
 assert.equal(separateWindowAggregate.length,2,"GSC windows must remain separate observations rather than being added together");
 
-const dbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-db-")), "dashboard.sqlite");
+const dbPath = path.join(temporaryRoot("wp-dashboard-db-"), "dashboard.sqlite");
 buildDashboardDb({ dbPath, fixturePath: path.resolve("docs/prototypes/wp-ops-dashboard/data.json"), artifactRoot: path.resolve("artifacts/poc") }).close();
 const persisted = new DatabaseSync(dbPath, { readOnly: true });
 assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks").get().count, 4);
@@ -47,7 +51,7 @@ assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM dfs_tasks WHERE re
 const specialPayloads=persisted.prepare("SELECT payload_json FROM serp_feature_occurrences WHERE feature_type NOT IN ('people_also_ask','related_searches','ai_overview')").all().map((row)=>JSON.parse(row.payload_json)),expectedFeatureItems=specialPayloads.reduce((sum,payload)=>sum+(payload.items?.length??0),0),expectedFeatureLinks=specialPayloads.reduce((sum,payload)=>sum+(payload.items??[]).reduce((itemSum,item)=>itemSum+(typeof item==="object"&&item?item.links?.length??0:0),0),0);assert.ok(expectedFeatureItems>0);assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM serp_feature_items").get().count,expectedFeatureItems);assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM serp_feature_item_links").get().count,expectedFeatureLinks);assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM serp_feature_items WHERE feature_type IN ('people_also_ask','related_searches','ai_overview')").get().count,0,"dedicated PAA/related/AIO tables must not be duplicated into special feature items");assert.equal(persisted.prepare("SELECT COUNT(*) AS count FROM serp_feature_items WHERE length(evidence_digest)!=64").get().count,0);
 persisted.close();
 
-const competitorRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-competitor-"));
+const competitorRoot=temporaryRoot("wp-dashboard-competitor-");
 const competitorManifestPath=path.join(competitorRoot,"manifest.json");
 const competitorFixture=JSON.parse(readFileSync(path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),"utf8")),competitorGroup=competitorFixture.groups[0].id,competitorTask=competitorFixture.groups[0].task_ids[0];
 const sourceDb=new DatabaseSync(dbPath,{readOnly:true}),failedSnippetUrl=sourceDb.prepare("SELECT url FROM serp_organic_results WHERE task_id=? ORDER BY rank_absolute LIMIT 1").get(competitorTask).url;sourceDb.close();
@@ -70,21 +74,21 @@ assert.ok(competitorProjection.content_generation_candidates.every((item)=>item.
 assert.deepEqual(competitorProjection.competitor_summary,{page_count:3,successful_page_count:2,failed_page_count:1,failed_page_with_serp_snippet_count:1,serp_snippet_observation_count:1,heading_count:4,term_count:2,task_term_count:2,projected_term_count:2,group_count:1,task_count:1});
 competitorDb.close();
 
-const enrichmentRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-enrichment-")),enrichmentRaw=path.join(enrichmentRoot,"raw");mkdirSync(enrichmentRaw);const enrichmentJobs=[];
+const enrichmentRoot=temporaryRoot("wp-dashboard-enrichment-"),enrichmentRaw=path.join(enrichmentRoot,"raw");mkdirSync(enrichmentRaw);const enrichmentJobs=[];
 const addEnrichment=(kind,body)=>{const jobId=`${kind}:1`,file=`raw/${kind}.json`,raw=JSON.stringify(body,null,2);writeFileSync(path.join(enrichmentRoot,file),raw);enrichmentJobs.push({kind,job_id:jobId,raw_file:file,raw_digest:createHash("sha256").update(raw).digest("hex")});return jobId},ok=(result)=>({status_code:20000,tasks:[{status_code:20000,result}]});
 const marketJob=addEnrichment("keyword_metrics",ok([{keyword:"it 就活サイト 比較",location_code:2392,language_code:"ja",search_partners:false,competition:"MEDIUM",competition_index:50,search_volume:90,cpc:1.2,low_top_of_page_bid:.5,high_top_of_page_bid:2,monthly_searches:[{year:2026,month:7,search_volume:90},{year:2026,month:6,search_volume:70}]}])),difficultyJob=addEnrichment("keyword_difficulty",ok([{se_type:"google",location_code:2392,language_code:"ja",items:[{keyword:"it 就活サイト 比較",keyword_difficulty:44}]}])),rankedJob=addEnrichment("ranked_keywords",ok([{target:"it-shukatu.com",location_code:2392,language_code:"ja",total_count:2,items_count:1,metrics:{organic:{etv:8}},items:[{keyword_data:{keyword:"it 就活",location_code:2392,language_code:"ja",keyword_info:{search_volume:390,cpc:2,competition:.4,competition_level:"MEDIUM"},keyword_properties:{keyword_difficulty:39},search_intent_info:{main_intent:"commercial",foreign_intent:["informational"]}},ranked_serp_element:{serp_item:{type:"organic",rank_group:2,rank_absolute:3,domain:"it-shukatu.com",url:"https://it-shukatu.com/a",relative_url:"/a",title:"IT就活",etv:8,estimated_paid_traffic_cost:16,rank_changes:{previous_rank_absolute:5,is_up:true},backlinks_info:{referring_domains:3}}}}]}]));
 const enrichmentManifest={schema_version:"dfs-enrichment-evidence.v1",status:"complete",generated_at:"2026-08-26T00:00:00.000Z",reported_cost_usd:.246,plan:{site_id:"it-shukatu.com",jobs:[{kind:"keyword_metrics",payload:[{keywords:["it 就活サイト 比較"]}]},{kind:"keyword_difficulty",payload:[{keywords:["it 就活サイト 比較"]}]},{kind:"ranked_keywords",payload:[{target:"it-shukatu.com"}]}]},jobs:enrichmentJobs};const enrichmentManifestPath=path.join(enrichmentRoot,"manifest.json");writeFileSync(enrichmentManifestPath,JSON.stringify(enrichmentManifest));const enrichmentDbPath=path.join(enrichmentRoot,"dashboard.sqlite"),enrichmentDb=buildDashboardDb({dbPath:enrichmentDbPath,fixturePath:path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),artifactRoot:path.resolve("artifacts/poc"),dfsEnrichmentEvidencePath:enrichmentManifestPath});assert.equal(enrichmentDb.prepare("SELECT COUNT(*) AS count FROM keyword_market_metrics WHERE site_id='it-shukatu.com'").get().count,1);assert.equal(enrichmentDb.prepare("SELECT COUNT(*) AS count FROM keyword_monthly_searches WHERE site_id='it-shukatu.com'").get().count,2);assert.equal(enrichmentDb.prepare("SELECT keyword_difficulty FROM keyword_difficulty_enrichment WHERE site_id='it-shukatu.com'").get().keyword_difficulty,44);assert.equal(enrichmentDb.prepare("SELECT rank_absolute FROM domain_ranked_keywords WHERE site_id='it-shukatu.com'").get().rank_absolute,3);const enrichmentProjection=projectDashboard(enrichmentDb),itSite=enrichmentProjection.sites.find((site)=>site.site_id==="it-shukatu.com"),soloSite=enrichmentProjection.sites.find((site)=>site.site_id==="solobiz-lab.com");assert.equal(itSite.dfs_enrichment_status.state,"acquired");assert.equal(soloSite.dfs_enrichment_status.state,"not_acquired");assert.equal(enrichmentProjection.keyword_market_metrics[0].search_volume,90);assert.equal(enrichmentProjection.keyword_market_metrics[0].site_id,"it-shukatu.com");assert.equal(enrichmentProjection.domain_ranked_keywords[0].main_intent,"commercial");assert.equal(itSite.dfs_enrichment_status.coverage.ranked_keywords.truncated,true);const itMarket=routeResearchApi("/api/v1/market/results",new URL("http://localhost/api/v1/market/results?site_id=it-shukatu.com"),enrichmentProjection,enrichmentDb),soloMarket=routeResearchApi("/api/v1/market/results",new URL("http://localhost/api/v1/market/results?site_id=solobiz-lab.com"),enrichmentProjection,enrichmentDb);assert.equal(itMarket.body.keyword_metrics.length,1);assert.equal(soloMarket.body.keyword_metrics.length,0,"market evidence must not leak across sites");assert.equal(routeResearchApi("/api/v1/market/status",new URL("http://localhost/api/v1/market/status?site_id=it-shukatu.com"),enrichmentProjection,enrichmentDb).body.data.state,"acquired");assert.equal(routeResearchApi("/api/v1/market/status",new URL("http://localhost/api/v1/market/status?site_id=solobiz-lab.com"),enrichmentProjection,enrichmentDb).body.data.state,"not_acquired");enrichmentDb.close();
 
-const pocDbPath = path.join(mkdtempSync(path.join(tmpdir(), "wp-dashboard-poc-db-")), "dashboard.sqlite");
+const pocDbPath = path.join(temporaryRoot("wp-dashboard-poc-db-"), "dashboard.sqlite");
 const buildPoc = spawnSync(process.execPath, ["scripts/build-keyword-dashboard-db.mjs"], { env: { ...process.env, WP_DASHBOARD_DB: pocDbPath }, encoding: "utf8" });
 assert.equal(buildPoc.status, 0, buildPoc.stderr);
-const missingEvidenceBuild=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:path.join(mkdtempSync(path.join(tmpdir(),"wp-dashboard-no-gsc-")),"dashboard.sqlite"),WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_ALLOW_EMPTY_GSC:"0"},encoding:"utf8"});
+const missingEvidenceBuild=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:path.join(temporaryRoot("wp-dashboard-no-gsc-"),"dashboard.sqlite"),WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_ALLOW_EMPTY_GSC:"0"},encoding:"utf8"});
 assert.notEqual(missingEvidenceBuild.status,0,"dashboard build must fail closed without GSC evidence");
 assert.match(missingEvidenceBuild.stderr,/GSC evidence is required/);
-const missingHeadingBuild=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:path.join(mkdtempSync(path.join(tmpdir(),"wp-dashboard-no-headings-")),"dashboard.sqlite"),WP_HEADING_EVIDENCE:path.join(tmpdir(),"missing-heading-evidence.json"),WP_ALLOW_EMPTY_HEADINGS:"0"},encoding:"utf8"});
+const missingHeadingBuild=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:path.join(temporaryRoot("wp-dashboard-no-headings-"),"dashboard.sqlite"),WP_HEADING_EVIDENCE:path.join(tmpdir(),"missing-heading-evidence.json"),WP_ALLOW_EMPTY_HEADINGS:"0"},encoding:"utf8"});
 assert.notEqual(missingHeadingBuild.status,0,"dashboard build must fail closed without WP heading evidence");
 assert.match(missingHeadingBuild.stderr,/WP heading evidence is required/);
-const mismatchedAnchorDir=mkdtempSync(path.join(tmpdir(),"wp-dashboard-gsc-anchor-"));
+const mismatchedAnchorDir=temporaryRoot("wp-dashboard-gsc-anchor-");
 const mismatchedAnchorPath=path.join(mismatchedAnchorDir,"gsc-summary.json");
 const mismatchedAnchor=JSON.parse(readFileSync(path.resolve("artifacts/poc/gsc-page-query-28d-summary.json"),"utf8"));
 mismatchedAnchor.local_evidence_tree_sha256="0".repeat(64);
@@ -247,7 +251,7 @@ pocDb.close();
   const unresolvedGroup={...template,id:"unresolved-001",resolution_state:"unresolved",main_keyword:null,derived_parent_candidate:"転職 サイト",main_origin:"derived_parent_candidate（修飾語KWのみ・実在親KWなし・main未確定）",search_volume:null,intent_keywords:["転職 サイト おすすめ"],sibling_keywords:[],comparison_keywords:["転職 サイト おすすめ"],wp_article_id:null,state:"未施策",task_ids:[],shared_urls:[],
     strategy:{...template.strategy,decision:"親KW未確定（PO確定またはDFS取得待ち）",main_basis:"derived_parent_candidate（未昇格）"},
     article_gate:{status:"未成立",conditions:[{label:"対象KW群の確定",status:"blocked",detail:"main未確定"},...template.article_gate.conditions.slice(1)]}};
-  const dir=mkdtempSync(path.join(tmpdir(),"wp-dashboard-unresolved-"));
+  const dir=temporaryRoot("wp-dashboard-unresolved-");
   const fixturePath=path.join(dir,"fixture.json");
   writeFileSync(fixturePath,JSON.stringify({...baseFixture,groups:[...baseFixture.groups,unresolvedGroup]}));
   const db=buildDashboardDb({dbPath:path.join(dir,"dashboard.sqlite"),fixturePath,artifactRoot:path.resolve("artifacts/poc")});
@@ -262,7 +266,7 @@ pocDb.close();
   db.close();
 }
 
-const hierarchyRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-category-"));
+const hierarchyRoot=temporaryRoot("wp-dashboard-category-");
 const hierarchyFixturePath=path.join(hierarchyRoot,"fixture.json");
 const hierarchyDbPath=path.join(hierarchyRoot,"dashboard.sqlite");
 const hierarchyFixture=JSON.parse(readFileSync(path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),"utf8"));
@@ -302,8 +306,9 @@ const mcpInitialize=await fetch(`http://127.0.0.1:${port}/mcp`,{
   method:"POST",headers:{"content-type":"application/json","accept":"application/json, text/event-stream"},
   body:JSON.stringify({jsonrpc:"2.0",id:1,method:"initialize",params:{protocolVersion:"2025-06-18",capabilities:{},clientInfo:{name:"integration-test",version:"1"}}})
 });assert.equal(mcpInitialize.status,200);assert.equal((await mcpInitialize.json()).result.capabilities.tools.listChanged,false);
-const mcpTools=await fetch(`http://127.0.0.1:${port}/mcp`,{method:"POST",headers:{"content-type":"application/json","mcp-protocol-version":"2025-06-18"},body:JSON.stringify({jsonrpc:"2.0",id:2,method:"tools/list"})});assert.equal(mcpTools.status,200);const mcpToolList=(await mcpTools.json()).result.tools;assert.equal(mcpToolList.length,14);assert.deepEqual(new Set(mcpToolList.map((tool)=>tool.name)),new Set(["search_keywords","search_demands","list_question_candidates","get_content_brief","get_acquisition_status","analyze_titles","analyze_headings","list_outlines","review_content_compositions","analyze_competitor_domains","inspect_serp_results","track_rank_history","get_market_data","search_serp_feature_items"]));
+const mcpTools=await fetch(`http://127.0.0.1:${port}/mcp`,{method:"POST",headers:{"content-type":"application/json","mcp-protocol-version":"2025-06-18"},body:JSON.stringify({jsonrpc:"2.0",id:2,method:"tools/list"})});assert.equal(mcpTools.status,200);const mcpToolList=(await mcpTools.json()).result.tools;assert.equal(mcpToolList.length,15);assert.deepEqual(new Set(mcpToolList.map((tool)=>tool.name)),new Set(["search_keywords","search_demands","list_question_candidates","get_content_brief","get_acquisition_status","analyze_titles","analyze_headings","list_outlines","review_content_compositions","read_content_drafts","analyze_competitor_domains","inspect_serp_results","track_rank_history","get_market_data","search_serp_feature_items"]));
 const compositionApiResponse=await fetch(`http://127.0.0.1:${port}/api/v1/compositions?site_id=it-shukatu.com&limit=100`);assert.equal(compositionApiResponse.status,200);const compositionApi=await compositionApiResponse.json();const compositionMcpResponse=await fetch(`http://127.0.0.1:${port}/mcp`,{method:"POST",headers:{"content-type":"application/json","mcp-protocol-version":"2025-06-18"},body:JSON.stringify({jsonrpc:"2.0",id:3,method:"tools/call",params:{name:"review_content_compositions",arguments:{site_id:"it-shukatu.com",limit:100}}})});assert.equal(compositionMcpResponse.status,200);const compositionMcp=(await compositionMcpResponse.json()).result.structuredContent;assert.equal(compositionMcp.meta.total,compositionApi.meta.total);assert.deepEqual(compositionMcp.data,compositionApi.data);assert.equal(compositionMcp.summary.auto_approval,false);assert.equal(compositionMcp.provenance.external_acquisition_triggered,false);
+const draftApiResponse=await fetch(`http://127.0.0.1:${port}/api/v1/drafts?site_id=it-shukatu.com&limit=100`);assert.equal(draftApiResponse.status,200);const draftApi=await draftApiResponse.json();const draftMcpResponse=await fetch(`http://127.0.0.1:${port}/mcp`,{method:"POST",headers:{"content-type":"application/json","mcp-protocol-version":"2025-06-18"},body:JSON.stringify({jsonrpc:"2.0",id:4,method:"tools/call",params:{name:"read_content_drafts",arguments:{site_id:"it-shukatu.com",limit:100}}})});assert.equal(draftMcpResponse.status,200);const draftMcp=(await draftMcpResponse.json()).result.structuredContent;assert.equal(draftMcp.meta.total,draftApi.meta.total);assert.deepEqual(draftMcp.data,draftApi.data);assert.equal(draftMcp.summary.auto_approval,false);assert.equal(draftMcp.provenance.external_acquisition_triggered,false);
 const openapiResponse=await fetch(`http://127.0.0.1:${port}/api/v1/openapi.json`);assert.equal(openapiResponse.status,200);assert.equal((await openapiResponse.json()).openapi,"3.1.0");const sitesResponse=await fetch(`http://127.0.0.1:${port}/api/v1/sites`);assert.equal(sitesResponse.status,200);const sitesPayload=await sitesResponse.json();assert.equal(sitesPayload.data.length,2);assert.equal(sitesPayload.provenance.external_acquisition_triggered,false);assert.equal((await fetch(`http://127.0.0.1:${port}/api/v1/keywords`)).status,400);
 assert.equal((await fetch(`http://127.0.0.1:${port}/mcp`,{headers:{origin:"https://evil.example"}})).status,403);assert.equal((await fetch(`http://127.0.0.1:${port}/mcp`)).status,405);
 assert.equal(first.sites.length, 2);
