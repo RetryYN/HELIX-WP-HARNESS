@@ -55,7 +55,7 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | 観測100KW内で225競合、107複数KW、78複数記事群を実装。全rank DB・traffic/value gap |
 | `POST /v1/bulk-site-research` | 最大100 URLの規模・推移比較 | domain metrics history | gap |
 | `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | 上位10候補の取得成功535 pageでtitle/H1-H6/SERP description/観測KW検索とrank逆引き実装。全page/traffic gap |
-| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位10page実測・18,431 heading。上位20/除外条件 gap |
+| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位10page実測・18,431 heading。階層/検索/除外語/scope/ページ構造/文字数統計を実装。上位11〜20・wire互換 gap |
 | `POST /v1/co-occurrence` | 上位20pageの本文/title/heading頻出語 | SERP + page parsing + token statistics | task/group別実装済み。上位20/getDetails互換 gap |
 | `POST /v1/search-rank` | 指定site/KWの最新順位とSERP | live/queued SERP | raw SERPあり。継続rank tracking gap |
 | `POST /v1/site-search` | contentとdomain metricsによるsite検索 | domain/content index | gap |
@@ -717,6 +717,17 @@ word countを含む計10 fieldを追加で意味対応へ移した。Rakko `getD
 
 これで「保持済み上位10 SERPを競合本文分析へ使わず捨てていた」差分は解消した。一方、上位11〜20のSERP・本文、
 PAA回答、4年月次指標、全rank database、traffic/value/historyは依然として未取得であり、取得済みとは数えない。
+
+### 10.45 見出し構造・文字数統計API/UI
+
+`GET /api/v1/headings`を単純な見出し行検索から、保持済み上位10pageの構造分析へ拡張した。`level=1..6`、`q`、
+複数`exclude`、`task_id`、`group_id`、`view=pages`を受け、各見出しの文字数・URL・domain・page title・本文文字数・
+観測最高順位を返す。summaryはH1〜H6別件数、平均見出し数、平均見出し文字数、平均/中央値本文文字数、除外件数、
+取得深度10/目標深度20を明示する。別siteのtask/group IDは404にしてscope漏洩を防ぐ。
+
+画面の競合分析へ見出し検索、H1〜H6 filter、除外語、ページ別本文文字数・階層内訳・構造一覧を追加した。
+18,431見出しを使う専用テストでfilter、除外、page集約、平均値、task scope、外部取得非発火を検証する。
+上位11〜20は未取得のため、headline機能の完成判定は引き続き`partial`とする。
 
 ## 11. 未検証事項
 

@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "003b22a5760d305bd006d9f28421905803546bafe3742acd6f572838e8995490",
+  "inventory_digest": "650d8469ebd4726cdb24cacb77597b917fd054588be5d50fa45466e263a557cc",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -295,7 +295,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "top10 acquired（18,431 headings）。top11〜20 and exclusion/average compatibility gap",
+      "remaining_gap": "top10 acquired（18,431 headings）。H1〜H6・検索・除外語・task/group scope・ページ構造・本文文字数・平均/中央値をAPI/UI実装。top11〜20とRakko固有の除外条件wire互換は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -305,7 +305,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "81d5ec68977d1842fb5d2df644c20dc00e5f80ba45efa11713d9b024301fc57d"
+      "evidence_digest": "09c3744488413e5f6564015d2cbf44ec39ae621ab890c54790f74e15aeaf5ab5"
     },
     {
       "capability_id": "cooccurrence",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "15c0d1ca9903c78f46104f1b82f243d9dd1468be1a13e0aa5f6c84e4a275cf30"
+  "audit_digest": "8b416df42404bdf69b93b3033f57ac1519304a64a6657bb1521750ad692bad25"
 }

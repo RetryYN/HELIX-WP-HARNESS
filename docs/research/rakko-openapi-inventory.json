@@ -1,6 +1,6 @@
 {
   "schema_version": "rakko-openapi-inventory.v1",
-  "generated_at": "2026-08-26T03:52:48.277Z",
+  "generated_at": "2026-08-26T04:07:49.402Z",
   "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
@@ -442,9 +442,11 @@
       "helix_evidence": [
         "competitor_pages",
         "competitor_headings",
-        "competitor_page_task_evidence"
+        "competitor_page_task_evidence",
+        "GET /api/v1/headings",
+        "headline-analysis dashboard"
       ],
-      "gap": "現行上位10page。上位11〜20pageと除外条件未実装"
+      "gap": "現行上位10pageで階層・検索・除外語・scope・ページ構造・文字数統計を実装。上位11〜20pageとRakko wire互換は未実装"
     },
     {
       "operation": "POST /v1/co-occurrence",

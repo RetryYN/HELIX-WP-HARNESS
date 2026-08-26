@@ -1,0 +1,16 @@
+import assert from "node:assert/strict";
+import {openDashboardDb,projectDashboard} from "./keyword-dashboard-db.mjs";
+import {routeResearchApi} from "./keyword-dashboard-api.mjs";
+
+const db=openDashboardDb(process.env.WP_DASHBOARD_DB??".helix/keyword-dashboard.sqlite");
+try {
+  const data=projectDashboard(db),site=data.sites[0],groups=data.groups.filter((row)=>row.site_id===site.site_id),taskIds=new Set(groups.flatMap((row)=>row.task_ids)),pageIds=new Set(data.competitor_page_task_evidence.filter((row)=>taskIds.has(row.task_id)).map((row)=>row.page_id)),expected=data.competitor_headings.filter((row)=>pageIds.has(row.page_id));
+  const request=(suffix="")=>{const url=new URL(`/api/v1/headings?site_id=${encodeURIComponent(site.site_id)}&limit=100${suffix}`,"http://localhost");return routeResearchApi(url.pathname,url,data,db)};
+  const all=request(),pages=request("&view=pages"),h1=request("&level=1"),sample=expected.find((row)=>row.level===2)??expected[0],query=request(`&q=${encodeURIComponent(sample.text)}`),excluded=request(`&exclude=${encodeURIComponent(sample.text)}`),taskId=[...taskIds].find((id)=>data.competitor_page_task_evidence.some((row)=>row.task_id===id&&data.competitor_headings.some((heading)=>heading.page_id===row.page_id))),taskScoped=request(`&task_id=${encodeURIComponent(taskId)}`),unknown=request("&task_id=not-a-retained-task");
+  assert.equal(all.status,200);assert.equal(all.body.meta.total,expected.length);assert.equal(all.body.summary.heading_count,expected.length);assert.equal(all.body.summary.depth.acquired_top,10);assert.equal(all.body.summary.depth.provider_target_top,20);assert.equal(all.body.summary.depth.complete,false);assert.ok(all.body.summary.average_headings_per_page>0);assert.ok(all.body.summary.average_heading_character_count>0);assert.ok(all.body.summary.average_page_text_length>0);assert.ok(all.body.summary.median_page_text_length>0);assert.equal(all.body.provenance.external_acquisition_triggered,false);
+  assert.equal(pages.status,200);assert.equal(pages.body.view,"pages");assert.equal(pages.body.summary.heading_count,expected.length);assert.ok(pages.body.data.every((row)=>row.heading_count===row.headings.length&&row.best_rank>=1&&row.best_rank<=10&&row.text_length>0));
+  assert.equal(h1.body.summary.heading_count,expected.filter((row)=>row.level===1).length);assert.deepEqual(h1.body.filters.levels,[1]);assert.ok(h1.body.data.every((row)=>row.level===1&&row.character_count>0&&row.url&&row.domain));
+  assert.ok(query.body.summary.heading_count>=1);assert.ok(query.body.data.every((row)=>row.text.normalize("NFKC").toLocaleLowerCase("ja-JP").includes(sample.text.normalize("NFKC").toLocaleLowerCase("ja-JP"))));assert.ok(excluded.body.summary.excluded_heading_count>=1);assert.ok(excluded.body.data.every((row)=>!row.text.normalize("NFKC").toLocaleLowerCase("ja-JP").includes(sample.text.normalize("NFKC").toLocaleLowerCase("ja-JP"))));
+  assert.equal(taskScoped.status,200);assert.equal(taskScoped.body.filters.task_id,taskId);assert.ok(taskScoped.body.data.every((row)=>data.competitor_page_task_evidence.some((evidence)=>evidence.task_id===taskId&&evidence.page_id===row.page_id)));assert.equal(unknown.status,404);
+  console.log(`headline analysis API: OK (${expected.length} headings, H1-H6 filters, exclusions, page averages, task scope)`);
+} finally { db.close() }
