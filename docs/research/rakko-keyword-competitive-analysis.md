@@ -649,6 +649,14 @@ content検索へpre-snippet、breadcrumb、sitelink title、rating値・投票�
 `/api/v1/serp-results`も同じtarget検索とvideo/sitelinks/rated/priced feature filterへ対応する。画面では本文由来の
 TITLE/H1-H6と、検索エンジン表示由来のSERP DESC/PRE/PATH/SITELINK/COMMERCEを別labelで表示し、証拠scopeを混同しない。
 
+### 10.38 SERP field用途分類監査 v3
+
+従来のcoverage auditはbooleanの`false`も「非空」と数え、task ID・status・xpathなど再現性に必要なprovenanceを
+「意思決定未接続」と一括表示していた。v3ではrawで観測したprojection済み99 fieldを、施策接続28、証拠専用71、
+未分類0へ分類し、raw-onlyも0であることを検証する。booleanはfield存在とtrueを分離し、organic 926件中video true 19、
+image/featured snippet/malicious/web story/AMP true 0として保持する。監査JSONを画面へ常設し、未分類またはraw-onlyが
+増えた場合に、保存漏れ・利用漏れをfield単位で検出できるようにした。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

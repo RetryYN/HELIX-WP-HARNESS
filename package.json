@@ -30,6 +30,8 @@
     "research:rakko-web:test": "node scripts/test-rakko-web-capability-inventory.mjs",
     "research:rakko-completion:build": "node scripts/build-rakko-capability-completion-audit.mjs",
     "research:rakko-completion:test": "node scripts/test-rakko-capability-completion-audit.mjs",
+    "research:serp-data-audit:build": "node scripts/build-serp-data-coverage-audit.mjs",
+    "research:serp-data-audit:test": "node scripts/test-serp-data-coverage.mjs",
     "reference:japan-locations:refresh": "node scripts/acquire-japan-location-data.mjs",
     "reference:japan-locations:test": "node scripts/test-japan-location-data.mjs",
     "prototype:ai-questions:test": "node scripts/test-ai-question-candidates.mjs",

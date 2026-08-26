@@ -20,12 +20,15 @@ const decisionConnectedFields=new Set([
   "result.spell","result.item_types","organic.rank_group","organic.rank_absolute","organic.domain","organic.title","organic.url","organic.breadcrumb","organic.description","organic.pre_snippet","organic.timestamp","organic.highlighted","organic.links","organic.rating","organic.price","organic.is_video","organic.checks",
   "ai_overview.markdown","ai_overview.references","people_also_ask.items.title","people_also_ask.items.seed_question","related_searches.items"
 ]);
+const decisionFeatureFields=new Set(["title","subtitle","description","url","image_url"]),booleanOrganicFields=new Set(["is_image","is_video","is_featured_snippet","is_malicious","is_web_story","amp_version"]);
+const classificationFor=(field)=>{if(decisionConnectedFields.has(field))return"decision_connected";const [prefix,key]=field.split(".");if(["knowledge_graph","people_also_search","images","video"].includes(prefix)&&decisionFeatureFields.has(key))return"decision_connected";if(projectedFields.has(field)||payloadProjectedItemTypes.has(prefix)||genericallyProjectedItemFields.has(key))return"evidence_only";return"unclassified"};
 const isProjected=(field)=>projectedFields.has(field)||payloadProjectedItemTypes.has(field.slice(0,field.indexOf(".")))||genericallyProjectedItemFields.has(field.slice(field.indexOf(".")+1));
 
 export function auditSerpDataCoverage(rawRoot=defaultRoot){
   const files=readdirSync(rawRoot).filter((name)=>name.endsWith(".json")).sort();
   const captured=new Map();
   const bump=(field,amount=1)=>captured.set(field,(captured.get(field)??0)+amount);
+  const booleanObservations=new Map(),observeBoolean=(field,value)=>{const row=booleanObservations.get(field)??{field,observed_count:0,true_count:0,false_count:0};row.observed_count+=1;value===true||value===1?row.true_count+=1:row.false_count+=1;booleanObservations.set(field,row)};
   const itemTypes=new Map();
   let paaQuestions=0,paaAnswers=0,paaReferences=0,aioItems=0,aioReferences=0;
   for(const name of files){
@@ -36,7 +39,7 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
     for(const item of result.items??[]){
       itemTypes.set(item.type,(itemTypes.get(item.type)??0)+1);
       const prefix=item.type;
-      for(const [key,value] of Object.entries(item))if(key!=="items"&&present(value))bump(`${prefix}.${key}`);
+      for(const [key,value] of Object.entries(item))if(key!=="items"&&present(value)){const field=`${prefix}.${key}`;bump(field);if(prefix==="organic"&&booleanOrganicFields.has(key))observeBoolean(field,value)}
       if(item.type==="people_also_ask")for(const question of item.items??[]){paaQuestions+=1;if(present(question.title))bump("people_also_ask.items.title");if(present(question.seed_question))bump("people_also_ask.items.seed_question");for(const expanded of question.expanded_element??[]){paaAnswers+=(expanded.items??[]).length;paaReferences+=(expanded.references??[]).length}}
       if(item.type==="related_searches")for(const value of item.items??[])if(present(value))bump("related_searches.items");
       if(item.type==="ai_overview"){aioItems+=(item.items??[]).length;aioReferences+=(item.references??[]).length}
@@ -44,11 +47,11 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
   }
   const capturedAndProjected=[...captured].filter(([field])=>isProjected(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
   const capturedRawOnly=[...captured].filter(([field])=>!isProjected(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
-  const projectedButNotDecisionConnected=capturedAndProjected.filter(({field})=>!decisionConnectedFields.has(field));
+  const classifiedProjected=capturedAndProjected.map((row)=>({...row,classification:classificationFor(row.field)})),decisionConnected=classifiedProjected.filter((row)=>row.classification==="decision_connected"),evidenceOnly=classifiedProjected.filter((row)=>row.classification==="evidence_only"),unclassified=classifiedProjected.filter((row)=>row.classification==="unclassified");
   return {
-    schema_version:"serp-data-coverage-audit.v2",raw_files:files.length,
+    schema_version:"serp-data-coverage-audit.v3",raw_files:files.length,
     item_type_counts:Object.fromEntries(itemTypes),captured_and_projected:capturedAndProjected,captured_raw_only:capturedRawOnly,
-    projected_but_not_decision_connected:projectedButNotDecisionConnected,
+    decision_connected:decisionConnected,evidence_only_projected:evidenceOnly,projected_but_unclassified:unclassified,projected_but_not_decision_connected:[...evidenceOnly,...unclassified],boolean_observations:[...booleanObservations.values()],
     acquired_but_empty_or_incomplete:{paa_questions:paaQuestions,paa_answer_items:paaAnswers,paa_references:paaReferences,aio_items:aioItems,aio_references:aioReferences},
     not_acquired:[
       {dataset:"PAA expanded answers/references",reason:"people_also_ask_click_depth was not requested"},
