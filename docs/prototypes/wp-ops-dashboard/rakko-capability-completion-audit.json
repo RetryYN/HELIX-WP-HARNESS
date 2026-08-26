@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "d2c0e076c204c677c88365afa91b826a592f43aefbfd654eb64fcfbcba0c6c5c",
+  "inventory_digest": "35acf5226f4a1e3cd9db19bbd0eed4948e243efda4290d359d8d6b9c0b78a91c",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -360,7 +360,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化を実装。堅牢統合1件ではtitle 2案を構成品質・title品質・根拠被覆・固有見出し保持の内訳付きで順位化し存続候補をreview-only推薦。確定は未選定。LLM model/prompt/output metadata gap",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化を実装。堅牢統合ではtitle 2案を順位化し、両group固有軸＋coverage軸5/5、両候補根拠11/11、文字数gateを満たす決定論title previewを生成。元候補と継承9件をlineage化、未反映・未承認。LLM model/prompt/output metadata gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -372,7 +372,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "5d61deeb5480215565f8dea20b0c9ff5a4008413becb983c4e0250ce58ce2d5c"
+      "evidence_digest": "b2bf961b1c08777e22c52c8ef582a218e1c79f1b7f2f80bdaf4871fede1602b7"
     },
     {
       "capability_id": "ai_heading",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "83ae6e6e809376fab32fa296a23a7e3c8b0162dfe4194867f9fc030bb6ae8b2b"
+  "audit_digest": "9a0784f58adda528f9be32d40889a58c8961fc4e2728d7225e1c35183aa4a19d"
 }

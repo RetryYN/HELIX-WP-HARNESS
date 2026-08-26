@@ -1001,7 +1001,7 @@ heading 10件を比較対象として保持する。統合時にどちらを存�
 元title・outlineを破棄せず編集判断へ渡す。SQLite v48、`GET /api/v1/content-topology`、MCP
 `review_content_topology`、監査画面の記事トポロジー表へ接続した。全変更はreview-onlyで`auto_mutation:false`である。
 
-### 10.65 title・heading統合差分と編集判断blueprint（DB v52）
+### 10.65 title・heading統合差分と編集判断blueprint（DB v53）
 
 `consolidation_review`だけを対象に、両groupの選定titleとheadingを編集可能な統合差分へ落とした。
 見出しは正規化した文字bigram類似度60%と根拠ID Jaccard 40%を合成し、score 0.4以上を一対一の
@@ -1023,10 +1023,17 @@ v4では各重複見出しへ左右候補の根拠unionを継承し、元候補I
 最終previewはH2 4本・H3 3本の計7本で、候補欠落0、orphan 0、根拠欠落0、
 `ready_for_editor_review`となった。
 
+title側も同じ損失監査を行った。存続候補titleは需要根拠2件、もう一方は競合根拠9件で共有0のため、
+存続候補本文だけでは9/11件を落とし、固有軸「流れ」も消える。両group共通語`it 就活`、固有軸
+`時期 / 流れ`、coverage軸`sier / スケジュール / 業界`を分離し、5軸すべてを含む
+`it 就活の時期と流れ｜sier・スケジュール・業界をわかりやすく解説`を決定論previewとして生成した。
+元2候補ID、推奨元2件、継承9件、union 11件をlineage化し、軸coverage 5/5、根拠11/11、
+文字数20〜50を別gateで検証する。
+
 ただし推薦と確定を分離し、titleの`title_selection_state`とheadingの`resolution_state`は引き続き
-`unresolved_not_auto_selected`、previewは`review_only_not_applied`である。SQLite v52、
+`unresolved_not_auto_selected`、previewは`review_only_not_applied`である。SQLite v53、
 `GET /api/v1/consolidation-blueprints`、MCP `review_content_consolidation`、監査画面の統合編集判断・
-統合後アウトライン・統合根拠lineageへ同じ証拠を接続し、`auto_mutation:false`を維持する。
+統合タイトルbrief・統合後アウトライン・統合根拠lineageへ同じ証拠を接続し、`auto_mutation:false`を維持する。
 
 ## 11. 未検証事項
 
