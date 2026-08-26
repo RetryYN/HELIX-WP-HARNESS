@@ -771,6 +771,14 @@ Rakko OpenAPI 952 field occurrenceの処遇は、意味保持95、provider datas
 上位10 URL重複60%以上を統合レビュー、30%以上60%未満を分離＋内部リンク、同一groupなのに60%未満を再確認とする。
 これは全rank DB未取得のscopeを明示した監査であり、自動統合・自動分割・記事割当変更は行わない。
 
+### 10.49 通常organic動画属性の施策接続
+
+SERP field監査では`organic.is_video`をdecision connectedとしていたが、action signal生成SQLはprice/ratingしか渡さず、
+別テーブルの動画属性19件を処理直前に落としていた。`serp_organic_results`と`serp_organic_attributes`をtask・rankでjoinし、
+19件すべてを`organic_result_attribute`証拠として動画埋め込み・要約・文字起こし候補へ接続した。特殊video枠の証拠とは
+区別し、提案文・formatは重複排除する。action signalは8件から25件へ増え、動画signalは20 task、通常organic動画証拠は
+19件、本文生成packageへは11記事群で伝播する。動画の内容自体は未取得なので補完せず、すべて未承認提案のままとする。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
