@@ -902,6 +902,18 @@ outlineは580見出し候補から510件を選び、H2 251 / H3 259となり、�
 `auto_approval:false`を維持する。画面では特殊SERP候補を独立表示し、タイトル分析でも根拠種別filterを提供する。
 新規provider取得、外部公開、remote pushは行っていない。
 
+### 10.58 タイトルとoutlineの構成整合性oracle
+
+候補単体の品質とH2/H3親子関係は検証済みだったが、推奨titleと選定outlineが同じ検索意図を説明するかは未判定だった。
+SQLite v40の`content_plan_compositions`で63記事群ごとに選定title ID、選定heading ID、共有根拠、title根拠再利用率、
+title語彙のoutline被覆率、平均見出し品質、要確認見出し数を固定保存する。`content-plan-coherence.v1`は候補品質、
+根拠共有、語彙整合を合成し、根拠再利用50%未満、語彙被覆50%未満、要確認見出し混入をissue化する。
+
+実測63構成はready 33 / needs_review 30 / blocked 0、選定見出し510件、共有根拠248件、title根拠再利用率平均96.03%、
+語彙整合率平均52.66%、要確認見出し19件だった。全構成は`proposed`、`auto_approval:false`で、参照title/heading IDは
+765候補内に全件存在する。`GET /api/v1/compositions`、コンテンツ施策画面、view exportへ同じ値を接続した。
+語彙gap 21構成と要確認見出し15構成を隠さず編集対象として残す。LLM実行、新規provider取得、外部公開は行っていない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "9bca398facf1063c861f11894198e0047720d8f8adf9ae2465ff1b9e29654bf3",
+  "inventory_digest": "3ac73e345e06b451cc7a9077fa35ced50e6f6e64e0d52000011972e2955d344b",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -360,7 +360,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "demand/competitor別deterministic variants、generator version/input digest、主KW/文字数/冗長性/根拠/既存WP衝突review、競合title文字数benchmark、63記事群の決定論推奨policy/API/UIを実装。自動承認なし。LLM model/prompt/output metadata gap",
+      "remaining_gap": "demand/competitor/特殊SERP別185 deterministic variants、generator version/input digest、主KW/文字数/冗長性/根拠/既存WP衝突review、競合title文字数benchmark、63記事群の決定論推奨policy/API/UIを実装。選定titleとoutlineの根拠・語彙整合oracleも実装し、自動承認なし。LLM model/prompt/output metadata gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -372,7 +372,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "d559e24d222991ecef481a1463a9607712301b2a872bc8671bb0b2972aea5c20"
+      "evidence_digest": "bc2949bbe49194db4a964c2da76b0294f93d7959fe4d822f53f9ffb1f9097c30"
     },
     {
       "capability_id": "ai_heading",
@@ -383,7 +383,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor別deterministic variants、generator metadata、文字数/根拠/既存WP衝突review、571候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v2を実装。blocked 5と親関係を証明できないH3 63件を除外し、自動承認なし。LLM outline variants/model/prompt gap",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、generator metadata、文字数/根拠/既存WP衝突review、510候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v3を実装。63構成のtitle×outline coherenceを固定保存し、blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -395,7 +395,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "bdd7f8755427c4e39810855119a909bc67d1daa4d7d66102f871e0b59eaca1ea"
+      "evidence_digest": "cb0ae2215123b99d7753e8f061b94d28b9967d01618d57d2c77f02601c8bf709"
     },
     {
       "capability_id": "ai_body",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "77d50053b8620161f757a03714e1aa720b2d4df237e98fa8dc379093c36b8f1b"
+  "audit_digest": "6e35260d68c1172ca22cc442c0cc5c6ef9c3ac922cf075890a16bee45dbe8c14"
 }
