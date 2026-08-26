@@ -829,6 +829,16 @@ top30/100取得、volume・difficulty・推定trafficは未実装なので検索
 分岐して修正し、meta totalだけでなくresponse data件数まで回帰テストする。DBからの削除ではないが、保持データをAPI利用者へ
 渡さず捨てていたのと同等のprojection欠落として扱う。
 
+### 10.53 SQLite read-path到達性と段落構造8,050行
+
+SQLite全70テーブルのうちpopulate済み61テーブルを`projectDashboard`以降とAPIの実SELECT pathへ機械突合したところ、60テーブルは到達可能だったが、
+`wp_content_paragraphs` 8,050行だけがINSERT後に一度も読まれていなかった。本文文字列は設計どおり非保持だが、59記事の
+段落位置、`p` 6,204、`li` 1,798、`table` 48、所属section、文字数合計395,969、段落digestは保持済みである。
+
+記事別summaryをdashboard projectionと内部リンク画面へ接続し、`GET /api/v1/wordpress/paragraphs`でarticle、element、
+section検索とpaginationを提供する。APIは本文文字列を返さず、`text_retained:false`を明示する。これによりSQLiteの
+populate済みテーブルは61/61でread pathを持つ。本文全文検索を後付けしたわけではなく、非保持境界は維持する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
