@@ -340,6 +340,7 @@ assert.match(app,/元KW台帳/);assert.match(app,/siteInventory\.filter/);
 assert.match(app,/data\.raw_snapshot_inventory/);assert.match(app,/分析未接続/);assert.match(app,/rawInventoryRows/);
 assert.match(app,/data\.serp_action_signals/);assert.match(app,/SERP実測からの形式・構成施策/);assert.match(app,/推奨素材/);assert.match(app,/未承認/);
 assert.match(app,/serpDataAudit/);assert.match(app,/serp-field-audit-summary/);assert.match(html,/SERP field利用監査/);assert.match(html,/boolean内訳/);
+assert.match(app,/rakko-field-mapping-audit\.json/);assert.match(app,/rakkoFieldAudit/);assert.match(app,/rakko-field-audit-summary/);assert.match(html,/ラッコAPI 952 field対応監査/);assert.match(html,/rakko-field-audit-rows/);
 assert.match(app,/restoreUniversalFilterState/);assert.match(app,/syncUniversalFilterState/);assert.match(app,/initializeSortableTable/);assert.match(app,/applyTableSort/);assert.match(app,/aria-sort/);assert.match(app,/MutationObserver/);
 assert.match(app,/data\.dfs_enrichment_status/);assert.match(app,/data\.keyword_market_metrics/);assert.match(app,/data\.keyword_monthly_searches/);assert.match(app,/data\.domain_ranked_keywords/);assert.match(app,/追加市場データは未取得です/);assert.match(app,/renderMarketData/);
 assert.match(app,/data\.content_topic_coverage/);assert.match(app,/既存WP記事の論点カバレッジ/);assert.match(app,/不足ではなく未評価/);

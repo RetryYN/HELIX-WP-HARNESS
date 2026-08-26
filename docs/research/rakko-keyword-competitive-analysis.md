@@ -678,9 +678,17 @@ MutationObserverによる動的table再適用を含む。既存のfiltered CSV/J
 snippetだけを別証拠として保持する。未取得の主要母集団はSERP 10,594 source row、PAA回答、market/rank履歴で、課金取得は
 既存provider planの明示承認gateを越えず自動実行しない。これらの処遇をdashboardのデータ処遇台帳へ常設する。
 
+### 10.41 公開API 952 fieldの個別処遇監査
+
+41 schemaのflatten済み952 field occurrenceをschema・field path・出現順で一意化し、保持意味対応81、provider dataset
+未取得162、request control非互換168、wire contract/container形状500、partial operation内の1:1未対応41へ分類した。
+同一array pathのflatten重複103件も削除せず明示し、unique schema/pathは849件。未分類は0件である。保持意味対応は
+`searchVolume → keyword_market_metrics.search_volume`のようにHELIX target columnを示すが、値定義やRakko wire contractの
+同一性までは証明しない。画面へ全件監査とdigestを常設し、1:1未対応41件と未取得162件を具体的なbacklogとして残す。
+
 ## 11. 未検証事項
 
-- 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
+- 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応81 fieldの値定義同等性と、1:1未対応41 fieldの実装は未完了
 - Web UI 34 capabilityのinput/output/主要limit/credit/history/export棚卸しは完了。動的料金表の全セルと8補助ツール個別契約は未完了
 - SEO難易度の公開説明とDFS Labs指標の数式・分布比較
 - 同一seedでのラッコ出力とDFS出力の合法的なside-by-side実測
