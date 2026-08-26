@@ -965,6 +965,18 @@ pair scoreはdomain 35%、ページ型25%、SERP機能15%、需要種別15%、�
 SQLite v45、`GET /api/v1/intent-fingerprints`、MCP `review_serp_intent_pairs`、キーワード監査画面へ同じ値を接続した。
 groupの自動統合・分割は0件で、全候補を人手レビューに限定する。最大5,000件のLabs rank母集団は引き続き未取得である。
 
+### 10.62 URL交差×複合意図の境界consensus oracle（DB v46）
+
+複合intentの`merge_review` 21件を上位10のexact URL交差へ再結合すると、両方の統合閾値を満たしたのは
+「it 就活 スケジュール」と「it 就活 流れ」の1件だけだった。意味・ページ型・domainが近くても、同じURLが上位を
+占めなければ同一記事化の証明にはならない。この差を隠さず、既存URL監査が投影時に落としていたsource/target task IDも復元した。
+
+`keyword-boundary-consensus.v1`はURL監査または複合intentでactionableな68 pairを対象に、統合合意1、分割合意0、
+signal矛盾16、意味的隣接8、現group境界30、内部リンク境界13へ分類する。各行はURL overlap、共有URL数、intent scoreと
+5成分、推奨action、reason code、両入力のevidence digest、task/group IDを保持する。意味的隣接は統合候補から
+`keep_separate_related_topic`へ明示的に降格する。SQLite v46、`GET /api/v1/keyword-boundaries`、MCP
+`review_keyword_boundaries`、キーワード監査画面へ接続し、全68件をreview-only、`auto_mutation:false`とした。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
