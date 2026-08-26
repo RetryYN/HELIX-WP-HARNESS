@@ -43,6 +43,7 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
       if(item.type==="people_also_ask")for(const question of item.items??[]){paaQuestions+=1;if(present(question.title))bump("people_also_ask.items.title");if(present(question.seed_question))bump("people_also_ask.items.seed_question");for(const expanded of question.expanded_element??[]){paaAnswers+=(expanded.items??[]).length;paaReferences+=(expanded.references??[]).length}}
       if(item.type==="related_searches")for(const value of item.items??[])if(present(value))bump("related_searches.items");
       if(item.type==="ai_overview"){aioItems+=(item.items??[]).length;aioReferences+=(item.references??[]).length}
+      if(["knowledge_graph","people_also_search","images","video"].includes(prefix))for(const nested of item.items??[]){if(typeof nested==="string"){if(present(nested))bump(`${prefix}.items[].value`);continue}for(const [key,value] of Object.entries(nested??{}))if(key!=="links"&&present(value))bump(`${prefix}.items[].${key}`);for(const link of nested?.links??[])for(const [key,value] of Object.entries(link))if(present(value))bump(`${prefix}.items[].links[].${key}`)}
     }
   }
   const capturedAndProjected=[...captured].filter(([field])=>isProjected(field)).map(([field,nonempty_count])=>({field,nonempty_count}));

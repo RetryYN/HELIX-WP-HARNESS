@@ -466,7 +466,7 @@ filterは `suggest_q` / `suggest_mode` / `question_q` / `question_kind` とし�
 dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し、`initialize`、`ping`、
 `tools/list`、`tools/call`を実装した。toolはsite-scopedの元KW検索、実測需要検索、質問候補、content brief、
 取得状態/費用台帳に加え、title候補、競合heading、outline、競合domain、SERP field、保持rank履歴、市場データの
-計12種。後者7種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
+計12種に、特殊SERP featureのnested item検索を加えた計13種。追加8種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
 最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを許可し、bodyは1MiB、
 protocol versionは2025-03-26/06-18/11-25に制限する。Rakko OAuthやcredit連携とは称さない。
 
@@ -872,6 +872,18 @@ live取得前監査で、検索量・月次推移・難易度・獲得KW・取�
 投影status、API、画面、export、data disposition、費用台帳まで同じidentityを伝播する。未登録siteのevidenceはDB buildを
 fail closedする。2-site fixtureでは`it-shukatu.com`だけに市場証拠を投入し、同siteのmarket APIは1件／acquired、
 `solobiz-lab.com`は0件／not_acquiredになることを独立assertした。新規provider取得やAPI公開は行っていない。
+
+### 10.56 特殊SERP featureのnested item正規化
+
+SERP field監査はraw-only 0件としていたが、`knowledge_graph`、`people_also_search`、`images`、`video`の
+`items[]`内部をfield単位で走査せず、親payload JSONを保持しているだけで「投影済み」と判定していた。実rawには
+Knowledge Graph説明1件と出典link 2件、関連商品・サービス検索語6件、画像9件、動画4件の計20 itemが存在した。
+
+SQLite v38で`serp_feature_items`と`serp_feature_item_links`へ分解し、文字列、text/title/alt/source、page URL、
+image URL、公開時刻、出典domainをitem順序・feature/task/group identity・digest付きで保持する。元payloadも併存させ、
+正規化時にfieldを落とさない。`GET /api/v1/serp-feature-items`、MCP `search_serp_feature_items`、取得監査画面の
+検索・previewへ接続した。field監査もnested走査へ直した結果、従来見えていなかった22 field pathが加わり、
+30 decision-connected、91 evidence-only、0 unclassified、0 raw-onlyになった。新規provider取得は行っていない。
 
 ## 11. 未検証事項
 
