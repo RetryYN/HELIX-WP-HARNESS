@@ -632,6 +632,15 @@ baseと追加clickを合わせ最大$0.0750とする。PAAが存在しない場�
 見積であり取得件数保証ではない。既存のTrends/Newsを含む実行可能計画総額は最大$6.5043。全jobは`not_executed`、
 明示live flag・環境credential・正確な承認上限・実行直前の価格再確認が揃うまで課金しない。
 
+### 10.36 競合本文取得失敗のSERP snippet救出（DB v35）
+
+競合本文を取得できなかった10ページ（robots拒否3、HTTP error 4、fetch error 3）を元のDFS organic resultへURL単位で
+逆結合したところ、10/10ページ、11 task-page観測でtitle・description・breadcrumbが残っていた。これを
+`competitor_serp_snippet_evidence`へtask ID、rank、highlight、観測時刻、raw snapshot digest、派生digest付きで保持する。
+画面/APIのcontent検索では`SERP snippetのみ`として検索・表示できるが、取得失敗statusは維持し、H1-H6、本文共起語、
+文字数、内部・外部link、競合copy oracleへは混入させない。これにより追加取得なしで検索結果上の訴求文脈を救出しつつ、
+SERPによる要約と公開本文という異なる証拠scopeを分離する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

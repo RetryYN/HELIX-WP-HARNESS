@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "5ca0bbedfa43cfc0901db4013e7fdd369c529320bdaff837746f6ab1b4e44781",
+  "inventory_digest": "0ea7751b4448bb1dffd132cdc0bfade73c8d7cb88088830ce1cb967bc8ca6cc8",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -254,7 +254,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "取得成功180ページのtitle/H1-H6、SERP description、観測獲得KW検索と順位逆引きUIは実装。全page/rank index、推定top keyword、traffic metricsは未取得",
+      "remaining_gap": "取得成功180ページのtitle/H1-H6と、取得失敗10ページすべてのSERP title/description代替証拠、観測獲得KW検索・順位逆引きUIを実装。snippetを本文見出し・共起語へ昇格しない。全page/rank index、推定top keyword、traffic metricsは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -264,7 +264,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "0958a1a0ed70d5386bb5fb2f757ec53e2a2e42a43610d50d8f5d222892a9f2e5"
+      "evidence_digest": "5de794d9bcf63414cf547a274ed8142fdc46ac27db2bb8c4c424266099bbc3b5"
     },
     {
       "capability_id": "search_rank",
@@ -726,5 +726,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "984211f6a079e9e789856b5294954db900083116c96545c1cbea74372d920d12"
+  "audit_digest": "3ae049cc5d6a9bfc0d395093475d2574564656497f7c3f519c9b87b5274bec66"
 }
