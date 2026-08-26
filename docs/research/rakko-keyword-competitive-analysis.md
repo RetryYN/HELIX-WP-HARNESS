@@ -483,7 +483,7 @@ GSC query、競合page、質問候補、provider費用を横断表示する。�
 
 ### 10.20 読み取り専用REST API
 
-`/api/v1` に35 GET routeを実装し、OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、
+`/api/v1` に36 GET routeを実装し、OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、
 最大100行、cursor paginationとし、全responseに `retained_evidence_only`、外部取得なし、credential露出なしを
 付ける。`operation-coverage` はRakko公開OpenAPIの全24 operation IDを保持証跡projectionへ対応付け、登録系2件は
 `plan_only_no_mutation` と明示する。suggest/related/demand/question、同時rank、page/domain/content/heading/
@@ -1000,6 +1000,17 @@ composition review state/digestを逆引きする。
 heading 10件を比較対象として保持する。統合時にどちらを存続groupにするかは`unresolved_not_auto_selected`とし、
 元title・outlineを破棄せず編集判断へ渡す。SQLite v48、`GET /api/v1/content-topology`、MCP
 `review_content_topology`、監査画面の記事トポロジー表へ接続した。全変更はreview-onlyで`auto_mutation:false`である。
+
+### 10.65 title・heading統合差分blueprint（DB v49）
+
+`consolidation_review`だけを対象に、両groupの選定titleとheadingを編集可能な統合差分へ落とした。
+見出しは正規化した文字bigram類似度60%と根拠ID Jaccard 40%を合成し、score 0.4以上を一対一の
+重複候補として抽出する。残りは出典group・候補ID・heading level・根拠IDを失わず固有見出しとして保持する。
+
+実測1 blueprintではtitle 2案、元heading 10本から重複候補3組・固有4本を得て、統合後の編集対象を7本へ投影した。
+ただし重複3組の代表見出しと存続titleはいずれも`unresolved_not_auto_selected`で、根拠共有数とunion、
+全比較score、digestをレビューへ渡すだけである。SQLite v49、`GET /api/v1/consolidation-blueprints`、MCP
+`review_content_consolidation`、監査画面の統合設計差分へ同じ証拠を接続し、`auto_mutation:false`を維持する。
 
 ## 11. 未検証事項
 

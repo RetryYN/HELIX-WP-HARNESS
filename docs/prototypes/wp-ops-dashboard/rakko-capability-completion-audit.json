@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "88c0adb50faf33184b395988d37ef98b48fd51807de2926d225144bb5f3ab67a",
+  "inventory_digest": "1fe14300b1ce114acb9aecf78523c519d571ed26fb2bd754cd1704f4998e4774",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -106,7 +106,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "URL graph・複合intent・境界・top3/5/10安定性を実装。68 task pairを24 group pairへ畳み、統合1、深度保留21、内部link1、分離維持1を選定title/outline付きで記事設計へ接続。最大5,000件のrank DB母集団は未取得",
+      "remaining_gap": "URL graph・複合intent・境界・top3/5/10安定性を実装。68 task pairを24 group pairへ畳み、統合1、深度保留21、内部link1、分離維持1を記事設計へ接続し、堅牢統合1件はtitle 2案・元heading 10本を重複3組＋固有4本・統合後7本へ差分化。最大5,000件のrank DB母集団は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -116,7 +116,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "871f7d040977d4b9f6601ef3f8bb3ac33aa64162e12cc252a7334d11855badb7"
+      "evidence_digest": "ef7d13f53f1e84e2d3780b3c5d6eb31affa4c3caed185ea4b387499d9f6e3620"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -360,7 +360,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化を実装。SERP境界を24 content group pairへ接続し、堅牢統合1件では両groupの選定title 2件・heading 10件を保持した比較reviewを生成。自動存続group選択なし。LLM model/prompt/output metadata gap",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化を実装。堅牢統合1件では両groupの選定title 2案を統合blueprintへ保持し、存続titleは未選定。LLM model/prompt/output metadata gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -372,7 +372,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "b9a560f57d243f27c760e039fe8a0f344ccad20da4d170de7ed399504b5bebaa"
+      "evidence_digest": "da35d02541fccbc6b9007ab64b37ed5ee3169c12f17f9203e69d53e29af7439f"
     },
     {
       "capability_id": "ai_heading",
@@ -383,7 +383,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、generator metadata、文字数/根拠/既存WP衝突review、510候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v3を実装。63構成の共同最適化とbaseline差分を固定保存し、生成テンプレート語を意味tokenから分離、compound titleを最大3 axisへ自然化して語彙gapを21→0へ削減。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定、親関係付きdraft package v3を実装。堅牢統合の元heading 10本を文字bigram＋根拠IDで重複3組・固有4本・統合後7本へ差分化し、代表選択は未解決。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -395,7 +395,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "78cb3468d9f75fe81a422f6e1a1986ca671d0346ca0d2a16fca115264a6dcbaf"
+      "evidence_digest": "40a926584003a23983db11f05ce82c16f0c89bedc1f87f208a3ef341329da20c"
     },
     {
       "capability_id": "ai_body",
@@ -679,7 +679,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に35 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。site gate、cursor、provenance、operation coverage付き。Rakko wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に36 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。site gate、cursor、provenance、operation coverage付き。Rakko wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -690,7 +690,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "53b8e76993d6b454f2d7aca6a490e7a6b630da9b73ce6feae923ae3a5bddd129"
+      "evidence_digest": "70d1058d3dcb6b994dc6334fa2af7828e0e74c1c1cf0db52ae7aa74b8928f993"
     },
     {
       "capability_id": "mcp",
@@ -701,7 +701,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠、生成、複合intent、境界consensus、深度安定性、記事topologyの19 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠、生成、複合intent、境界consensus、深度安定性、記事topology、統合blueprintの20 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -712,7 +712,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "a89c531283027cbc3dea4cd61cd1b272b8653f90e1081eb3b20f0c8fb42ff777"
+      "evidence_digest": "0580ca99417fe6a0cc8e622d1eb0305be5f1b11b00171ebb1b996aa4c1c19704"
     },
     {
       "capability_id": "credit_history",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "876eaf60be7afceeb940af93a6523228158e4f81d315c07dc848dfa0b9402ad3"
+  "audit_digest": "3544a5a459475aa482f98ca3011b44df59fa47913f9c30620fb94c2281a58210"
 }
