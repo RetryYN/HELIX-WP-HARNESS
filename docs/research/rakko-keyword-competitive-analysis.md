@@ -824,6 +824,11 @@ SEO・ライター系6件は別corpusとして隔離する。保存済み証拠�
 これで検索順位監査の`single snapshot only`は解消したが、2時点・2 KWだけであり、120日継続履歴、target登録job、
 top30/100取得、volume・difficulty・推定trafficは未実装なので検索順位チェック機能は引き続き`partial`とする。
 
+既存のRakko対応route `/api/v1/rank/status` と `/api/v1/rank/results` は、履歴実装後もそれぞれ
+`not_acquired/history_count:0`と空配列を返していた。これは`/snapshot-history`だけを追加して既存contract projectionを
+更新し忘れた矛盾である。両routeを同じ保持証拠へ接続し、statusは履歴2・追跡KW 2・最古/最新観測時刻を、resultsは
+比較2件または`target`指定時のtarget trackを返す。継続schedule・provider history・mutationはfalseのまま明示する。
+
 このAPI実装中、共通page関数が`limit`未指定の`null`を数値0へ変換し、下限1へclampしていたため、全page APIの
 初期responseが意図した25件ではなく1件だけになる欠落も検出した。`null`・空文字は25、明示整数は1〜100、cursor未指定は0へ
 分岐して修正し、meta totalだけでなくresponse data件数まで回帰テストする。DBからの削除ではないが、保持データをAPI利用者へ
