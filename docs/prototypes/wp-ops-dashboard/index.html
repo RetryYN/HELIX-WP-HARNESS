@@ -197,8 +197,10 @@
       <div class="table-wrap"><table><thead><tr><th>機能</th><th>状態</th><th>job</th><th>見積</th><th>coverage</th><th>未解決条件</th></tr></thead><tbody id="provider-plan-rows"></tbody></table></div>
       <div class="subsection-head"><h3>希少SERP featureのraw投影</h3><p>knowledge graph、people also search、画像、動画をpayload付きで保持します</p></div>
       <div class="table-wrap"><table class="special-feature-table"><thead><tr><th>対象KW</th><th>feature</th><th>順位</th><th>タイトル</th><th>URL</th></tr></thead><tbody id="special-feature-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>raw取得台帳（分析未接続）</h3><p>別PoCなどで取得済みだが、現在選択中の分析母集団へ混ぜていないsnapshotを明示します</p></div>
-      <div class="table-wrap"><table class="raw-inventory-table"><thead><tr><th>対象KW</th><th>取得dataset</th><th>取得日時</th><th>費用</th><th>SERP feature</th><th>未接続理由</th></tr></thead><tbody id="raw-inventory-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>raw取得台帳（再利用監査）</h3><p>保存済みsnapshotを現行分析・同一KW履歴・隣接intent・別scopeへ分類し、捨てずに処遇を明示します</p></div>
+      <div id="snapshot-reuse-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>同一KW履歴</th><th>観測間隔</th><th>URL重複</th><th>新規 / 消失</th><th>順位・title変化</th><th>feature差分</th><th>証跡</th></tr></thead><tbody id="snapshot-history-rows"></tbody></table><div id="snapshot-history-empty" class="empty-state"></div></div>
+      <div class="table-wrap"><table class="raw-inventory-table"><thead><tr><th>対象KW</th><th>取得dataset</th><th>取得日時</th><th>費用</th><th>SERP feature</th><th>再利用判定</th></tr></thead><tbody id="raw-inventory-rows"></tbody></table></div>
     </section>
 
     <section id="market-data" class="view">
