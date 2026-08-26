@@ -952,6 +952,19 @@ SQLiteへscore成分、元citation ID、取得元query、出現数、URL/domain/
 `citation_state` filterと画面review queueへ接続した。311件はすべて`proposed / needs_review / unreviewed`、approved 0、
 auto approval 0であり、citation候補をclaimの事実根拠として自動採用しない。
 
+### 10.61 複合SERP intent fingerprintと統合・分割レビュー（DB v45）
+
+従来のgroupingは形態素境界と上位URL交差を正本とし、判定監査もURL重複・GSCカニバ・記事割当競合が中心だった。
+`serp-intent-fingerprint.v1`では各取得KWについて、順位逆数で重み付けしたdomain分布とページ型分布、観測SERP機能集合、
+PAA/関連検索の種別分布、需要文の文字bigram集合を独立成分として保存する。task単位の入力と派生結果はSHA-256で固定し、
+pair scoreはdomain 35%、ページ型25%、SERP機能15%、需要種別15%、需要topic 10%の決定論的加重値とする。
+
+実測100 fingerprintの同一site全4,950 pairを評価し、現group内pair、要レビューpair、上位250の関連pairを合わせて356 pairを保持した。
+別groupでもscore 0.62以上、domain類似0.30以上、需要topic類似0.25以上をすべて満たす21件を`merge_review`とした。
+現group内でscore 0.38未満の`split_review`は0件だった。候補には総合scoreだけでなく5成分、現group境界、policy、digestを残す。
+SQLite v45、`GET /api/v1/intent-fingerprints`、MCP `review_serp_intent_pairs`、キーワード監査画面へ同じ値を接続した。
+groupの自動統合・分割は0件で、全候補を人手レビューに限定する。最大5,000件のLabs rank母集団は引き続き未取得である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

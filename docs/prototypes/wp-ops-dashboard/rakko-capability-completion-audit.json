@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "3bd1ed5bce7b5d07687997835fed71a6e4ce81c29d3f39997d1fb35ed9aa6113",
+  "inventory_digest": "859cf3eacf3b7c86351b42dd664c3b134668a48beb9a81e96d50091209271b4a",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -106,7 +106,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10 URLの二部graphは実装。最大5,000件のrank DB母集団は未取得",
+      "remaining_gap": "観測100KW×上位10 URLの二部graphに加え、domain・ページ型・SERP機能・需要topicの複合intent fingerprintを4,950 pairで評価。356 pair保持、別groupの統合レビュー21件、自動変更0。最大5,000件のrank DB母集団は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -116,7 +116,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "d7cebec743e7331bfaf67e68ad117d01c3764aaade67096aab96291f0e5ea76a"
+      "evidence_digest": "a52db4f065199f0ee3898c6096ad05d1e68a894899ad9d05e1cb282c7a8931f5"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -701,7 +701,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped KW/需要/質問/brief/取得状態/title/heading/outline/title×outline構成整合/証拠境界draft/競合domain/SERP/rank履歴/市場データ/特殊SERP itemの15 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped KW/需要/質問/brief/取得状態/title/heading/outline/title×outline構成整合/証拠境界draft/競合domain/SERP/rank履歴/市場データ/特殊SERP item/複合SERP intent reviewの16 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -712,7 +712,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "906a649e80e7d27d24062b7ad2a0af715eebbb3a2247b6bf540e56263b7c3d3b"
+      "evidence_digest": "381a8dfa88b10b91999d6020cbfbb9a5d4ecf8230e873a2b331c78dc3f162796"
     },
     {
       "capability_id": "credit_history",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "4e25a45f75ac0a9eff1817def7a75b828e44df1f1753187f92c35ac66248a568"
+  "audit_digest": "234a677edd8712f0739b73c7e738bbd1612681409533e4ac41f767acf3b050a5"
 }
