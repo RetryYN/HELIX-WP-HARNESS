@@ -977,6 +977,18 @@ signal矛盾16、意味的隣接8、現group境界30、内部リンク境界13�
 `keep_separate_related_topic`へ明示的に降格する。SQLite v46、`GET /api/v1/keyword-boundaries`、MCP
 `review_keyword_boundaries`、キーワード監査画面へ接続し、全68件をreview-only、`auto_mutation:false`とした。
 
+### 10.63 top3・top5・top10 SERP境界感度（DB v47）
+
+ラッコの同時ランク機能は参照上位数を変えられるため、top10の単一判定だけではgroup境界の安定性を証明できない。
+保持済みorganic edgeから68境界pairをtop3・top5・top10で再計算し、各深度の左右URL数、共有URL数、共有URL本体、
+overlap率、`merge / related / separate`分類を保存した。
+
+実測では51/68 pairが深度によって閾値を跨ぎ、stable related 14、stable separate 2、stable merge 1だった。
+唯一の統合合意「it 就活 スケジュール」対「it 就活 流れ」は共有率100%→60%→60%、共有URL数3→3→6で、
+全深度mergeかつ境界oracleも合意した唯一の`robust_merge`である。閾値反転51件は単一depthのscoreで自動処理せず、
+人手確認対象として残す。SQLite v47、`GET /api/v1/depth-stability`、MCP `review_serp_depth_stability`、
+監査画面の深度比較表へ同じ証拠を接続し、`auto_mutation:false`を維持する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

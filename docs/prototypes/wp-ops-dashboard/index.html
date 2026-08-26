@@ -62,6 +62,9 @@
       <div class="subsection-head table-toolbar"><div><h3>キーワード統合・分割・カニバ判定</h3><p>URL重複と複合SERP意図の合意・矛盾を境界oracleで監査。意味が近いだけでは自動統合しません</p></div><div class="filters"><input id="keyword-decision-search" type="search" placeholder="KW・記事を検索" aria-label="キーワード判定検索"><select id="keyword-decision-kind"><option value="all">全証拠</option><option value="boundary_oracle">SERP境界oracle</option><option value="serp_pair">URL重複ペア</option><option value="gsc_query">GSCカニバ</option><option value="article_assignment">記事割当</option></select><select id="keyword-decision-review"><option value="required">要レビュー</option><option value="all">全判定</option><option value="supported">現状支持</option></select></div></div>
       <div id="keyword-decision-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>証拠</th><th>対象</th><th>現状</th><th>判定</th><th>強度</th><th>証跡</th></tr></thead><tbody id="keyword-decision-rows"></tbody></table><div id="keyword-decision-empty" class="empty-state"></div></div>
+      <div class="subsection-head"><div><h3>SERP深度安定性</h3><p>top3・top5・top10のURL重複判定を比較し、深度で結論が反転するペアを明示します</p></div></div>
+      <div id="depth-stability-metrics" class="metrics"></div>
+      <div id="depth-stability-table" class="table-wrap"></div>
     </section>
 
     <section id="keyword-tree" class="view">
