@@ -818,6 +818,17 @@ snapshot単位で保持する。canonical URLの共有・新規・消失、順�
 SEO・ライター系6件は別corpusとして隔離する。保存済み証拠の再利用であり、新規provider取得や自動group変更は行わない。
 `GET /api/v1/snapshot-history`は履歴比較を、`view=reuse`は全処遇行を返す。
 
+同APIの`view=targets`は`target`と`match_mode=domain|url_prefix|exact_url`を受け、保持履歴内の任意targetについて
+前回順位、現在順位、差分、新規ランクイン、消失、title変更を返す。画面でも同じtargetを切り替えられる。実測の
+`qiita.com`は2 KW両方で追跡できる。観測depth外を「圏外順位」と推測せずnullで保持し、新規外部取得も行わない。
+これで検索順位監査の`single snapshot only`は解消したが、2時点・2 KWだけであり、120日継続履歴、target登録job、
+top30/100取得、volume・difficulty・推定trafficは未実装なので検索順位チェック機能は引き続き`partial`とする。
+
+このAPI実装中、共通page関数が`limit`未指定の`null`を数値0へ変換し、下限1へclampしていたため、全page APIの
+初期responseが意図した25件ではなく1件だけになる欠落も検出した。`null`・空文字は25、明示整数は1〜100、cursor未指定は0へ
+分岐して修正し、meta totalだけでなくresponse data件数まで回帰テストする。DBからの削除ではないが、保持データをAPI利用者へ
+渡さず捨てていたのと同等のprojection欠落として扱う。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
