@@ -37,6 +37,7 @@
     "prototype:ai-questions:test": "node scripts/test-ai-question-candidates.mjs",
     "prototype:mcp:test": "node scripts/test-keyword-dashboard-mcp.mjs",
     "prototype:research-api:test": "node scripts/test-keyword-dashboard-api.mjs",
+    "prototype:table-state:test": "node scripts/test-dashboard-table-state.mjs",
     "provider:acquisition-plan:build": "node scripts/build-provider-acquisition-plan.mjs",
     "provider:acquisition-plan:test": "node scripts/test-provider-acquisition-plan.mjs",
     "poc:keyword-article-match": "node scripts/poc-keyword-article-matching.mjs",

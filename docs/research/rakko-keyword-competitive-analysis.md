@@ -657,6 +657,14 @@ TITLE/H1-H6と、検索エンジン表示由来のSERP DESC/PRE/PATH/SITELINK/CO
 image/featured snippet/malicious/web story/AMP true 0として保持する。監査JSONを画面へ常設し、未分類またはraw-onlyが
 増えた場合に、保存漏れ・利用漏れをfield単位で検出できるようにした。
 
+### 10.39 全table sort・全filter URL state
+
+dashboard内の静的・動的tableを共通初期化し、全headerで任意列の昇順/降順sortを提供する。通貨・桁区切り・割合・
+順位・件数は数値比較し、それ以外は日本語numeric collationを使う。選択列と方向は`sort.<view.table>`、各viewのfilterは
+`f.<control-id>`としてURLへ保存し、再読込時にdependent selectを含め復元する。ARIA sort、tab focus、Enter/Space操作、
+MutationObserverによる動的table再適用を含む。既存のfiltered CSV/JSON、16 view JSON snapshot、browser内50件履歴、copyと
+合わせ、公開観測できたdata output契約範囲を実装済みと判定する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了

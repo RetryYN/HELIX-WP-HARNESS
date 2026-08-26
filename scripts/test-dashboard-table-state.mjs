@@ -1,0 +1,3 @@
+import assert from "node:assert/strict";
+import {compareCellText,filterStateKey,parseSortState,sortStateKey,sortValue} from "../docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs";
+assert.deepEqual(sortValue("￥1,200"),{kind:"number",value:1200});assert.deepEqual(sortValue("3.5%"),{kind:"number",value:3.5});assert.ok(compareCellText("2位","10位")<0);assert.ok(compareCellText("あ","い","desc")>0);assert.deepEqual(parseSortState("4:desc"),{column:4,direction:"desc"});assert.equal(parseSortState("bad"),null);assert.equal(filterStateKey("search"),"f.search");assert.equal(sortStateKey("keywords.0"),"sort.keywords.0");console.log("dashboard table/filter state: OK (numeric/text sort and stable URL keys)");

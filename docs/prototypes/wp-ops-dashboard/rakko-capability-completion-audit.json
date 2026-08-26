@@ -1,16 +1,15 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "a22130eb3a5286ecec15fcfec813e7663154aa078be6834ceee6bdcf58c8a586",
+  "inventory_digest": "447605833defae4f807f6031c7e821f8e279ad2a397a32b62b74ce35c22945a1",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
-    "proven_complete_count": 3,
-    "incomplete_count": 31,
+    "proven_complete_count": 4,
+    "incomplete_count": 30,
     "blocker_counts": {
       "contract_or_auth_parity": 2,
       "corpus_or_acquisition_depth": 17,
-      "export_and_state_coverage": 1,
       "external_provider_or_account_data": 5,
       "generation_runtime_or_quality_oracle": 6
     }
@@ -598,12 +597,15 @@
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
         "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "3571de22114ba9586f01245e6f7670cc716cf923e67d882463bde7f9ab23d7ff"
+      "evidence_digest": "c737478b05caf735bfce8769f3921946b4f36420925b3633f8e6aceb059c7773"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -616,32 +618,36 @@
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
         "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "cfa4151250f7022868977c58769d86bd2831bdac88bfd8bee8afddfde4d23dbb"
+      "evidence_digest": "19f02c880edd171d9581709338028c6f42d1cc2e967108d04206995513fd7266"
     },
     {
       "capability_id": "data_output",
       "name": "データ出力・copy/filter/sort URL state",
-      "parity_status": "incomplete",
-      "helix_status": "partial",
-      "completion_evidence_state": "contradicted_by_retained_gap",
-      "blocker_classes": [
-        "export_and_state_coverage"
-      ],
-      "remaining_gap": "filtered CSV/JSON、全16 viewのsite-scoped JSON snapshot、view/query/mode/type URL state、browser-only最大50件の検索履歴・再実行・全消去を実装。主要tableの任意column sortと全filterの共通URL stateは未実装",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "既知契約範囲を実装。filtered CSV/JSON、全16 viewのsite-scoped JSON snapshot、browser-only最大50件履歴、全filterの共通f.* URL state、全tableの任意column昇降sort・ARIA・keyboard・sort.* URL復元を提供",
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
         "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "bf7d129c912e1670eef11f32883beb48c84fe18c677d0023ad17ace6c5bc264e"
+      "evidence_digest": "1afc9e6dc66e59f4327f02f4984ffad08c5ce0904b738644527d497dd7b34044"
     },
     {
       "capability_id": "bookmarklet",
@@ -654,12 +660,15 @@
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
         "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "2f0b4fe1d2eb8d45afa444ff34f4f9afb9e0a3030c5f607123686092b45ded45"
+      "evidence_digest": "5f54c1be04b004fe931c33a0d42c4005ed9bd0a047e49953c67804c57bed1696"
     },
     {
       "capability_id": "public_api",
@@ -726,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "0d586f6409340e78d3d9bc1b014b3ffca953be9c4e054ee809f2b12a07bcf30a"
+  "audit_digest": "0299c7fc971668a5d5d8b8e188efdf0eb3aa07d36c68166badd66fb067a96ea7"
 }
