@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "f81bca10108ed5f4afae549dab6c852d5b1a4bd83e0b6efb5c57340c5b5aecf2",
+  "inventory_digest": "5dfc71b4bbd42eb103ff7a9342f39ba50945e4a8d812d5d2c5f78257bec7b03f",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -701,7 +701,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped KW/需要/質問/brief/取得状態/title/heading/outline/競合domain/SERP/rank履歴/市場データ/特殊SERP itemの13 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped KW/需要/質問/brief/取得状態/title/heading/outline/title×outline構成整合/競合domain/SERP/rank履歴/市場データ/特殊SERP itemの14 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -712,7 +712,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "f3a117018e3a6501dbc63f7383424b45da0517b7ade050c7fb4b7f3775aa2523"
+      "evidence_digest": "0131bf9f41bc6fbe00151bc1650781725677dacbeb7fbb1cb3cfb0bb0852813f"
     },
     {
       "capability_id": "credit_history",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "062c9f201b7005cd2b2d691ca7e8a507c29f618ae9d43cd13175a971f8f84528"
+  "audit_digest": "54e012a1df790ae26ee3c8601c146d3e145d8756bd4ae35a4d5da4700211e74c"
 }

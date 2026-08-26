@@ -466,7 +466,7 @@ filterは `suggest_q` / `suggest_mode` / `question_q` / `question_kind` とし�
 dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し、`initialize`、`ping`、
 `tools/list`、`tools/call`を実装した。toolはsite-scopedの元KW検索、実測需要検索、質問候補、content brief、
 取得状態/費用台帳に加え、title候補、競合heading、outline、競合domain、SERP field、保持rank履歴、市場データの
-計12種に、特殊SERP featureのnested item検索を加えた計13種。追加8種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
+計12種に、特殊SERP featureのnested item検索とtitle×outline構成整合reviewを加えた計14種。追加9種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
 最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを許可し、bodyは1MiB、
 protocol versionは2025-03-26/06-18/11-25に制限する。Rakko OAuthやcredit連携とは称さない。
 
@@ -919,7 +919,7 @@ v1で検出した語彙gap 21構成に対し、v2はbaselineと同じreview tier
 ready 33→48、needs_review 30→15となった。
 要確認見出し由来の15構成は選定titleだけで解消した扱いにしない。
 選定見出し510件、要確認見出し19件を維持する。全構成は`proposed`、`auto_approval:false`で、参照title/heading IDは
-765候補内に全件存在する。`GET /api/v1/compositions`、コンテンツ施策画面、view exportへ同じ値を接続した。
+765候補内に全件存在する。`GET /api/v1/compositions`、MCP `review_content_compositions`、コンテンツ施策画面、view exportへ同じ値を接続した。
 要確認見出しを含む15構成は引き続き編集対象として残す。LLM実行、新規provider取得、外部公開は行っていない。
 
 ## 11. 未検証事項
