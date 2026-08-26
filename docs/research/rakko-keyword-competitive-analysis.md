@@ -55,7 +55,7 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | 観測100KW内で225競合、107複数KW、78複数記事群を実装。全rank DB・traffic/value gap |
 | `POST /v1/bulk-site-research` | 最大100 URLの規模・推移比較 | domain metrics history | gap |
 | `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | 上位10候補の取得成功535 pageでtitle/H1-H6/SERP description/観測KW検索とrank逆引き実装。全page/traffic gap |
-| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位10page実測・18,431 heading。階層/検索/除外語/scope/ページ構造/文字数統計を実装。上位11〜20・wire互換 gap |
+| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位10page実測・18,424 heading。階層/検索/除外語/scope/ページ構造/文字数統計を実装。上位11〜20・wire互換 gap |
 | `POST /v1/co-occurrence` | 上位20pageの本文/title/heading頻出語 | SERP + page parsing + token statistics | task/group別実装済み。上位20/getDetails互換 gap |
 | `POST /v1/search-rank` | 指定site/KWの最新順位とSERP | live/queued SERP | raw SERPあり。継続rank tracking gap |
 | `POST /v1/site-search` | contentとdomain metricsによるsite検索 | domain/content index | gap |
@@ -465,8 +465,10 @@ filterは `suggest_q` / `suggest_mode` / `question_q` / `question_kind` とし�
 
 dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し、`initialize`、`ping`、
 `tools/list`、`tools/call`を実装した。toolはsite-scopedの元KW検索、実測需要検索、質問候補、content brief、
-取得状態/費用台帳の5種で、最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを
-許可し、bodyは1MiB、protocol versionは2025-03-26/06-18/11-25に制限する。Rakko OAuthやcredit連携とは称さない。
+取得状態/費用台帳に加え、title候補、競合heading、outline、競合domain、SERP field、保持rank履歴、市場データの
+計12種。後者7種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
+最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを許可し、bodyは1MiB、
+protocol versionは2025-03-26/06-18/11-25に制限する。Rakko OAuthやcredit連携とは称さない。
 
 - MCP Tools仕様: <https://modelcontextprotocol.io/specification/2025-06-18/server/tools>
 - MCP Streamable HTTP仕様: <https://modelcontextprotocol.io/specification/2025-03-26/basic/transports>
@@ -726,7 +728,7 @@ PAA回答、4年月次指標、全rank database、traffic/value/historyは依然
 取得深度10/目標深度20を明示する。別siteのtask/group IDは404にしてscope漏洩を防ぐ。
 
 画面の競合分析へ見出し検索、H1〜H6 filter、除外語、ページ別本文文字数・階層内訳・構造一覧を追加した。
-18,431見出しを使う専用テストでfilter、除外、page集約、平均値、task scope、外部取得非発火を検証する。
+18,424見出しを使う専用テストでfilter、除外、page集約、平均値、task scope、外部取得非発火を検証する。
 上位11〜20は未取得のため、headline機能の完成判定は引き続き`partial`とする。
 
 ### 10.46 タイトル候補の競合benchmark・選定policy
