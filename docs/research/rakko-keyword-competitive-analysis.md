@@ -1048,6 +1048,11 @@ citation ID 14件は14件を保持し、citation推薦21件はすべて統合先
 `GET /api/v1/consolidation-blueprints`（OpenAPI 2.2.0）、MCP `review_content_consolidation`、監査画面の
 統合draft packageへ同一のlineageとdigestを接続した。
 
+DB v55では同じ統合claimからtextとHTMLを決定論的にrenderする。各節はheading、検討論点、evidence ID、
+source claim IDを含み、HTMLの`article`には`data-review-state="blocked"`を埋め込む。監査画面から両形式を
+downloadできるが、出力可能と公開可能を混同せず、一次情報確認・citation承認gateは解除しない。
+rendererは`content-consolidation-draft.v2`、blueprint policyはv7、OpenAPIは2.3.0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
