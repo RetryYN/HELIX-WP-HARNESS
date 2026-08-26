@@ -600,7 +600,7 @@ REST本文scopeの欠落を公開navigation証拠で補完し、単純な孤立�
 
 ### 10.32 title・heading生成品質oracle v3（DB v34）
 
-731生成候補について、候補文字列だけの採点から、根拠IDの実在、SERP需要文言の包含率、同一group競合title/
+747生成候補について、候補文字列だけの採点から、根拠IDの実在、SERP需要文言の包含率、同一group競合title/
 headingとの文字trigram最大類似、90%以上のcopy risk、75%以上の類似review、group内・group横断重複、既存WP
 title/heading衝突、主KW、文字数、見出し階層、反復語を組み合わせる`evidence-bound-review.v3`へ更新した。
 無関係テーマとの誤検出を避けるため競合類似は同じKW groupの取得pageだけを比較する。各候補はoracle入力結果、
@@ -613,8 +613,15 @@ issue、collision、quality score、review state、review digestへ逆引きで�
 抽出し、`main keyword + axis + わかりやすく解説`へ構成する。需要根拠tokenの60%以上を含むことをoracle gateとし、
 完全文字列一致による表記揺れ誤判定を避ける。需要titleが作れない場合でも競合heading evidenceがあれば、その
 最上位editorial termから`competitor_heading_fallback`を作り、根拠page IDを保持する。fallbackは32件、title候補は
-175件となり、draft packageのbrief readyは52→61/63 groupへ改善した。残るgroup 60は候補証拠ゼロ、group 61は
-証拠付きheadingが2件だけでoutline minimum 3を満たさないため、推測補完せずblockedを維持する。
+179件となった。
+
+### 10.34 source task由来需要の限定復帰
+
+PAA・関連検索は保存されていても、ブランドの英字／日本語表記などの字面差により`same_group`へ分類されず、生成
+工程で利用されない場合があった。`same_group`需要が0件かつ競合見出し根拠が3本未満の群に限り、同一取得task・
+group由来の観測済み需要を`source_task_fallback`として復帰する。同一意図への再分類ではない低信頼fallbackであり、
+coverage、variant key、元proposal IDへ明示して逆引き可能にする。適用はgroup 60/61の2群・16候補に限定され、
+63/63 groupが`brief_ready`となった。本文は全件`not_generated`で、引用・事実確認・公開承認gateはfail closedを維持する。
 
 ## 11. 未検証事項
 
