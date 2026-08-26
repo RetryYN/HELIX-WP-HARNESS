@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "f1e7a643ee98f79f502dffa9630924e50e17ffcb528b1a7a8f14b4b9dedad78d",
+  "inventory_digest": "5ca0bbedfa43cfc0901db4013e7fdd369c529320bdaff837746f6ab1b4e44781",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -65,7 +65,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "実測PAA 221固有質問を横断検索・相対重要度・取得元KW/group/観測期間付きで実装。100 seed外の大規模質問index・相対検索量は未取得",
+      "remaining_gap": "実測PAA 221固有質問を横断検索・相対重要度・取得元KW/group/観測期間付きで実装。取得済み100 taskの回答再取得をclick depth 1・最大$0.075で計画済み。100 seed外の大規模質問index・相対検索量は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -75,7 +75,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "1d1aa918d15023fe2a7564fdfdef74d9a326dc53e6412b5d89ab7c0a0d60561e"
+      "evidence_digest": "6c6f1a1995e72ed4d323053b4853006a333468a1c89769b9d162913d3e4fa21a"
     },
     {
       "capability_id": "lsi_paa",
@@ -86,7 +86,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "PAA 221 + 関連検索493固有需要を横断DB化し、task/group/occurrence相対importanceと観測期間を実装。回答・2階層・appearance historyは未取得",
+      "remaining_gap": "PAA 221 + 関連検索493固有需要を横断DB化し、task/group/occurrence相対importanceと観測期間を実装。回答は100 task・click depth 1の再取得計画あり。2階層・appearance historyは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -96,7 +96,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "8dca320a6be04d7e7047f9b73030542d15576b1686ba8059741b4a20695da31c"
+      "evidence_digest": "9a22a7e485ffb4d7f25f954b110751288985f91b17fbb288903c446dce688e74"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -128,7 +128,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "15 sheet・10,694 workbook rowsをsource identity付きで全量DB/階層化。SERP実測は100件のみで、latest/monthly/difficulty/job lifecycle gap",
+      "remaining_gap": "15 sheet・10,694 workbook rowsをsource identity付きで全量DB/階層化。SERP未取得10,594 source rowは106 batch・最大$6.3564の取得計画あり。latest/monthly/difficulty実測とjob lifecycleは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -138,7 +138,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "4cf2e5c339b8668e9b25420973c47df365a9e973a889e231d2513cc46930b285"
+      "evidence_digest": "070c01f35f1c69bf278f0fbd5dc360f5ddf5958b2680c2956ba6ec00ad55fdec"
     },
     {
       "capability_id": "influx_keywords",
@@ -726,5 +726,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "f0b3ad381183752c93c19e64cb3e91b8d4044d4a5f28294894d77afd0f431197"
+  "audit_digest": "984211f6a079e9e789856b5294954db900083116c96545c1cbea74372d920d12"
 }

@@ -623,6 +623,15 @@ group由来の観測済み需要を`source_task_fallback`として復帰する�
 coverage、variant key、元proposal IDへ明示して逆引き可能にする。適用はgroup 60/61の2群・16候補に限定され、
 63/63 groupが`brief_ready`となった。本文は全件`not_generated`で、引用・事実確認・公開承認gateはfail closedを維持する。
 
+### 10.35 未取得SERP・PAA回答のsource単位取得計画（provider plan v3）
+
+`data_disposition`で可視化した欠損を実行計画へ接続した。SERP未取得10,594 source rowは重複語でもsource IDを潰さず、
+DFS Standard Google Organic depth 10を最大100 taskずつ106 POST batchへ分割する。2026-08-26再確認の公開単価
+$0.0006/taskによる最大見積は$6.3564。取得済み100 taskのPAA回答は`people_also_ask_click_depth: 1`で再観測し、
+baseと追加clickを合わせ最大$0.0750とする。PAAが存在しない場合や実行clickが少ない場合は返金されるため、これは上限
+見積であり取得件数保証ではない。既存のTrends/Newsを含む実行可能計画総額は最大$6.5043。全jobは`not_executed`、
+明示live flag・環境credential・正確な承認上限・実行直前の価格再確認が揃うまで課金しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldの契約棚卸しは完了。各fieldとHELIX DB columnの個別1:1対応は未完了
