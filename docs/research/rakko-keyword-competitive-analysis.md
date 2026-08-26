@@ -681,11 +681,11 @@ snippetだけを別証拠として保持する。未取得の主要母集団はS
 ### 10.41 公開API 952 fieldの個別処遇監査
 
 41 schemaのflatten済み952 field occurrenceをschema・field path・出現順で一意化した。後述のURL別共起語証拠接続後は、
-保持意味対応91、provider dataset未取得162、request control非互換168、wire contract/container形状500、partial operation内の
-1:1未対応31へ分類している。
+保持意味対応95、provider dataset未取得162、request control非互換168、wire contract/container形状500、partial operation内の
+1:1未対応27へ分類している。
 同一array pathのflatten重複103件も削除せず明示し、unique schema/pathは849件。未分類は0件である。保持意味対応は
 `searchVolume → keyword_market_metrics.search_volume`のようにHELIX target columnを示すが、値定義やRakko wire contractの
-同一性までは証明しない。画面へ全件監査とdigestを常設し、1:1未対応31件と未取得162件を具体的なbacklogとして残す。
+同一性までは証明しない。画面へ全件監査とdigestを常設し、1:1未対応27件と未取得162件を具体的なbacklogとして残す。
 
 ### 10.42 URL別共起語証拠とsite count（DB v36）
 
@@ -696,9 +696,17 @@ DB v36で`competitor_page_terms` 75,325行を追加し、本文count、title cou
 これにより共起語契約のsite count・URL別count系7 fieldと、同時ランクKWのword count/relevance、content top KWの
 word countを含む計10 fieldを追加で意味対応へ移した。Rakko `getDetails` wire互換や上位20page取得完了は主張しない。
 
+### 10.43 観測SERP母集団のdomain重複比較
+
+`/api/v1/domains`へ`target_domain`を追加し、100 task・各上位10件の`serp_page_keyword_edges`からdomain別KW集合を比較する。
+重複KW数、target基準重複率、Jaccard率、競合固有KW数、target固有KW数、重複KW一覧を返し、policyとscopeに
+`full_rank_database:false`を明記する。画面でも比較基準domainを選択でき、両方の率を並記する。実測例では
+`detail.chiebukuro.yahoo.co.jp`の61観測KWを基準に`unison-career.jp`と28KWが重複し、target基準45.9%、Jaccard35.9%、
+競合固有17、target固有33となった。これをRakkoの重複率と同じ分母だとは主張せず、定義が再現可能な独自比較として扱う。
+
 ## 11. 未検証事項
 
-- 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応91 fieldの値定義同等性と、1:1未対応31 fieldの実装は未完了
+- 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
 - Web UI 34 capabilityのinput/output/主要limit/credit/history/export棚卸しは完了。動的料金表の全セルと8補助ツール個別契約は未完了
 - SEO難易度の公開説明とDFS Labs指標の数式・分布比較
 - 同一seedでのラッコ出力とDFS出力の合法的なside-by-side実測

@@ -332,6 +332,7 @@ assert.match(html,/data-view="quick-search"/);assert.match(app,/renderQuickSearc
 assert.match(html,/demand-export-csv/);assert.match(app,/downloadDemand/);assert.match(app,/downloadRows/);assert.match(app,/history\.replaceState/);assert.match(app,/observed-demand/);
 assert.match(app,/data\.simultaneous_keyword_relations/);assert.match(app,/観測内の同時ランクインKW/);
 assert.match(app,/data\.serp_page_keyword_edges/);assert.match(app,/data\.serp_page_coverage/);assert.match(app,/competitorDomainsForSite/);assert.match(app,/複数記事群横断/);assert.match(app,/competitorPageRows/);assert.match(app,/renderCompetitorContent/);assert.match(app,/data\.competitor_headings/);
+assert.match(app,/competitorDomainTarget/);assert.match(app,/jaccard_rate/);assert.match(app,/target_rate/);assert.match(html,/competitor-domain-target/);assert.match(html,/target基準率 \/ Jaccard/);
 assert.match(app,/data\.serp_organic_results/);assert.match(app,/descriptionMatches/);assert.match(app,/SERP説明文/);assert.match(app,/keywordMatches/);
 assert.match(app,/highlightMatches/);assert.match(app,/freshnessMatches/);assert.match(app,/強調語あり/);assert.match(app,/日時あり/);
 assert.match(app,/preSnippetMatches/);assert.match(app,/breadcrumbMatches/);assert.match(app,/sitelinkMatches/);assert.match(app,/commerceMatches/);assert.match(app,/SERP snippetのみ/);assert.match(html,/pre-snippetのみ/);assert.match(html,/rating・priceのみ/);
