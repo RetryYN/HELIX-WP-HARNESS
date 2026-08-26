@@ -1001,16 +1001,20 @@ heading 10件を比較対象として保持する。統合時にどちらを存�
 元title・outlineを破棄せず編集判断へ渡す。SQLite v48、`GET /api/v1/content-topology`、MCP
 `review_content_topology`、監査画面の記事トポロジー表へ接続した。全変更はreview-onlyで`auto_mutation:false`である。
 
-### 10.65 title・heading統合差分blueprint（DB v49）
+### 10.65 title・heading統合差分と編集判断blueprint（DB v50）
 
 `consolidation_review`だけを対象に、両groupの選定titleとheadingを編集可能な統合差分へ落とした。
 見出しは正規化した文字bigram類似度60%と根拠ID Jaccard 40%を合成し、score 0.4以上を一対一の
 重複候補として抽出する。残りは出典group・候補ID・heading level・根拠IDを失わず固有見出しとして保持する。
 
 実測1 blueprintではtitle 2案、元heading 10本から重複候補3組・固有4本を得て、統合後の編集対象を7本へ投影した。
-ただし重複3組の代表見出しと存続titleはいずれも`unresolved_not_auto_selected`で、根拠共有数とunion、
-全比較score、digestをレビューへ渡すだけである。SQLite v49、`GET /api/v1/consolidation-blueprints`、MCP
-`review_content_consolidation`、監査画面の統合設計差分へ同じ証拠を接続し、`auto_mutation:false`を維持する。
+さらに存続groupを構成品質35%、title品質25%、根拠被覆30%、固有見出し保持10%で順位化し、各重複pairは
+根拠数65%と候補品質35%で代表候補を比較する。実測では`it-shukatu-serp-012`を存続候補、重複3組すべてで
+同group側の見出しを代表候補として推薦した。各component、weight、score、marginを保存するため結論を逆監査できる。
+
+ただし推薦と確定を分離し、titleの`title_selection_state`とheadingの`resolution_state`は引き続き
+`unresolved_not_auto_selected`である。SQLite v50、`GET /api/v1/consolidation-blueprints`、MCP
+`review_content_consolidation`、監査画面の統合編集判断へ同じ証拠を接続し、`auto_mutation:false`を維持する。
 
 ## 11. 未検証事項
 
