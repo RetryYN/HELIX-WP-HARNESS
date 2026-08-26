@@ -1001,7 +1001,7 @@ heading 10件を比較対象として保持する。統合時にどちらを存�
 元title・outlineを破棄せず編集判断へ渡す。SQLite v48、`GET /api/v1/content-topology`、MCP
 `review_content_topology`、監査画面の記事トポロジー表へ接続した。全変更はreview-onlyで`auto_mutation:false`である。
 
-### 10.65 title・heading統合差分と編集判断blueprint（DB v51）
+### 10.65 title・heading統合差分と編集判断blueprint（DB v52）
 
 `consolidation_review`だけを対象に、両groupの選定titleとheadingを編集可能な統合差分へ落とした。
 見出しは正規化した文字bigram類似度60%と根拠ID Jaccard 40%を合成し、score 0.4以上を一対一の
@@ -1014,12 +1014,19 @@ heading 10件を比較対象として保持する。統合時にどちらを存�
 
 推薦された代表3本と固有4本は、各source outlineのpositionとH3親関係を使って統合後outlineへ再構成する。
 代替されたH2を親に持つH3は代表H2へ親IDを解決し直し、候補欠落、親不明、予測件数不一致を構造gateで停止する。
-実測previewはH2 4本・H3 3本の計7本で、欠落0、orphan 0、`ready_for_editor_review`となった。
+最初のpreviewは見出し構造こそH2 4本・H3 3本で整合したが、代表見出し側の根拠だけを保持したため、
+source union 21件に対しpreview unionは18件となり、相手側だけのSERP根拠3件を暗黙に落としていた。
+v4では各重複見出しへ左右候補の根拠unionを継承し、元候補ID、代表14件、相手側9件、共有6件、
+新規継承3件、統合後17件をlineageとして保存する。3組すべてに適用した結果、previewは21/21件、
+保存率100%、欠落ID 0となった。`source_evidence_not_preserved` gateにより再発時はblockedになる。
+
+最終previewはH2 4本・H3 3本の計7本で、候補欠落0、orphan 0、根拠欠落0、
+`ready_for_editor_review`となった。
 
 ただし推薦と確定を分離し、titleの`title_selection_state`とheadingの`resolution_state`は引き続き
-`unresolved_not_auto_selected`、previewは`review_only_not_applied`である。SQLite v51、
+`unresolved_not_auto_selected`、previewは`review_only_not_applied`である。SQLite v52、
 `GET /api/v1/consolidation-blueprints`、MCP `review_content_consolidation`、監査画面の統合編集判断・
-統合後アウトラインへ同じ証拠を接続し、`auto_mutation:false`を維持する。
+統合後アウトライン・統合根拠lineageへ同じ証拠を接続し、`auto_mutation:false`を維持する。
 
 ## 11. 未検証事項
 

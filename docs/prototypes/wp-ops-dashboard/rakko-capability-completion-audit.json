@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "29448822b0d6055da2dd5aed020952d3518b022366a0b480db4c1ad6e65fb71a",
+  "inventory_digest": "d2c0e076c204c677c88365afa91b826a592f43aefbfd654eb64fcfbcba0c6c5c",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -383,7 +383,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定、親関係付きdraft package v3を実装。堅牢統合の元heading 10本を重複3組・固有4本へ差分化し、代表推薦からH2 4/H3 3の順序・親ID付き統合previewを生成。欠落/orphan/件数gate通過、未反映。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定、親関係付きdraft package v3を実装。統合previewはH2 4/H3 3、各重複代表へ左右根拠unionと候補lineageを継承し、当初18/21だった根拠保存を21/21・欠落0へ修正。構造/根拠gate通過、未反映。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -395,7 +395,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "182eb6450db748da27cdc38175087ed7b9baa5a90c2401737be7ace3873c1423"
+      "evidence_digest": "9f7b944a84c18eecbb1404e9dd4346ab67754e15eb0aa57906e3df475f13ef21"
     },
     {
       "capability_id": "ai_body",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "312eb95d06f815b52e8ca5940fe21286c1fda4cefc68cf096c19ece06914cb46"
+  "audit_digest": "83ae6e6e809376fab32fa296a23a7e3c8b0162dfe4194867f9fc030bb6ae8b2b"
 }
