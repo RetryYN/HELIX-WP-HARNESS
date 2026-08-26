@@ -888,13 +888,27 @@ image URL、公開時刻、出典domainをitem順序・feature/task/group identi
 79 evidence-only、0 unclassified、0 raw-onlyへ更新した。観測候補は自動採用せず、検索意図・一次情報との照合を
 package instructionに追加する。新規provider取得は行っていない。
 
+### 10.57 特殊SERP観測からタイトル・見出し候補への逆引き
+
+特殊SERPの20 itemはaction guidanceとdraft inputまでは到達していたが、実際の`content_generation_candidates`へは
+接続されていなかった。SQLite v39で根拠型`serp_feature_item`を追加し、`people_also_search` 6件から比較・選び方の
+TITLE 6件とH2 6件、images 9件・video 4件・knowledge graph 1件から形式別H2を各1件、計15候補生成する。
+generatorは`evidence-bound-generation.v3`で、全候補が元item IDを保持し、20/20 itemを逆参照できる。
+
+品質oracleは元itemの存在をDBで解決し、観測値を事実や採用案と混同しないよう全15件へ
+`serp_feature_observation_review`を付ける。実測は全候補765件（TITLE 185 / 見出し580）、根拠解決765/765、
+ready 727 / needs_review 33 / blocked 5。特殊SERP由来15件はすべて`proposed`かつ`needs_review`で、自動承認0件。
+outlineは580見出し候補から510件を選び、H2 251 / H3 259となり、特殊SERP H2は7件が選定されたが
+`auto_approval:false`を維持する。画面では特殊SERP候補を独立表示し、タイトル分析でも根拠種別filterを提供する。
+新規provider取得、外部公開、remote pushは行っていない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
 - Web UI 34 capabilityのinput/output/主要limit/credit/history/export棚卸しは完了。動的料金表の全セルと8補助ツール個別契約は未完了
 - SEO難易度の公開説明とDFS Labs指標の数式・分布比較
 - 同一seedでのラッコ出力とDFS出力の合法的なside-by-side実測
-- AI title/headingの入力選択、重複抑制、文字数、coverage quality oracle
+- AI title/headingの生成モデル比較、編集履歴、承認workflow（決定論候補の入力選択・重複抑制・文字数・coverage oracleは実装済み）
 - 利用規約・データ保持・派生データ再配布条件
 
 これらを埋めるまでは「全機能調査完了」「DataForSEO利用確定」「競合超過完了」を主張しない。
