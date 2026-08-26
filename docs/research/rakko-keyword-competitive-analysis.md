@@ -989,6 +989,18 @@ overlap率、`merge / related / separate`分類を保存した。
 人手確認対象として残す。SQLite v47、`GET /api/v1/depth-stability`、MCP `review_serp_depth_stability`、
 監査画面の深度比較表へ同じ証拠を接続し、`auto_mutation:false`を維持する。
 
+### 10.64 SERP境界からtitle・outlineへの記事トポロジー逆引き（DB v48）
+
+深度安定性68 task pairをgroup pairで重複排除すると24件となる。`content-topology-oracle.v1`はgroup境界を
+統合レビュー1、深度反転による変更保留21、別記事＋内部リンクレビュー1、安定分離維持1へ分類した。
+各groupについてmain KW、WP記事ID、施策状態、共同最適化済みtitle candidate IDと本文、選定heading ID、
+composition review state/digestを逆引きする。
+
+唯一の統合レビューは`it-shukatu-serp-012`と`it-shukatu-serp-042`で、どちらも新規記事候補であり、選定title 2件と
+heading 10件を比較対象として保持する。統合時にどちらを存続groupにするかは`unresolved_not_auto_selected`とし、
+元title・outlineを破棄せず編集判断へ渡す。SQLite v48、`GET /api/v1/content-topology`、MCP
+`review_content_topology`、監査画面の記事トポロジー表へ接続した。全変更はreview-onlyで`auto_mutation:false`である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
