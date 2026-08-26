@@ -59,6 +59,9 @@
           <div id="pagination" class="pagination" aria-live="polite"></div>
         </div>
       </div>
+      <div class="subsection-head table-toolbar"><div><h3>キーワード統合・分割・カニバ判定</h3><p>上位10 SERP重複、GSC複数記事、既存記事候補の競合を証拠付きで監査。自動統合・自動割当はしません</p></div><div class="filters"><input id="keyword-decision-search" type="search" placeholder="KW・記事を検索" aria-label="キーワード判定検索"><select id="keyword-decision-kind"><option value="all">全証拠</option><option value="serp_pair">SERPペア</option><option value="gsc_query">GSCカニバ</option><option value="article_assignment">記事割当</option></select><select id="keyword-decision-review"><option value="required">要レビュー</option><option value="all">全判定</option><option value="supported">現状支持</option></select></div></div>
+      <div id="keyword-decision-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>証拠</th><th>対象</th><th>現状</th><th>判定</th><th>強度</th><th>証跡</th></tr></thead><tbody id="keyword-decision-rows"></tbody></table><div id="keyword-decision-empty" class="empty-state"></div></div>
     </section>
 
     <section id="keyword-tree" class="view">

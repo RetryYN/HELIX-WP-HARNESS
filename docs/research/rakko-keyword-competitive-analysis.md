@@ -756,6 +756,21 @@ trigram Jaccardを返す。現行実測は63 outline、571候補から503選定�
 自動承認はせず、本文生成・引用承認・claim検証は引き続き別gateである。LLM outline model/prompt/output metadataは
 未生成なので、AI heading機能の完成判定は`partial`のままとする。
 
+### 10.48 未取得・非保持データとキーワード境界監査
+
+データ処遇台帳を再検査した。10,694 source rowのうちSERP取得は100、未取得は10,594である。競合564ページは
+本文構造535件、取得失敗29件で、失敗ページは29件すべてSERP snippetだけをfallback証拠として保持する。PAA質問
+221件には回答本文・参照URLがなく、latest/monthly volume、SEO difficulty、全rank DBもlive未取得である。一方、
+WordPress本文文字列・公開HTML・sitemap XMLは意図的に非保持とし、digest、section、paragraph位置・文字数、link、
+image、block、schema、SEO headを派生保持する。GSC raw 681行は保持し、NFKC等価な3行だけを678行へ集約する。
+Rakko OpenAPI 952 field occurrenceの処遇は、意味保持95、provider dataset未取得162、response 1:1未対応27、request
+非互換168、contract shape 500で、未分類は0である。
+
+`keyword-decision-audit.v1`は取得済み証拠だけから398件を判定する。内訳はSERP pair 339、同一正規化GSC queryを
+複数記事が獲得する候補54、既存記事候補のgroup競合5である。119件を人手レビュー対象とし、279件は現状境界を支持する。
+上位10 URL重複60%以上を統合レビュー、30%以上60%未満を分離＋内部リンク、同一groupなのに60%未満を再確認とする。
+これは全rank DB未取得のscopeを明示した監査であり、自動統合・自動分割・記事割当変更は行わない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
