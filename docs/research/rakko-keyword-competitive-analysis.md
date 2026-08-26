@@ -754,7 +754,7 @@ H2へ接続し、H2ごと最大4件とする。同点もcandidate IDで決定で
 `GET /api/v1/outlines`と画面は記事群別の全候補数、選定数、H2/H3数、除外数、根拠ID数、親score、共有証拠数、
 trigram Jaccardを返す。現行実測は63 outline、571候補から503選定、H2 244、H3 259である。blocked 5件に加え、
 意味のある親関係を証明できないH3 63件を未選定として保持し、無理にH2へ接続しない。
-`content-draft-package.v2`にも同じoutlineを入力し、各H3へ`parent_candidate_id`とparent relationを保存する。
+`content-draft-package.v3`にも同じoutlineを入力し、各H3へ`parent_candidate_id`とparent relationを保存する。
 自動承認はせず、本文生成・引用承認・claim検証は引き続き別gateである。LLM outline model/prompt/output metadataは
 未生成なので、AI heading機能の完成判定は`partial`のままとする。
 
@@ -883,7 +883,10 @@ SQLite v38で`serp_feature_items`と`serp_feature_item_links`へ分解し、文�
 image URL、公開時刻、出典domainをitem順序・feature/task/group identity・digest付きで保持する。元payloadも併存させ、
 正規化時にfieldを落とさない。`GET /api/v1/serp-feature-items`、MCP `search_serp_feature_items`、取得監査画面の
 検索・previewへ接続した。field監査もnested走査へ直した結果、従来見えていなかった22 field pathが加わり、
-30 decision-connected、91 evidence-only、0 unclassified、0 raw-onlyになった。新規provider取得は行っていない。
+正規化直後は30 decision-connected、91 evidence-onlyだった。itemの値を形式・title・heading guidanceへ接続し、
+`content-draft-package.v3`へ推奨形式、guidance、item/link evidenceを丸ごと渡すことで、42 decision-connected、
+79 evidence-only、0 unclassified、0 raw-onlyへ更新した。観測候補は自動採用せず、検索意図・一次情報との照合を
+package instructionに追加する。新規provider取得は行っていない。
 
 ## 11. 未検証事項
 
