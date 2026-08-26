@@ -54,8 +54,8 @@ scope: public-product-research-and-reproducible-inference
 | `POST /v1/influx-pages` | 集客page、KW数、traffic value | relevant/ranked pages DB | 観測565 pageのKW/group/rank/top-KW集計とUI実装。全rank DB・traffic/value/history gap |
 | `POST /v1/competitive` | rank KW重複による競合domain | competitors/domain intersection | 観測100KW内で225競合、107複数KW、78複数記事群を実装。全rank DB・traffic/value gap |
 | `POST /v1/bulk-site-research` | 最大100 URLの規模・推移比較 | domain metrics history | gap |
-| `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | 取得成功180 pageのtitle/H1-H6/SERP description/観測KW検索とrank逆引き実装。全page/traffic gap |
-| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位3page実測・6,887 heading。上位20/除外条件 gap |
+| `POST /v1/content-search` | title/description/top KWによるpage検索 | full-text page/rank index | 上位10候補の取得成功535 pageでtitle/H1-H6/SERP description/観測KW検索とrank逆引き実装。全page/traffic gap |
+| `POST /v1/headline` | Google上位pageのH1-H6・文字数・平均 | SERP + page parsing | 上位10page実測・18,431 heading。上位20/除外条件 gap |
 | `POST /v1/co-occurrence` | 上位20pageの本文/title/heading頻出語 | SERP + page parsing + token statistics | task/group別実装済み。上位20/getDetails互換 gap |
 | `POST /v1/search-rank` | 指定site/KWの最新順位とSERP | live/queued SERP | raw SERPあり。継続rank tracking gap |
 | `POST /v1/site-search` | contentとdomain metricsによるsite検索 | domain/content index | gap |
@@ -169,7 +169,7 @@ traceable lifecycleを完成させることが主要な勝ち筋になる。
 
 1. raw PAA / related searchesのoccurrence付き正規化tableは実装済み（1,188 occurrence / 878 proposal）。
 2. 2階層recursionと出現回数ベースimportanceを再現可能にする。
-3. 上位SERP pageのtitle/description/heading/text取得契約は上位3候補190 URLで実装済み（180成功）。上位20対応が残る。
+3. 上位SERP pageのtitle/description/heading/text取得契約は上位10候補564 URLで実装済み（535成功）。上位11〜20対応が残る。
 4. heading/co-occurrenceのpage・task・group別集計は実装済み。page-topicの意味分類が残る。
 5. PAA、related、競合co-occurrence由来の根拠付きproposalは実装済み。承認workflowが残る。
 6. 決定論title/heading候補とevidence digest・coverageは実装済み。LLM model/prompt version付き生成が残る。
@@ -253,7 +253,7 @@ non-empty fieldはすべて専用列または`serp_feature_occurrences.payload_j
 |---|---|
 | PAA回答本文・参照URL | `people_also_ask_click_depth`なし。現在は質問396件だけで回答0件 |
 | SERP pixel位置 | `calculate_rectangles`なし |
-| 競合page H1-H6・本文・内部/外部link | v14で上位3候補190 URLを全件処理済み。180成功、robots拒否3、HTTP error 5、fetch error 2 |
+| 競合page H1-H6・本文・内部/外部link | DB v36時点で上位10候補564 URLを全件処理済み。535成功、robots拒否13、HTTP error 12、fetch error 4。上位11〜20は未取得 |
 | 最新volume、4年月次、CPC、competition、SEO difficulty | v22で課金前plan・公式価格上限・account balance確認・raw evidence保存pipelineを実装。live取得は未実行 |
 | domain/URL ranked KW、集客page、競合domain、履歴 | v22で自domain ranked keywords最大1,000件の課金前planと保存pipelineを実装。live取得は未実行 |
 | multi-engine suggest、質問DB、trend、news、Q&A、hashtag | 対応provider取得なし |
@@ -317,8 +317,8 @@ APIと「市場データ」画面へ投影する。manifest未指定時は空配
 - DB v24で全642候補に品質reviewを付与した。主KW包含、文字数heuristic、根拠数、H2/H3親関係、候補内重複、既存WP title/heading完全衝突を検査し、641件`ready`、1件`blocked`（WP #130 H2との衝突）となった。判定は候補と同じく自動承認せず、policy名とSHA-256 review digestを保持する。
 - DB v25では需要複合・需要解説・競合解説のtitle variantと、PAA質問・関連検索・競合軸のheading variantを分離した。全候補に`deterministic_rule`、generator version、variant key、入力SHA-256を付け、LLM生成と区別する。区切り前後の意味重複も品質review対象とし、生成数だけを品質と誤認しない。
 
-現行取得は各検索KWの上位3pageであり、ラッコの上位20サイト深度とは異なる。取得母集団190 URLについては差分0だが、
-上位20深度への拡張は追加SERP取得・freshness・取得負荷・利用条件を伴う別runとして扱う。
+この節の数値は初回v14 runの履歴である。現行取得は10.44のとおり各検索KWの上位10pageへ拡張したが、
+ラッコの上位20サイト深度とは異なる。上位11〜20への拡張は追加SERP取得・freshness・取得負荷・利用条件を伴う別runとして扱う。
 
 公式仕様で確認できた集計軸は、本文共起回数、title共起回数、heading共起回数、本文出現site数、heading出現site数である。
 当実装はこれらにtitle出現page数、検索KW別統計、記事KW群別統計、rank加重score、page ID逆引きを加える。
@@ -511,8 +511,8 @@ jobを作らずprovider gapにした。
 取得状態画面にsite別の `data_disposition` を追加した。単なるnull件数ではなく、`retained`、
 `not_acquired`、`acquired_unconnected`、`normalized_merge`、`acquisition_failed`、
 `intentionally_not_retained` を分け、観測数、期待数、差分、理由、是正方法、SHA-256 evidence digestを保持する。
-現在runtimeでは元KW10,694行はdrop 0、SERP未取得10,594行、分析未接続raw 10件、GSC raw 999行、
-window内正規化統合6行、競合content取得失敗10 URL、PAA回答未取得221固有質問を明示する。
+現在runtimeでは元KW10,694行はdrop 0、SERP未取得10,594行、分析未接続raw 10件、GSC raw 681行、
+window内正規化統合6行、競合content取得失敗29 URL、PAA回答未取得221固有質問を明示する。
 WordPress本文は全量非保持という方針と、構造派生値の取得状態を同じ「取得失敗」にせず表示する。DB v30では
 link/image/section/paragraph digestまで救出済みで、rendered HTMLに含まれなかったblock comment/schemaは0件とする。
 
@@ -668,13 +668,13 @@ MutationObserverによる動的table再適用を含む。既存のfiltered CSV/J
 ### 10.40 未取得・非保持・projection切り捨ての横断監査
 
 取得元からDB、`/api/dashboard`、read-only API、画面までを再照合した。raw SERPで観測した99 fieldはraw-only 0のままだが、
-競合共起語はDBにgroup別16,995件、task別24,052件ある一方、初期dashboard JSONでは表示性能のため各identity上位20件、
+競合共起語は現行DBにgroup別46,870件、task別69,460件ある一方、初期dashboard JSONでは表示性能のため各identity上位20件、
 合計1,260件・2,000件へ切り詰めていた。これは取得欠損ではなくprojection欠損なので、初期previewは維持しつつ
 `GET /api/v1/cooccurrence?site_id=...`でgroup別全量、`scope=task`でtask別全量をcursor paginationするよう修正した。
-実DBテストでそれぞれ16,995件・24,052件への到達を検証する。
+実DBテストでそれぞれ46,870件・69,460件への到達を検証する。
 
 意図的非保持も欠損と分離した。WordPress 8,050段落は位置、要素種別、所属section、文字数、digestを保持するが、本文文字列と
-公開HTMLは保持しない。GSC raw queryは正規化集約後もraw tableを残す。競合本文取得失敗10ページは失敗statusを消さずSERP
+公開HTMLは保持しない。GSC raw queryは正規化集約後もraw tableを残す。競合本文取得失敗29ページは失敗statusを消さずSERP
 snippetだけを別証拠として保持する。未取得の主要母集団はSERP 10,594 source row、PAA回答、market/rank履歴で、課金取得は
 既存provider planの明示承認gateを越えず自動実行しない。これらの処遇をdashboardのデータ処遇台帳へ常設する。
 
@@ -689,10 +689,10 @@ snippetだけを別証拠として保持する。未取得の主要母集団はS
 
 ### 10.42 URL別共起語証拠とsite count（DB v36）
 
-競合本文manifestには成功180ページごとのterm countが残っていたが、DB v35まではgroup/task集計だけを保存していた。
-DB v36で`competitor_page_terms` 75,325行を追加し、本文count、title count、heading count、title/heading出現flagを
+競合本文manifestには成功ページごとのterm countが残っていたが、DB v35まではgroup/task集計だけを保存していた。
+DB v36で`competitor_page_terms`を追加し、現行上位10 runでは207,871行の本文count、title count、heading count、title/heading出現flagを
 元page IDへ保持する。`/api/v1/cooccurrence?...&details=true`はページング対象termだけをURL・domain・SERP best rankと
-結合し、URL別詳細、出現site数、見出し出現site数を返す。取得失敗10ページにはtermを補完せず0行のままとする。
+結合し、URL別詳細、出現site数、見出し出現site数を返す。取得失敗29ページにはtermを補完せず0行のままとする。
 これにより共起語契約のsite count・URL別count系7 fieldと、同時ランクKWのword count/relevance、content top KWの
 word countを含む計10 fieldを追加で意味対応へ移した。Rakko `getDetails` wire互換や上位20page取得完了は主張しない。
 
@@ -703,6 +703,20 @@ word countを含む計10 fieldを追加で意味対応へ移した。Rakko `getD
 `full_rank_database:false`を明記する。画面でも比較基準domainを選択でき、両方の率を並記する。実測例では
 `detail.chiebukuro.yahoo.co.jp`の61観測KWを基準に`unison-career.jp`と28KWが重複し、target基準45.9%、Jaccard35.9%、
 競合固有17、target固有33となった。これをRakkoの重複率と同じ分母だとは主張せず、定義が再現可能な独自比較として扱う。
+
+### 10.44 上位10pageへの競合content証拠拡張
+
+既存の上位3 run 190 URLを再利用し、保持済みSERPから上位10候補564 URLへ拡張した。新規取得374 URLを加え、
+成功535、robots拒否13、HTTP error 12、fetch error 4となった。失敗29 URLもstatusとSERP snippetを保持し、
+全29 URLでsnippet fallbackを利用可能にした（task×page観測では36件）。本文が取れないページへtermを推測補完はしない。
+
+- H1-H6 18,431行、URL別term 207,871行、group別term 46,870行、task別term 69,460行をDB v36へ保持する。
+- evidence-bound生成候補は750件。品質oracleは`brief_ready` 727、`needs_review` 18、`blocked` 5で、根拠解決不能は0件。
+- `blocked`には競合文面コピーリスク3件、既存衝突1件、group間重複2件が含まれる（1候補に複数issueを許す）。
+- fallback候補14件のうち10件はtask単位のSERP snippetを根拠とし、取得失敗を候補消失へ直結させない。
+
+これで「保持済み上位10 SERPを競合本文分析へ使わず捨てていた」差分は解消した。一方、上位11〜20のSERP・本文、
+PAA回答、4年月次指標、全rank database、traffic/value/historyは依然として未取得であり、取得済みとは数えない。
 
 ## 11. 未検証事項
 

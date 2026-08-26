@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "447605833defae4f807f6031c7e821f8e279ad2a397a32b62b74ce35c22945a1",
+  "inventory_digest": "003b22a5760d305bd006d9f28421905803546bafe3742acd6f572838e8995490",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -253,7 +253,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "取得成功180ページのtitle/H1-H6、取得失敗10ページのSERP代替証拠に加え、description/pre-snippet/breadcrumb/highlight/sitelink/rating/price/video属性と観測獲得KWの検索・逆引きUI/APIを実装。snippetを本文見出し・共起語へ昇格しない。全page/rank index、推定top keyword、traffic metricsは未取得",
+      "remaining_gap": "上位10候補の取得成功535ページと取得失敗29ページのSERP代替証拠に加え、description/pre-snippet/breadcrumb/highlight/sitelink/rating/price/video属性と観測獲得KWの検索・逆引きUI/APIを実装。snippetを本文見出し・共起語へ昇格しない。全page/rank index、推定top keyword、traffic metricsは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -263,7 +263,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "d88a24da43108dec1c0e93a279b2384ec422381649ad7e229bdf75222015a6f7"
+      "evidence_digest": "53cdd21c3e55944871851a1cd25abe1cb7854320a651863a66722cf6aed716f8"
     },
     {
       "capability_id": "search_rank",
@@ -295,7 +295,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "top3 acquired。top20 and exclusion/average compatibility gap",
+      "remaining_gap": "top10 acquired（18,431 headings）。top11〜20 and exclusion/average compatibility gap",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -305,7 +305,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "7132ee4bf6599db77b30174e1b56c599784aca8c690a9647cd106621d75c3c0d"
+      "evidence_digest": "81d5ec68977d1842fb5d2df644c20dc00e5f80ba45efa11713d9b024301fc57d"
     },
     {
       "capability_id": "cooccurrence",
@@ -316,7 +316,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "top3 only。task/group evidence and extra metrics implemented",
+      "remaining_gap": "top10 acquired。task/group/URL evidence and extra metrics implemented; top11〜20 and Rakko getDetails wire compatibility gap",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -326,7 +326,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "0475de90624dc7612d787180788d6fa9700432355162fd17c3c0a71a21de8ebe"
+      "evidence_digest": "3ebca7b7db885bb8026be5b98c3f3f1e28565b0bf2c402f5cc06536a8ac0b228"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "0299c7fc971668a5d5d8b8e188efdf0eb3aa07d36c68166badd66fb067a96ea7"
+  "audit_digest": "15c0d1ca9903c78f46104f1b82f243d9dd1468be1a13e0aa5f6c84e4a275cf30"
 }
