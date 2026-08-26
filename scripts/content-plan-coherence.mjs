@@ -4,9 +4,10 @@ import {genericMatchTokens} from "./keyword-policy.mjs";
 
 const digest=(value)=>createHash("sha256").update(JSON.stringify(value)).digest("hex");
 const generic=new Set(genericMatchTokens);
+const generationBoilerplate=new Set(["?","わかる","やすい","解説","検索","ニーズ","整理"]);
 const statePriority={ready:2,needs_review:1,blocked:0};
 const compareTitles=(left,right)=>(statePriority[right.review?.review_state]??0)-(statePriority[left.review?.review_state]??0)||(right.review?.quality_score??0)-(left.review?.quality_score??0)||(right.review?.evidence_count??0)-(left.review?.evidence_count??0)||Math.abs((left.review?.character_count??35)-35)-Math.abs((right.review?.character_count??35)-35)||left.candidate_id.localeCompare(right.candidate_id);
-const meaningfulTokens=(value)=>new Set(tokenizeMatchText(value).filter((token)=>!generic.has(token)));
+const meaningfulTokens=(value)=>new Set(tokenizeMatchText(value).filter((token)=>!generic.has(token)&&!generationBoilerplate.has(token)));
 
 export function buildContentPlanCoherence(groups,candidates,outlines){
   const outlineByGroup=new Map(outlines.map((row)=>[row.group_id,row]));

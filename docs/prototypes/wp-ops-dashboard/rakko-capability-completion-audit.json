@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "4c51e70bfc1df4aa40102865e08e4505864ed1c8ae21163a76b67f66740b0041",
+  "inventory_digest": "116160e14921d7c4a52a5ed1545201ca0b39379f4971791a21b3e0164ff9cfe9",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -383,7 +383,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、generator metadata、文字数/根拠/既存WP衝突review、510候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v3を実装。63構成の共同最適化とbaseline差分を固定保存し、語彙gapを21→11へ削減。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、generator metadata、文字数/根拠/既存WP衝突review、510候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v3を実装。63構成の共同最適化とbaseline差分を固定保存し、生成テンプレート語を意味tokenから分離して語彙gapを21→1へ削減。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -395,7 +395,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "617480de2fcccca73ae518e617241a63340f93fc8063474af8f31376cb1dd706"
+      "evidence_digest": "07bf99f036378ed4601e6405ba49ee3efdf9a6f18c9b809892985a12c4519b7c"
     },
     {
       "capability_id": "ai_body",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "a05fbc818d254d75ebb2f43b979a24b0a68935c2428d77556cc3f80e532d720d"
+  "audit_digest": "5c14a8705c0d66ce3bfda9e88fca4744ba60bf9120942707434921dad26241eb"
 }
