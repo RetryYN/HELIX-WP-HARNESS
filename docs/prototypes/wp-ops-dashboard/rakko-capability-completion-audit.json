@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "5dfc71b4bbd42eb103ff7a9342f39ba50945e4a8d812d5d2c5f78257bec7b03f",
+  "inventory_digest": "6d78cb23df12e962fa988ac054c3f41c7590441145133b32e23491ed95c24f9a",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -406,7 +406,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事のversioned input package、3-50見出しgate、evidence trace、AIO引用候補、citation approval/fact verification gateを実装。本文LLM実行・claim citation・draft履歴/exportは未実装",
+      "remaining_gap": "63記事のversioned input packageに加え、SQLite v42で証拠境界draft revision 63件・573 claim・根拠ID・一次情報検証状態・公開gateを保持し、API/UIからtext/HTML出力可能。全件publication blocked・自動承認なし。LLM model/prompt実行、事実claimの一次情報検証・引用承認、複数revision履歴、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -418,7 +418,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "2b2f10494e8c493ce43821c17ea0dfa5ebcf588c2bd40742b71387779343954a"
+      "evidence_digest": "8f5e3a6faa5682f2982ebc4519169efe703896579f5ab6642e3e17775338a11e"
     },
     {
       "capability_id": "ai_questions",
@@ -679,7 +679,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に22 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。site gate、cursor、provenance、operation coverage付き。Rakko wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に35 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。site gate、cursor、provenance、operation coverage付き。Rakko wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -690,7 +690,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "8badaaef1ddee7fc50b515dfa0b8d05ba9f0385af20b434534e82c2bc520f62f"
+      "evidence_digest": "53b8e76993d6b454f2d7aca6a490e7a6b630da9b73ce6feae923ae3a5bddd129"
     },
     {
       "capability_id": "mcp",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "54e012a1df790ae26ee3c8601c146d3e145d8756bd4ae35a4d5da4700211e74c"
+  "audit_digest": "85306478e38e8dcb5ad5fc7ece02028a0560e00cf3a5ead360725b2290e80fcb"
 }

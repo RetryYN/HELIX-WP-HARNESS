@@ -389,10 +389,10 @@ H2/H3だけであった。本文全量を重複保持しない方針自体は正
 ### 10.9 本文生成packageと公開前gate（DB v26）
 
 resolved 63 groupごとに、品質`ready`のtitle、最大50の根拠付きheading、topic proposal IDs、
-AIO citation候補、SERP形式signalを`content-draft-package.v1`へ固定した。52 packageはbrief入力が成立し、
-11件はtitleまたは3見出しgate不足でblocked。全63件の本文は`not_generated`であり、生成済みと偽装しない。
-AIO引用候補がある12件も`unreviewed`のためcitation gateはpending、候補なし51件はblockedである。
-入力とpackageは別々のSHA-256を持ち、後続LLMのmodel/prompt/output履歴と再現比較できる。
+AIO citation候補、SERP形式signalをversioned packageへ固定した。v3では全63 packageのbrief入力が成立し、
+H3の親H2と根拠も保持する。SQLite v42では後述の証拠境界draftを全63件生成したが、citation・一次情報確認は
+未完なので公開可能な本文とは扱わない。入力とpackageは別々のSHA-256を持ち、後続LLMのmodel/prompt/output履歴と
+再現比較できる。
 
 ### 10.10 類語・表記variant・連想語（DB v27）
 
@@ -483,7 +483,7 @@ GSC query、競合page、質問候補、provider費用を横断表示する。�
 
 ### 10.20 読み取り専用REST API
 
-`/api/v1` に22 GET routeを実装し、OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、
+`/api/v1` に35 GET routeを実装し、OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、
 最大100行、cursor paginationとし、全responseに `retained_evidence_only`、外部取得なし、credential露出なしを
 付ける。`operation-coverage` はRakko公開OpenAPIの全24 operation IDを保持証跡projectionへ対応付け、登録系2件は
 `plan_only_no_mutation` と明示する。suggest/related/demand/question、同時rank、page/domain/content/heading/
@@ -921,6 +921,18 @@ ready 33→48、needs_review 30→15となった。
 選定見出し510件、要確認見出し19件を維持する。全構成は`proposed`、`auto_approval:false`で、参照title/heading IDは
 765候補内に全件存在する。`GET /api/v1/compositions`、MCP `review_content_compositions`、コンテンツ施策画面、view exportへ同じ値を接続した。
 要確認見出しを含む15構成は引き続き編集対象として残す。LLM実行、新規provider取得、外部公開は行っていない。
+
+### 10.59 証拠境界draft・claim台帳・text/HTML出力（DB v42）
+
+`content-evidence-draft.v1`は63のbrief-ready packageを、title、H2/H3、段落、claimの固定構造へ決定論的に変換する。
+検索結果で観測した論点であることだけを文章化し、数値・制度・固有事実を補完しない。全573 claimにkind、内部evidence ID、
+一次情報検証状態を持たせ、draft revisionはsource package digestと独立したSHA-256を持つ。SQLiteの
+`content_draft_revisions`へrevision単位で保存し、`GET /api/v1/drafts`、コンテンツ施策画面、現在view JSON、個別text/HTML
+downloadへ同じ値を接続した。
+
+現時点は63/63 draftが生成済みだが、verified claim 0、publication blocked 63、auto approval 0である。AIO citation候補も
+承認済みへ昇格しない。これは本文生成pipelineと版管理/export面を実装したもので、事実本文の完成を偽装しない。
+LLM model/prompt/output、一次情報によるclaim検証、citation承認、複数revision比較、list/table生成は未実装である。
 
 ## 11. 未検証事項
 
