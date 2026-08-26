@@ -940,6 +940,18 @@ task/occurrence、snapshot/evidence digestの利用可能な値を保存し、dr
 `evidence_state` filterと画面で同じ台帳を確認できる。ただしこれは参照整合性の証明であり、記述内容の一次情報検証ではない。
 verified claim 0、fact verification pending、publication blocked、自動承認なしを維持する。
 
+### 10.60 claim別citation推薦queue（DB v44）
+
+AIO参照96出現は従来記事group単位の候補で、どのclaimを支えるか未判定だった。`content-claim-citation-recommendation.v1`は
+同一group内でURLをcanonical化・重複排除し、見出しと参照title/textの文字bigram Dice、見出しと取得元queryの一致、
+organic URL/domain順位を別成分で採点する。語彙一致とquery一致がともに0なら、organic順位だけでは候補化しない。
+claimごと最大3件、同点は順位とURLで決定する。
+
+実測はAIO参照のある12/12記事群、107 claimに311候補、40固有URL。score 0.0800〜0.5263、平均0.2951である。
+SQLiteへscore成分、元citation ID、取得元query、出現数、URL/domain/title/sourceを保存し、API/MCPの
+`citation_state` filterと画面review queueへ接続した。311件はすべて`proposed / needs_review / unreviewed`、approved 0、
+auto approval 0であり、citation候補をclaimの事実根拠として自動採用しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

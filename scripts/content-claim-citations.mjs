@@ -1,0 +1,18 @@
+import {createHash} from "node:crypto";
+
+const digest=(value)=>createHash("sha256").update(JSON.stringify(value)).digest("hex");
+const normalize=(value)=>String(value??"").normalize("NFKC").toLocaleLowerCase("ja-JP").replaceAll(/[\p{P}\p{S}\s]+/gu,"");
+const grams=(value)=>{const text=normalize(value);if(!text)return new Set();if([...text].length<2)return new Set([text]);const chars=[...text],result=new Set();for(let index=0;index<chars.length-1;index+=1)result.add(chars.slice(index,index+2).join(""));return result};
+const dice=(left,right)=>{const a=grams(left),b=grams(right);if(!a.size||!b.size)return 0;let shared=0;for(const value of a)if(b.has(value))shared+=1;return 2*shared/(a.size+b.size)};
+const canonical=(value)=>{try{const url=new URL(value);url.hash="";for(const key of [...url.searchParams.keys()])if(/^utm_/iu.test(key))url.searchParams.delete(key);url.pathname=url.pathname.replace(/\/+$/u,"")||"/";return url.href}catch{return value}};
+
+export function buildClaimCitationRecommendations(revision,citations,{minimumScore=.08,maximumPerClaim=3}={}){
+  const sectionByClaim=new Map(revision.sections.map((section)=>[section.paragraphs[0]?.claim_ids[0],section])),byUrl=Map.groupBy(citations,(row)=>canonical(row.canonical_url??row.url)),recommendations=[];
+  for(const claim of revision.claims){const section=sectionByClaim.get(claim.claim_id);if(!section)continue;const heading=section.heading,candidates=[];
+    for(const [url,occurrences] of byUrl){const representative=[...occurrences].sort((a,b)=>(a.organic_url_rank??99)-(b.organic_url_rank??99)||(a.organic_domain_rank??99)-(b.organic_domain_rank??99)||a.citation_id.localeCompare(b.citation_id))[0],sourceText=`${representative.title??""} ${representative.text??""}`,headingSimilarity=dice(heading,sourceText),querySimilarity=Math.max(...occurrences.map((row)=>dice(heading,row.source_keyword))),organicRank=Math.min(...occurrences.map((row)=>row.organic_url_rank??row.organic_domain_rank??99)),organicBonus=organicRank<99?Math.min(.12,.12/Math.sqrt(organicRank)):0,score=Math.min(1,.72*headingSimilarity+.2*querySimilarity+organicBonus);
+      if(headingSimilarity===0&&querySimilarity===0||score<minimumScore)continue;const base={claim_id:claim.claim_id,heading_candidate_id:section.heading_candidate_id,url,domain:representative.domain,title:representative.title,source:representative.source,source_text:representative.text,match_score:score,score_components:{heading_similarity:headingSimilarity,query_similarity:querySimilarity,organic_rank:organicRank<99?organicRank:null,organic_bonus:organicBonus},citation_ids:occurrences.map((row)=>row.citation_id).sort(),source_keywords:[...new Set(occurrences.map((row)=>row.source_keyword))].sort(),occurrence_count:occurrences.length,recommendation_state:"proposed",review_state:"needs_review",approval_state:"unreviewed",auto_approval:false};candidates.push({...base,recommendation_digest:digest(base)});
+    }
+    candidates.sort((a,b)=>b.match_score-a.match_score||(a.score_components.organic_rank??99)-(b.score_components.organic_rank??99)||a.url.localeCompare(b.url)).slice(0,maximumPerClaim).forEach((row,index)=>recommendations.push({...row,rank:index+1}));
+  }
+  const claimIds=new Set(recommendations.map((row)=>row.claim_id)),summary={policy:"content-claim-citation-recommendation.v1",applicable_claim_count:revision.claims.filter((claim)=>claim.verification_state!=="not_applicable").length,claim_with_candidate_count:claimIds.size,recommendation_count:recommendations.length,unique_url_count:new Set(recommendations.map((row)=>row.url)).size,approved_count:0,unreviewed_count:recommendations.length,auto_approval:false};return{recommendations,summary,summary_digest:digest(summary)};
+}
