@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "5f8e8ae0ebf10875f25a42c3501f1dbaeff0801d6726bb9219e8a7a6925a2d2d",
+  "inventory_digest": "9946e7a10d3d0560295eb031bd950f6b186ca69769f664277da78d76821a585d",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -383,7 +383,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor別deterministic variants、generator metadata、文字数/根拠/H2-H3階層/既存WP衝突review implemented。LLM outline variants/model/prompt gap",
+      "remaining_gap": "question/related/competitor別deterministic variants、generator metadata、文字数/根拠/既存WP衝突review、571候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v2を実装。blocked 5と親関係を証明できないH3 63件を除外し、自動承認なし。LLM outline variants/model/prompt gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -395,7 +395,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "4c514f1b65660db77ae8c644c30882c3f78345b2899964a53f9d1b1e9a8c2008"
+      "evidence_digest": "bdd7f8755427c4e39810855119a909bc67d1daa4d7d66102f871e0b59eaca1ea"
     },
     {
       "capability_id": "ai_body",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "e72ea7c72588b6d9e318436e6a9edae1b6e0cc1bc957025f88c5bf6df9b70748"
+  "audit_digest": "00488ddf7320f80a1aa1015789cfe2741c113f861eaaf6b72551e43a09fddb78"
 }

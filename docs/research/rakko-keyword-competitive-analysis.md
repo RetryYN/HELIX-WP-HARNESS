@@ -741,6 +741,21 @@ PAA回答、4年月次指標、全rank database、traffic/value/historyは依然
 類似度、issueを同じ行で比較できる。これは候補選定の再現性を高めるが、LLM model/prompt/output metadataを生成した
 ものではないため、AI title機能の完成判定は`partial`のままとする。
 
+### 10.47 H2/H3階層選定とdraft package v2
+
+従来の`content-draft-package.v1`はready見出しをH2→H3順に最大50件並べるだけで、H3の親H2を保持していなかった。
+`evidence-outline-selection.v1`を追加し、review state、quality score、根拠数、競合page/task/occurrence強度、candidate IDの
+固定順でH2を最大8件選ぶ。H3は共有evidence ID数、正規化文字trigram Jaccard、同一evidence type、文字列包含の順で
+H2へ接続し、H2ごと最大4件とする。同点もcandidate IDで決定でき、blocked・根拠未解決、および共有証拠・trigram・
+包含がすべて0の候補は選ばない。同一evidence typeだけでは親関係の根拠と認めない。
+
+`GET /api/v1/outlines`と画面は記事群別の全候補数、選定数、H2/H3数、除外数、根拠ID数、親score、共有証拠数、
+trigram Jaccardを返す。現行実測は63 outline、571候補から503選定、H2 244、H3 259である。blocked 5件に加え、
+意味のある親関係を証明できないH3 63件を未選定として保持し、無理にH2へ接続しない。
+`content-draft-package.v2`にも同じoutlineを入力し、各H3へ`parent_candidate_id`とparent relationを保存する。
+自動承認はせず、本文生成・引用承認・claim検証は引き続き別gateである。LLM outline model/prompt/output metadataは
+未生成なので、AI heading機能の完成判定は`partial`のままとする。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
