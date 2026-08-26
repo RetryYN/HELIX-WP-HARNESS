@@ -779,6 +779,18 @@ SERP field監査では`organic.is_video`をdecision connectedとしていたが�
 区別し、提案文・formatは重複排除する。action signalは8件から25件へ増え、動画signalは20 task、通常organic動画証拠は
 19件、本文生成packageへは11記事群で伝播する。動画の内容自体は未取得なので補完せず、すべて未承認提案のままとする。
 
+### 10.50 SERP表示ブランド占有と媒体publisher分離
+
+`organic.website_name`は926件すべて保持していたが、従来はSERP証拠表示だけで競合施策へ接続していなかった。
+`serp-brand-occupancy.v1`でwebsite nameを260表示identity、226 domainへ集約し、出現数、被覆task、記事群、Top3回数、
+最高順位、reciprocal rank score、domain集合をdigest付きで保持する。YouTube、note、X、Instagramは「媒体名 · publisher」を
+サイトbrandの表記揺れと誤認しないよう`platform_publisher`へ分離した。媒体publisherは38 identityである。
+
+同じ表示brandが複数domainに出る実測はワンキャリアとサポーターズの2件で、複数domain運用レビューとして明示する。
+反対にnote.comの21表示名、YouTubeの9表示名などはpublisher多様性であり、domain名揺れissueにはしない。選択siteの
+自domain出現も別集計し、現行実測は1件である。`GET /api/v1/brands`と競合画面からbrand/domain両viewを検索でき、
+未知domain推定、traffic推定、brand同一性の自動統合は行わない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
