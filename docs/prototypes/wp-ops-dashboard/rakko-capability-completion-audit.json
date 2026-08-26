@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "116160e14921d7c4a52a5ed1545201ca0b39379f4971791a21b3e0164ff9cfe9",
+  "inventory_digest": "f81bca10108ed5f4afae549dab6c852d5b1a4bd83e0b6efb5c57340c5b5aecf2",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -360,7 +360,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "demand/competitor/特殊SERP別185 deterministic variants、generator version/input digest、主KW/文字数/冗長性/根拠/既存WP衝突review、競合title文字数benchmark、63記事群の決定論推奨policy/API/UIを実装。quality-floor付きtitle×outline共同最適化で19 titleを同品質のまま改善し、自動承認なし。LLM model/prompt/output metadata gap",
+      "remaining_gap": "demand/competitor/特殊SERP別185 deterministic variants、generator v4/input digest、主KW/文字数/冗長性/根拠/既存WP衝突review、競合title文字数benchmark、最大3 semantic axis自然化、63記事群の決定論推奨policy/API/UIを実装。quality-floor付きtitle×outline共同最適化で22 titleを同品質のまま改善し、自動承認なし。LLM model/prompt/output metadata gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -372,7 +372,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "3c135ddfd7acabd9f9ca2e31b63526c18800cba279f63889828af0b31d4a9a9e"
+      "evidence_digest": "1e28a6f29f0bb9dd03466748127aa31ef0de4dffb538515bcc2177cf072b6500"
     },
     {
       "capability_id": "ai_heading",
@@ -383,7 +383,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、generator metadata、文字数/根拠/既存WP衝突review、510候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v3を実装。63構成の共同最適化とbaseline差分を固定保存し、生成テンプレート語を意味tokenから分離して語彙gapを21→1へ削減。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、generator metadata、文字数/根拠/既存WP衝突review、510候補のH2/H3階層選定policy/API/UI、親関係付きdraft package v3を実装。63構成の共同最適化とbaseline差分を固定保存し、生成テンプレート語を意味tokenから分離、compound titleを最大3 axisへ自然化して語彙gapを21→0へ削減。blocked 5と親関係を証明できないH3 63件を除外、自動承認なし。LLM outline variants/model/prompt gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -395,7 +395,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "07bf99f036378ed4601e6405ba49ee3efdf9a6f18c9b809892985a12c4519b7c"
+      "evidence_digest": "78cb3468d9f75fe81a422f6e1a1986ca671d0346ca0d2a16fca115264a6dcbaf"
     },
     {
       "capability_id": "ai_body",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "5c14a8705c0d66ce3bfda9e88fca4744ba60bf9120942707434921dad26241eb"
+  "audit_digest": "062c9f201b7005cd2b2d691ca7e8a507c29f618ae9d43cd13175a971f8f84528"
 }

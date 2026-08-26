@@ -893,7 +893,7 @@ package instructionに追加する。新規provider取得は行っていない�
 特殊SERPの20 itemはaction guidanceとdraft inputまでは到達していたが、実際の`content_generation_candidates`へは
 接続されていなかった。SQLite v39で根拠型`serp_feature_item`を追加し、`people_also_search` 6件から比較・選び方の
 TITLE 6件とH2 6件、images 9件・video 4件・knowledge graph 1件から形式別H2を各1件、計15候補生成する。
-generatorは`evidence-bound-generation.v3`で、全候補が元item IDを保持し、20/20 itemを逆参照できる。
+generatorは後続のaxis自然化を含む`evidence-bound-generation.v4`で、全候補が元item IDを保持し、20/20 itemを逆参照できる。
 
 品質oracleは元itemの存在をDBで解決し、観測値を事実や採用案と混同しないよう全15件へ
 `serp_feature_observation_review`を付ける。実測は全候補765件（TITLE 185 / 見出し580）、根拠解決765/765、
@@ -911,13 +911,16 @@ title語彙のoutline被覆率、平均見出し品質、要確認見出し数�
 
 v1で検出した語彙gap 21構成に対し、v2はbaselineと同じreview tier、title品質低下最大5点、根拠再利用率・語彙整合率の
 非劣化を必須にして候補を共同採点する。さらに形態素監査で`わかる / やすい / 解説 / 検索 / ニーズ / 整理 / ?`を
-生成テンプレート語と確認し、検索意図tokenから明示除外した。閾値を緩める修正ではない。実測では23/63構成のtitle選定が変わり、
-実際のtitle品質差は全件0、根拠再利用率と語彙整合率の悪化も0件だった。語彙整合率平均は52.66%から98.94%へ上がり、
-偽陽性を除いた実質語彙gapは21から1構成へ減少、ready 33→48、needs_review 30→15となった。
+生成テンプレート語と確認し、検索意図tokenから明示除外した。閾値を緩める修正ではない。残った1件から、上位2需要の
+全形態素を連結するcompound title規則も特定した。v4は疑問代名詞・活用語・助詞を除外し、`早大 + 卒`のような連続語を
+`早大卒`へ復元、重複なし最大3 axisへ制限する。4 axis以上はquality oracleがblockedにする。全185 titleでaxis超過0件、
+不自然な7 titleを自然化した。実測では22/63構成のtitle選定がbaselineから変わり、実際のtitle品質差は全件0、根拠再利用率と
+語彙整合率の悪化も0件だった。語彙整合率平均は52.66%から99.21%へ上がり、実質語彙gapは21から0構成へ減少、
+ready 33→48、needs_review 30→15となった。
 要確認見出し由来の15構成は選定titleだけで解消した扱いにしない。
 選定見出し510件、要確認見出し19件を維持する。全構成は`proposed`、`auto_approval:false`で、参照title/heading IDは
 765候補内に全件存在する。`GET /api/v1/compositions`、コンテンツ施策画面、view exportへ同じ値を接続した。
-残る実質語彙gap 1構成と要確認見出し15構成を隠さず編集対象として残す。LLM実行、新規provider取得、外部公開は行っていない。
+要確認見出しを含む15構成は引き続き編集対象として残す。LLM実行、新規provider取得、外部公開は行っていない。
 
 ## 11. 未検証事項
 

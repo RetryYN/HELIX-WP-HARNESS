@@ -38,7 +38,8 @@ assert.ok(generation.some((item)=>item.generation.variant_key==="same_group_lexi
 assert.ok(generation.some((item)=>item.content_type==="title"&&item.text==="it 就活 エージェントとIT業界 就活サイトの違い・選び方"&&item.evidence_type==="serp_feature_item"&&item.evidence_ids[0]==="f-pas"));
 assert.ok(generation.some((item)=>item.content_type==="heading"&&item.generation.variant_key==="serp_image_format"&&item.coverage.review_required));
 assert.equal(generation.filter((item)=>item.evidence_type==="serp_feature_item").length,5);
-assert.ok(generation.every((item)=>item.generation.generator_version==="evidence-bound-generation.v3"));
+assert.ok(generation.every((item)=>item.generation.generator_version==="evidence-bound-generation.v4"));
+assert.ok(generation.filter((item)=>item.content_type==="title"&&item.coverage.axes).every((item)=>item.coverage.axes.length<=3&&!/[?？]/u.test(item.coverage.axes.join(""))),"compound titles must cap deduplicated semantic axes and exclude question punctuation");
 assert.ok(generation.every((item)=>item.generation.generator_kind==="deterministic_rule"&&item.generation.input_digest.length===64));
 assert.ok(!generation.some((item)=>item.evidence_type==="competitor_term"&&item.text.includes("する")),"non-editorial co-occurrence terms must not enter competitor-derived structures");
 assert.ok(generation.every((item)=>item.status==="proposed"&&item.candidate_digest.length===64&&item.evidence_ids.length>0));
