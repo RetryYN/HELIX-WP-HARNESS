@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "9be08c041d8de9a8dd63316989d7398c73cb890ed1e8b3e669adc4528fe80ad7",
+  "inventory_digest": "ecd1e88727fca6f31cdbf9f3649462a73bb5833fd7e18ff4745267e9fb419485",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -406,7 +406,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事のversioned input packageに加え、SQLite v42で証拠境界draft revision 63件・573 claim・根拠ID・一次情報検証状態・公開gateを保持し、API/UIからtext/HTML出力可能。全件publication blocked・自動承認なし。LLM model/prompt実行、事実claimの一次情報検証・引用承認、複数revision履歴、list/table本文生成は未実装",
+      "remaining_gap": "63記事のversioned input packageと証拠境界draft 63件・573 claimを保持。SQLite v43でclaim根拠2,018参照をSERP需要316・競合page 1,684・特殊SERP item 18へ全件型付き解決し、API/MCP/UI/text/HTMLへ接続。参照解決と事実検証を分離し、全件publication blocked・自動承認なし。LLM model/prompt実行、事実claimの一次情報検証・引用承認、複数revision履歴、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -418,7 +418,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "8f5e3a6faa5682f2982ebc4519169efe703896579f5ab6642e3e17775338a11e"
+      "evidence_digest": "b64354ba20beb4bbcc39f0d8f6273622bc2c846b384c11660c02fb962a63661b"
     },
     {
       "capability_id": "ai_questions",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "6d0c1104126f45372d46e8ad878fbc721125e16b65da13e1ee23b9461132f29b"
+  "audit_digest": "66ccae6fe80571318daf10e4c99065f12839aa970d4315541e27338633d7bea1"
 }

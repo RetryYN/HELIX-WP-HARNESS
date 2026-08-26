@@ -922,7 +922,7 @@ ready 33→48、needs_review 30→15となった。
 765候補内に全件存在する。`GET /api/v1/compositions`、MCP `review_content_compositions`、コンテンツ施策画面、view exportへ同じ値を接続した。
 要確認見出しを含む15構成は引き続き編集対象として残す。LLM実行、新規provider取得、外部公開は行っていない。
 
-### 10.59 証拠境界draft・claim台帳・text/HTML出力（DB v42）
+### 10.59 証拠境界draft・claim台帳・text/HTML出力（DB v42-v43）
 
 `content-evidence-draft.v1`は63のbrief-ready packageを、title、H2/H3、段落、claimの固定構造へ決定論的に変換する。
 検索結果で観測した論点であることだけを文章化し、数値・制度・固有事実を補完しない。全573 claimにkind、内部evidence ID、
@@ -933,6 +933,12 @@ downloadへ同じ値を接続した。
 現時点は63/63 draftが生成済みだが、verified claim 0、publication blocked 63、auto approval 0である。AIO citation候補も
 承認済みへ昇格しない。これは本文生成pipelineと版管理/export面を実装したもので、事実本文の完成を偽装しない。
 LLM model/prompt/output、一次情報によるclaim検証、citation承認、複数revision比較、list/table生成は未実装である。
+
+DB v43では、claimの根拠IDを文字列のまま放置せず、選定見出し510件の2,018参照を正本へ逆引きした。SERP需要proposal
+316/316、競合page 1,684/1,684、特殊SERP item 18/18が解決し、未解決0件である。各参照にtype、label、URL/domain、
+task/occurrence、snapshot/evidence digestの利用可能な値を保存し、draft別oracleと未解決queueを持つ。API/MCPの
+`evidence_state` filterと画面で同じ台帳を確認できる。ただしこれは参照整合性の証明であり、記述内容の一次情報検証ではない。
+verified claim 0、fact verification pending、publication blocked、自動承認なしを維持する。
 
 ## 11. 未検証事項
 
