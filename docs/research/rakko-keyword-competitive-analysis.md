@@ -710,7 +710,7 @@ word countを含む計10 fieldを追加で意味対応へ移した。Rakko `getD
 成功535、robots拒否13、HTTP error 12、fetch error 4となった。失敗29 URLもstatusとSERP snippetを保持し、
 全29 URLでsnippet fallbackを利用可能にした（task×page観測では36件）。本文が取れないページへtermを推測補完はしない。
 
-- H1-H6 18,431行、URL別term 207,871行、group別term 46,870行、task別term 69,460行をDB v36へ保持する。
+- 2026-08-27再観測ではH1-H6 18,424行、URL別term 208,202行、group別term 47,028行、task別term 69,572行をDB v36へ保持する。動的ページの変化を許容し、manifestとDBの完全一致をgateにする。
 - evidence-bound生成候補は750件。品質oracleは`brief_ready` 727、`needs_review` 18、`blocked` 5で、根拠解決不能は0件。
 - `blocked`には競合文面コピーリスク3件、既存衝突1件、group間重複2件が含まれる（1候補に複数issueを許す）。
 - fallback候補14件のうち10件はtask単位のSERP snippetを根拠とし、取得失敗を候補消失へ直結させない。
@@ -803,6 +803,20 @@ AIO containerは68 taskで観測したが、内訳は本文・items・references
 `ai_overview.asynchronous_ai_overview`と、前節で施策化した`organic.website_name`をdecision connectedへ移し、
 分類は30 decision connected、69 evidence-only、0 unclassifiedとなった。resolved 17件の96引用・69回答要素だけを
 引用／論点分析へ使用し、51 placeholderから回答や引用を補完しない。
+
+### 10.52 保存済みraw snapshotの再利用監査と履歴差分
+
+raw取得台帳110件を「現行分析100」「同一KW履歴2」「隣接intent候補2」「別scope 6」へ全件分類した。従来の
+`analysis_status=unconnected` 10件は一律に未接続と表示していたため、同じsite・同じKW・同じlocation/language/domainで
+約3.5時間前に取得した2 snapshotを分析から落としていた。これを後続の現行snapshotへ接続し、organic観測1,016行を
+snapshot単位で保持する。canonical URLの共有・新規・消失、順位差、title変更、SERP feature追加・消失を
+`same-keyword-snapshot-diff.v1`で比較し、digest付きでDB・API・画面へ投影した。
+
+実測では2履歴ともorganic 9 URLが全件共通で、新規・消失は0。`it 就活 サイト`は9 URLに順位またはtitle変化があり
+`people_also_search`が追加、`it 就活サイト`は2 URLに変化があった。検索契約は両方一致する。隣接intentの
+`it 就活サイト おすすめ`と`it 就活サイト 比較`はworkbook source identityがないため自動混入せずreview候補にし、
+SEO・ライター系6件は別corpusとして隔離する。保存済み証拠の再利用であり、新規provider取得や自動group変更は行わない。
+`GET /api/v1/snapshot-history`は履歴比較を、`view=reuse`は全処遇行を返す。
 
 ## 11. 未検証事項
 
