@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "becd4e456beba8d0a451b0592655ffd42d93e528ccd9c4a435d06d32e2c3681d",
+  "inventory_digest": "62fde1ae2163eb38a330b8d0c9a233b6a8e793fc1844667fdcfd445a6358cf30",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -28,14 +28,16 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "ef3763aed9f3b9c7bdf7d244379eea34feac98b9a06294a1c25cd74f0b9ec113"
+      "evidence_digest": "49c0dd719478baba5869a24c65f5aac55d5dce744efaa45a12ed20f0dfef2669"
     },
     {
       "capability_id": "related_keywords",
@@ -46,18 +48,20 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "10,594未取得実在KWから60 group・792 concept-deduped候補をtoken overlap/association/volume/source ID付きで実装。外部大規模index・match type・appearance timeは未取得",
+      "remaining_gap": "10,594未取得実在KWから733元行・792候補をtoken overlap/association/volume/source ID付きで実装。複数group候補56行を同点18・僅差5・明確先頭33へ分離し、review 23は自動割当停止。外部大規模index・match type・appearance timeは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "cc2ed24da2d00fb1ea8bf4d58b83691f560c4d44bbce42a75fa59b41cc4d4eb7"
+      "evidence_digest": "912c667f394483f087272fca6ae12f9faa8689c885c5404ee50f44b2f9b9e599"
     },
     {
       "capability_id": "question_search",
@@ -527,14 +531,16 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "027a2d279920168257eb74e02e91ad3504cc8833050fd2426056c1ae68d8b8b6"
+      "evidence_digest": "48efe940c1ed836fd2f514ebaae9bc1b37b733d33b2ef592920f4ae9a0b33ace"
     },
     {
       "capability_id": "associations",
@@ -549,14 +555,16 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "941573eff63996114bb6185e1feed053bf74d236bc1b1daab2179edaa05e0340"
+      "evidence_digest": "271a32327c8a76d1a2e32433c0458b17d444f0d7f186180819e65780841cfcb3"
     },
     {
       "capability_id": "qa_sites",
@@ -733,7 +741,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・keyword lineage・生成pattern・SERP配置・記事構造・引用lineage等の30 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・keyword lineage/boundary・生成pattern・SERP配置・記事構造・引用lineage等の31 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -744,7 +752,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "ee3f66cb6fdb8a33c8b013f90ad4ed2a8842d4cf1d6fc35b770c05be809282d1"
+      "evidence_digest": "e0ce0fa70cecb5a018f5e67d90cff74d52158499eb1835b21c8a4194765e3f2b"
     },
     {
       "capability_id": "credit_history",
@@ -767,5 +775,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "ac4658acdff587b63f6fde7d0de740f0093759e6a5ad88d147f56be6e24764b7"
+  "audit_digest": "4ed3146eee93bb944b1bd6847a957202f28c22c5a393d7bf87e89b180042bece"
 }

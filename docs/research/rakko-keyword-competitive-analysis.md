@@ -1313,6 +1313,17 @@ LLM outline variants、model/prompt/output metadataは未実装のため、記�
 digest付きで接続し、APIは2.24、MCPはread-only 30 toolとなった。これはDBのlossless lineageを証明するが、
 未取得10,594行のSERP・市場指標取得完了を意味しないため、一括キーワード調査機能全体はpartialのままである。
 
+### 10.88 related keyword boundary oracle（API 2.25）
+
+関連KW 792 proposalを表示件数だけで評価せず、source row 733行ごとに候補groupを再集約した。677行は単一group、
+56行は複数group候補だった。複数候補はproposal scoreの最高・次点差で、完全同点18行、10点未満の僅差5行、
+10点以上の明確な先頭33行へ分離した。同点・僅差の23行はreview requiredとし、自動group割当を禁止する。
+
+各候補にはtoken overlap、association、volume由来score、group、source ID、evidence digestを保持する。
+`GET /api/v1/related-keyword-boundaries`、MCP `review_related_keyword_boundaries`、取得状態画面へ接続し、
+APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match type、appearance historyは未取得なので、
+関連キーワード機能全体はpartialのままである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
