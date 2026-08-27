@@ -1053,6 +1053,18 @@ source claim IDを含み、HTMLの`article`には`data-review-state="blocked"`�
 downloadできるが、出力可能と公開可能を混同せず、一次情報確認・citation承認gateは解除しない。
 rendererは`content-consolidation-draft.v2`、blueprint policyはv7、OpenAPIは2.3.0である。
 
+### 10.67 統合citation review queue（DB v56）
+
+統合draft内のcitation推薦をJSONだけに閉じ込めず、21件すべてを
+`content_consolidation_citation_recommendations`へ一行ずつ正規化した。元group・revision・claim、
+統合先claim、URL/domain、rank、match scoreとcomponent、citation ID、source keyword、承認状態、
+元推薦digestを保持する。実測はdigest 21/21一意、元claim 7、統合claim 7、URL 4、欠損0である。
+
+`GET /api/v1/consolidation-citations`はsite必須で、全文、approval state、domain、統合先claimをfilterできる。
+MCP `review_consolidation_citations`と監査画面の統合citation queueも同じ正規化行を使う。
+全21件は`unreviewed`、`auto_approval:false`で、queue公開は引用承認を意味しない。OpenAPIは2.4.0、
+MCPはread-only 21 toolとなった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
