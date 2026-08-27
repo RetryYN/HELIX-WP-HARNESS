@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "4d995a7ad21e8f66c2892ea494b0b92c61ee8cefa7f86843d06daa85b28fbcde",
+  "inventory_digest": "b98675427866f241b91d8f9e256c552358a012277255a8314252bc04dc65a73b",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -92,15 +92,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "3cc2104cc28f98e6abe68f31c34e393cb4e7cd60b8b8db0fb6cb9bf9ddc53688"
+      "evidence_digest": "034be96de1f8169546edae739ff09893d631e191c4b596bbb1ffc8be7172403d"
     },
     {
       "capability_id": "lsi_paa",
@@ -111,19 +113,21 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "PAA 221 + 関連検索493固有需要を横断DB化し、task/group/occurrence相対importanceと観測期間を実装。回答は100 task・click depth 1の再取得計画あり。2階層・appearance historyは未取得",
+      "remaining_gap": "PAA 221 + 関連検索493 = 714固有需要を1,188 occurrenceへlossless逆引き。group横断反復86・group内反復105・単一task 523、整合異常0・orphan0。全714件が単日snapshotのみで複数日history 0、importanceは保持corpus内相対値で検索量ではない。回答再取得計画あり。2階層・appearance historyは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "7b9fe2dcd6bd0dab34992a629174094dde1288e3e802ec2e63baeff69d0f9f8c"
+      "evidence_digest": "7fc866debaf09eb2a06321760e7c8fa495bebd2a550436fc277a6e513cf9781f"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -138,15 +142,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "64740fb5cda3116b85802c51b4197588ec64d11ee501d0ecaab9a5ab436238f1"
+      "evidence_digest": "0ad2404144544d411a4ea8962282dfff12f7988837770ce3a7f3dcfe87d9c15d"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -161,15 +167,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "adb76c024594ba636fde07896912c8b3eab534b91038bb455e4096b8a3ece62c"
+      "evidence_digest": "41847012c5fd84842f501bd5e0fb730ae87c6e4139fd78f0fc90376940012ff4"
     },
     {
       "capability_id": "influx_keywords",
@@ -184,15 +192,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "eea4fd36ca3bfc82c7a610aec419c01224b3430bb7b78759debb14fcffaa20ba"
+      "evidence_digest": "ece20488a7a0beef75de3ba555294aeda31b11253705b89f4cde349f37b77e84"
     },
     {
       "capability_id": "influx_pages",
@@ -207,15 +217,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "112727f4eb3eaa6fce9391a92b3c69ec8bd2b474b2ecdc8c023adf62e0aa2e93"
+      "evidence_digest": "f02dfa805a0a3d4f66a77ee7f87a365a09bd4283527d4cbca6c362dba813608a"
     },
     {
       "capability_id": "competitive_domains",
@@ -230,15 +242,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "cf20c231596448cb380e6640468e8a56f46b87bbb5b74f9bf7f8f0674b11a9c9"
+      "evidence_digest": "67a536c5a63989b34cad52bb355c07070875043f21fa266b09072ee2a33ebd6b"
     },
     {
       "capability_id": "bulk_site_research",
@@ -295,15 +309,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "aa28da3b3f5adaeffeb1be9d32f0a3d709aab9c52b84bcd71681fc1945096f8e"
+      "evidence_digest": "5beefb0a260165a5121b32a4e2fb31e24e2b8d24ff407b10a07c9056dbca3179"
     },
     {
       "capability_id": "search_rank",
@@ -318,15 +334,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "b070c287720f7a751862312547eaf3ec203d46864600b1848709cf30fe9a88e3"
+      "evidence_digest": "b78d44bce7dd4be74f013157621dd1818922531607bec5591f1da31b4c26ed43"
     },
     {
       "capability_id": "headline",
@@ -341,15 +359,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "0a14b1652a66c62e0949e98cd6b6e1d80fa1a2e7f3156330a220cca879ee2295"
+      "evidence_digest": "99e2404fe9cc0783e9e7ce49dc0ca043fa744c8da400b870604e23257abdda4c"
     },
     {
       "capability_id": "cooccurrence",
@@ -364,15 +384,17 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "1219dc2b3add28b5c11a7516a84a7384e381e296dd71e11922d5e2e9a3d15e63"
+      "evidence_digest": "a934325270e1482bfa5fd32acb8c8da9ba2b788068890cd564c33ec45bce03c3"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -795,7 +817,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・suggest/question/keyword lineage/boundary・表記variant/意味候補/共起evidence・生成pattern・SERP配置・記事構造・引用lineage等の36 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・suggest/question/demand/keyword lineage・表記variant/意味候補/共起evidence・生成pattern・SERP配置・記事構造・引用lineage等の37 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -806,7 +828,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "a95f1387a8d3274ede9984c86a1e3f4e3fba9de1d214c3014581615d50b3d04f"
+      "evidence_digest": "8b7fc96f7b107c812d4860398f9ee9c98bd1d1b8800ab3461b6715b8e2195364"
     },
     {
       "capability_id": "credit_history",
@@ -829,5 +851,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "c71e68435f66829254071b5a6419b8370ef3bdc376aa5f8cc2aeb15c3856f7e2"
+  "audit_digest": "a963a9af50e0a96879a748372b4c92def6fc26ea5e949f8bdd3f588fbb24ef2d"
 }

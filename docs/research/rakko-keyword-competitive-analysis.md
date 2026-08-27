@@ -1358,6 +1358,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 実測質問はPAA occurrenceの同一normalized textを必須とし、派生質問はgenerator versionとinput digestを保持する。いずれも自動承認しない。
 - 100 seed外の大規模質問index、質問単位の相対検索量、未回収回答は引き続き未取得。
 
+### 10.94 demand occurrence integrity（API 2.31）
+
+- PAA 221件・関連検索493件、合計714固有需要を1,188 occurrenceへlosslessに再構成し、task/group/source keyword/snapshot digest/観測窓を検証する。
+- group横断反復86件、group内反復105件、単一task観測523件。集約整合異常0件、orphan occurrence 0件。
+- 全714件が単日snapshotだけで、複数日appearance historyは0件。first/last時刻が異なっても継続観測履歴とは主張しない。
+- importance scoreは保持corpus内の相対scoreであり、絶対検索量を推論しない。再帰深度2と継続appearance historyは引き続き未取得。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
