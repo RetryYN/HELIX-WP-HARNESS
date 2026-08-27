@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "5c8bac90884fdc68eec88eb0be5c8011865e55b7d88c7d5e107c8ecde156d726",
+  "inventory_digest": "2a4a539934942dba5f3f1c520b1a52856c334295746c663dacde134311f03bc3",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -850,18 +850,20 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に36 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。site gate、cursor、provenance、operation coverage付き。Rakko wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に60 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有の順位監視計画とSEO実行キューを含み、site gate、cursor、provenance、operation coverage付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
+        "scripts/seo-action-queue.mjs",
         "scripts/test-keyword-dashboard-api.mjs",
         "scripts/test-keyword-dashboard-mcp.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "70d1058d3dcb6b994dc6334fa2af7828e0e74c1c1cf0db52ae7aa74b8928f993"
+      "evidence_digest": "1103422d19d92228f672682bcbe75579aa7566468b612a3b3c82ac892fde7e57"
     },
     {
       "capability_id": "mcp",
@@ -872,18 +874,20 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・suggest/question/demand/simultaneous-rank/keyword lineage・表記variant/意味候補/共起evidence・生成pattern・SERP配置・記事構造・引用lineage等の38 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・順位監視計画・SEO実行キュー・keyword lineage・生成pattern・SERP配置・記事構造・引用lineage等の40 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
+        "scripts/seo-action-queue.mjs",
         "scripts/test-keyword-dashboard-api.mjs",
         "scripts/test-keyword-dashboard-mcp.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "c9db3396d938b9c6be005f79836f20c82912f1d2591fe97ed3aeb39b84a26da4"
+      "evidence_digest": "9f23d12ded18df2709f11ac3874767278a7b49c3a4b8684127ea95ffdb256220"
     },
     {
       "capability_id": "credit_history",
@@ -906,5 +910,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "4eb1a43e5d4cf32131a1e6c47e63cb297185dc80916af8874adee91dc418700a"
+  "audit_digest": "12fcebc89d7e7c2bb11ba05bc96f2f361e4c30dd16d5a9c59bf92daf92b7349b"
 }
