@@ -1209,6 +1209,18 @@ API 2.15と画面はnullを「観測なし（depth N）」と表示し、観測�
 target track v2のdigestにも両時点のobservation stateを含めた。保持履歴2比較は同一検索契約のまま再計算済みだが、
 真の圏外確認、120日継続取得、target登録job、市場指標は未実装なので機能全体はpartialのままである。
 
+### 10.79 SERP freshness distribution oracle（SERP audit v5 / API 2.16）
+
+外部製品の画面再現ではなく、保持済みSERPの`organic.timestamp`をHELIXの編集判断へ接続した。
+100 snapshot全体には日時511件があるが、施策判定は各taskの実観測上位10件だけに限定し、462件を使用する。
+公開日時から観測日時までの日数を計算し、90日以内をfresh、730日以上をstale、日時coverage 30%未満を
+`insufficient_timestamp_coverage`としてfail-closeする。未来日時は不正値として数え、鮮度判定には利用しない。
+
+実測100 taskはfresh優勢16、stale優勢6、混在59、日時coverage不足19、未来日時不正0となった。
+日時欠損からevergreen intentを推測せず、stale優勢でも更新不要とは断定しない。すべて編集レビュー用で、
+自動更新・公開・外部取得は行わない。`GET /api/v1/freshness-signals`、MCP `review_serp_freshness`、
+取得状態画面へ同じdigest付き投影を接続した。MCPはread-only 23 tool、field consumer監査は60接続・119証拠専用・欠損0となった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

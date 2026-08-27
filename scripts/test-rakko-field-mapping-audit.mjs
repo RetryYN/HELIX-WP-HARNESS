@@ -12,5 +12,5 @@ assert.deepEqual(audit.disposition_counts,{contract_shape_only:500,provider_data
 assert.ok(audit.rows.every((row)=>row.field_id.length===64&&row.disposition&&row.reason&&row.roles.length&&row.operations.length));
 assert.ok(audit.disposition_counts.retained_semantic_mapping>0);assert.ok(audit.disposition_counts.provider_dataset_not_acquired>0);assert.ok(audit.disposition_counts.response_field_not_1to1_mapped>0);
 assert.ok(audit.rows.some((row)=>row.field_path.endsWith("searchVolume")&&row.helix_targets.includes("keyword_market_metrics.search_volume")));
-assert.match(app,/rakko-field-mapping-audit\.json/);assert.match(app,/rakko-field-audit-summary/);assert.match(html,/ラッコAPI 952 field対応監査/);assert.match(html,/rakko-field-audit-rows/);
+assert.match(app,/rakko-field-mapping-audit\.json/);assert.match(app,/rakko-field-audit-summary/);assert.match(html,/外部SEOデータfield対応監査/);assert.match(html,/rakko-field-audit-rows/);
 console.log(`Rakko field mapping audit: OK (${audit.field_occurrence_count} occurrences, ${audit.unique_schema_field_path_count} unique, zero unclassified, contract parity not claimed)`);

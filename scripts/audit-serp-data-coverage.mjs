@@ -33,6 +33,7 @@ const consumerRules=[
   [/^organic\.(?:domain|url)$/u,"scripts/serp-page-keyword-graph.mjs","canonicalSerpUrl","page/domain overlap graph"],
   [/^organic\.title$/u,"scripts/keyword-dashboard-api.mjs","row.title","SERP content search"],
   [/^organic\.website_name$/u,"scripts/serp-brand-analysis.mjs","row.website_name","display-brand occupancy"],
+  [/^organic\.timestamp$/u,"scripts/serp-freshness-signals.mjs","row.timestamp","top-result freshness distribution"],
   [/^organic\.(?:breadcrumb|description|pre_snippet|highlighted)(?:\[\])?$/u,"scripts/keyword-dashboard-api.mjs","textFor","SERP message search"],
   [/^organic\.links\[\]\.(?:type|title|url|domain|description)$/u,"scripts/keyword-dashboard-api.mjs","row.links","sitelink search"],
   [/^organic\.(?:is_video|price|rating)(?:\.|$)/u,"scripts/serp-action-signals.mjs","priced","format/action guidance"],
