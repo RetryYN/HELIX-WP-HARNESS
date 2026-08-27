@@ -65,5 +65,6 @@ counts.content_consolidation_citation_recommendations=Number(db.prepare("SELECT 
 counts.content_consolidation_citation_claim_audits=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_claim_audits").get().count);
 counts.content_consolidation_citation_backfill_candidates=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_backfill_candidates").get().count);
 counts.content_consolidation_citation_backfill_eligibility=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_backfill_eligibility").get().count);
+counts.content_consolidation_citation_observation_lineage=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_observation_lineage").get().count);
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));

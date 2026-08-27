@@ -1104,6 +1104,18 @@ robust数、threshold flip数、reason code、適用状態、digestを保存す�
 候補充足見込みのままで引用適格性や公開可否を意味しない。API 2.7.0、既存MCP citation tool、監査画面で
 適格性と停止理由を逆監査できる。
 
+### 10.71 citation observation lineage（DB v60）
+
+候補へcitation IDを配列で残すだけでは、URL単位の集約後に「どの取得で観測した引用か」を直接監査できない。
+そこで`content_consolidation_citation_observation_lineage`を追加し、候補種別・候補digest・統合claim・citation IDから、
+元AIO referenceのDFS task、source group、source keyword、reference order、観測時刻、raw snapshot digest、datasetへ
+一行ずつ接続した。raw snapshotのローカルパスはAPIへ露出しない。
+
+実測は既存統合推薦42関連、cross-group補完41関連の計83関連で、83/83 resolved、unresolved 0、壊れたdigest 0。
+補完側はunique citation 16・task 6、既存推薦側はunique citation 8・task 2である。同じ引用が複数claim候補へ
+寄与した事実を集約で捨てず、API 2.8.0、MCP、監査画面から観測時刻とsnapshot digestまで逆引きできる。
+これはprovenance強化であり、citationの一次情報適格性・承認・公開gateを自動解除しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

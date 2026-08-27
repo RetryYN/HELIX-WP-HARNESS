@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "18cde74d7fe054d930dc38debdbbb4e3d05f07a5cbe2a107eed2efbd36c50361",
+  "inventory_digest": "a693a779dc1c5a9e65c600efdb3032d805c850fa477d6654e919b39a15d34e8b",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -406,7 +406,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v59では統合citation 21件を正規化し、元claim coverage 7/10を検出。保持済み全96 referenceから不足3 claimへreview-only補完候補9件・unique URL 4件を提示。さらに出自groupをSERP intent・URL境界・top3/5/10深度で適格性監査し、robust 0、隣接review 9、threshold flip 9、未評価groupを含む候補8を明示して全9件を適用停止。現状70%とレビュー後見込100%を分離してAPI/MCP/UIへ接続。全候補unreviewed、publication blocked、自動承認なし。LLM実行、事実claimの一次情報検証・補完候補の採否判断・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
+      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v60では統合citation 21件を正規化し、元claim coverage 7/10を検出。保持済み全96 referenceから不足3 claimへreview-only補完候補9件・unique URL 4件を提示。出自groupをSERP intent・URL境界・top3/5/10深度で監査し、robust 0、隣接review 9、threshold flip 9、未評価groupを含む候補8を明示して全9件を適用停止。さらに既存推薦42＋補完41の計83 candidate-citation関連をDFS task・source KW・観測時刻・raw snapshot digestまで83/83解決し、URL集約後も観測lineageを保持。現状70%とレビュー後見込100%を分離してAPI/MCP/UIへ接続。全候補unreviewed、publication blocked、自動承認なし。LLM実行、事実claimの一次情報検証・補完候補の採否判断・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -418,7 +418,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "230c19a928373470892a0035a3e694420ab0f7ecb447fa7c4ae3d87314ad74c6"
+      "evidence_digest": "dce7ef74cb3efe55ca444c93cccb9c97c5a275e21a5bd1b895f3c207edbd86f0"
     },
     {
       "capability_id": "ai_questions",
@@ -701,7 +701,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠、生成、複合intent、境界consensus、深度安定性、記事topology、統合blueprintの20 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠、生成、複合intent、境界consensus、深度安定性、記事topology、統合blueprint、citation観測lineageの21 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -712,7 +712,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "0580ca99417fe6a0cc8e622d1eb0305be5f1b11b00171ebb1b996aa4c1c19704"
+      "evidence_digest": "48bcae72ba6c4c326c8343dcbbe87ed6db12b92719ce0cc0c7d6ed1bc6753d5d"
     },
     {
       "capability_id": "credit_history",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "41c1e4a84c69d065ec29569232811e67ca5d80507ba7e1bb07ad604372cd6020"
+  "audit_digest": "d8745223efb5fcf5402de48feaf96ff5e64a15f6d225ff5d66d0237766c87dcd"
 }
