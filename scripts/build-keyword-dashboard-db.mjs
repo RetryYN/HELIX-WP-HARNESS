@@ -63,5 +63,6 @@ const counts = Object.fromEntries(["sites", "imported_keywords", "keyword_groups
 counts.content_consolidation_blueprints=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_blueprints").get().count);
 counts.content_consolidation_citation_recommendations=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_recommendations").get().count);
 counts.content_consolidation_citation_claim_audits=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_claim_audits").get().count);
+counts.content_consolidation_citation_backfill_candidates=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_backfill_candidates").get().count);
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));

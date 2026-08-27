@@ -1078,6 +1078,18 @@ digestを逆監査できる。merged draft v3は`source_claim_citation_coverage_
 10 source claimのcoverage不足を混同しない。API 2.5.0、MCP、画面へclaim auditとsummaryを接続し、
 全7 claimをpublication blocked・unreviewed・auto approvalなしのまま保持する。
 
+### 10.69 cross-group retained citation backfill（DB v58）
+
+不足3 claimの原因は、group 042にAIO citation referenceが0件で、既存推薦器がsame-group corpusだけを
+対象にしていたことだった。外部取得は行わず、保持済み96 referenceを全group横断で再スコアした。
+minimum score 0.25、claimごと上位3件の厳格なreview-only候補として、3 claimすべてに計9件、unique URL 4件を得た。
+
+各候補はtarget source group/claim、統合先claim、引用元group群、score component、閾値、既存統合URLとの重複、
+`cross_group_retained_corpus`由来を保存する。現在のcitation coverageは7/10（70%）のままで、候補9件を
+レビューして採用した場合だけ10/10（100%）見込みとなる。`proposed_unreviewed`、`review_only_not_applied`、
+`auto_approval:false`であり、自動補完や公開gate解除はしない。DB v58、API 2.6.0、既存MCP citation tool、
+監査画面へ補完前後を接続した。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
