@@ -1344,6 +1344,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - `ガク` / `チカ`のように同一URL文脈が強すぎるpairは同義語候補へ昇格せず、複合語・固定句レビューへ隔離する。
 - 編集判断済みは0件。意味的同値性や交換可能性を自動推論せず、外部辞書も未取得のため意味的同義語機能の完全性は未証明。
 
+### 10.92 suggest evidence oracle（API 2.29）
+
+- 保持workbook 10,694元行を10,619正規化候補へlossless集約し、source sheet/row、取得状態、volume観測を逆引き可能にする。
+- 正規化重複候補74件・該当元行149件・volume競合20件、SERP取得済み100行・未取得10,594行、15 source sheetを監査する。
+- dashboard projectionに欠けていた`normalized_keyword`・`source_order_index`・`source_location`を復元し、実際のサジェスト入力時に発生していたfrontend例外を修正する。
+- 保持workbook検索であり外部autocomplete観測とは扱わない。Google、YouTube、Amazon、楽天、Bing、Google動画・画像・ショッピングのcoverageはすべてfalseのまま明示する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
