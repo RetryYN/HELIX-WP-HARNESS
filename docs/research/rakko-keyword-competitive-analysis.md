@@ -1172,6 +1172,18 @@ canonical URLごとに全organic観測を集約し、titleを含む6 text field�
 42 evidence行を保存した。日程facet一致7、日程不足35だが、企業entity scopeまたはclaim適合gateにより
 review候補0、棄却42である。API 2.12.0、MCP、画面は保持snippet fieldとdigestを返し、外部取得・自動承認は0のままである。
 
+### 10.76 raw DFS primitive field lineage（SERP audit v4 / API 2.13）
+
+従来のSERP coverage auditは既知fieldを手動列挙しており、`organic.links`の保存は確認できても、内部の
+`links[].description`まで個別に棚卸ししていなかった。v4ではtask、result、全item typeを再帰走査し、配列indexを
+`[]`へ正規化した非空primitive pathを自動抽出する。各leafはstructured/normalized、ancestor JSON、特殊SERPの
+raw feature payload JSON、raw snapshot onlyのいずれかへ分類し、施策接続か証拠専用かも分離する。
+
+100 raw DFS snapshotの実測は179 leaf field、投影179、raw-only 0、施策接続52、証拠専用127となった。
+例えば`organic.links[].description` 5観測は`organic.links` ancestor JSONへ、Knowledge Graphの深いlink URLは
+feature payload JSONへ逆引きできる。`GET /api/v1/serp-field-lineage`はfield、projection state、decision stateを
+検索・filterでき、MCP `audit_serp_field_lineage`と画面にも接続した。MCPはread-only 22 toolとなった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
