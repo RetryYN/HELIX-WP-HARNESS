@@ -1280,6 +1280,17 @@ knowledge graphが各1件で、上位3位86件、4位以下184件、XPath 46種�
 source検証済みconsumerがあり、証拠専用・consumer欠損は0になった。ただしこれは現在観測済みfieldの処遇完了を
 示すだけであり、未取得provider dataset、PAA展開回答、pixel rectangle、競合本文、継続履歴などの取得完了を意味しない。
 
+### 10.85 title SERP pattern oracle（API 2.22）
+
+タイトル生成を固定templateだけで評価せず、63記事群ごとに上位タイトルの文字数IQR、主KWの先頭・含有・欠落、
+疑問形、数字、括弧、区切り記号を実測した。185候補を照合すると、観測pattern内は8件、要確認177件で、
+177件すべてが記事群別の文字数IQR外、6件は当該記事群の上位タイトルで未観測の疑問形だった。
+
+これは「上位と同じ型なら順位が上がる」という因果判定ではない。観測分布から外れる候補を編集者へ示す品質oracleであり、
+競合文言のコピー、自動承認、自動反映は行わない。`GET /api/v1/titles`の各候補、MCP `analyze_titles`、
+タイトル比較画面へpattern reviewとdigestを接続し、APIを2.22へ更新した。LLM実行・model/prompt/output metadataは未実装のため、
+記事タイトル生成機能全体は引き続きpartialである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

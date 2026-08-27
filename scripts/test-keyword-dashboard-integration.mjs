@@ -440,7 +440,7 @@ assert.match(app, /data\.content_structure_candidates/);
 assert.match(app,/本文生成package/);assert.match(app,/draft_package/);assert.match(app,/引用未承認のため公開不可/);
 assert.match(app, /data\.content_generation_candidates/);
 assert.match(app,/生成品質oracle/);assert.match(app,/evidence_reference_resolved/);assert.match(app,/nearest_competitor_similarity/);assert.match(app,/review_policy/);
-assert.match(html,/title-analysis-search/);assert.match(html,/タイトル候補・競合比較/);assert.match(app,/renderTitleAnalysis/);assert.match(app,/selection_score/);assert.match(app,/自動承認なし/);
+assert.match(html,/title-analysis-search/);assert.match(html,/タイトル候補・競合比較/);assert.match(html,/主KW位置・疑問形・数字・括弧・区切り/);assert.match(app,/renderTitleAnalysis/);assert.match(app,/serp_pattern_review/);assert.match(app,/順位効果の因果推測なし/);assert.match(app,/selection_score/);assert.match(app,/自動承認なし/);
 assert.match(html,/outline-analysis-search/);assert.match(html,/H2\/H3アウトライン選定/);assert.match(app,/renderOutlineAnalysis/);assert.match(app,/content_outlines/);assert.match(app,/parent_relation/);
 assert.match(app,/related_keyword_proposals/);assert.match(app,/未取得台帳からの関連KW候補/);assert.match(app,/concept dedupe済み/);
 assert.match(app,/provider_cost_ledger/);assert.match(app,/provider費用/);

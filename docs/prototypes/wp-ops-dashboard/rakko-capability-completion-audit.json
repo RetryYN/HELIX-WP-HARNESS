@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "f3b407f21e728ddb3095c1bcec36e4c53a418ed84ce315fbe8c36057a027e1bc",
+  "inventory_digest": "17c2555e814b97cf23eafc16098b811e6232f4b0304a7962c09a2683604f107c",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -341,15 +341,17 @@
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "dcc8319112bf71d9f2ae2c305d5578b68e76aa67771bb6132421290b116cb5e0"
+      "evidence_digest": "9c2685851709b4713b1c080b8bae30578fd20bbe7f325fe9860b8034e7c9444f"
     },
     {
       "capability_id": "ai_title",
@@ -360,19 +362,21 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化を実装。堅牢統合ではtitle 2案を順位化し、両group固有軸＋coverage軸5/5、両候補根拠11/11、文字数gateを満たす決定論title previewを生成。元候補と継承9件をlineage化、未反映・未承認。LLM model/prompt/output metadata gap",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化を実装。上位タイトルの文字数IQR・主KW位置・疑問形・数字・括弧・区切りをgroup別に監査し、実測pattern適合8・要確認177（うちIQR外177、未観測疑問形6）を候補へ接続。順位効果は推測せず未反映・未承認。LLM model/prompt/output metadata gap",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "b2bf961b1c08777e22c52c8ef582a218e1c79f1b7f2f80bdaf4871fede1602b7"
+      "evidence_digest": "7eeaca525047616d25cb06eb7f7c3fdfa6fdf799f9e401f38342012f5bf8fba7"
     },
     {
       "capability_id": "ai_heading",
@@ -387,15 +391,17 @@
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "9f7b944a84c18eecbb1404e9dd4346ab67754e15eb0aa57906e3df475f13ef21"
+      "evidence_digest": "70e5fefdd9e5d802f8154c9b45f68b9629812dd3e4ad365172e7063301cb1187"
     },
     {
       "capability_id": "ai_body",
@@ -410,15 +416,17 @@
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "c4de78e0212f5cd25e977304444e67af0c533d6409b92ccf89ea607d834ac7a4"
+      "evidence_digest": "f38efeaddb2c841d403a6605e4b68f9ea83d75e45104089f2df89f5556cf0337"
     },
     {
       "capability_id": "ai_questions",
@@ -433,15 +441,17 @@
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "78a27f6fd68a9a8021908f409663068c916a03c128dc40708cbafcdb7ab1f113"
+      "evidence_digest": "1109f4b3d1b50c173dc274ede265997e665cb29ac99a9f29e34afd2e100f5f8f"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -456,15 +466,17 @@
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "5a3b007292d541125bd42f508f35a0190cca813fef398f47c99c2453df731ff5"
+      "evidence_digest": "a042ab42a111223c469845b83d4beb387262dddc03b4bbc3940aa6fa1b9d315d"
     },
     {
       "capability_id": "hashtags",
@@ -701,7 +713,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠、生成、複合intent、境界consensus、深度安定性、記事topology、統合blueprint、citation観測lineageの21 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・生成・SERP配置・記事構造・引用lineage等の28 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -712,7 +724,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "48bcae72ba6c4c326c8343dcbbe87ed6db12b92719ce0cc0c7d6ed1bc6753d5d"
+      "evidence_digest": "51feea3afd33227fe99e8a50d2f5aa41adfa7262b94af98e4f2dec29d915a183"
     },
     {
       "capability_id": "credit_history",
@@ -735,5 +747,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "9b181b8ba2d8bef2a94ea3978671e0942c65de8d10393c167b13cfd12395755d"
+  "audit_digest": "149c8b1eb5aaa50ce0af47d7f80804b38246ebcb43b437e6495135417ebf2034"
 }
