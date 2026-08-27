@@ -1090,6 +1090,20 @@ minimum score 0.25、claimごと上位3件の厳格なreview-only候補として
 `auto_approval:false`であり、自動補完や公開gate解除はしない。DB v58、API 2.6.0、既存MCP citation tool、
 監査画面へ補完前後を接続した。
 
+### 10.70 cross-group citation boundary eligibility（DB v59）
+
+語彙scoreだけでは別検索意図の記事から誤引用するため、補完候補9件のcitation出自groupと不足claimのgroup間を、
+保持済みSERP intent pair、URL overlap境界、top3/5/10深度安定性で再監査した。出自group 004はURL overlap 0.30で
+`internal_link_boundary_review`かつ深度により`threshold_flip`、005はintent similarity 0.586で`related_intent`、
+035は対応する境界証跡がない。堅牢なcross-group merge consensusは0件だった。
+
+`content_consolidation_citation_backfill_eligibility`へ候補ごとに出自group別の観測値、評価済み数、未評価group、
+robust数、threshold flip数、reason code、適用状態、digestを保存する。実測9件はすべて
+`adjacent_evidence_review`、threshold flipあり、うち8件は未評価group 035を含む。全9件を
+`blocked_pending_editor_and_primary_source`・`unreviewed`・`auto_approval:false`とし、レビュー後coverage 100%は
+候補充足見込みのままで引用適格性や公開可否を意味しない。API 2.7.0、既存MCP citation tool、監査画面で
+適格性と停止理由を逆監査できる。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
