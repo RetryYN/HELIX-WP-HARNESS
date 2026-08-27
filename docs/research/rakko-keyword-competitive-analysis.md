@@ -1184,6 +1184,19 @@ raw feature payload JSON、raw snapshot onlyのいずれかへ分類し、施策
 feature payload JSONへ逆引きできる。`GET /api/v1/serp-field-lineage`はfield、projection state、decision stateを
 検索・filterでき、MCP `audit_serp_field_lineage`と画面にも接続した。MCPはread-only 22 toolとなった。
 
+### 10.77 source-verified SERP field consumer（SERP audit v5 / API 2.14）
+
+v4の施策接続判定はfield名の静的分類であり、実装内に実consumerが存在する証拠を直接持っていなかった。
+v5ではfield patternごとにconsumer source、参照token、利用目的を宣言し、監査生成時にsource fileを読み取って
+tokenの存在を検証する。検証できたfieldだけを`decision_connected`とし、宣言先に参照がなければ
+`consumer_missing_fields`へfail-closeする。
+
+100 raw snapshotの再計測は179 leaf field、投影179、raw-only 0、source検証済consumer 59、証拠専用120、
+consumer欠損0となった。旧分類で施策接続としていた`organic.timestamp`、`organic.checks[]`、
+`ai_overview.references[].type`は実consumerを証明できないため証拠専用へ戻した。一方、深い特殊SERP payloadは
+正規化consumerまでsource参照を確認している。API、MCP、画面はconsumer file、用途、検証状態を返し、
+「保存している」と「判断に使っている」を区別する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

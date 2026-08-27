@@ -26,7 +26,25 @@ const classificationFor=(field)=>{if(decisionConnectedFields.has(field))return"d
 const isProjected=(field)=>projectedFields.has(field)||payloadProjectedItemTypes.has(field.slice(0,field.indexOf(".")))||genericallyProjectedItemFields.has(field.slice(field.indexOf(".")+1));
 const ancestors=(field)=>{const parts=field.split("."),values=[];while(parts.length){const value=parts.join(".");values.push(value,value.replaceAll("[]",""));parts.pop()}return[...new Set(values)]};
 const leafProjection=(field)=>{const prefix=field.split(".")[0];if(payloadProjectedItemTypes.has(prefix))return{projection_state:"projected",storage_kind:"raw_feature_payload_json"};const ancestor=ancestors(field).find((candidate)=>projectedFields.has(candidate));return ancestor?{projection_state:"projected",storage_kind:ancestor===field?"structured_or_normalized":"ancestor_json",projection_ancestor:ancestor}:{projection_state:"raw_only",storage_kind:"raw_snapshot_only"}};
-const leafDecisionState=(field)=>ancestors(field).some((candidate)=>decisionConnectedFields.has(candidate))?"decision_connected":"evidence_only";
+const consumerRules=[
+  [/^result\.item_types\[\]$/u,"scripts/serp-snapshot-history.mjs","item_types","SERP feature change detection"],
+  [/^organic\.rank_group$/u,"scripts/serp-page-keyword-graph.mjs","row.rank_group","URL/keyword graph depth and weighting"],
+  [/^organic\.rank_absolute$/u,"scripts/serp-action-signals.mjs","rank_absolute","SERP action evidence rank"],
+  [/^organic\.(?:domain|url)$/u,"scripts/serp-page-keyword-graph.mjs","canonicalSerpUrl","page/domain overlap graph"],
+  [/^organic\.title$/u,"scripts/keyword-dashboard-api.mjs","row.title","SERP content search"],
+  [/^organic\.website_name$/u,"scripts/serp-brand-analysis.mjs","row.website_name","display-brand occupancy"],
+  [/^organic\.(?:breadcrumb|description|pre_snippet|highlighted)(?:\[\])?$/u,"scripts/keyword-dashboard-api.mjs","textFor","SERP message search"],
+  [/^organic\.links\[\]\.(?:type|title|url|domain|description)$/u,"scripts/keyword-dashboard-api.mjs","row.links","sitelink search"],
+  [/^organic\.(?:is_video|price|rating)(?:\.|$)/u,"scripts/serp-action-signals.mjs","priced","format/action guidance"],
+  [/^people_also_ask\.items\[\]\.title$/u,"scripts/content-topic-proposals.mjs","topic_kind","question topic planning"],
+  [/^related_searches\.items\[\]$/u,"scripts/content-topic-proposals.mjs","topic_kind","related-search topic planning"],
+  [/^ai_overview\.asynchronous_ai_overview$/u,"scripts/keyword-dashboard-db.mjs","responseState","AIO acquisition-state gate"],
+  [/^ai_overview\.markdown$/u,"scripts/keyword-dashboard-api.mjs","row.markdown","AIO answer search"],
+  [/^ai_overview\.references\[\]\.(?:position|source|domain|url|title|text)$/u,"scripts/aio-citation-analysis.mjs","reference.url","AIO citation normalization"],
+  [/^(?:knowledge_graph|images|video)\.items\[\]/u,"scripts/serp-feature-items.mjs","feature.payload","special SERP item normalization"],
+  [/^result\.spell\.(?:keyword|type)$/u,"scripts/serp-action-signals.mjs","task.spell","spelling correction guidance"]
+];
+const consumerSourceCache=new Map(),consumerFor=(field)=>{const rule=consumerRules.find(([pattern])=>pattern.test(field));if(!rule)return null;const [,file,token,use]=rule;const source=consumerSourceCache.get(file)??readFileSync(path.resolve(repoRoot,file),"utf8");consumerSourceCache.set(file,source);return{file,token,use,verification_state:source.includes(token)?"verified_source_reference":"missing_source_reference"}};
 const walkLeaves=(value,prefix,bump)=>{if(value==null||value==="")return;if(Array.isArray(value)){if(!value.length)return;for(const item of value)typeof item==="object"&&item!==null?walkLeaves(item,`${prefix}[]`,bump):bump(`${prefix}[]`);return}if(typeof value==="object"){for(const [key,item] of Object.entries(value))walkLeaves(item,`${prefix}.${key}`,bump);return}bump(prefix)};
 
 export function auditSerpDataCoverage(rawRoot=defaultRoot){
@@ -57,11 +75,11 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
   const capturedAndProjected=[...captured].filter(([field])=>isProjected(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
   const capturedRawOnly=[...captured].filter(([field])=>!isProjected(field)).map(([field,nonempty_count])=>({field,nonempty_count}));
   const classifiedProjected=capturedAndProjected.map((row)=>({...row,classification:classificationFor(row.field)})),decisionConnected=classifiedProjected.filter((row)=>row.classification==="decision_connected"),evidenceOnly=classifiedProjected.filter((row)=>row.classification==="evidence_only"),unclassified=classifiedProjected.filter((row)=>row.classification==="unclassified");
-  const rawLeafFields=[...rawLeafCaptured].map(([field,nonempty_count])=>({field,nonempty_count,...leafProjection(field),decision_state:leafDecisionState(field)})),rawOnlyLeafFields=rawLeafFields.filter((row)=>row.projection_state==="raw_only"),projectedLeafFields=rawLeafFields.filter((row)=>row.projection_state==="projected");
+  const rawLeafFields=[...rawLeafCaptured].map(([field,nonempty_count])=>{const consumer=consumerFor(field),decisionState=consumer?.verification_state==="verified_source_reference"?"decision_connected":"evidence_only";return{field,nonempty_count,...leafProjection(field),decision_state:decisionState,consumer}}),rawOnlyLeafFields=rawLeafFields.filter((row)=>row.projection_state==="raw_only"),projectedLeafFields=rawLeafFields.filter((row)=>row.projection_state==="projected"),consumerMissingFields=rawLeafFields.filter((row)=>row.consumer?.verification_state==="missing_source_reference");
   return {
-    schema_version:"serp-data-coverage-audit.v4",raw_files:files.length,
+    schema_version:"serp-data-coverage-audit.v5",raw_files:files.length,
     item_type_counts:Object.fromEntries(itemTypes),captured_and_projected:capturedAndProjected,captured_raw_only:capturedRawOnly,
-    raw_leaf_field_summary:{field_count:rawLeafFields.length,projected_field_count:projectedLeafFields.length,raw_only_field_count:rawOnlyLeafFields.length,decision_connected_field_count:rawLeafFields.filter((row)=>row.decision_state==="decision_connected").length,evidence_only_field_count:rawLeafFields.filter((row)=>row.decision_state==="evidence_only").length},raw_leaf_fields:rawLeafFields,raw_only_leaf_fields:rawOnlyLeafFields,
+    raw_leaf_field_summary:{field_count:rawLeafFields.length,projected_field_count:projectedLeafFields.length,raw_only_field_count:rawOnlyLeafFields.length,decision_connected_field_count:rawLeafFields.filter((row)=>row.decision_state==="decision_connected").length,evidence_only_field_count:rawLeafFields.filter((row)=>row.decision_state==="evidence_only").length,consumer_verified_field_count:rawLeafFields.filter((row)=>row.consumer?.verification_state==="verified_source_reference").length,consumer_missing_field_count:consumerMissingFields.length},raw_leaf_fields:rawLeafFields,raw_only_leaf_fields:rawOnlyLeafFields,consumer_missing_fields:consumerMissingFields,
     decision_connected:decisionConnected,evidence_only_projected:evidenceOnly,projected_but_unclassified:unclassified,projected_but_not_decision_connected:[...evidenceOnly,...unclassified],boolean_observations:[...booleanObservations.values()],
     acquired_but_empty_or_incomplete:{paa_questions:paaQuestions,paa_answer_items:paaAnswers,paa_references:paaReferences,aio_items:aioItems,aio_references:aioReferences},
     not_acquired:[
