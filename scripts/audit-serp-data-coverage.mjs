@@ -53,8 +53,11 @@ const consumerRules=[
   [/^ai_overview\.items\[\]\.links\[\]\.(?:type|title|url|domain)$/u,"scripts/aio-element-source-lineage.mjs","item.links","element-level supporting links"],
   [/^ai_overview\.items\[\]\.images\[\]\.(?:type|alt|image_url)$/u,"scripts/aio-element-source-lineage.mjs","item.images","element-level visual evidence"],
   [/^ai_overview\.references\[\]\.(?:position|source|domain|url|title|text)$/u,"scripts/aio-citation-analysis.mjs","reference.url","AIO citation normalization"],
+  [/^ai_overview\.references\[\]\.type$/u,"scripts/aio-element-source-lineage.mjs","row.type","AIO global reference type reconciliation"],
   [/^(?:knowledge_graph|images|video)\.items\[\]/u,"scripts/serp-feature-items.mjs","feature.payload","special SERP item normalization"],
   [/^result\.spell\.(?:keyword|type)$/u,"scripts/serp-action-signals.mjs","task.spell","spelling correction guidance"]
+  ,[/^(?:people_also_ask|related_searches|ai_overview|knowledge_graph|people_also_search|images|video)\.(?:type|rank_group|rank_absolute|page|position|xpath|title|subtitle|description|image_url|url)$/u,"scripts/serp-feature-placement.mjs","feature.rank_absolute","feature placement and prominence evidence"]
+  ,[/^people_also_search\.items\[\]$/u,"scripts/serp-feature-items.mjs","typeof value","special feature text-item normalization"]
 ];
 const consumerSourceCache=new Map(),consumerFor=(field)=>{const rule=consumerRules.find(([pattern])=>pattern.test(field));if(!rule)return null;const [,file,token,use]=rule;const source=consumerSourceCache.get(file)??readFileSync(path.resolve(repoRoot,file),"utf8");consumerSourceCache.set(file,source);return{file,token,use,verification_state:source.includes(token)?"verified_source_reference":"missing_source_reference"}};
 const walkLeaves=(value,prefix,bump)=>{if(value==null||value==="")return;if(Array.isArray(value)){if(!value.length)return;for(const item of value)typeof item==="object"&&item!==null?walkLeaves(item,`${prefix}[]`,bump):bump(`${prefix}[]`);return}if(typeof value==="object"){for(const [key,item] of Object.entries(value))walkLeaves(item,`${prefix}.${key}`,bump);return}bump(prefix)};

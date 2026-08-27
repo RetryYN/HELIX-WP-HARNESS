@@ -1266,6 +1266,20 @@ reference一覧とcanonical URLで照合した結果、166 occurrenceは一致�
 `GET /api/v1/aio-element-lineage`、MCP `audit_aio_element_sources`、AIO画面へ接続した。
 MCPはread-only 27 tool、source検証済みfield consumerは128、証拠専用51、consumer欠損0となった。
 
+### 10.84 SERP feature placement oracle（SERP audit v5 / API 2.21）
+
+比較対象の画面を再現するのではなく、HELIXが保持するSERP表示枠の順位・ページ・position・XPathを施策前の
+観測証拠へ接続した。270 occurrenceの内訳はPAA 99、関連検索99、AIO 68、people also search・video・images・
+knowledge graphが各1件で、上位3位86件、4位以下184件、XPath 46種類、配置異常0件だった。
+
+順位と配置は表示時点の事実に限定し、クリック率・検索需要・施策効果を推測しない。異常があれば
+`review_required`として止め、自動変更や外部取得は行わない。`GET /api/v1/feature-placements`、MCP
+`audit_serp_feature_placements`、取得状態画面へ同じdigestで接続し、APIは2.21、MCPはread-only 28 toolとなった。
+
+この接続により、現在の保持snapshotで実際に非空だったraw primitive leaf 179 fieldは179 fieldすべてに
+source検証済みconsumerがあり、証拠専用・consumer欠損は0になった。ただしこれは現在観測済みfieldの処遇完了を
+示すだけであり、未取得provider dataset、PAA展開回答、pixel rectangle、競合本文、継続履歴などの取得完了を意味しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
