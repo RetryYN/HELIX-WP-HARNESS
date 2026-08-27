@@ -420,7 +420,7 @@ assert.match(app,/data\.serp_task_metadata/);assert.match(app,/data\.serp_specia
 assert.match(app,/元KW台帳/);assert.match(app,/siteInventory\.filter/);
 assert.match(app,/data\.raw_snapshot_inventory/);assert.match(app,/分析未接続/);assert.match(app,/rawInventoryRows/);
 assert.match(app,/snapshot_reuse_audit/);assert.match(app,/snapshot-history-rows/);assert.match(app,/同一KW履歴へ接続/);assert.match(html,/raw取得台帳（再利用監査）/);assert.match(html,/snapshot-reuse-metrics/);
-assert.match(app,/snapshot-target-rows/);assert.match(app,/retained-target-rank-track\.v1/);assert.match(html,/保持履歴のtarget順位track/);assert.match(html,/snapshot-target-mode/);
+assert.match(app,/snapshot-target-rows/);assert.match(app,/retained-target-rank-track\.v2/);assert.match(app,/観測なし（depth/);assert.match(app,/圏外確定なし/);assert.doesNotMatch(app,/previous_rank\?\?"圏外"/);assert.match(html,/保持履歴のtarget順位track/);assert.match(html,/snapshot-target-mode/);
 assert.match(app,/wp_paragraph_summaries/);assert.match(app,/renderParagraphStructures/);assert.match(html,/本文非保持の段落構造/);assert.match(html,/paragraph-structure-table/);
 assert.match(app,/data\.serp_action_signals/);assert.match(app,/SERP実測からの形式・構成施策/);assert.match(app,/推奨素材/);assert.match(app,/未承認/);
 assert.match(app,/serpDataAudit/);assert.match(app,/raw_leaf_field_summary/);assert.match(app,/projection_ancestor/);assert.match(app,/consumer\.file/);assert.match(app,/verification_state/);assert.match(app,/serp-field-audit-summary/);assert.match(html,/SERP field利用監査/);assert.match(html,/保存方式 \/ consumer/);

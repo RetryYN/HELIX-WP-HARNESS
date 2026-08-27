@@ -1197,6 +1197,18 @@ consumer欠損0となった。旧分類で施策接続としていた`organic.ti
 正規化consumerまでsource参照を確認している。API、MCP、画面はconsumer file、用途、検証状態を返し、
 「保存している」と「判断に使っている」を区別する。
 
+### 10.78 rank observation-state oracle（snapshot diff v3 / API 2.15）
+
+従来の順位履歴は、一方のsnapshotにだけ存在するURLを`gained`／`lost`と呼び、画面のnull順位を「圏外」と表示していた。
+しかし保持snapshotはdepth制限された観測集合であり、不在から真の圏外順位は証明できない。v3ではsnapshotごとの
+最大`rank_absolute`を実観測depthとして保存し、各URLの前回／今回を`observed`または
+`not_observed_within_depth`へ分類する。状態は`entered_observed_depth`、`exited_observed_depth`、`retained`とし、
+不在行は`outside_observed_set_unknown_rank`、`confirmed_unranked:false`でfail-closeする。
+
+API 2.15と画面はnullを「観測なし（depth N）」と表示し、観測集合への出現・退出を新規／消失／圏外と断定しない。
+target track v2のdigestにも両時点のobservation stateを含めた。保持履歴2比較は同一検索契約のまま再計算済みだが、
+真の圏外確認、120日継続取得、target登録job、市場指標は未実装なので機能全体はpartialのままである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

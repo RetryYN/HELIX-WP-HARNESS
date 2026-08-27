@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "d4735e70947843e6956697ed0ee862bee649a482e9f8662db0014deb3cfd6c4e",
+  "inventory_digest": "f3b407f21e728ddb3095c1bcec36e4c53a418ed84ce315fbe8c36057a027e1bc",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -274,7 +274,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "同一検索契約の2時点・2KWを履歴化し、任意domain/URLの前回→現在順位、新規、消失、title変更をDB/API/UIで追跡。観測depth外と圏外の識別、120日継続履歴、target登録job、volume/difficulty/trafficは未実装",
+      "remaining_gap": "同一検索契約の2時点・2KWを履歴化し、任意domain/URLの前回→現在順位・title変更を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を新規／圏外と断定しないrank-state oracleをDB/API/UIへ実装。真の圏外確認、120日継続履歴、target登録job、volume/difficulty/trafficは未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
@@ -284,7 +284,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "f9bfd0fdc1b29000f0cfb035d2e1263bf658b6971c8fc5d993e0e5f72ca87aad"
+      "evidence_digest": "784673d170502508b0066fea903d4f145b75be3d740268d8db12af3fcdc16f18"
     },
     {
       "capability_id": "headline",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "4dcea59ec9f5e6508d193ae2066c712dd38b2b006943c5d94918109b151ee820"
+  "audit_digest": "9b181b8ba2d8bef2a94ea3978671e0942c65de8d10393c167b13cfd12395755d"
 }
