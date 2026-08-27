@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "38192a1ad544015be97bf5617b1f2861ff8e2470b87137903120fcf4f19bed28",
+  "inventory_digest": "d4735e70947843e6956697ed0ee862bee649a482e9f8662db0014deb3cfd6c4e",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -406,7 +406,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v61では統合citation 21件を正規化し、元claim coverage 7/10、不足3 claimへのreview-only補完9件を検出。出自group境界はrobust 0、隣接review 9、threshold flip 9、未評価group含有8として全件適用停止。既存推薦42＋補完41の83 candidate-citation関連をDFS task・source KW・観測時刻・raw snapshot digestまで83/83解決。unique候補8 URLをauthority監査し、publisher記事5、aggregator 1、UGC 1、未分類1、一次情報proven 0として全8 URLを文脈補助限定・未承認に固定。現状70%とレビュー後見込100%を分離してAPI/MCP/UIへ接続。publication blocked、自動承認なし。LLM実行、事実claimの一次情報検証・公式一次情報の追加、補完候補の採否判断・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
+      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v62では統合citation 21件、元claim coverage 7/10、不足3 claimへのreview-only補完9件を正規化。出自group境界はrobust 0、隣接review 9、threshold flip 9、未評価group含有8として全件適用停止。83 candidate-citation関連をDFS task・source KW・観測時刻・raw snapshot digestまで83/83解決。unique候補8 URLはpublisher記事5、aggregator 1、UGC 1、未分類1、一次情報proven 0として文脈補助限定。非intro 7 claimへ企業公式日程3・公的業界定義/統計3・SIer複合1の一次情報要求と探索queryを生成し、現在候補あり7・一次証明0・未実行7を明示。現状70%とレビュー後見込100%を分離してAPI/MCP/UIへ接続。publication blocked、自動承認なし。LLM実行、公式一次情報の取得・検証、補完候補の採否判断・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -418,7 +418,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "9a0382d5e8f6864efff56dc1a161cda7d34232f01abca1eb4ecb3c4ac298a51e"
+      "evidence_digest": "c4de78e0212f5cd25e977304444e67af0c533d6409b92ccf89ea607d834ac7a4"
     },
     {
       "capability_id": "ai_questions",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "28102827b4a452b4071b6451c59a6804c8ce5259a55274bc83b803f37fd03fb1"
+  "audit_digest": "4dcea59ec9f5e6508d193ae2066c712dd38b2b006943c5d94918109b151ee820"
 }

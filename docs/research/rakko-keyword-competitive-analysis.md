@@ -1129,6 +1129,18 @@ website name、page coverage、観測lineageからページ種別・source class
 `not_proven_from_retained_evidence`、`contextual_support_only_pending_primary_source`、`unreviewed`、
 `auto_approval:false`としてAPI 2.9.0、MCP、画面へ接続した。
 
+### 10.73 claim別 primary-source requirement queue（DB v62）
+
+一次情報未証明を一律の停止理由で終わらせず、統合draftの非intro 7 claimから論点を抽出し、必要な公式source
+種別と探索queryを決定論的に逆算した。要求は企業公式の採用・選考日程3、官公庁／公的機関による業界定義・
+統計3、SIer定義と企業公式日程の複合要求1である。全7 claimには現在の二次候補が3〜6 URLあるが、一次情報
+proven URLは0で、7/7を`primary_source_required`とした。
+
+`content_consolidation_primary_source_requirements`はclaim本文・論点、要求種別、必要source type、探索query、
+現在候補URL、一次証明URL、gap、取得状態、承認状態、digestを保存する。queryは次回取得の要求仕様であり、
+このsliceでは検索もprovider取得も実行しない。全7件は`planned_not_executed`、`external_acquisition_triggered:false`、
+`unreviewed`、`auto_approval:false`で、API 2.10.0、MCP、画面からclaim coverageと並べて監査できる。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
