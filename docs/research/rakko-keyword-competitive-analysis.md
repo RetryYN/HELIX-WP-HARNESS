@@ -1365,6 +1365,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 全714件が単日snapshotだけで、複数日appearance historyは0件。first/last時刻が異なっても継続観測履歴とは主張しない。
 - importance scoreは保持corpus内の相対scoreであり、絶対検索量を推論しない。再帰深度2と継続appearance historyは引き続き未取得。
 
+### 10.95 simultaneous rank integrity（API 2.32）
+
+- 339同時ランクrelationについてshared URL count、top10 overlap ratio、各共有URLのsource/target rankからreciprocal rank scoreを再計算する。整合異常は0件。
+- 同一group 85件、group横断254件、top10完全一致2件。boundary review接続68件、intent review接続96件、URL evidenceのみ175件。
+- 判断層未接続のURL evidenceも消さずに保持するが、共有URLだけからmergeを推論しない。すべてread-only・auto mutationなし。
+- 最大5,000件の全rank keyword母集団は未取得のため、比較対象機能の完全性は未証明。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
