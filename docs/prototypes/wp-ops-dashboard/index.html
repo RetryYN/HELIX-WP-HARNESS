@@ -225,6 +225,9 @@
       <div class="subsection-head"><h3>SERP field利用監査</h3><p>rawで観測したfieldを施策接続・証拠専用・未分類へ完全分類し、booleanのtrue/falseを分離します</p></div>
       <div id="serp-field-audit-summary" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>raw leaf field</th><th>用途</th><th>観測</th><th>保存方式 / consumer</th></tr></thead><tbody id="serp-field-audit-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>元キーワード行lineage</h3><p>元台帳のsheet・row identityを潰さず、正規化階層・取得済みgroup・関連KW候補への接続と孤児を監査します</p></div>
+      <div id="keyword-lineage-summary" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>元KW / source</th><th>処理</th><th>階層</th><th>施策group</th><th>関連候補</th><th>重複cohort</th><th>証跡</th></tr></thead><tbody id="keyword-lineage-rows"></tbody></table></div>
       <div class="subsection-head"><h3>SERP鮮度シグナル</h3><p>上位10件の公開日時から鮮度分布を判定します。日時欠損を補完せず、取得範囲外の順位や更新要求を断定しません</p></div>
       <div id="serp-freshness-summary" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>日時coverage</th><th>中央値</th><th>新鮮 / 古い</th><th>判定</th><th>編集判断</th><th>証跡</th></tr></thead><tbody id="serp-freshness-rows"></tbody></table></div>

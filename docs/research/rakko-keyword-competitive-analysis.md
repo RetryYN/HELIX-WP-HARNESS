@@ -1302,6 +1302,17 @@ H2/H3構成を実測した。生成済み580候補を階層別に照合した結
 MCP `review_heading_patterns`、コンテンツ設計画面へdigest付きで接続し、APIは2.23、MCPはread-only 29 toolとなった。
 LLM outline variants、model/prompt/output metadataは未実装のため、記事見出し生成機能全体はpartialのままである。
 
+### 10.87 keyword source lineage ledger（API 2.24）
+
+15 sheet・10,694元行を正規化後の表示値だけで扱わず、source keyword ID・sheet・rowから階層、SERP取得、施策group、
+関連KW候補まで行単位で逆引きした。source identityは10,694/10,694、階層接続も10,694/10,694で、取得済み100行は
+100/100が単一groupへ接続し、複数group競合・lineage孤児は0件だった。
+
+未取得10,594行のうち733行は関連KW候補へ接続済み、9,861行は階層台帳のみである。正規化重複cohortに属する149行も
+統合で削除せず、各source rowを保持した。`GET /api/v1/keyword-lineage`、MCP `audit_keyword_lineage`、取得状態画面へ
+digest付きで接続し、APIは2.24、MCPはread-only 30 toolとなった。これはDBのlossless lineageを証明するが、
+未取得10,594行のSERP・市場指標取得完了を意味しないため、一括キーワード調査機能全体はpartialのままである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
