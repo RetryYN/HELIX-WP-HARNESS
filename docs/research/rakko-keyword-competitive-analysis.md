@@ -1337,6 +1337,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 最大clusterは7表記、921 clusterすべて検証済み、整合異常0。
 - 同一normalized token集合に由来する空白・語順・表記差であり、意味的同義性や文中での交換可能性は推論しない。外部辞書未取得のため意味的同義語機能の完全性は未証明。
 
+### 10.91 semantic candidate review（API 2.28）
+
+- 強い相互共起pairを重複除去し、保持済みSERP organic title・description・pre-snippetで各語が観測されたURL集合を比較する。
+- 168関係候補を、複合語・固定句の可能性2件、文脈重複23件、文脈分離41件、SERP文脈不足102件へ分離。shared URL occurrenceは330件。
+- `ガク` / `チカ`のように同一URL文脈が強すぎるpairは同義語候補へ昇格せず、複合語・固定句レビューへ隔離する。
+- 編集判断済みは0件。意味的同値性や交換可能性を自動推論せず、外部辞書も未取得のため意味的同義語機能の完全性は未証明。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

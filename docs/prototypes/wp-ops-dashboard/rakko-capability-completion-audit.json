@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "2d4cc6189047f98bea9c9f8258ab53bc659b67b07c02265f6ee963f1e51859d9",
+  "inventory_digest": "2d17941ad2a9aa010c50809596b687572f34ce6cbfdd5d9a2bd834bfd975835f",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -30,6 +30,7 @@
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
         "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -38,10 +39,11 @@
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "c1f5310faf67f834ea22f648739cf0ad14cf0e01a417c9d2331079e9425fd4e6"
+      "evidence_digest": "f5c6ecf304bd0fdda54e5bda8e8e1618970482f8083144ed14a254bd2562128b"
     },
     {
       "capability_id": "related_keywords",
@@ -58,6 +60,7 @@
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
         "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -66,10 +69,11 @@
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "34fd6f4098c9ba788ecdc2a669ff7215a3dfb4e21f4f9df361b409afe3d00e52"
+      "evidence_digest": "f96c099baedd5bb5abe690175dce105398852bce964fcee9e263e9af9df446d9"
     },
     {
       "capability_id": "question_search",
@@ -535,12 +539,13 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "10,694元KWから同一normalized token集合の表記variant 921 cluster・2,075元表記・1,492表記pairをsource sheet/row証拠付きで再検証。最大cluster 7、検証済み921、整合異常0。表記・語順variantであり意味的同義性や交換可能性は推論しない。意味的同義語の外部辞書は未取得",
+      "remaining_gap": "表記variant 921 cluster・2,075元表記・1,492 pairをsource証拠付きで再検証。さらに強い相互共起を保持SERP title/snippet URL文脈へ照合した168関係候補を追加し、複合語候補2・文脈重複23・文脈分離41・証拠不足102へ分離、shared URL occurrence 330、編集判断済み0。いずれも意味的同義性や交換可能性は推論しない。意味的同義語の外部辞書は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
         "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -549,10 +554,11 @@
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "8c6302c925be1c8cb8bd89c98cbe15a44c632ea59b950b6b774586143dc2091b"
+      "evidence_digest": "b9b5eaa1230d1ab4ed05799aaf1b5c88e4c83e4d746fba07656de6df12c73bc3"
     },
     {
       "capability_id": "associations",
@@ -569,6 +575,7 @@
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
         "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -577,10 +584,11 @@
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "e1563bc07b737504c1ee142f9db3ce029da1b156ec6bbda92e3e0dae610f3114"
+      "evidence_digest": "e4f95e233eeeff7c0cb328b3dfd2e9616d2fd32d5a5657c6034838da834dc3f0"
     },
     {
       "capability_id": "qa_sites",
@@ -757,7 +765,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・keyword lineage/boundary・表記variant/共起evidence・生成pattern・SERP配置・記事構造・引用lineage等の33 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・keyword lineage/boundary・表記variant/意味候補/共起evidence・生成pattern・SERP配置・記事構造・引用lineage等の34 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -768,7 +776,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "d9f0af0cee76b6313743fe298527f4b745d272b77cc696a8819e9c32d4856993"
+      "evidence_digest": "6832e0b040a5607794f461483234144d140aa5b710134282e947ff82c9389b51"
     },
     {
       "capability_id": "credit_history",
@@ -791,5 +799,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "7414f91eb6ca234e5d3a38d72298aa4b4b78b01d542fb96d8fe9bd5e9a8394cd"
+  "audit_digest": "fac657bc8b932deb2a2c420d4e3ba29d90b10712e0cdc7dbe16d1ad08087bb39"
 }
