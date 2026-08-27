@@ -107,6 +107,7 @@
     <section id="ai-questions" class="view">
       <div class="section-head table-toolbar"><div><h2>根拠付き質問候補</h2><p>実測PAAはそのまま保持し、関連検索からの派生質問とは明確に分離します</p></div><div class="filters"><input id="ai-question-search" type="search" placeholder="質問・元トピックを検索" aria-label="質問候補検索"><select id="ai-question-kind"><option value="all">すべて</option><option value="observed_question">実測PAA</option><option value="derived_question">派生候補</option></select><button id="ai-question-export-csv" type="button">CSV</button><button id="ai-question-export-json" type="button">JSON</button></div></div>
       <div id="ai-question-metrics" class="metrics"></div>
+      <div id="question-lineage-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>質問</th><th>区分</th><th>施策KW</th><th>元トピック</th><th>証拠</th><th>生成規則</th><th>レビュー</th></tr></thead><tbody id="ai-question-rows"></tbody></table><div id="ai-question-empty" class="empty-state"></div></div>
     </section>
 

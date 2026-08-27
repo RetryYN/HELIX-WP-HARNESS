@@ -1351,6 +1351,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - dashboard projectionに欠けていた`normalized_keyword`・`source_order_index`・`source_location`を復元し、実際のサジェスト入力時に発生していたfrontend例外を修正する。
 - 保持workbook検索であり外部autocomplete観測とは扱わない。Google、YouTube、Amazon、楽天、Bing、Google動画・画像・ショッピングのcoverageはすべてfalseのまま明示する。
 
+### 10.93 question lineage oracle（API 2.30）
+
+- 472質問候補をsource topic、demand occurrence、SERP task・source keyword、PAA回答状態、記事coverageへ接続する。
+- 実測PAA 135件と関連検索からの決定的派生337件を混同せず保持。回答解決候補8件・async待ち128件、記事反映4件・記事欠落112件・未割当356件、lineage異常0件。
+- 実測質問はPAA occurrenceの同一normalized textを必須とし、派生質問はgenerator versionとinput digestを保持する。いずれも自動承認しない。
+- 100 seed外の大規模質問index、質問単位の相対検索量、未回収回答は引き続き未取得。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
