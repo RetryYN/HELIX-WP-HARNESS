@@ -48,6 +48,10 @@ const consumerRules=[
   [/^related_searches\.items\[\]$/u,"scripts/content-topic-proposals.mjs","topic_kind","related-search topic planning"],
   [/^ai_overview\.asynchronous_ai_overview$/u,"scripts/keyword-dashboard-db.mjs","responseState","AIO acquisition-state gate"],
   [/^ai_overview\.markdown$/u,"scripts/keyword-dashboard-api.mjs","row.markdown","AIO answer search"],
+  [/^ai_overview\.items\[\]\.(?:type|position|title|text|markdown)$/u,"scripts/aio-element-source-lineage.mjs","item.text","AIO element source-lineage"],
+  [/^ai_overview\.items\[\]\.references\[\]\.(?:type|position|source|domain|url|title|text)$/u,"scripts/aio-element-source-lineage.mjs","item.references","element-level citation reconciliation"],
+  [/^ai_overview\.items\[\]\.links\[\]\.(?:type|title|url|domain)$/u,"scripts/aio-element-source-lineage.mjs","item.links","element-level supporting links"],
+  [/^ai_overview\.items\[\]\.images\[\]\.(?:type|alt|image_url)$/u,"scripts/aio-element-source-lineage.mjs","item.images","element-level visual evidence"],
   [/^ai_overview\.references\[\]\.(?:position|source|domain|url|title|text)$/u,"scripts/aio-citation-analysis.mjs","reference.url","AIO citation normalization"],
   [/^(?:knowledge_graph|images|video)\.items\[\]/u,"scripts/serp-feature-items.mjs","feature.payload","special SERP item normalization"],
   [/^result\.spell\.(?:keyword|type)$/u,"scripts/serp-action-signals.mjs","task.spell","spelling correction guidance"]

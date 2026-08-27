@@ -1255,6 +1255,17 @@ featured title、description、URL、domain、source titleを保存する。1件
 `GET /api/v1/paa-answers`、MCP `search_paa_answers`、質問・潜在需要画面へ接続し、再取得mutationは提供しない。
 MCPはread-only 26 tool、source検証済みfield consumerは109、証拠専用70、consumer欠損0となった。
 
+### 10.83 AIO element source lineage（SERP audit v5 / API 2.20）
+
+AIO回答要素69件の本文だけでなく、要素内reference 168、link 9、image 8を要素単位で正規化した。
+引用付き要素は51、引用なし要素は18で、引用なしを根拠済みclaimとして扱わない。各referenceをAIO container全体の
+reference一覧とcanonical URLで照合した結果、166 occurrenceは一致し、2 occurrenceは要素内にだけ存在した。
+
+この2件はURL正規化誤差ではなく、同一追加URLが2 taskの「主なテストの種類」要素内に存在する一方、全体一覧から
+省略されたelement-only引用だった。データを捨てずに保持し、引用完全性レビュー対象とする。
+`GET /api/v1/aio-element-lineage`、MCP `audit_aio_element_sources`、AIO画面へ接続した。
+MCPはread-only 27 tool、source検証済みfield consumerは128、証拠専用51、consumer欠損0となった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
