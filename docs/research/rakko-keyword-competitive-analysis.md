@@ -1244,6 +1244,17 @@ response echo、check URLのquery・言語、status/result countを照合する�
 `GET /api/v1/search-contracts`、MCP `audit_serp_search_contracts`、取得状態画面へ同じdigestで接続した。
 MCPはread-only 25 tool、source検証済みfield consumerは98、証拠専用81、consumer欠損0となった。
 
+### 10.82 PAA answer-state evidence（SERP audit v5 / API 2.19）
+
+PAA 396質問の`expanded_element`を再監査すると、全質問に要素はあるが、384件は
+`asynchronous_ai_overview:true`のplaceholderで、回答snippet・出典が解決済みなのは12件だけだった。
+HELIXはplaceholderを回答本文として扱わず`async_pending`へ分離し、resolved 12件だけについて質問、取得元KW、
+featured title、description、URL、domain、source titleを保存する。1件のtable回答はheader 3列・row 4行の構造を保持し、
+文字列へ潰さない。resolved出典は12 domainだった。
+
+`GET /api/v1/paa-answers`、MCP `search_paa_answers`、質問・潜在需要画面へ接続し、再取得mutationは提供しない。
+MCPはread-only 26 tool、source検証済みfield consumerは109、証拠専用70、consumer欠損0となった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
