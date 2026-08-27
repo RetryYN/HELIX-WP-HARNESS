@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "2a4a539934942dba5f3f1c520b1a52856c334295746c663dacde134311f03bc3",
+  "inventory_digest": "14f52832a071f298eea9f3c88e9670be38188bc4f0b05f73cddd288e4103e2a0",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -95,6 +95,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -104,10 +105,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "93a4c754658bcb8c635ecfded8d0ac948fd040e5ed6692c81f13b53c23254cd4"
+      "evidence_digest": "573810e30472cb1a4d2567990badd101e8f698b7691eb28c202386b7e8c43b25"
     },
     {
       "capability_id": "lsi_paa",
@@ -125,6 +128,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -134,10 +138,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "f54e2de0d1b77db14cc731ac16967910d506ca83afa3b54a7b17120d74d8010e"
+      "evidence_digest": "8b3ae5780fe0915bd91e896f52dcc5d5dc332a0d3504fe47d3e98ea52508b30a"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -155,6 +161,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -164,10 +171,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "9caab5805bb13cbe1c13138c17a2da23884c391feab7127bcb8345630aef0f12"
+      "evidence_digest": "98d0a1f32a7a6b9516ca5239b1f0a603fd7a6cb5ff5b6c9dca97b1b318da05a9"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -178,13 +187,14 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。未取得733行は関連候補へ接続、9,861行は台帳のみ、正規化重複149行も元rowを保持。SERP未取得10,594行の取得計画はあるがlatest/monthly/difficulty実測とjob lifecycleは未取得",
+      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。latest/monthly/difficulty実測とprovider job実行は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -194,10 +204,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "5bff533f6381124aa89dc355c4c90549c0fb35b19bc4efa1da353219481124dc"
+      "evidence_digest": "39db14900b09c0793c7f030150fce886ceb2d762832dbc9245cdd62413605b1f"
     },
     {
       "capability_id": "influx_keywords",
@@ -215,6 +227,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -224,10 +237,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "f95b4e9c3f4fd5f703b65651ba0cabdd3c7c71830f933533274c3663bcad9d5a"
+      "evidence_digest": "0913a6dd6c1d15075277d089170617222cf9a328e67607e432e0fb15a5b22a85"
     },
     {
       "capability_id": "influx_pages",
@@ -245,6 +260,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -254,10 +270,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "39dff774bb820fe9d8f58b5da6611c829e450ac937884d9cef8b9855661e2e52"
+      "evidence_digest": "418ed405a0e4a6be0e8df8d92b5a2987bc8fec0ccbc5b774abc7aee64366a533"
     },
     {
       "capability_id": "competitive_domains",
@@ -275,6 +293,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -284,10 +303,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "bf63349a78928ccf887d861b17f52ce72c7976831b256bd37069c3eb7e76ef2b"
+      "evidence_digest": "a241ebb479a7f0209b4e5520bbeaab72a1418a88f6557df44c9064e7f1c52735"
     },
     {
       "capability_id": "bulk_site_research",
@@ -347,6 +368,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -356,10 +378,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "83b18486a332522434a7c5a32021a868eff352644ba9f4c3039c6061cfe2612d"
+      "evidence_digest": "601a4f2ab30acfa560e364a4c71aaac026bd51ef51da8b50bdaf23d5fe1a3e5c"
     },
     {
       "capability_id": "search_rank",
@@ -377,6 +401,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -386,10 +411,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "eb1856ed65178d8d431e4b41fbb78c62bc1d6ce6b94ac535e9d06e8d69b83b49"
+      "evidence_digest": "b53a008da34eb810b165cffdec564ecd622f4311fbeca7251b427e4c46ffc164"
     },
     {
       "capability_id": "headline",
@@ -407,6 +434,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -416,10 +444,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "cf7ea846d9a1f44465e438c657eca5abbeec8bafbb5377d6cbef9061fa7a936e"
+      "evidence_digest": "8b5c36be560eb68a8eedd37d2fd9173734d3b050489037112dc99939c6017b42"
     },
     {
       "capability_id": "cooccurrence",
@@ -437,6 +467,7 @@
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
         "scripts/test-keyword-dashboard-integration.mjs",
         "scripts/audit-serp-data-coverage.mjs"
       ],
@@ -446,10 +477,12 @@
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "054c537c7ecdcf6ed463b45a082c016595bd3ab44baf665da63e538bf3b5d341"
+      "evidence_digest": "b7b4294b4c4646a959bdda7c0c6aa92e207b88b8c41dd6701e4f95e9bd87792d"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -850,7 +883,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に60 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有の順位監視計画とSEO実行キューを含み、site gate、cursor、provenance、operation coverage付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に61 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有の順位監視計画・SEO実行キュー・取得portfolioを含み、site gate、cursor、provenance、operation coverage付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -863,7 +896,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "1103422d19d92228f672682bcbe75579aa7566468b612a3b3c82ac892fde7e57"
+      "evidence_digest": "ae8b17a4559f4eb2e73d8230236d08b2907c1bba740e506d376fa6e8bb8d0b7f"
     },
     {
       "capability_id": "mcp",
@@ -874,7 +907,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・順位監視計画・SEO実行キュー・keyword lineage・生成pattern・SERP配置・記事構造・引用lineage等の40 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・順位監視計画・SEO実行キュー・取得portfolio・keyword lineage・生成pattern・SERP配置・記事構造・引用lineage等の41 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -887,7 +920,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "9f23d12ded18df2709f11ac3874767278a7b49c3a4b8684127ea95ffdb256220"
+      "evidence_digest": "0069fb98106770129be6f1351f086acab4d3ab716d5e585cc14535066a0edac6"
     },
     {
       "capability_id": "credit_history",
@@ -910,5 +943,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "12fcebc89d7e7c2bb11ba05bc96f2f361e4c30dd16d5a9c59bf92daf92b7349b"
+  "audit_digest": "4b67fe4925772c8e795516c616863ef6ff779db04e7dfd924a776418a2b3ce01"
 }

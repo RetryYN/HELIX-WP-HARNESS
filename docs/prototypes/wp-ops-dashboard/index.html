@@ -260,6 +260,10 @@
       <div class="table-wrap"><table><thead><tr><th>取得日</th><th>provider</th><th>種別</th><th>endpoint</th><th>source</th><th>費用</th><th>証跡digest</th></tr></thead><tbody id="provider-cost-rows"></tbody></table></div>
       <div class="subsection-head"><h3>provider依存データ取得計画</h3><p>公式公開単価による見積です。実行直前にaccount単価を再確認し、明示live指定・credentials・承認上限が揃わなければ停止します</p></div>
       <div class="table-wrap"><table><thead><tr><th>機能</th><th>状態</th><th>job</th><th>見積</th><th>coverage</th><th>未解決条件</th></tr></thead><tbody id="provider-plan-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>キーワード取得編成</h3><p>未取得元行を正規化重複でまとめ、記事判断を解消する順にplan-only batchへ編成します。現在価格の再確認と承認前には送信しません</p></div>
+      <div id="keyword-acquisition-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>batch</th><th>候補</th><th>判断優先</th><th>概算</th><th>lifecycle</th><th>証跡</th></tr></thead><tbody id="keyword-acquisition-batches"></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>候補KW</th><th>優先根拠</th><th>元行</th><th>検索量</th><th>batch</th><th>状態</th><th>証跡</th></tr></thead><tbody id="keyword-acquisition-candidates"></tbody></table></div>
       <div class="subsection-head"><h3>希少SERP featureのraw投影</h3><p>knowledge graph、people also search、画像、動画をpayload付きで保持します</p></div>
       <div class="table-wrap"><table class="special-feature-table"><thead><tr><th>対象KW</th><th>feature</th><th>順位</th><th>タイトル</th><th>URL</th></tr></thead><tbody id="special-feature-rows"></tbody></table></div>
       <div class="subsection-head"><h3>raw取得台帳（再利用監査）</h3><p>保存済みsnapshotを現行分析・同一KW履歴・隣接intent・別scopeへ分類し、捨てずに処遇を明示します</p></div>
