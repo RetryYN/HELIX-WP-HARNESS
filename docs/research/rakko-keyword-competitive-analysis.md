@@ -1116,6 +1116,19 @@ robust数、threshold flip数、reason code、適用状態、digestを保存す�
 寄与した事実を集約で捨てず、API 2.8.0、MCP、監査画面から観測時刻とsnapshot digestまで逆引きできる。
 これはprovenance強化であり、citationの一次情報適格性・承認・公開gateを自動解除しない。
 
+### 10.72 citation source authority oracle（DB v61）
+
+AIO引用・検索上位・一次情報は同義ではない。統合推薦と補完候補のunique 8 URLを、保持済みURL/title、SERP
+website name、page coverage、観測lineageからページ種別・source class・検索露出へ分類した。実測は記事型の
+編集／商用publisher 5、企業一覧型aggregator 1、noteのUGC platform 1、ruleで断定できないweb source 1である。
+8 URLはいずれも公式主体とclaim対象の関係を証明する保持証跡がなく、一次情報 provenは0だった。
+
+`content_consolidation_citation_authority_audits`へURL単位でpage type/signals、source label、観測website name、
+候補数、観測関連数、unique task、KW/group露出、best rank、一次情報状態、利用範囲、reason code、digestを保存する。
+検索rankやAIO採用は発見性の証拠として保持するがauthorityへ昇格させない。全8 URLを
+`not_proven_from_retained_evidence`、`contextual_support_only_pending_primary_source`、`unreviewed`、
+`auto_approval:false`としてAPI 2.9.0、MCP、画面へ接続した。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
