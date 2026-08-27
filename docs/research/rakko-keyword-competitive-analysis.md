@@ -1233,6 +1233,17 @@ target track v2のdigestにも両時点のobservation stateを含めた。保持
 MCP `audit_serp_presentation`、取得状態画面へ接続し、MCPはread-only 24 tool、field consumer監査は
 70接続・109証拠専用・欠損0となった。
 
+### 10.81 exact search-contract oracle（SERP audit v5 / API 2.18）
+
+task/result metadataを取得状態の表示だけで終わらせず、SERP比較の適格性判定へ接続した。API/function/engine/type、
+location、language、device、OS、requested depth、endpointをSHA-256 fingerprint化し、request keyword・地域・言語・typeと
+response echo、check URLのquery・言語、status/result countを照合する。不一致taskは`review_required`かつ比較不可とし、
+同一keywordでもfingerprintが違えば履歴比較へ混ぜない。
+
+実測100 taskはすべてverified、response/check URL不一致0、exact contract cohort 1、比較適格100だった。
+`GET /api/v1/search-contracts`、MCP `audit_serp_search_contracts`、取得状態画面へ同じdigestで接続した。
+MCPはread-only 25 tool、source検証済みfield consumerは98、証拠専用81、consumer欠損0となった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

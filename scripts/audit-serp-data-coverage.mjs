@@ -27,6 +27,9 @@ const isProjected=(field)=>projectedFields.has(field)||payloadProjectedItemTypes
 const ancestors=(field)=>{const parts=field.split("."),values=[];while(parts.length){const value=parts.join(".");values.push(value,value.replaceAll("[]",""));parts.pop()}return[...new Set(values)]};
 const leafProjection=(field)=>{const prefix=field.split(".")[0];if(payloadProjectedItemTypes.has(prefix))return{projection_state:"projected",storage_kind:"raw_feature_payload_json"};const ancestor=ancestors(field).find((candidate)=>projectedFields.has(candidate));return ancestor?{projection_state:"projected",storage_kind:ancestor===field?"structured_or_normalized":"ancestor_json",projection_ancestor:ancestor}:{projection_state:"raw_only",storage_kind:"raw_snapshot_only"}};
 const consumerRules=[
+  [/^task\.(?:id|status_code|status_message|time|cost|result_count|path\[\])$/u,"scripts/serp-search-contract.mjs","task.status_code","search contract status and provenance"],
+  [/^task\.data\.(?:api|function|se|se_type|keyword|location_code|language_code|device|os|depth|tag)$/u,"scripts/serp-search-contract.mjs","task.task_data","request contract fingerprint"],
+  [/^result\.(?:keyword|type|se_domain|location_code|language_code|check_url|datetime|se_results_count|pages_count|items_count)$/u,"scripts/serp-search-contract.mjs","task.result_keyword","request/response echo and comparison eligibility"],
   [/^result\.item_types\[\]$/u,"scripts/serp-snapshot-history.mjs","item_types","SERP feature change detection"],
   [/^organic\.rank_group$/u,"scripts/serp-page-keyword-graph.mjs","row.rank_group","URL/keyword graph depth and weighting"],
   [/^organic\.rank_absolute$/u,"scripts/serp-action-signals.mjs","rank_absolute","SERP action evidence rank"],
