@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "8ba43bce326b7e1119671c07616add25d813824b8dc99afd8f9e7e19b49c7996",
+  "inventory_digest": "ead8658e0ae3577be138ccbae67dc1d039e8833be2c3ea2ecb546cbde243caad",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -406,7 +406,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v56では統合対象2記事の12 claim・根拠21件・citation推薦21件を損失なくlineage化し、blocked text/HTMLと、元claim→統合claimを逆引ける正規化citation review queue 21行をAPI/MCP/UIへ接続。全候補unreviewed、publication blocked、自動承認なし。LLM実行、事実claimの一次情報検証・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
+      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v57では統合対象のcitation推薦21件を正規化し、claim別oracleで候補3件・3domainがあっても元claim coverageは7/10（70%、partial 3 claim）と検出。blocked text/HTML、API/MCP/UIへ接続し、全候補unreviewed、publication blocked、自動承認なし。LLM実行、事実claimの一次情報検証・不足3元claimの引用候補補完・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -418,7 +418,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "1e6430872229a76699c503a787e8c7e3e0ea147b5a08ad0aa2554e93bf8dc057"
+      "evidence_digest": "f4184351fb9f3d045fca15028d103612da43fc5211797f3726c5c09f62ad36fc"
     },
     {
       "capability_id": "ai_questions",
@@ -735,5 +735,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "fdffcc3dec3b1d4259d04137df1c25b0350d0033263d37189a520436471c5209"
+  "audit_digest": "a2c4105db13a9285d6a6d35aa208a08f6688ae5c9e5e8e66f0b3e78c2de2de40"
 }

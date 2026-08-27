@@ -1065,6 +1065,19 @@ MCP `review_consolidation_citations`と監査画面の統合citation queueも同
 全21件は`unreviewed`、`auto_approval:false`で、queue公開は引用承認を意味しない。OpenAPIは2.4.0、
 MCPはread-only 21 toolとなった。
 
+### 10.68 元claim単位のcitation coverage oracle（DB v57）
+
+推薦21件がすべて移送済みでも、統合元の全claimに引用候補があるとは限らないため、統合claimごとに
+source claim coverageを再監査した。実測7統合claimはいずれも候補3件・URL 3件・domain 3件で、表面的な
+候補数とdomain多様性は十分だった。しかし重複見出し3件では、左側claimにだけ候補があり右側claimにはない。
+適用対象source claim 10件中covered 7件、missing 3件、coverage 70%である。
+
+`content_consolidation_citation_claim_audits`へ7行を正規化し、complete 4、partial 3、candidate zero 0、
+diverse domain 7を保存する。元claim ID不足、候補数、URL/domain数、best/worst/average score、停止理由、
+digestを逆監査できる。merged draft v3は`source_claim_citation_coverage_incomplete`を追加し、21推薦の移送完了と
+10 source claimのcoverage不足を混同しない。API 2.5.0、MCP、画面へclaim auditとsummaryを接続し、
+全7 claimをpublication blocked・unreviewed・auto approvalなしのまま保持する。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
