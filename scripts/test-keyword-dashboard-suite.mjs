@@ -4,7 +4,7 @@ import path from "node:path";
 
 const workbookPath=path.resolve(process.env.WP_KEYWORD_WORKBOOK??"../poc-wp/data/IT就活大学キーワードマップ.xlsx");
 const portableTests=["scripts/test-dashboard-bind-policy.mjs","scripts/test-keyword-dashboard-empty-state.mjs"];
-const fullTests=["scripts/test-title-serp-pattern-oracle.mjs",
+const fullTests=["scripts/test-title-serp-pattern-oracle.mjs","scripts/test-heading-serp-pattern-oracle.mjs","scripts/test-heading-serp-pattern-api.mjs",
   "scripts/test-dashboard-bind-policy.mjs","scripts/test-keyword-dashboard-integration.mjs","scripts/test-cooccurrence-full-api.mjs","scripts/test-domain-competition-api.mjs","scripts/test-headline-analysis-api.mjs","scripts/test-title-analysis-api.mjs","scripts/test-outline-analysis-api.mjs","scripts/test-content-plan-composition-api.mjs","scripts/test-content-evidence-draft-api.mjs","scripts/test-keyword-decision-audit-api.mjs","scripts/test-serp-intent-fingerprint-api.mjs","scripts/test-keyword-boundary-api.mjs","scripts/test-serp-depth-stability-api.mjs","scripts/test-content-topology-api.mjs","scripts/test-content-consolidation-blueprint-api.mjs","scripts/test-serp-brand-analysis-api.mjs","scripts/test-aio-response-state-api.mjs","scripts/test-serp-snapshot-history.mjs","scripts/test-serp-snapshot-history-api.mjs","scripts/test-serp-freshness-api.mjs","scripts/test-serp-presentation-api.mjs","scripts/test-serp-search-contract-api.mjs","scripts/test-paa-answer-api.mjs","scripts/test-aio-element-lineage-api.mjs","scripts/test-serp-feature-placement-api.mjs","scripts/test-wp-paragraph-structure-api.mjs"
 ];
 const selected=existsSync(workbookPath)?fullTests:portableTests;

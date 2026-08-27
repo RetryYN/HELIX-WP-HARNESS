@@ -173,6 +173,9 @@
       <div class="subsection-head table-toolbar"><div><h3>H2/H3アウトライン選定</h3><p>571候補を品質・根拠強度で選び、H3を共有証拠→文字trigram近似の順でH2へ接続。共有証拠・trigram・包含が全て0の候補とblocked候補は本文生成packageへ渡しません</p></div><div class="filters"><input id="outline-analysis-search" type="search" placeholder="主KW・見出し検索" aria-label="アウトライン検索"><select id="outline-analysis-status" aria-label="アウトライン状態"><option value="all">全状態</option><option value="outline_ready">outline ready</option><option value="blocked">blocked</option></select></div></div>
       <div id="outline-analysis-metrics" class="metrics"></div>
       <div class="table-wrap"><table class="outline-analysis-table"><thead><tr><th>記事群</th><th>状態</th><th>選定 / 候補</th><th>H2/H3</th><th>根拠</th><th>階層アウトライン</th></tr></thead><tbody id="outline-analysis-rows"></tbody></table><div id="outline-analysis-empty" class="empty-state"></div></div>
+      <div class="subsection-head"><h3>生成見出し・SERP構造監査</h3><p>H2/H3別の文字数・疑問形・数字・括弧とページ当たり構成を実測比較します。上位構造と順位効果の因果は推測しません</p></div>
+      <div id="heading-pattern-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>見出し候補</th><th>階層</th><th>文字数 / 実測IQR</th><th>観測母数</th><th>pattern判定</th><th>証跡</th></tr></thead><tbody id="heading-pattern-rows"></tbody></table></div>
       <div id="content-plan-list" class="content-plan-list" aria-live="polite"></div>
     </section>
 

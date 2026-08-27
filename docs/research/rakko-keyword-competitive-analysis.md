@@ -1291,6 +1291,17 @@ source検証済みconsumerがあり、証拠専用・consumer欠損は0になっ
 タイトル比較画面へpattern reviewとdigestを接続し、APIを2.22へ更新した。LLM実行・model/prompt/output metadataは未実装のため、
 記事タイトル生成機能全体は引き続きpartialである。
 
+### 10.86 heading SERP pattern oracle（API 2.23）
+
+63記事群の取得済み上位ページから、H2/H3別の文字数IQR、疑問形、数字、括弧、主KW含有と、ページ当たりの
+H2/H3構成を実測した。生成済み580候補を階層別に照合した結果、観測pattern内400件、要確認180件、
+文字数IQR外175件、当該階層で未観測の形態8件、階層証拠欠損0件だった。
+
+このoracleは上位ページの形態をコピーするものでも、同じ構造が順位上昇を起こすと推測するものでもない。
+候補の形態逸脱を編集レビューへ渡す品質gateで、自動承認・反映は行わない。`GET /api/v1/heading-patterns`、
+MCP `review_heading_patterns`、コンテンツ設計画面へdigest付きで接続し、APIは2.23、MCPはread-only 29 toolとなった。
+LLM outline variants、model/prompt/output metadataは未実装のため、記事見出し生成機能全体はpartialのままである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
