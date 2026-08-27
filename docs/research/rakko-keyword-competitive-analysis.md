@@ -1324,6 +1324,13 @@ digest付きで接続し、APIは2.24、MCPはread-only 30 toolとなった。�
 APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match type、appearance historyは未取得なので、
 関連キーワード機能全体はpartialのままである。
 
+### 10.89 association evidence oracle（API 2.26）
+
+- 保持済み7,087 keyword documentから得た1,636共起edge（585基準語）について、`pair_support / sqrt(term_document_count * associated_document_count)` を再計算し、source row・rank・自己参照・最低supportを検証する。
+- 強336件・中395件・弱905件、相互top-K 1,002件・片方向top-K 634件。片方向は各語top-12打ち切りによる非対称であり、異常とは扱わない。
+- evidence sampleは完全1,589件、20件上限47件。整合異常は0件。
+- これは観測された行の共起証拠であり、類義語・意味的同値性・検索順位への因果を推論しない。外部association corpus未取得のため、比較対象との完全性は引き続き未証明。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

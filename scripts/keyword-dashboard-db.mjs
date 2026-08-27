@@ -25,6 +25,7 @@ import {buildTitleSerpPatternOracle} from "./title-serp-pattern-oracle.mjs";
 import {buildHeadingSerpPatternOracle} from "./heading-serp-pattern-oracle.mjs";
 import {buildKeywordLineageLedger} from "./keyword-lineage-ledger.mjs";
 import {buildRelatedKeywordBoundaryOracle} from "./related-keyword-boundary-oracle.mjs";
+import {buildAssociationEvidenceOracle} from "./association-evidence-oracle.mjs";
 import {buildInternalLinkOpportunities} from "./internal-link-opportunities.mjs";
 import {loadDfsEnrichmentEvidence} from "./dfs-enrichment-evidence.mjs";
 import {reviewContentGenerationCandidates} from "./content-generation-review.mjs";
@@ -566,6 +567,7 @@ export function projectDashboard(db) {
   const publicPageSurfaceObservations=db.prepare("SELECT * FROM public_page_surface_observations ORDER BY site_id,requested_url").all().map(({schema_types_json,...row})=>({...row,schema_types:JSON.parse(schema_types_json)})),publicPageSurfaceLinks=db.prepare("SELECT * FROM public_page_surface_links ORDER BY site_id,source_url,position").all().map((row)=>({...row,is_internal:Boolean(row.is_internal)}));
   for(const structure of contentStructureCandidates){const outgoing=internalLinkOpportunities.filter((row)=>row.source_group_id===structure.group_id),incoming=internalLinkOpportunities.filter((row)=>row.target_group_id===structure.group_id),plan={state:outgoing.length||incoming.length?"proposed":"no_evidence_bound_opportunity",outgoing,incoming};structure.internal_link_plan={...plan,plan_digest:createHash("sha256").update(JSON.stringify(plan)).digest("hex")}}
   for(const site of sites){
+    site.association_evidence_oracle=buildAssociationEvidenceOracle(site.lexical_index.associations,keywordInventory.filter((row)=>row.site_id===site.site_id));
     const siteTaskIds=new Set(groups.filter((group)=>group.site_id===site.site_id).flatMap((group)=>group.task_ids));
     const entries=serpTaskMetadata.filter((task)=>siteTaskIds.has(task.task_id)).map((task)=>({provider:"dataforseo",cost_unit:"USD",source_kind:"serp_task",source_id:task.task_id,endpoint:`/${task.path.join("/")}`,observed_at:task.observed_at,cost:Number(task.cost),source_digest:task.snapshot_digest}));
     const siteEnrichmentRun=db.prepare("SELECT * FROM dfs_enrichment_runs WHERE site_id=? AND run_id=1").get(site.site_id);if(siteEnrichmentRun){const runEvidence=JSON.stringify({site_id:site.site_id,manifest_path:siteEnrichmentRun.manifest_path,generated_at:siteEnrichmentRun.generated_at,reported_cost_usd:siteEnrichmentRun.reported_cost_usd,coverage_json:siteEnrichmentRun.coverage_json});entries.push({provider:"dataforseo",cost_unit:"USD",source_kind:"enrichment_run",source_id:`${site.site_id}:${siteEnrichmentRun.run_id}`,endpoint:"/enrichment/manifest",observed_at:siteEnrichmentRun.generated_at,cost:Number(siteEnrichmentRun.reported_cost_usd),source_digest:createHash("sha256").update(runEvidence).digest("hex")})}

@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "62fde1ae2163eb38a330b8d0c9a233b6a8e793fc1844667fdcfd445a6358cf30",
+  "inventory_digest": "d1cd6729a051238f4d84a34a3078bf8057fbb185cd424c9980d46fb45f560fef",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -29,15 +29,17 @@
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "49c0dd719478baba5869a24c65f5aac55d5dce744efaa45a12ed20f0dfef2669"
+      "evidence_digest": "6d28d214ead273b140f882b278fd00049e9ac497d454c691de08b64f8a711a70"
     },
     {
       "capability_id": "related_keywords",
@@ -53,15 +55,17 @@
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "912c667f394483f087272fca6ae12f9faa8689c885c5404ee50f44b2f9b9e599"
+      "evidence_digest": "103b2e2cd7cf7cce02ac5c2ce9c0cc6c45561dc66a8cf294d96fdca48d2b0ac5"
     },
     {
       "capability_id": "question_search",
@@ -532,15 +536,17 @@
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "48efe940c1ed836fd2f514ebaae9bc1b37b733d33b2ef592920f4ae9a0b33ace"
+      "evidence_digest": "da669b9d185fa06806552a84b5f57cea45249067c327136612d0e1546715cbd1"
     },
     {
       "capability_id": "associations",
@@ -551,20 +557,22 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "7,087有効keyword documentから585基準語・1,636関係をsupport/cosine/evidence row付きで実装。外部association corpusは未取得",
+      "remaining_gap": "7,087有効keyword documentから585基準語・1,636関係を実装。cosineとsource rowを再計算検証し、強336・中395・弱905、相互top-K 1,002・片方向top-K 634、完全sample 1,589・20件上限sample 47、整合異常0。観測共起であり意味的同義性は推論しない。外部association corpusは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/association-evidence-oracle.mjs",
         "docs/prototypes/wp-ops-dashboard/app.js",
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "271a32327c8a76d1a2e32433c0458b17d444f0d7f186180819e65780841cfcb3"
+      "evidence_digest": "649aafb09204284b10a3c1e12d9121895069f7d0d4f3b7f8fd08eaadddb89deb"
     },
     {
       "capability_id": "qa_sites",
@@ -741,7 +749,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・keyword lineage/boundary・生成pattern・SERP配置・記事構造・引用lineage等の31 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。Rakko OAuth、Rakko固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・keyword lineage/boundary・共起evidence・生成pattern・SERP配置・記事構造・引用lineage等の32 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -752,7 +760,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "e0ce0fa70cecb5a018f5e67d90cff74d52158499eb1835b21c8a4194765e3f2b"
+      "evidence_digest": "89ff6c2e1df71d5be94e088385ed9b5c90cc3062114e7b50fd5be2e02afec72c"
     },
     {
       "capability_id": "credit_history",
@@ -775,5 +783,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "4ed3146eee93bb944b1bd6847a957202f28c22c5a393d7bf87e89b180042bece"
+  "audit_digest": "e431fa1f47814cc6aa9653221a80ea9d69c4eb81e5267567655a9639f9e5b7d6"
 }
