@@ -257,6 +257,9 @@
       <div class="table-wrap"><table class="special-feature-table"><thead><tr><th>対象KW</th><th>feature</th><th>順位</th><th>タイトル</th><th>URL</th></tr></thead><tbody id="special-feature-rows"></tbody></table></div>
       <div class="subsection-head"><h3>raw取得台帳（再利用監査）</h3><p>保存済みsnapshotを現行分析・同一KW履歴・隣接intent・別scopeへ分類し、捨てずに処遇を明示します</p></div>
       <div id="snapshot-reuse-metrics" class="metrics"></div>
+      <div class="subsection-head"><h3>順位監視計画</h3><p>自サイト対象を週次・120日・100位深度で観測する登録候補です。計画表示だけで外部取得や自動登録は行いません</p></div>
+      <div id="rank-monitor-plan-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>target</th><th>保持履歴</th><th>次回期限</th><th>観測契約</th><th>状態</th><th>証跡</th></tr></thead><tbody id="rank-monitor-plan-rows"></tbody></table></div>
       <div class="subsection-head table-toolbar"><div><h3>保持履歴のtarget順位track</h3><p>任意domain・URLを指定し、保存済みsnapshot内の順位上昇・下降・新規・消失を追跡します。外部取得は行いません</p></div><div class="filters"><input id="snapshot-target" type="search" value="qiita.com" placeholder="domain または URL" aria-label="順位追跡target"><select id="snapshot-target-mode" aria-label="target一致方法"><option value="domain">domain一致</option><option value="url_prefix">URL前方一致</option><option value="exact_url">URL完全一致</option></select></div></div>
       <div id="snapshot-target-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>target</th><th>KW</th><th>前回</th><th>現在</th><th>変化</th><th>観測期間</th><th>証跡</th></tr></thead><tbody id="snapshot-target-rows"></tbody></table><div id="snapshot-target-empty" class="empty-state"></div></div>
