@@ -68,5 +68,6 @@ counts.content_consolidation_citation_backfill_eligibility=Number(db.prepare("SE
 counts.content_consolidation_citation_observation_lineage=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_observation_lineage").get().count);
 counts.content_consolidation_citation_authority_audits=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_authority_audits").get().count);
 counts.content_consolidation_primary_source_requirements=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_primary_source_requirements").get().count);
+counts.content_consolidation_retained_primary_source_discovery=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_retained_primary_source_discovery").get().count);
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));

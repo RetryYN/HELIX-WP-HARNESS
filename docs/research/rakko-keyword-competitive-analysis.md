@@ -1141,6 +1141,22 @@ proven URLは0で、7/7を`primary_source_required`とした。
 このsliceでは検索もprovider取得も実行しない。全7件は`planned_not_executed`、`external_acquisition_triggered:false`、
 `unreviewed`、`auto_approval:false`で、API 2.10.0、MCP、画面からclaim coverageと並べて監査できる。
 
+### 10.74 保持SERP内の公式・公的source再探索（DB v63）
+
+一次情報要求を作るだけで終わらせず、すでに保存済みのorganic SERP全件を再走査し、`.go.jp`／IPA系の
+公的機関と、URL pathが採用・careerを示す公式候補をclaim別に評価する。URL形状は一次情報の証明ではないため、
+topic・取得元keyword・要求source typeに加え、日程claimの日程facetと企業entity scopeを独立して判定する。
+企業名を特定していない一般claimへ企業採用ページを流用すること、日程情報が観測できないページを日程根拠へ
+昇格することはfail-closeで禁止した。
+
+`content_consolidation_retained_primary_source_discovery`はrequirement、DFS task、source keyword、順位、URL、
+source class、類似度、source-type整合、entity/fact facet、棄却理由、digestを保存する。候補は
+`retained_review_candidate`または`rejected_not_claim_sufficient`に分離するが、いずれも本文確認前であり
+一次情報provenにはしない。全行が`retained_corpus_only`、`external_acquisition_triggered:false`、
+`unreviewed`、`auto_approval:false`で、API 2.11.0、MCP、画面から要求claimへ逆引きできる。
+実測では保持公式候補21 URL（企業採用候補19、公的機関2）×7 claimの147評価を欠落なく保存した。
+企業scope未解決133、日程facet不足140で、review候補0、`rejected_not_claim_sufficient` 147となった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
