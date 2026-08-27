@@ -69,5 +69,6 @@ counts.content_consolidation_citation_observation_lineage=Number(db.prepare("SEL
 counts.content_consolidation_citation_authority_audits=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_citation_authority_audits").get().count);
 counts.content_consolidation_primary_source_requirements=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_primary_source_requirements").get().count);
 counts.content_consolidation_retained_primary_source_discovery=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_retained_primary_source_discovery").get().count);
+counts.content_consolidation_retained_primary_source_evidence=Number(db.prepare("SELECT COUNT(*) AS count FROM content_consolidation_retained_primary_source_evidence").get().count);
 db.close();
 console.log(JSON.stringify({ db_path: dbPath, ...counts }, null, 2));

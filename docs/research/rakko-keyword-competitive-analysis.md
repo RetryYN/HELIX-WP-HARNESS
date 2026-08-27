@@ -1157,6 +1157,21 @@ source class、類似度、source-type整合、entity/fact facet、棄却理由�
 実測では保持公式候補21 URL（企業採用候補19、公的機関2）×7 claimの147評価を欠落なく保存した。
 企業scope未解決133、日程facet不足140で、review候補0、`rejected_not_claim_sufficient` 147となった。
 
+### 10.75 snippet全量lineageと公式path誤分類修正（DB v64）
+
+v63の候補抽出を再監査すると、`careers?`が単数`/career/...`にも一致し、就活メディア、求人サイト、大学の
+career記事を企業公式採用候補へ含めていた。またURL重複時は最高順位1観測だけを選び、保持済みの別task、
+description、pre-snippet、breadcrumb、website name、highlightをclaim判定へ投入していなかった。
+
+v64では企業候補をsite直下の`/recruit/`、`/recruiting/`、`/careers/`、`/saiyo/`に限定する。
+canonical URLごとに全organic観測を集約し、titleを含む6 text field、全task ID、source keyword、順位を
+`content_consolidation_retained_primary_source_evidence`へ保存する。claim類似度は各保持断片との最大値、
+日程facetは該当field名まで記録し、`observed_text_digest`で利用入力を固定した。
+
+再計測では公式候補6 URL（企業候補4、公的機関2）、元organic観測7件となり、7 claimとの42評価と
+42 evidence行を保存した。日程facet一致7、日程不足35だが、企業entity scopeまたはclaim適合gateにより
+review候補0、棄却42である。API 2.12.0、MCP、画面は保持snippet fieldとdigestを返し、外部取得・自動承認は0のままである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
