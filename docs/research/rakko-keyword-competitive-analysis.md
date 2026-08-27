@@ -1331,6 +1331,12 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - evidence sampleは完全1,589件、20件上限47件。整合異常は0件。
 - これは観測された行の共起証拠であり、類義語・意味的同値性・検索順位への因果を推論しない。外部association corpus未取得のため、比較対象との完全性は引き続き未証明。
 
+### 10.90 variant evidence oracle（API 2.27）
+
+- 10,694元keyword行から作成した921表記clusterについて、2,075元表記・1,492表記pairのsource identity、sheet/row座標、重複、件数を再検証する。
+- 最大clusterは7表記、921 clusterすべて検証済み、整合異常0。
+- 同一normalized token集合に由来する空白・語順・表記差であり、意味的同義性や文中での交換可能性は推論しない。外部辞書未取得のため意味的同義語機能の完全性は未証明。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
