@@ -1221,6 +1221,18 @@ target track v2のdigestにも両時点のobservation stateを含めた。保持
 自動更新・公開・外部取得は行わない。`GET /api/v1/freshness-signals`、MCP `review_serp_freshness`、
 取得状態画面へ同じdigest付き投影を接続した。MCPはread-only 23 tool、field consumer監査は60接続・119証拠専用・欠損0となった。
 
+### 10.80 SERP presentation integrity oracle（SERP audit v5 / API 2.17）
+
+保持organic 926件の`type`、`page`、`position`、`xpath`、表示flag、`amp_version`、`checks`を、
+施策入力前の表示証拠・取得contract品質ゲートへ接続した。施策対象は各taskの上位10件828結果で、動画flag trueは19件、
+画像・featured snippet・malicious・web storyのtrueは0件、XPathは全保持集合で75種類だった。
+
+重要な契約として、flagのtrueだけを観測表示形式の証拠とし、falseを「その形式の需要がない」という根拠にはしない。
+`type=organic`、page 1、position left、XPath存在、`checks`とflagの一致を検証し、100 taskは異常0だった。
+異常時は`review_required`へ止め、自動施策変更は行わない。`GET /api/v1/presentation-integrity`、
+MCP `audit_serp_presentation`、取得状態画面へ接続し、MCPはread-only 24 tool、field consumer監査は
+70接続・109証拠専用・欠損0となった。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
