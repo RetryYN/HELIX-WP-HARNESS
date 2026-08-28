@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "554a49965000f0b499bb8d488e13cc805f379acf93e4e54c27d20f7534310948",
+  "inventory_digest": "2c002b625c98d920a60108a516c0fa85ab5f9118d1a325fabba3c2ad7a6924e2",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -501,6 +501,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -512,10 +513,12 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "196a8ee268678537b780e3446bbfd6c93bed5c6d4a2ea6aaf42331e7bcd98369"
+      "evidence_digest": "d8828b4ce82cf416f0882da72693fcab47853b0f7aa3e156a1348cb21819dcd4"
     },
     {
       "capability_id": "ai_title",
@@ -534,6 +537,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -545,10 +549,12 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "9892ce7ef696cfe88353e528afe2f27e8595f78134b5b957441a2bce37a5f42e"
+      "evidence_digest": "8237cae180ecde76406dfb811ef42ef00c91986f264d8d9d463a172cef73904e"
     },
     {
       "capability_id": "ai_heading",
@@ -567,6 +573,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -578,10 +585,12 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "ef69c455cae77730218eac34db2cbcaa98bb90cf5b7723f91221fe49de0e6261"
+      "evidence_digest": "8a91b80d3d4793374d496dbedfe01387e58ec3c0713be5a27ef71fc30a20861b"
     },
     {
       "capability_id": "ai_body",
@@ -592,7 +601,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事のversioned packageと証拠境界draft 63件・573 claimを保持。claim根拠2,018参照を全件型付き解決。AIO参照96出現をURL重複排除し、12記事群・107 claimへ311 citation候補/40 URLを推薦。DB v62では統合citation 21件、元claim coverage 7/10、不足3 claimへのreview-only補完9件を正規化。出自group境界はrobust 0、隣接review 9、threshold flip 9、未評価group含有8として全件適用停止。83 candidate-citation関連をDFS task・source KW・観測時刻・raw snapshot digestまで83/83解決。unique候補8 URLはpublisher記事5、aggregator 1、UGC 1、未分類1、一次情報proven 0として文脈補助限定。非intro 7 claimへ企業公式日程3・公的業界定義/統計3・SIer複合1の一次情報要求と探索queryを生成し、現在候補あり7・一次証明0・未実行7を明示。現状70%とレビュー後見込100%を分離してAPI/MCP/UIへ接続。publication blocked、自動承認なし。LLM実行、公式一次情報の取得・検証、補完候補の採否判断・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
+      "remaining_gap": "63記事のversioned package・573 claim・2,018根拠参照に加え、タイトル/見出し修正・記事境界・claim検証・引用承認を統合した記事単位publication readinessを実装。63/63記事をblocked、公開review可0として正しく停止し、title review 62・見出し意味review 45・topology review 19・claim未検証63・引用未承認63を逆引き可能。自動承認・自動公開なし。LLM実行、公式一次情報取得と検証、編集者の修正採否・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -600,6 +609,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -611,10 +621,12 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "b4049fedb5b3d6bc0f9a28104aac4459b0b9dc5827baa4d2f870b41b9519a289"
+      "evidence_digest": "7ffc223f8f44e899e7bf1b6aeeeb5dbcff4d1960807e8977e706fe6d9a62c7ba"
     },
     {
       "capability_id": "ai_questions",
@@ -633,6 +645,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -644,10 +657,12 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "3c90288014f5df78e192fd875ee8cc638bfbe483fee3688004c76d893978ad12"
+      "evidence_digest": "652b40357989555dae71cce44b621473597cf2399088fa3448f7e6d921dfd7a7"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -666,6 +681,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -677,10 +693,12 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "967c81eac72d2ebb99c6e501504adc60a3dfc47a4d9a378271ec4f253b0dfe2c"
+      "evidence_digest": "4c0b90f39145db51fafa7cc95f812a39392846b89f9293bcd8c0dfdc6bccbbf9"
     },
     {
       "capability_id": "hashtags",
@@ -919,7 +937,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に63 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のタイトル・見出し修正review、順位監視計画・SEO実行キュー・取得portfolioを含み、site gate、cursor、provenance、operation coverage付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に64 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有の記事公開readiness・タイトル/見出し修正review・順位監視計画・SEO実行キュー・取得portfolioを含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -932,7 +950,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "098a459d125bcec90cef233e843ae8cb55d50c3b13f502b41d2494e182ae1aa1"
+      "evidence_digest": "b27f628317dc6d79925dc9b2a82cd8bd5ee844235ce8612e4c35a8ec9e5dfe24"
     },
     {
       "capability_id": "mcp",
@@ -943,7 +961,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・タイトル・見出し修正review、順位監視計画・SEO実行キュー・取得portfolio・keyword lineage・SERP配置・記事構造・引用lineage等の43 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・記事公開readiness・タイトル/見出し修正review・順位監視計画・SEO実行キュー・取得portfolio・keyword lineage・引用lineage等の44 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -956,7 +974,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "e8b226c493c07dbb360656e0dff0d49e606df0fdae95bc78b6f322825f4a1dfd"
+      "evidence_digest": "15fb10277716c7f7cd56e9e468aa74043ca94cf5010b8d6a529fcd49651fda2c"
     },
     {
       "capability_id": "credit_history",
@@ -979,5 +997,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "7472abfffa74520b56838121b137abdac90be45c9b5a1f0701e1bd6a4b80c870"
+  "audit_digest": "b3e247cd9ec2606e90547c046c7809e14e97031bc8db5b5e9b349f5e983ec016"
 }
