@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "e6cc76858f51119bc36168d337a56daed42e5d787cc0db5591e9355da41a9dad",
+  "inventory_digest": "36f6b24abe56ed482b6a70053a434b1a39f5d939d2cab71bef56dcb0ced96f86",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -809,6 +809,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-demand-stability.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -823,6 +824,8 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-demand-stability.mjs",
+        "node scripts/test-content-demand-stability-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -832,7 +835,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "9cbbfa38a64012782c16a6514a773654a04bb9e27b756a2957195567134ce428"
+      "evidence_digest": "649af714fd3862c0329881096c168028442e4545a968c89e882946fb4f3c5ba9"
     },
     {
       "capability_id": "ai_title",
@@ -843,7 +846,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。62件は観測文字数IQR内で編集review可、1件は不自然な水増しを避け要確認、57件はtopic証拠へ接続。競合title copy・順位効果推測・自動承認なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類し、非需要候補63は別扱い。競合title copy・順位効果推測・自動承認なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -851,6 +854,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-demand-stability.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -865,6 +869,8 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-demand-stability.mjs",
+        "node scripts/test-content-demand-stability-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -874,7 +880,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "04261dcd82b1c3d36a74eac6be44e808bd9149387a14ddd7cc143dd0f7202de8"
+      "evidence_digest": "ed2d6c2c0b02c16d5ad459da34fe19a5af4e8bc602821cb834774a02c7ba652d"
     },
     {
       "capability_id": "ai_heading",
@@ -885,7 +891,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。形態要確認180候補をHELIX独自に再構成し、177件は階層別観測文字数IQR内・未観測疑問形0、3件は不自然な圧縮を避け要確認。意味保持確認済0を明示し、競合見出しcopy・順位因果推測・自動承認なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類し、44記事群を公開readinessの需要安定性reviewへ接続。意味保持確認済0、競合見出しcopy・順位因果推測・自動承認なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -893,6 +899,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-demand-stability.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -907,6 +914,8 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-demand-stability.mjs",
+        "node scripts/test-content-demand-stability-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -916,7 +925,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "102d576bf3493780b8f8d190176368a769902c4361cbff368974d64124490d6b"
+      "evidence_digest": "6780abde5d921ad587bfb456968edbfacfb9aebd785e86748c995035e4953aa3"
     },
     {
       "capability_id": "ai_body",
@@ -935,6 +944,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-demand-stability.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -949,6 +959,8 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-demand-stability.mjs",
+        "node scripts/test-content-demand-stability-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -958,7 +970,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "adea3c02f47ebb37e8da5b9c1176c2b5c1adbe80fe177a76386f1ef2ce5c3f10"
+      "evidence_digest": "a636023e9b04c4fcb72d51d0e860ed5e2fdddd229dc801073ec9dff9ea5a0d1c"
     },
     {
       "capability_id": "ai_questions",
@@ -977,6 +989,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-demand-stability.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -991,6 +1004,8 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-demand-stability.mjs",
+        "node scripts/test-content-demand-stability-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -1000,7 +1015,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "d42d1771db9ee6c7b949c66da00b75cb3bb58fbfd97a9e0659459d34f79224da"
+      "evidence_digest": "d49a16eaf6fd1f1f355abdf4458ae9685c76172fe3ab82f3e973084bdd0794fc"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -1019,6 +1034,7 @@
         "scripts/title-repair-oracle.mjs",
         "scripts/heading-serp-pattern-oracle.mjs",
         "scripts/heading-repair-oracle.mjs",
+        "scripts/content-demand-stability.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -1033,6 +1049,8 @@
         "node scripts/test-heading-serp-pattern-oracle.mjs",
         "node scripts/test-heading-repair-oracle.mjs",
         "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-demand-stability.mjs",
+        "node scripts/test-content-demand-stability-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -1042,7 +1060,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "cd0395a981c7fda4f9dd5abbc564548e4ed573efe0eb46fe5dbb39e55b14f670"
+      "evidence_digest": "04656546166d6c12f877facaf60c87cb9a573507710af3f3a46cef19b4e3bcc7"
     },
     {
       "capability_id": "hashtags",
@@ -1281,7 +1299,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に74 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に75 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1294,7 +1312,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "fc563b76c5cbc9bed21ba0823ca455bfccfb94bb1e99b6c7d0e565c3e941cb4d"
+      "evidence_digest": "5a1f6027a4fbbfe7972419aa2159f498c310e19c7d333ff8b14a4a746093e3c1"
     },
     {
       "capability_id": "mcp",
@@ -1305,7 +1323,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の54 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の55 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1318,7 +1336,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "0768f2b7e1377badc5e97fe1e5ab54916b3de92ab40b31616baf4bd16581af33"
+      "evidence_digest": "b3ad9816a90ca5c5628b8dc99f23246f83db6c563e1ce6818d4850772ab55019"
     },
     {
       "capability_id": "credit_history",
@@ -1341,5 +1359,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "9584576d06045a300252504a1612ac5c9f2a124ee33497ed3c7604197d866abd"
+  "audit_digest": "f6db75c1c77edeea27f9bb917985786c2ea4e4a599e02a6376bd8cf7a6840b3d"
 }
