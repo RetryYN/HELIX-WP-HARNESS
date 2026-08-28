@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "9bb2b6f4ce4560d3d1521c74673cfcdf64ccf4822e86b07b1137df04920971da",
+  "inventory_digest": "b16aadbf72ed43d9ca5d29dc45c799832bd39403ce9a5d50bd90f33714263e32",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -88,10 +88,11 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "472質問候補をsource→occurrence→SERP task→回答状態→記事coverageへ接続。保持PAA回答occurrence 396は解決12・async未回収384。未回収96 taskだけをclick depth 1・最大100件の1 batchへ編成し、全100 task再取得から4 taskを回避。保持単価による最大$0.072（refund前）・価格再確認必須・送信0。100 seed外の大規模質問index・相対検索量・回答completion実行は未取得",
+      "remaining_gap": "489質問候補をsource→occurrence→SERP task→回答状態→記事coverageへ接続しlineage異常0。PAA 581 occurrenceを276正規化node・148親子edge・最大深度3へ展開。循環4 node/6 edgeと複数親23 nodeを見出し階層reviewへ隔離し、非循環単一親64 nodeのみ編集候補。回答は解決12・未解決569で、100 seed外の大規模質問index・相対検索量・回答completionは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -110,6 +111,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -132,7 +135,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "ea80d6a290cf9431a68ef4ccde1fb0807d6922b90c15382b10573308a94d916c"
+      "evidence_digest": "2f76524763f2e360d9f2cdedbf947d7dd186f59bca1598ab845119a30c1050d2"
     },
     {
       "capability_id": "lsi_paa",
@@ -143,10 +146,11 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "PAA 221 + 関連検索493 = 714固有需要を1,188 occurrenceへlossless逆引き。group横断反復86・group内反復105・単一task 523、整合異常0。回答396 occurrenceのうちasync未回収384を96 task・1 batch・最大$0.072のcompletion計画へ接続。全714需要は単日snapshotで複数日history 0、importanceは相対値。2階層・appearance history・再取得実行は未取得",
+      "remaining_gap": "PAA 276 + 関連検索494 = 770固有需要を1,373 occurrenceへlossless逆引き。seed付き190 occurrenceから148親子edge・最大深度3を復元し、循環/複数親を自動見出し化しない。複数日history 16・単日snapshot 754、importanceは保持corpus内相対値。継続appearance history・外部大規模母集団・未解決回答569件のcompletionは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -165,6 +169,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -187,7 +193,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "fedb33ade1a7c6a7bb6a0f4b59493da567b2716b079fe103186e0745964062ca"
+      "evidence_digest": "30c20af242285afb6348a7febb731fed600c133c9137594239472b03b43ee162"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -202,6 +208,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -220,6 +227,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -242,7 +251,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "7e4861ff073322264db5e8b0b24425b7a6a57b04fb7c5294195d2038f000518f"
+      "evidence_digest": "b9bec0e9d41bb3f6f0b92d2f095e65210291e709895c5c9468d45d2fb7edc8f1"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -257,6 +266,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -275,6 +285,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -297,7 +309,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "76cce8667d62bd890a38b97bd5a8203f0563a17ff77d22008e45f96f94668f18"
+      "evidence_digest": "6dcee61c3607ee3fb214e3796fc545788d1d6a068162bb9e5e909938339bf6fc"
     },
     {
       "capability_id": "influx_keywords",
@@ -312,6 +324,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -330,6 +343,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -352,7 +367,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "53ece15491e84e32c2b1af0920e1c08c0ad75d2d1c948781a387223fcac42ef7"
+      "evidence_digest": "f484e22dcec7b4f5cc8602254fbc0e6081d05e01fd9faa289b6635c88706c77c"
     },
     {
       "capability_id": "influx_pages",
@@ -367,6 +382,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -385,6 +401,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -407,7 +425,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "fffef5da8640af07ca764aaa41bb4faf874bb2f62740a9a510f823e5936ec0f3"
+      "evidence_digest": "b966c0eaec9b29c06d46ff1f9f9d4533a4453b4ac52d0ebc945eff24bf152468"
     },
     {
       "capability_id": "competitive_domains",
@@ -422,6 +440,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -440,6 +459,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -462,7 +483,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "6fdbc69050dc5ece22c6b3dad91a9ca4f8c017389936fe2eedf79913c266768f"
+      "evidence_digest": "db4f26def5896b2702332316a21a152aa26deae06f311bb6f9e8bb2139ce140e"
     },
     {
       "capability_id": "bulk_site_research",
@@ -519,6 +540,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -537,6 +559,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -559,7 +583,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "645e21003b0b7fda2f44fc3216a34b747e8e292a98c5d541c60dc4012f2b516e"
+      "evidence_digest": "7eb8cb59ee2cb9f6270c8bb3d790b7e68d232745f2e8b098bfe8daa9099faecb"
     },
     {
       "capability_id": "search_rank",
@@ -574,6 +598,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -592,6 +617,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -614,7 +641,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "4b2e645a3a4c49742c7b90f2aa30b9760355b896cf6f697a2cae76438549da6f"
+      "evidence_digest": "c0dd2deff9442128fe58343ea6705b34a0898f8cf07277cea67f03f50793e297"
     },
     {
       "capability_id": "headline",
@@ -629,6 +656,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -647,6 +675,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -669,7 +699,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "2c293498e622e92da9da782b9977a56d161831607982c86077655aa460ea9ba2"
+      "evidence_digest": "ce50567754b0090aa14617bd8a0cb6942a47cbf001b03fec0efe68bb765be4e6"
     },
     {
       "capability_id": "cooccurrence",
@@ -684,6 +714,7 @@
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
         "scripts/acquisition-contract-fulfillment.mjs",
@@ -702,6 +733,8 @@
       ],
       "verification_commands": [
         "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
         "node scripts/test-paa-answer-completion-portfolio.mjs",
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
@@ -724,7 +757,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "2135c3590e424bbad4ad8856d45a7feace5bcba13dbaf4d806a3cce2528202ba"
+      "evidence_digest": "0abb22785f89abb52620f2d52cdb3b4a94f0f9eb5a81aa4a557876d5bd24714a"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -1215,7 +1248,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に72 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に73 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1228,7 +1261,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "0f266da76a18363696bfdc20f9e2d0089e59ead0b31d0719cb8a45fdd5b3c6f1"
+      "evidence_digest": "59307b492ba6fa7f5f0f7a390e02cf0049db1f96b82abc52610e00a638d9d3e1"
     },
     {
       "capability_id": "mcp",
@@ -1239,7 +1272,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の52 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の53 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1252,7 +1285,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "0a35c2cd1553ee28713012d6fc18e464de48e74c6a47fd24a6fb7383595dcd8d"
+      "evidence_digest": "17a2b52d04308b9b4d71e20f30a5a289680c3277c18f774cbae47e6cba73d9a7"
     },
     {
       "capability_id": "credit_history",
@@ -1275,5 +1308,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "61894f0884d04e2298cb4dc07c722bad70c7511daf68b3bc61d05b122f052d70"
+  "audit_digest": "1966d20440c6bd7efba538640a6a353693976b8198dc86a555dcf027273865b4"
 }
