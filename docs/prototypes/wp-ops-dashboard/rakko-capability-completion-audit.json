@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "1f8ce8fa4a18f7c17109e643733cc28f926f25c8026eb6c95a1fb3a6b48a14af",
+  "inventory_digest": "0ddd722615829e436c5a75e8ba765dfacd54503a287efce1cedd0b587ad46696",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -503,6 +503,7 @@
         "scripts/heading-repair-oracle.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -518,10 +519,12 @@
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
         "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "450d7b16e9a4489856489cc0eb6c5c3a4d4e8c17c6922d5c81598bad9958be8c"
+      "evidence_digest": "9cbbfa38a64012782c16a6514a773654a04bb9e27b756a2957195567134ce428"
     },
     {
       "capability_id": "ai_title",
@@ -542,6 +545,7 @@
         "scripts/heading-repair-oracle.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -557,10 +561,12 @@
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
         "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "d713ebc489c32c1f3644a6d930ab086009614dd0f163ada0e523882610fd7593"
+      "evidence_digest": "04261dcd82b1c3d36a74eac6be44e808bd9149387a14ddd7cc143dd0f7202de8"
     },
     {
       "capability_id": "ai_heading",
@@ -581,6 +587,7 @@
         "scripts/heading-repair-oracle.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -596,10 +603,12 @@
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
         "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "d3c022e7c03a38d74551574d151165e143252ab6bfd9fc5c2ff13d1c6c68fc6d"
+      "evidence_digest": "102d576bf3493780b8f8d190176368a769902c4361cbff368974d64124490d6b"
     },
     {
       "capability_id": "ai_body",
@@ -610,7 +619,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事・573 claim・2,018根拠参照をpublication readinessへ統合し、実質510 claimの検証キューを追加。P0一次公式64・P1権威定義168・P2独立裏取り278へ分類、保持根拠2,018/2,018解決、citation候補あり107・なし403、開始0・検証0・承認0を明示。63/63記事をblockedとして停止。自動承認・自動公開なし。LLM実行、公式一次情報取得と検証、編集者の修正採否・引用承認、複数revision履歴、rich copy、list/table本文生成は未実装",
+      "remaining_gap": "63記事・573 claim・2,018根拠参照をpublication readinessへ統合し、実質510 claimをP0 64/P1 168/P2 278へ分類。情報源要件別に初回探索query 510本を選定し、代替1,020本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり107・なし403を区別し、費用未見積・価格確認必須・実行0・検証0・承認0。63/63記事をblocked。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、rich copy、list/table本文生成は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -620,6 +629,7 @@
         "scripts/heading-repair-oracle.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -635,10 +645,12 @@
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
         "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "a9fc44d55d82ef1f100786fd0c6a5752dfc76e33655ae245484e46be944f7f60"
+      "evidence_digest": "adea3c02f47ebb37e8da5b9c1176c2b5c1adbe80fe177a76386f1ef2ce5c3f10"
     },
     {
       "capability_id": "ai_questions",
@@ -659,6 +671,7 @@
         "scripts/heading-repair-oracle.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -674,10 +687,12 @@
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
         "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "f819bf2b8f7f31b500ee24a4c1b9a226a52fbdc085d173dd7b8eb9edb4e52c32"
+      "evidence_digest": "d42d1771db9ee6c7b949c66da00b75cb3bb58fbfd97a9e0659459d34f79224da"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -698,6 +713,7 @@
         "scripts/heading-repair-oracle.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
         "scripts/content-draft-package.mjs",
         "scripts/ai-question-candidates.mjs",
         "scripts/test-keyword-dashboard-integration.mjs"
@@ -713,10 +729,12 @@
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
         "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "b9524c5d09cc900808342f2fb62f77c9b7ae745c396c365d8da596285ef32ee9"
+      "evidence_digest": "cd0395a981c7fda4f9dd5abbc564548e4ed573efe0eb46fe5dbb39e55b14f670"
     },
     {
       "capability_id": "hashtags",
@@ -955,7 +973,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に65 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のclaim検証キュー・記事公開readiness・修正review・順位監視計画・SEO実行キュー・取得portfolioを含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に66 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のclaim探索portfolio・検証キュー・記事公開readiness・修正review・順位監視計画・SEO実行キューを含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -968,7 +986,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "2b108a7608f255ac1be6cb33a6ac80793b916ea1d1efd5030699daf690fef0b3"
+      "evidence_digest": "bde61224149594f738789199dc8a6084b30bf2d180b08604125a0b0509293f47"
     },
     {
       "capability_id": "mcp",
@@ -979,7 +997,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・claim検証キュー・記事公開readiness・修正review・順位監視計画・SEO実行キュー・取得portfolio・keyword/citation lineage等の45 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・claim探索portfolio/検証キュー・記事公開readiness・修正review・順位監視計画・SEO実行キュー・keyword/citation lineage等の46 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -992,7 +1010,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "eb8749889bde853180fb2a697c594ed1d96186b48b391c6e14f57f7899908782"
+      "evidence_digest": "3dfbf3411bf366476d91d334476209ec7c202ceff2fbaf255b3b72295e46c73f"
     },
     {
       "capability_id": "credit_history",
@@ -1015,5 +1033,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "d5ac4476d16ff4f0454d19cb9d0dedac26c7f3a31b17b181b78318e67489a06e"
+  "audit_digest": "4dbfd8371b60378a24103a3f2c6b6308db4f359dee707c92cf4116e1b02c0b2b"
 }

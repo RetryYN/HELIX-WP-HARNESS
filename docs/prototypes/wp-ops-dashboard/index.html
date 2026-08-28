@@ -200,6 +200,10 @@
       <div class="subsection-head"><div><h3>claim検証キュー</h3><p>本文の実質claimをリスク別に並べ、必要な情報源と既存証拠を明示。検索結果の観測証拠を事実確認済みとは扱いません</p></div></div>
       <div id="claim-verification-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>優先度</th><th>claim / 論点</th><th>必要な情報源</th><th>保持証拠</th><th>検証状態</th><th>証跡</th></tr></thead><tbody id="claim-verification-rows"></tbody></table></div>
+      <div class="subsection-head"><div><h3>一次情報探索portfolio</h3><p>claimごとに最初の探索queryを1本へ絞り、P0から100件単位で編成。代替queryは保持しつつ初回重複探索を避け、実行・課金は行いません</p></div></div>
+      <div id="claim-discovery-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>batch</th><th>件数</th><th>優先度</th><th>費用</th><th>状態</th><th>証跡</th></tr></thead><tbody id="claim-discovery-batches"></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>優先度</th><th>claim</th><th>選択query</th><th>情報源class</th><th>保持候補</th><th>状態</th></tr></thead><tbody id="claim-discovery-candidates"></tbody></table></div>
       <div id="content-plan-list" class="content-plan-list" aria-live="polite"></div>
     </section>
 
