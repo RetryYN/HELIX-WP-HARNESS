@@ -45,6 +45,7 @@ import {buildAioCompletionPortfolio} from "./aio-completion-portfolio.mjs";
 import {buildAcquisitionContractFulfillment} from "./acquisition-contract-fulfillment.mjs";
 import {buildAcquisitionRemediationPortfolio} from "./acquisition-remediation-portfolio.mjs";
 import {buildAcquisitionExecutionReadiness} from "./acquisition-execution-readiness.mjs";
+import {buildAcquisitionApprovalManifest} from "./acquisition-approval-manifest.mjs";
 import {buildInternalLinkOpportunities} from "./internal-link-opportunities.mjs";
 import {loadDfsEnrichmentEvidence} from "./dfs-enrichment-evidence.mjs";
 import {reviewContentGenerationCandidates} from "./content-generation-review.mjs";
@@ -76,7 +77,7 @@ import {auditConsolidationCitationAuthority} from "./content-consolidation-citat
 import {buildConsolidationPrimarySourceRequirements} from "./content-consolidation-primary-source-requirements.mjs";
 import {discoverRetainedPrimarySources} from "./content-consolidation-retained-primary-source-discovery.mjs";
 
-const schemaVersion = "keyword-dashboard.v64";
+const schemaVersion = "keyword-dashboard.v65";
 const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v40","keyword-dashboard.v39","keyword-dashboard.v38","keyword-dashboard.v37","keyword-dashboard.v36","keyword-dashboard.v35","keyword-dashboard.v34","keyword-dashboard.v33","keyword-dashboard.v32","keyword-dashboard.v31","keyword-dashboard.v30","keyword-dashboard.v28","keyword-dashboard.v27","keyword-dashboard.v26","keyword-dashboard.v25","keyword-dashboard.v24","keyword-dashboard.v23","keyword-dashboard.v22","keyword-dashboard.v21","keyword-dashboard.v20","keyword-dashboard.v19","keyword-dashboard.v18","keyword-dashboard.v17","keyword-dashboard.v16","keyword-dashboard.v15","keyword-dashboard.v14","keyword-dashboard.v13","keyword-dashboard.v12","keyword-dashboard.v11","keyword-dashboard.v10","keyword-dashboard.v9","keyword-dashboard.v8","keyword-dashboard.v7"]);
 replaceableSchemaVersions.add("keyword-dashboard.v41");
 replaceableSchemaVersions.add("keyword-dashboard.v42");
@@ -101,6 +102,7 @@ replaceableSchemaVersions.add("keyword-dashboard.v60");
 replaceableSchemaVersions.add("keyword-dashboard.v61");
 replaceableSchemaVersions.add("keyword-dashboard.v62");
 replaceableSchemaVersions.add("keyword-dashboard.v63");
+replaceableSchemaVersions.add("keyword-dashboard.v64");
 const numeric=(value,label)=>{const parsed=Number(String(value).replaceAll(",","").replace("%",""));if(!Number.isFinite(parsed))throw new Error(`GSC ${label} is not numeric: ${value}`);return parsed};
 
 function serpDemandOccurrences(result) {
@@ -118,8 +120,10 @@ function serpDemandOccurrences(result) {
   return occurrences;
 }
 
-function rawSnapshots(artifactRoot) {
+function rawSnapshots(artifactRoots) {
   const snapshots = new Map();
+  for(const artifactRoot of (Array.isArray(artifactRoots)?artifactRoots:[artifactRoots])){
+  if(!artifactRoot||!existsSync(artifactRoot))continue;
   for (const entry of readdirSync(artifactRoot, { recursive: true, withFileTypes: true })) {
     if (!entry.isFile() || !entry.name.endsWith(".json") || path.basename(entry.parentPath) !== "raw") continue;
     const file = `${entry.parentPath}/${entry.name}`;
@@ -136,12 +140,13 @@ function rawSnapshots(artifactRoot) {
     const task_metadata={status_code:task.status_code,status_message:task.status_message,time_seconds:Number.parseFloat(task.time),result_count:task.result_count,path:task.path??[],task_data:task.data??{},result_keyword:result.keyword,result_type:result.type,se_domain:result.se_domain,location_code:result.location_code,language_code:result.language_code,check_url:result.check_url,spell:result.spell??null,refinement_chips:result.refinement_chips??null,item_types:result.item_types??[],se_results_count:result.se_results_count,pages_count:result.pages_count,items_count:result.items_count};
     snapshots.set(task.id, { task_id: task.id, keyword: task.data?.keyword, artifact_dataset:path.relative(artifactRoot,file).split(path.sep)[0], snapshot_path: file, snapshot_digest:createHash("sha256").update(raw).digest("hex"), observed_at: result.datetime, aio_present: Number(result.item_types?.includes("ai_overview") ?? false), cost: Number(task.cost ?? 0),serp_pages:serpPages,recommended_page_type:recommendPageType(serpPages),demand_occurrences:serpDemandOccurrences(result),organic_results,ai_overviews,feature_occurrences,task_metadata });
   }
+  }
   return snapshots;
 }
 
-export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKeywords = [], serpAcquiredSourceKeywordIds, gscEvidencePath, gscEvidencePaths, headingEvidencePath, contentStructureEvidencePath, siteSurfaceEvidencePath, publicPageSurfaceEvidencePath, competitorEvidencePath, dfsEnrichmentEvidencePath }) {
+export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, additionalArtifactRoots = [], acquisitionRemediationExecution = null, importedKeywords = [], serpAcquiredSourceKeywordIds, gscEvidencePath, gscEvidencePaths, headingEvidencePath, contentStructureEvidencePath, siteSurfaceEvidencePath, publicPageSurfaceEvidencePath, competitorEvidencePath, dfsEnrichmentEvidencePath }) {
   const fixture = JSON.parse(readFileSync(fixturePath, "utf8"));
-  const snapshots = rawSnapshots(artifactRoot);
+  const snapshots = rawSnapshots([artifactRoot,...additionalArtifactRoots]);
   if(existsSync(dbPath)&&statSync(dbPath).size>0){
     let existing;
     try{
@@ -267,7 +272,7 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, importedKe
     CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, matched_keyword TEXT NOT NULL, matched_role TEXT NOT NULL CHECK(matched_role IN ('main','intent')), title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, heading_score INTEGER NOT NULL, heading_matches_json TEXT NOT NULL, coverage_rate REAL NOT NULL, coverage_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id,matched_keyword));
   `);
   const metadata = db.prepare("INSERT INTO dashboard_metadata VALUES (?, ?)");
-  metadata.run("schema_version", schemaVersion); metadata.run("generated_at", fixture.generated_at); metadata.run("normalization_aliases", JSON.stringify(fixture.normalization_aliases ?? []));
+  metadata.run("schema_version", schemaVersion); metadata.run("generated_at", fixture.generated_at); metadata.run("normalization_aliases", JSON.stringify(fixture.normalization_aliases ?? []));metadata.run("acquisition_remediation_execution",JSON.stringify(acquisitionRemediationExecution));
   const insertSite = db.prepare("INSERT INTO sites VALUES (?, ?, ?, ?, ?, ?)");
   for (const site of fixture.sites) insertSite.run(site.site_id, site.label, site.domain, site.status, Number(site.is_pinned), site.display_order);
   if(dfsEnrichmentEvidencePath){
@@ -479,6 +484,7 @@ export function projectDashboard(db) {
   const retainedPrimarySourceDiscovery={policy:"content-consolidation-retained-primary-source-discovery.v2",summary:{}};
   const metadata = Object.fromEntries(db.prepare("SELECT key, value FROM dashboard_metadata").all().map((row) => [row.key, row.value]));
   const sites = db.prepare("SELECT site_id, label, domain, status, is_pinned, display_order FROM sites ORDER BY display_order").all().map((site) => ({ ...site, is_pinned: Boolean(site.is_pinned) }));
+  const acquisitionRemediationExecution=JSON.parse(metadata.acquisition_remediation_execution??"null");for(const site of sites)site.acquisition_remediation_execution=acquisitionRemediationExecution;
   for(const site of sites){site.lexical_index={variant_clusters:db.prepare("SELECT * FROM keyword_variant_clusters WHERE site_id=? ORDER BY variant_count DESC,representative_source_keyword_id").all(site.site_id).map(({variants_json,evidence_source_keyword_ids_json,...row})=>({...row,variants:JSON.parse(variants_json),evidence_source_keyword_ids:JSON.parse(evidence_source_keyword_ids_json)})),associations:db.prepare("SELECT * FROM keyword_term_associations WHERE site_id=? ORDER BY term,rank").all(site.site_id).map(({evidence_source_keyword_ids_json,...row})=>({...row,evidence_source_keyword_ids:JSON.parse(evidence_source_keyword_ids_json)}))}}
   const notAcquiredEnrichmentStatus={state:"not_acquired",manifest_path:null,generated_at:null,reported_cost_usd:0,coverage:{}},dfsEnrichmentStatusBySite=Object.fromEntries(sites.map((site)=>{const run=db.prepare("SELECT * FROM dfs_enrichment_runs WHERE site_id=? AND run_id=1").get(site.site_id);return[site.site_id,run?{state:"acquired",...run,coverage:JSON.parse(run.coverage_json)}:{...notAcquiredEnrichmentStatus,site_id:site.site_id}]})),dfsEnrichmentStatus=dfsEnrichmentStatusBySite[sites[0]?.site_id]??notAcquiredEnrichmentStatus;
   for(const site of sites)site.dfs_enrichment_status=dfsEnrichmentStatusBySite[site.site_id];
@@ -587,7 +593,7 @@ export function projectDashboard(db) {
   const publicPageSurfaceObservations=db.prepare("SELECT * FROM public_page_surface_observations ORDER BY site_id,requested_url").all().map(({schema_types_json,...row})=>({...row,schema_types:JSON.parse(schema_types_json)})),publicPageSurfaceLinks=db.prepare("SELECT * FROM public_page_surface_links ORDER BY site_id,source_url,position").all().map((row)=>({...row,is_internal:Boolean(row.is_internal)}));
   for(const structure of contentStructureCandidates){const outgoing=internalLinkOpportunities.filter((row)=>row.source_group_id===structure.group_id),incoming=internalLinkOpportunities.filter((row)=>row.target_group_id===structure.group_id),plan={state:outgoing.length||incoming.length?"proposed":"no_evidence_bound_opportunity",outgoing,incoming};structure.internal_link_plan={...plan,plan_digest:createHash("sha256").update(JSON.stringify(plan)).digest("hex")}}
   for(const site of sites){
-    const siteContractRows=acquisitionContractFulfillment.rows.filter((row)=>row.site_id===site.site_id);site.acquisition_contract_fulfillment={policy:acquisitionContractFulfillment.policy,rows:siteContractRows,summary:{task_count:siteContractRows.length,expansion_required_count:siteContractRows.filter((row)=>row.fulfillment_state==="expansion_required").length,fulfilled_or_not_applicable_count:siteContractRows.filter((row)=>row.fulfillment_state!=="expansion_required").length,aio_async_load_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("aio_async_load_not_requested")).length,paa_click_depth_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("paa_click_depth_not_requested")).length,recorded_cost_usd:Number(siteContractRows.reduce((sum,row)=>sum+row.cost_usd,0).toFixed(8)),auto_retrieval_count:0}};site.acquisition_remediation_portfolio=buildAcquisitionRemediationPortfolio(siteContractRows,[...taskScopeById.values()].filter((row)=>row.site_id===site.site_id));site.acquisition_execution_readiness=buildAcquisitionExecutionReadiness(site.acquisition_remediation_portfolio);
+    const siteContractRows=acquisitionContractFulfillment.rows.filter((row)=>row.site_id===site.site_id);site.acquisition_contract_fulfillment={policy:acquisitionContractFulfillment.policy,rows:siteContractRows,summary:{task_count:siteContractRows.length,expansion_required_count:siteContractRows.filter((row)=>row.fulfillment_state==="expansion_required").length,fulfilled_or_not_applicable_count:siteContractRows.filter((row)=>row.fulfillment_state!=="expansion_required").length,aio_async_load_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("aio_async_load_not_requested")).length,paa_click_depth_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("paa_click_depth_not_requested")).length,recorded_cost_usd:Number(siteContractRows.reduce((sum,row)=>sum+row.cost_usd,0).toFixed(8)),auto_retrieval_count:0}};site.acquisition_remediation_portfolio=buildAcquisitionRemediationPortfolio(siteContractRows,[...taskScopeById.values()].filter((row)=>row.site_id===site.site_id));site.acquisition_execution_readiness=buildAcquisitionExecutionReadiness(site.acquisition_remediation_portfolio);site.acquisition_approval_manifest=buildAcquisitionApprovalManifest(site.acquisition_remediation_portfolio,site.acquisition_execution_readiness);
     site.association_evidence_oracle=buildAssociationEvidenceOracle(site.lexical_index.associations,keywordInventory.filter((row)=>row.site_id===site.site_id));
     site.variant_evidence_oracle=buildVariantEvidenceOracle(site.lexical_index.variant_clusters,keywordInventory.filter((row)=>row.site_id===site.site_id));
     const siteTaskIds=new Set(groups.filter((group)=>group.site_id===site.site_id).flatMap((group)=>group.task_ids));
