@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "b16aadbf72ed43d9ca5d29dc45c799832bd39403ce9a5d50bd90f33714263e32",
+  "inventory_digest": "e6cc76858f51119bc36168d337a56daed42e5d787cc0db5591e9355da41a9dad",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -103,6 +103,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -127,6 +128,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -135,7 +138,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "2f76524763f2e360d9f2cdedbf947d7dd186f59bca1598ab845119a30c1050d2"
+      "evidence_digest": "e1ae5619501cbc5b249153ebef2c075755f56c95e057e607bf0fc9886d901c13"
     },
     {
       "capability_id": "lsi_paa",
@@ -146,7 +149,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "PAA 276 + 関連検索494 = 770固有需要を1,373 occurrenceへlossless逆引き。seed付き190 occurrenceから148親子edge・最大深度3を復元し、循環/複数親を自動見出し化しない。複数日history 16・単日snapshot 754、importanceは保持corpus内相対値。継続appearance history・外部大規模母集団・未解決回答569件のcompletionは未取得",
+      "remaining_gap": "PAA 276 + 関連検索494 = 770固有需要を1,373 occurrenceへlossless逆引き。seed付き190 occurrenceから148親子edge・最大深度3を復元し、循環/複数親を自動見出し化しない。補完前後96同一KW cohort・2観測日を比較し、1,563需要を継続910・新規419・消失234へ分類。継続のみ安定見出し候補、変動653はreview。長期appearance history・外部大規模母集団・未解決回答569件のcompletionは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -161,6 +164,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -185,6 +189,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -193,7 +199,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "30c20af242285afb6348a7febb731fed600c133c9137594239472b03b43ee162"
+      "evidence_digest": "295dc832e5450be6d9189ab7fe2ee25300669490a8530903182651d3938598d0"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -219,6 +225,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -243,6 +250,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -251,7 +260,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "b9bec0e9d41bb3f6f0b92d2f095e65210291e709895c5c9468d45d2fb7edc8f1"
+      "evidence_digest": "3b51c9f99379d6b9378d2c461e7fa620c61a2030f8b477b34ed0e4a0e0a2d560"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -277,6 +286,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -301,6 +311,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -309,7 +321,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "6dcee61c3607ee3fb214e3796fc545788d1d6a068162bb9e5e909938339bf6fc"
+      "evidence_digest": "5961970ade8a53cc4832e4c44d5cd472c7c4daf4b901e1b8f2d1c25a13db24d1"
     },
     {
       "capability_id": "influx_keywords",
@@ -335,6 +347,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -359,6 +372,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -367,7 +382,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "f484e22dcec7b4f5cc8602254fbc0e6081d05e01fd9faa289b6635c88706c77c"
+      "evidence_digest": "c3e0ccd631e3b83f015f4b647a7af8796cd3c42d79bf31275b389ffae8f0e87f"
     },
     {
       "capability_id": "influx_pages",
@@ -393,6 +408,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -417,6 +433,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -425,7 +443,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "b966c0eaec9b29c06d46ff1f9f9d4533a4453b4ac52d0ebc945eff24bf152468"
+      "evidence_digest": "de9ad2811ec59b50e86e3ed95921e94734d39e7b9c44a40bb7bcb5fbed964515"
     },
     {
       "capability_id": "competitive_domains",
@@ -451,6 +469,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -475,6 +494,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -483,7 +504,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "db4f26def5896b2702332316a21a152aa26deae06f311bb6f9e8bb2139ce140e"
+      "evidence_digest": "3e96cefff46a2973cf873e14b92b7d4b327304dadd6ef0c211fd87744d74c138"
     },
     {
       "capability_id": "bulk_site_research",
@@ -551,6 +572,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -575,6 +597,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -583,7 +607,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "7eb8cb59ee2cb9f6270c8bb3d790b7e68d232745f2e8b098bfe8daa9099faecb"
+      "evidence_digest": "27a077af6feeef2945f702b4b43ae0723f554fe2981979258a793841197e0713"
     },
     {
       "capability_id": "search_rank",
@@ -609,6 +633,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -633,6 +658,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -641,7 +668,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "c0dd2deff9442128fe58343ea6705b34a0898f8cf07277cea67f03f50793e297"
+      "evidence_digest": "c817c153ea8c7c2ee1e514c8ad24f558694e6063ecdd936b6376caae894880c9"
     },
     {
       "capability_id": "headline",
@@ -667,6 +694,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -691,6 +719,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -699,7 +729,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "ce50567754b0090aa14617bd8a0cb6942a47cbf001b03fec0efe68bb765be4e6"
+      "evidence_digest": "789bf2ce1b794477b6fd105070c2db48245217143e9716f590ba963d6b82aaef"
     },
     {
       "capability_id": "cooccurrence",
@@ -725,6 +755,7 @@
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -749,6 +780,8 @@
         "node scripts/test-acquisition-execution-readiness.mjs",
         "node scripts/test-acquisition-execution-readiness-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -757,7 +790,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "0abb22785f89abb52620f2d52cdb3b4a94f0f9eb5a81aa4a557876d5bd24714a"
+      "evidence_digest": "0444c8bc8677ffbfbf39a552b7aa8294bfd2ae719e185c7463778d59874d772a"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -1248,7 +1281,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に73 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に74 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1261,7 +1294,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "59307b492ba6fa7f5f0f7a390e02cf0049db1f96b82abc52610e00a638d9d3e1"
+      "evidence_digest": "fc563b76c5cbc9bed21ba0823ca455bfccfb94bb1e99b6c7d0e565c3e941cb4d"
     },
     {
       "capability_id": "mcp",
@@ -1272,7 +1305,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の53 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の54 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1285,7 +1318,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "17a2b52d04308b9b4d71e20f30a5a289680c3277c18f774cbae47e6cba73d9a7"
+      "evidence_digest": "0768f2b7e1377badc5e97fe1e5ab54916b3de92ab40b31616baf4bd16581af33"
     },
     {
       "capability_id": "credit_history",
@@ -1308,5 +1341,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "1966d20440c6bd7efba538640a6a353693976b8198dc86a555dcf027273865b4"
+  "audit_digest": "9584576d06045a300252504a1612ac5c9f2a124ee33497ed3c7604197d866abd"
 }
