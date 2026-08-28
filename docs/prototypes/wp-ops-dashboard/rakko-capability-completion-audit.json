@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "b0fe942a927e1778ac03ca110f36db6559dff3a7fa03aadb4dbbd1280d4443aa",
+  "inventory_digest": "ded6a738814e92aba3855a6ed84c8561b089a6edb13c0892ce5fdef83a3717f6",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -964,7 +964,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨を30比較単位へ分解。全体54記事群・82比較のscore・根拠gain・tradeoffを説明して公開readinessへ接続。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -1007,7 +1007,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "ebb804657c0b9e57c8db42ffb89114256ea95bf2947097c751812475969eb23b"
+      "evidence_digest": "4a2feca063740ceafdbb0034a3c4465ad75a849ad586d056e865c3e6d57f776b"
     },
     {
       "capability_id": "ai_body",
@@ -1408,7 +1408,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に75 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に79 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1421,7 +1421,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "5a1f6027a4fbbfe7972419aa2159f498c310e19c7d333ff8b14a4a746093e3c1"
+      "evidence_digest": "a36c1f39dc20a8f2b0e730da62398d226af92703ae06f342d631e7d641cc58a6"
     },
     {
       "capability_id": "mcp",
@@ -1432,7 +1432,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の55 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の59 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1445,7 +1445,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "b3ad9816a90ca5c5628b8dc99f23246f83db6c563e1ce6818d4850772ab55019"
+      "evidence_digest": "f430d5752f643525622fb7bc84eeb6087eaacdc8a61395f4ea2d26036cefecd7"
     },
     {
       "capability_id": "credit_history",
@@ -1468,5 +1468,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "1025a77e5406bd873d638ff482337f499cade36de53d5e0d4182077bd0ec7fa1"
+  "audit_digest": "7f3a710eefe4eb752c9eb4321925463ad2abe5a689e7d9a8b3743bab54691544"
 }
