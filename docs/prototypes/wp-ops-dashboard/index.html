@@ -249,6 +249,9 @@
     <section id="acquisition-health" class="view">
       <div class="section-head table-toolbar"><div><h2>取得状態・SERP feature</h2><p>DFS taskのstatus・処理時間・費用・check URLと、通常分析で落としやすいSERP featureを表示します</p></div><div class="filters"><input id="acquisition-search" type="search" placeholder="KW・feature・status検索" aria-label="取得状態検索"></div></div>
       <div id="acquisition-health-metrics" class="metrics"></div>
+      <div class="subsection-head"><h3>取得request・payload充足監査</h3><p>requestで指定した拡張取得と実際の回答payloadを照合し、featureの枠だけを本文取得済みと誤認しません</p></div>
+      <div id="acquisition-contract-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>対象KW / task</th><th>request</th><th>AIO充足</th><th>PAA充足</th><th>費用</th><th>判定</th><th>証跡</th></tr></thead><tbody id="acquisition-contract-rows"></tbody></table></div>
       <div class="subsection-head"><h3>データ処遇台帳</h3><p>未取得・取得失敗・分析未接続・正規化統合・意図的非保持を分離し、欠損理由と是正方法を示します</p></div>
       <div class="table-wrap"><table><thead><tr><th>dataset</th><th>処遇</th><th>観測</th><th>期待</th><th>差分</th><th>理由</th><th>是正</th><th>証跡</th></tr></thead><tbody id="data-disposition-rows"></tbody></table></div>
       <div class="subsection-head"><h3>SEO機能・完成監査</h3><p>実装の存在ではなく、実装・テスト証拠と残存gapを突き合わせます。gapが残る機能を完成扱いしません</p></div>

@@ -42,6 +42,7 @@ import {buildClaimVerificationQueue} from "./claim-verification-queue.mjs";
 import {buildClaimDiscoveryPortfolio} from "./claim-discovery-portfolio.mjs";
 import {buildPaaAnswerCompletionPortfolio} from "./paa-answer-completion-portfolio.mjs";
 import {buildAioCompletionPortfolio} from "./aio-completion-portfolio.mjs";
+import {buildAcquisitionContractFulfillment} from "./acquisition-contract-fulfillment.mjs";
 import {buildInternalLinkOpportunities} from "./internal-link-opportunities.mjs";
 import {loadDfsEnrichmentEvidence} from "./dfs-enrichment-evidence.mjs";
 import {reviewContentGenerationCandidates} from "./content-generation-review.mjs";
@@ -552,6 +553,7 @@ export function projectDashboard(db) {
   const serpPageCoverage=db.prepare("SELECT * FROM serp_page_coverage ORDER BY keyword_count DESC,group_count DESC,rank_score DESC,canonical_url").all();
   const serpDomainCoverage=db.prepare("SELECT * FROM serp_domain_coverage ORDER BY keyword_count DESC,rank_score DESC,domain").all();
   const serpAiOverviews=db.prepare("SELECT * FROM serp_ai_overviews ORDER BY task_id").all().map(({items_json,references_json,...row})=>{const asynchronous=Boolean(row.asynchronous),items=JSON.parse(items_json),references=JSON.parse(references_json),responseState=asynchronous&&!row.markdown&&!items.length&&!references.length?"async_pending":row.markdown||items.length||references.length?"resolved":"empty";return{...row,asynchronous,items,references,response_state:responseState,analysis_eligible:responseState==="resolved",retrieval_required:responseState!=="resolved",retrieval_reason:responseState==="async_pending"?"provider returned asynchronous placeholder without answer payload":responseState==="empty"?"AIO container had no analyzable payload":null}});
+  const acquisitionContractFulfillment=buildAcquisitionContractFulfillment(serpTaskMetadata.map((row)=>({...row,...taskScopeById.get(row.task_id)})),serpAiOverviews,paaAnswerEvidence);
   const aioElementSourceLineage=buildAioElementSourceLineage(serpAiOverviews,[...taskScopeById.values()]);
   const aioCitationReferences=db.prepare("SELECT * FROM aio_citation_references ORDER BY task_id,reference_order").all().map((row)=>({...row,is_own_domain:Boolean(row.is_own_domain)}));
   const aioCitationDomains=db.prepare("SELECT * FROM aio_citation_domains ORDER BY task_count DESC,citation_count DESC,domain").all().map((row)=>({...row,is_own_domain:Boolean(row.is_own_domain)}));
@@ -583,6 +585,7 @@ export function projectDashboard(db) {
   const publicPageSurfaceObservations=db.prepare("SELECT * FROM public_page_surface_observations ORDER BY site_id,requested_url").all().map(({schema_types_json,...row})=>({...row,schema_types:JSON.parse(schema_types_json)})),publicPageSurfaceLinks=db.prepare("SELECT * FROM public_page_surface_links ORDER BY site_id,source_url,position").all().map((row)=>({...row,is_internal:Boolean(row.is_internal)}));
   for(const structure of contentStructureCandidates){const outgoing=internalLinkOpportunities.filter((row)=>row.source_group_id===structure.group_id),incoming=internalLinkOpportunities.filter((row)=>row.target_group_id===structure.group_id),plan={state:outgoing.length||incoming.length?"proposed":"no_evidence_bound_opportunity",outgoing,incoming};structure.internal_link_plan={...plan,plan_digest:createHash("sha256").update(JSON.stringify(plan)).digest("hex")}}
   for(const site of sites){
+    const siteContractRows=acquisitionContractFulfillment.rows.filter((row)=>row.site_id===site.site_id);site.acquisition_contract_fulfillment={policy:acquisitionContractFulfillment.policy,rows:siteContractRows,summary:{task_count:siteContractRows.length,expansion_required_count:siteContractRows.filter((row)=>row.fulfillment_state==="expansion_required").length,fulfilled_or_not_applicable_count:siteContractRows.filter((row)=>row.fulfillment_state!=="expansion_required").length,aio_async_load_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("aio_async_load_not_requested")).length,paa_click_depth_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("paa_click_depth_not_requested")).length,recorded_cost_usd:Number(siteContractRows.reduce((sum,row)=>sum+row.cost_usd,0).toFixed(8)),auto_retrieval_count:0}};
     site.association_evidence_oracle=buildAssociationEvidenceOracle(site.lexical_index.associations,keywordInventory.filter((row)=>row.site_id===site.site_id));
     site.variant_evidence_oracle=buildVariantEvidenceOracle(site.lexical_index.variant_clusters,keywordInventory.filter((row)=>row.site_id===site.site_id));
     const siteTaskIds=new Set(groups.filter((group)=>group.site_id===site.site_id).flatMap((group)=>group.task_ids));

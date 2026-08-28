@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "aaaaed16750036adeae7887eb8ed0891cedc34d3177f707f9d650378f64f6f5c",
+  "inventory_digest": "2ecec974b068ad6faf5b5a16fdb38b00533f833831ed41aa4e3254bad04d4bdf",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -94,6 +94,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -107,6 +108,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -116,7 +119,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "62a0f67446cec4c429000c2bccb9c73f7efef5f37cfc6437b3c5f736a4411685"
+      "evidence_digest": "8c8a57965366d266247b1ac6b30ca679328285da29bcecc5501db960210d01f0"
     },
     {
       "capability_id": "lsi_paa",
@@ -133,6 +136,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -146,6 +150,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -155,7 +161,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "add44bcf320a280f52ef6ea7e02c05ea70d7b2c3e40dcf15d443f6d245966550"
+      "evidence_digest": "f791d586073db13b27b6007cc48b732396036b98b73dee5b1355f31d2c863fa8"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -172,6 +178,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -185,6 +192,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -194,7 +203,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "6416a09b888dae9dc2464a913ce4e160c1d9d9ea83769077422da19affac1e1e"
+      "evidence_digest": "69d4b355909c39356a7fe743e35b8e2d16f0e7315c14f95267a3886ba26bb8e3"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -211,6 +220,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -224,6 +234,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -233,7 +245,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "e3554853e5f83620bd26e129b9a98eef04993a0ddbfc9cf7256eb9199356687a"
+      "evidence_digest": "c8e52704f129295128d414ea4517c93494314dd887462fa9d713a6b60edfa57f"
     },
     {
       "capability_id": "influx_keywords",
@@ -250,6 +262,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -263,6 +276,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -272,7 +287,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "1f0fa905abc0d5b06841e8c0612f12fd813c975ec300a4e33b2059c59698cf68"
+      "evidence_digest": "7bc83c70e23fb781900d5a045799a0a660badf802475f5eb031a123f231c5cd5"
     },
     {
       "capability_id": "influx_pages",
@@ -289,6 +304,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -302,6 +318,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -311,7 +329,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "56515800319b7c7604a79e81aecafd46e9cb10cd1a810e9450aa9ccc48991033"
+      "evidence_digest": "8e9aba75ad8c8603e6f9c18d39ab01adb1990c250c469335346b26cba65fdb3f"
     },
     {
       "capability_id": "competitive_domains",
@@ -328,6 +346,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -341,6 +360,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -350,7 +371,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "cb7d9eb2a6331b0225f15586c11c40fe1be262faf5bd2aa1e15ccf82e4f0bcb5"
+      "evidence_digest": "ab98a3effcdeaa58d1f869814ffe1c57a20671f126c13dc00c1efc7baef4f7ee"
     },
     {
       "capability_id": "bulk_site_research",
@@ -409,6 +430,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -422,6 +444,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -431,7 +455,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "1cf05b08165db8e5ec2b8243f963f91ea7ad00e3d47093ce6c8cf95cb662c408"
+      "evidence_digest": "0d0a29d295daec94bec7a4e15d609af0d87ab2e189ab2f9e6add076225ba876c"
     },
     {
       "capability_id": "search_rank",
@@ -448,6 +472,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -461,6 +486,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -470,7 +497,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "239a733a5037f1951da19a5d9bf198841be7bd7899a6949023a7c33796a43b8c"
+      "evidence_digest": "b19d5737b87a1b1b475201fed0f2e8847e5ba2b6fd75744eaf4f5bbfb55a8510"
     },
     {
       "capability_id": "headline",
@@ -487,6 +514,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -500,6 +528,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -509,7 +539,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "d5b13acc77570756fd89f6e863fca25fcb21292ee1588bdb6664ec8760171771"
+      "evidence_digest": "6d45f87b63fb11677e4b1f5966691bca8e16fe64dfb400139df116f43e57debb"
     },
     {
       "capability_id": "cooccurrence",
@@ -526,6 +556,7 @@
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-answer-completion-portfolio.mjs",
         "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
@@ -539,6 +570,8 @@
         "node scripts/test-paa-answer-completion-api.mjs",
         "node scripts/test-aio-completion-portfolio.mjs",
         "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
@@ -548,7 +581,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "8dbc098f519e03d4a154c8252a123f93a544934e9ebbc5138fb97f368b5e0774"
+      "evidence_digest": "6749249d230066f4385fee1877ac36fd006a640061d42e7cf2860108446ae1ce"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -1039,7 +1072,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に68 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に69 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1052,7 +1085,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "2181152b8cd8759dbe624af6e786182b37822c3990f9d3d00e67a45267847db7"
+      "evidence_digest": "450a1097214a260785ede31ee708cb1ec2e30cbb70daa5bd0b0dc24b5eefeafb"
     },
     {
       "capability_id": "mcp",
@@ -1063,7 +1096,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の48 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の49 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1076,7 +1109,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "d91792977c79c55f66cd89d4a5a38f56b99f6cff2285c5b62ffc4861da1cc38a"
+      "evidence_digest": "8d0b698bae42093fd9564b13b168a3f3cdb79018f6a2bbbd457b372d0dc48c26"
     },
     {
       "capability_id": "credit_history",
@@ -1099,5 +1132,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "2a0a759031e31378e1887dec1fd673cc98d050524ae47240011c1f29d0e2eff2"
+  "audit_digest": "a60893a3706af6724d6f325e63d8961872c463666bae2e2bf8583492757af9dd"
 }
