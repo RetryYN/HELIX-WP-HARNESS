@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "c63abe39d890f9da265b1d0e22f70873a8ef6931b1bbc6242c674af2ae7f7d59",
+  "inventory_digest": "b0fe942a927e1778ac03ca110f36db6559dff3a7fa03aadb4dbbd1280d4443aa",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -867,6 +867,7 @@
         "scripts/content-demand-stability.mjs",
         "scripts/content-competitive-stability.mjs",
         "scripts/content-evidence-ensemble-selection.mjs",
+        "scripts/content-selection-delta-explanations.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -887,6 +888,8 @@
         "node scripts/test-content-competitive-stability-api.mjs",
         "node scripts/test-content-evidence-ensemble-selection.mjs",
         "node scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "node scripts/test-content-selection-delta-explanations.mjs",
+        "node scripts/test-content-selection-delta-explanations-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -896,7 +899,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "713574f5e7bf613338a564beac921804b69605077c8b162267fb533b7765b5d3"
+      "evidence_digest": "413fa9e58bc1dffcc36633e29cf4e1a875e7d173d9a5b5dbd7863f599a2ca50b"
     },
     {
       "capability_id": "ai_title",
@@ -907,7 +910,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52記事群のtitle選定差分を提示し公開readinessへ接続。競合title copy・順位効果推測・自動差替なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。競合title copy・順位効果推測・自動差替なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -918,6 +921,7 @@
         "scripts/content-demand-stability.mjs",
         "scripts/content-competitive-stability.mjs",
         "scripts/content-evidence-ensemble-selection.mjs",
+        "scripts/content-selection-delta-explanations.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -938,6 +942,8 @@
         "node scripts/test-content-competitive-stability-api.mjs",
         "node scripts/test-content-evidence-ensemble-selection.mjs",
         "node scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "node scripts/test-content-selection-delta-explanations.mjs",
+        "node scripts/test-content-selection-delta-explanations-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -947,7 +953,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "188239e722dd827776c9507e4033be6107359bec99c1e012974f6660ae5aa947"
+      "evidence_digest": "e5f2bf75a020d042e798f0c06fed9ea4a6797dc2a70a5067f906df6f6ebb09dd"
     },
     {
       "capability_id": "ai_heading",
@@ -958,7 +964,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、全体54記事群の差分reviewを公開readinessへ接続。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨を30比較単位へ分解。全体54記事群・82比較のscore・根拠gain・tradeoffを説明して公開readinessへ接続。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -969,6 +975,7 @@
         "scripts/content-demand-stability.mjs",
         "scripts/content-competitive-stability.mjs",
         "scripts/content-evidence-ensemble-selection.mjs",
+        "scripts/content-selection-delta-explanations.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -989,6 +996,8 @@
         "node scripts/test-content-competitive-stability-api.mjs",
         "node scripts/test-content-evidence-ensemble-selection.mjs",
         "node scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "node scripts/test-content-selection-delta-explanations.mjs",
+        "node scripts/test-content-selection-delta-explanations-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -998,7 +1007,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "6fc745ceca5a0fc34e2b7fcc635e9316287408a611569c73994db7b266c9af4e"
+      "evidence_digest": "ebb804657c0b9e57c8db42ffb89114256ea95bf2947097c751812475969eb23b"
     },
     {
       "capability_id": "ai_body",
@@ -1020,6 +1029,7 @@
         "scripts/content-demand-stability.mjs",
         "scripts/content-competitive-stability.mjs",
         "scripts/content-evidence-ensemble-selection.mjs",
+        "scripts/content-selection-delta-explanations.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -1040,6 +1050,8 @@
         "node scripts/test-content-competitive-stability-api.mjs",
         "node scripts/test-content-evidence-ensemble-selection.mjs",
         "node scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "node scripts/test-content-selection-delta-explanations.mjs",
+        "node scripts/test-content-selection-delta-explanations-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -1049,7 +1061,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "813ef969412f1f7ad868b6e5e73f0d5c2d73ed197364cb62c408ae713d8ed589"
+      "evidence_digest": "679911c4bcaf9a86b84868e373cb6ed8560f825761a8b40ca68698fb797dd0bf"
     },
     {
       "capability_id": "ai_questions",
@@ -1071,6 +1083,7 @@
         "scripts/content-demand-stability.mjs",
         "scripts/content-competitive-stability.mjs",
         "scripts/content-evidence-ensemble-selection.mjs",
+        "scripts/content-selection-delta-explanations.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -1091,6 +1104,8 @@
         "node scripts/test-content-competitive-stability-api.mjs",
         "node scripts/test-content-evidence-ensemble-selection.mjs",
         "node scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "node scripts/test-content-selection-delta-explanations.mjs",
+        "node scripts/test-content-selection-delta-explanations-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -1100,7 +1115,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "38f76a9d9155492a1daf68cb142b5664863989b0e43180d27431268fdf62922b"
+      "evidence_digest": "327b68fb53ed60131d6e46f8bd7ba1c7c953d8d3420b5aa2af9dfc9670972b7d"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -1122,6 +1137,7 @@
         "scripts/content-demand-stability.mjs",
         "scripts/content-competitive-stability.mjs",
         "scripts/content-evidence-ensemble-selection.mjs",
+        "scripts/content-selection-delta-explanations.mjs",
         "scripts/content-readiness-oracle.mjs",
         "scripts/claim-verification-queue.mjs",
         "scripts/claim-discovery-portfolio.mjs",
@@ -1142,6 +1158,8 @@
         "node scripts/test-content-competitive-stability-api.mjs",
         "node scripts/test-content-evidence-ensemble-selection.mjs",
         "node scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "node scripts/test-content-selection-delta-explanations.mjs",
+        "node scripts/test-content-selection-delta-explanations-api.mjs",
         "node scripts/test-content-readiness-oracle.mjs",
         "node scripts/test-content-readiness-api.mjs",
         "node scripts/test-claim-verification-queue.mjs",
@@ -1151,7 +1169,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "34014af751d5e47ab4798398238ebd1c94068b677418feb9e698928a7375fe2f"
+      "evidence_digest": "6de1810665b469f074f2f8a55833e6b471f6fc2694c8b1e1bbc08b4afdcf7e2e"
     },
     {
       "capability_id": "hashtags",
@@ -1450,5 +1468,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "fa20eabcd17fb81667affd9599a422e180ec208c8d77f826e1e3075616dfd2ba"
+  "audit_digest": "1025a77e5406bd873d638ff482337f499cade36de53d5e0d4182077bd0ec7fa1"
 }
