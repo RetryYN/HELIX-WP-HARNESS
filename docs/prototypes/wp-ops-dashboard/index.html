@@ -233,7 +233,7 @@
     <section id="aio-citations" class="view">
       <div class="section-head table-toolbar"><div><h2>AIO引用ギャップ</h2><p>AI Overview 68 containerのうち回答payload取得済み17件と非同期未回収51件を分離。取得済み参照URLだけを通常SERP上位10と照合します</p></div><div class="filters"><input id="aio-citation-search" type="search" placeholder="ドメイン・KW・引用タイトル検索" aria-label="AIO引用検索"></div></div>
       <div id="aio-citation-metrics" class="metrics"></div>
-      <div class="subsection-head"><h3>AIO未回収taskの回収計画</h3><p>既存task IDを30日以内に追加課金なしのGETで回収。再POST・自動poll・自動反映は行いません</p></div>
+      <div class="subsection-head"><h3>AIO未回収taskの再取得計画</h3><p>元requestで非同期本文取得が未指定のplaceholderだけを再POST対象化。価格再確認前の自動送信・自動反映は行いません</p></div>
       <div id="aio-completion-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>対象KW / task</th><th>method</th><th>追加課金</th><th>保持期限</th><th>状態</th><th>証跡</th></tr></thead><tbody id="aio-completion-rows"></tbody></table></div>
       <div class="table-wrap"><table class="aio-domain-table"><thead><tr><th>引用ドメイン</th><th>引用KW</th><th>引用回数</th><th>引用URL</th><th>通常SERP同一domain</th><th>通常SERP最高順位</th></tr></thead><tbody id="aio-domain-rows"></tbody></table></div>
