@@ -110,6 +110,10 @@
       <div class="subsection-head"><h3>PAA回答証拠</h3><p>取得済み回答snippet・出典・表を表示し、非同期placeholderは回答本文として扱いません</p></div>
       <div id="paa-answer-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>質問</th><th>状態</th><th>取得元KW</th><th>回答・表</th><th>出典</th><th>証跡</th></tr></thead><tbody id="paa-answer-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>PAA回答completion計画</h3><p>非同期未回収のtaskだけを再取得候補にし、解決済みとPAA非観測taskを再送しません。最大費用は保持単価による参考値で、実行前に再確認します</p></div>
+      <div id="paa-completion-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>batch</th><th>task</th><th>未回収質問</th><th>最大費用</th><th>状態</th><th>証跡</th></tr></thead><tbody id="paa-completion-batches"></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>取得元KW</th><th>未回収</th><th>回収済</th><th>click depth</th><th>最大費用</th><th>状態</th></tr></thead><tbody id="paa-completion-candidates"></tbody></table></div>
     </section>
 
     <section id="ai-questions" class="view">
