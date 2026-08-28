@@ -1,0 +1,6 @@
+import assert from "node:assert/strict";
+import {buildConsolidationCitationObservationLineage} from "./content-consolidation-citation-observation-lineage.mjs";
+
+const result=buildConsolidationCitationObservationLineage([{left_group_id:"a",right_group_id:"b",merged_claim_id:"m",recommendation_digest:"r".repeat(64),citation_ids:["c1","missing"]}],[{left_group_id:"a",right_group_id:"b",merged_claim_id:"m",backfill_digest:"b".repeat(64),citation_ids:["c1"]}],[{citation_id:"c1",task_id:"t1",group_id:"a",source_keyword:"keyword",reference_order:2}],[{task_id:"t1",observed_at:"2026-08-23T00:00:00Z",snapshot_digest:"s".repeat(64),artifact_dataset:"fixture"}]);
+assert.equal(result.rows.length,3);assert.equal(result.summary.recommendation_association_count,2);assert.equal(result.summary.backfill_association_count,1);assert.equal(result.summary.resolved_count,2);assert.equal(result.summary.unresolved_count,1);assert.equal(result.summary.unique_citation_count,2);assert.equal(result.summary.unique_task_count,1);assert.equal(result.rows[0].source_keyword,"keyword");assert.equal(result.rows[0].snapshot_digest,"s".repeat(64));assert.equal(result.rows[0].lineage_digest.length,64);assert.equal(result.rows[1].resolution_state,"unresolved");
+console.log("content consolidation citation observation lineage: OK (candidate→citation→DFS task→raw snapshot)");

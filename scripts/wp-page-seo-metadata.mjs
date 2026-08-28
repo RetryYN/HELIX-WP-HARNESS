@@ -1,0 +1,15 @@
+import {createHash} from "node:crypto";
+
+const sha=(value)=>createHash("sha256").update(value).digest("hex");
+const decode=(value)=>String(value??"").replace(/&#(\d+);/g,(_,code)=>String.fromCodePoint(Number(code))).replace(/&#x([\da-f]+);/gi,(_,code)=>String.fromCodePoint(Number.parseInt(code,16))).replace(/&amp;/gi,"&").replace(/&quot;/gi,'"').replace(/&#(?:0*39|x0*27);/gi,"'").replace(/&lt;/gi,"<").replace(/&gt;/gi,">");
+const attrs=(tag)=>Object.fromEntries([...String(tag).matchAll(/([:\w-]+)\s*=\s*(["'])(.*?)\2/gs)].map((match)=>[match[1].toLowerCase(),decode(match[3].trim())]));
+const content=(html,selector)=>{for(const tag of html.match(selector)??[]){const row=attrs(tag),key=(row.name??row.property??"").toLowerCase();if(key)return [key,row.content??""]}return null};
+const schemaTypes=(html)=>{const values=[];for(const match of html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)){try{const visit=(value)=>{if(Array.isArray(value))value.forEach(visit);else if(value&&typeof value==="object"){const type=value["@type"];if(typeof type==="string")values.push(type);else if(Array.isArray(type))values.push(...type.filter((item)=>typeof item==="string"));Object.values(value).forEach(visit)}};visit(JSON.parse(decode(match[1])))}catch{values.push("invalid_json_ld")}}return [...new Set(values)].sort()};
+
+export function extractWpPageSeoMetadata({siteId,wpArticleId,requestedUrl,finalUrl,httpStatus,html,observedAt}){
+  const head=html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1]??"",title=decode(head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]??"").replace(/\s+/g," ").trim(),meta=new Map();
+  for(const tag of head.match(/<meta\b[^>]*>/gi)??[]){const row=content(tag,/<meta\b[^>]*>/gi);if(row&&!meta.has(row[0]))meta.set(row[0],row[1])}
+  const links=[];for(const tag of head.match(/<link\b[^>]*>/gi)??[]){const row=attrs(tag),rels=(row.rel??"").toLowerCase().split(/\s+/);if(rels.some((rel)=>["canonical","alternate","prev","next"].includes(rel)))links.push({rel:row.rel??"",href:row.href??"",hreflang:row.hreflang??null,media:row.media??null})}
+  const htmlAttrs=attrs(html.match(/<html\b[^>]*>/i)?.[0]??""),schemas=schemaTypes(head),record={schema_version:"wp-page-seo-metadata.v1",site_id:siteId,wp_article_id:wpArticleId,requested_url:requestedUrl,final_url:finalUrl,http_status:httpStatus,observed_at:observedAt,html_lang:htmlAttrs.lang??null,title,title_digest:sha(title),description:meta.get("description")??null,robots:meta.get("robots")??null,googlebot:meta.get("googlebot")??null,canonical_url:links.find((row)=>row.rel.toLowerCase().split(/\s+/).includes("canonical"))?.href??null,hreflang:links.filter((row)=>row.hreflang).map((row)=>({hreflang:row.hreflang,href:row.href})),pagination:links.filter((row)=>/^(prev|next)$/i.test(row.rel)),open_graph:Object.fromEntries([...meta].filter(([key])=>key.startsWith("og:"))),twitter:Object.fromEntries([...meta].filter(([key])=>key.startsWith("twitter:"))),schema_types:schemas,head_digest:sha(head)};
+  return {...record,evidence_digest:sha(JSON.stringify(record))};
+}

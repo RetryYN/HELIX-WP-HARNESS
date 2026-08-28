@@ -1,0 +1,21 @@
+{
+  "schema_version":"rakko-pricing-policy.v1",
+  "evidence_cutoff":"2026-08-26",
+  "currency":"JPY","tax_included":true,
+  "sources":["https://rakkokeyword.com/pricing","https://rakkokeyword.com/knowledge/246/","https://rakkokeyword.com/knowledge/10393/","https://rakkokeyword.com/knowledge/9162/"],
+  "plans":[
+    {"id":"free","annual_monthly_price":0,"monthly_price":0,"annual_total":0,"credits":50,"credit_period":"week","carryover":"none","concurrent_sessions":null,"api_mcp":false},
+    {"id":"entry","annual_monthly_price":660,"monthly_price":1320,"annual_total":7920,"credits":400,"credit_period":"month","carryover_months":2,"concurrent_sessions":1,"api_mcp":false},
+    {"id":"light","annual_monthly_price":990,"monthly_price":1980,"annual_total":11880,"credits":1000,"credit_period":"month","carryover_months":2,"concurrent_sessions":1,"api_mcp":false},
+    {"id":"standard","annual_monthly_price":2475,"monthly_price":4950,"annual_total":29700,"credits":3000,"credit_period":"month","carryover_months":2,"concurrent_sessions":5,"api_mcp":true},
+    {"id":"pro","annual_monthly_price":4950,"monthly_price":9900,"annual_total":59400,"credits":null,"credit_period":"month","carryover_months":2,"concurrent_sessions":null,"api_mcp":true},
+    {"id":"enterprise","annual_monthly_price":9900,"monthly_price":19800,"annual_total":118800,"credits":null,"credit_period":"month","carryover_months":2,"concurrent_sessions":null,"api_mcp":true}
+  ],
+  "charging_rules":[
+    "Webは結果表示成功時に消費。0件、1時間以内の同一keyword再検索、error、残高不足、表示前cancelは原則非消費",
+    "一括キーワード調査・検索順位チェックはデータ取得実行時に消費",
+    "API/MCPはデータ取得成功時に消費し、Web基準の原則1.5倍",
+    "copy/CSV/JSON downloadと通常filter/sortは非消費。ただしsite-searchはfilter変更時に消費"
+  ],
+  "unknowns":["pro/enterprise allocated credits and concurrency were not established from captured public evidence","some per-feature credit amounts are not stated outside the dynamic pricing table"]
+}

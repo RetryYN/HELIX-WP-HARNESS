@@ -1,0 +1,1103 @@
+{
+  "schema_version": "rakko-capability-completion-audit.v1",
+  "evidence_cutoff": "2026-08-26",
+  "inventory_digest": "aaaaed16750036adeae7887eb8ed0891cedc34d3177f707f9d650378f64f6f5c",
+  "completion_claim": "not_proven",
+  "summary": {
+    "capability_count": 34,
+    "proven_complete_count": 4,
+    "incomplete_count": 30,
+    "blocker_counts": {
+      "contract_or_auth_parity": 2,
+      "corpus_or_acquisition_depth": 17,
+      "external_provider_or_account_data": 5,
+      "generation_runtime_or_quality_oracle": 6
+    }
+  },
+  "capabilities": [
+    {
+      "capability_id": "suggest",
+      "name": "サジェストキーワード",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "10,694元行を10,619正規化候補へlossless集約し、重複候補74・重複元行149・volume競合20、SERP取得100/未取得10,594、15 source sheetを監査。前方/部分/all-token検索、source row、取得状態、CSV/JSONを実装。外部8 surfaceの観測coverageはすべてfalseで、増量・appearance historyも未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/suggest-evidence-oracle.mjs",
+        "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
+        "scripts/association-evidence-oracle.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-suggest-evidence-oracle.mjs",
+        "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "2f1eb0d7965fc73ca50e19f2c197da58e77960b876a39ed96544974f90f632b7"
+    },
+    {
+      "capability_id": "related_keywords",
+      "name": "関連キーワード",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "10,594未取得実在KWから733元行・792候補をtoken overlap/association/volume/source ID付きで実装。複数group候補56行を同点18・僅差5・明確先頭33へ分離し、review 23は自動割当停止。外部大規模index・match type・appearance timeは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/suggest-evidence-oracle.mjs",
+        "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
+        "scripts/association-evidence-oracle.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-suggest-evidence-oracle.mjs",
+        "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "a6a954e086b926a6e89b81493e0682babe09f80753ca926959baa08d84c35b11"
+    },
+    {
+      "capability_id": "question_search",
+      "name": "よくある質問検索",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "472質問候補をsource→occurrence→SERP task→回答状態→記事coverageへ接続。保持PAA回答occurrence 396は解決12・async未回収384。未回収96 taskだけをclick depth 1・最大100件の1 batchへ編成し、全100 task再取得から4 taskを回避。保持単価による最大$0.072（refund前）・価格再確認必須・送信0。100 seed外の大規模質問index・相対検索量・回答completion実行は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "62a0f67446cec4c429000c2bccb9c73f7efef5f37cfc6437b3c5f736a4411685"
+    },
+    {
+      "capability_id": "lsi_paa",
+      "name": "潜在的な検索キーワード/質問（LSI/PAA）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "PAA 221 + 関連検索493 = 714固有需要を1,188 occurrenceへlossless逆引き。group横断反復86・group内反復105・単一task 523、整合異常0。回答396 occurrenceのうちasync未回収384を96 task・1 batch・最大$0.072のcompletion計画へ接続。全714需要は単日snapshotで複数日history 0、importanceは相対値。2階層・appearance history・再取得実行は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "add44bcf320a280f52ef6ea7e02c05ea70d7b2c3e40dcf15d443f6d245966550"
+    },
+    {
+      "capability_id": "simultaneous_ranking",
+      "name": "同時ランクインキーワード",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "339同時rank relationのshared URL count・top10 overlap・reciprocal rank scoreを再計算し整合異常0。同一group 85・group横断254・top10完全一致2、boundary接続68・intent接続96・URL evidenceのみ175。共有URLから自動mergeしない。URL graph・複合intent・境界・top3/5/10安定性と記事設計を実装済み。最大5,000件のrank DB母集団は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "6416a09b888dae9dc2464a913ce4e160c1d9d9ea83769077422da19affac1e1e"
+    },
+    {
+      "capability_id": "bulk_keyword_research",
+      "name": "一括キーワード調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。latest/monthly/difficulty実測とprovider job実行は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "e3554853e5f83620bd26e129b9a98eef04993a0ddbfc9cf7256eb9199356687a"
+    },
+    {
+      "capability_id": "influx_keywords",
+      "name": "獲得キーワード調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "観測100KW×上位10 URL内はdomain/page→獲得KW・順位を逆引き可能。全rank keyword DB、subdomain/directory match、推定traffic/value/historyは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "1f0fa905abc0d5b06841e8c0612f12fd813c975ec300a4e33b2059c59698cf68"
+    },
+    {
+      "capability_id": "influx_pages",
+      "name": "獲得ページ調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "観測100KW×上位10の565ページをKW/group/rank/top-KW別に集約しUI実装。全rank keyword母集団、推定traffic/value/historyは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "56515800319b7c7604a79e81aecafd46e9cb10cd1a810e9450aa9ccc48991033"
+    },
+    {
+      "capability_id": "competitive_domains",
+      "name": "競合サイト抽出",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIは実装。全rank keyword母集団、重複率分母、推定traffic/valueは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "cb7d9eb2a6331b0225f15586c11c40fe1be262faf5bd2aa1e15ccf82e4f0bcb5"
+    },
+    {
+      "capability_id": "bulk_site_research",
+      "name": "一括サイト調査",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "site-scoped同一定義の11指標を横断比較するAPI/UIを実装し2-site isolation fixtureで検証。本番登録は1 siteのみで、外部10-100 URL一括Labs指標・trendは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js"
+      ],
+      "verification_commands": [
+        "npm run prototype:research-api:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "d22c61c000f7e14f149e255941281a4473a7e1243bc3c9a6d73005aaf751d47f"
+    },
+    {
+      "capability_id": "site_search",
+      "name": "サイト検索",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移を実装。外部domain/content index、推定trafficによる未知site検索は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js"
+      ],
+      "verification_commands": [
+        "npm run prototype:research-api:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "8d6653589f979ce3c287ea61a1e92fe0d564b92c7be481febb47246744e7bb0e"
+    },
+    {
+      "capability_id": "content_search",
+      "name": "集客コンテンツ検索",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "上位10候補の取得成功535ページと取得失敗29ページのSERP代替証拠に加え、description/pre-snippet/breadcrumb/highlight/sitelink/rating/price/video属性と観測獲得KWの検索・逆引きUI/APIを実装。snippetを本文見出し・共起語へ昇格しない。全page/rank index、推定top keyword、traffic metricsは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "1cf05b08165db8e5ec2b8243f963f91ea7ad00e3d47093ce6c8cf95cb662c408"
+    },
+    {
+      "capability_id": "search_rank",
+      "name": "検索順位チェック",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "同一検索契約の2時点・2KWを履歴化し、任意domain/URLの前回→現在順位・title変更を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を新規／圏外と断定しないrank-state oracleをDB/API/UIへ実装。さらに100KWについて自サイトdomain・週次・120日・100位深度の監視候補を生成し、必要19観測、残回数、次回期限をAPI/MCP/UIへ接続。登録済0・実行済0を明示。真の圏外確認、継続取得、provider登録job、volume/difficulty/trafficは未実装",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "239a733a5037f1951da19a5d9bf198841be7bd7899a6949023a7c33796a43b8c"
+    },
+    {
+      "capability_id": "headline",
+      "name": "見出し抽出",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "top10 acquired（18,424 headings）。H1〜H6・検索・除外語・task/group scope・ページ構造・本文文字数・平均/中央値をAPI/UI実装。top11〜20とRakko固有の除外条件wire互換は未実装",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "d5b13acc77570756fd89f6e863fca25fcb21292ee1588bdb6664ec8760171771"
+    },
+    {
+      "capability_id": "cooccurrence",
+      "name": "共起語",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "top10 acquired。task/group/URL evidence and extra metrics implemented; top11〜20 and Rakko getDetails wire compatibility gap",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "8dbc098f519e03d4a154c8252a123f93a544934e9ebbc5138fb97f368b5e0774"
+    },
+    {
+      "capability_id": "ai_keyword_proposal",
+      "name": "キーワード提案AI",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。LLM model/prompt/output metadataは未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
+        "scripts/title-repair-oracle.mjs",
+        "scripts/heading-serp-pattern-oracle.mjs",
+        "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
+        "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
+        "node scripts/test-title-repair-oracle.mjs",
+        "node scripts/test-title-repair-api.mjs",
+        "node scripts/test-heading-serp-pattern-oracle.mjs",
+        "node scripts/test-heading-repair-oracle.mjs",
+        "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
+        "node scripts/test-claim-verification-queue.mjs",
+        "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "9cbbfa38a64012782c16a6514a773654a04bb9e27b756a2957195567134ce428"
+    },
+    {
+      "capability_id": "ai_title",
+      "name": "記事タイトル生成（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。62件は観測文字数IQR内で編集review可、1件は不自然な水増しを避け要確認、57件はtopic証拠へ接続。競合title copy・順位効果推測・自動承認なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
+        "scripts/title-repair-oracle.mjs",
+        "scripts/heading-serp-pattern-oracle.mjs",
+        "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
+        "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
+        "node scripts/test-title-repair-oracle.mjs",
+        "node scripts/test-title-repair-api.mjs",
+        "node scripts/test-heading-serp-pattern-oracle.mjs",
+        "node scripts/test-heading-repair-oracle.mjs",
+        "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
+        "node scripts/test-claim-verification-queue.mjs",
+        "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "04261dcd82b1c3d36a74eac6be44e808bd9149387a14ddd7cc143dd0f7202de8"
+    },
+    {
+      "capability_id": "ai_heading",
+      "name": "記事見出し生成（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。形態要確認180候補をHELIX独自に再構成し、177件は階層別観測文字数IQR内・未観測疑問形0、3件は不自然な圧縮を避け要確認。意味保持確認済0を明示し、競合見出しcopy・順位因果推測・自動承認なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
+        "scripts/title-repair-oracle.mjs",
+        "scripts/heading-serp-pattern-oracle.mjs",
+        "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
+        "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
+        "node scripts/test-title-repair-oracle.mjs",
+        "node scripts/test-title-repair-api.mjs",
+        "node scripts/test-heading-serp-pattern-oracle.mjs",
+        "node scripts/test-heading-repair-oracle.mjs",
+        "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
+        "node scripts/test-claim-verification-queue.mjs",
+        "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "102d576bf3493780b8f8d190176368a769902c4361cbff368974d64124490d6b"
+    },
+    {
+      "capability_id": "ai_body",
+      "name": "記事本文生成（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "63記事・573 claim・2,018根拠参照をpublication readinessへ統合し、実質510 claimをP0 64/P1 168/P2 278へ分類。情報源要件別に初回探索query 510本を選定し、代替1,020本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり107・なし403を区別し、費用未見積・価格確認必須・実行0・検証0・承認0。63/63記事をblocked。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、rich copy、list/table本文生成は未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
+        "scripts/title-repair-oracle.mjs",
+        "scripts/heading-serp-pattern-oracle.mjs",
+        "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
+        "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
+        "node scripts/test-title-repair-oracle.mjs",
+        "node scripts/test-title-repair-api.mjs",
+        "node scripts/test-heading-serp-pattern-oracle.mjs",
+        "node scripts/test-heading-repair-oracle.mjs",
+        "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
+        "node scripts/test-claim-verification-queue.mjs",
+        "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "adea3c02f47ebb37e8da5b9c1176c2b5c1adbe80fe177a76386f1ef2ce5c3f10"
+    },
+    {
+      "capability_id": "ai_questions",
+      "name": "関連する疑問（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。外部LLMによる新規質問生成・model/prompt metadataは未実行",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
+        "scripts/title-repair-oracle.mjs",
+        "scripts/heading-serp-pattern-oracle.mjs",
+        "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
+        "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
+        "node scripts/test-title-repair-oracle.mjs",
+        "node scripts/test-title-repair-api.mjs",
+        "node scripts/test-heading-serp-pattern-oracle.mjs",
+        "node scripts/test-heading-repair-oracle.mjs",
+        "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
+        "node scripts/test-claim-verification-queue.mjs",
+        "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "d42d1771db9ee6c7b949c66da00b75cb3bb58fbfd97a9e0659459d34f79224da"
+    },
+    {
+      "capability_id": "ai_related_keywords",
+      "name": "関連キーワード（AI）",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "generation_runtime_or_quality_oracle"
+      ],
+      "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。LLMによる新語生成・model/prompt metadataは未実装",
+      "authoritative_evidence": [
+        "scripts/content-topic-proposals.mjs",
+        "scripts/content-generation-review.mjs",
+        "scripts/title-serp-pattern-oracle.mjs",
+        "scripts/title-repair-oracle.mjs",
+        "scripts/heading-serp-pattern-oracle.mjs",
+        "scripts/heading-repair-oracle.mjs",
+        "scripts/content-readiness-oracle.mjs",
+        "scripts/claim-verification-queue.mjs",
+        "scripts/claim-discovery-portfolio.mjs",
+        "scripts/content-draft-package.mjs",
+        "scripts/ai-question-candidates.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-title-serp-pattern-oracle.mjs",
+        "node scripts/test-title-repair-oracle.mjs",
+        "node scripts/test-title-repair-api.mjs",
+        "node scripts/test-heading-serp-pattern-oracle.mjs",
+        "node scripts/test-heading-repair-oracle.mjs",
+        "node scripts/test-heading-repair-api.mjs",
+        "node scripts/test-content-readiness-oracle.mjs",
+        "node scripts/test-content-readiness-api.mjs",
+        "node scripts/test-claim-verification-queue.mjs",
+        "node scripts/test-claim-verification-api.mjs",
+        "node scripts/test-claim-discovery-portfolio.mjs",
+        "node scripts/test-claim-discovery-api.mjs",
+        "npm run prototype:ai-questions:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "cd0395a981c7fda4f9dd5abbc564548e4ed573efe0eb46fe5dbb39e55b14f670"
+    },
+    {
+      "capability_id": "hashtags",
+      "name": "関連ハッシュタグ",
+      "parity_status": "incomplete",
+      "helix_status": "planned",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "63 seed×YouTube Organicのproxy requestは計画済み・未実行。ただしSERP結果はauthoritative hashtag datasetを保証せず、TikTok providerも未接続のためsocial data未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "a03bfc7b7f7e48714e64423c0129596e14e16bebfb2269501d794c3d216e7e8e"
+    },
+    {
+      "capability_id": "synonyms",
+      "name": "類語・同義語",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "表記variant 921 cluster・2,075元表記・1,492 pairをsource証拠付きで再検証。さらに強い相互共起を保持SERP title/snippet URL文脈へ照合した168関係候補を追加し、複合語候補2・文脈重複23・文脈分離41・証拠不足102へ分離、shared URL occurrence 330、編集判断済み0。いずれも意味的同義性や交換可能性は推論しない。意味的同義語の外部辞書は未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/suggest-evidence-oracle.mjs",
+        "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
+        "scripts/association-evidence-oracle.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-suggest-evidence-oracle.mjs",
+        "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "ed97fe3a3ce30c72a93a1e82cc155918d247063b54b3583a466c6e8b1ab806c4"
+    },
+    {
+      "capability_id": "associations",
+      "name": "周辺語・連想語",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "7,087有効keyword documentから585基準語・1,636関係を実装。cosineとsource rowを再計算検証し、強336・中395・弱905、相互top-K 1,002・片方向top-K 634、完全sample 1,589・20件上限sample 47、整合異常0。観測共起であり意味的同義性は推論しない。外部association corpusは未取得",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-lineage-ledger.mjs",
+        "scripts/related-keyword-boundary-oracle.mjs",
+        "scripts/suggest-evidence-oracle.mjs",
+        "scripts/variant-evidence-oracle.mjs",
+        "scripts/semantic-candidate-review.mjs",
+        "scripts/association-evidence-oracle.mjs",
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-keyword-lineage-ledger.mjs",
+        "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "node scripts/test-suggest-evidence-oracle.mjs",
+        "node scripts/test-variant-evidence-oracle.mjs",
+        "node scripts/test-semantic-candidate-review.mjs",
+        "node scripts/test-association-evidence-oracle.mjs",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "4d210c5fce8608210dcaa2fa4a2396938f1afd0640e3c39c3bbc78fb08e4b5e5"
+    },
+    {
+      "capability_id": "qa_sites",
+      "name": "Q&Aサイト検索",
+      "parity_status": "incomplete",
+      "helix_status": "planned",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "専用DFS endpointを確認できず、Google operator queryは公式記載上5倍課金のためjobを生成せずprovider_gap化。PAAは別機能で保持済みだがQ&A site dataは未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "c6e0a87bcf76bebb3084d7dd4be6ec523d5d9268c92664e1cd1183a53bb80baf"
+    },
+    {
+      "capability_id": "google_trends",
+      "name": "Googleトレンド",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "DFS Google Trends Explore Standardへ63 seedを最大5語ずつ13 job、past_5_years graph/mapでrequest計画済み。公式公開単価による見積$0.0351、live/credential/承認上限gate付きで未実行、timeseries/mapは未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "ec58846075edcc9d26936ada54069775ea086890ab91dcea10acc8bb3ad806a3"
+    },
+    {
+      "capability_id": "news",
+      "name": "ニュース・話題の記事",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "DFS Google News Standardへ63 seed・63 jobのrequest計画済み。公式公開単価による見積$0.0378、live/credential/承認上限gate付きで未実行、news corpusは未取得",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "cab50795f2f8690d770fa26e12a85b05a951c116d8943a7587094793124faed2"
+    },
+    {
+      "capability_id": "quick_search",
+      "name": "クイックサーチ",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "元KW、施策group、質問需要、類語連想、GSC記事、競合contentの6 source横断検索と各filter/treeへの遷移を実装。未取得provider datasetは検索対象外",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:table-state:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "c737478b05caf735bfce8769f3921946b4f36420925b3633f8e6aceb059c7773"
+    },
+    {
+      "capability_id": "auxiliary_tools",
+      "name": "補助ツール",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "9操作を実装。地域生成は日本郵便2026-07-31版の47都道府県/1,892市区町村・郡町村と国交省2025年度版の9,046駅groupをarchive/evidence digest付きで使用",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:table-state:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "19f02c880edd171d9581709338028c6f42d1cc2e967108d04206995513fd7266"
+    },
+    {
+      "capability_id": "data_output",
+      "name": "データ出力・copy/filter/sort URL state",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "既知契約範囲を実装。filtered CSV/JSON、全16 viewのsite-scoped JSON snapshot、browser-only最大50件履歴、全filterの共通f.* URL state、全tableの任意column昇降sort・ARIA・keyboard・sort.* URL復元を提供",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:table-state:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "1afc9e6dc66e59f4327f02f4984ffad08c5ce0904b738644527d497dd7b34044"
+    },
+    {
+      "capability_id": "bookmarklet",
+      "name": "ブックマークレット",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "選択文字、未選択時page titleをquick_qへ渡しsite別横断検索を別tabで開く。本文送信・保存なし",
+      "authoritative_evidence": [
+        "docs/prototypes/wp-ops-dashboard/app.js",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "scripts/test-dashboard-table-state.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs"
+      ],
+      "verification_commands": [
+        "npm run prototype:table-state:test",
+        "npm run prototype:keyword-dashboard:test"
+      ],
+      "evidence_digest": "5f54c1be04b004fe931c33a0d42c4005ed9bd0a047e49953c67804c57bed1696"
+    },
+    {
+      "capability_id": "public_api",
+      "name": "ラッコキーワードAPI",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "contract_or_auth_parity"
+      ],
+      "remaining_gap": "/api/v1に68 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
+        "scripts/seo-action-queue.mjs",
+        "scripts/test-keyword-dashboard-api.mjs",
+        "scripts/test-keyword-dashboard-mcp.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-seo-action-queue-api.mjs",
+        "npm run prototype:research-api:test",
+        "npm run prototype:mcp:test"
+      ],
+      "evidence_digest": "2181152b8cd8759dbe624af6e786182b37822c3990f9d3d00e67a45267847db7"
+    },
+    {
+      "capability_id": "mcp",
+      "name": "ラッコキーワードMCP",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "contract_or_auth_parity"
+      ],
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の48 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "authoritative_evidence": [
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
+        "scripts/seo-action-queue.mjs",
+        "scripts/test-keyword-dashboard-api.mjs",
+        "scripts/test-keyword-dashboard-mcp.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-seo-action-queue-api.mjs",
+        "npm run prototype:research-api:test",
+        "npm run prototype:mcp:test"
+      ],
+      "evidence_digest": "d91792977c79c55f66cd89d4a5a38f56b99f6cff2285c5b62ffc4861da1cc38a"
+    },
+    {
+      "capability_id": "credit_history",
+      "name": "クレジット消費履歴/API key management",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "external_provider_or_account_data"
+      ],
+      "remaining_gap": "DFSのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。Rakko credit換算・Rakko account/API key lifecycleは未取得・未実装",
+      "authoritative_evidence": [
+        "scripts/provider-acquisition-plan.mjs",
+        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "scripts/test-provider-acquisition-plan.mjs"
+      ],
+      "verification_commands": [
+        "npm run provider:acquisition-plan:test"
+      ],
+      "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
+    }
+  ],
+  "audit_digest": "2a0a759031e31378e1887dec1fd673cc98d050524ae47240011c1f29d0e2eff2"
+}

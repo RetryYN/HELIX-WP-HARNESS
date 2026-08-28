@@ -1,0 +1,3 @@
+import assert from "node:assert/strict";
+import {runKeywordUtility} from "../docs/prototypes/wp-ops-dashboard/keyword-utilities.mjs";
+assert.deepEqual(runKeywordUtility("combine","IT\nWeb","就活\n転職"),["IT 就活","IT 転職","Web 就活","Web 転職"]);assert.deepEqual(runKeywordUtility("dedupe","ＩＴ　就活\nit 就活\nWeb"),["ＩＴ　就活","Web"]);assert.deepEqual(runKeywordUtility("intersection","IT 就活\nWeb","ｉｔ　就活"),["IT 就活"]);assert.deepEqual(runKeywordUtility("diff","a\nb","b\nc"),["- a","+ c"]);assert.deepEqual(runKeywordUtility("replace","IT就活","",{search:"IT",replacement:"Web"}),["Web就活"]);assert.deepEqual(runKeywordUtility("count","😀a"),["2\t😀a"]);console.log("keyword utilities: OK (combine, list compare, diff, replace, dedupe, normalize, count and overlap removal)");

@@ -1,0 +1,30 @@
+import {createHash} from "node:crypto";
+import {readFileSync} from "node:fs";
+import path from "node:path";
+import {normalizeKeyword} from "./keyword-serp-core.mjs";
+
+const digest=(value)=>createHash("sha256").update(JSON.stringify(value)).digest("hex");
+const taskResults=(response)=>response.tasks?.filter((task)=>task.status_code===20000).flatMap((task)=>task.result??[])??[];
+const requestedKeywords=(jobs,kind)=>jobs.filter((job)=>job.kind===kind).flatMap((job)=>job.payload?.[0]?.keywords??[]);
+
+export function normalizeDfsEnrichmentEvidence({plan,responses}){
+  if(!plan.site_id)throw new Error("DFS enrichment plan site identity is required");
+  const metrics=[],monthly=[],difficulties=[],rankedKeywords=[],rankedSummaries=[];
+  for(const response of responses.filter((item)=>item.kind==="keyword_metrics"))for(const item of taskResults(response.body)){
+    const row={site_id:plan.site_id,keyword:item.keyword,normalized_keyword:normalizeKeyword(item.keyword),spell:item.spell??null,location_code:item.location_code,language_code:item.language_code,search_partners:Boolean(item.search_partners),competition_level:item.competition??null,competition_index:item.competition_index??null,search_volume:item.search_volume??null,low_top_of_page_bid:item.low_top_of_page_bid??null,high_top_of_page_bid:item.high_top_of_page_bid??null,cpc:item.cpc??null,source_job_id:response.job_id,source_digest:response.raw_digest};row.evidence_digest=digest(row);metrics.push(row);
+    for(const month of item.monthly_searches??[])monthly.push({site_id:plan.site_id,keyword:item.keyword,normalized_keyword:row.normalized_keyword,year:month.year,month:month.month,search_volume:month.search_volume??null,source_job_id:response.job_id,source_digest:response.raw_digest});
+  }
+  for(const response of responses.filter((item)=>item.kind==="keyword_difficulty"))for(const result of taskResults(response.body))for(const item of result.items??[]){const row={site_id:plan.site_id,keyword:item.keyword,normalized_keyword:normalizeKeyword(item.keyword),keyword_difficulty:item.keyword_difficulty??null,se_type:item.se_type??result.se_type??null,location_code:result.location_code??null,language_code:result.language_code??null,source_job_id:response.job_id,source_digest:response.raw_digest};row.evidence_digest=digest(row);difficulties.push(row)}
+  for(const response of responses.filter((item)=>item.kind==="ranked_keywords"))for(const result of taskResults(response.body)){
+    rankedSummaries.push({site_id:plan.site_id,target:result.target,location_code:result.location_code,language_code:result.language_code,total_count:result.total_count??null,items_count:result.items_count??(result.items??[]).length,metrics:result.metrics??null,metrics_absolute:result.metrics_absolute??null,source_job_id:response.job_id,source_digest:response.raw_digest});
+    for(const item of result.items??[]){const keywordData=item.keyword_data??{},keywordInfo=keywordData.keyword_info??{},intent=keywordData.search_intent_info??{},serp=item.ranked_serp_element?.serp_item??{};const row={site_id:plan.site_id,keyword:keywordData.keyword,normalized_keyword:normalizeKeyword(keywordData.keyword),location_code:keywordData.location_code??result.location_code,language_code:keywordData.language_code??result.language_code,search_volume:keywordInfo.search_volume??null,cpc:keywordInfo.cpc??null,competition:keywordInfo.competition??null,competition_level:keywordInfo.competition_level??null,keyword_difficulty:keywordData.keyword_properties?.keyword_difficulty??null,main_intent:intent.main_intent??null,foreign_intents:intent.foreign_intent??[],serp_type:serp.type??null,rank_group:serp.rank_group??null,rank_absolute:serp.rank_absolute??null,domain:serp.domain??null,url:serp.url??null,relative_url:serp.relative_url??null,title:serp.title??null,etv:serp.etv??null,estimated_paid_traffic_cost:serp.estimated_paid_traffic_cost??null,rank_changes:serp.rank_changes??null,backlinks_info:serp.backlinks_info??null,source_job_id:response.job_id,source_digest:response.raw_digest};row.evidence_digest=digest(row);rankedKeywords.push(row)}
+  }
+  const requestedMetrics=requestedKeywords(plan.jobs,"keyword_metrics"),requestedDifficulty=requestedKeywords(plan.jobs,"keyword_difficulty"),metricKeys=new Set(metrics.map((row)=>row.normalized_keyword)),difficultyKeys=new Set(difficulties.map((row)=>row.normalized_keyword));
+  return{schema_version:"dfs-enrichment-normalized.v1",keyword_metrics:metrics,keyword_monthly_searches:monthly,keyword_difficulties:difficulties,ranked_keyword_summaries:rankedSummaries,ranked_keywords:rankedKeywords,coverage:{keyword_metrics:{requested:requestedMetrics.length,returned:metrics.length,missing_keywords:requestedMetrics.filter((keyword)=>!metricKeys.has(normalizeKeyword(keyword)))},keyword_difficulty:{requested:requestedDifficulty.length,returned:difficulties.length,missing_keywords:requestedDifficulty.filter((keyword)=>!difficultyKeys.has(normalizeKeyword(keyword)))},ranked_keywords:{returned:rankedKeywords.length,total_available:rankedSummaries[0]?.total_count??null,truncated:rankedSummaries.some((row)=>row.total_count!=null&&row.items_count<row.total_count)}}};
+}
+
+export function loadDfsEnrichmentEvidence(manifestPath){
+  const manifest=JSON.parse(readFileSync(manifestPath,"utf8"));if(manifest.schema_version!=="dfs-enrichment-evidence.v1")throw new Error(`unsupported DFS enrichment evidence: ${manifest.schema_version}`);if(manifest.status!=="complete")throw new Error(`DFS enrichment evidence is not complete: ${manifest.status}`);
+  const responses=manifest.jobs.map((job)=>{const body=JSON.parse(readFileSync(path.resolve(path.dirname(manifestPath),job.raw_file),"utf8")),actual=createHash("sha256").update(JSON.stringify(body,null,2)).digest("hex");if(actual!==job.raw_digest)throw new Error(`DFS enrichment raw digest mismatch: ${job.job_id}`);return{kind:job.kind,job_id:job.job_id,raw_digest:job.raw_digest,body}});
+  return{...normalizeDfsEnrichmentEvidence({plan:manifest.plan,responses}),site_id:manifest.plan.site_id,manifest_path:manifestPath,generated_at:manifest.generated_at,reported_cost_usd:manifest.reported_cost_usd};
+}

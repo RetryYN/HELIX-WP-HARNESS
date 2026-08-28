@@ -1,0 +1,6 @@
+import assert from "node:assert/strict";
+import {openDashboardDb,projectDashboard} from "./keyword-dashboard-db.mjs";
+import {routeResearchApi} from "./keyword-dashboard-api.mjs";
+import {handleMcpMessage} from "./keyword-dashboard-mcp.mjs";
+const db=openDashboardDb(".helix/keyword-dashboard.sqlite");
+try{const data=projectDashboard(db),site=data.sites[0],url=new URL(`/api/v1/rank/monitor-plan?site_id=${site.site_id}&limit=100`,"http://localhost"),api=routeResearchApi(url.pathname,url,data,db);assert.equal(api.status,200);assert.equal(api.body.meta.total,100);assert.equal(api.body.summary.registered_count,0);assert.equal(api.body.summary.keywords_with_two_observations_count,2);assert.equal(api.body.summary.target_observation_count,19);assert.equal(api.body.summary.requested_depth,100);assert(api.body.data.every((row)=>row.registration_state==="plan_only_not_registered"&&!row.external_acquisition_triggered&&row.evidence_digest.length===64));const mcp=handleMcpMessage({jsonrpc:"2.0",id:1,method:"tools/call",params:{name:"plan_rank_monitoring",arguments:{site_id:site.site_id,state:"insufficient_history",limit:100}}},data);assert.equal(mcp.result.structuredContent.meta.total,100);console.log("rank monitor API/MCP: OK (100 candidates, 2 with history, no implicit registration)")}finally{db.close()}
