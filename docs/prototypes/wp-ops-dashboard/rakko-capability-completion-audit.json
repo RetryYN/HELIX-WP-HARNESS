@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "36f6b24abe56ed482b6a70053a434b1a39f5d939d2cab71bef56dcb0ced96f86",
+  "inventory_digest": "2295f6da11d766b4d509b7cab5ff8d82148b588633dda8a199925274b4e30912",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -100,10 +100,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -130,6 +132,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -138,7 +143,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "e1ae5619501cbc5b249153ebef2c075755f56c95e057e607bf0fc9886d901c13"
+      "evidence_digest": "5ad6bccf8a7f9e609e335ca5b128d59b3a33d4a881f448378ad489a0c3ac1c75"
     },
     {
       "capability_id": "lsi_paa",
@@ -161,10 +166,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -191,6 +198,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -199,7 +209,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "295dc832e5450be6d9189ab7fe2ee25300669490a8530903182651d3938598d0"
+      "evidence_digest": "b97c6a37660f0e883d5d02a20e76f3bb9b4c31a457405ec11bdc1ac5d0c6ee2d"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -222,10 +232,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -252,6 +264,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -260,7 +275,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "3b51c9f99379d6b9378d2c461e7fa620c61a2030f8b477b34ed0e4a0e0a2d560"
+      "evidence_digest": "cbfca8c19adb9063daa3f2705a9559b7f6c51b51c49702cd40ad46813bb31848"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -283,10 +298,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -313,6 +330,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -321,7 +341,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "5961970ade8a53cc4832e4c44d5cd472c7c4daf4b901e1b8f2d1c25a13db24d1"
+      "evidence_digest": "f71b193ecc7113f7cd6f00fc15842bff1dcf94954044592cdb996c382b0bf845"
     },
     {
       "capability_id": "influx_keywords",
@@ -344,10 +364,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -374,6 +396,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -382,7 +407,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "c3e0ccd631e3b83f015f4b647a7af8796cd3c42d79bf31275b389ffae8f0e87f"
+      "evidence_digest": "eb7bb0c77291bd9be1f6d0dbfd0a10959a740377c3747ff676afcf61f2446ef6"
     },
     {
       "capability_id": "influx_pages",
@@ -393,7 +418,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10の565ページをKW/group/rank/top-KW別に集約しUI実装。全rank keyword母集団、推定traffic/value/historyは未取得",
+      "remaining_gap": "観測100KW×上位10の565ページをKW/group/rank/top-KW別に集約しUI実装。さらに保持済み同一KWの98比較からページ出現履歴1,019件（継続785・新規114・消失120）と順位・visibility差分をDB/API/MCP/UIへ接続。全rank keyword母集団、推定traffic/value、120日継続履歴は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -405,10 +430,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -435,6 +462,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -443,7 +473,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "de9ad2811ec59b50e86e3ed95921e94734d39e7b9c44a40bb7bcb5fbed964515"
+      "evidence_digest": "6d35e6720d65059a572ddd21b88af7d155dedc794edc80727e2aad0cac37f0e4"
     },
     {
       "capability_id": "competitive_domains",
@@ -454,7 +484,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIは実装。全rank keyword母集団、重複率分母、推定traffic/valueは未取得",
+      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -466,10 +496,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -496,6 +528,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -504,7 +539,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "3e96cefff46a2973cf873e14b92b7d4b327304dadd6ef0c211fd87744d74c138"
+      "evidence_digest": "a69ec30c26dc444b9c123f2b40c8481b332c256a81bc6d851b1371127b6ca0e8"
     },
     {
       "capability_id": "bulk_site_research",
@@ -569,10 +604,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -599,6 +636,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -607,7 +647,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "27a077af6feeef2945f702b4b43ae0723f554fe2981979258a793841197e0713"
+      "evidence_digest": "d6376ca0bb7e569b9dd30ae0b29ad14342e6c0eacc46a0184e3a79788fdcbdb5"
     },
     {
       "capability_id": "search_rank",
@@ -618,7 +658,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "同一検索契約の2時点・2KWを履歴化し、任意domain/URLの前回→現在順位・title変更を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を新規／圏外と断定しないrank-state oracleをDB/API/UIへ実装。さらに100KWについて自サイトdomain・週次・120日・100位深度の監視候補を生成し、必要19観測、残回数、次回期限をAPI/MCP/UIへ接続。登録済0・実行済0を明示。真の圏外確認、継続取得、provider登録job、volume/difficulty/trafficは未実装",
+      "remaining_gap": "同一検索契約の2時点・98KWを履歴化し、任意domain/URLの順位・title変更に加え、domain 954件とpage 1,019件の継続／新規／消失・最良順位・visibility差分を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を圏外と断定しないrank-state oracleをDB/API/MCP/UIへ実装。さらに100KWについて自サイトdomain・週次・120日・100位深度の監視候補を生成し、必要19観測、残回数、次回期限を接続。登録済0・実行済0を明示。真の圏外確認、120日継続取得、provider登録job、volume/difficulty/trafficは未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -630,10 +670,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -660,6 +702,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -668,7 +713,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "c817c153ea8c7c2ee1e514c8ad24f558694e6063ecdd936b6376caae894880c9"
+      "evidence_digest": "58a24bd8d8b10502cd7600f1b1a6542b8a759b9fa81a375f8bb55696a22322da"
     },
     {
       "capability_id": "headline",
@@ -691,10 +736,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -721,6 +768,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -729,7 +779,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "789bf2ce1b794477b6fd105070c2db48245217143e9716f590ba963d6b82aaef"
+      "evidence_digest": "ff8e1a02e30d663298c4bd378e83551a2c7342765daa3f466bca30413dcbcab2"
     },
     {
       "capability_id": "cooccurrence",
@@ -752,10 +802,12 @@
         "scripts/acquisition-execution-readiness.mjs",
         "scripts/acquisition-approval-manifest.mjs",
         "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
         "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
         "scripts/simultaneous-rank-integrity.mjs",
         "scripts/rank-monitor-plan.mjs",
         "scripts/keyword-acquisition-portfolio.mjs",
@@ -782,6 +834,9 @@
         "node scripts/test-demand-occurrence-integrity.mjs",
         "node scripts/test-demand-appearance-history.mjs",
         "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -790,7 +845,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "0444c8bc8677ffbfbf39a552b7aa8294bfd2ae719e185c7463778d59874d772a"
+      "evidence_digest": "f4ce179acf03a463ba3adc20aaa5753b93ef84b2fd08fbfc7e2a649950d2fecf"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -1359,5 +1414,5 @@
       "evidence_digest": "86d708a1aaebef3bc79fcdeb4ca9ebd444f137c4abc59807e44c8592298f6149"
     }
   ],
-  "audit_digest": "f6db75c1c77edeea27f9bb917985786c2ea4e4a599e02a6376bd8cf7a6840b3d"
+  "audit_digest": "b2dafea56f27c25d1eb855b395b5321a73e878754a2f6e02d2dfbe93000a7601"
 }

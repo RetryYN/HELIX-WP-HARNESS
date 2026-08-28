@@ -299,6 +299,9 @@
       <div class="table-wrap"><table class="special-feature-table"><thead><tr><th>対象KW</th><th>feature</th><th>順位</th><th>タイトル</th><th>URL</th></tr></thead><tbody id="special-feature-rows"></tbody></table></div>
       <div class="subsection-head"><h3>raw取得台帳（再利用監査）</h3><p>保存済みsnapshotを現行分析・同一KW履歴・隣接intent・別scopeへ分類し、捨てずに処遇を明示します</p></div>
       <div id="snapshot-reuse-metrics" class="metrics"></div>
+      <div class="subsection-head"><h3>競合ドメイン・ページ出現履歴</h3><p>同一KWの保持snapshotから継続・新規・消失、最良順位、観測内visibilityを集約します。観測depth外を圏外とは断定しません</p></div>
+      <div id="competitive-history-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>種別 / 対象</th><th>KW</th><th>状態</th><th>最良順位</th><th>URL数</th><th>visibility変化</th><th>証跡</th></tr></thead><tbody id="competitive-history-rows"></tbody></table><div id="competitive-history-empty" class="empty-state"></div></div>
       <div class="subsection-head"><h3>順位監視計画</h3><p>自サイト対象を週次・120日・100位深度で観測する登録候補です。計画表示だけで外部取得や自動登録は行いません</p></div>
       <div id="rank-monitor-plan-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>target</th><th>保持履歴</th><th>次回期限</th><th>観測契約</th><th>状態</th><th>証跡</th></tr></thead><tbody id="rank-monitor-plan-rows"></tbody></table></div>
