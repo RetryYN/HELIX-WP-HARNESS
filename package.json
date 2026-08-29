@@ -47,6 +47,7 @@
     "reference:japan-locations:test": "node scripts/test-japan-location-data.mjs",
     "prototype:ai-questions:test": "node scripts/test-ai-question-candidates.mjs",
     "prototype:mcp:test": "node scripts/test-keyword-dashboard-mcp.mjs",
+    "prototype:content-task-holdout:test": "node scripts/test-content-task-holdout-oracle.mjs && node scripts/test-content-task-holdout-api.mjs",
     "prototype:research-api:test": "node scripts/test-keyword-dashboard-api.mjs",
     "prototype:table-state:test": "node scripts/test-dashboard-table-state.mjs",
     "provider:acquisition-plan:build": "node scripts/build-provider-acquisition-plan.mjs",
