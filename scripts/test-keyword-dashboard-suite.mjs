@@ -9,6 +9,7 @@ const fullTests=["scripts/test-keyword-lineage-ledger.mjs","scripts/test-keyword
 ];
 fullTests.splice(14,0,"scripts/test-competitive-appearance-history.mjs","scripts/test-competitive-appearance-history-api.mjs","scripts/test-acquisition-lifetime-budget.mjs");
 fullTests.splice(17,0,"scripts/test-acquisition-lifetime-allocation.mjs","scripts/test-acquisition-lifetime-allocation-api.mjs");
+fullTests.splice(19,0,"scripts/test-acquisition-lifetime-approval-manifest.mjs","scripts/test-acquisition-lifetime-approval-manifest-api.mjs");
 fullTests.splice(17,0,"scripts/test-content-competitive-stability.mjs","scripts/test-content-competitive-stability-api.mjs");
 fullTests.splice(19,0,"scripts/test-content-evidence-ensemble-selection.mjs","scripts/test-content-evidence-ensemble-selection-api.mjs");
 fullTests.splice(21,0,"scripts/test-content-selection-delta-explanations.mjs","scripts/test-content-selection-delta-explanations-api.mjs");
