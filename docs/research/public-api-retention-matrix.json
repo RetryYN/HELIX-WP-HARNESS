@@ -1,7 +1,7 @@
 {
   "schema_version": "public-api-retention-matrix.v2",
   "source_graph_digest": "d2dd7e1ab0ef97bf521370bb4c22fffcdb5ecdadaab5783df5d5f57f8a4a12c8",
-  "source_field_audit_digest": "087ace068f6bfe43be4ad6c53a3943d0312c98061e497d6157c214496b906c43",
+  "source_field_audit_digest": "9b8cdb57283e05ac2a8c5cce39c55cf8a0f6a0d85a676cfc5e3c809b230a29b3",
   "operation_count": 24,
   "operation_with_retained_mapping_count": 11,
   "operation_requiring_acquisition_count": 17,
@@ -1207,5 +1207,5 @@
   "unclassified_count": 0,
   "wire_compatibility_claim": false,
   "external_request_executed": false,
-  "matrix_digest": "4700c353b2d2a1b1f01383a6b9d7af07be0daa7e2220b0a79b605ddf3797c92d"
+  "matrix_digest": "37b553bc02a5a2f1a56dee603ffc4f0fca99dca4d67f019bcb2778ba50645a80"
 }
