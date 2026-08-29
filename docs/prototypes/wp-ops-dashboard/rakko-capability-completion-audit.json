@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "6e60f780635266cc72d68508fb7f2a515252ec83b280a6c2cd062943410065c3",
+  "inventory_digest": "4b787559f7c4d6fbd677028aabcde8f7d00ace9b51ad7eb6dea2530031bd05a3",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -13,6 +13,86 @@
       "external_provider_or_account_data": 5,
       "generation_runtime_or_quality_oracle": 6
     }
+  },
+  "public_contract_credits": {
+    "operation_count": 24,
+    "credit_contract_count": 12,
+    "web_and_api_separated": true,
+    "paid_request_executed": false,
+    "rows": [
+      {
+        "operation_id": "SuggestKeywordsController_search",
+        "capability_id": "suggest",
+        "credits": 1.5,
+        "inventory_credits": "HELIX retained search 0; public API 1.5/request; paid external acquisition separately gated"
+      },
+      {
+        "operation_id": "RelatedKeywordsController_search",
+        "capability_id": "related_keywords",
+        "credits": 1.5,
+        "inventory_credits": "web 1/search; public API 1.5/request"
+      },
+      {
+        "operation_id": "OtherKeywordsController_search",
+        "capability_id": "lsi_paa",
+        "credits": 22.5,
+        "inventory_credits": "web 15/search; public API 22.5/request"
+      },
+      {
+        "operation_id": "QuestionSearchController_search",
+        "capability_id": "question_search",
+        "credits": 1.5,
+        "inventory_credits": "web 1/search; public API/MCP 1.5/request"
+      },
+      {
+        "operation_id": "RankingKeywordsController_search",
+        "capability_id": "simultaneous_ranking",
+        "credits": 4.5,
+        "inventory_credits": "web 3/search; public API 4.5/request"
+      },
+      {
+        "operation_id": "InfluxKeywordsController_searchKeyword",
+        "capability_id": "influx_keywords",
+        "credits": 4.5,
+        "inventory_credits": "web 3/search; public API 4.5/request"
+      },
+      {
+        "operation_id": "InfluxPagesController_searchPage",
+        "capability_id": "influx_pages",
+        "credits": 4.5,
+        "inventory_credits": "web within influx research; public API 4.5/request"
+      },
+      {
+        "operation_id": "CompetitiveController_searchCompetitive",
+        "capability_id": "competitive_domains",
+        "credits": 4.5,
+        "inventory_credits": "within influx research; API 4.5/request"
+      },
+      {
+        "operation_id": "ContentSearchController_search",
+        "capability_id": "content_search",
+        "credits": 4.5,
+        "inventory_credits": "web 3/search; public API 4.5/request"
+      },
+      {
+        "operation_id": "HeadlineController_search",
+        "capability_id": "headline",
+        "credits": 3,
+        "inventory_credits": "web 2/search; public API 3/request"
+      },
+      {
+        "operation_id": "CoOccurrenceController_search",
+        "capability_id": "cooccurrence",
+        "credits": 3,
+        "inventory_credits": "web 2/search; public API 3/request"
+      },
+      {
+        "operation_id": "SiteSearchController_search",
+        "capability_id": "site_search",
+        "credits": 1.5,
+        "inventory_credits": "HELIX local filter 0; public API 1.5/request"
+      }
+    ]
   },
   "capabilities": [
     {
@@ -1653,5 +1733,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "ccb9a10576138df0f9131b37b53db4fbf49592dd563ac357dcd7b69b7d058f86"
+  "audit_digest": "a7ab1d6b3d214cc0ee024791d12170c3eb30b6caf44bdbd79cc89c2f5388766e"
 }
