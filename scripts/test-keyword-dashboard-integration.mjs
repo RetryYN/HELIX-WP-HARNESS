@@ -395,6 +395,8 @@ assert.match(app,/new_article_brief_queue/);
 assert.match(app,/editorial_stage/);
 assert.match(app,/composition_issues/);
 assert.match(app,/next_action/);
+assert.match(app,/source_preparation_state/);
+assert.match(app,/claim_missing_citation_candidate_count/);
 assert.match(html, /keyword-rows/);
 assert.match(html, /id="page-size"/);
 assert.match(html, /id="category-parent-filter"/);
