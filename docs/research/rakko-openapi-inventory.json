@@ -1,6 +1,6 @@
 {
   "schema_version": "rakko-openapi-inventory.v1",
-  "generated_at": "2026-08-26T04:07:49.402Z",
+  "generated_at": "2026-08-29T07:30:25.778Z",
   "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
@@ -133,9 +133,15 @@
       ],
       "helix_evidence": [
         "serp_page_keyword_edges",
-        "simultaneous_keyword_relations"
+        "simultaneous_keyword_relations",
+        "serp_intent_fingerprints",
+        "serp_intent_pair_reviews",
+        "keyword_boundary_reviews",
+        "serp_depth_stability",
+        "content_topology_reviews",
+        "content_consolidation_blueprints"
       ],
-      "gap": "観測100KW内の上位10 URL交差は実装。Labs全rank keywordと可変searchTop/searchRangeは未取得"
+      "gap": "観測100KW内のURL交差、複合intent、境界consensus、深度安定性、group-level記事topologyと統合title/heading差分を実装。Labs全rank keywordとprovider可変searchRange母集団は未取得"
     },
     {
       "operation": "POST /v1/search-volume",
@@ -956,35 +962,35 @@
         },
         {
           "field_path": "data.items[].metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.searchVolume",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "月間検索数（年平均）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.cpc",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "推定クリック単価（USD）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.competition",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "広告競合性。0–100で表し、高いほど競合性が高い（0–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.firstSeenRange",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
@@ -1318,35 +1324,35 @@
         },
         {
           "field_path": "data.items[].metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.searchVolume",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "月間検索数（年平均）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.cpc",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "推定クリック単価（USD）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.competition",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "広告競合性。0–100で表し、高いほど競合性が高い（0–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.firstSeenRange",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
@@ -1526,35 +1532,35 @@
         },
         {
           "field_path": "data.items[].metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.searchVolume",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "月間検索数（年平均）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.cpc",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "推定クリック単価（USD）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.competition",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "広告競合性。0–100で表し、高いほど競合性が高い（0–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.firstSeenRange",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
@@ -1895,7 +1901,7 @@
         },
         {
           "field_path": "data.items[].metrics.firstSeenRange",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "出現時期。質問が最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
@@ -1931,14 +1937,14 @@
         },
         {
           "field_path": "searchTop",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": false,
           "description": "検索上位ページの参照数。そのキーワードでGoogle検索で上位表示できているページのうち、上位何件のURLを同時ランクイン判定に使用するかを指定する。選択肢: 3 / 5 / 10 / 20 / 30 / 50。省略時は 20。値を大きくすると、Google検索でより下位にランクインしている＝検索意図とズレのより大きいページが調査対象となる。値を小さくすると、Google検索でより上位にランクインしている＝検索意図に一致するページのみが調査対象となる。"
         },
         {
           "field_path": "searchRange",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": false,
           "description": "検索順位範囲。searchTopで指定したページがGoogle上位表示できているキーワードのうち、この順位以内にランクインしているキーワードを対象にする。選択肢: 10 / 20 / 30 / 50 / 100。省略時は 50。"
@@ -2222,7 +2228,7 @@
         },
         {
           "field_path": "data.items[].metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
@@ -2328,7 +2334,7 @@
         },
         {
           "field_path": "aggregationPeriodMonths",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": false,
           "description": "集計期間（月数）。12/24/36/48 のいずれか。省略時は 12。"
@@ -2455,7 +2461,7 @@
         },
         {
           "field_path": "data.query.status",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "リクエストで指定されたステータスフィルタ"
@@ -2511,7 +2517,7 @@
         },
         {
           "field_path": "data.items[].completedAt",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "全処理完了日時（ISO 8601、UTC）。未完了時は null。"
@@ -2994,7 +3000,7 @@
         },
         {
           "field_path": "data.items[].dataSource",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "検索数データの取得元。取得できなかった場合は null。"
@@ -3008,35 +3014,35 @@
         },
         {
           "field_path": "data.items[].metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.searchVolume",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "月間検索数（年平均）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.cpc",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "推定クリック単価（USD）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.competition",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "広告競合性。0–100で表し、高いほど競合性が高い（0–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.firstSeenRange",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
@@ -3057,42 +3063,42 @@
         },
         {
           "field_path": "data.items[].trends.changeRate.12m",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "直近12か月（直近月を含む）の平均に対する直近月の検索数増減率。集計期間に関わらず固定12か月。パーセントではなく比率（0.1 = +10%、1.0 = +100%）。12か月分のデータが無い場合は null。対象期間の検索数がすべて0の場合は0。"
         },
         {
           "field_path": "data.items[].trends.changeRate.6m",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "直近6か月（直近月を含む）の平均に対する直近月の検索数増減率。集計期間に関わらず固定6か月。パーセントではなく比率（0.1 = +10%、1.0 = +100%）。6か月分のデータが無い場合は null。対象期間の検索数がすべて0の場合は0。"
         },
         {
           "field_path": "data.items[].trends.changeRate.3m",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "直近3か月（直近月を含む）の平均に対する直近月の検索数増減率。集計期間に関わらず固定3か月。パーセントではなく比率（0.1 = +10%、1.0 = +100%）。3か月分のデータが無い場合は null。対象期間の検索数がすべて0の場合は0。"
         },
         {
           "field_path": "data.items[].trends.changeRate.yoy1y",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "1年前同月比（集計期間24か月以上で算出）"
         },
         {
           "field_path": "data.items[].trends.changeRate.yoy2y",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "2年前同月比（集計期間36か月以上で算出）"
         },
         {
           "field_path": "data.items[].trends.changeRate.yoy3y",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "3年前同月比（集計期間48か月以上で算出）"
@@ -3637,7 +3643,7 @@
         },
         {
           "field_path": "data.items[].metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
@@ -4160,7 +4166,7 @@
         },
         {
           "field_path": "data.items[].topKeyword.metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
@@ -4569,7 +4575,7 @@
         },
         {
           "field_path": "data.items[].metrics.estimatedTrafficChangeRate",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "推定流入数の前年同月比（生値ベース）。パーセントではなく比率（0.1 = +10%、1.0 = +100%）。算出不能時は null。"
@@ -5295,7 +5301,7 @@
         },
         {
           "field_path": "data.items[].topKeyword.metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
@@ -6106,7 +6112,7 @@
         },
         {
           "field_path": "data.query.status",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "リクエストで指定されたステータスフィルタ"
@@ -6162,7 +6168,7 @@
         },
         {
           "field_path": "data.items[].completedAt",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "全処理完了日時（ISO 8601、UTC）。未完了時は null。"
@@ -6232,7 +6238,7 @@
         },
         {
           "field_path": "data.items[].depth",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "検索結果の取得深度。30 / 40 / 50 / 60 / 70 / 80 / 90 / 100 のいずれか。取得深度が記録されていない古い履歴では null を返す。"
@@ -6764,28 +6770,28 @@
         },
         {
           "field_path": "data.items[].metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.searchVolume",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "月間検索数（年平均）。無効な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.cpc",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "推定クリック単価（USD）。無効な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.competition",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "広告競合性。0–100で表し、高いほど競合性が高い（0–33:低 / 34–66:中 / 67–100:高）。無効な場合は null。"
@@ -6813,14 +6819,14 @@
         },
         {
           "field_path": "data.items[].rankings[].position",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "検索順位。圏外または未検出の場合は null。"
         },
         {
           "field_path": "data.items[].rankings[].rankedUrl",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "実際にランクインしたURL。未検出の場合は null。"
@@ -6992,21 +6998,21 @@
         },
         {
           "field_path": "data.items[].metrics.estimatedTraffic",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "このページの推定検索流入数。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.trafficValue",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "このページの集客価値（USD）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].metrics.rankingKeywordCount",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "このページでランクインしているキーワード数。不明な場合は null。"
@@ -7020,14 +7026,14 @@
         },
         {
           "field_path": "data.items[].topKeyword.keyword",
-          "type": "object",
+          "type": "string",
           "ref": null,
           "required": true,
           "description": "このページで最もSEO流入を獲得しているトップキーワード。不明な場合は null。"
         },
         {
           "field_path": "data.items[].topKeyword.position",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "トップキーワードでの検索順位。不明な場合は null。"
@@ -7041,14 +7047,14 @@
         },
         {
           "field_path": "data.items[].topKeyword.metrics.seoDifficulty",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "SEO難易度。1–100で表し、高いほど難易度が高い（1–33:低 / 34–66:中 / 67–100:高）。不明な場合は null。"
         },
         {
           "field_path": "data.items[].topKeyword.metrics.searchVolume",
-          "type": "object",
+          "type": "number",
           "ref": null,
           "required": true,
           "description": "トップキーワードの月間検索数（年平均）。不明な場合は null。"

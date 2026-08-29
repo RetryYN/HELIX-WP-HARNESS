@@ -1,18 +1,22 @@
 {
-  "schema_version": "public-api-retention-matrix.v1",
+  "schema_version": "public-api-retention-matrix.v2",
   "source_graph_digest": "d2dd7e1ab0ef97bf521370bb4c22fffcdb5ecdadaab5783df5d5f57f8a4a12c8",
-  "source_field_audit_digest": "fae324fe918f7f3b0fdf4d0cbcc35179bccce02c756e7b5673ff9e9c107daa33",
+  "source_field_audit_digest": "087ace068f6bfe43be4ad6c53a3943d0312c98061e497d6157c214496b906c43",
   "operation_count": 24,
   "operation_with_retained_mapping_count": 11,
-  "operation_requiring_acquisition_count": 11,
-  "operation_requiring_mapping_count": 11,
+  "operation_requiring_acquisition_count": 17,
+  "operation_requiring_execution_metadata_count": 22,
+  "operation_requiring_mapping_count": 0,
   "field_occurrence_assignment_count": 952,
   "disposition_counts": {
-    "retained_semantic_mapping": 100,
-    "provider_dataset_not_acquired": 157,
-    "response_field_not_1to1_mapped": 27,
-    "contract_shape_only": 500,
-    "request_control_not_1to1_supported": 168
+    "retained_semantic_mapping": 112,
+    "provider_dataset_not_acquired": 168,
+    "provider_metric_not_acquired": 21,
+    "provider_history_not_acquired": 1,
+    "provider_execution_metadata_not_acquired": 31,
+    "response_field_not_1to1_mapped": 0,
+    "contract_shape_only": 448,
+    "request_control_not_1to1_supported": 171
   },
   "rows": [
     {
@@ -27,21 +31,24 @@
       "decision_payload_field_count": 34,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 34,
+        "provider_dataset_not_acquired": 32,
+        "provider_metric_not_acquired": 2,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 21,
+        "contract_shape_only": 20,
         "request_control_not_1to1_supported": 1
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.query.urlMatchType",
         "data.summary.totalCount",
         "data.summary.returnedCount",
         "data.items[].site.target",
         "data.items[].metrics.estimatedTraffic",
+        "data.items[].metrics.estimatedTrafficChangeRate",
         "data.items[].metrics.keywordCount",
         "data.items[].metrics.pageCount",
         "data.items[].metrics.trafficValue",
@@ -71,11 +78,15 @@
         "data.items[].distributions.pageTraffic.100+",
         "data.items[].distributions.pageTraffic.1+"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "5f891b5df9d275723068272bc8db26b7644678fcc990548c186e61bb7ca886b1"
+      "row_digest": "3f3ddbc00826cf511b572e50ed9232a60f253d5cf32512d1f87a65cddb532e56"
     },
     {
       "operation_id": "CoOccurrenceController_search",
@@ -86,15 +97,18 @@
       "credit_contract_kind": "fixed",
       "response_field_occurrence_count": 30,
       "request_field_occurrence_count": 5,
-      "decision_payload_field_count": 18,
+      "decision_payload_field_count": 17,
       "disposition_counts": {
         "retained_semantic_mapping": 17,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 1,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 12,
         "request_control_not_1to1_supported": 5
       },
-      "retained_semantic_coverage_ratio": 0.9444444444444444,
+      "retained_semantic_coverage_ratio": 1,
       "helix_targets": [
         "api.cooccurrence.rakko_semantics.page_details[].page_count",
         "api.cooccurrence.rakko_semantics.page_details[].page_count_in_headline",
@@ -121,15 +135,17 @@
         "serp_organic_results.url",
         "serp_page_coverage.canonical_url"
       ],
-      "unmapped_response_paths": [
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [],
+      "unacquired_execution_metadata_paths": [
         "meta.consumedCredit"
       ],
-      "unacquired_response_paths": [],
       "acquisition_required": false,
-      "mapping_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "60f8f498d7bd5871270772be13c1ddb441a8c3a75a639bcb2ade564f671cd154"
+      "row_digest": "5549a62d1e021d05ac7fa8e867f01e1eee719598dba70050cf2612fe83c19654"
     },
     {
       "operation_id": "CompetitiveController_searchCompetitive",
@@ -140,15 +156,18 @@
       "credit_contract_kind": "fixed",
       "response_field_occurrence_count": 26,
       "request_field_occurrence_count": 3,
-      "decision_payload_field_count": 13,
+      "decision_payload_field_count": 12,
       "disposition_counts": {
         "retained_semantic_mapping": 10,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 3,
+        "provider_metric_not_acquired": 2,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 13,
         "request_control_not_1to1_supported": 3
       },
-      "retained_semantic_coverage_ratio": 0.7692307692307693,
+      "retained_semantic_coverage_ratio": 0.8333333333333334,
       "helix_targets": [
         "api.data.length",
         "api.domains.comparison.competitor_unique_keyword_count",
@@ -164,17 +183,20 @@
         "serp_organic_results.domain",
         "serp_organic_results.title"
       ],
-      "unmapped_response_paths": [
-        "meta.consumedCredit",
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [
         "data.items[].metrics.estimatedTraffic",
         "data.items[].metrics.trafficValue"
       ],
-      "unacquired_response_paths": [],
-      "acquisition_required": false,
-      "mapping_required": true,
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
+      "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "27f74b1fd9b3066af5550a11c14c4d321ee176647428e76921db66441fa880da"
+      "row_digest": "c3cf1da77019ea748ac856dbb25877dc974f260094066fee5301c512f381d797"
     },
     {
       "operation_id": "ContentSearchController_search",
@@ -187,13 +209,16 @@
       "request_field_occurrence_count": 40,
       "decision_payload_field_count": 15,
       "disposition_counts": {
-        "retained_semantic_mapping": 12,
+        "retained_semantic_mapping": 13,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 3,
-        "contract_shape_only": 39,
+        "provider_metric_not_acquired": 2,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
+        "contract_shape_only": 38,
         "request_control_not_1to1_supported": 15
       },
-      "retained_semantic_coverage_ratio": 0.8,
+      "retained_semantic_coverage_ratio": 0.8666666666666667,
       "helix_targets": [
         "api.data.length",
         "api.meta.total",
@@ -201,6 +226,7 @@
         "dfs_tasks.keyword",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
         "keyword_market_metrics.search_volume",
         "keyword_monthly_searches.search_volume",
         "serp_domain_coverage.domain",
@@ -213,17 +239,20 @@
         "serp_page_coverage.keyword_count",
         "serp_page_coverage.top_keyword derived word count"
       ],
-      "unmapped_response_paths": [
-        "meta.consumedCredit",
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [
         "data.items[].metrics.estimatedTraffic",
         "data.items[].metrics.trafficValue"
       ],
-      "unacquired_response_paths": [],
-      "acquisition_required": false,
-      "mapping_required": true,
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
+      "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "e1567d5d198f3aa87f48e86a90ff7c4f090b8cce11c30eaa3ce2f944ac13041d"
+      "row_digest": "88e2ceda693613b4988a697902d9618ee8aa592d94ff89756e2dd8ba37350b1b"
     },
     {
       "operation_id": "HeadlineController_search",
@@ -234,15 +263,18 @@
       "credit_contract_kind": "fixed",
       "response_field_occurrence_count": 29,
       "request_field_occurrence_count": 12,
-      "decision_payload_field_count": 16,
+      "decision_payload_field_count": 15,
       "disposition_counts": {
         "retained_semantic_mapping": 15,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 1,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 13,
         "request_control_not_1to1_supported": 12
       },
-      "retained_semantic_coverage_ratio": 0.9375,
+      "retained_semantic_coverage_ratio": 1,
       "helix_targets": [
         "api.data.length",
         "api.meta.total",
@@ -264,15 +296,17 @@
         "serp_organic_results.url",
         "serp_page_coverage.canonical_url"
       ],
-      "unmapped_response_paths": [
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [],
+      "unacquired_execution_metadata_paths": [
         "meta.consumedCredit"
       ],
-      "unacquired_response_paths": [],
       "acquisition_required": false,
-      "mapping_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "19d3221f31c8255415a7767aedf42fa0e13139c86e4b1804aef5886717e1f72b"
+      "row_digest": "0e8af6cfaa3155fbc359158ea56106746d0d20caf391cb10e84ab8236422e9e3"
     },
     {
       "operation_id": "InfluxKeywordsController_searchKeyword",
@@ -285,19 +319,23 @@
       "request_field_occurrence_count": 32,
       "decision_payload_field_count": 13,
       "disposition_counts": {
-        "retained_semantic_mapping": 8,
+        "retained_semantic_mapping": 9,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 5,
-        "contract_shape_only": 28,
+        "provider_metric_not_acquired": 4,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
+        "contract_shape_only": 27,
         "request_control_not_1to1_supported": 18
       },
-      "retained_semantic_coverage_ratio": 0.6153846153846154,
+      "retained_semantic_coverage_ratio": 0.6923076923076923,
       "helix_targets": [
         "api.data.length",
         "api.meta.total",
         "dfs_tasks.keyword",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
         "keyword_market_metrics.competition_index",
         "keyword_market_metrics.cpc",
         "keyword_market_metrics.search_volume",
@@ -306,19 +344,22 @@
         "serp_organic_results.url",
         "serp_page_coverage.canonical_url"
       ],
-      "unmapped_response_paths": [
-        "meta.consumedCredit",
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [
         "data.summary.estimatedTraffic",
         "data.summary.keywordCount",
         "data.items[].target",
         "data.items[].ranking.estimatedTraffic"
       ],
-      "unacquired_response_paths": [],
-      "acquisition_required": false,
-      "mapping_required": true,
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
+      "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "8691f53482eb32c92d312b68042f3897bf7ddb703b3215b26aed1c5ee6e2c462"
+      "row_digest": "05b6d7b57498459f560753ba372eb21328465cbfc103df698d521075f6d2733b"
     },
     {
       "operation_id": "InfluxPagesController_searchPage",
@@ -331,13 +372,16 @@
       "request_field_occurrence_count": 36,
       "decision_payload_field_count": 14,
       "disposition_counts": {
-        "retained_semantic_mapping": 9,
+        "retained_semantic_mapping": 10,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 5,
-        "contract_shape_only": 38,
+        "provider_metric_not_acquired": 4,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
+        "contract_shape_only": 37,
         "request_control_not_1to1_supported": 14
       },
-      "retained_semantic_coverage_ratio": 0.6428571428571429,
+      "retained_semantic_coverage_ratio": 0.7142857142857143,
       "helix_targets": [
         "api.data.length",
         "api.meta.total",
@@ -345,6 +389,7 @@
         "dfs_tasks.keyword",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
         "keyword_market_metrics.search_volume",
         "keyword_monthly_searches.search_volume",
         "serp_organic_results.position",
@@ -353,19 +398,22 @@
         "serp_page_coverage.canonical_url",
         "serp_page_coverage.keyword_count"
       ],
-      "unmapped_response_paths": [
-        "meta.consumedCredit",
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [
         "data.summary.estimatedTraffic",
         "data.summary.keywordCount",
         "data.items[].performance.estimatedTraffic",
         "data.items[].performance.trafficValue"
       ],
-      "unacquired_response_paths": [],
-      "acquisition_required": false,
-      "mapping_required": true,
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
+      "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "69d5210135b12d11d5f226bf8bd4182bef1ad7a6a5176256d0e05be95a2053a6"
+      "row_digest": "244ce30e8d2b28a266b468fae2464c19f5da9d62974f0a84c8141b13b5996ce3"
     },
     {
       "operation_id": "SearchVolumeMetadataController_getLanguages",
@@ -380,6 +428,9 @@
       "disposition_counts": {
         "retained_semantic_mapping": 2,
         "provider_dataset_not_acquired": 0,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 0,
         "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 7,
         "request_control_not_1to1_supported": 0
@@ -391,11 +442,13 @@
       ],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [],
+      "unacquired_execution_metadata_paths": [],
       "acquisition_required": false,
+      "execution_metadata_requires_provider_run": false,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "d07ae64d51739dbd0bda4d194403284082c2132b454a252cc196c56f749380cf"
+      "row_digest": "0d6eebbb5636e01a69de80e227d10c85deb89090fe63a3c63d45e5fed72b9b8d"
     },
     {
       "operation_id": "SearchVolumeMetadataController_getLocations",
@@ -410,6 +463,9 @@
       "disposition_counts": {
         "retained_semantic_mapping": 3,
         "provider_dataset_not_acquired": 0,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 0,
         "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 7,
         "request_control_not_1to1_supported": 0
@@ -422,11 +478,13 @@
       ],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [],
+      "unacquired_execution_metadata_paths": [],
       "acquisition_required": false,
+      "execution_metadata_requires_provider_run": false,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "351d80ad6603a15d6aa59e029cc974d761e9e56160ed01199f586cbc211f767e"
+      "row_digest": "fd1ad45da8c2d7bfb1b0d33cde43a9771173e8cee2358e1f60e18a0358aabdb5"
     },
     {
       "operation_id": "OtherKeywordsController_search",
@@ -437,18 +495,26 @@
       "credit_contract_kind": "fixed",
       "response_field_occurrence_count": 24,
       "request_field_occurrence_count": 3,
-      "decision_payload_field_count": 9,
+      "decision_payload_field_count": 13,
       "disposition_counts": {
-        "retained_semantic_mapping": 8,
+        "retained_semantic_mapping": 12,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 1,
-        "contract_shape_only": 15,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 1,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
+        "contract_shape_only": 10,
         "request_control_not_1to1_supported": 3
       },
-      "retained_semantic_coverage_ratio": 0.8888888888888888,
+      "retained_semantic_coverage_ratio": 0.9230769230769231,
       "helix_targets": [
         "dfs_tasks.keyword",
         "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.competition_index",
+        "keyword_market_metrics.cpc",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
         "serp_demands.demand_type",
         "serp_demands.importance_score",
         "serp_demands.representative_value",
@@ -456,15 +522,19 @@
         "serp_demands[demand_type=paa].count",
         "serp_demands[demand_type=related_search].count"
       ],
-      "unmapped_response_paths": [
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [
+        "data.items[].metrics.firstSeenRange"
+      ],
+      "unacquired_execution_metadata_paths": [
         "meta.consumedCredit"
       ],
-      "unacquired_response_paths": [],
-      "acquisition_required": false,
-      "mapping_required": true,
+      "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "62a9d60d00bfd31b4c02fb7f4a6e33bf275a88f9c7bd25ca45edc7e64c572b2f"
+      "row_digest": "492316dc802a6adb300374527aa42c70ecb7c0b294b4eebda7c0bccad43c4343"
     },
     {
       "operation_id": "QuestionSearchController_search",
@@ -479,15 +549,17 @@
       "disposition_counts": {
         "retained_semantic_mapping": 0,
         "provider_dataset_not_acquired": 12,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 27,
+        "contract_shape_only": 26,
         "request_control_not_1to1_supported": 7
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.query.keyword",
         "data.query.filter.relativeDemand.min",
         "data.query.filter.relativeDemand.max",
@@ -498,13 +570,18 @@
         "data.summary.totalCount",
         "data.summary.returnedCount",
         "data.items[].question",
-        "data.items[].metrics.relativeDemand"
+        "data.items[].metrics.relativeDemand",
+        "data.items[].metrics.firstSeenRange"
+      ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
       ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "64e218b509853adf23859ccf30e58090320e5ab4e142da88240c76e2fb78d0cd"
+      "row_digest": "05d96589672c9abd461717bfd86e1666a1d8e042b63100453c173f12e516659e"
     },
     {
       "operation_id": "RankingKeywordsController_search",
@@ -517,18 +594,22 @@
       "request_field_occurrence_count": 27,
       "decision_payload_field_count": 10,
       "disposition_counts": {
-        "retained_semantic_mapping": 9,
+        "retained_semantic_mapping": 10,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 1,
-        "contract_shape_only": 24,
-        "request_control_not_1to1_supported": 14
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
+        "response_field_not_1to1_mapped": 0,
+        "contract_shape_only": 21,
+        "request_control_not_1to1_supported": 16
       },
-      "retained_semantic_coverage_ratio": 0.9,
+      "retained_semantic_coverage_ratio": 1,
       "helix_targets": [
         "api.data.length",
         "api.meta.total",
         "dfs_tasks.keyword",
         "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
         "keyword_market_metrics.competition_index",
         "keyword_market_metrics.cpc",
         "keyword_market_metrics.search_volume",
@@ -537,15 +618,17 @@
         "simultaneous_keyword_relations.reciprocal_rank_score",
         "simultaneous_keyword_relations.target_keyword derived word count"
       ],
-      "unmapped_response_paths": [
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [],
+      "unacquired_execution_metadata_paths": [
         "meta.consumedCredit"
       ],
-      "unacquired_response_paths": [],
       "acquisition_required": false,
-      "mapping_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "6760d1bddea9682b489451dec8bc969a010716137a4286bf639e283f22d46450"
+      "row_digest": "2682f603c1f53a2f55f0a578d9b173113e0bdbfccf9acaa4e9519a79ee3ae5a7"
     },
     {
       "operation_id": "RelatedKeywordsController_search",
@@ -556,29 +639,40 @@
       "credit_contract_kind": "fixed",
       "response_field_occurrence_count": 20,
       "request_field_occurrence_count": 25,
-      "decision_payload_field_count": 5,
+      "decision_payload_field_count": 9,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 5,
+        "provider_dataset_not_acquired": 9,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 26,
+        "contract_shape_only": 21,
         "request_control_not_1to1_supported": 14
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.query.keyword",
         "data.summary.totalCount",
         "data.summary.returnedCount",
-        "data.items[].keyword"
+        "data.items[].keyword",
+        "data.items[].metrics.seoDifficulty",
+        "data.items[].metrics.searchVolume",
+        "data.items[].metrics.cpc",
+        "data.items[].metrics.competition",
+        "data.items[].metrics.firstSeenRange"
+      ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
       ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "b794e1da0836f5df91339aa9f0ffe7b4250388154d956d299f56f6dd9354ee8d"
+      "row_digest": "1ff0ca777e70191585d84d75880dfb7751247c14d4179adc65e4d1a5e0bec7a7"
     },
     {
       "operation_id": "SearchRankHistoryController_register",
@@ -589,26 +683,31 @@
       "credit_contract_kind": "dynamic",
       "response_field_occurrence_count": 7,
       "request_field_occurrence_count": 12,
-      "decision_payload_field_count": 2,
+      "decision_payload_field_count": 0,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 2,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 2,
+        "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 9,
         "request_control_not_1to1_supported": 8
       },
-      "retained_semantic_coverage_ratio": 0,
+      "retained_semantic_coverage_ratio": null,
       "helix_targets": [],
-      "unmapped_response_paths": [
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [],
+      "unacquired_execution_metadata_paths": [
         "meta.consumedCredit",
         "data.requestId"
       ],
-      "unacquired_response_paths": [],
       "acquisition_required": false,
-      "mapping_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "f953a993141b14366101751fa184964583a32c17fe528943eb5657d3eff98409"
+      "row_digest": "f33304fb09c4acd3001fdbac2d3c62ee7ed0e9f3f4d0e2df7b27a4f3ba5bde39"
     },
     {
       "operation_id": "SearchRankHistoryController_getResults",
@@ -619,20 +718,21 @@
       "credit_contract_kind": "zero",
       "response_field_occurrence_count": 54,
       "request_field_occurrence_count": 16,
-      "decision_payload_field_count": 25,
+      "decision_payload_field_count": 28,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 25,
+        "provider_dataset_not_acquired": 26,
+        "provider_metric_not_acquired": 2,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 3,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 37,
+        "contract_shape_only": 31,
         "request_control_not_1to1_supported": 8
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
-        "data.query.requestId",
         "data.query.filter.seoDifficulty.min",
         "data.query.filter.seoDifficulty.max",
         "data.query.filter.searchVolume.min",
@@ -652,16 +752,27 @@
         "data.summary.targets[].rankingPositionDistribution.31-50",
         "data.summary.targets[].rankingPositionDistribution.51-100",
         "data.summary.targets[].rankingPositionDistribution.101+",
-        "data.items[].entryNo",
         "data.items[].keyword",
+        "data.items[].metrics.seoDifficulty",
+        "data.items[].metrics.searchVolume",
+        "data.items[].metrics.cpc",
+        "data.items[].metrics.competition",
         "data.items[].rankings[].target",
+        "data.items[].rankings[].position",
+        "data.items[].rankings[].rankedUrl",
         "data.items[].rankings[].estimatedTraffic"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit",
+        "data.query.requestId",
+        "data.items[].entryNo"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "3f41d56b14ffb64d28a6ae7998a997a3afbf83856d851add5b496d2c5b194341"
+      "row_digest": "15804f8f2f43305b76b49f7b54ab6cf8709c325fc7d05887e027c45f917dbd78"
     },
     {
       "operation_id": "SearchRankSerpCacheController_getSerpCache",
@@ -672,15 +783,18 @@
       "credit_contract_kind": "zero",
       "response_field_occurrence_count": 30,
       "request_field_occurrence_count": 0,
-      "decision_payload_field_count": 10,
+      "decision_payload_field_count": 14,
       "disposition_counts": {
-        "retained_semantic_mapping": 7,
+        "retained_semantic_mapping": 11,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 3,
-        "contract_shape_only": 20,
+        "provider_metric_not_acquired": 3,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 3,
+        "response_field_not_1to1_mapped": 0,
+        "contract_shape_only": 13,
         "request_control_not_1to1_supported": 0
       },
-      "retained_semantic_coverage_ratio": 0.7,
+      "retained_semantic_coverage_ratio": 0.7857142857142857,
       "helix_targets": [
         "api.data.length",
         "competitor_pages.title",
@@ -688,23 +802,32 @@
         "dfs_tasks.observed_at",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
         "serp_organic_results.description",
         "serp_organic_results.position",
         "serp_organic_results.title",
         "serp_organic_results.url",
         "serp_page_coverage.canonical_url"
       ],
-      "unmapped_response_paths": [
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [
+        "data.items[].metrics.estimatedTraffic",
+        "data.items[].metrics.trafficValue",
+        "data.items[].metrics.rankingKeywordCount"
+      ],
+      "unacquired_execution_metadata_paths": [
         "meta.consumedCredit",
         "data.query.requestId",
         "data.query.entryNo"
       ],
-      "unacquired_response_paths": [],
-      "acquisition_required": false,
-      "mapping_required": true,
+      "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "1854f62e6189f522a3cec9dce4994c547d87bc377cba4f3d117dba4dd1375639"
+      "row_digest": "ba569aed18b5713ab0c424485bc35de4e3237b915919d499d0143f93825dae91"
     },
     {
       "operation_id": "SearchRankHistoryController_getStatus",
@@ -715,10 +838,13 @@
       "credit_contract_kind": "zero",
       "response_field_occurrence_count": 10,
       "request_field_occurrence_count": 0,
-      "decision_payload_field_count": 4,
+      "decision_payload_field_count": 3,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 4,
+        "provider_dataset_not_acquired": 3,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
         "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 6,
         "request_control_not_1to1_supported": 0
@@ -727,16 +853,19 @@
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.isCompleted",
         "data.statuses.serp",
         "data.statuses.searchVolumeAndSeoDifficulty"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "ddd409668c3ab5a9c46417b621b27e2a0999f826dfd60a6f9babacc5e3d09cd4"
+      "row_digest": "df5a78637e5e7cedd196de1c28f1a0f231ad3e67b7c9eb3123af21cbdcd7e7c9"
     },
     {
       "operation_id": "SearchRankHistoryController_listHistories",
@@ -751,21 +880,23 @@
       "disposition_counts": {
         "retained_semantic_mapping": 0,
         "provider_dataset_not_acquired": 15,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 2,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 14,
+        "contract_shape_only": 12,
         "request_control_not_1to1_supported": 0
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.query.limit",
         "data.query.offset",
         "data.summary.totalCount",
         "data.summary.returnedCount",
-        "data.items[].requestId",
         "data.items[].createdAt",
+        "data.items[].completedAt",
         "data.items[].statuses.serp",
         "data.items[].statuses.searchVolumeAndSeoDifficulty",
         "data.items[].keywordSummary",
@@ -773,13 +904,19 @@
         "data.items[].keywordCount",
         "data.items[].urlCount",
         "data.items[].matchType",
+        "data.items[].depth",
         "data.items[].isSearchVolumeAndSeoDifficultyEnabled"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit",
+        "data.items[].requestId"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "50352522599cdbdbc728f87c8886ee0de015b860f9b7520f2f20d896c13039c1"
+      "row_digest": "c84880bcd5afea6494cb4356879a78dd92ceb19373a7fff9a5775f236ef71855"
     },
     {
       "operation_id": "SearchVolumeHistoryController_register",
@@ -790,26 +927,31 @@
       "credit_contract_kind": "dynamic",
       "response_field_occurrence_count": 7,
       "request_field_occurrence_count": 8,
-      "decision_payload_field_count": 2,
+      "decision_payload_field_count": 0,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
         "provider_dataset_not_acquired": 0,
-        "response_field_not_1to1_mapped": 2,
-        "contract_shape_only": 8,
-        "request_control_not_1to1_supported": 5
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 2,
+        "response_field_not_1to1_mapped": 0,
+        "contract_shape_only": 7,
+        "request_control_not_1to1_supported": 6
       },
-      "retained_semantic_coverage_ratio": 0,
+      "retained_semantic_coverage_ratio": null,
       "helix_targets": [],
-      "unmapped_response_paths": [
+      "unmapped_response_paths": [],
+      "unacquired_response_paths": [],
+      "unacquired_execution_metadata_paths": [
         "meta.consumedCredit",
         "data.requestId"
       ],
-      "unacquired_response_paths": [],
       "acquisition_required": false,
-      "mapping_required": true,
+      "execution_metadata_requires_provider_run": true,
+      "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "74b62f9eaea33321de9aec062e763820a75830d7ee981b4bf8e5c0cea59a6c9c"
+      "row_digest": "26c69fa0fe15cc68f367324e24843cf353a8c4169d01dc67923506e3234aca04"
     },
     {
       "operation_id": "SearchVolumeHistoryController_getResults",
@@ -820,32 +962,50 @@
       "credit_contract_kind": "zero",
       "response_field_occurrence_count": 33,
       "request_field_occurrence_count": 24,
-      "decision_payload_field_count": 8,
+      "decision_payload_field_count": 18,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 8,
+        "provider_dataset_not_acquired": 18,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 2,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 36,
+        "contract_shape_only": 24,
         "request_control_not_1to1_supported": 13
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
-        "data.query.requestId",
         "data.query.location",
         "data.query.language",
         "data.query.aggregationPeriodMonths",
         "data.summary.totalCount",
         "data.summary.returnedCount",
-        "data.items[].keyword"
+        "data.items[].keyword",
+        "data.items[].dataSource",
+        "data.items[].metrics.seoDifficulty",
+        "data.items[].metrics.searchVolume",
+        "data.items[].metrics.cpc",
+        "data.items[].metrics.competition",
+        "data.items[].metrics.firstSeenRange",
+        "data.items[].trends.changeRate.12m",
+        "data.items[].trends.changeRate.6m",
+        "data.items[].trends.changeRate.3m",
+        "data.items[].trends.changeRate.yoy1y",
+        "data.items[].trends.changeRate.yoy2y",
+        "data.items[].trends.changeRate.yoy3y"
+      ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit",
+        "data.query.requestId"
       ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "a75d7e1364cc903bf1eaf5875ded8105bac4fd610b47f606e4e4ac8bc5fe8d2f"
+      "row_digest": "4db4e24758aa361e26773d9eac0406dd16940c09f57c8d38cc0db21412ded7f2"
     },
     {
       "operation_id": "SearchVolumeHistoryController_getStatus",
@@ -856,10 +1016,13 @@
       "credit_contract_kind": "zero",
       "response_field_occurrence_count": 11,
       "request_field_occurrence_count": 0,
-      "decision_payload_field_count": 5,
+      "decision_payload_field_count": 4,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 5,
+        "provider_dataset_not_acquired": 4,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
         "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 6,
         "request_control_not_1to1_supported": 0
@@ -868,17 +1031,20 @@
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.isCompleted",
         "data.statuses.searchVolume",
         "data.statuses.noiseReduction",
         "data.statuses.seoDifficulty"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "a4171112a88c5170203f803050457a8c1708e5f9f20c22885dc43e4e26bc5fd2"
+      "row_digest": "ec348a9621c4eaa263ee55ad53dadd0234a750404cac2f2a8919c75bcfee0f0a"
     },
     {
       "operation_id": "SearchVolumeHistoryController_listHistories",
@@ -889,25 +1055,27 @@
       "credit_contract_kind": "zero",
       "response_field_occurrence_count": 30,
       "request_field_occurrence_count": 0,
-      "decision_payload_field_count": 17,
+      "decision_payload_field_count": 16,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 17,
+        "provider_dataset_not_acquired": 16,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 2,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 13,
+        "contract_shape_only": 12,
         "request_control_not_1to1_supported": 0
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.query.limit",
         "data.query.offset",
         "data.summary.totalCount",
         "data.summary.returnedCount",
-        "data.items[].requestId",
         "data.items[].createdAt",
+        "data.items[].completedAt",
         "data.items[].statuses.searchVolume",
         "data.items[].statuses.seoDifficulty",
         "data.items[].statuses.noiseReduction",
@@ -919,11 +1087,16 @@
         "data.items[].aggregationPeriodMonths",
         "data.items[].dataCompletion"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit",
+        "data.items[].requestId"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "d969841e41a3a17fa4887828269f8c0bfea6cdb4ea8037b575f19df21423710f"
+      "row_digest": "33d5356ad7a78f28bb4c53ad2dc5e2c0800460ce5653d3d8971dffa59cbd1c2b"
     },
     {
       "operation_id": "SiteSearchController_search",
@@ -934,10 +1107,13 @@
       "credit_contract_kind": "fixed",
       "response_field_occurrence_count": 54,
       "request_field_occurrence_count": 31,
-      "decision_payload_field_count": 25,
+      "decision_payload_field_count": 24,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 25,
+        "provider_dataset_not_acquired": 22,
+        "provider_metric_not_acquired": 2,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
         "response_field_not_1to1_mapped": 0,
         "contract_shape_only": 46,
         "request_control_not_1to1_supported": 14
@@ -946,7 +1122,6 @@
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.query.filter.domain.matchType",
         "data.query.filter.totalEtv.min",
         "data.query.filter.totalEtv.max",
@@ -972,11 +1147,15 @@
         "data.items[].metrics.rankingKeywordCount",
         "data.items[].metrics.pageCount"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "66cc1ec8e668ed02b869a7992c1e037a49223f7d0da6bd657a38ed8878d464c9"
+      "row_digest": "6920105ebbd96d4ed493c524e143b2d5bc56b921ac7f0bc0a331ff9727b58a3e"
     },
     {
       "operation_id": "SuggestKeywordsController_search",
@@ -987,35 +1166,46 @@
       "credit_contract_kind": "fixed",
       "response_field_occurrence_count": 27,
       "request_field_occurrence_count": 29,
-      "decision_payload_field_count": 7,
+      "decision_payload_field_count": 11,
       "disposition_counts": {
         "retained_semantic_mapping": 0,
-        "provider_dataset_not_acquired": 7,
+        "provider_dataset_not_acquired": 11,
+        "provider_metric_not_acquired": 0,
+        "provider_history_not_acquired": 0,
+        "provider_execution_metadata_not_acquired": 1,
         "response_field_not_1to1_mapped": 0,
-        "contract_shape_only": 35,
+        "contract_shape_only": 30,
         "request_control_not_1to1_supported": 14
       },
       "retained_semantic_coverage_ratio": 0,
       "helix_targets": [],
       "unmapped_response_paths": [],
       "unacquired_response_paths": [
-        "meta.consumedCredit",
         "data.query.keyword",
         "data.summary.totalCount",
         "data.summary.returnedCount",
         "data.items[].keyword",
         "data.items[].suggestClass",
+        "data.items[].metrics.seoDifficulty",
+        "data.items[].metrics.searchVolume",
+        "data.items[].metrics.cpc",
+        "data.items[].metrics.competition",
+        "data.items[].metrics.firstSeenRange",
         "data.items[].suggestEngines.count"
       ],
+      "unacquired_execution_metadata_paths": [
+        "meta.consumedCredit"
+      ],
       "acquisition_required": true,
+      "execution_metadata_requires_provider_run": true,
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "c4130db886782ad90be6680c5bfe87bade0358d648f4aec03bd2cee07891aaaa"
+      "row_digest": "4fb5f1e33c2ea898157840e9f68932f0ed8da7210ce125acaf9e23d3fd20faa3"
     }
   ],
   "unclassified_count": 0,
   "wire_compatibility_claim": false,
   "external_request_executed": false,
-  "matrix_digest": "1f5674098616abdc70a5eb98dde11023e63fdfba24a27b0509c9711c36e3578a"
+  "matrix_digest": "4700c353b2d2a1b1f01383a6b9d7af07be0daa7e2220b0a79b605ddf3797c92d"
 }
