@@ -1,0 +1,2496 @@
+{
+  "schema_version": "public-api-operation-graph.v1",
+  "source_openapi_version": "3.1.1",
+  "operation_count": 24,
+  "operation_ids_unique": true,
+  "operation_classification_complete": true,
+  "lifecycle_counts": {
+    "history": 2,
+    "metadata": 2,
+    "register": 2,
+    "result_detail": 1,
+    "results": 2,
+    "status": 2,
+    "synchronous_query": 13
+  },
+  "credit_contract_counts": {
+    "fixed": 12,
+    "dynamic": 3,
+    "zero": 9,
+    "unclassified": 0
+  },
+  "dependency_edge_count": 53,
+  "operations": [
+    {
+      "operation_id": "BulkSiteResearchController_searchBulkSiteResearch",
+      "method": "POST",
+      "path": "/v1/bulk-site-research",
+      "summary": "一括サイト調査",
+      "tags": [
+        "一括サイト調査"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "dynamic",
+      "request_schema": "BulkSiteResearchDto",
+      "request_fields": [
+        {
+          "field": "urls",
+          "type": "array",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": 1,
+          "max_items": 100,
+          "enum": null,
+          "item_type": "string"
+        },
+        {
+          "field": "urlMatchType",
+          "type": "string",
+          "required": false,
+          "default": "domain",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "url",
+            "forward_url",
+            "domain",
+            "sub_domain"
+          ],
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "BulkSiteResearchResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "567631cbc869deae619a6dae891c95a8b0ea0726396087115e3f47bd4258f786"
+    },
+    {
+      "operation_id": "CoOccurrenceController_search",
+      "method": "POST",
+      "path": "/v1/co-occurrence",
+      "summary": "共起語取得",
+      "tags": [
+        "共起語取得"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "CoOccurrenceDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "getDetails",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "siteCountTotal",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "word",
+            "occurrencePageCount",
+            "occurrenceTitleCount",
+            "occurrenceHeadingCount",
+            "siteCountTotal",
+            "siteCountHeading"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": null,
+          "minimum": 1,
+          "maximum": 9007199254740991,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "CoOccurrenceResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "ce50c744ccb286f2de7b4bad48b4ae52d8c9504665d86a97d48bedd609b1da62"
+    },
+    {
+      "operation_id": "CompetitiveController_searchCompetitive",
+      "method": "POST",
+      "path": "/v1/competitive",
+      "summary": "競合サイト抽出",
+      "tags": [
+        "獲得キーワード調査"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "CompetitiveDto",
+      "request_fields": [
+        {
+          "field": "url",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "etv",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "duplicate",
+            "duplicateRate",
+            "competitorUnique",
+            "targetUnique",
+            "etv",
+            "keywordCount",
+            "trafficValue",
+            "pageCount"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "CompetitiveResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "a612176ac63b61d31bb5c2383792a7645b9c98adcd36a9c7ec453beca8d7d89f"
+    },
+    {
+      "operation_id": "ContentSearchController_search",
+      "method": "POST",
+      "path": "/v1/content-search",
+      "summary": "集客コンテンツ検索",
+      "tags": [
+        "集客コンテンツ検索"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "ContentSearchDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "searchTarget",
+          "type": "string",
+          "required": false,
+          "default": "titleAndKeywordAndDescription",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "title",
+            "keyword",
+            "description",
+            "titleAndKeyword",
+            "titleAndKeywordAndDescription"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "isAdvancedSearch",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "topKeywordCollapse",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "trafficValue",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "estimatedTraffic",
+            "trafficValue",
+            "rankingKeywordCount"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "minimum": 1,
+          "maximum": 5000,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "ContentSearchResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "7203098053add35da286b7ae002179c86b3b0e3de32c64da55b3424bd8a70256"
+    },
+    {
+      "operation_id": "HeadlineController_search",
+      "method": "POST",
+      "path": "/v1/headline",
+      "summary": "見出し抽出取得",
+      "tags": [
+        "見出し抽出"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "HeadlineDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "lessHeadlines",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "lessCharacters",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "h1",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "h2",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "h3",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "h4",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "h5",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "h6",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "position",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "position",
+            "title",
+            "headlineCount",
+            "wordCount"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "asc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 20,
+          "minimum": 1,
+          "maximum": 20,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "HeadlineResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "c62f5453332fffbebe75ae105c44fecf2e5b98f1a4fd8ae97072c22b195761ce"
+    },
+    {
+      "operation_id": "InfluxKeywordsController_searchKeyword",
+      "method": "POST",
+      "path": "/v1/influx-keywords",
+      "summary": "獲得キーワード調査取得",
+      "tags": [
+        "獲得キーワード調査"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "InfluxKeywordsKeywordDto",
+      "request_fields": [
+        {
+          "field": "targets",
+          "type": "array",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": 1,
+          "max_items": 20,
+          "enum": null,
+          "item_type": "object"
+        },
+        {
+          "field": "keywordCollapse",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "etv",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "keyword",
+            "seoDifficulty",
+            "rank",
+            "searchVolume",
+            "cpc",
+            "competition",
+            "etv"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "minimum": 1,
+          "maximum": 10000,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "InfluxKeywordsKeywordResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "bb7a51d205f5eecf75d49ae0e311669c8861b56869f73999b11df3801fd1e06a"
+    },
+    {
+      "operation_id": "InfluxPagesController_searchPage",
+      "method": "POST",
+      "path": "/v1/influx-pages",
+      "summary": "獲得ページ調査取得",
+      "tags": [
+        "獲得キーワード調査"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "InfluxPagesDto",
+      "request_fields": [
+        {
+          "field": "targets",
+          "type": "array",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": 1,
+          "max_items": 20,
+          "enum": null,
+          "item_type": "object"
+        },
+        {
+          "field": "topKeywordCollapse",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "totalEtv",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "totalEtv",
+            "totalTrafficValue",
+            "keywordCount"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "minimum": 1,
+          "maximum": 10000,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "InfluxPagesResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "af4592e4ab6318a2e0cf38c2a9c9846ba51495f1dbcc2f73fadeac6ac6928cf7"
+    },
+    {
+      "operation_id": "SearchVolumeMetadataController_getLanguages",
+      "method": "GET",
+      "path": "/v1/metadata/languages",
+      "summary": "言語一覧取得",
+      "tags": [
+        "メタデータ"
+      ],
+      "lifecycle_role": "metadata",
+      "authentication_required": false,
+      "credit_contract_kind": "zero",
+      "request_schema": null,
+      "request_fields": [],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "MetadataLanguagesResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "28234ed466842377968e602cf7ee2ef358909ac68d43131161ce7aa75eb3c8f8"
+    },
+    {
+      "operation_id": "SearchVolumeMetadataController_getLocations",
+      "method": "GET",
+      "path": "/v1/metadata/locations",
+      "summary": "地域一覧取得",
+      "tags": [
+        "メタデータ"
+      ],
+      "lifecycle_role": "metadata",
+      "authentication_required": false,
+      "credit_contract_kind": "zero",
+      "request_schema": null,
+      "request_fields": [],
+      "parameter_fields": [
+        {
+          "field": "locationName",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        },
+        {
+          "field": "countryCode",
+          "in": "query",
+          "required": false,
+          "type": "string",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        },
+        {
+          "field": "limit",
+          "in": "query",
+          "required": false,
+          "type": "number",
+          "minimum": 1,
+          "maximum": 9007199254740991,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "MetadataLocationsResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "e41ccd0604c5c13227cf24df662ea2f6ba4601eabff7e6e77dba98a263d33831"
+    },
+    {
+      "operation_id": "OtherKeywordsController_search",
+      "method": "POST",
+      "path": "/v1/other-keywords",
+      "summary": "潜在的な検索キーワード/質問（LSI/PAA）取得",
+      "tags": [
+        "潜在的な検索キーワード/質問（LSI/PAA）取得"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "OtherKeywordsDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "importance",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "importance",
+            "seoDifficulty",
+            "searchVolume",
+            "cpc",
+            "competition",
+            "firstSeenRange"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "OtherKeywordsResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "93ed253103b982388aff98d554f200d35d10beeea42d4eedd393183697786078"
+    },
+    {
+      "operation_id": "QuestionSearchController_search",
+      "method": "POST",
+      "path": "/v1/question-search",
+      "summary": "よくある質問検索取得",
+      "tags": [
+        "よくある質問検索"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "SearchQuestionDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "relativeDemand",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "relativeDemand",
+            "firstSeenRange"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "minimum": 1,
+          "maximum": 1000,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchQuestionResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "792e9e9d20406b059b85e8abf2997dc36cf7fb55904e11ea64e0882d9d7dddb3"
+    },
+    {
+      "operation_id": "RankingKeywordsController_search",
+      "method": "POST",
+      "path": "/v1/ranking-keywords",
+      "summary": "同時ランクインキーワード取得",
+      "tags": [
+        "同時ランクインキーワード"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "RankingKeywordsDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "searchTop",
+          "type": "union",
+          "required": false,
+          "default": 20,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            3,
+            5,
+            10,
+            20,
+            30,
+            50
+          ],
+          "item_type": null
+        },
+        {
+          "field": "searchRange",
+          "type": "union",
+          "required": false,
+          "default": 50,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            10,
+            20,
+            30,
+            50,
+            100
+          ],
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "relevance",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "seoDifficulty",
+            "searchVolume",
+            "cpc",
+            "competition",
+            "relevance"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 500,
+          "minimum": 1,
+          "maximum": 5000,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "RankingKeywordsResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "5a1bb0f9cad0a46d2a0a344d4393da0396b349121a4ec13c349a9641f940d545"
+    },
+    {
+      "operation_id": "RelatedKeywordsController_search",
+      "method": "POST",
+      "path": "/v1/related-keywords",
+      "summary": "関連キーワード取得",
+      "tags": [
+        "関連キーワード取得"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "RelatedKeywordsDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "matchType",
+          "type": "string",
+          "required": false,
+          "default": "partialMatch",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "partialMatch",
+            "phraseMatch",
+            "prefixMatch",
+            "suffixMatch",
+            "wordMatch"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "searchVolume",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "seoDifficulty",
+            "searchVolume",
+            "cpc",
+            "competition",
+            "firstSeenRange"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 1000,
+          "minimum": 1,
+          "maximum": 25000,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "RelatedKeywordsResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "7acf0965a7730a40f860fc648c05b5559234c9217b7ba75472b2401c28502062"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_register",
+      "method": "POST",
+      "path": "/v1/search-rank",
+      "summary": "検索順位チェック登録",
+      "tags": [
+        "検索順位チェック"
+      ],
+      "lifecycle_role": "register",
+      "authentication_required": true,
+      "credit_contract_kind": "dynamic",
+      "request_schema": "SearchRankHistoryDto",
+      "request_fields": [
+        {
+          "field": "keywords",
+          "type": "array",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": 1,
+          "max_items": null,
+          "enum": null,
+          "item_type": "string"
+        },
+        {
+          "field": "urls",
+          "type": "array",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": 1,
+          "max_items": 50,
+          "enum": null,
+          "item_type": "string"
+        },
+        {
+          "field": "matchType",
+          "type": "string",
+          "required": false,
+          "default": "sub_domain",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "url",
+            "forward_url",
+            "domain",
+            "sub_domain"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "depth",
+          "type": "number",
+          "required": false,
+          "default": 30,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            30,
+            40,
+            50,
+            60,
+            70,
+            80,
+            90,
+            100
+          ],
+          "item_type": null
+        },
+        {
+          "field": "isSearchVolumeAndSeoDifficultyEnabled",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "deduplicate",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "location",
+          "type": "string",
+          "required": false,
+          "default": "Japan",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "language",
+          "type": "string",
+          "required": false,
+          "default": "Japanese",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "device",
+          "type": "string",
+          "required": false,
+          "default": "desktop",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "desktop",
+            "mobile"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "os",
+          "type": "string",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "windows",
+            "macos",
+            "android",
+            "ios"
+          ],
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "201",
+          "schema": "SearchRankHistoryResponseDto"
+        }
+      ],
+      "async_polling_documented": true,
+      "freshness_warning_documented": true,
+      "mutation_kind": "external_job_registration",
+      "external_request_executed": false,
+      "contract_digest": "f31f2dd24e9f817af83a62c904c5f04527d774aa7ec79e87df8baad34d5eaa28"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_getResults",
+      "method": "POST",
+      "path": "/v1/search-rank/{requestId}/results",
+      "summary": "検索順位チェック結果データ取得",
+      "tags": [
+        "検索順位チェック"
+      ],
+      "lifecycle_role": "results",
+      "authentication_required": true,
+      "credit_contract_kind": "zero",
+      "request_schema": "SearchRankResultsDto",
+      "request_fields": [
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "searchVolume",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "keyword",
+            "seoDifficulty",
+            "searchVolume"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "minimum": 1,
+          "maximum": 9007199254740991,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "withAggregation",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [
+        {
+          "field": "requestId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchRankResultsResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "c64d82d88cb7446e0f0ddab8f356947462efbf3e3236ef76a6eb63d22d7b6c1c"
+    },
+    {
+      "operation_id": "SearchRankSerpCacheController_getSerpCache",
+      "method": "GET",
+      "path": "/v1/search-rank/{requestId}/results/{entryNo}/serp",
+      "summary": "検索順位チェック結果詳細データ取得",
+      "tags": [
+        "検索順位チェック"
+      ],
+      "lifecycle_role": "result_detail",
+      "authentication_required": true,
+      "credit_contract_kind": "zero",
+      "request_schema": null,
+      "request_fields": [],
+      "parameter_fields": [
+        {
+          "field": "requestId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        },
+        {
+          "field": "entryNo",
+          "in": "path",
+          "required": true,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": null,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchRankSerpCacheResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": true,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "e3b323f84dab30a01cc7e45a5f01bb2fb103aef9829f5a3526ad20b246ef79a8"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_getStatus",
+      "method": "GET",
+      "path": "/v1/search-rank/{requestId}/status",
+      "summary": "検索順位チェックステータス取得",
+      "tags": [
+        "検索順位チェック"
+      ],
+      "lifecycle_role": "status",
+      "authentication_required": true,
+      "credit_contract_kind": "zero",
+      "request_schema": null,
+      "request_fields": [],
+      "parameter_fields": [
+        {
+          "field": "requestId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchRankStatusResponseDto"
+        }
+      ],
+      "async_polling_documented": true,
+      "freshness_warning_documented": true,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "a8d810d38972f8bcde7046251125caca2f95475cb1ee1b9b4013963920b356ed"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_listHistories",
+      "method": "GET",
+      "path": "/v1/search-rank/histories",
+      "summary": "検索順位チェック履歴一覧取得",
+      "tags": [
+        "検索順位チェック"
+      ],
+      "lifecycle_role": "history",
+      "authentication_required": true,
+      "credit_contract_kind": "zero",
+      "request_schema": null,
+      "request_fields": [],
+      "parameter_fields": [
+        {
+          "field": "limit",
+          "in": "query",
+          "required": false,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 100
+        },
+        {
+          "field": "offset",
+          "in": "query",
+          "required": false,
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "default": 0
+        },
+        {
+          "field": "status",
+          "in": "query",
+          "required": false,
+          "type": "unknown",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchRankHistoriesResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "488270055492fabb6130ffc2cd29a13c8e048ffdc6c85e9830bcabf1150bc50b"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_register",
+      "method": "POST",
+      "path": "/v1/search-volume",
+      "summary": "一括キーワード調査登録",
+      "tags": [
+        "一括キーワード調査"
+      ],
+      "lifecycle_role": "register",
+      "authentication_required": true,
+      "credit_contract_kind": "dynamic",
+      "request_schema": "SearchVolumeHistoryDto",
+      "request_fields": [
+        {
+          "field": "keywords",
+          "type": "array",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": 1,
+          "max_items": 50000,
+          "enum": null,
+          "item_type": "string"
+        },
+        {
+          "field": "seoDifficulty",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "dataCompletion",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "location",
+          "type": "string",
+          "required": false,
+          "default": "Japan",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "language",
+          "type": "string",
+          "required": false,
+          "default": "Japanese",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "deduplicate",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "aggregationPeriodMonths",
+          "type": "union",
+          "required": false,
+          "default": 12,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            12,
+            24,
+            36,
+            48
+          ],
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "201",
+          "schema": "SearchVolumeHistoryResponseDto"
+        }
+      ],
+      "async_polling_documented": true,
+      "freshness_warning_documented": true,
+      "mutation_kind": "external_job_registration",
+      "external_request_executed": false,
+      "contract_digest": "da33c7b348da423f15ee7053c56c5484f7954f9e756442c876425b7a85d418df"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_getResults",
+      "method": "POST",
+      "path": "/v1/search-volume/{requestId}/results",
+      "summary": "一括キーワード調査データ取得",
+      "tags": [
+        "一括キーワード調査"
+      ],
+      "lifecycle_role": "results",
+      "authentication_required": true,
+      "credit_contract_kind": "zero",
+      "request_schema": "SearchVolumeResultsDto",
+      "request_fields": [
+        {
+          "field": "noiseReduction",
+          "type": "boolean",
+          "required": false,
+          "default": true,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "searchVolume",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "keyword",
+            "seoDifficulty",
+            "searchVolume",
+            "rateOfChange",
+            "cpc",
+            "competition",
+            "firstSeenRange"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "minimum": 1,
+          "maximum": 50000,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [
+        {
+          "field": "requestId",
+          "in": "path",
+          "required": true,
+          "type": "number",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchVolumeResultsResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "c50b5e2a8c71f694af5ad7300d95e9cea1bed6b9027d6438d08a506cf1dfa4ff"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_getStatus",
+      "method": "GET",
+      "path": "/v1/search-volume/{requestId}/status",
+      "summary": "一括キーワード調査ステータス取得",
+      "tags": [
+        "一括キーワード調査"
+      ],
+      "lifecycle_role": "status",
+      "authentication_required": true,
+      "credit_contract_kind": "zero",
+      "request_schema": null,
+      "request_fields": [],
+      "parameter_fields": [
+        {
+          "field": "requestId",
+          "in": "path",
+          "required": true,
+          "type": "number",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchVolumeStatusResponseDto"
+        }
+      ],
+      "async_polling_documented": true,
+      "freshness_warning_documented": true,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "827b1c155e41530a732d6eabe36fc3609f1ca4adb550c449689f2f52adb99bf9"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_listHistories",
+      "method": "GET",
+      "path": "/v1/search-volume/histories",
+      "summary": "一括キーワード調査履歴一覧取得",
+      "tags": [
+        "一括キーワード調査"
+      ],
+      "lifecycle_role": "history",
+      "authentication_required": true,
+      "credit_contract_kind": "zero",
+      "request_schema": null,
+      "request_fields": [],
+      "parameter_fields": [
+        {
+          "field": "limit",
+          "in": "query",
+          "required": false,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 100
+        },
+        {
+          "field": "offset",
+          "in": "query",
+          "required": false,
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991,
+          "default": 0
+        },
+        {
+          "field": "status",
+          "in": "query",
+          "required": false,
+          "type": "unknown",
+          "minimum": null,
+          "maximum": null,
+          "default": null
+        }
+      ],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SearchVolumeHistoriesResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "0f1db666b42f2abb87f58e4f596cc315863007eacd1dc74fcd2482e12936fa8e"
+    },
+    {
+      "operation_id": "SiteSearchController_search",
+      "method": "POST",
+      "path": "/v1/site-search",
+      "summary": "サイト検索",
+      "tags": [
+        "サイト検索"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "SiteSearchDto",
+      "request_fields": [
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": {},
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "minimum": 1,
+          "maximum": 100,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SiteSearchResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "eef59f746fc7b31dd677031ddc3bf6ed03182ea91a41fb6e8ff2ff7c0ef51de3"
+    },
+    {
+      "operation_id": "SuggestKeywordsController_search",
+      "method": "POST",
+      "path": "/v1/suggest-keywords",
+      "summary": "サジェストキーワード取得",
+      "tags": [
+        "サジェストキーワード取得"
+      ],
+      "lifecycle_role": "synchronous_query",
+      "authentication_required": true,
+      "credit_contract_kind": "fixed",
+      "request_schema": "SuggestKeywordsDto",
+      "request_fields": [
+        {
+          "field": "keyword",
+          "type": "string",
+          "required": true,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "modes",
+          "type": "array",
+          "required": false,
+          "default": [
+            "google"
+          ],
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": "string"
+        },
+        {
+          "field": "increaseKeyword",
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "filter",
+          "type": "object",
+          "required": false,
+          "default": null,
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        },
+        {
+          "field": "sortBy",
+          "type": "string",
+          "required": false,
+          "default": "searchVolume",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "keyword",
+            "suggestClass",
+            "seoDifficulty",
+            "searchVolume",
+            "cpc",
+            "competition",
+            "firstSeenRange"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "orderBy",
+          "type": "string",
+          "required": false,
+          "default": "desc",
+          "minimum": null,
+          "maximum": null,
+          "min_items": null,
+          "max_items": null,
+          "enum": [
+            "asc",
+            "desc"
+          ],
+          "item_type": null
+        },
+        {
+          "field": "limit",
+          "type": "integer",
+          "required": false,
+          "default": null,
+          "minimum": 1,
+          "maximum": 9007199254740991,
+          "min_items": null,
+          "max_items": null,
+          "enum": null,
+          "item_type": null
+        }
+      ],
+      "parameter_fields": [],
+      "response_schemas": [
+        {
+          "status": "200",
+          "schema": "SuggestKeywordsResponseDto"
+        }
+      ],
+      "async_polling_documented": false,
+      "freshness_warning_documented": false,
+      "mutation_kind": "read_or_query",
+      "external_request_executed": false,
+      "contract_digest": "51cccd5016a431d7114508656ed9ee57c671228df75827ac08372c410351a790"
+    }
+  ],
+  "dependency_edges": [
+    {
+      "from_operation_id": "CompetitiveController_searchCompetitive",
+      "to_operation_id": "InfluxKeywordsController_searchKeyword",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "cc41a362a56a3999442b9f16bf704f07fe073308546efd6a58d92569c31b24a6"
+    },
+    {
+      "from_operation_id": "CompetitiveController_searchCompetitive",
+      "to_operation_id": "InfluxPagesController_searchPage",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "e2a69d9b320e58185e0955fc57c6648af8f94605842d764c7c995ef964f57a88"
+    },
+    {
+      "from_operation_id": "ContentSearchController_search",
+      "to_operation_id": "InfluxKeywordsController_searchKeyword",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "748df0058de41d895e1edace55fdc77ce564eaf742107ec44fe773bb35b16757"
+    },
+    {
+      "from_operation_id": "ContentSearchController_search",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "42d3b7c51de45c5830dc8f50742be52ab0f5cf56fb9884cf24b33ca341160709"
+    },
+    {
+      "from_operation_id": "CoOccurrenceController_search",
+      "to_operation_id": "HeadlineController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "83bbc41b7791c262f365107b4ab86cd8e5eb93076a6b004bfa015208d9c5e1c7"
+    },
+    {
+      "from_operation_id": "HeadlineController_search",
+      "to_operation_id": "CoOccurrenceController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "d33488bb95b699970eab1c8abf1443428b5e4664d5d9e6330cdc01fe83700f43"
+    },
+    {
+      "from_operation_id": "InfluxKeywordsController_searchKeyword",
+      "to_operation_id": "CompetitiveController_searchCompetitive",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "c81c9e53f7fdd06809de9fc03ade28ab0ee0dc0dd5c308c11606a4e35db1b73d"
+    },
+    {
+      "from_operation_id": "InfluxKeywordsController_searchKeyword",
+      "to_operation_id": "InfluxPagesController_searchPage",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "549a67d46265c3579e4a83e961c14f119949a075266caa4db00b199b69410627"
+    },
+    {
+      "from_operation_id": "InfluxKeywordsController_searchKeyword",
+      "to_operation_id": "SearchRankHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "802544848787e63c36696c4745d096fe2abc4a1b0ae90e3be3aaae91d52d2f49"
+    },
+    {
+      "from_operation_id": "InfluxKeywordsController_searchKeyword",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "48664eaa2d374652a4361da1c88722418659f8723b46c6da14662b294fc52bab"
+    },
+    {
+      "from_operation_id": "InfluxPagesController_searchPage",
+      "to_operation_id": "InfluxKeywordsController_searchKeyword",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "00790d0ef103eebe8127be958b5ed53354a85df1152b8eaee5517b2a5f2b3823"
+    },
+    {
+      "from_operation_id": "InfluxPagesController_searchPage",
+      "to_operation_id": "SearchRankHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "345140a59f9b7fe9b919f95cffa0088f289ecb734a7fc8099c72b02de5090033"
+    },
+    {
+      "from_operation_id": "InfluxPagesController_searchPage",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "918845aa87c37cac11f700214764c179fdafcf3a8ee5ca80bb3e7c90faea51fd"
+    },
+    {
+      "from_operation_id": "OtherKeywordsController_search",
+      "to_operation_id": "QuestionSearchController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "2105d2ba2dfe004b0562126693385c1bb3cb2b8ddd728f367a930840818ce1b5"
+    },
+    {
+      "from_operation_id": "OtherKeywordsController_search",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "eb95ae0fbacc20aedc62b20aa5587f2b1a744d79417f43ccc2017adaab51f258"
+    },
+    {
+      "from_operation_id": "OtherKeywordsController_search",
+      "to_operation_id": "SuggestKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "89dbb1d72e9f28e636083175d6b702e4791cc4c5c9a8c71791196e78af9442fb"
+    },
+    {
+      "from_operation_id": "QuestionSearchController_search",
+      "to_operation_id": "OtherKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "8ef2606946ac75cc45dbf895385541ea57fc02a19b45e067870461b35fcfd4e8"
+    },
+    {
+      "from_operation_id": "RankingKeywordsController_search",
+      "to_operation_id": "InfluxKeywordsController_searchKeyword",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "c20367cf7035b257705702ff73cabe286f19a0328a109b444a1dd3e909c52d42"
+    },
+    {
+      "from_operation_id": "RankingKeywordsController_search",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "7823c3036863fb11b14f13e5d620fa0a365cef485a0aa4e1e4ecf1b083ecc440"
+    },
+    {
+      "from_operation_id": "RankingKeywordsController_search",
+      "to_operation_id": "SuggestKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "1d3d2ac3cf7e195ff454bc7e52289adaf6e4799493ce61310e761ff2bacc4fe2"
+    },
+    {
+      "from_operation_id": "RelatedKeywordsController_search",
+      "to_operation_id": "OtherKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "4dca7c65e074debf509345265170bcce8759eea51549df085813b84051770513"
+    },
+    {
+      "from_operation_id": "RelatedKeywordsController_search",
+      "to_operation_id": "RankingKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "18fe1502460a41f0c8f7887c557ed65261745fd168f3322dd1bc39a0ab44889e"
+    },
+    {
+      "from_operation_id": "RelatedKeywordsController_search",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "a08317796c0a49aaa825f20f0cd37c5a2bee87aee417bc9774462c4471a37885"
+    },
+    {
+      "from_operation_id": "RelatedKeywordsController_search",
+      "to_operation_id": "SuggestKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "4a5f05f879e099e6095a2a8fe4d25b84c2a7e50d3ede513fbb8e74f7d7650f60"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_getResults",
+      "to_operation_id": "SearchRankHistoryController_getStatus",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "1defe49728f8bac2a01fa6a9b68c6a8a54e25369cb833220c5066994e34fde8d"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_getResults",
+      "to_operation_id": "SearchRankHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "1dfef4a6120bdb48907d74baf5024cb2290810a723dd6dc10c216d6f8634eb72"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_getStatus",
+      "to_operation_id": "SearchRankHistoryController_getResults",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "a0e55de1bfa2330f464f25fa385cf31193441d1b67ce684bf83439cecd48fb9c"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_getStatus",
+      "to_operation_id": "SearchRankHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "d82bdeef01d0af33b1d3c515c8af0383c2eb18397990b984d305df179e971709"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_listHistories",
+      "to_operation_id": "SearchRankHistoryController_getResults",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "88a8fec5653d52bcb31ba6338fb44167e1377567115e648960c615c0f2e687e0"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_listHistories",
+      "to_operation_id": "SearchRankHistoryController_getStatus",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "d5c17d7b0566daee4eb620fb10d445640c2f2a6fc4da6c6e8adbe53ec2b4a16d"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_register",
+      "to_operation_id": "SearchRankHistoryController_getResults",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "c7e89bef34e09ba44a098ea5c664441eac50742d3f9f3ecb0899eda4c7f71420"
+    },
+    {
+      "from_operation_id": "SearchRankHistoryController_register",
+      "to_operation_id": "SearchRankHistoryController_getStatus",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "17c1ab061ed48978ee93b96a2b0d35d53ff0bf87c9b2e2bc49cc4e541005d59f"
+    },
+    {
+      "from_operation_id": "SearchRankSerpCacheController_getSerpCache",
+      "to_operation_id": "SearchRankHistoryController_getResults",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "bf516e2c0551dd9a7f7c35639da85df94f47dfbac3b79fcc911dc0787fc8bfa3"
+    },
+    {
+      "from_operation_id": "SearchRankSerpCacheController_getSerpCache",
+      "to_operation_id": "SearchRankHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "dcefe87935e3f9afc85b779002e26dda3178a1e427fd60729e69fae6c94f0f76"
+    },
+    {
+      "from_operation_id": "SearchRankSerpCacheController_getSerpCache",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "40032946c8f75dc6f648f2f6b4dec29a2f11cfe4de304b42b1a6dd1569cbbc0c"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_getResults",
+      "to_operation_id": "SearchVolumeHistoryController_getStatus",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "fa41b1cf23eea7b49014e7d519fc4737010cb63c1e666cddefa41f6cc9c9e5b9"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_getResults",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "c66994c7a2b6e69b71433b291b40aa7fcbbd011467ce4901eac3cebf4c65e9b3"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_getStatus",
+      "to_operation_id": "SearchVolumeHistoryController_getResults",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "38dc5dcec7ffbc4183a2073be7de2bda7df9f0c16e05cf0b73c8cf82c04123dc"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_getStatus",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "5f5fb816a5baf78c8dea5fd18b4cb8914c4bdf7d640ad831bc3a43564d497830"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_listHistories",
+      "to_operation_id": "SearchVolumeHistoryController_getResults",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "303f0232e72c44a6750380ff3d5bc76b6b1fc621cd446b1f282e10ff0cf66160"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_listHistories",
+      "to_operation_id": "SearchVolumeHistoryController_getStatus",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "3e80029166a712d9fc499cd22fede8c174802ac9f92290e21722505d8bca80ac"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_register",
+      "to_operation_id": "SearchVolumeHistoryController_getResults",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "a74be7b5cd878fbf45f778612ee2284847d89dd8344ee4f68b32dcf3f15ac9a6"
+    },
+    {
+      "from_operation_id": "SearchVolumeHistoryController_register",
+      "to_operation_id": "SearchVolumeHistoryController_getStatus",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "f9739dea76e32a43afb4e7edd995ebefe71c50b2379f164c640d76c284da6fbb"
+    },
+    {
+      "from_operation_id": "SearchVolumeMetadataController_getLanguages",
+      "to_operation_id": "SearchRankHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "a9a33905478df7cc8da2bc54c2ab533a4b1cd8bc71dc74e53f95901f8d288c90"
+    },
+    {
+      "from_operation_id": "SearchVolumeMetadataController_getLanguages",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "30660510fa20f598d70d91eff6378fd5b4296ce437f406380fddbde150480762"
+    },
+    {
+      "from_operation_id": "SearchVolumeMetadataController_getLocations",
+      "to_operation_id": "SearchRankHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "b9151aeee1bde0e829fb201a22ad9bb597c6f804f2e63ebd5c200bc7a14977cc"
+    },
+    {
+      "from_operation_id": "SearchVolumeMetadataController_getLocations",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "bbf9f53d77d5275e512d4d8668e037235324bb84bbabb4badf701af37ba51cfc"
+    },
+    {
+      "from_operation_id": "SiteSearchController_search",
+      "to_operation_id": "CompetitiveController_searchCompetitive",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "998e8633c59bc778cf3f57eb9620f91936caf725f3b68143216fc086650968cb"
+    },
+    {
+      "from_operation_id": "SiteSearchController_search",
+      "to_operation_id": "InfluxKeywordsController_searchKeyword",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "d4163c1de4dcb3f3d35eaaf7972bee2917724d14ed99f5e1c4827f2aa67a7ede"
+    },
+    {
+      "from_operation_id": "SuggestKeywordsController_search",
+      "to_operation_id": "OtherKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "d65f954e0ace78ff2a7d6a5b75f374f20bd4810c03b8f6745a0fb08e7776c540"
+    },
+    {
+      "from_operation_id": "SuggestKeywordsController_search",
+      "to_operation_id": "RankingKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "cda9c82f8e37b9ec910856e4472e0ebda66bb26082d55face26e9cfe11708391"
+    },
+    {
+      "from_operation_id": "SuggestKeywordsController_search",
+      "to_operation_id": "RelatedKeywordsController_search",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "8e556476d8049af32eb71161f54ed232467b25e658ce599b44330392400f3d67"
+    },
+    {
+      "from_operation_id": "SuggestKeywordsController_search",
+      "to_operation_id": "SearchVolumeHistoryController_register",
+      "evidence": "exact target path explicitly named in source description",
+      "edge_digest": "de0320a9e94106f73ca89beebdfe3684c0604a0ee1c97a6f65bdc434b972df94"
+    }
+  ],
+  "external_request_executed": false,
+  "graph_digest": "d2dd7e1ab0ef97bf521370bb4c22fffcdb5ecdadaab5783df5d5f57f8a4a12c8"
+}
