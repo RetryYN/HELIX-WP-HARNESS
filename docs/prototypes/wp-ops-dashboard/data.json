@@ -1,20 +1,20 @@
 {
   "schema_version": "wp-keyword-dashboard-prototype.v1",
   "generated_at": "2026-08-23T11:27:00+09:00",
-  "provenance": "DataForSEO standard raw snapshots + supplied Excel JSON inspection",
+  "provenance": "DataProviderB standard raw snapshots + supplied Excel JSON inspection",
   "sites": [
     {
-      "site_id": "solobiz-lab.com",
+      "site_id": "site-b.example",
       "label": "大人のひとりビジネスラボ",
-      "domain": "solobiz-lab.com",
+      "domain": "site-b.example",
       "status": "active",
       "is_pinned": true,
       "display_order": 1
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "label": "IT就活大学",
-      "domain": "it-shukatu-college.com",
+      "domain": "site-a.example",
       "status": "active",
       "is_pinned": true,
       "display_order": 2
@@ -24,7 +24,7 @@
   "groups": [
     {
       "id": "intent-pair-001",
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "main_keyword": "it 就活サイト",
       "main_origin": "imported_keyword",
       "source_order": {
@@ -86,7 +86,7 @@
     },
     {
       "id": "solobiz-writer-sidejob",
-      "site_id": "solobiz-lab.com",
+      "site_id": "site-b.example",
       "main_keyword": "ライター 副業",
       "main_origin": "imported_keyword",
       "source_order": {

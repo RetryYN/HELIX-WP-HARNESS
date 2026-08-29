@@ -10,7 +10,7 @@ const keywordPath=fromRepo("artifacts/poc/keyword-workbook-100-live/result.json"
 const gscSummaryPath=fromRepo(process.env.WP_GSC_SUMMARY ?? "artifacts/poc/gsc-page-query-28d-summary.json");
 const headingSummaryPath=fromRepo("artifacts/poc/wp-heading-summary.json");
 const fixtureDigest=(root)=>{const hash=createHash("sha256");const files=readdirSync(root,{recursive:true,withFileTypes:true}).filter((entry)=>entry.isFile()).map((entry)=>path.join(entry.parentPath,entry.name)).sort();for(const file of files){hash.update(path.relative(root,file));hash.update("\0");hash.update(readFileSync(file));hash.update("\0")}return hash.digest("hex")};
-assert.ok(existsSync(keywordPath),"100-keyword real DFS result is required");
+assert.ok(existsSync(keywordPath),"100-keyword real DPB result is required");
 assert.ok(existsSync(gscSummaryPath),"GSC real-data attestation is required");
 assert.ok(existsSync(headingSummaryPath),"WP H2 real-data attestation is required");
 const keyword=JSON.parse(readFileSync(keywordPath,"utf8"));
@@ -18,10 +18,10 @@ const gsc=JSON.parse(readFileSync(gscSummaryPath,"utf8"));
 const headings=JSON.parse(readFileSync(headingSummaryPath,"utf8"));
 const gscFixtureRoot=fromRepo(gsc.fixture_path);
 const gscManifest=JSON.parse(readFileSync(path.join(gscFixtureRoot,"manifest.json"),"utf8"));
-assert.equal(keyword.tasks.length,100,"real DFS task count");
+assert.equal(keyword.tasks.length,100,"real DPB task count");
 assert.equal(keyword.article_keyword_groups.length,64,"real SERP group count after normalization/context hierarchy");
 assert.equal(keyword.article_keyword_groups.filter((group)=>group.resolution_state==="unresolved").length,1,"separate modifier-only SERP group must remain unresolved");
-assert.ok(keyword.tasks.every((row)=>row.task_id&&row.response_digest&&row.raw_file),"DFS provenance must be complete");
+assert.ok(keyword.tasks.every((row)=>row.task_id&&row.response_digest&&row.raw_file),"DPB provenance must be complete");
 assert.equal(new Set(keyword.tasks.map((row)=>row.source_keyword_id)).size,100,"source keyword IDs must be unique");
 assert.equal(gsc.schema_version,"wp-gsc-page-query-poc-summary.v1");
 assert.equal(gsc.articles,59);
@@ -34,4 +34,4 @@ assert.equal(gscManifest.derived_from_local_evidence_tree_sha256,gsc.local_evide
 assert.equal(fixtureDigest(gscFixtureRoot),gsc.evidence_fixture_tree_sha256,"committed GSC fixture digest");
 assert.equal(headings.schema_version,"wp-heading-attestation.v2");
 assert.equal(headings.articles,59);assert.equal(headings.h2,381);assert.ok(headings.h3>0);assert.match(headings.tree_sha256,/^[a-f0-9]{64}$/);
-console.log(`required PoC evidence: OK (DFS 100 real KW / 64 groups, 1 unresolved modifier group, GSC 59 articles / 681 queries over 28 days, WP 59 articles / ${headings.h2} H2 / ${headings.h3} H3)`);
+console.log(`required PoC evidence: OK (DPB 100 real KW / 64 groups, 1 unresolved modifier group, GSC 59 articles / 681 queries over 28 days, WP 59 articles / ${headings.h2} H2 / ${headings.h3} H3)`);

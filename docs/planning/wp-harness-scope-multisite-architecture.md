@@ -67,7 +67,7 @@ credential_ref      # credential値ではなく安全な参照
 1. 全 entity / event / evidence / job は `site_id` に束縛する。
 2. 外部 write は `site_id + environment_id` が確定しなければ fail-close する。
 3. WP post ID は installation 内の識別子であり global ID として使用しない。
-4. provider cache、DataForSEO budget、GSC/GA4 dataset、WP credential reference は site/account 境界を持つ。
+4. provider cache、DataProviderB budget、GSC/GA4 dataset、WP credential reference は site/account 境界を持つ。
 5. 通常の site view で他サイトの KW、記事、GSC、内部リンク、操作を混在させない。
 6. cross-site 集計は portfolio projection でのみ明示的に行う。
 7. `standalone_installation` と `wp_multisite_network` の両方を表現可能にする。
@@ -157,7 +157,7 @@ src/
 │  └─ incidents/
 │
 ├─ providers/
-│  ├─ dataforseo/
+│  ├─ data-provider-b/
 │  ├─ search-console/
 │  ├─ analytics/
 │  ├─ wordpress/
@@ -247,7 +247,7 @@ observation
 
 AI は仮説・生成・提案へ使用できるが、決定論的に計算可能な集計・状態・保存則の正本にはしない。
 
-## 6. DataForSEO provider境界
+## 6. DataProviderB provider境界
 
 現行PoCは Google Organic SERP について次を実証済みである。
 
@@ -264,7 +264,7 @@ Organic、PAA、Related Searches、spell、SERP featureを証跡化している�
 現行 `scripts/poc-keyword-serp.mjs` は provider I/O と consumer解析を同居させているため、後続移設では次へ分離する。
 
 ```text
-providers/dataforseo/
+providers/data-provider-b/
 ├─ client/
 │  ├─ auth
 │  ├─ request
@@ -299,7 +299,7 @@ SERP grouping、search intent、article grouping は provider へ置かず、`ac
 |---|---|
 | REST block roundtrip | `assets/posts` + `lifecycle/publish` |
 | 本番記事reverse / roundtrip | `assets/content-model` + `lifecycle/regenerate` |
-| DataForSEO SERP / PAA / AIO / suggestion | `providers/dataforseo` |
+| DataProviderB SERP / PAA / AIO / suggestion | `providers/data-provider-b` |
 | 固定page roundtrip | `assets/pages/fixed` |
 | SWELL / Neo deterministic render | `providers/wordpress/theme-contract` |
 | GSC取得 | `providers/search-console` |
@@ -346,7 +346,7 @@ PR #6 の search-intent / required-topics PoC自体は否定しない。ただ�
 
 1. 本planning boundaryをmainへ入れる。
 2. `portfolio/site-context` の契約を原子PRで導入する。
-3. DataForSEO provider I/Oをconsumer解析から分離する。
+3. DataProviderB provider I/Oをconsumer解析から分離する。
 4. 既存SEO PoCを `acquisition/organic-search` へ保存則付きで移設する。
 5. GSC / WP / XServer providerを同様に分離する。
 6. assets / lifecycle / operationsを接続する。

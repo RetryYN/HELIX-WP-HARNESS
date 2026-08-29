@@ -25,10 +25,10 @@ export const deriveParentCandidate=(keyword)=>{
   }
   return remainder.trim()||null;
 };
-// One digest definition shared by the live DFS run and offline regrouping so the same evidence yields the same value.
+// One digest definition shared by the live DPB run and offline regrouping so the same evidence yields the same value.
 export const evidenceDigest=({tasks,algorithm,hierarchy,grouping,articleKeywordGroups})=>digest({snapshots:tasks.map(({source_keyword_id,response_digest})=>({source_keyword_id,response_digest})),algorithm,hierarchy,grouping,articleKeywordGroups});
 
-export function buildLatestKeywordGroups(records,{highThreshold=0.8,possibleThreshold=0.6,comparisonDepth=5,siteId="it-shukatu.com"}={}){
+export function buildLatestKeywordGroups(records,{highThreshold=0.8,possibleThreshold=0.6,comparisonDepth=5,siteId="site-a.example"}={}){
   const hierarchy=buildKeywordHierarchy(records.map((row)=>({...row,raw_keyword:row.keyword})));
   const hierarchyById=new Map(hierarchy.map((row)=>[row.source_keyword_id,row]));
   const recordById=new Map(records.map((row)=>[row.source_keyword_id,row]));

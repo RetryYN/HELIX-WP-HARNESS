@@ -112,7 +112,7 @@ export function auditSerpDataCoverage(rawRoots=defaultRoots){
       {dataset:"SERP pixel rectangles",reason:"calculate_rectangles was not requested"},
       {dataset:"competitor top11-20 H1-H6/body-derived terms/link graph",reason:"content parsing is retained for observed top10 URLs; ranks 11-20 were not acquired"},
       {dataset:"fresh keyword volume/monthly history/CPC/competition/SEO difficulty",reason:"SERP snapshots do not replace Keywords Data/Labs acquisition"},
-      {dataset:"ranked keywords/pages/domain competitors/history",reason:"DataForSEO Labs datasets were not acquired"},
+      {dataset:"ranked keywords/pages/domain competitors/history",reason:"DataProviderB Labs datasets were not acquired"},
       {dataset:"multi-engine suggestions/question corpus/trends/news/full Q&A index/social hashtags",reason:"no corresponding full external acquisition exists; retained-workbook suggestions and retained-SERP Q&A subsets are projected separately"}
     ]
   };

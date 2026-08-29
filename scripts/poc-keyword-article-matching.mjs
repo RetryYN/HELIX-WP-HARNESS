@@ -3,7 +3,7 @@ import { matchKeywordGroupToArticles, reconcileArticleAssignments } from "./keyw
 
 const db=openDashboardDb(process.env.WP_DASHBOARD_DB??".helix/keyword-dashboard.sqlite");
 const dashboard=projectDashboard(db);db.close();
-const siteId=process.env.WP_SITE_ID??"it-shukatu.com";
+const siteId=process.env.WP_SITE_ID??"site-a.example";
 const groups=dashboard.groups.filter((group)=>group.site_id===siteId);
 const articles=dashboard.article_query_summaries.filter((article)=>article.site_id===siteId);
 const matches=reconcileArticleAssignments(groups.map((group)=>matchKeywordGroupToArticles(group,articles)));

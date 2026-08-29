@@ -33,11 +33,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -185,11 +185,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -772,11 +772,11 @@
       "disposition": "provider_dataset_not_acquired",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -951,11 +951,11 @@
       "disposition": "provider_dataset_not_acquired",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -1264,11 +1264,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -1332,11 +1332,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -1919,11 +1919,11 @@
       "disposition": "provider_dataset_not_acquired",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -2056,11 +2056,11 @@
       "disposition": "provider_dataset_not_acquired",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -2264,11 +2264,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -2438,11 +2438,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -2599,11 +2599,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -2880,11 +2880,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -2927,11 +2927,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -3311,11 +3311,11 @@
       "disposition": "provider_dataset_not_acquired",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -3358,11 +3358,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -3873,11 +3873,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -3962,11 +3962,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -4570,11 +4570,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -4707,11 +4707,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -6203,11 +6203,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -6987,11 +6987,11 @@
       "disposition": "provider_dataset_not_acquired",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -7950,11 +7950,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -8844,11 +8844,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -10412,11 +10412,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -12419,11 +12419,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -13386,11 +13386,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -13758,11 +13758,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -13947,11 +13947,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -14310,11 +14310,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -14873,11 +14873,11 @@
       "disposition": "request_control_not_1to1_supported",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -15089,11 +15089,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -15350,10 +15350,10 @@
       ],
       "disposition": "retained_semantic_mapping",
       "current_targets": [
-        "api.cooccurrence.rakko_semantics.site_count_total"
+        "api.cooccurrence.seo_tool_a_semantics.site_count_total"
       ],
       "future_lossless_targets": [
-        "api.cooccurrence.rakko_semantics.site_count_total",
+        "api.cooccurrence.seo_tool_a_semantics.site_count_total",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -15374,10 +15374,10 @@
       ],
       "disposition": "retained_semantic_mapping",
       "current_targets": [
-        "api.cooccurrence.rakko_semantics.site_count_heading"
+        "api.cooccurrence.seo_tool_a_semantics.site_count_heading"
       ],
       "future_lossless_targets": [
-        "api.cooccurrence.rakko_semantics.site_count_heading",
+        "api.cooccurrence.seo_tool_a_semantics.site_count_heading",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -15588,10 +15588,10 @@
       ],
       "disposition": "retained_semantic_mapping",
       "current_targets": [
-        "api.cooccurrence.rakko_semantics.page_details[].page_count"
+        "api.cooccurrence.seo_tool_a_semantics.page_details[].page_count"
       ],
       "future_lossless_targets": [
-        "api.cooccurrence.rakko_semantics.page_details[].page_count",
+        "api.cooccurrence.seo_tool_a_semantics.page_details[].page_count",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -15612,10 +15612,10 @@
       ],
       "disposition": "retained_semantic_mapping",
       "current_targets": [
-        "api.cooccurrence.rakko_semantics.page_details[].page_count_in_headline"
+        "api.cooccurrence.seo_tool_a_semantics.page_details[].page_count_in_headline"
       ],
       "future_lossless_targets": [
-        "api.cooccurrence.rakko_semantics.page_details[].page_count_in_headline",
+        "api.cooccurrence.seo_tool_a_semantics.page_details[].page_count_in_headline",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -16937,11 +16937,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -17415,11 +17415,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -18130,11 +18130,11 @@
       "disposition": "provider_dataset_not_acquired",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -18622,11 +18622,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -18671,10 +18671,10 @@
       ],
       "disposition": "retained_semantic_mapping",
       "current_targets": [
-        "dfs_tasks.observed_at"
+        "data_provider_b_tasks.observed_at"
       ],
       "future_lossless_targets": [
-        "dfs_tasks.observed_at",
+        "data_provider_b_tasks.observed_at",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -18972,11 +18972,11 @@
       "disposition": "retained_semantic_mapping",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -19158,11 +19158,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],
@@ -19925,11 +19925,11 @@
       "disposition": "contract_shape_only",
       "current_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword"
+        "data_provider_b_tasks.keyword"
       ],
       "future_lossless_targets": [
         "imported_keywords.raw_keyword",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "acquisition_raw_payloads.payload_json",
         "acquisition_field_occurrences.value_json"
       ],

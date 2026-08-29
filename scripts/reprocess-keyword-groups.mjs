@@ -4,7 +4,7 @@ import {GROUPING_ALGORITHM,GROUPING_DECISION,buildLatestKeywordGroups,evidenceDi
 
 const resultPath=path.resolve(process.argv[2]??"artifacts/poc/keyword-workbook-100-live/result.json");
 const evidence=JSON.parse(await readFile(resultPath,"utf8"));
-if(!Array.isArray(evidence.tasks)||evidence.tasks.length===0)throw new Error("actual DFS task evidence is required");
+if(!Array.isArray(evidence.tasks)||evidence.tasks.length===0)throw new Error("actual DPB task evidence is required");
 const {policyVersion,hierarchy,grouping,articleKeywordGroups}=buildLatestKeywordGroups(evidence.tasks);
 const next={...evidence,schema_version:"wp-keyword-serp-poc.v2",keyword_policy_version:policyVersion,grouping:{algorithm:GROUPING_ALGORITHM,decision:GROUPING_DECISION,...grouping},keyword_hierarchy:hierarchy,article_keyword_groups:articleKeywordGroups};
 next.reproducibility_digest=evidenceDigest({tasks:next.tasks,algorithm:GROUPING_ALGORITHM,hierarchy,grouping,articleKeywordGroups});

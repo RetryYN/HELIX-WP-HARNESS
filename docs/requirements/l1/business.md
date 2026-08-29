@@ -19,7 +19,7 @@ authority: docs/requirements/authority.md
 ## Actorとscope
 
 - actor: PO 1名、WP運用agent、決定論analyzer、外部service
-- production boundary: 初期対象`solobiz-lab.com`
+- production boundary: 初期対象`site-b.example`
 - release boundary: S3。S4は別sliceとして再承認する。
 - non-goal: WP theme自体の開発、WP以外の媒体、第三者配布、決済の自動実行
 

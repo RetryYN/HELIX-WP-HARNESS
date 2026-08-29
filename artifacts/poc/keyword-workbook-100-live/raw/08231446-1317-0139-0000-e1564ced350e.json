@@ -29,7 +29,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:6"
+        "tag": "site-a.example:IT就活:6"
       },
       "result": [
         {
@@ -60,21 +60,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-e1564ced350e:4)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\nIT業界の主な分類\n\n- **SIer（エスアイアー）** ：企業のシステムを企画・受託開発。NTTデータやSCSKなど。\n- **Web系** ：自社でWebサービスやアプリを開発・運営。メルカリなど。\n- **インフラ・通信** ：サーバーやネットワーク、回線などの基盤を支える。\n- **ITコンサル** ：ITを活用した経営課題の解決を提案。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\n就活を進めるステップ\n\n- **自己分析** ：自分の強みや「ものづくり」か「課題解決」かなど興味の源泉を知る。\n- **業界・職種研究** ：上流工程（SE）や下流工程（PG）、インフラ、営業など役割を理解する。\n- **インターン参加** ：大学3年の夏・冬頃から早期選考に直結するインターンに参加する。\n- **選考対策** ：Webテストの早期対策と、志望動機・就活の軸を明確にする。[](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/) [[1]](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)\n\nIT業界の就活について、さらに知りたいことはありますか？\n\n- 文系・未経験からの進め方\n- おすすめのIT特化型就活サイト\n- 志望動機や就活の軸の作り方\n\n知りたい内容に合わせて詳しくお答えします。",
+              "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-e1564ced350e:4)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\nIT業界の主な分類\n\n- **SIer（エスアイアー）** ：企業のシステムを企画・受託開発。NTTデータやSCSKなど。\n- **Web系** ：自社でWebサービスやアプリを開発・運営。メルカリなど。\n- **インフラ・通信** ：サーバーやネットワーク、回線などの基盤を支える。\n- **ITコンサル** ：ITを活用した経営課題の解決を提案。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\n就活を進めるステップ\n\n- **自己分析** ：自分の強みや「ものづくり」か「課題解決」かなど興味の源泉を知る。\n- **業界・職種研究** ：上流工程（SE）や下流工程（PG）、インフラ、営業など役割を理解する。\n- **インターン参加** ：大学3年の夏・冬頃から早期選考に直結するインターンに参加する。\n- **選考対策** ：Webテストの早期対策と、志望動機・就活の軸を明確にする。[](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/) [[1]](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)\n\nIT業界の就活について、さらに知りたいことはありますか？\n\n- 文系・未経験からの進め方\n- おすすめのIT特化型就活サイト\n- 志望動機や就活の軸の作り方\n\n知りたい内容に合わせて詳しくお答えします。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT業界の就活は、 早期化や多様な職種（SIer、Web系、インフラ等）が特徴 です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。",
-                  "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-e1564ced350e:2)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)",
+                  "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-e1564ced350e:2)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-e1564ced350e:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-e1564ced350e:3"
                     }
                   ],
                   "references": [

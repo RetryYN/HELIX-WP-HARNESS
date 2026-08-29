@@ -1,7 +1,7 @@
 {
-  "schema_version": "rakko-openapi-inventory.v1",
+  "schema_version": "seo-tool-a-openapi-inventory.v1",
   "generated_at": "2026-08-29T21:23:29.590Z",
-  "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
+  "source_url": "https://api.seo-tool-a.example/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
   "operation_count": 24,
@@ -26,7 +26,7 @@
       "status": "planned",
       "provider_relation": "provider_mix",
       "confidence": "medium",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Keywords Data APIs",
         "SERP autocomplete"
       ],
@@ -37,7 +37,7 @@
       "operation": "POST /v1/related-keywords",
       "operation_id": "RelatedKeywordsController_search",
       "summary": "関連キーワード取得",
-      "description": "関連キーワード取得。\n\n指定キーワードに部分一致するキーワードをラッコのDBから大量に取得する。\n関連語が欲しい場合はまずPOST /v1/suggest-keywordsを使い、さらに大量にKWを取得したい場合にのみ当機能を使う。\n\n最大25,000件を取得。月間検索数・SEO難易度・CPC・競合性などのSEO指標付きで返却。\nSEO難易度はデータがない場合が多い。またSEO指標は最新でない可能性がある。\nこの指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得すること。\n\n検索意図の近いキーワードを取得したい場合はPOST /v1/ranking-keywordsを、\nLSIキーワードを取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
+      "description": "関連キーワード取得。\n\n指定キーワードに部分一致するキーワードをseo-tool-aのDBから大量に取得する。\n関連語が欲しい場合はまずPOST /v1/suggest-keywordsを使い、さらに大量にKWを取得したい場合にのみ当機能を使う。\n\n最大25,000件を取得。月間検索数・SEO難易度・CPC・競合性などのSEO指標付きで返却。\nSEO難易度はデータがない場合が多い。またSEO指標は最新でない可能性がある。\nこの指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得すること。\n\n検索意図の近いキーワードを取得したい場合はPOST /v1/ranking-keywordsを、\nLSIキーワードを取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
       "request_schema": "RelatedKeywordsDto",
       "response_schemas": {
         "200": "RelatedKeywordsResponseDto",
@@ -51,7 +51,7 @@
       "status": "planned",
       "provider_relation": "strong_inference",
       "confidence": "medium",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs related_keywords",
         "Labs keywords_for_keywords"
       ],
@@ -76,20 +76,20 @@
       "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP Advanced people_also_ask/related_searches"
       ],
       "helix_evidence": [
         "serp_demand_occurrences",
         "content_topic_proposals"
       ],
-      "gap": "PAA回答click depthとラッコ固有LSI集合が未取得"
+      "gap": "PAA回答click depthとseo-tool-a固有LSI集合が未取得"
     },
     {
       "operation": "POST /v1/question-search",
       "operation_id": "QuestionSearchController_search",
       "summary": "よくある質問検索取得",
-      "description": "よくある質問検索。\n指定キーワードを含む質問を、相対需要の高い順に最大1,000件取得する。\nQ&A/SEO記事作成や、AIO/GEO/LLMO対策の際、質問サンプルを得るのに有用。\n\nラッコキーワードのDBに蓄積した質問文を返却する。\nユーザーがGoogle検索AIモードや、チャットAIに入力する可能性の高い質問・疑問を網羅的に集められる。\n\n相対需要は、その検索結果内で最も需要が高い質問を100とした1〜100の相対値。\n絶対的な検索数や表示回数ではないため、検索キーワードが異なる結果の間では比較できない。\n\n質問文・相対需要・出現時期での絞り込み（filter）と、相対需要・出現時期での並び替え（sortBy / orderBy）ができる。\n\nそのキーワードを検索したときにGoogle検索結果に表示される質問を取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
+      "description": "よくある質問検索。\n指定キーワードを含む質問を、相対需要の高い順に最大1,000件取得する。\nQ&A/SEO記事作成や、AIO/GEO/LLMO対策の際、質問サンプルを得るのに有用。\n\nseo-tool-aのDBに蓄積した質問文を返却する。\nユーザーがGoogle検索AIモードや、チャットAIに入力する可能性の高い質問・疑問を網羅的に集められる。\n\n相対需要は、その検索結果内で最も需要が高い質問を100とした1〜100の相対値。\n絶対的な検索数や表示回数ではないため、検索キーワードが異なる結果の間では比較できない。\n\n質問文・相対需要・出現時期での絞り込み（filter）と、相対需要・出現時期での並び替え（sortBy / orderBy）ができる。\n\nそのキーワードを検索したときにGoogle検索結果に表示される質問を取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
       "request_schema": "SearchQuestionDto",
       "response_schemas": {
         "200": "SearchQuestionResponseDto",
@@ -103,7 +103,7 @@
       "status": "planned",
       "provider_relation": "unknown",
       "confidence": "low",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs/Keywords Data plus external Q&A corpus"
       ],
       "helix_evidence": [],
@@ -127,7 +127,7 @@
       "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs related_keywords",
         "SERP URL intersection"
       ],
@@ -161,7 +161,7 @@
       "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Keywords Data Google Ads search_volume",
         "Labs bulk_keyword_difficulty"
       ],
@@ -188,7 +188,7 @@
       "status": "planned",
       "provider_relation": "consumer_workflow",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "consumer persistence over async tasks"
       ],
       "helix_evidence": [],
@@ -210,7 +210,7 @@
       "status": "planned",
       "provider_relation": "consumer_workflow",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "provider task status"
       ],
       "helix_evidence": [],
@@ -232,7 +232,7 @@
       "status": "planned",
       "provider_relation": "consumer_workflow",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Keywords Data/Labs results plus consumer filtering"
       ],
       "helix_evidence": [],
@@ -253,7 +253,7 @@
       "status": "partial",
       "provider_relation": "confirmed_correspondence",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Appendix locations"
       ],
       "helix_evidence": [
@@ -278,7 +278,7 @@
       "status": "partial",
       "provider_relation": "confirmed_correspondence",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Appendix languages"
       ],
       "helix_evidence": [
@@ -306,7 +306,7 @@
       "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs ranked_keywords"
       ],
       "helix_evidence": [
@@ -335,7 +335,7 @@
       "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs relevant_pages",
         "ranked_keywords aggregation"
       ],
@@ -364,7 +364,7 @@
       "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs competitors_domain"
       ],
       "helix_evidence": [
@@ -392,7 +392,7 @@
       "status": "planned",
       "provider_relation": "strong_inference",
       "confidence": "medium",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs bulk_traffic_estimation",
         "ranked_keywords summaries"
       ],
@@ -417,7 +417,7 @@
       "status": "partial",
       "provider_relation": "strong_inference",
       "confidence": "medium",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "Labs ranked_keywords/relevant_pages filtered by keyword"
       ],
       "helix_evidence": [
@@ -447,7 +447,7 @@
       "status": "partial",
       "provider_relation": "inferred_transform",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP Advanced plus OnPage Content Parsing"
       ],
       "helix_evidence": [
@@ -457,7 +457,7 @@
         "GET /api/v1/headings",
         "headline-analysis dashboard"
       ],
-      "gap": "現行上位10pageで階層・検索・除外語・scope・ページ構造・文字数統計を実装。上位11〜20pageとRakko wire互換は未実装"
+      "gap": "現行上位10pageで階層・検索・除外語・scope・ページ構造・文字数統計を実装。上位11〜20pageとSeoToolA wire互換は未実装"
     },
     {
       "operation": "POST /v1/co-occurrence",
@@ -477,7 +477,7 @@
       "status": "partial",
       "provider_relation": "inferred_transform",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP Advanced plus OnPage Content Parsing plus tokenizer"
       ],
       "helix_evidence": [
@@ -485,7 +485,7 @@
         "competitor_task_terms",
         "competitor_page_terms"
       ],
-      "gap": "現行上位10page。上位11〜20pageとRakko getDetails wire互換は未実装"
+      "gap": "現行上位10page。上位11〜20pageとSeoToolA getDetails wire互換は未実装"
     },
     {
       "operation": "POST /v1/search-rank",
@@ -505,11 +505,11 @@
       "status": "partial",
       "provider_relation": "confirmed_correspondence",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP Google Organic task_post/live"
       ],
       "helix_evidence": [
-        "dfs_tasks",
+        "data_provider_b_tasks",
         "serp_organic_results"
       ],
       "gap": "target URL、可変depth/device/os/地域言語、履歴job未実装"
@@ -530,7 +530,7 @@
       "status": "planned",
       "provider_relation": "consumer_workflow",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "consumer persistence over SERP tasks"
       ],
       "helix_evidence": [],
@@ -552,7 +552,7 @@
       "status": "planned",
       "provider_relation": "consumer_workflow",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP task status"
       ],
       "helix_evidence": [],
@@ -574,7 +574,7 @@
       "status": "planned",
       "provider_relation": "consumer_workflow",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP results plus consumer aggregation"
       ],
       "helix_evidence": [],
@@ -584,7 +584,7 @@
       "operation": "GET /v1/search-rank/{requestId}/results/{entryNo}/serp",
       "operation_id": "SearchRankSerpCacheController_getSerpCache",
       "summary": "検索順位チェック結果詳細データ取得",
-      "description": "検索順位チェックSERP取得。POST /v1/search-rank/{requestId}/results で取得した entryNo を指定して、その検索順位チェック結果1件分の検索結果一覧（順位チェック実行時に取得したSERPデータ）を取得する。\n\nSERP上のposition、page.title/url/descriptionは、POST /v1/search-rank で順位チェックが完了した時点のデータを返す。\nこれ以外のSEO指標（topKeyword.position含む）は、本機能でデータ取得した時点でラッコキーワードデータベースが保持している値を返す。\nラッコキーワードデータベースの情報は最新ではない・データがない可能性がある。\nSEO指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得するか、POST /v1/search-rankで最新の検索順位を取得すること。\n\nクレジットは消費しない。",
+      "description": "検索順位チェックSERP取得。POST /v1/search-rank/{requestId}/results で取得した entryNo を指定して、その検索順位チェック結果1件分の検索結果一覧（順位チェック実行時に取得したSERPデータ）を取得する。\n\nSERP上のposition、page.title/url/descriptionは、POST /v1/search-rank で順位チェックが完了した時点のデータを返す。\nこれ以外のSEO指標（topKeyword.position含む）は、本機能でデータ取得した時点でseo-tool-aデータベースが保持している値を返す。\nseo-tool-aデータベースの情報は最新ではない・データがない可能性がある。\nSEO指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得するか、POST /v1/search-rankで最新の検索順位を取得すること。\n\nクレジットは消費しない。",
       "request_schema": null,
       "response_schemas": {
         "200": "SearchRankSerpCacheResponseDto",
@@ -596,7 +596,7 @@
       "status": "partial",
       "provider_relation": "confirmed_correspondence",
       "confidence": "high",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP Google Organic Advanced cache"
       ],
       "helix_evidence": [
@@ -624,7 +624,7 @@
       "status": "planned",
       "provider_relation": "strong_inference",
       "confidence": "medium",
-      "dfs_candidates": [
+      "data_provider_b_candidates": [
         "SERP with site: operator",
         "Labs ranked pages"
       ],
@@ -998,7 +998,7 @@
           "type": "string",
           "ref": null,
           "required": true,
-          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
+          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
         },
         {
           "field_path": "data.items[].suggestEngines",
@@ -1360,7 +1360,7 @@
           "type": "string",
           "ref": null,
           "required": true,
-          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
+          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
         },
         {
           "field_path": "errors",
@@ -1568,7 +1568,7 @@
           "type": "string",
           "ref": null,
           "required": true,
-          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
+          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
         },
         {
           "field_path": "errors",
@@ -1909,7 +1909,7 @@
           "type": "string",
           "ref": null,
           "required": true,
-          "description": "出現時期。質問が最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
+          "description": "出現時期。質問が最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
         },
         {
           "field_path": "errors",
@@ -3050,7 +3050,7 @@
           "type": "string",
           "ref": null,
           "required": true,
-          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
+          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。"
         },
         {
           "field_path": "data.items[].trends",

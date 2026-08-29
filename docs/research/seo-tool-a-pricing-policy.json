@@ -1,8 +1,8 @@
 {
-  "schema_version":"rakko-pricing-policy.v1",
+  "schema_version":"seo-tool-a-pricing-policy.v1",
   "evidence_cutoff":"2026-08-26",
   "currency":"JPY","tax_included":true,
-  "sources":["https://rakkokeyword.com/pricing","https://rakkokeyword.com/knowledge/246/","https://rakkokeyword.com/knowledge/10393/","https://rakkokeyword.com/knowledge/9162/"],
+  "sources":["https://seo-tool-a.example/pricing","https://seo-tool-a.example/knowledge/246/","https://seo-tool-a.example/knowledge/10393/","https://seo-tool-a.example/knowledge/9162/"],
   "plans":[
     {"id":"free","annual_monthly_price":0,"monthly_price":0,"annual_total":0,"credits":50,"credit_period":"week","carryover":"none","concurrent_sessions":null,"api_mcp":false},
     {"id":"entry","annual_monthly_price":660,"monthly_price":1320,"annual_total":7920,"credits":400,"credit_period":"month","carryover_months":2,"concurrent_sessions":1,"api_mcp":false},

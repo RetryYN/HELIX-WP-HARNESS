@@ -3,510 +3,510 @@
   "evidence_kind": "committed_derivative_fixture",
   "derived_from_local_evidence_tree_sha256": "c29b6af0d982fddd3d3e04cfccf381284a4716b592451b3e937a3834c47eebaa",
   "generated_at": "2026-08-23T17:18:29.969Z",
-  "site_id": "it-shukatu.com",
-  "site_url": "https://it-shukatu-college.com/",
+  "site_id": "site-a.example",
+  "site_url": "https://site-a.example/",
   "days": 28,
   "articles": [
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 17,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agents/",
+      "url": "https://site-a.example/it-shukatu-agent/shukatu-agents/",
       "title": "【2027年最新版】新卒向けIT就活エージェントおすすめ比較ランキング完全ガイド",
       "categories": [
         3,
         29
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fshukatu-agents%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fshukatu-agents%2F",
       "query_file": "17/クエリ.csv",
       "filter_file": "17/フィルタ.csv",
       "query_rows": 0,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 38,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/shukatu-cards/",
+      "url": "https://site-a.example/job-hunting-measures/shukatu-cards/",
       "title": "新卒カード（新卒チケット）のメリット・デメリットと成功する就活方法",
       "categories": [
         6,
         5
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fshukatu-cards%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fshukatu-cards%2F",
       "query_file": "38/クエリ.csv",
       "filter_file": "38/フィルタ.csv",
       "query_rows": 8,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 92,
-      "url": "https://it-shukatu-college.com/it-shukatu/what-i-want-to-do/",
+      "url": "https://site-a.example/it-shukatu/what-i-want-to-do/",
       "title": "IT業界の就活で「やりたいこと（したいこと）」を明確にする方法とポイント",
       "categories": [
         1,
         9
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fwhat-i-want-to-do%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fwhat-i-want-to-do%2F",
       "query_file": "92/クエリ.csv",
       "filter_file": "92/フィルタ.csv",
       "query_rows": 0,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 107,
-      "url": "https://it-shukatu-college.com/it-shukatu/humanities-dangerous/",
+      "url": "https://site-a.example/it-shukatu/humanities-dangerous/",
       "title": "文系からIT業界はやばい？挑戦と現実、就活方法を解説",
       "categories": [
         1,
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhumanities-dangerous%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhumanities-dangerous%2F",
       "query_file": "107/クエリ.csv",
       "filter_file": "107/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 130,
-      "url": "https://it-shukatu-college.com/it-shukatu/axis-of-shuukatu/",
+      "url": "https://site-a.example/it-shukatu/axis-of-shuukatu/",
       "title": "IT業界で成功するための就活の軸とは？ポイントや例文を紹介",
       "categories": [
         1,
         9
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Faxis-of-shuukatu%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Faxis-of-shuukatu%2F",
       "query_file": "130/クエリ.csv",
       "filter_file": "130/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 132,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/x-twitter/",
+      "url": "https://site-a.example/job-hunting-measures/x-twitter/",
       "title": "あなたもできる！X（Twitter）を活用した就活成功術",
       "categories": [
         11,
         5
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fx-twitter%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fx-twitter%2F",
       "query_file": "132/クエリ.csv",
       "filter_file": "132/フィルタ.csv",
       "query_rows": 13,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 134,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/sns-management/",
+      "url": "https://site-a.example/job-hunting-measures/sns-management/",
       "title": "就活中のSNS管理法｜見られることを前提に備えるべきポイント",
       "categories": [
         11,
         5
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fsns-management%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fsns-management%2F",
       "query_file": "134/クエリ.csv",
       "filter_file": "134/フィルタ.csv",
       "query_rows": 2,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 158,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/akalik/",
+      "url": "https://site-a.example/it-shukatu-agent/akalik/",
       "title": "アカリクとは？理系・院生の就活サポートガイド｜就活の情報戦を制する！",
       "categories": [
         3,
         12
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fakalik%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fakalik%2F",
       "query_file": "158/クエリ.csv",
       "filter_file": "158/フィルタ.csv",
       "query_rows": 5,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 193,
-      "url": "https://it-shukatu-college.com/it-shukatu/it-industry-humanities/",
+      "url": "https://site-a.example/it-shukatu/it-industry-humanities/",
       "title": "【文系からIT業界】を目指す方必見！IT就活パーフェクトガイド！",
       "categories": [
         1,
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fit-industry-humanities%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fit-industry-humanities%2F",
       "query_file": "193/クエリ.csv",
       "filter_file": "193/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 195,
-      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-companies/",
+      "url": "https://site-a.example/it-shukatu/humanities-it-companies/",
       "title": "【文系のIT就活】IT企業と職種がよくわかる｜IT企業完全ガイド",
       "categories": [
         1,
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhumanities-it-companies%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhumanities-it-companies%2F",
       "query_file": "195/クエリ.csv",
       "filter_file": "195/フィルタ.csv",
       "query_rows": 32,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 197,
-      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-occupations/",
+      "url": "https://site-a.example/it-shukatu/humanities-it-occupations/",
       "title": "【文系のIT業界就活】おすすめ職種9選を徹底解説｜文系IT職種完全ガイド",
       "categories": [
         1,
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhumanities-it-occupations%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhumanities-it-occupations%2F",
       "query_file": "197/クエリ.csv",
       "filter_file": "197/フィルタ.csv",
       "query_rows": 22,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 267,
-      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-industry-stop/",
+      "url": "https://site-a.example/it-shukatu/humanities-it-industry-stop/",
       "title": "【文系の就活】IT業界はやめとけ？理由5選と誤解を解説！失敗しないIT就活",
       "categories": [
         1,
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhumanities-it-industry-stop%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhumanities-it-industry-stop%2F",
       "query_file": "267/クエリ.csv",
       "filter_file": "267/フィルタ.csv",
       "query_rows": 10,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 269,
-      "url": "https://it-shukatu-college.com/it-shukatu/humanities-it-industry-tough/",
+      "url": "https://site-a.example/it-shukatu/humanities-it-industry-tough/",
       "title": "文系学生にIT業界はきつい？理解すべきポイントと失敗しない方法を解説！",
       "categories": [
         1,
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhumanities-it-industry-tough%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhumanities-it-industry-tough%2F",
       "query_file": "269/クエリ.csv",
       "filter_file": "269/フィルタ.csv",
       "query_rows": 21,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 276,
-      "url": "https://it-shukatu-college.com/it-shukatu/humanities-ai-engineer/",
+      "url": "https://site-a.example/it-shukatu/humanities-ai-engineer/",
       "title": "文系出身でAIエンジニアになれるのか？AI人材との違いを解説！",
       "categories": [
         1,
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhumanities-ai-engineer%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhumanities-ai-engineer%2F",
       "query_file": "276/クエリ.csv",
       "filter_file": "276/フィルタ.csv",
       "query_rows": 7,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 328,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-industry/",
+      "url": "https://site-a.example/it-industry-research/it-industry/",
       "title": "【新卒・就活生】IT業界とは？業界分類・職種・代表企業・働き方を解説",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-industry%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-industry%2F",
       "query_file": "328/クエリ.csv",
       "filter_file": "328/フィルタ.csv",
       "query_rows": 6,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 351,
-      "url": "https://it-shukatu-college.com/it-industry-research/stop-the-it-industry/",
+      "url": "https://site-a.example/it-industry-research/stop-the-it-industry/",
       "title": "【就活生必見】新卒でIT業界はやめとけ？就活と転職の違いと失敗しない方法",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fstop-the-it-industry%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fstop-the-it-industry%2F",
       "query_file": "351/クエリ.csv",
       "filter_file": "351/フィルタ.csv",
       "query_rows": 9,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 354,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-features/",
+      "url": "https://site-a.example/it-industry-research/it-industry-features/",
       "title": "IT業界の特徴と大きな誤解！Fラン大学生でも勝てる就活の必勝法",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-industry-features%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-industry-features%2F",
       "query_file": "354/クエリ.csv",
       "filter_file": "354/フィルタ.csv",
       "query_rows": 0,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 356,
-      "url": "https://it-shukatu-college.com/it-industry-research/multiple-subcontracting-structure/",
+      "url": "https://site-a.example/it-industry-research/multiple-subcontracting-structure/",
       "title": "【就活生必見】IT業界の多重下請け構造でわかる失敗しないIT就活",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fmultiple-subcontracting-structure%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fmultiple-subcontracting-structure%2F",
       "query_file": "356/クエリ.csv",
       "filter_file": "356/フィルタ.csv",
       "query_rows": 4,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 358,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-software-industry/",
+      "url": "https://site-a.example/it-industry-research/it-industry-software-industry/",
       "title": "【就活生必見】ソフトウェア業界とIT業界の特徴と違いをわかりやすく解説",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-industry-software-industry%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-industry-software-industry%2F",
       "query_file": "358/クエリ.csv",
       "filter_file": "358/フィルタ.csv",
       "query_rows": 0,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 406,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-is-changing-rapidly/",
+      "url": "https://site-a.example/it-industry-research/it-industry-is-changing-rapidly/",
       "title": "【IT就活】IT業界は変化が激しい？理由と未来を見据えた将来性の高いキャリア戦略",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-industry-is-changing-rapidly%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-industry-is-changing-rapidly%2F",
       "query_file": "406/クエリ.csv",
       "filter_file": "406/フィルタ.csv",
       "query_rows": 9,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 409,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-internet-web-industry/",
+      "url": "https://site-a.example/it-industry-research/it-industry-internet-web-industry/",
       "title": "【就活生必見】インターネット・Web業界とIT業界の違いをわかりやすく解説",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-industry-internet-web-industry%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-industry-internet-web-industry%2F",
       "query_file": "409/クエリ.csv",
       "filter_file": "409/フィルタ.csv",
       "query_rows": 18,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 412,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-sier-industry/",
+      "url": "https://site-a.example/it-industry-research/it-industry-sier-industry/",
       "title": "【就活生必見】情報処理サービス・SIer業界（SI業界）とIT業界の違いをわかりやすく解説",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-industry-sier-industry%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-industry-sier-industry%2F",
       "query_file": "412/クエリ.csv",
       "filter_file": "412/フィルタ.csv",
       "query_rows": 52,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 444,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-garbage/",
+      "url": "https://site-a.example/it-shukatu-agent/shukatu-agent-garbage/",
       "title": "【就活の闇】就活エージェントはゴミなのか？短絡的な思考に終止符を！",
       "categories": [
         3,
         22
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fshukatu-agent-garbage%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fshukatu-agent-garbage%2F",
       "query_file": "444/クエリ.csv",
       "filter_file": "444/フィルタ.csv",
       "query_rows": 4,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 446,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-suspicious/",
+      "url": "https://site-a.example/it-shukatu-agent/shukatu-agent-suspicious/",
       "title": "【就活の闇】就活エージェントは怪しい？無料で使える理由と不満は別々で考えろ！",
       "categories": [
         3,
         22
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fshukatu-agent-suspicious%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fshukatu-agent-suspicious%2F",
       "query_file": "446/クエリ.csv",
       "filter_file": "446/フィルタ.csv",
       "query_rows": 2,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 450,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-phone-persistent/",
+      "url": "https://site-a.example/it-shukatu-agent/shukatu-agent-phone-persistent/",
       "title": "【就活の闇】就活エージェントのしつこい電話は無視？折り返し？着信拒否？リスクと対処法",
       "categories": [
         3,
         22
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fshukatu-agent-phone-persistent%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fshukatu-agent-phone-persistent%2F",
       "query_file": "450/クエリ.csv",
       "filter_file": "450/フィルタ.csv",
       "query_rows": 69,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 453,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/shukatu-agent-stop/",
+      "url": "https://site-a.example/it-shukatu-agent/shukatu-agent-stop/",
       "title": "【就活の闇】就活エージェントはやめとけ？5つの理由とやばいサービスの特徴",
       "categories": [
         3,
         22
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fshukatu-agent-stop%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fshukatu-agent-stop%2F",
       "query_file": "453/クエリ.csv",
       "filter_file": "453/フィルタ.csv",
       "query_rows": 8,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 489,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/levatec-rookie/",
+      "url": "https://site-a.example/it-shukatu-agent/levatec-rookie/",
       "title": "【新卒就活生必見】レバテックルーキーとは？サービス特徴・評判・対象者をまるっと解説!",
       "categories": [
         3,
         12
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Flevatec-rookie%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Flevatec-rookie%2F",
       "query_file": "489/クエリ.csv",
       "filter_file": "489/フィルタ.csv",
       "query_rows": 6,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 497,
-      "url": "https://it-shukatu-college.com/it-industry-research/what-is-a-system-engineer/",
+      "url": "https://site-a.example/it-industry-research/what-is-a-system-engineer/",
       "title": "【就活生向け】システムエンジニアとは？仕事内容・年収・スキル・適正をわかりやすく解説",
       "categories": [
         19,
         25
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fwhat-is-a-system-engineer%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fwhat-is-a-system-engineer%2F",
       "query_file": "497/クエリ.csv",
       "filter_file": "497/フィルタ.csv",
       "query_rows": 8,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 499,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-industry-occupations/",
+      "url": "https://site-a.example/it-industry-research/it-industry-occupations/",
       "title": "【新卒・就活生】IT業界の職種とは？全7分類29種類の仕事内容と難易度一覧",
       "categories": [
         19,
         25
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-industry-occupations%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-industry-occupations%2F",
       "query_file": "499/クエリ.csv",
       "filter_file": "499/フィルタ.csv",
       "query_rows": 105,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 559,
-      "url": "https://it-shukatu-college.com/it-shukatu/how-to-become-a-new-graduate-engineer/",
+      "url": "https://site-a.example/it-shukatu/how-to-become-a-new-graduate-engineer/",
       "title": "【IT就活】新卒でITエンジニアになるには？方法・資格・職種の最速ルートがわかる！",
       "categories": [
         27,
         1
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhow-to-become-a-new-graduate-engineer%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhow-to-become-a-new-graduate-engineer%2F",
       "query_file": "559/クエリ.csv",
       "filter_file": "559/フィルタ.csv",
       "query_rows": 1,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 578,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/fresh-graduate-se-sukatu-agent/",
+      "url": "https://site-a.example/it-shukatu-agent/fresh-graduate-se-sukatu-agent/",
       "title": "【新卒向け】システムエンジニア（SE）志望におすすめの就活エージェントランキング！",
       "categories": [
         3,
         29
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Ffresh-graduate-se-sukatu-agent%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Ffresh-graduate-se-sukatu-agent%2F",
       "query_file": "578/クエリ.csv",
       "filter_file": "578/フィルタ.csv",
       "query_rows": 2,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 581,
-      "url": "https://it-shukatu-college.com/it-shukatu/humanities-se-quit/",
+      "url": "https://site-a.example/it-shukatu/humanities-se-quit/",
       "title": "【新卒就活生必見】文系からSEは本当にやめとけ？その理由と解決策を解説",
       "categories": [
         27,
@@ -514,160 +514,160 @@
         10
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fhumanities-se-quit%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fhumanities-se-quit%2F",
       "query_file": "581/クエリ.csv",
       "filter_file": "581/フィルタ.csv",
       "query_rows": 8,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 628,
-      "url": "https://it-shukatu-college.com/it-industry-research/it-companies/",
+      "url": "https://site-a.example/it-industry-research/it-companies/",
       "title": "【新卒・就活生】IT業界の企業とは？企業ランキングに意味なし！企業の種類とポイント解説",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fit-companies%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fit-companies%2F",
       "query_file": "628/クエリ.csv",
       "filter_file": "628/フィルタ.csv",
       "query_rows": 0,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 650,
-      "url": "https://it-shukatu-college.com/it-industry-research/what-is-an-infrastructure-engineer/",
+      "url": "https://site-a.example/it-industry-research/what-is-an-infrastructure-engineer/",
       "title": "【就活生向け】インフラエンジニアとは？仕事内容・年収・スキル・キャリアをわかりやすく解説",
       "categories": [
         19,
         25
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fwhat-is-an-infrastructure-engineer%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fwhat-is-an-infrastructure-engineer%2F",
       "query_file": "650/クエリ.csv",
       "filter_file": "650/フィルタ.csv",
       "query_rows": 24,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 654,
-      "url": "https://it-shukatu-college.com/it-shukatu/infrastructure-engineer-stop/",
+      "url": "https://site-a.example/it-shukatu/infrastructure-engineer-stop/",
       "title": "【就活生向け】新卒でインフラエンジニアはやめとけ？文系にチャンスな理由と失敗要素を解説",
       "categories": [
         27,
         1
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Finfrastructure-engineer-stop%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Finfrastructure-engineer-stop%2F",
       "query_file": "654/クエリ.csv",
       "filter_file": "654/フィルタ.csv",
       "query_rows": 6,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 656,
-      "url": "https://it-shukatu-college.com/it-industry-research/what-is-an-application-engineer/",
+      "url": "https://site-a.example/it-industry-research/what-is-an-application-engineer/",
       "title": "【就活生向け】アプリケーションエンジニアとは？仕事内容・難易度・スキル・資格を解説",
       "categories": [
         19,
         25
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fwhat-is-an-application-engineer%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fwhat-is-an-application-engineer%2F",
       "query_file": "656/クエリ.csv",
       "filter_file": "656/フィルタ.csv",
       "query_rows": 0,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 704,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/unison-carrier/",
+      "url": "https://site-a.example/it-shukatu-agent/unison-carrier/",
       "title": "ユニゾンキャリア就活とは？おすすめ度、対象者、評判、メリット・デメリットを解説",
       "categories": [
         3,
         12
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Funison-carrier%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Funison-carrier%2F",
       "query_file": "704/クエリ.csv",
       "filter_file": "704/フィルタ.csv",
       "query_rows": 7,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 706,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/tech-base/",
+      "url": "https://site-a.example/it-shukatu-agent/tech-base/",
       "title": "【TECH-BASE】エンジニア就活とは？特徴・メリット・デメリットから対象者を解説",
       "categories": [
         3,
         12
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Ftech-base%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Ftech-base%2F",
       "query_file": "706/クエリ.csv",
       "filter_file": "706/フィルタ.csv",
       "query_rows": 8,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 793,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/shukatu-nnt/",
+      "url": "https://site-a.example/job-hunting-measures/shukatu-nnt/",
       "title": "【IT就活向け】NNT就活生からの脱却方法！内定獲得でANTへ転身せよ！",
       "categories": [
         6,
         5
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fshukatu-nnt%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fshukatu-nnt%2F",
       "query_file": "793/クエリ.csv",
       "filter_file": "793/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 796,
-      "url": "https://it-shukatu-college.com/it-industry-research/ctc/",
+      "url": "https://site-a.example/it-industry-research/ctc/",
       "title": "【就活難易度】伊藤忠テクノソリューションズ(CTC)の内定に必要な学歴と能力",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fctc%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fctc%2F",
       "query_file": "796/クエリ.csv",
       "filter_file": "796/フィルタ.csv",
       "query_rows": 19,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 805,
-      "url": "https://it-shukatu-college.com/it-industry-research/ntt-data/",
+      "url": "https://site-a.example/it-industry-research/ntt-data/",
       "title": "【就活難易度】NTTデータ新卒採用の内定獲得｜学歴、選考突破の鍵、業界内の実態",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fntt-data%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fntt-data%2F",
       "query_file": "805/クエリ.csv",
       "filter_file": "805/フィルタ.csv",
       "query_rows": 22,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 812,
-      "url": "https://it-shukatu-college.com/it-shukatu/it-humanities-or-sciences/",
+      "url": "https://site-a.example/it-shukatu/it-humanities-or-sciences/",
       "title": "【就活生必見】IT業界で活躍するのは文系？理系？どっちだ！",
       "categories": [
         1,
@@ -675,279 +675,279 @@
         35
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu%2Fit-humanities-or-sciences%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu%2Fit-humanities-or-sciences%2F",
       "query_file": "812/クエリ.csv",
       "filter_file": "812/フィルタ.csv",
       "query_rows": 16,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 820,
-      "url": "https://it-shukatu-college.com/it-industry-research/ses/",
+      "url": "https://site-a.example/it-industry-research/ses/",
       "title": "【就活生向け】SESとは？契約形態、メリット・デメリット、企業の見分け方を解説",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fses%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fses%2F",
       "query_file": "820/クエリ.csv",
       "filter_file": "820/フィルタ.csv",
       "query_rows": 0,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 830,
-      "url": "https://it-shukatu-college.com/it-industry-research/sier/",
+      "url": "https://site-a.example/it-industry-research/sier/",
       "title": "【就活生向け】SIerとは？仕事内容、種類、企業例を徹底解説",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fsier%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fsier%2F",
       "query_file": "830/クエリ.csv",
       "filter_file": "830/フィルタ.csv",
       "query_rows": 29,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 839,
-      "url": "https://it-shukatu-college.com/it-industry-research/in-house-development/",
+      "url": "https://site-a.example/it-industry-research/in-house-development/",
       "title": "【就活生向け】自社開発企業とは？メリットとデメリット受託開発の違い、難易度を解説",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fin-house-development%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fin-house-development%2F",
       "query_file": "839/クエリ.csv",
       "filter_file": "839/フィルタ.csv",
       "query_rows": 10,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 857,
-      "url": "https://it-shukatu-college.com/it-industry-research/the-future-of-the-it-industry/",
+      "url": "https://site-a.example/it-industry-research/the-future-of-the-it-industry/",
       "title": "【就活向け】IT業界の今後の市場動向と現状課題｜将来性は？未来がない？トレンド解説",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fthe-future-of-the-it-industry%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fthe-future-of-the-it-industry%2F",
       "query_file": "857/クエリ.csv",
       "filter_file": "857/フィルタ.csv",
       "query_rows": 16,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 888,
-      "url": "https://it-shukatu-college.com/it-industry-research/web-industry-stop/",
+      "url": "https://site-a.example/it-industry-research/web-industry-stop/",
       "title": "【新卒・就活】Web業界はガチでやめとけ！オワコンな理由と職種と無駄金スクール",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fweb-industry-stop%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fweb-industry-stop%2F",
       "query_file": "888/クエリ.csv",
       "filter_file": "888/フィルタ.csv",
       "query_rows": 8,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 902,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/job-hunting-agent-construction-management-stop/",
+      "url": "https://site-a.example/it-shukatu-agent/job-hunting-agent-construction-management-stop/",
       "title": "就活エージェントで施工管理は絶対にやめとけ！IT就活の闇を解説",
       "categories": [
         3,
         22
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fjob-hunting-agent-construction-management-stop%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fjob-hunting-agent-construction-management-stop%2F",
       "query_file": "902/クエリ.csv",
       "filter_file": "902/フィルタ.csv",
       "query_rows": 9,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 909,
-      "url": "https://it-shukatu-college.com/it-industry-research/ses-stop/",
+      "url": "https://site-a.example/it-industry-research/ses-stop/",
       "title": "【SESの闇】新卒でSESはやめとけ？理由とメリット・優良企業の見分け方を解説",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fses-stop%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fses-stop%2F",
       "query_file": "909/クエリ.csv",
       "filter_file": "909/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 911,
-      "url": "https://it-shukatu-college.com/it-industry-research/sier-stop/",
+      "url": "https://site-a.example/it-industry-research/sier-stop/",
       "title": "【SIerの闇】新卒でSIerはやめとけ？理由・キャリア・ホワイト企業の見極め方を解説",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fsier-stop%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fsier-stop%2F",
       "query_file": "911/クエリ.csv",
       "filter_file": "911/フィルタ.csv",
       "query_rows": 19,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1020,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
+      "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
       "title": "【就活生向け】IT業界の「入社後にしたいこと」の回答方法｜職種と企業の理解で勝つる！",
       "categories": [
         5,
         9
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fwhat-do-you-want-to-do-after-joining-the-company%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fwhat-do-you-want-to-do-after-joining-the-company%2F",
       "query_file": "1020/クエリ.csv",
       "filter_file": "1020/フィルタ.csv",
       "query_rows": 10,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1112,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/it-passport-job-hunting/",
+      "url": "https://site-a.example/job-hunting-measures/it-passport-job-hunting/",
       "title": "ITパスポートは就活に有利？意味ない？就職を有利にする方法",
       "categories": [
         37,
         5
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fit-passport-job-hunting%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fit-passport-job-hunting%2F",
       "query_file": "1112/クエリ.csv",
       "filter_file": "1112/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1119,
-      "url": "https://it-shukatu-college.com/it-industry-research/regrets-of-a-new-graduate-ses/",
+      "url": "https://site-a.example/it-industry-research/regrets-of-a-new-graduate-ses/",
       "title": "【就活生必見！】新卒のSES就職は後悔する理由7選！優良企業の選び方",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fregrets-of-a-new-graduate-ses%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fregrets-of-a-new-graduate-ses%2F",
       "query_file": "1119/クエリ.csv",
       "filter_file": "1119/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1133,
-      "url": "https://it-shukatu-college.com/it-industry-research/only-ses-new-graduates/",
+      "url": "https://site-a.example/it-industry-research/only-ses-new-graduates/",
       "title": "【新卒でSESしかない？】就活でSES企業以外の内定を取る方法を解説！",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fonly-ses-new-graduates%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fonly-ses-new-graduates%2F",
       "query_file": "1133/クエリ.csv",
       "filter_file": "1133/フィルタ.csv",
       "query_rows": 5,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1138,
-      "url": "https://it-shukatu-college.com/it-industry-research/difference-between-ses-and-sier/",
+      "url": "https://site-a.example/it-industry-research/difference-between-ses-and-sier/",
       "title": "【SESとSIerの違い】就活の企業選びを比較表で完全解説！",
       "categories": [
         30,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fdifference-between-ses-and-sier%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fdifference-between-ses-and-sier%2F",
       "query_file": "1138/クエリ.csv",
       "filter_file": "1138/フィルタ.csv",
       "query_rows": 11,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1142,
-      "url": "https://it-shukatu-college.com/it-industry-research/dont-do-client-site-assignments/",
+      "url": "https://site-a.example/it-industry-research/dont-do-client-site-assignments/",
       "title": "新卒で客先常駐はやめとけ？就活で後悔しない企業選びのコツ",
       "categories": [
         20,
         19
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-industry-research%2Fdont-do-client-site-assignments%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-industry-research%2Fdont-do-client-site-assignments%2F",
       "query_file": "1142/クエリ.csv",
       "filter_file": "1142/フィルタ.csv",
       "query_rows": 2,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1146,
-      "url": "https://it-shukatu-college.com/it-shukatu-agent/it-job-recruitment-agent/",
+      "url": "https://site-a.example/it-shukatu-agent/it-job-recruitment-agent/",
       "title": "【第二新卒】IT専門転職エージェント比較21選｜おすすめを未経験OK・キャリアアップ別に解説",
       "categories": [
         3,
         29
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fit-shukatu-agent%2Fit-job-recruitment-agent%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fit-shukatu-agent%2Fit-job-recruitment-agent%2F",
       "query_file": "1146/クエリ.csv",
       "filter_file": "1146/フィルタ.csv",
       "query_rows": 2,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1207,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/it-industry-interview-questions/",
+      "url": "https://site-a.example/job-hunting-measures/it-industry-interview-questions/",
       "title": "【IT業界の面接対策】新卒の頻出質問33選と回答例",
       "categories": [
         5,
         9
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fit-industry-interview-questions%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fit-industry-interview-questions%2F",
       "query_file": "1207/クエリ.csv",
       "filter_file": "1207/フィルタ.csv",
       "query_rows": 3,
       "status": "ok"
     },
     {
-      "site_id": "it-shukatu.com",
+      "site_id": "site-a.example",
       "wp_article_id": 1234,
-      "url": "https://it-shukatu-college.com/job-hunting-measures/self-introduction/",
+      "url": "https://site-a.example/job-hunting-measures/self-introduction/",
       "title": "IT業界の面接対策！新卒向けに自己紹介の回答パターン4つを解説",
       "categories": [
         5,
         9
       ],
       "days": 28,
-      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fit-shukatu-college.com%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fit-shukatu-college.com%2Fjob-hunting-measures%2Fself-introduction%2F",
+      "report_url": "https://search.google.com/search-console/performance/search-analytics?resource_id=https%3A%2F%2Fsite-a.example%2F&num_of_days=28&breakdown=query&page=!https%3A%2F%2Fsite-a.example%2Fjob-hunting-measures%2Fself-introduction%2F",
       "query_file": "1234/クエリ.csv",
       "filter_file": "1234/フィルタ.csv",
       "query_rows": 3,
