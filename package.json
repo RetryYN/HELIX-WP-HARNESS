@@ -37,6 +37,8 @@
     "research:public-operation-graph:test": "node scripts/test-public-api-operation-graph.mjs && node scripts/test-public-api-operation-graph-api.mjs",
     "research:public-retention:build": "node scripts/build-public-api-retention-matrix.mjs",
     "research:public-retention:test": "node scripts/test-public-api-retention-matrix.mjs && node scripts/test-public-api-retention-matrix-api.mjs",
+    "research:acquisition-retention:build": "node scripts/build-acquisition-retention-blueprint.mjs",
+    "research:acquisition-retention:test": "node scripts/test-acquisition-retention-blueprint.mjs",
     "research:provider-provenance:build": "node scripts/build-provider-provenance-hypothesis.mjs",
     "research:provider-provenance:test": "node scripts/test-provider-provenance-hypothesis.mjs && node scripts/test-provider-provenance-hypothesis-api.mjs",
     "research:serp-data-audit:build": "node scripts/build-serp-data-coverage-audit.mjs",

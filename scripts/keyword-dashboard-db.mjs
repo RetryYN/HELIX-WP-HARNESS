@@ -90,9 +90,11 @@ import {buildConsolidationCitationObservationLineage} from "./content-consolidat
 import {auditConsolidationCitationAuthority} from "./content-consolidation-citation-authority.mjs";
 import {buildConsolidationPrimarySourceRequirements} from "./content-consolidation-primary-source-requirements.mjs";
 import {discoverRetainedPrimarySources} from "./content-consolidation-retained-primary-source-discovery.mjs";
+import {acquisitionRetentionSchemaVersion,acquisitionRetentionSql} from "./acquisition-retention-schema.mjs";
 
-const schemaVersion = "keyword-dashboard.v66";
+const schemaVersion = "keyword-dashboard.v67";
 const replaceableSchemaVersions=new Set([schemaVersion,"keyword-dashboard.v40","keyword-dashboard.v39","keyword-dashboard.v38","keyword-dashboard.v37","keyword-dashboard.v36","keyword-dashboard.v35","keyword-dashboard.v34","keyword-dashboard.v33","keyword-dashboard.v32","keyword-dashboard.v31","keyword-dashboard.v30","keyword-dashboard.v28","keyword-dashboard.v27","keyword-dashboard.v26","keyword-dashboard.v25","keyword-dashboard.v24","keyword-dashboard.v23","keyword-dashboard.v22","keyword-dashboard.v21","keyword-dashboard.v20","keyword-dashboard.v19","keyword-dashboard.v18","keyword-dashboard.v17","keyword-dashboard.v16","keyword-dashboard.v15","keyword-dashboard.v14","keyword-dashboard.v13","keyword-dashboard.v12","keyword-dashboard.v11","keyword-dashboard.v10","keyword-dashboard.v9","keyword-dashboard.v8","keyword-dashboard.v7"]);
+replaceableSchemaVersions.add("keyword-dashboard.v66");
 replaceableSchemaVersions.add("keyword-dashboard.v41");
 replaceableSchemaVersions.add("keyword-dashboard.v42");
 replaceableSchemaVersions.add("keyword-dashboard.v43");
@@ -288,8 +290,9 @@ export function buildDashboardDb({ dbPath, fixturePath, artifactRoot, additional
     CREATE TABLE keyword_article_match_runs (group_id TEXT PRIMARY KEY REFERENCES keyword_groups(group_id), state TEXT NOT NULL CHECK(state IN ('確定','タイトル一致のみ','見出し一致のみ','複数候補','同一記事候補','新規記事候補')), selected_wp_article_id INTEGER);
     CREATE TABLE keyword_article_match_candidates (group_id TEXT NOT NULL REFERENCES keyword_groups(group_id), wp_article_id INTEGER NOT NULL, matched_keyword TEXT NOT NULL, matched_role TEXT NOT NULL CHECK(matched_role IN ('main','intent')), title_score INTEGER NOT NULL, title_matches_json TEXT NOT NULL, query_matches_json TEXT NOT NULL, heading_score INTEGER NOT NULL, heading_matches_json TEXT NOT NULL, coverage_rate REAL NOT NULL, coverage_json TEXT NOT NULL, PRIMARY KEY(group_id,wp_article_id,matched_keyword));
   `);
+  db.exec(acquisitionRetentionSql);
   const metadata = db.prepare("INSERT INTO dashboard_metadata VALUES (?, ?)");
-  metadata.run("schema_version", schemaVersion); metadata.run("generated_at", fixture.generated_at); metadata.run("normalization_aliases", JSON.stringify(fixture.normalization_aliases ?? []));metadata.run("acquisition_remediation_execution",JSON.stringify(acquisitionRemediationExecution));metadata.run("acquisition_lifetime_state",JSON.stringify(acquisitionLifetimeState));metadata.run("acquisition_previously_attempted_task_ids",JSON.stringify(acquisitionPreviouslyAttemptedTaskIds));
+  metadata.run("schema_version", schemaVersion); metadata.run("acquisition_retention_schema_version",acquisitionRetentionSchemaVersion); metadata.run("generated_at", fixture.generated_at); metadata.run("normalization_aliases", JSON.stringify(fixture.normalization_aliases ?? []));metadata.run("acquisition_remediation_execution",JSON.stringify(acquisitionRemediationExecution));metadata.run("acquisition_lifetime_state",JSON.stringify(acquisitionLifetimeState));metadata.run("acquisition_previously_attempted_task_ids",JSON.stringify(acquisitionPreviouslyAttemptedTaskIds));
   const insertSite = db.prepare("INSERT INTO sites VALUES (?, ?, ?, ?, ?, ?)");
   for (const site of fixture.sites) insertSite.run(site.site_id, site.label, site.domain, site.status, Number(site.is_pinned), site.display_order);
   if(dfsEnrichmentEvidencePath){
