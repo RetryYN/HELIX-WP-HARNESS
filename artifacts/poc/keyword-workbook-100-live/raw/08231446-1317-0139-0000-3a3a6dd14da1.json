@@ -29,7 +29,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:9"
+        "tag": "site-a.example:IT就活:9"
       },
       "result": [
         {
@@ -683,7 +683,7 @@
               "description": "内定は、\n内々で決まることの意。\n就職活動における解約権留保付労働契約の通称。本項で詳述する。\n就職活動において内定は、解約権留保付労働契約と呼ばれる一種の労働契約のことである。一般的な意味と異なり、この場合は正式に労働契約が成立している。 出典: 開く 閉じる 説明",
               "card_id": null,
               "url": null,
-              "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-3a3a6dd14da1:0",
+              "image_url": "https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-3a3a6dd14da1:0",
               "logo_url": null,
               "cid": null,
               "items": [

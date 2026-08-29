@@ -29,7 +29,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:49"
+        "tag": "site-a.example:IT就活:49"
       },
       "result": [
         {
@@ -399,12 +399,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
-              "domain": "it-shukatu-college.com",
+              "domain": "site-a.example",
               "title": "【就活生向け】IT業界の「入社後にしたいこと」の回答方法",
-              "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
+              "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://it-shukatu-college.com › job-hunting-measures",
+              "breadcrumb": "https://site-a.example › job-hunting-measures",
               "website_name": "IT就活大学",
               "is_image": false,
               "is_video": false,
@@ -427,22 +427,22 @@
                   "type": "link_element",
                   "title": "採用目線】就活で入社後にしたい...",
                   "description": null,
-                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-1",
-                  "domain": "it-shukatu-college.com"
+                  "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-1",
+                  "domain": "site-a.example"
                 },
                 {
                   "type": "link_element",
                   "title": "仕事に対する理解度の確認",
                   "description": null,
-                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-2",
-                  "domain": "it-shukatu-college.com"
+                  "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-2",
+                  "domain": "site-a.example"
                 },
                 {
                   "type": "link_element",
                   "title": "就活生の思考力を確認",
                   "description": null,
-                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-5",
-                  "domain": "it-shukatu-college.com"
+                  "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-5",
+                  "domain": "site-a.example"
                 }
               ],
               "faq": null,

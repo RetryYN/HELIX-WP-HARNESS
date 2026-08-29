@@ -2,7 +2,7 @@
   "schema_version": "wp-keyword-serp-poc.v1",
   "generated_at": "2026-08-23T16:31:11.661Z",
   "query_contract": {
-    "provider": "DataForSEO",
+    "provider": "DataProviderB",
     "queue": "standard",
     "location_code": 2392,
     "language_code": "ja",
@@ -77,7 +77,7 @@
         "https://bluemonkey.jp/media/column/seo-lighting"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-0aac2b1c4203.json",
-      "response_digest": "4f1eab10f87e477b8ad0fe3f9187016d2b24f9b6aebdf26b68b59fd782ff22e9",
+      "response_digest": "4b85e94404ce1913eb47fd2503fa3734cc341adfd83769a10ea5554d8cd40b81",
       "cost": 0.0006
     },
     {
@@ -551,5 +551,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "687b09d16c3a4ae79cd2eaa09499eb540af81d0d450fea353a8aa9596ac412f4"
+  "reproducibility_digest": "312ad93db555acc4133090cd8cff430473edae8928aae968260f2ba7aad08a68"
 }

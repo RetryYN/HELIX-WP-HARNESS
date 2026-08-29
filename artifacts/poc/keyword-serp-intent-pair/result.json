@@ -2,7 +2,7 @@
   "schema_version": "wp-keyword-serp-poc.v1",
   "generated_at": "2026-08-23T12:04:01.359Z",
   "query_contract": {
-    "provider": "DataForSEO",
+    "provider": "DataProviderB",
     "queue": "standard",
     "location_code": 2392,
     "language_code": "ja",
@@ -108,5 +108,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "7a23c8e2da7fd6d46a221e6e3a8e13bddc2ebd5dc09ab69fa5f1d8ee87f86d1d"
+  "reproducibility_digest": "ac318d23775154bedef09b7982257e3506e7acf1d9e5181e2c6dd5409cddfea5"
 }

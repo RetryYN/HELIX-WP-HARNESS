@@ -106,7 +106,7 @@
       "unacquired_payload_field_count": 1,
       "execution_metadata_field_count": 1,
       "helix_targets": [
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "imported_keywords.raw_keyword",
         "keyword_difficulty_enrichment.keyword_difficulty",
         "keyword_market_metrics.competition_index",
@@ -120,7 +120,7 @@
         "serp_demands[demand_type=paa].count",
         "serp_demands[demand_type=related_search].count"
       ],
-      "remaining_gap": "PAA回答click depthとラッコ固有LSI集合が未取得",
+      "remaining_gap": "PAA回答click depthとseo-tool-a固有LSI集合が未取得",
       "internal_stack_claim": "not_proven",
       "vendor_confirmation_observed": false,
       "counterevidence_required": [
@@ -190,7 +190,7 @@
       "helix_targets": [
         "api.data.length",
         "api.meta.total",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "imported_keywords.raw_keyword",
         "keyword_difficulty_enrichment.keyword_difficulty",
         "keyword_market_metrics.competition_index",
@@ -449,7 +449,7 @@
       "helix_targets": [
         "api.data.length",
         "api.meta.total",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
         "keyword_difficulty_enrichment.keyword_difficulty",
@@ -500,7 +500,7 @@
         "api.data.length",
         "api.meta.total",
         "competitor_pages.title",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
         "keyword_difficulty_enrichment.keyword_difficulty",
@@ -633,7 +633,7 @@
         "api.data.length",
         "api.meta.total",
         "competitor_pages.title",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
         "keyword_difficulty_enrichment.keyword_difficulty",
@@ -698,7 +698,7 @@
         "competitor_pages.title",
         "competitor_pages→competitor_headings derived average",
         "competitor_pages→competitor_headings derived count",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
         "serp_organic_results.description",
@@ -707,7 +707,7 @@
         "serp_organic_results.url",
         "serp_page_coverage.canonical_url"
       ],
-      "remaining_gap": "現行上位10pageで階層・検索・除外語・scope・ページ構造・文字数統計を実装。上位11〜20pageとRakko wire互換は未実装",
+      "remaining_gap": "現行上位10pageで階層・検索・除外語・scope・ページ構造・文字数統計を実装。上位11〜20pageとSeoToolA wire互換は未実装",
       "internal_stack_claim": "not_proven",
       "vendor_confirmation_observed": false,
       "counterevidence_required": [
@@ -743,10 +743,10 @@
       "unacquired_payload_field_count": 0,
       "execution_metadata_field_count": 1,
       "helix_targets": [
-        "api.cooccurrence.rakko_semantics.page_details[].page_count",
-        "api.cooccurrence.rakko_semantics.page_details[].page_count_in_headline",
-        "api.cooccurrence.rakko_semantics.site_count_heading",
-        "api.cooccurrence.rakko_semantics.site_count_total",
+        "api.cooccurrence.seo_tool_a_semantics.page_details[].page_count",
+        "api.cooccurrence.seo_tool_a_semantics.page_details[].page_count_in_headline",
+        "api.cooccurrence.seo_tool_a_semantics.site_count_heading",
+        "api.cooccurrence.seo_tool_a_semantics.site_count_total",
         "api.data.length",
         "api.meta.total",
         "competitor_page_terms.count",
@@ -761,14 +761,14 @@
         "competitor_terms.term",
         "competitor_terms.title_count",
         "competitor_terms.total_count",
-        "dfs_tasks.keyword",
+        "data_provider_b_tasks.keyword",
         "imported_keywords.raw_keyword",
         "serp_organic_results.rank_absolute",
         "serp_organic_results.title",
         "serp_organic_results.url",
         "serp_page_coverage.canonical_url"
       ],
-      "remaining_gap": "現行上位10page。上位11〜20pageとRakko getDetails wire互換は未実装",
+      "remaining_gap": "現行上位10page。上位11〜20pageとSeoToolA getDetails wire互換は未実装",
       "internal_stack_claim": "not_proven",
       "vendor_confirmation_observed": false,
       "counterevidence_required": [
@@ -795,7 +795,7 @@
         "apply consumer response envelope"
       ],
       "retained_evidence": [
-        "dfs_tasks",
+        "data_provider_b_tasks",
         "serp_organic_results"
       ],
       "retained_semantic_field_count": 0,
@@ -935,8 +935,8 @@
       "helix_targets": [
         "api.data.length",
         "competitor_pages.title",
-        "dfs_tasks.keyword",
-        "dfs_tasks.observed_at",
+        "data_provider_b_tasks.keyword",
+        "data_provider_b_tasks.observed_at",
         "domain_ranked_keywords.rank_absolute",
         "imported_keywords.raw_keyword",
         "keyword_difficulty_enrichment.keyword_difficulty",

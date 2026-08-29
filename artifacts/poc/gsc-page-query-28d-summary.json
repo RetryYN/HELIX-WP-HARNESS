@@ -1,7 +1,7 @@
 {
   "schema_version": "wp-gsc-page-query-poc-summary.v1",
   "generated_at": "2026-08-23T17:18:29.969Z",
-  "site_id": "it-shukatu.com",
+  "site_id": "site-a.example",
   "window_days": 28,
   "articles": 59,
   "articles_ok": 59,
@@ -9,7 +9,7 @@
   "articles_without_queries": 7,
   "query_rows": 681,
   "local_evidence_tree_sha256": "c29b6af0d982fddd3d3e04cfccf381284a4716b592451b3e937a3834c47eebaa",
-  "evidence_fixture_tree_sha256": "4f63763a640c20695698e0a17d603882dc614a9b02c017fa5012a0c96ccd5b3a",
+  "evidence_fixture_tree_sha256": "03351166c610a11c99fd054257a6b9aa481853816ff085aacc2b05e172e0719d",
   "raw_policy": "committed_reproducible_fixture",
   "fixture_path": "artifacts/poc/evidence-fixtures/gsc-page-query-28d"
 }

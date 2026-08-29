@@ -1,11 +1,11 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const API = "https://api.dataforseo.com/v3";
+const API = "https://api.data-provider-b.example/v3";
 const outputDir = path.resolve("artifacts/poc/keyword-serp-intent-pair");
-const login = process.env.DFS_LOGIN;
-const password = process.env.DFS_PASSWORD;
-if (!login || !password) throw new Error("DFS_LOGIN and DFS_PASSWORD are required");
+const login = process.env.DATA_PROVIDER_B_LOGIN;
+const password = process.env.DATA_PROVIDER_B_PASSWORD;
+if (!login || !password) throw new Error("DATA_PROVIDER_B_LOGIN and DATA_PROVIDER_B_PASSWORD are required");
 const input = [
   { keyword: "it 就活サイト おすすめ", tag: "probe:it-job-site:recommended" },
   { keyword: "it 就活サイト 比較", tag: "probe:it-job-site:comparison" },

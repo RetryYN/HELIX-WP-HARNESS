@@ -14,7 +14,7 @@ pair_artifact: docs/design/harness/L2-screen/wireframe.md
 | HELIX reader ID | WP surface | required specific element |
 | --- | --- | --- |
 | **PM-01** | WP-UI-01 | ApprovalQueue / DecisionDialog / ReconciliationPanel |
-| **PM-02** | WP-UI-02 | KeywordMap / DataForSEOEvidenceDetail |
+| **PM-02** | WP-UI-02 | KeywordMap / DataProviderBEvidenceDetail |
 | **PM-03** | WP-UI-03 | DerivedStatus / EvidenceLink |
 | **PM-04** | WP-UI-04 | FreshnessBadge / EmptyState |
 | **PM-05** | WP-UI-05 | DerivedStatus / EvidenceLink |

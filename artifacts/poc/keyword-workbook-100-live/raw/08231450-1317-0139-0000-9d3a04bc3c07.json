@@ -29,7 +29,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:76"
+        "tag": "site-a.example:IT就活:76"
       },
       "result": [
         {
@@ -60,21 +60,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:4)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)\n\n主なテストの種類\n\n- **SPI** ：基礎能力（言語・非言語）と性格を測定する、全業界で最も導入されているテスト。\n- **玉手箱** ：計数・言語・英語があり、1問あたりの制限時間が非常に短い。\n- **CAB / Web-CAB** ：ITエンジニア（SE・PG）採用で多用される。暗算、法則性、命令表、暗号など論理的思考力を厳しく見る。\n- **コーディングテスト** ：一部の技術職選考で、プログラミングスキルを直接測るために課される。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://reashu.com/it-character_test/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[4]](https://job.tracks.run/columns/engineer-job-coding-test)[[5]](https://sanden-sys.com/it-tenshoku-test/)\n\n効率的な対策方法\n\n- **志望企業の形式を調べる** ：口コミサイトや就活体験談（[ワンキャリア](https://www.onecareer.jp/experiences/5/test) など）で過去の出題形式を先回りしてリサーチする。\n- **問題集を繰り返す** ：SPIや玉手箱は市販の対策本やアプリを使い、解法パターンを暗記してスピードを上げる。\n- **CAB特有の問題に慣れる** ：法則性や暗号など、独特の出題形式があるため専用の問題や模試で練習しておく。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://www.onecareer.jp/experiences/5/test)[[3]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[5]](https://www.theport.jp/portcareer/qa/7042/)\n\n志望している企業や職種（総合職、インフラエンジニア、開発エンジニアなど）が決まっていれば、**具体的な出題傾向** や**おすすめの対策参考書** をご案内できます。何でも教えてください。",
+              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:4)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)\n\n主なテストの種類\n\n- **SPI** ：基礎能力（言語・非言語）と性格を測定する、全業界で最も導入されているテスト。\n- **玉手箱** ：計数・言語・英語があり、1問あたりの制限時間が非常に短い。\n- **CAB / Web-CAB** ：ITエンジニア（SE・PG）採用で多用される。暗算、法則性、命令表、暗号など論理的思考力を厳しく見る。\n- **コーディングテスト** ：一部の技術職選考で、プログラミングスキルを直接測るために課される。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://reashu.com/it-character_test/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[4]](https://job.tracks.run/columns/engineer-job-coding-test)[[5]](https://sanden-sys.com/it-tenshoku-test/)\n\n効率的な対策方法\n\n- **志望企業の形式を調べる** ：口コミサイトや就活体験談（[ワンキャリア](https://www.onecareer.jp/experiences/5/test) など）で過去の出題形式を先回りしてリサーチする。\n- **問題集を繰り返す** ：SPIや玉手箱は市販の対策本やアプリを使い、解法パターンを暗記してスピードを上げる。\n- **CAB特有の問題に慣れる** ：法則性や暗号など、独特の出題形式があるため専用の問題や模試で練習しておく。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://www.onecareer.jp/experiences/5/test)[[3]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[5]](https://www.theport.jp/portcareer/qa/7042/)\n\n志望している企業や職種（総合職、インフラエンジニア、開発エンジニアなど）が決まっていれば、**具体的な出題傾向** や**おすすめの対策参考書** をご案内できます。何でも教えてください。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT就活のテスト（適性検査・WEBテスト）では、 圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します 。能力検査と性格検査の対策が必須です。",
-                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:2)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)",
+                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:2)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:3"
                     }
                   ],
                   "references": [
