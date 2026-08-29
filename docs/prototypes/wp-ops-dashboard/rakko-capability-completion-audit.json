@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "00fbb2c7a104aa173d5b4ccf7850fa35c442f3dd187b38d93f32e03dab204a76",
+  "inventory_digest": "231eff3eebf0f0e767e04a1b3207c5ac759e4bdd4294ee08d84e584115083193",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -1336,9 +1336,10 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "保持SERPからQ&Aページ64 occurrence・63検索KW・44固有pageを復元し、source・順位・title・description・取得状態・digestをDB/API/MCP/UIへ接続。同一URLを集約し、重複page 13・複数KW page 13・複数記事群page 5、最大6KW横断を逆引き可能。本文派生証拠50、SERP要約のみ13、robots拒否1を分離し、回答本文非保持・外部取得0を明示。専用の外部Q&A全体index、教えてGoo実測、回答本文・時系列履歴・copy exportは未取得",
+      "remaining_gap": "保持SERPからQ&Aページ64 occurrence・63検索KW・44固有pageを復元し、source・順位・title・description・取得状態・digestをDB/API/MCP/UIへ接続。同一URLを集約し、重複page 13・複数KW page 13・複数記事群page 5、最大6KW横断を逆引き可能。保持済みの同一契約2時点比較から retained・entered_observed_depth・exited_observed_depth の出現履歴を復元し、観測範囲外を削除・圏外とは断定しない。本文派生証拠50、SERP要約のみ13、robots拒否1を分離し、回答本文非保持・外部取得0を明示。専用の外部Q&A全体index、教えてGoo実測、回答本文、長期時系列、専用copy exportは未取得",
       "authoritative_evidence": [
         "scripts/retained-qa-site-evidence.mjs",
+        "scripts/qa-appearance-history.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1347,10 +1348,11 @@
       ],
       "verification_commands": [
         "node scripts/test-retained-qa-site-evidence.mjs",
+        "node scripts/test-qa-appearance-history.mjs",
         "node scripts/test-retained-qa-site-evidence-api.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "fbbe018edf5395c5d5aa8d2738d9f4e76a4c5450c161acc9e7607d63e58725fc"
+      "evidence_digest": "2c0d3fea4ac7d15549ba068574beca8694f902ec82c13cbf94b53cfb424d0458"
     },
     {
       "capability_id": "google_trends",
@@ -1563,5 +1565,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "8fbe9939229e951c05b3b20eed35c3192061821a6b79857a913fedc783285da0"
+  "audit_digest": "b61b78f9c3f3c669f3ae79ceff15b8d99df85da5cbf1332345d764b28d8cbea1"
 }
