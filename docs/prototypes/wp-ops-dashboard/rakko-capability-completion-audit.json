@@ -1,15 +1,15 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "a651409bb9c7a8a47e62aa23bfea57e7c0b105503c06c08ddff854e9d7e22880",
+  "inventory_digest": "5236deed30ba412ef9084fb77ef475c148188f11358bc9e0b0f4255f90ce87d1",
   "completion_claim": "not_proven",
   "summary": {
-    "capability_count": 34,
+    "capability_count": 35,
     "proven_complete_count": 4,
-    "incomplete_count": 30,
+    "incomplete_count": 31,
     "blocker_counts": {
       "contract_or_auth_parity": 2,
-      "corpus_or_acquisition_depth": 17,
+      "corpus_or_acquisition_depth": 18,
       "external_provider_or_account_data": 5,
       "generation_runtime_or_quality_oracle": 6
     }
@@ -366,6 +366,82 @@
         "node scripts/test-serp-data-coverage.mjs"
       ],
       "evidence_digest": "39737baf5c5a8cd6724092aec4f30da257f051b0dcfa27af139d210bdd1ab4d2"
+    },
+    {
+      "capability_id": "seo_difficulty",
+      "name": "SEO難易度",
+      "parity_status": "incomplete",
+      "helix_status": "partial",
+      "completion_evidence_state": "contradicted_by_retained_gap",
+      "blocker_classes": [
+        "corpus_or_acquisition_depth"
+      ],
+      "remaining_gap": "公式の1-100と低1-33・中34-66・高67-100の分類、相対比較用途、取得OFF時は欠損という契約を独立監査へ追加。DB schema・正規化・zero/missing分離・取得plan・API/MCP market projectionは実装済みだが、本番siteの実測difficultyは0件。代替proxyを捏造せず、live取得は累計5 USD予算と明示承認gateの対象",
+      "authoritative_evidence": [
+        "scripts/seo-difficulty-contract.mjs",
+        "docs/research/rakko-public-contract-drift.json",
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/question-lineage-oracle.mjs",
+        "scripts/paa-question-expansion-graph.mjs",
+        "scripts/paa-answer-completion-portfolio.mjs",
+        "scripts/aio-completion-portfolio.mjs",
+        "scripts/acquisition-contract-fulfillment.mjs",
+        "scripts/acquisition-remediation-portfolio.mjs",
+        "scripts/acquisition-execution-readiness.mjs",
+        "scripts/acquisition-approval-manifest.mjs",
+        "scripts/acquisition-remediation-evidence.mjs",
+        "scripts/acquisition-lifetime-budget.mjs",
+        "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
+        "scripts/execute-acquisition-remediation.mjs",
+        "scripts/collect-acquisition-remediation.mjs",
+        "scripts/demand-occurrence-integrity.mjs",
+        "scripts/demand-appearance-history.mjs",
+        "scripts/competitive-appearance-history.mjs",
+        "scripts/simultaneous-rank-integrity.mjs",
+        "scripts/rank-monitor-plan.mjs",
+        "scripts/keyword-acquisition-portfolio.mjs",
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/audit-serp-data-coverage.mjs"
+      ],
+      "verification_commands": [
+        "node scripts/test-seo-difficulty-contract.mjs",
+        "node scripts/test-public-contract-drift.mjs",
+        "node scripts/test-question-lineage-oracle.mjs",
+        "node scripts/test-paa-question-expansion-graph.mjs",
+        "node scripts/test-paa-question-expansion-api.mjs",
+        "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "node scripts/test-paa-answer-completion-api.mjs",
+        "node scripts/test-aio-completion-portfolio.mjs",
+        "node scripts/test-aio-completion-api.mjs",
+        "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "node scripts/test-acquisition-contract-api.mjs",
+        "node scripts/test-acquisition-remediation-portfolio.mjs",
+        "node scripts/test-acquisition-remediation-api.mjs",
+        "node scripts/test-acquisition-remediation-evidence.mjs",
+        "node scripts/test-acquisition-approval-manifest.mjs",
+        "node scripts/test-acquisition-approval-manifest-api.mjs",
+        "node scripts/test-acquisition-execution-readiness.mjs",
+        "node scripts/test-acquisition-execution-readiness-api.mjs",
+        "node scripts/test-demand-occurrence-integrity.mjs",
+        "node scripts/test-demand-appearance-history.mjs",
+        "node scripts/test-demand-appearance-history-api.mjs",
+        "node scripts/test-competitive-appearance-history.mjs",
+        "node scripts/test-competitive-appearance-history-api.mjs",
+        "node scripts/test-acquisition-lifetime-budget.mjs",
+        "node scripts/test-acquisition-lifetime-allocation.mjs",
+        "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
+        "node scripts/test-simultaneous-rank-integrity.mjs",
+        "node scripts/test-rank-monitor-plan.mjs",
+        "node scripts/test-rank-monitor-plan-api.mjs",
+        "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "npm run prototype:keyword-dashboard:test",
+        "node scripts/test-serp-data-coverage.mjs"
+      ],
+      "evidence_digest": "40a35b918afe4d71b08ad314f9ba15c3fc095b93af5a927dd7f566abeaec8bdd"
     },
     {
       "capability_id": "influx_keywords",
@@ -1567,5 +1643,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "1f3036999fba0ba06732b0516c2b055e31e7885076dc8c82fd70d2debc1d69ce"
+  "audit_digest": "0255808e28c6f95daee3ec758059dcb3806b439a4628f29191af3f5db64a9af7"
 }
