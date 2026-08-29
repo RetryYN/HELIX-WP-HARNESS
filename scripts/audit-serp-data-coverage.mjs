@@ -92,18 +92,22 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
   const classifiedProjected=capturedAndProjected.map((row)=>({...row,classification:classificationFor(row.field)})),decisionConnected=classifiedProjected.filter((row)=>row.classification==="decision_connected"),evidenceOnly=classifiedProjected.filter((row)=>row.classification==="evidence_only"),unclassified=classifiedProjected.filter((row)=>row.classification==="unclassified");
   const rawLeafFields=[...rawLeafCaptured].map(([field,nonempty_count])=>{const consumer=consumerFor(field),decisionState=consumer?.verification_state==="verified_source_reference"?"decision_connected":"evidence_only";return{field,nonempty_count,...leafProjection(field),decision_state:decisionState,consumer}}),rawOnlyLeafFields=rawLeafFields.filter((row)=>row.projection_state==="raw_only"),projectedLeafFields=rawLeafFields.filter((row)=>row.projection_state==="projected"),consumerMissingFields=rawLeafFields.filter((row)=>row.consumer?.verification_state==="missing_source_reference");
   return {
-    schema_version:"serp-data-coverage-audit.v5",raw_files:files.length,
+    schema_version:"serp-data-coverage-audit.v6",raw_files:files.length,
     item_type_counts:Object.fromEntries(itemTypes),captured_and_projected:capturedAndProjected,captured_raw_only:capturedRawOnly,
     raw_leaf_field_summary:{field_count:rawLeafFields.length,projected_field_count:projectedLeafFields.length,raw_only_field_count:rawOnlyLeafFields.length,decision_connected_field_count:rawLeafFields.filter((row)=>row.decision_state==="decision_connected").length,evidence_only_field_count:rawLeafFields.filter((row)=>row.decision_state==="evidence_only").length,consumer_verified_field_count:rawLeafFields.filter((row)=>row.consumer?.verification_state==="verified_source_reference").length,consumer_missing_field_count:consumerMissingFields.length},raw_leaf_fields:rawLeafFields,raw_only_leaf_fields:rawOnlyLeafFields,consumer_missing_fields:consumerMissingFields,
     decision_connected:decisionConnected,evidence_only_projected:evidenceOnly,projected_but_unclassified:unclassified,projected_but_not_decision_connected:[...evidenceOnly,...unclassified],boolean_observations:[...booleanObservations.values()],
     acquired_but_empty_or_incomplete:{paa_questions:paaQuestions,paa_answer_items:paaAnswers,paa_references:paaReferences,aio_items:aioItems,aio_references:aioReferences},
+    acquired_downstream:[
+      {dataset:"competitor top10 H1-H6/body-derived terms/link graph",scope:"retained top10 organic URLs",state:"acquired_and_projected",evidence:["competitor_pages","competitor_headings","competitor_page_terms","wp_observed_links"],limitations:["top11_to_20_not_acquired","full_body_text_intentionally_not_retained"]},
+      {dataset:"retained Q&A page evidence",scope:"Q&A pages observed in retained organic results",state:"partial_acquired_and_projected",evidence:["qa_site_evidence.rows","qa_site_evidence.pages"],limitations:["external_full_qa_index_not_acquired","answer_text_not_retained"]}
+    ],
     not_acquired:[
       {dataset:"PAA expanded answers/references",reason:"people_also_ask_click_depth was not requested"},
       {dataset:"SERP pixel rectangles",reason:"calculate_rectangles was not requested"},
-      {dataset:"competitor H1-H6/body/link graph",reason:"top URLs were not passed through page/content parsing"},
+      {dataset:"competitor top11-20 H1-H6/body-derived terms/link graph",reason:"content parsing is retained for observed top10 URLs; ranks 11-20 were not acquired"},
       {dataset:"fresh keyword volume/monthly history/CPC/competition/SEO difficulty",reason:"SERP snapshots do not replace Keywords Data/Labs acquisition"},
       {dataset:"ranked keywords/pages/domain competitors/history",reason:"DataForSEO Labs datasets were not acquired"},
-      {dataset:"multi-engine suggestions/question corpus/trends/news/Q&A/social hashtags",reason:"no corresponding provider acquisition exists"}
+      {dataset:"multi-engine suggestions/question corpus/trends/news/full Q&A index/social hashtags",reason:"no corresponding full external acquisition exists; retained-workbook suggestions and retained-SERP Q&A subsets are projected separately"}
     ]
   };
 }
