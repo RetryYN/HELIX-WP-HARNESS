@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "bb351f65ecf931b9e7af5f5b12ce09dceb9d27a0e2630f4b478b0e990556dfe9",
+  "inventory_digest": "f1548b059b8402172950303f241fd800eda8630694fdb7980c9215e52aa8dec4",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -863,7 +863,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "上位10候補の取得成功535ページと取得失敗29ページのSERP代替証拠に加え、493ページを観測獲得KW逆引きへ接続し、最良順位→観測回数→keywordの決定順でtop observed keywordを付与。description/pre-snippet/breadcrumb/highlight/sitelink/rating/price/video属性と観測獲得KWの検索・逆引きUI/APIを実装。snippetを本文見出し・共起語へ昇格しない。全page/rank index、推定top keyword、traffic metricsは未取得",
+      "remaining_gap": "上位10候補の取得成功535ページと取得失敗29ページのSERP代替証拠に加え、564/564ページをpage_id→task_id→検索契約の主キー証跡で観測獲得KWへ接続し、redirect後URLでもalias推測なしで保持。最良順位→観測回数→keywordの決定順でtop observed keywordを付与。description/pre-snippet/breadcrumb/highlight/sitelink/rating/price/video属性と観測獲得KWの検索・逆引きUI/APIを実装。snippetを本文見出し・共起語へ昇格しない。全page/rank index、推定top keyword、traffic metricsは未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -927,7 +927,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "b92dda8c6b41b277aa57484b1015cb0925aeb2111e81dd642a6fee471c6af9a1"
+      "evidence_digest": "74f00ee6b61363832e28a0de21ea1193e25808b9cda60ebe5c586d597dc00b8c"
     },
     {
       "capability_id": "search_rank",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "07c600eb7f5c6aa11120647cb520ed3388dfac7139a3025a0ed87a5b82707561"
+  "audit_digest": "aed7954e6a21ba8c00d06bcad511dfca2e654f2af31e9cf71fcdb1dcf96292c9"
 }
