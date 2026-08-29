@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "3ed8416d0253dd98ccc4cd4ce2d24e60ff170599210a0f64719f7de7913b6bc5",
+  "inventory_digest": "3e54fba60364ffc49d9e4c21227af8f4c5d3e7cade371571ccf4eb31113a2ca5",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1706,7 +1706,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に85 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、952 field監査と結合してoperation別の保持mapping・未取得・未mapping・wire shapeを逆引きし、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に85 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1733,7 +1733,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "4e6706e864e1ca75bce7a087c60d138d576b0dc982e27d1393e51bb0296eafb6"
+      "evidence_digest": "2d5b4512eeea313b0d536fb6192450289fc4d700f53091493422f2b9d49863b5"
     },
     {
       "capability_id": "mcp",
@@ -1800,5 +1800,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "f692d07928781c687c141ffabb180cfbea5df7f29ca119b7d9592d021de5f880"
+  "audit_digest": "fd5e85beedcffaf3da677e25b0f70101236bed03da43d24d438d05207d8ac5d0"
 }
