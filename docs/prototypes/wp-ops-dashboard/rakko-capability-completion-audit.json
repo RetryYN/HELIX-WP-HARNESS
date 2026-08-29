@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "d052ee49764d777111a112146ae7edbc0d2d5395a90e5b55bd845950b23bccdc",
+  "inventory_digest": "4d7fb29923623b89bdd5480ffa3ec62f6a4901fab4d2d9f85069bbcded9cbce9",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -746,7 +746,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。さらに現行219 domainをKW・page・content取得状態・履歴へ統合した観測site directoryと、共有KW・group・順位重みから1,797 domain edgeを持つ類似graphを追加（孤立0、最大共有KW 32）。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）を既存group拡張reviewへ接続。さらに27件を既存記事11本の拡張review、59件を新規記事reviewへroutingし、公開blocker 85件を接続。既存記事27件はGSC query coverage 12、記事coverage 80%以上・query未観測6、部分coverage gap review 9へ再分類し、観測順位不在だけで追記しないgateを追加。圏外・全市場gap・traffic機会・順位効果とは断定せず、自動編集・公開0。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
+      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。さらに現行219 domainをKW・page・content取得状態・履歴へ統合した観測site directoryと、共有KW・group・順位重みから1,797 domain edgeを持つ類似graphを追加（孤立0、最大共有KW 32）。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）を既存group拡張reviewへ接続。さらに27件を既存記事11本の拡張review、59件を新規記事reviewへroutingし、公開blocker 85件を接続。既存記事27件はGSC query coverage 12、記事coverage 80%以上・query未観測6、部分coverage gap review 9へ再分類し、観測順位不在だけで追記しないgateを追加。新規記事59件もtopologyで既存記事境界review 4・別記事＋内部link review 5・計画group review 17・直接新規review 33へ分離し、カニバリ断定・自動作成0。圏外・全市場gap・traffic機会・順位効果とは断定せず、自動編集・公開0。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -810,7 +810,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "1eed3c714504a428c84e3bdea53192cdc9f720118a0804b9959630b42d31d26d"
+      "evidence_digest": "6f4d1808d46cbb0c8282b8b0cfa2e952a9ad4a1631bb63c6d2a13377a044200a"
     },
     {
       "capability_id": "bulk_site_research",
@@ -842,7 +842,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移に加え、保持top10の観測site directory 219 domainを獲得KW・page・最良順位・content取得・2時点履歴付きで実装。content接続205 domainは最終host完全一致、履歴接続138 domainで、未知Web全体・traffic推定ではない。さらに219 domain・1,797 edgeの観測類似graphで共有KW/group/Jaccard/順位重みを検索可能。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）をreview可能。27件を既存記事11本の拡張review、59件を新規記事reviewへrouting。既存記事はquery coverage 12・強coverage 6・部分gap review 9へ再分類し、自動変更0。外部domain/content index、推定trafficによる未知site検索は未取得",
+      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移に加え、保持top10の観測site directory 219 domainを獲得KW・page・最良順位・content取得・2時点履歴付きで実装。content接続205 domainは最終host完全一致、履歴接続138 domainで、未知Web全体・traffic推定ではない。さらに219 domain・1,797 edgeの観測類似graphで共有KW/group/Jaccard/順位重みを検索可能。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）をreview可能。27件を既存記事11本の拡張review、59件を新規記事reviewへrouting。既存記事はquery coverage 12・強coverage 6・部分gap review 9へ再分類。新規59件も既存記事境界4・内部link 5・計画group 17・直接新規33へtopology分類し、自動変更0。外部domain/content index、推定trafficによる未知site検索は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-dashboard-api.mjs",
@@ -852,7 +852,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "49b08c456c11372ed4f39c838c083a7c6d932f3934f13941f0ddac5a2f0ef206"
+      "evidence_digest": "980eb988d0362123632c7eb5440ed7147c9e382b148504a9fa4ace4582a47f5b"
     },
     {
       "capability_id": "content_search",
@@ -1868,7 +1868,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に102 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に103 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1898,7 +1898,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "65839a99806d1d29102561e5cad61d41c63fb620a4c3af8474b567b8a5cdeed8"
+      "evidence_digest": "e13d4fafbef99b3156c645b4d7c240d735f0d99e7debff0c8d1c84fb920b0c93"
     },
     {
       "capability_id": "mcp",
@@ -1909,7 +1909,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む85 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む86 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1939,7 +1939,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "684bc47542d04d6ec09d8209cf48744df5654b4b2257b3ce2294913c741e8807"
+      "evidence_digest": "2ab9a7f449e4007b0d03140749e18bb11c8c9c97ae80a975208eaccc1dbaeedd"
     },
     {
       "capability_id": "credit_history",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "abd6c5fa6dc1bde85a055ae20d06a0a0e789176d7cc50f620d59f542cce13963"
+  "audit_digest": "93f33818ddf68e8e20c09fa594261b9bdbbcdaafa24cdc424923accfedc1e4b0"
 }
