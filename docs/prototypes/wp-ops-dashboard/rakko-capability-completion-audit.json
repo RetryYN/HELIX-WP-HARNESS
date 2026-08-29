@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "6485d72dd516957aa654ff3d1e26a4065f683244b1811ad9a7da7bbc8544300b",
+  "inventory_digest": "d57b032d4c21e2de3fb8a30623591212e876ff26c34eee9e6070ee4a07d39822",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -1331,27 +1331,26 @@
       "capability_id": "qa_sites",
       "name": "Q&Aサイト検索",
       "parity_status": "incomplete",
-      "helix_status": "planned",
+      "helix_status": "partial",
       "completion_evidence_state": "contradicted_by_retained_gap",
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "専用DFS endpointを確認できず、Google operator queryは公式記載上5倍課金のためjobを生成せずprovider_gap化。PAAは別機能で保持済みだがQ&A site dataは未取得",
+      "remaining_gap": "保持SERPからQ&Aページ64 occurrence・63検索KW・44固有pageを復元し、source・順位・title・description・取得状態・digestをDB/API/MCP/UIへ接続。本文派生証拠50、SERP要約のみ13、robots拒否1を分離し、回答本文非保持・外部取得0を明示。専用の外部Q&A全体index、教えてGoo実測、回答本文・履歴・copy exportは未取得",
       "authoritative_evidence": [
-        "scripts/provider-acquisition-plan.mjs",
-        "scripts/acquisition-lifetime-allocation.mjs",
-        "scripts/acquisition-lifetime-approval-manifest.mjs",
-        "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
-        "scripts/test-provider-acquisition-plan.mjs"
+        "scripts/retained-qa-site-evidence.mjs",
+        "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
+        "docs/prototypes/wp-ops-dashboard/index.html",
+        "docs/prototypes/wp-ops-dashboard/app.js"
       ],
       "verification_commands": [
-        "npm run provider:acquisition-plan:test",
-        "node scripts/test-acquisition-lifetime-allocation.mjs",
-        "node scripts/test-acquisition-lifetime-allocation-api.mjs",
-        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
-        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
+        "node scripts/test-retained-qa-site-evidence.mjs",
+        "node scripts/test-retained-qa-site-evidence-api.mjs",
+        "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "2c9c60c598ed7887ebf8171751b089e451fc7de79dcf4c68ae0ed0c4f8276aac"
+      "evidence_digest": "069aa397f247c9725aab80998a2fb61f77382544eddd6aa73cb9d4ee406875a3"
     },
     {
       "capability_id": "google_trends",
@@ -1564,5 +1563,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "089e4bb54a4fa2e545cafb161befc8b5d93ecd0f4034458b15533d54dfdb3f1e"
+  "audit_digest": "60db941101941a00d35a11076a67a0b1bff97a708fec33e68d13840fd760c2c1"
 }
