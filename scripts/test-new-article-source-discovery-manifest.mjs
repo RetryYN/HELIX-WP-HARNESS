@@ -1,0 +1,4 @@
+import assert from "node:assert/strict";
+import {buildNewArticleSourceDiscoveryManifest} from "./new-article-source-discovery-manifest.mjs";
+const result=buildNewArticleSourceDiscoveryManifest({rows:[{group_id:"g",source_preparation_state:"source_discovery_required"}]},{candidates:[{group_id:"g",claim_id:"c",priority_band:"P0",source_requirement:"primary_official_source_required",selected_query:"q",preferred_source_classes:["government"],candidate_digest:"d"}]},{summary:{remaining_after_selected_plan_usd:.1}});
+assert.equal(result.summary.brief_count,1);assert.equal(result.summary.claim_count,1);assert.equal(result.summary.execution_authorized_count,0);assert.equal(result.rows[0].budget_allocation_state,"unpriced_unallocated");assert.equal(result.rows[0].external_discovery_executed,false);console.log("new article source discovery manifest: OK (article grouping, source requirements, budget and execution blocked)");
