@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "2fdf6c3c1f30ea74b88c06e34b9d159595c445b1a7a843364dfbe829c23f0714",
+  "inventory_digest": "16985727899cc7d914d5887ce477506edded775d089502e305cc1f0c4933d72b",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -596,7 +596,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10 URL内はdomain/page→獲得KW・順位を逆引き可能。全rank keyword DB、subdomain/directory match、推定traffic/value/historyは未取得",
+      "remaining_gap": "観測100KW×上位10からhost 219・directory 308・page 540単位の獲得KW逆引きindexをtask/group/rank/URL証跡付きで実装。全rank keyword DBではなく保持top10限定を明示し、traffic/value・圏外を推定しない。全rank keyword母集団、推定traffic/value、長期順位履歴は未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -660,7 +660,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "403ffcbbc46a9f573e79e51b4da503cc39a212e6d0a06239d883f26ff37d91f7"
+      "evidence_digest": "6a4c7f0d6bedd6b656f0ee75964dc92da6f5c0185ff69898c0248e33b0883f96"
     },
     {
       "capability_id": "influx_pages",
@@ -1868,7 +1868,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に95 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に96 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1898,7 +1898,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "149fb62f38bc7fbdbbbe917cc41410fd8f1793af459bbb145e8fcbebdfc42969"
+      "evidence_digest": "e76a35cef1b7ad5a1d7b4af7047592b1cbf456176cda11ef575338aedb36a3d4"
     },
     {
       "capability_id": "mcp",
@@ -1909,7 +1909,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む78 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む79 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1939,7 +1939,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "b6d4b2fce3fbd82c2bef461f7bf2c1531964cc52ef4c83a7a2987236cbc11296"
+      "evidence_digest": "bbe50bc01a2ae37e6ef3e11d8d2d280e084d3708d46371c13a6f240da578c985"
     },
     {
       "capability_id": "credit_history",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "7ffc8a00475b6d9d5a44c4328c7e884fb39988a4a3c0f369ea9ca9eb4bcb4ff0"
+  "audit_digest": "5db21a797e261f3ede443ca20b7bd83dc58d4cb0f07bcf7ce28607be5355adf5"
 }
