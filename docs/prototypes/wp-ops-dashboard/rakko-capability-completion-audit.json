@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "f568d5d12c26861ea7e8d61c9b3c5377819194c7c98595df7dd3d64b3365d62e",
+  "inventory_digest": "79dd4ccc8ddce630eda301d8feb86be1397fa6c5e631a7f34c940ee9fe996c13",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1127,8 +1127,10 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。60記事群のprovider非依存challengerへbaseline ID・根拠ID・自然言語prompt digest・JSON schema digest・盲検5基準評価を固定。model/価格/予算再配分/明示承認未確定のため生成0、品質・順位効果は未証明",
+      "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。60記事群のprovider非依存challengerへbaseline ID・根拠ID・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。model/価格/予算再配分/明示承認未確定のため生成0、品質・順位効果は未証明",
       "authoritative_evidence": [
+        "scripts/generation-challenger-manifest.mjs",
+        "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
         "scripts/paid-test-budget-scenarios.mjs",
         "scripts/generation-execution-manifest.mjs",
@@ -1153,6 +1155,9 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-challenger-manifest:test",
+        "npm run prototype:generation-challenger-manifest:api:test",
+        "npm run prototype:generation-challenger-result:test",
         "npm run prototype:content-rich-block-plan:test",
         "npm run prototype:content-rich-block-plan:api:test",
         "npm run prototype:paid-test-budget-scenarios:test",
@@ -1186,7 +1191,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "6dbf829bc62620821e4fa0e17563cfbb7f776b7ec7cd67beeb33b873ef670b13"
+      "evidence_digest": "adc404482cca91ff6ca454ff8a493e5301960f9c28609816d486c47b66703311"
     },
     {
       "capability_id": "ai_title",
@@ -1197,8 +1202,10 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへbaseline・根拠・prompt・schema・盲検5基準評価を固定。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
       "authoritative_evidence": [
+        "scripts/generation-challenger-manifest.mjs",
+        "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
         "scripts/paid-test-budget-scenarios.mjs",
         "scripts/generation-execution-manifest.mjs",
@@ -1223,6 +1230,9 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-challenger-manifest:test",
+        "npm run prototype:generation-challenger-manifest:api:test",
+        "npm run prototype:generation-challenger-result:test",
         "npm run prototype:content-rich-block-plan:test",
         "npm run prototype:content-rich-block-plan:api:test",
         "npm run prototype:paid-test-budget-scenarios:test",
@@ -1256,7 +1266,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "f25c67f0d4c90fd5b5cf0f707b9f10d97c5ce6c927283b5658e4099fed978a82"
+      "evidence_digest": "428c8e803dc44a4eea1a7a37fc5091638cd2530d82e1f8023d4a8ef6f87a4cc0"
     },
     {
       "capability_id": "ai_heading",
@@ -1267,8 +1277,10 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへbaseline・根拠・prompt・schema・盲検5基準評価を固定。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
       "authoritative_evidence": [
+        "scripts/generation-challenger-manifest.mjs",
+        "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
         "scripts/paid-test-budget-scenarios.mjs",
         "scripts/generation-execution-manifest.mjs",
@@ -1293,6 +1305,9 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-challenger-manifest:test",
+        "npm run prototype:generation-challenger-manifest:api:test",
+        "npm run prototype:generation-challenger-result:test",
         "npm run prototype:content-rich-block-plan:test",
         "npm run prototype:content-rich-block-plan:api:test",
         "npm run prototype:paid-test-budget-scenarios:test",
@@ -1326,7 +1341,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "2c08e5fcd25d2743b8649be07a0a310864e65dd5e00abbbd01b4db8cf8a0ea61"
+      "evidence_digest": "dc1794a4e48ed0ea6561f6966c4d4e64050d3f77b62a3ad1dd8da1abcd221e1f"
     },
     {
       "capability_id": "ai_body",
@@ -1339,6 +1354,8 @@
       ],
       "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
       "authoritative_evidence": [
+        "scripts/generation-challenger-manifest.mjs",
+        "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
         "scripts/paid-test-budget-scenarios.mjs",
         "scripts/generation-execution-manifest.mjs",
@@ -1363,6 +1380,9 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-challenger-manifest:test",
+        "npm run prototype:generation-challenger-manifest:api:test",
+        "npm run prototype:generation-challenger-result:test",
         "npm run prototype:content-rich-block-plan:test",
         "npm run prototype:content-rich-block-plan:api:test",
         "npm run prototype:paid-test-budget-scenarios:test",
@@ -1396,7 +1416,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "99c7456cb3e30762412197523caad52715919f3ffbb078f5847f0a7936633ad2"
+      "evidence_digest": "970a2e493b1e6af090433fa35120269a5fbe1596996ed75a77e88ba9a61e58d1"
     },
     {
       "capability_id": "ai_questions",
@@ -1407,8 +1427,10 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。57記事群のprovider非依存challengerへbaseline・根拠・prompt・schema・盲検5基準評価を固定。外部LLM生成・model/価格・人手判定は未実行",
+      "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。57記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。外部LLM生成・model/価格・人手判定は未実行",
       "authoritative_evidence": [
+        "scripts/generation-challenger-manifest.mjs",
+        "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
         "scripts/paid-test-budget-scenarios.mjs",
         "scripts/generation-execution-manifest.mjs",
@@ -1433,6 +1455,9 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-challenger-manifest:test",
+        "npm run prototype:generation-challenger-manifest:api:test",
+        "npm run prototype:generation-challenger-result:test",
         "npm run prototype:content-rich-block-plan:test",
         "npm run prototype:content-rich-block-plan:api:test",
         "npm run prototype:paid-test-budget-scenarios:test",
@@ -1466,7 +1491,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "1cdd39f44a4c9fdff1b7bc3972ae9e8b9df17296b7afb2e5b6d5e50470894360"
+      "evidence_digest": "e2e824f72b5b3fcdbd4c200da168f806de4824617adf6043e4073d75d72eee01"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -1477,8 +1502,10 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。60記事群のprovider非依存challengerへbaseline・根拠・prompt・schema・盲検5基準評価を固定。LLMによる新語生成・model/価格・人手判定は未実行",
+      "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。60記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLMによる新語生成・model/価格・人手判定は未実行",
       "authoritative_evidence": [
+        "scripts/generation-challenger-manifest.mjs",
+        "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
         "scripts/paid-test-budget-scenarios.mjs",
         "scripts/generation-execution-manifest.mjs",
@@ -1503,6 +1530,9 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-challenger-manifest:test",
+        "npm run prototype:generation-challenger-manifest:api:test",
+        "npm run prototype:generation-challenger-result:test",
         "npm run prototype:content-rich-block-plan:test",
         "npm run prototype:content-rich-block-plan:api:test",
         "npm run prototype:paid-test-budget-scenarios:test",
@@ -1536,7 +1566,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "c0875bd912aaf73aad65f47c9f03cd533d64a0fc0461e75d302e362ab15d4ae6"
+      "evidence_digest": "de0496d23009206a00597d214a9b65acb485cbdf417269acfc615b5f18cc343b"
     },
     {
       "capability_id": "hashtags",
@@ -1902,5 +1932,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "23987a9f055e2f5975d8e8b519c7886a29783d83183aafe885c5c0d45012c529"
+  "audit_digest": "286faf4fdbb182122a4d9c06d8f23fd1530a5e8dc3e34dfd89d5509a2e7ce02e"
 }
