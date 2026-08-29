@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "d57b032d4c21e2de3fb8a30623591212e876ff26c34eee9e6070ee4a07d39822",
+  "inventory_digest": "53654c5f08388520cebd66750d8afff26a6ece3111e9b7b27e35771072de67b8",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -1336,7 +1336,7 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "保持SERPからQ&Aページ64 occurrence・63検索KW・44固有pageを復元し、source・順位・title・description・取得状態・digestをDB/API/MCP/UIへ接続。本文派生証拠50、SERP要約のみ13、robots拒否1を分離し、回答本文非保持・外部取得0を明示。専用の外部Q&A全体index、教えてGoo実測、回答本文・履歴・copy exportは未取得",
+      "remaining_gap": "保持SERPからQ&Aページ64 occurrence・63検索KW・44固有pageを復元し、source・順位・title・description・取得状態・digestをDB/API/MCP/UIへ接続。同一URLを集約し、重複page 13・複数KW page 13・複数記事群page 5、最大6KW横断を逆引き可能。本文派生証拠50、SERP要約のみ13、robots拒否1を分離し、回答本文非保持・外部取得0を明示。専用の外部Q&A全体index、教えてGoo実測、回答本文・時系列履歴・copy exportは未取得",
       "authoritative_evidence": [
         "scripts/retained-qa-site-evidence.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -1350,7 +1350,7 @@
         "node scripts/test-retained-qa-site-evidence-api.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "069aa397f247c9725aab80998a2fb61f77382544eddd6aa73cb9d4ee406875a3"
+      "evidence_digest": "fbbe018edf5395c5d5aa8d2738d9f4e76a4c5450c161acc9e7607d63e58725fc"
     },
     {
       "capability_id": "google_trends",
@@ -1563,5 +1563,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "60db941101941a00d35a11076a67a0b1bff97a708fec33e68d13840fd760c2c1"
+  "audit_digest": "cb57af01c069692c764b4026fda63702c17af9f2b0952a47d5e38818dbbe1bdf"
 }
