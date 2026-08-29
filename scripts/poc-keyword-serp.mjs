@@ -5,11 +5,11 @@ import { digest, groupBySerp, normalizeKeyword, organicUrls } from "./keyword-se
 import {GROUPING_ALGORITHM,GROUPING_DECISION,buildLatestKeywordGroups,evidenceDigest} from "./keyword-grouping.mjs";
 import { readXlsxKeywordSheet } from "./read-xlsx-keywords.mjs";
 
-const API = "https://api.dataforseo.com/v3";
+const API = "https://api.data-provider-b.example/v3";
 const outputDir = path.resolve(process.argv[2] ?? "artifacts/poc/keyword-serp");
-const login = process.env.DFS_LOGIN;
-const password = process.env.DFS_PASSWORD;
-if (!login || !password) throw new Error("DFS_LOGIN and DFS_PASSWORD are required");
+const login = process.env.DATA_PROVIDER_B_LOGIN;
+const password = process.env.DATA_PROVIDER_B_PASSWORD;
+if (!login || !password) throw new Error("DATA_PROVIDER_B_LOGIN and DATA_PROVIDER_B_PASSWORD are required");
 
 const fixedInput = [
   { source_keyword_id: "bec89ab9:キーワード割り当て:2", source_file_digest: "bec89ab9", source_sheet: "キーワード割り当て", source_row: 2, keyword: "seo 記事" },
@@ -23,7 +23,7 @@ const fixedInput = [
 ];
 const workbookPath=process.env.WP_KEYWORD_WORKBOOK;
 const workbookDigest=workbookPath?createHash("sha256").update(await readFile(workbookPath)).digest("hex"):null;
-const input=(workbookPath?readXlsxKeywordSheet(workbookPath,{sheetNumber:Number(process.env.WP_KEYWORD_SHEET_NUMBER??1),sheetName:process.env.WP_KEYWORD_SHEET_NAME??"IT就活",limit:Number(process.env.WP_KEYWORD_LIMIT??100)}).map((row)=>({source_keyword_id:`it-shukatu.com:${row.source_sheet}:${row.source_row}`,source_file_digest:workbookDigest,source_sheet:row.source_sheet,source_row:row.source_row,keyword:row.raw_keyword,search_volume:row.search_volume,cpc:row.cpc,competition:row.competition})):fixedInput).map((row) => ({ ...row, normalized_keyword: normalizeKeyword(row.keyword) }));
+const input=(workbookPath?readXlsxKeywordSheet(workbookPath,{sheetNumber:Number(process.env.WP_KEYWORD_SHEET_NUMBER??1),sheetName:process.env.WP_KEYWORD_SHEET_NAME??"IT就活",limit:Number(process.env.WP_KEYWORD_LIMIT??100)}).map((row)=>({source_keyword_id:`site-a.example:${row.source_sheet}:${row.source_row}`,source_file_digest:workbookDigest,source_sheet:row.source_sheet,source_row:row.source_row,keyword:row.raw_keyword,search_volume:row.search_volume,cpc:row.cpc,competition:row.competition})):fixedInput).map((row) => ({ ...row, normalized_keyword: normalizeKeyword(row.keyword) }));
 
 const auth = `Basic ${Buffer.from(`${login}:${password}`).toString("base64")}`;
 async function request(endpoint, init = {}) {
@@ -39,12 +39,12 @@ async function request(endpoint, init = {}) {
 
 await mkdir(path.join(outputDir, "raw"), { recursive: true });
 const inputByTag = new Map(input.map((row) => [row.source_keyword_id, row]));
-const recoverReady = process.env.WP_DFS_RECOVER_READY === "1";
-const live = process.env.WP_DFS_LIVE === "1";
+const recoverReady = process.env.WP_DATA_PROVIDER_B_RECOVER_READY === "1";
+const live = process.env.WP_DATA_PROVIDER_B_LIVE === "1";
 let posted;
 if (live) {
   const liveResponses = new Array(input.length);
-  if (process.env.WP_DFS_LIVE_RESUME === "1") {
+  if (process.env.WP_DATA_PROVIDER_B_LIVE_RESUME === "1") {
     const previous = JSON.parse(await readFile(path.join(outputDir, "live-response.json"), "utf8"));
     const previousByTag = new Map((previous.tasks ?? []).map((task) => [task.data?.tag, task]));
     for (let index = 0; index < input.length; index += 1) {
@@ -113,7 +113,7 @@ const tasks = posted.tasks.map((task) => {
 if (tasks.length !== input.length) throw new Error(`${live ? "live" : recoverReady ? "tasks_ready" : "task_post"}: ${tasks.length}/${input.length} tasks available`);
 await writeFile(path.join(outputDir, "task-manifest.json"), `${JSON.stringify(tasks, null, 2)}\n`);
 
-const deadline = Date.now() + Number(process.env.WP_DFS_TIMEOUT_MS ?? 900_000);
+const deadline = Date.now() + Number(process.env.WP_DATA_PROVIDER_B_TIMEOUT_MS ?? 900_000);
 const completed = [];
 if (live) {
   for (let index = 0; index < posted.tasks.length; index += 1) {
@@ -155,7 +155,7 @@ const evidence = {
   schema_version: "wp-keyword-serp-poc.v2",
   keyword_policy_version:policyVersion,
   generated_at: new Date().toISOString(),
-  query_contract: { provider: "DataForSEO", queue: "standard", location_code: 2392, language_code: "ja", device: "desktop", depth: 10 },
+  query_contract: { provider: "DataProviderB", queue: "standard", location_code: 2392, language_code: "ja", device: "desktop", depth: 10 },
   normalization: { version: "nfkc-space-casefold.v1", input_count: input.length, input_digest: digest(input) },
   sources: workbookPath
     ? [{ file: path.basename(workbookPath), file_sha256: workbookDigest }]

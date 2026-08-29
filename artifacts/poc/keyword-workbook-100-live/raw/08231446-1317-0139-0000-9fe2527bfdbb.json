@@ -29,7 +29,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:12"
+        "tag": "site-a.example:IT就活:12"
       },
       "result": [
         {
@@ -60,21 +60,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:4)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)\n\nIT業界の主な分類と特徴\n\n- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)\n\n就活を成功させるステップ\n\n- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)\n\nもしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
+              "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:4)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)\n\nIT業界の主な分類と特徴\n\n- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)\n\n就活を成功させるステップ\n\n- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)\n\nもしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT企業の就活は、 業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵 です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。",
-                  "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:2)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)",
+                  "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:2)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:3"
                     }
                   ],
                   "references": [

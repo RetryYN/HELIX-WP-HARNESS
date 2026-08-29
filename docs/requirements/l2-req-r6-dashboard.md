@@ -42,9 +42,9 @@
 
 | 表 | 内容 | writer |
 | --- | --- | --- |
-| serp_snapshots | SERP スナップショット（KW×取得日時・取得条件〔地域/言語/端末/経路=DFS standard〕・上位 URL 群・ai_overview 有無） | 解析 (analyzer) |
-| dfs_tasks | source_keyword_id×DFS task id（要求原文・正規化形・endpoint・要求/応答 digest・取得条件・時刻・費用・成否） | 解析 (analyzer) |
-| keyword_candidates | DFS 候補語と競合 KW の正規化行（raw 値、由来、元 snapshot、Vol/CPC/競合性） | 解析 (analyzer) |
+| serp_snapshots | SERP スナップショット（KW×取得日時・取得条件〔地域/言語/端末/経路=DPB standard〕・上位 URL 群・ai_overview 有無） | 解析 (analyzer) |
+| data_provider_b_tasks | source_keyword_id×DPB task id（要求原文・正規化形・endpoint・要求/応答 digest・取得条件・時刻・費用・成否） | 解析 (analyzer) |
+| keyword_candidates | DPB 候補語と競合 KW の正規化行（raw 値、由来、元 snapshot、Vol/CPC/競合性） | 解析 (analyzer) |
 | keyword_decisions | 候補ごとの existing/suggested/competitor_gap と採用/保留/足切り（規則 ID・入力値・閾値・理由・版） | 解析 (analyzer) |
 | paa_items | PAA（KW×質問文×出典スナップショット） | 解析 (analyzer) |
 | clusters | SERP グルーピング（ペア別重複率・代表 KW・境界フラグ・使用スナップショット参照） | 解析 (analyzer) |
@@ -124,7 +124,7 @@
 - **一覧列**: 親/子/孫カテゴリー、main KW、main検索Vol、内包KW件数、AIO出現有無、推奨ページ種別、
   施策状態、WP記事ID、詳細導線。カテゴリーは実WP taxonomyを正本とし、存在しない深度の列は
   自動非表示にする。
-- **一覧から除外する情報**: intent KW全文、SERP URL、DFS task ID、費用、gate条件は横展開せず、
+- **一覧から除外する情報**: intent KW全文、SERP URL、DPB task ID、費用、gate条件は横展開せず、
   「詳細」でのみ表示する。
 - **施策状態**: `未施策` / `予約済` / `下書き` / `公開中`の4値。状態は記事工程の証跡から導出し、
   WP記事IDの有無だけで推測しない。
@@ -136,7 +136,7 @@
   暫定期間も第1階層は形態素解析後の`context_scope_id`から`IT就活` / `就活`を決め、非IT KWをフォールバックで`IT就活`へ入れない。
 - **集計**: 対象KW数、施策main KW数、未施策数、記事ID割当数をサイト単位で表示する。
 - **詳細**: main選定根拠、intent KW、群内最低SERP一致数/率、共通URL、AIO観測数、施策判断、
-  記事成立gate、DFS task ID、費用、KW別の上位10 SERPページ分類を表示する。ページ分類は`記事` / `PDF` /
+  記事成立gate、DPB task ID、費用、KW別の上位10 SERPページ分類を表示する。ページ分類は`記事` / `PDF` /
   `動画` / `SNS` / `サービスTOP` / `企業HP` / `データベース型` / `一覧・カテゴリ` / `Q&A・掲示板` /
   `ニュース` / `ツール` / `その他`とし、URL、domain、順位、判定confidence・根拠をDBへ保持する。
   群の推奨ページ種別は上位5件を強く重み付けした構成比から導出する。ページ種別だけでKW群を統合せず、
@@ -203,11 +203,11 @@
 #### 3.2.4 共通受入
 
 - **母集団照合**: 取込KW総数 = 記事割当 + 未割当 + 足切り + 取込失敗 + 要確認を常時検証する。
-- 一覧の全行は`source_keyword_id`からDFS task、クラスタ、WP記事ID、GSC証跡までdrill-downできる。
+- 一覧の全行は`source_keyword_id`からDPB task、クラスタ、WP記事ID、GSC証跡までdrill-downできる。
 - DBと証跡がない場合は設計済みemptyを表示し、fixtureやページ別/クエリ別の推測値で画面を埋めない。
 - 実データ版DB buildはGSC証跡を必須とし、欠落時はfail-closeする。empty-state試験だけは
   `WP_ALLOW_EMPTY_GSC=1`と`WP_ALLOW_EMPTY_HEADINGS=1`を明示した隔離テストとして実行し、実データPoC成功判定へ流用しない。
-- required CIの既存`npm test`は100実KW/64群のDFS provenance（形態素正規化・語順alias・df順連鎖トライ・`context_scope_id`を先に確定し、同じscope内でSERP比較。修飾語だけで別SERP群になった1群は、実在親があっても吸収せず`derived_parent_candidate`として`main_keyword`なしの未確定行で保持・表示し、記事照合・記事ID割当の対象外とする）、GSC実測attestation（28日窓・59記事/681クエリ）、
+- required CIの既存`npm test`は100実KW/64群のDPB provenance（形態素正規化・語順alias・df順連鎖トライ・`context_scope_id`を先に確定し、同じscope内でSERP比較。修飾語だけで別SERP群になった1群は、実在親があっても吸収せず`derived_parent_candidate`として`main_keyword`なしの未確定行で保持・表示し、記事照合・記事ID割当の対象外とする）、GSC実測attestation（28日窓・59記事/681クエリ）、
   WP見出し実測attestation（59記事・381 H2・1089 H3）、
   SQLite→API→frontend契約を検査する。GSCは取得原本を保全した上で、実測681行の再現用fixtureと
   記事・行・tree digestをcommitし、第三者とCIが同じ数値を再計算できること。
@@ -226,8 +226,8 @@
   境界フラグ+**使用した SERP スナップショットの取得条件**（取得日時・地域/端末・上位 URL 群）。
   共通見出し（heading_analyses）・構成案・仮説（hypotheses）・タイトル案（title_candidates）と
   各ゲート判定（gate_runs）。**正解データとの一致率**（cluster_truthset との比較+誤分類一覧）。
-  加えて、入力したサイト設計行と DFS 実応答の対応、raw/正規化 KW、候補の由来、Vol/CPC/競合性、
-  採用/保留/足切り理由、DFS task id・取得条件・取得日時・費用・snapshot digest を表示する。
+  加えて、入力したサイト設計行と DPB 実応答の対応、raw/正規化 KW、候補の由来、Vol/CPC/競合性、
+  採用/保留/足切り理由、DPB task id・取得条件・取得日時・費用・snapshot digest を表示する。
 - 操作: クラスタの分割・統合・KW 除外（operations。機械判定より優先・再解析後も維持）。
 - 受入: 任意のクラスタについて「なぜこうグルーピングされたか」を数字で答えられる。
   任意の表示値を raw snapshot とサイト設計の元セルまで逆引きできる。fixture・手書き JSON のみで

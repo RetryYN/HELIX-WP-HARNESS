@@ -1,5 +1,5 @@
 {
-  "schema_version": "rakko-capability-completion-audit.v1",
+  "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
   "inventory_digest": "e98fffff62d3600f20c49803a850ab02ca135bbada31f6774f28ee6a0692dcb3",
   "completion_claim": "not_proven",
@@ -520,7 +520,7 @@
       "remaining_gap": "公式の1-100と低1-33・中34-66・高67-100の分類、相対比較用途、取得OFF時は欠損という契約を独立監査へ追加。DB schema・正規化・zero/missing分離・取得plan・API/MCP market projectionは実装済みだが、本番siteの実測difficultyは0件。代替proxyを捏造せず、live取得は累計5 USD予算と明示承認gateの対象",
       "authoritative_evidence": [
         "scripts/seo-difficulty-contract.mjs",
-        "docs/research/rakko-public-contract-drift.json",
+        "docs/research/seo-tool-a-public-contract-drift.json",
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -1013,7 +1013,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "top10 acquired（18,424 headings）。H1〜H6・検索・除外語・task/group scope・ページ構造・本文文字数・平均/中央値をAPI/UI実装。top11〜20とRakko固有の除外条件wire互換は未実装",
+      "remaining_gap": "top10 acquired（18,424 headings）。H1〜H6・検索・除外語・task/group scope・ページ構造・本文文字数・平均/中央値をAPI/UI実装。top11〜20とSeoToolA固有の除外条件wire互換は未実装",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -1088,7 +1088,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "top10 acquired。task/group/URL evidence and extra metrics implemented; top11〜20 and Rakko getDetails wire compatibility gap",
+      "remaining_gap": "top10 acquired。task/group/URL evidence and extra metrics implemented; top11〜20 and SeoToolA getDetails wire compatibility gap",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -1732,7 +1732,7 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "DFS Google Trends Explore Standardへ63 seedを最大5語ずつ13 job、past_5_years graph/mapでrequest計画済み。公式公開単価による見積$0.0351、生涯累計配分では13/13 jobを選択済み。ただしlive/credential/承認上限gate付きで未実行、timeseries/mapは未取得",
+      "remaining_gap": "DPB Google Trends Explore Standardへ63 seedを最大5語ずつ13 job、past_5_years graph/mapでrequest計画済み。公式公開単価による見積$0.0351、生涯累計配分では13/13 jobを選択済み。ただしlive/credential/承認上限gate付きで未実行、timeseries/mapは未取得",
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
@@ -1758,7 +1758,7 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "DFS Google News Standardへ63 seed・63 jobのrequest計画済み。公式公開単価による見積$0.0378、生涯累計配分では63/63 jobを選択済み。ただしlive/credential/承認上限gate付きで未実行、news corpusは未取得",
+      "remaining_gap": "DPB Google News Standardへ63 seed・63 jobのrequest計画済み。公式公開単価による見積$0.0378、生涯累計配分では63/63 jobを選択済み。ただしlive/credential/承認上限gate付きで未実行、news corpusは未取得",
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
@@ -1861,7 +1861,7 @@
     },
     {
       "capability_id": "public_api",
-      "name": "ラッコキーワードAPI",
+      "name": "seo-tool-a API",
       "parity_status": "incomplete",
       "helix_status": "partial",
       "completion_evidence_state": "contradicted_by_retained_gap",
@@ -1902,7 +1902,7 @@
     },
     {
       "capability_id": "mcp",
-      "name": "ラッコキーワードMCP",
+      "name": "seo-tool-a MCP",
       "parity_status": "incomplete",
       "helix_status": "partial",
       "completion_evidence_state": "contradicted_by_retained_gap",
@@ -1950,7 +1950,7 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "DFSのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.3014 USD・残4.6986 USDを監査し、全portfolio配分後も合計4.99955 USDに制限し、6,243候補を64 immutable batchへ固定。価格再確認・正確な承認challengeが未充足のため実行権限false。Rakko credit換算・Rakko account/API key lifecycleは未取得・未実装",
+      "remaining_gap": "DPBのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.3014 USD・残4.6986 USDを監査し、全portfolio配分後も合計4.99955 USDに制限し、6,243候補を64 immutable batchへ固定。価格再確認・正確な承認challengeが未充足のため実行権限false。SeoToolA credit換算・SeoToolA account/API key lifecycleは未取得・未実装",
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",

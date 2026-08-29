@@ -1,5 +1,5 @@
 {
-  "schema_version":"rakko-public-contract-drift.v1",
+  "schema_version":"seo-tool-a-public-contract-drift.v1",
   "checked_at":"2026-08-30",
   "source":"live official OpenAPI 3.1.1 plus current official AI integration guide and function update index",
   "openapi_contract":{"document_version":"1.14.4","openapi_version":"3.1.1","source_sha256":"9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573","schema_count":41,"field_count":952,"live_drift_detected":false},

@@ -1,29 +1,29 @@
 ---
-artifact_id: WP-RESEARCH-RAKKO-COMPETITIVE-20260826
+artifact_id: WP-RESEARCH-SEO_TOOL_A-COMPETITIVE-20260826
 status: in-progress
 evidence_cutoff: 2026-08-26
 scope: public-product-research-and-reproducible-inference
 ---
 
-# ラッコキーワード競合機能・推定処理台帳
+# seo-tool-a競合機能・推定処理台帳
 
 ## 1. 目的と調査境界
 
-ラッコキーワードの公開機能、公開 API、公式マニュアルの入出力を棚卸しし、
+seo-tool-aの公開機能、公開 API、公式マニュアルの入出力を棚卸しし、
 `HELIX-WP-HARNESS` の SEO 分析基盤が同等機能を再現したうえで、site固有証跡、決定理由、
 継続観測、WordPress実記事との閉ループで上回るための差分台帳とする。
 
 認証回避、非公開 API の探索、利用規約に反する取得、実装コードの複製は行わない。
-「DataForSEOを内部利用している」という直接証拠は現時点でないため断定しない。
-公開出力と DataForSEO 公式 API のデータ形状が対応する場合も、`compatible` または
+「DataProviderBを内部利用している」という直接証拠は現時点でないため断定しない。
+公開出力と DataProviderB 公式 API のデータ形状が対応する場合も、`compatible` または
 `high-confidence inference` と記録し、provider provenance の確証とは分ける。
 
 ## 2. 根拠クラス
 
 | class | 意味 |
 |---|---|
-| `confirmed-public` | ラッコ公式ページまたは公開OpenAPIに明記 |
-| `dfs-compatible` | DataForSEO公式APIだけで主要入力を再現可能 |
+| `confirmed-public` | seo-tool-a公式ページまたは公開OpenAPIに明記 |
+| `data-provider-b-compatible` | DataProviderB公式APIだけで主要入力を再現可能 |
 | `inferred-transform` | 公開出力から推定できる集計・正規化・ranking処理 |
 | `unknown-provider` | 同等データ源が複数ありproviderを特定できない |
 | `helix-implemented` | 現行リポジトリで実装・テスト済み |
@@ -31,13 +31,13 @@ scope: public-product-research-and-reproducible-inference
 
 ## 3. 公開API inventory（2026-08-26）
 
-公開 OpenAPI は24 operation、41 schemaを持つ。`scripts/refresh-rakko-openapi-inventory.mjs` が
-公開Swaggerからsnapshotを保存し、952 nested fieldをflattenして全operationへ実装状態・DFS候補・推論確度・gapを割り当てる。
-`scripts/test-rakko-openapi-inventory.mjs` は未割当operation、古いmapping、schema/field欠落をfailさせる。
+公開 OpenAPI は24 operation、41 schemaを持つ。`scripts/refresh-seo-tool-a-openapi-inventory.mjs` が
+公開Swaggerからsnapshotを保存し、952 nested fieldをflattenして全operationへ実装状態・DPB候補・推論確度・gapを割り当てる。
+`scripts/test-seo-tool-a-openapi-inventory.mjs` は未割当operation、古いmapping、schema/field欠落をfailさせる。
 
-- 正本snapshot: `docs/research/evidence/rakko-openapi.json`
-- field inventory: `docs/research/rakko-openapi-inventory.json`
-- 判断台帳: `docs/research/rakko-capability-decisions.json`
+- 正本snapshot: `docs/research/evidence/seo-tool-a-openapi.json`
+- field inventory: `docs/research/seo-tool-a-openapi-inventory.json`
+- 判断台帳: `docs/research/seo-tool-a-capability-decisions.json`
 - snapshot SHA-256: `9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573`
 
 機能operationは次の18系統で、非同期機能には登録・status・results・history・SERP detailが追加される。
@@ -65,11 +65,11 @@ scope: public-product-research-and-reproducible-inference
 
 ### 3.1 Web UI・料金・運用inventory
 
-API外を含む公開機能は `docs/research/rakko-web-capability-inventory.json` に34 capabilityとして整理した。
+API外を含む公開機能は `docs/research/seo-tool-a-web-capability-inventory.json` に34 capabilityとして整理した。
 各行にinput、output、公開上限、credit、履歴、export、推定provider層、HELIX状態、gapを必須化している。
-`scripts/test-rakko-web-capability-inventory.mjs` が主要34 IDの欠落と未記入fieldを検出する。
+`scripts/test-seo-tool-a-web-capability-inventory.mjs` が主要34 IDの欠落と未記入fieldを検出する。
 
-料金と課金条件は `docs/research/rakko-pricing-policy.json` に分離した。確認できた現行planはfree、entry、light、
+料金と課金条件は `docs/research/seo-tool-a-pricing-policy.json` に分離した。確認できた現行planはfree、entry、light、
 standard、pro、enterpriseの6つ。年払い時の月額は順に0、660、990、2,475、4,950、9,900円で、
 月払いは0、1,320、1,980、4,950、9,900、19,800円。動的料金表から確認できたcreditは
 free 50/週、entry 400/月、light 1,000/月、standard 3,000/月であり、pro/enterpriseの割当量は
@@ -80,22 +80,22 @@ free 50/週、entry 400/月、light 1,000/月、standard 3,000/月であり、pr
 一括キーワード調査・検索順位チェックは取得実行時、site-searchはfilter変更時に消費する例外がある。
 copy/CSV/JSON downloadと通常filter/sortは非消費である。
 
-## 4. DataForSEO対応仮説
+## 4. DataProviderB対応仮説
 
 ### 4.1 高い対応があるもの
 
-| ラッコ出力 | DataForSEO候補 | 判定 | 理由 |
+| seo-tool-a出力 | DataProviderB候補 | 判定 | 理由 |
 |---|---|---|---|
-| volume / monthly searches / competition / CPC | Keywords Data Google Ads Search Volume | `dfs-compatible` | fieldと地域・言語指定、非同期/Live形状が一致する |
-| organic rank / SERP detail / PAA / related searches / AIO | SERP Google Organic Advanced | `dfs-compatible` | SERP item typeが直接提供される |
-| domain/URLの獲得KW・traffic・cost | DataForSEO Labs Ranked Keywords | `dfs-compatible` | rank、volume、ETV、traffic costを提供可能 |
-| 競合domain・keyword overlap | Labs Competitors / Domain Intersection | `dfs-compatible` | keyword intersectionとdomain metricsを提供可能 |
-| 同時rank keyword | Ranked Keywords + Page Intersection | `dfs-compatible` | 上位URL集合を軸に共通rank keywordを得られる |
-| 集客page | Labs Relevant Pages / Ranked Keywords aggregation | `dfs-compatible` | page別KW・ETV・traffic costを集計可能 |
-| headline | SERP Advanced + OnPage Content Parsing | `dfs-compatible` | URL発見後にheading/text/linkを構造取得可能 |
-| co-occurrence | SERP + Content Parsing + tokenizer | `inferred-transform` | DFSは本文を供給できるが頻度・site数集計はconsumer処理 |
+| volume / monthly searches / competition / CPC | Keywords Data Google Ads Search Volume | `data-provider-b-compatible` | fieldと地域・言語指定、非同期/Live形状が一致する |
+| organic rank / SERP detail / PAA / related searches / AIO | SERP Google Organic Advanced | `data-provider-b-compatible` | SERP item typeが直接提供される |
+| domain/URLの獲得KW・traffic・cost | DataProviderB Labs Ranked Keywords | `data-provider-b-compatible` | rank、volume、ETV、traffic costを提供可能 |
+| 競合domain・keyword overlap | Labs Competitors / Domain Intersection | `data-provider-b-compatible` | keyword intersectionとdomain metricsを提供可能 |
+| 同時rank keyword | Ranked Keywords + Page Intersection | `data-provider-b-compatible` | 上位URL集合を軸に共通rank keywordを得られる |
+| 集客page | Labs Relevant Pages / Ranked Keywords aggregation | `data-provider-b-compatible` | page別KW・ETV・traffic costを集計可能 |
+| headline | SERP Advanced + OnPage Content Parsing | `data-provider-b-compatible` | URL発見後にheading/text/linkを構造取得可能 |
+| co-occurrence | SERP + Content Parsing + tokenizer | `inferred-transform` | DPBは本文を供給できるが頻度・site数集計はconsumer処理 |
 
-### 4.2 DataForSEOだけでは説明できないもの
+### 4.2 DataProviderBだけでは説明できないもの
 
 - Google以外を含むsuggest横断と長期蓄積DB
 - 最大25,000件の部分一致関連KW index
@@ -105,7 +105,7 @@ copy/CSV/JSON downloadと通常filter/sortは非消費である。
 - 類語、連想語、Q&A、ニュース、SNS hashtag
 - UI上のfilter、URL state、履歴、credit、export orchestration
 
-したがって、類似出力だけから「すべてDataForSEO」と結論づけるのは不正確である。
+したがって、類似出力だけから「すべてDataProviderB」と結論づけるのは不正確である。
 妥当な作業仮説は、`provider datasets + 独自蓄積index + deterministic transforms + LLM generation`
 の複合pipelineである。
 
@@ -150,7 +150,7 @@ seed keyword / site / URL
 ## 6. 現行HELIXの優位点
 
 - `site_id`を全分析へ束縛し、別サイト混在をfail-closeできる。
-- DFS task ID、raw snapshot、digest、costから画面表示へ逆引きできる。
+- DPB task ID、raw snapshot、digest、costから画面表示へ逆引きできる。
 - 観測926 organic edgeから565 page coverage・339同時rank keyword関係・226競合domain coverageを再現し、共有URLへ逆引きできる。
 - keyword hierarchy、64 article group、SERP URL overlapを決定論で再現できる。
 - main/intent keywordと実WP article ID、title、heading、GSC queryを同じDBで照合できる。
@@ -202,13 +202,13 @@ traceable lifecycleを完成させることが主要な勝ち筋になる。
 
 ## 9. 主要公開根拠
 
-- ラッコキーワード公開OpenAPI: <https://api.rakkokeyword.com/docs>
-- ラッコキーワード機能一覧: <https://rakkokeyword.com/knowledge/1332/>
-- ラッコキーワード更新履歴: <https://rakkokeyword.com/knowledge/1338/>
-- ラッコキーワード見出し抽出: <https://rakkokeyword.com/knowledge/487/>
-- DataForSEO SERP Advanced: <https://docs.dataforseo.com/v3/serp-se-type-live-advanced/>
-- DataForSEO Google Ads Search Volume: <https://docs.dataforseo.com/v3/keywords_data-google_ads-search_volume-live/>
-- DataForSEO OnPage Content Parsing: <https://docs.dataforseo.com/v3/on_page-content_parsing-live/>
+- seo-tool-a公開OpenAPI: <https://api.seo-tool-a.example/docs>
+- seo-tool-a機能一覧: <https://seo-tool-a.example/knowledge/1332/>
+- seo-tool-a更新履歴: <https://seo-tool-a.example/knowledge/1338/>
+- seo-tool-a見出し抽出: <https://seo-tool-a.example/knowledge/487/>
+- DataProviderB SERP Advanced: <https://docs.data-provider-b.example/v3/serp-se-type-live-advanced/>
+- DataProviderB Google Ads Search Volume: <https://docs.data-provider-b.example/v3/keywords_data-google_ads-search_volume-live/>
+- DataProviderB OnPage Content Parsing: <https://docs.data-provider-b.example/v3/on_page-content_parsing-live/>
 
 ## 10. 現行100KWの取得・drop監査
 
@@ -283,27 +283,27 @@ occurrence数15%を各最大値で正規化した`observed-demand-relative.v1`�
 
 ### 10.6 追加課金データの取得契約（DB v22時点）
 
-`npm run poc:dfs-enrichment:plan` はnetwork callを行わず、現行100 keywordに対するrequest body、
+`npm run poc:data-provider-b-enrichment:plan` はnetwork callを行わず、現行100 keywordに対するrequest body、
 provider上限、公式公開価格に基づく上限見積を出力する。既定選択はGoogle Ads Search Volume liveと
 Labs Bulk Keyword Difficulty liveで、上限見積は合計`$0.114`。自domain Ranked Keywords最大1,000件を
 加えた全planは`$0.246`。
 
-課金実行には`--live`に加え、`WP_DFS_ENRICHMENT_LIVE=1`、jobの明示選択、見積以上の
-`WP_DFS_ENRICHMENT_MAX_USD`、DFS credentialsがすべて必要。課金前に無料のUser Data endpointから
+課金実行には`--live`に加え、`WP_DATA_PROVIDER_B_ENRICHMENT_LIVE=1`、jobの明示選択、見積以上の
+`WP_DATA_PROVIDER_B_ENRICHMENT_MAX_USD`、DPB credentialsがすべて必要。課金前に無料のUser Data endpointから
 balanceとaccount pricing snapshotを取得し、残高不足なら停止する。response、reported cost、SHA-256、
 request planをrun単位のmanifestへ保存する。clickstreamは明示的にfalseで、意図しない倍額課金を避ける。
-`dfs-enrichment-normalized.v1` は取得後のresponseを、keyword metrics、年月別volume、difficulty、
+`data-provider-b-enrichment-normalized.v1` は取得後のresponseを、keyword metrics、年月別volume、difficulty、
 ranked keyword summary、ranked keyword明細へ分離する。観測値`0`は欠損へ変換せず、providerが返さなかった
 入力語はcoverageの`missing_keywords`へ残す。全明細はsource job、raw SHA-256、行単位evidence digestを持つ。
-DB v23はこのmanifestを`dfs_enrichment_runs`、`keyword_market_metrics`、`keyword_monthly_searches`、
+DB v23はこのmanifestを`data_provider_b_enrichment_runs`、`keyword_market_metrics`、`keyword_monthly_searches`、
 `keyword_difficulty_enrichment`、`domain_ranked_keyword_summaries`、`domain_ranked_keywords`へ正規化し、
 APIと「市場データ」画面へ投影する。manifest未指定時は空配列と`not_acquired`を返し、workbook由来の
 既存値を最新取得値として偽装しない。
 
-- Google Ads Search Volume live: <https://docs.dataforseo.com/v3/keywords_data-google_ads-search_volume-live/>
-- Labs Bulk Keyword Difficulty live: <https://docs.dataforseo.com/v3/dataforseo_labs-google-bulk_keyword_difficulty-live/>
-- Labs Ranked Keywords live: <https://docs.dataforseo.com/v3/dataforseo_labs-google-ranked_keywords-live/>
-- User Data（無料、balance・account pricing）: <https://docs.dataforseo.com/v3/appendix-user-data/>
+- Google Ads Search Volume live: <https://docs.data-provider-b.example/v3/keywords_data-google_ads-search_volume-live/>
+- Labs Bulk Keyword Difficulty live: <https://docs.data-provider-b.example/v3/data-provider-b_labs-google-bulk_keyword_difficulty-live/>
+- Labs Ranked Keywords live: <https://docs.data-provider-b.example/v3/data-provider-b_labs-google-ranked_keywords-live/>
+- User Data（無料、balance・account pricing）: <https://docs.data-provider-b.example/v3/appendix-user-data/>
 
 ### 10.7 競合content取得の実装・実測（2026-08-26）
 
@@ -317,19 +317,19 @@ APIと「市場データ」画面へ投影する。manifest未指定時は空配
 - kuromojiで意味語（名詞・形容詞）を抽出し、機能動詞を除外する。本文・title・headingの出現回数、各出現page数、rank加重scoreを分離する。
 - 公式仕様と同じく2 page未満にしか現れない語を共起語集計から除外する。
 - DB v14では190 page、6,887 heading、16,995 group×term、24,052 task×termを保持し、各termから根拠page IDへ逆引きできる。
-- group集計だけでなくDFS task（検索KW）単位の上位3page集計も保持するため、記事KW群への統合前後を比較できる。
+- group集計だけでなくDPB task（検索KW）単位の上位3page集計も保持するため、記事KW群への統合前後を比較できる。
 - UIの「コンテンツ設計」でgroupごとの競合page数、heading数、上位共起語と `page count / heading page count` を表示する。
 - evidence-bound生成候補642件を追加した。内訳はPAA/関連検索由来title 57・heading 376、競合共起語由来title 29・heading 180。全件`proposed`で、根拠IDが空の候補は0件。
 - DB v24で全642候補に品質reviewを付与した。主KW包含、文字数heuristic、根拠数、H2/H3親関係、候補内重複、既存WP title/heading完全衝突を検査し、641件`ready`、1件`blocked`（WP #130 H2との衝突）となった。判定は候補と同じく自動承認せず、policy名とSHA-256 review digestを保持する。
 - DB v25では需要複合・需要解説・競合解説のtitle variantと、PAA質問・関連検索・競合軸のheading variantを分離した。全候補に`deterministic_rule`、generator version、variant key、入力SHA-256を付け、LLM生成と区別する。区切り前後の意味重複も品質review対象とし、生成数だけを品質と誤認しない。
 
 この節の数値は初回v14 runの履歴である。現行取得は10.44のとおり各検索KWの上位10pageへ拡張したが、
-ラッコの上位20サイト深度とは異なる。上位11〜20への拡張は追加SERP取得・freshness・取得負荷・利用条件を伴う別runとして扱う。
+seo-tool-aの上位20サイト深度とは異なる。上位11〜20への拡張は追加SERP取得・freshness・取得負荷・利用条件を伴う別runとして扱う。
 
 公式仕様で確認できた集計軸は、本文共起回数、title共起回数、heading共起回数、本文出現site数、heading出現site数である。
 当実装はこれらにtitle出現page数、検索KW別統計、記事KW群別統計、rank加重score、page ID逆引きを加える。
 
-### 10.8 DFS以外の入力監査
+### 10.8 DPB以外の入力監査
 
 #### 元キーワードExcel
 
@@ -423,8 +423,8 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 駅は国交省の2025年度N02（2025-12-31時点、CC BY 4.0）から10,234 featureをgroup codeで
 9,046駅へdedupeし、路線・運営会社とarchive digestを保持した。これで公式現行一覧の9操作を実装済みとした。
 
-- 公式補助ツール一覧: <https://rakkokeyword.com/knowledge/tool/>
-- 地域キーワード生成仕様: <https://rakkokeyword.com/techo/generate-local-keywords/>
+- 公式補助ツール一覧: <https://seo-tool-a.example/knowledge/tool/>
+- 地域キーワード生成仕様: <https://seo-tool-a.example/techo/generate-local-keywords/>
 - 日本郵便UTF-8全国CSV: <https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html>
 - 国土数値情報・鉄道2025年度版: <https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html>
 
@@ -436,10 +436,10 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 
 ### 10.13 取得費用とcredentialの保持境界
 
-取得済みDFS taskのUSD原価をsite別に集約し、日付、provider、endpoint、task/run ID、raw snapshot
+取得済みDPB taskのUSD原価をsite別に集約し、日付、provider、endpoint、task/run ID、raw snapshot
 digestまで逆引きできる費用台帳をAPI/UIへ追加した。取得費用はtask metadataを正本とし、group合計から
-再計算して二重計上しない。Rakko creditとの換算根拠はないため `null` のまま保持し、API keyやcredentialは
-DB・投影・画面のいずれにも保存しない。Rakko account側のcredit履歴とkey lifecycleは未取得である。
+再計算して二重計上しない。SeoToolA creditとの換算根拠はないため `null` のまま保持し、API keyやcredentialは
+DB・投影・画面のいずれにも保存しない。SeoToolA account側のcredit履歴とkey lifecycleは未取得である。
 
 ### 10.14 ブックマークレット
 
@@ -474,7 +474,7 @@ dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し�
 取得状態/費用台帳に加え、title候補、競合heading、outline、競合domain、SERP field、保持rank履歴、市場データの
 計12種に、特殊SERP featureのnested item検索、title×outline構成整合review、証拠境界draft読取を加えた計15種。追加10種はread-only API投影を再利用し、APIとMCPでsite filterやprovenanceが分岐しないようにした。
 最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを許可し、bodyは1MiB、
-protocol versionは2025-03-26/06-18/11-25に制限する。Rakko OAuthやcredit連携とは称さない。
+protocol versionは2025-03-26/06-18/11-25に制限する。SeoToolA OAuthやcredit連携とは称さない。
 
 - MCP Tools仕様: <https://modelcontextprotocol.io/specification/2025-06-18/server/tools>
 - MCP Streamable HTTP仕様: <https://modelcontextprotocol.io/specification/2025-03-26/basic/transports>
@@ -491,9 +491,9 @@ GSC query、競合page、質問候補、provider費用を横断表示する。�
 
 `/api/v1` に36 GET routeを実装し、OpenAPI 3.1を `/api/v1/openapi.json` で公開する。検索系はsite必須、
 最大100行、cursor paginationとし、全responseに `retained_evidence_only`、外部取得なし、credential露出なしを
-付ける。`operation-coverage` はRakko公開OpenAPIの全24 operation IDを保持証跡projectionへ対応付け、登録系2件は
+付ける。`operation-coverage` はSeoToolA公開OpenAPIの全24 operation IDを保持証跡projectionへ対応付け、登録系2件は
 `plan_only_no_mutation` と明示する。suggest/related/demand/question、同時rank、page/domain/content/heading/
-cooccurrence/SERP、market metadata/status/result、rank empty state、WP linkを提供する。Rakko wire contract、認証、
+cooccurrence/SERP、market metadata/status/result、rank empty state、WP linkを提供する。SeoToolA wire contract、認証、
 credit体系とは同一と称さず、provider mutationを実行しない。
 
 ### 10.21 provider依存データの課金前計画
@@ -507,12 +507,12 @@ environment credential、見積以上の厳密な承認上限のいずれかが�
 hashtag取得済みとは扱わない。Q&A専用endpointは確認できず、Google operator queryは公式上5倍課金のため
 jobを作らずprovider gapにした。
 
-- DFS Google Trends pricing: <https://dataforseo.com/pricing/keywords-data/google-trends>
-- DFS Google News pricing: <https://dataforseo.com/pricing/serp/google-news-serp-api>
-- DFS YouTube pricing: <https://dataforseo.com/pricing/serp/youtube-serp-api>
-- DFS Google Trends Explore: <https://docs.dataforseo.com/v3/keywords-data-google-trends-explore-task_post/>
-- DFS Google News: <https://docs.dataforseo.com/v3/serp-google-news-task_post/>
-- DFS YouTube Organic: <https://docs.dataforseo.com/v3/serp-youtube-organic-task_post/>
+- DPB Google Trends pricing: <https://data-provider-b.example/pricing/keywords-data/google-trends>
+- DPB Google News pricing: <https://data-provider-b.example/pricing/serp/google-news-serp-api>
+- DPB YouTube pricing: <https://data-provider-b.example/pricing/serp/youtube-serp-api>
+- DPB Google Trends Explore: <https://docs.data-provider-b.example/v3/keywords-data-google-trends-explore-task_post/>
+- DPB Google News: <https://docs.data-provider-b.example/v3/serp-google-news-task_post/>
+- DPB YouTube Organic: <https://docs.data-provider-b.example/v3/serp-youtube-organic-task_post/>
 
 ### 10.22 データ処遇台帳
 
@@ -526,7 +526,7 @@ link/image/section/paragraph digestまで救出済みで、rendered HTMLに含�
 
 ### 10.23 34機能の完成証拠監査
 
-`rakko-capability-completion-audit.v1` は34機能それぞれについて、完成判定、残存gap、blocker class、
+`seo-tool-a-capability-completion-audit.v1` は34機能それぞれについて、完成判定、残存gap、blocker class、
 権威実装path、検証command、行単位evidence digestを固定する。現時点で完成を証明できるのはquick search、
 補助ツール、bookmarkletの3機能だけで、31機能は残存gapが完成主張を反証する。blockerは重複を許して、
 corpus/acquisition depth 17、generation runtime/quality oracle 6、external provider/account data 5、
@@ -634,7 +634,7 @@ coverage、variant key、元proposal IDへ明示して逆引き可能にする�
 ### 10.35 未取得SERP・PAA回答のsource単位取得計画（provider plan v3）
 
 `data_disposition`で可視化した欠損を実行計画へ接続した。SERP未取得10,594 source rowは重複語でもsource IDを潰さず、
-DFS Standard Google Organic depth 10を最大100 taskずつ106 POST batchへ分割する。2026-08-26再確認の公開単価
+DPB Standard Google Organic depth 10を最大100 taskずつ106 POST batchへ分割する。2026-08-26再確認の公開単価
 $0.0006/taskによる最大見積は$6.3564。取得済み100 taskのPAA回答は`people_also_ask_click_depth: 1`で再観測し、
 baseと追加clickを合わせ最大$0.0750とする。PAAが存在しない場合や実行clickが少ない場合は返金されるため、これは上限
 見積であり取得件数保証ではない。既存のTrends/Newsを含む実行可能計画総額は最大$6.5043。全jobは`not_executed`、
@@ -642,7 +642,7 @@ baseと追加clickを合わせ最大$0.0750とする。PAAが存在しない場�
 
 ### 10.36 競合本文取得失敗のSERP snippet救出（DB v35）
 
-競合本文を取得できなかった10ページ（robots拒否3、HTTP error 4、fetch error 3）を元のDFS organic resultへURL単位で
+競合本文を取得できなかった10ページ（robots拒否3、HTTP error 4、fetch error 3）を元のDPB organic resultへURL単位で
 逆結合したところ、10/10ページ、11 task-page観測でtitle・description・breadcrumbが残っていた。これを
 `competitor_serp_snippet_evidence`へtask ID、rank、highlight、観測時刻、raw snapshot digest、派生digest付きで保持する。
 画面/APIのcontent検索では`SERP snippetのみ`として検索・表示できるが、取得失敗statusは維持し、H1-H6、本文共起語、
@@ -692,7 +692,7 @@ snippetだけを別証拠として保持する。未取得の主要母集団はS
 保持意味対応95、provider dataset未取得162、request control非互換168、wire contract/container形状500、partial operation内の
 1:1未対応27へ分類している。
 同一array pathのflatten重複103件も削除せず明示し、unique schema/pathは849件。未分類は0件である。保持意味対応は
-`searchVolume → keyword_market_metrics.search_volume`のようにHELIX target columnを示すが、値定義やRakko wire contractの
+`searchVolume → keyword_market_metrics.search_volume`のようにHELIX target columnを示すが、値定義やSeoToolA wire contractの
 同一性までは証明しない。画面へ全件監査とdigestを常設し、1:1未対応27件と未取得162件を具体的なbacklogとして残す。
 
 ### 10.42 URL別共起語証拠とsite count（DB v36）
@@ -702,7 +702,7 @@ DB v36で`competitor_page_terms`を追加し、現行上位10 runでは207,871�
 元page IDへ保持する。`/api/v1/cooccurrence?...&details=true`はページング対象termだけをURL・domain・SERP best rankと
 結合し、URL別詳細、出現site数、見出し出現site数を返す。取得失敗29ページにはtermを補完せず0行のままとする。
 これにより共起語契約のsite count・URL別count系7 fieldと、同時ランクKWのword count/relevance、content top KWの
-word countを含む計10 fieldを追加で意味対応へ移した。Rakko `getDetails` wire互換や上位20page取得完了は主張しない。
+word countを含む計10 fieldを追加で意味対応へ移した。SeoToolA `getDetails` wire互換や上位20page取得完了は主張しない。
 
 ### 10.43 観測SERP母集団のdomain重複比較
 
@@ -710,7 +710,7 @@ word countを含む計10 fieldを追加で意味対応へ移した。Rakko `getD
 重複KW数、target基準重複率、Jaccard率、競合固有KW数、target固有KW数、重複KW一覧を返し、policyとscopeに
 `full_rank_database:false`を明記する。画面でも比較基準domainを選択でき、両方の率を並記する。実測例では
 `detail.chiebukuro.yahoo.co.jp`の61観測KWを基準に`unison-career.jp`と28KWが重複し、target基準45.9%、Jaccard35.9%、
-競合固有17、target固有33となった。これをRakkoの重複率と同じ分母だとは主張せず、定義が再現可能な独自比較として扱う。
+競合固有17、target固有33となった。これをSeoToolAの重複率と同じ分母だとは主張せず、定義が再現可能な独自比較として扱う。
 
 ### 10.44 上位10pageへの競合content証拠拡張
 
@@ -771,7 +771,7 @@ trigram Jaccardを返す。現行実測は63 outline、571候補から503選定�
 221件には回答本文・参照URLがなく、latest/monthly volume、SEO difficulty、全rank DBもlive未取得である。一方、
 WordPress本文文字列・公開HTML・sitemap XMLは意図的に非保持とし、digest、section、paragraph位置・文字数、link、
 image、block、schema、SEO headを派生保持する。GSC raw 681行は保持し、NFKC等価な3行だけを678行へ集約する。
-Rakko OpenAPI 952 field occurrenceの処遇は、意味保持95、provider dataset未取得162、response 1:1未対応27、request
+SeoToolA OpenAPI 952 field occurrenceの処遇は、意味保持95、provider dataset未取得162、response 1:1未対応27、request
 非互換168、contract shape 500で、未分類は0である。
 
 `keyword-decision-audit.v1`は取得済み証拠だけから398件を判定する。内訳はSERP pair 339、同一正規化GSC queryを
@@ -832,7 +832,7 @@ SEO・ライター系6件は別corpusとして隔離する。保存済み証拠�
 これで検索順位監査の`single snapshot only`は解消したが、2時点・2 KWだけであり、120日継続履歴、target登録job、
 top30/100取得、volume・difficulty・推定trafficは未実装なので検索順位チェック機能は引き続き`partial`とする。
 
-既存のRakko対応route `/api/v1/rank/status` と `/api/v1/rank/results` は、履歴実装後もそれぞれ
+既存のSeoToolA対応route `/api/v1/rank/status` と `/api/v1/rank/results` は、履歴実装後もそれぞれ
 `not_acquired/history_count:0`と空配列を返していた。これは`/snapshot-history`だけを追加して既存contract projectionを
 更新し忘れた矛盾である。両routeを同じ保持証拠へ接続し、statusは履歴2・追跡KW 2・最古/最新観測時刻を、resultsは
 比較2件または`target`指定時のtarget trackを返す。継続schedule・provider history・mutationはfalseのまま明示する。
@@ -868,16 +868,16 @@ market enrichment tableは現時点で空だがsite identity列を持たない�
 `canonical_url`へ統一し、単なる自己整合ではなく主siteの既知母数565件も固定assertする。runtimeでもpages total 565、
 `detail.chiebukuro.yahoo.co.jp`は44 page・61 KWと確認した。
 
-### 10.55 DFS市場enrichmentのsite identity
+### 10.55 DPB市場enrichmentのsite identity
 
 live取得前監査で、検索量・月次推移・難易度・獲得KW・取得runの6テーブルに`site_id`がなく、`/market/status`、
 `/market/results`、画面、JSON export、費用台帳がglobal値を参照していることを確認した。現行DBは追加市場データ0件のため
 漏洩はまだ発生していないが、最初の取得後に別siteへ同じ結果と費用を表示するschema欠陥だった。
 
-取得planを`dfs-enrichment-plan.v2`へ上げて`site_id`を必須化し、normalized evidenceの全row、SQLite v37の主キー、
+取得planを`data-provider-b-enrichment-plan.v2`へ上げて`site_id`を必須化し、normalized evidenceの全row、SQLite v37の主キー、
 投影status、API、画面、export、data disposition、費用台帳まで同じidentityを伝播する。未登録siteのevidenceはDB buildを
-fail closedする。2-site fixtureでは`it-shukatu.com`だけに市場証拠を投入し、同siteのmarket APIは1件／acquired、
-`solobiz-lab.com`は0件／not_acquiredになることを独立assertした。新規provider取得やAPI公開は行っていない。
+fail closedする。2-site fixtureでは`site-a.example`だけに市場証拠を投入し、同siteのmarket APIは1件／acquired、
+`site-b.example`は0件／not_acquiredになることを独立assertした。新規provider取得やAPI公開は行っていない。
 
 ### 10.56 特殊SERP featureのnested item正規化
 
@@ -985,7 +985,7 @@ signal矛盾16、意味的隣接8、現group境界30、内部リンク境界13�
 
 ### 10.63 top3・top5・top10 SERP境界感度（DB v47）
 
-ラッコの同時ランク機能は参照上位数を変えられるため、top10の単一判定だけではgroup境界の安定性を証明できない。
+seo-tool-aの同時ランク機能は参照上位数を変えられるため、top10の単一判定だけではgroup境界の安定性を証明できない。
 保持済みorganic edgeから68境界pairをtop3・top5・top10で再計算し、各深度の左右URL数、共有URL数、共有URL本体、
 overlap率、`merge / related / separate`分類を保存した。
 
@@ -1114,7 +1114,7 @@ robust数、threshold flip数、reason code、適用状態、digestを保存す�
 
 候補へcitation IDを配列で残すだけでは、URL単位の集約後に「どの取得で観測した引用か」を直接監査できない。
 そこで`content_consolidation_citation_observation_lineage`を追加し、候補種別・候補digest・統合claim・citation IDから、
-元AIO referenceのDFS task、source group、source keyword、reference order、観測時刻、raw snapshot digest、datasetへ
+元AIO referenceのDPB task、source group、source keyword、reference order、観測時刻、raw snapshot digest、datasetへ
 一行ずつ接続した。raw snapshotのローカルパスはAPIへ露出しない。
 
 実測は既存統合推薦42関連、cross-group補完41関連の計83関連で、83/83 resolved、unresolved 0、壊れたdigest 0。
@@ -1155,7 +1155,7 @@ topic・取得元keyword・要求source typeに加え、日程claimの日程face
 企業名を特定していない一般claimへ企業採用ページを流用すること、日程情報が観測できないページを日程根拠へ
 昇格することはfail-closeで禁止した。
 
-`content_consolidation_retained_primary_source_discovery`はrequirement、DFS task、source keyword、順位、URL、
+`content_consolidation_retained_primary_source_discovery`はrequirement、DPB task、source keyword、順位、URL、
 source class、類似度、source-type整合、entity/fact facet、棄却理由、digestを保存する。候補は
 `retained_review_candidate`または`rejected_not_claim_sufficient`に分離するが、いずれも本文確認前であり
 一次情報provenにはしない。全行が`retained_corpus_only`、`external_acquisition_triggered:false`、
@@ -1178,14 +1178,14 @@ canonical URLごとに全organic観測を集約し、titleを含む6 text field�
 42 evidence行を保存した。日程facet一致7、日程不足35だが、企業entity scopeまたはclaim適合gateにより
 review候補0、棄却42である。API 2.12.0、MCP、画面は保持snippet fieldとdigestを返し、外部取得・自動承認は0のままである。
 
-### 10.76 raw DFS primitive field lineage（SERP audit v4 / API 2.13）
+### 10.76 raw DPB primitive field lineage（SERP audit v4 / API 2.13）
 
 従来のSERP coverage auditは既知fieldを手動列挙しており、`organic.links`の保存は確認できても、内部の
 `links[].description`まで個別に棚卸ししていなかった。v4ではtask、result、全item typeを再帰走査し、配列indexを
 `[]`へ正規化した非空primitive pathを自動抽出する。各leafはstructured/normalized、ancestor JSON、特殊SERPの
 raw feature payload JSON、raw snapshot onlyのいずれかへ分類し、施策接続か証拠専用かも分離する。
 
-100 raw DFS snapshotの実測は179 leaf field、投影179、raw-only 0、施策接続52、証拠専用127となった。
+100 raw DPB snapshotの実測は179 leaf field、投影179、raw-only 0、施策接続52、証拠専用127となった。
 例えば`organic.links[].description` 5観測は`organic.links` ancestor JSONへ、Knowledge Graphの深いlink URLは
 feature payload JSONへ逆引きできる。`GET /api/v1/serp-field-lineage`はfield、projection state、decision stateを
 検索・filterでき、MCP `audit_serp_field_lineage`と画面にも接続した。MCPはread-only 22 toolとなった。
@@ -1382,9 +1382,9 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
 - Web UI 34 capabilityのinput/output/主要limit/credit/history/export棚卸しは完了。動的料金表の全セルと8補助ツール個別契約は未完了
-- SEO難易度の公開説明とDFS Labs指標の数式・分布比較
-- 同一seedでのラッコ出力とDFS出力の合法的なside-by-side実測
+- SEO難易度の公開説明とDPB Labs指標の数式・分布比較
+- 同一seedでのseo-tool-a出力とDPB出力の合法的なside-by-side実測
 - AI title/headingの生成モデル比較、編集履歴、承認workflow（決定論候補の入力選択・重複抑制・文字数・coverage oracleは実装済み）
 - 利用規約・データ保持・派生データ再配布条件
 
-これらを埋めるまでは「全機能調査完了」「DataForSEO利用確定」「競合超過完了」を主張しない。
+これらを埋めるまでは「全機能調査完了」「DataProviderB利用確定」「競合超過完了」を主張しない。

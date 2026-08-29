@@ -1,12 +1,12 @@
 import {createHash} from "node:crypto";
 import {mkdir,readFile,writeFile} from "node:fs/promises";
 import path from "node:path";
-const API="https://api.dataforseo.com/v3",dashboardUrl=process.env.WP_DASHBOARD_URL??"http://127.0.0.1:4173",outputDir=path.resolve(process.env.WP_ACQUISITION_OUTPUT??"");
-const login=process.env.DFS_LOGIN,password=process.env.DFS_PASSWORD;if(!outputDir||!login||!password)throw new Error("WP_ACQUISITION_OUTPUT, DFS_LOGIN and DFS_PASSWORD are required");
+const API="https://api.data-provider-b.example/v3",dashboardUrl=process.env.WP_DASHBOARD_URL??"http://127.0.0.1:4173",outputDir=path.resolve(process.env.WP_ACQUISITION_OUTPUT??"");
+const login=process.env.DATA_PROVIDER_B_LOGIN,password=process.env.DATA_PROVIDER_B_PASSWORD;if(!outputDir||!login||!password)throw new Error("WP_ACQUISITION_OUTPUT, DATA_PROVIDER_B_LOGIN and DATA_PROVIDER_B_PASSWORD are required");
 const sha=(value)=>createHash("sha256").update(typeof value==="string"?value:JSON.stringify(value)).digest("hex");
 const getJson=async(url,auth=false)=>{const response=await fetch(url,{headers:auth?{Authorization:`Basic ${Buffer.from(`${login}:${password}`).toString("base64")}`}:{}});if(!response.ok)throw new Error(`${url}: HTTP ${response.status}`);const body=await response.json();if(auth&&body.status_code!==20000)throw new Error(`${url}: API ${body.status_code}`);return body};
 const posted=JSON.parse(await readFile(path.join(outputDir,"task-post.json"),"utf8")),run=JSON.parse(await readFile(path.join(outputDir,"run-manifest.json"),"utf8"));
-const portfolio=await getJson(`${dashboardUrl}/api/v1/acquisition-remediation-portfolio?site_id=it-shukatu.com&limit=100`),byTag=new Map(portfolio.data.map((row)=>[`helix-remediation:${row.source_task_id}`,row]));
+const portfolio=await getJson(`${dashboardUrl}/api/v1/acquisition-remediation-portfolio?site_id=site-a.example&limit=100`),byTag=new Map(portfolio.data.map((row)=>[`helix-remediation:${row.source_task_id}`,row]));
 const rejected=posted.tasks.filter((task)=>task.status_code!==20100).map((task)=>({status_code:task.status_code,status_message:task.status_message,source_task_id:byTag.get(task.data?.tag)?.source_task_id??null,keyword:task.data?.keyword??null}));
 const tasks=posted.tasks.filter((task)=>task.status_code===20100).map((task)=>{const source=byTag.get(task.data?.tag);if(!source)throw new Error(`unknown response tag ${task.data?.tag}`);return{acquisition_task_id:task.id,source_task_id:source.source_task_id,candidate_id:source.candidate_id,batch_id:source.batch_id,keyword:source.keyword,remediation_types:source.remediation_types,post_status_code:task.status_code,estimated_maximum_cost_usd:source.unit_cost_usd}});
 await mkdir(path.join(outputDir,"raw"),{recursive:true});await writeFile(path.join(outputDir,"task-map.json"),`${JSON.stringify(tasks,null,2)}\n`);

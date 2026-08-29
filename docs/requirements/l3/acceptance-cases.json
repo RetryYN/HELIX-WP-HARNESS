@@ -5,7 +5,7 @@
     {"id":"WP-AC-KW-01B","requirement_id":"WP-FR-KW-01","polarity":"negative","oracle":"header不明・破損fileは解析正本を変更せず拒否される"},
     {"id":"WP-AC-KW-02A","requirement_id":"WP-FR-KW-02","polarity":"positive","oracle":"同一snapshotと規則versionから同一分類・理由を得る"},
     {"id":"WP-AC-KW-02B","requirement_id":"WP-FR-KW-02","polarity":"boundary","oracle":"記事型pageが3未満なら判定不能として自動生成を止める"},
-    {"id":"WP-AC-KW-02C","requirement_id":"WP-FR-KW-02","polarity":"negative","oracle":"source_keyword_idからDFS task、raw snapshot、候補判定、cluster、WP記事IDまで逆引きできない行が1件でもあれば解析gateが失敗しUIで成功表示されない"},
+    {"id":"WP-AC-KW-02C","requirement_id":"WP-FR-KW-02","polarity":"negative","oracle":"source_keyword_idからDPB task、raw snapshot、候補判定、cluster、WP記事IDまで逆引きできない行が1件でもあれば解析gateが失敗しUIで成功表示されない"},
     {"id":"WP-AC-KW-03A","requirement_id":"WP-FR-KW-03","polarity":"positive","oracle":"全KWがexactly one分類へ帰属し母集団差分が0になる"},
     {"id":"WP-AC-KW-03B","requirement_id":"WP-FR-KW-03","polarity":"negative","oracle":"重複帰属または孤児が1件でもあればgateが失敗する"},
     {"id":"WP-AC-DOC-01A","requirement_id":"WP-FR-DOC-01","polarity":"positive","oracle":"doc_typeに対応するendpointとadapterだけが選択される"},

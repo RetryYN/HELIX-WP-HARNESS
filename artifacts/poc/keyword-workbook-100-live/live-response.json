@@ -29,7 +29,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:2"
+        "tag": "site-a.example:IT就活:2"
       },
       "result": [
         {
@@ -595,7 +595,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:3"
+        "tag": "site-a.example:IT就活:3"
       },
       "result": [
         {
@@ -1308,7 +1308,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:4"
+        "tag": "site-a.example:IT就活:4"
       },
       "result": [
         {
@@ -1796,7 +1796,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:5"
+        "tag": "site-a.example:IT就活:5"
       },
       "result": [
         {
@@ -2314,7 +2314,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:6"
+        "tag": "site-a.example:IT就活:6"
       },
       "result": [
         {
@@ -2345,21 +2345,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-e1564ced350e:4)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\nIT業界の主な分類\n\n- **SIer（エスアイアー）** ：企業のシステムを企画・受託開発。NTTデータやSCSKなど。\n- **Web系** ：自社でWebサービスやアプリを開発・運営。メルカリなど。\n- **インフラ・通信** ：サーバーやネットワーク、回線などの基盤を支える。\n- **ITコンサル** ：ITを活用した経営課題の解決を提案。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\n就活を進めるステップ\n\n- **自己分析** ：自分の強みや「ものづくり」か「課題解決」かなど興味の源泉を知る。\n- **業界・職種研究** ：上流工程（SE）や下流工程（PG）、インフラ、営業など役割を理解する。\n- **インターン参加** ：大学3年の夏・冬頃から早期選考に直結するインターンに参加する。\n- **選考対策** ：Webテストの早期対策と、志望動機・就活の軸を明確にする。[](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/) [[1]](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)\n\nIT業界の就活について、さらに知りたいことはありますか？\n\n- 文系・未経験からの進め方\n- おすすめのIT特化型就活サイト\n- 志望動機や就活の軸の作り方\n\n知りたい内容に合わせて詳しくお答えします。",
+              "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-e1564ced350e:4)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\nIT業界の主な分類\n\n- **SIer（エスアイアー）** ：企業のシステムを企画・受託開発。NTTデータやSCSKなど。\n- **Web系** ：自社でWebサービスやアプリを開発・運営。メルカリなど。\n- **インフラ・通信** ：サーバーやネットワーク、回線などの基盤を支える。\n- **ITコンサル** ：ITを活用した経営課題の解決を提案。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\n就活を進めるステップ\n\n- **自己分析** ：自分の強みや「ものづくり」か「課題解決」かなど興味の源泉を知る。\n- **業界・職種研究** ：上流工程（SE）や下流工程（PG）、インフラ、営業など役割を理解する。\n- **インターン参加** ：大学3年の夏・冬頃から早期選考に直結するインターンに参加する。\n- **選考対策** ：Webテストの早期対策と、志望動機・就活の軸を明確にする。[](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/) [[1]](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)\n\nIT業界の就活について、さらに知りたいことはありますか？\n\n- 文系・未経験からの進め方\n- おすすめのIT特化型就活サイト\n- 志望動機や就活の軸の作り方\n\n知りたい内容に合わせて詳しくお答えします。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT業界の就活は、 早期化や多様な職種（SIer、Web系、インフラ等）が特徴 です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。",
-                  "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-e1564ced350e:2)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)",
+                  "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-e1564ced350e:2)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-e1564ced350e:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-e1564ced350e:3"
                     }
                   ],
                   "references": [
@@ -3026,7 +3026,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:7"
+        "tag": "site-a.example:IT就活:7"
       },
       "result": [
         {
@@ -3057,21 +3057,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:4)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)\n\n就活における評価とメリット\n\n- **学習意欲の証明** ：基礎的な努力ができる姿勢を示せます。\n- **文系・非IT職での差別化** ：最低限のIT・セキュリティ知識がある安心感を与えられます。\n- **取得の容易さ** ：勉強時間約100時間で合格できるため、コスパが良い資格です。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://jws-japan.or.jp/whitecareer/blog/14635)\n\n注意点とおすすめの動き方\n\n- **単体での過信は禁物** ：エンジニア職や専門職では評価対象になりにくく、上位資格（基本情報技術者など）が必要です。\n- **アピール方法が鍵** ：「なぜ取得したか」「どう実務に活かすか」を具体的に伝えることが重要です。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://www.theport.jp/portcareer/article/35165/)\n\nもしよろしければ、以下の点を教えてください：\n\n- 志望している**業界・職種** （IT、事務、営業など）\n- 現在の**学年** や就活のスケジュール\n\n状況に合わせて、今取るべきか別の対策を優先すべきかをご提案します。",
+              "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:4)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)\n\n就活における評価とメリット\n\n- **学習意欲の証明** ：基礎的な努力ができる姿勢を示せます。\n- **文系・非IT職での差別化** ：最低限のIT・セキュリティ知識がある安心感を与えられます。\n- **取得の容易さ** ：勉強時間約100時間で合格できるため、コスパが良い資格です。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://jws-japan.or.jp/whitecareer/blog/14635)\n\n注意点とおすすめの動き方\n\n- **単体での過信は禁物** ：エンジニア職や専門職では評価対象になりにくく、上位資格（基本情報技術者など）が必要です。\n- **アピール方法が鍵** ：「なぜ取得したか」「どう実務に活かすか」を具体的に伝えることが重要です。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://www.theport.jp/portcareer/article/35165/)\n\nもしよろしければ、以下の点を教えてください：\n\n- 志望している**業界・職種** （IT、事務、営業など）\n- 現在の**学年** や就活のスケジュール\n\n状況に合わせて、今取るべきか別の対策を優先すべきかをご提案します。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "ITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、 文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます 。",
-                  "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:2)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)",
+                  "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:2)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.agaroot.jp/it_passport/column/get-a-job/) [[1]](https://www.agaroot.jp/it_passport/column/get-a-job/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:3"
                     }
                   ],
                   "references": [
@@ -3745,7 +3745,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:8"
+        "tag": "site-a.example:IT就活:8"
       },
       "result": [
         {
@@ -4331,7 +4331,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:9"
+        "tag": "site-a.example:IT就活:9"
       },
       "result": [
         {
@@ -4985,7 +4985,7 @@
               "description": "内定は、\n内々で決まることの意。\n就職活動における解約権留保付労働契約の通称。本項で詳述する。\n就職活動において内定は、解約権留保付労働契約と呼ばれる一種の労働契約のことである。一般的な意味と異なり、この場合は正式に労働契約が成立している。 出典: 開く 閉じる 説明",
               "card_id": null,
               "url": null,
-              "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-3a3a6dd14da1:0",
+              "image_url": "https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-3a3a6dd14da1:0",
               "logo_url": null,
               "cid": null,
               "items": [
@@ -5050,7 +5050,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:10"
+        "tag": "site-a.example:IT就活:10"
       },
       "result": [
         {
@@ -5613,7 +5613,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:11"
+        "tag": "site-a.example:IT就活:11"
       },
       "result": [
         {
@@ -6182,7 +6182,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:12"
+        "tag": "site-a.example:IT就活:12"
       },
       "result": [
         {
@@ -6213,21 +6213,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:4)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)\n\nIT業界の主な分類と特徴\n\n- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)\n\n就活を成功させるステップ\n\n- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)\n\nもしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
+              "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:4)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)\n\nIT業界の主な分類と特徴\n\n- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)\n\n就活を成功させるステップ\n\n- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)\n\nもしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT企業の就活は、 業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵 です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。",
-                  "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:2)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)",
+                  "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:2)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-9fe2527bfdbb:3"
                     }
                   ],
                   "references": [
@@ -6936,7 +6936,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:13"
+        "tag": "site-a.example:IT就活:13"
       },
       "result": [
         {
@@ -7570,7 +7570,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:14"
+        "tag": "site-a.example:IT就活:14"
       },
       "result": [
         {
@@ -8127,7 +8127,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:15"
+        "tag": "site-a.example:IT就活:15"
       },
       "result": [
         {
@@ -8810,7 +8810,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:16"
+        "tag": "site-a.example:IT就活:16"
       },
       "result": [
         {
@@ -9354,7 +9354,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:17"
+        "tag": "site-a.example:IT就活:17"
       },
       "result": [
         {
@@ -9920,7 +9920,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:18"
+        "tag": "site-a.example:IT就活:18"
       },
       "result": [
         {
@@ -10514,7 +10514,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:19"
+        "tag": "site-a.example:IT就活:19"
       },
       "result": [
         {
@@ -11008,7 +11008,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:20"
+        "tag": "site-a.example:IT就活:20"
       },
       "result": [
         {
@@ -11534,7 +11534,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:21"
+        "tag": "site-a.example:IT就活:21"
       },
       "result": [
         {
@@ -12097,7 +12097,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:22"
+        "tag": "site-a.example:IT就活:22"
       },
       "result": [
         {
@@ -12883,7 +12883,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:23"
+        "tag": "site-a.example:IT就活:23"
       },
       "result": [
         {
@@ -13407,7 +13407,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:24"
+        "tag": "site-a.example:IT就活:24"
       },
       "result": [
         {
@@ -13943,7 +13943,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:25"
+        "tag": "site-a.example:IT就活:25"
       },
       "result": [
         {
@@ -14529,7 +14529,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:26"
+        "tag": "site-a.example:IT就活:26"
       },
       "result": [
         {
@@ -14955,7 +14955,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:27"
+        "tag": "site-a.example:IT就活:27"
       },
       "result": [
         {
@@ -15518,7 +15518,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:28"
+        "tag": "site-a.example:IT就活:28"
       },
       "result": [
         {
@@ -16059,7 +16059,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:29"
+        "tag": "site-a.example:IT就活:29"
       },
       "result": [
         {
@@ -16580,7 +16580,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:30"
+        "tag": "site-a.example:IT就活:30"
       },
       "result": [
         {
@@ -17101,7 +17101,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:31"
+        "tag": "site-a.example:IT就活:31"
       },
       "result": [
         {
@@ -17656,7 +17656,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:32"
+        "tag": "site-a.example:IT就活:32"
       },
       "result": [
         {
@@ -18213,7 +18213,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:33"
+        "tag": "site-a.example:IT就活:33"
       },
       "result": [
         {
@@ -18742,7 +18742,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:34"
+        "tag": "site-a.example:IT就活:34"
       },
       "result": [
         {
@@ -19290,7 +19290,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:35"
+        "tag": "site-a.example:IT就活:35"
       },
       "result": [
         {
@@ -19819,7 +19819,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:36"
+        "tag": "site-a.example:IT就活:36"
       },
       "result": [
         {
@@ -20381,7 +20381,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:37"
+        "tag": "site-a.example:IT就活:37"
       },
       "result": [
         {
@@ -20985,7 +20985,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:38"
+        "tag": "site-a.example:IT就活:38"
       },
       "result": [
         {
@@ -21554,7 +21554,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:39"
+        "tag": "site-a.example:IT就活:39"
       },
       "result": [
         {
@@ -22098,7 +22098,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:40"
+        "tag": "site-a.example:IT就活:40"
       },
       "result": [
         {
@@ -22670,7 +22670,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:41"
+        "tag": "site-a.example:IT就活:41"
       },
       "result": [
         {
@@ -23216,7 +23216,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:42"
+        "tag": "site-a.example:IT就活:42"
       },
       "result": [
         {
@@ -23776,7 +23776,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:43"
+        "tag": "site-a.example:IT就活:43"
       },
       "result": [
         {
@@ -24351,7 +24351,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:44"
+        "tag": "site-a.example:IT就活:44"
       },
       "result": [
         {
@@ -24847,7 +24847,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:45"
+        "tag": "site-a.example:IT就活:45"
       },
       "result": [
         {
@@ -25405,7 +25405,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:46"
+        "tag": "site-a.example:IT就活:46"
       },
       "result": [
         {
@@ -25898,7 +25898,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:47"
+        "tag": "site-a.example:IT就活:47"
       },
       "result": [
         {
@@ -26426,7 +26426,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:48"
+        "tag": "site-a.example:IT就活:48"
       },
       "result": [
         {
@@ -26968,7 +26968,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:49"
+        "tag": "site-a.example:IT就活:49"
       },
       "result": [
         {
@@ -27338,12 +27338,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
-              "domain": "it-shukatu-college.com",
+              "domain": "site-a.example",
               "title": "【就活生向け】IT業界の「入社後にしたいこと」の回答方法",
-              "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
+              "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://it-shukatu-college.com › job-hunting-measures",
+              "breadcrumb": "https://site-a.example › job-hunting-measures",
               "website_name": "IT就活大学",
               "is_image": false,
               "is_video": false,
@@ -27366,22 +27366,22 @@
                   "type": "link_element",
                   "title": "採用目線】就活で入社後にしたい...",
                   "description": null,
-                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-1",
-                  "domain": "it-shukatu-college.com"
+                  "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-1",
+                  "domain": "site-a.example"
                 },
                 {
                   "type": "link_element",
                   "title": "仕事に対する理解度の確認",
                   "description": null,
-                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-2",
-                  "domain": "it-shukatu-college.com"
+                  "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-2",
+                  "domain": "site-a.example"
                 },
                 {
                   "type": "link_element",
                   "title": "就活生の思考力を確認",
                   "description": null,
-                  "url": "https://it-shukatu-college.com/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-5",
-                  "domain": "it-shukatu-college.com"
+                  "url": "https://site-a.example/job-hunting-measures/what-do-you-want-to-do-after-joining-the-company/#rtoc-5",
+                  "domain": "site-a.example"
                 }
               ],
               "faq": null,
@@ -27569,7 +27569,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:50"
+        "tag": "site-a.example:IT就活:50"
       },
       "result": [
         {
@@ -28108,7 +28108,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:51"
+        "tag": "site-a.example:IT就活:51"
       },
       "result": [
         {
@@ -28832,7 +28832,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:52"
+        "tag": "site-a.example:IT就活:52"
       },
       "result": [
         {
@@ -29057,21 +29057,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[6]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231448-1317-0139-0000-e6a1a75b3eca:4)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)\n\nIT業界の主な分類と特徴\n\n- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)\n\n就活を成功させるステップ\n\n- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)\n\nもしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
+              "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.data-provider-b.example/cdn/i/08231448-1317-0139-0000-e6a1a75b3eca:4)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)\n\nIT業界の主な分類と特徴\n\n- **SIer（システムインテグレーション）** : 企業の基幹システムや官公庁の大規模案件を担う。信頼性やチームワークが重視される。\n- **Web系・インターネット企業** : 自社サービス（ECやSNSなど）を運営。スピード感とユーザー視点、成果主義が特徴。\n- **ソフトウェア・パッケージベンダー** : 業務効率化などの自社ソフトや製品を開発・販売。\n- **通信インフラ・キャリア** : 5Gやネットワークなどの通信基盤を支える。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://unison-career.jp/shukatsu-media/article/ranking/industry-ranking/p13375/)\n\n就活を成功させるステップ\n\n- **業界・企業研究を進める** : 企業の採用ページや[ワンキャリア](https://www.onecareer.jp/companies/business_categories/5) などの就活サイトで求める役割を確認する。\n- **インターンに参加する** : 夏や秋のインターン経由で早期選考に呼ばれるケースが多いため積極的に申し込む。\n- **「就活の軸」を言語化する** : 条件面だけでなく「なぜITなのか」「入社してどう貢献したいか」を明確にする。[](https://www.onecareer.jp/companies/business_categories/5) [[1]](https://www.onecareer.jp/companies/business_categories/5)[[2]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[3]](https://typeshukatsu.jp/s/article/step/75468/)\n\nもしよろしければ、以下を教えてください：\n\n- **文系・理系** どちらの専攻ですか？\n- **エンジニア職** と**文系向け職種（営業・企画など）** のどちらに興味がありますか？\n\n状況に合わせて、さらに具体的な対策やおすすめの企業タイプをご提案します。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT企業の就活は、 業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵 です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。",
-                  "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.dataforseo.com/cdn/i/08231448-1317-0139-0000-e6a1a75b3eca:2)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)",
+                  "markdown": "![就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...](https://api.data-provider-b.example/cdn/i/08231448-1317-0139-0000-e6a1a75b3eca:2)\nIT企業の就活は、`業界の4分類（SIer、Web系、ソフト開発、通信）と職種（エンジニア、企画、営業）を理解し、大学3年の夏以降のインターンから早期に動くことが成功の鍵` です。文系や未経験でも、主体的な学習や志望動機を明確にすることで十分に内定を目指せます。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://typeshukatsu.jp/s/article/step/75468/)[[5]](https://www.youtube.com/watch?v=WVNjoCnJ3ik&t=66)[[6]](https://openupitengineer.co.jp/manabit/magazine/beginner/it-industry-shinsotsu-job-hunting-guide/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "就活生に人気なIT企業ランキング｜人気企業に就職する方法も解説 ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231448-1317-0139-0000-e6a1a75b3eca:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231448-1317-0139-0000-e6a1a75b3eca:3"
                     }
                   ],
                   "references": [
@@ -29598,7 +29598,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:53"
+        "tag": "site-a.example:IT就活:53"
       },
       "result": [
         {
@@ -29629,21 +29629,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.dataforseo.com/cdn/i/08231449-1317-0139-0000-604fae5239a1:4)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\nIT業界の主な分類\n\n- **SIer（エスアイアー）** ：企業のシステムを企画・受託開発。NTTデータやSCSKなど。\n- **Web系** ：自社でWebサービスやアプリを開発・運営。メルカリなど。\n- **インフラ・通信** ：サーバーやネットワーク、回線などの基盤を支える。\n- **ITコンサル** ：ITを活用した経営課題の解決を提案。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\n就活を進めるステップ\n\n- **自己分析** ：自分の強みや「ものづくり」か「課題解決」かなど興味の源泉を知る。\n- **業界・職種研究** ：上流工程（SE）や下流工程（PG）、インフラ、営業など役割を理解する。\n- **インターン参加** ：大学3年の夏・冬頃から早期選考に直結するインターンに参加する。\n- **選考対策** ：Webテストの早期対策と、志望動機・就活の軸を明確にする。[](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/) [[1]](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)\n\nIT業界の就活について、さらに知りたいことはありますか？\n\n- 文系・未経験からの進め方\n- おすすめのIT特化型就活サイト\n- 志望動機や就活の軸の作り方\n\n知りたい内容に合わせて詳しくお答えします。",
+              "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.data-provider-b.example/cdn/i/08231449-1317-0139-0000-604fae5239a1:4)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\nIT業界の主な分類\n\n- **SIer（エスアイアー）** ：企業のシステムを企画・受託開発。NTTデータやSCSKなど。\n- **Web系** ：自社でWebサービスやアプリを開発・運営。メルカリなど。\n- **インフラ・通信** ：サーバーやネットワーク、回線などの基盤を支える。\n- **ITコンサル** ：ITを活用した経営課題の解決を提案。[](https://job.career-tasu.jp/guide/study/069/) [[1]](https://job.career-tasu.jp/guide/study/069/)[[2]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)\n\n就活を進めるステップ\n\n- **自己分析** ：自分の強みや「ものづくり」か「課題解決」かなど興味の源泉を知る。\n- **業界・職種研究** ：上流工程（SE）や下流工程（PG）、インフラ、営業など役割を理解する。\n- **インターン参加** ：大学3年の夏・冬頃から早期選考に直結するインターンに参加する。\n- **選考対策** ：Webテストの早期対策と、志望動機・就活の軸を明確にする。[](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/) [[1]](https://job.mynavi.jp/conts/2028/complete_guide/shokushu/it/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)\n\nIT業界の就活について、さらに知りたいことはありますか？\n\n- 文系・未経験からの進め方\n- おすすめのIT特化型就活サイト\n- 志望動機や就活の軸の作り方\n\n知りたい内容に合わせて詳しくお答えします。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT業界の就活は、 早期化や多様な職種（SIer、Web系、インフラ等）が特徴 です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。",
-                  "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.dataforseo.com/cdn/i/08231449-1317-0139-0000-604fae5239a1:2)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)",
+                  "markdown": "![C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...](https://api.data-provider-b.example/cdn/i/08231449-1317-0139-0000-604fae5239a1:2)\nIT業界の就活は、`早期化や多様な職種（SIer、Web系、インフラ等）が特徴` です。文系・理系問わず、早めの自己分析と業界研究、そしてプログラミング経験や目的に合わせた「就活の軸」の言語化が内定への鍵となります。[](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/) [[1]](https://shinsotsu.mynavi-agent.jp/knowhow/article/id_055/)[[2]](https://typeshukatsu.jp/s/article/step/75468/)[[3]](https://job.career-tasu.jp/guide/study/069/)[[4]](https://techoffer.jp/rikeishukatsu/syukatsu-it-ranking/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "C-①リアルな就活スケジュール（IT業界） | エンジニア学生のため ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231449-1317-0139-0000-604fae5239a1:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231449-1317-0139-0000-604fae5239a1:3"
                     }
                   ],
                   "references": [
@@ -30331,7 +30331,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:54"
+        "tag": "site-a.example:IT就活:54"
       },
       "result": [
         {
@@ -31052,7 +31052,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:55"
+        "tag": "site-a.example:IT就活:55"
       },
       "result": [
         {
@@ -31659,7 +31659,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:56"
+        "tag": "site-a.example:IT就活:56"
       },
       "result": [
         {
@@ -32194,7 +32194,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:57"
+        "tag": "site-a.example:IT就活:57"
       },
       "result": [
         {
@@ -32759,7 +32759,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:58"
+        "tag": "site-a.example:IT就活:58"
       },
       "result": [
         {
@@ -33341,7 +33341,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:59"
+        "tag": "site-a.example:IT就活:59"
       },
       "result": [
         {
@@ -33876,7 +33876,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:60"
+        "tag": "site-a.example:IT就活:60"
       },
       "result": [
         {
@@ -34457,7 +34457,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:61"
+        "tag": "site-a.example:IT就活:61"
       },
       "result": [
         {
@@ -35021,7 +35021,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:62"
+        "tag": "site-a.example:IT就活:62"
       },
       "result": [
         {
@@ -35579,7 +35579,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:63"
+        "tag": "site-a.example:IT就活:63"
       },
       "result": [
         {
@@ -36175,7 +36175,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:64"
+        "tag": "site-a.example:IT就活:64"
       },
       "result": [
         {
@@ -36714,7 +36714,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:65"
+        "tag": "site-a.example:IT就活:65"
       },
       "result": [
         {
@@ -37312,7 +37312,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:66"
+        "tag": "site-a.example:IT就活:66"
       },
       "result": [
         {
@@ -37871,7 +37871,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:67"
+        "tag": "site-a.example:IT就活:67"
       },
       "result": [
         {
@@ -38436,7 +38436,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:68"
+        "tag": "site-a.example:IT就活:68"
       },
       "result": [
         {
@@ -38950,7 +38950,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:69"
+        "tag": "site-a.example:IT就活:69"
       },
       "result": [
         {
@@ -39448,7 +39448,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:70"
+        "tag": "site-a.example:IT就活:70"
       },
       "result": [
         {
@@ -40030,7 +40030,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:71"
+        "tag": "site-a.example:IT就活:71"
       },
       "result": [
         {
@@ -40619,7 +40619,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:72"
+        "tag": "site-a.example:IT就活:72"
       },
       "result": [
         {
@@ -40650,21 +40650,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-31ec8a519899:4)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)\n\n主なテストの種類\n\n- **SPI** ：基礎能力（言語・非言語）と性格を測定する、全業界で最も導入されているテスト。\n- **玉手箱** ：計数・言語・英語があり、1問あたりの制限時間が非常に短い。\n- **CAB / Web-CAB** ：ITエンジニア（SE・PG）採用で多用される。暗算、法則性、命令表、暗号など論理的思考力を厳しく見る。\n- **コーディングテスト** ：一部の技術職選考で、プログラミングスキルを直接測るために課される。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://reashu.com/it-character_test/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[4]](https://job.tracks.run/columns/engineer-job-coding-test)[[5]](https://sanden-sys.com/it-tenshoku-test/)\n\n効率的な対策方法\n\n- **志望企業の形式を調べる** ：口コミサイトや就活体験談（[ワンキャリア](https://www.onecareer.jp/experiences/5/test) など）で過去の出題形式を先回りしてリサーチする。\n- **問題集を繰り返す** ：SPIや玉手箱は市販の対策本やアプリを使い、解法パターンを暗記してスピードを上げる。\n- **CAB特有の問題に慣れる** ：法則性や暗号など、独特の出題形式があるため専用の問題や模試で練習しておく。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://www.onecareer.jp/experiences/5/test)[[3]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[5]](https://www.theport.jp/portcareer/qa/7042/)\n\n志望している企業や職種（総合職、インフラエンジニア、開発エンジニアなど）が決まっていれば、**具体的な出題傾向** や**おすすめの対策参考書** をご案内できます。何でも教えてください。",
+              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-31ec8a519899:4)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)\n\n主なテストの種類\n\n- **SPI** ：基礎能力（言語・非言語）と性格を測定する、全業界で最も導入されているテスト。\n- **玉手箱** ：計数・言語・英語があり、1問あたりの制限時間が非常に短い。\n- **CAB / Web-CAB** ：ITエンジニア（SE・PG）採用で多用される。暗算、法則性、命令表、暗号など論理的思考力を厳しく見る。\n- **コーディングテスト** ：一部の技術職選考で、プログラミングスキルを直接測るために課される。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://reashu.com/it-character_test/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[4]](https://job.tracks.run/columns/engineer-job-coding-test)[[5]](https://sanden-sys.com/it-tenshoku-test/)\n\n効率的な対策方法\n\n- **志望企業の形式を調べる** ：口コミサイトや就活体験談（[ワンキャリア](https://www.onecareer.jp/experiences/5/test) など）で過去の出題形式を先回りしてリサーチする。\n- **問題集を繰り返す** ：SPIや玉手箱は市販の対策本やアプリを使い、解法パターンを暗記してスピードを上げる。\n- **CAB特有の問題に慣れる** ：法則性や暗号など、独特の出題形式があるため専用の問題や模試で練習しておく。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://www.onecareer.jp/experiences/5/test)[[3]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[5]](https://www.theport.jp/portcareer/qa/7042/)\n\n志望している企業や職種（総合職、インフラエンジニア、開発エンジニアなど）が決まっていれば、**具体的な出題傾向** や**おすすめの対策参考書** をご案内できます。何でも教えてください。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT就活のテスト（適性検査・WEBテスト）では、 圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します 。能力検査と性格検査の対策が必須です。",
-                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-31ec8a519899:2)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)",
+                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-31ec8a519899:2)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-31ec8a519899:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-31ec8a519899:3"
                     }
                   ],
                   "references": [
@@ -41407,7 +41407,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:73"
+        "tag": "site-a.example:IT就活:73"
       },
       "result": [
         {
@@ -41477,14 +41477,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-c342840fa53c:4)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.theport.jp/portcareer/article/161860/) だけでなく、[CAB](https://engineer-shukatu.jp/column/archives/49214) や[玉手箱](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)\n\n主なIT適性検査の種類と特徴\n\n- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.theport.jp/portcareer/article/161860/)\n\n効率的な対策の進め方\n\n- **形式の見極め** : 志望企業のURLや過去の先輩の体験談から、どのテスト（CAB、玉手箱、SPI等）が使われるか特定する。\n- **時間を測った演習** : 問題の難易度より制限時間が厳しいため、市販の対策本やアプリを使い、本番を意識して素早く正確に解く訓練を重ねる。\n- **素直な性格検査** : 企業に良く見せようと偽らず、一貫性を持たせて回答する。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)\n\n志望している**具体的な企業名** や**職種（SE、プログラマー、総合職など）** を教えていただければ、さらに詳しい対策方法や、よく使われる適性検査の傾向をお伝えできます。",
+              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-c342840fa53c:4)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.theport.jp/portcareer/article/161860/) だけでなく、[CAB](https://engineer-shukatu.jp/column/archives/49214) や[玉手箱](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)\n\n主なIT適性検査の種類と特徴\n\n- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://jws-japan.or.jp/whitecareer/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.theport.jp/portcareer/article/161860/)\n\n効率的な対策の進め方\n\n- **形式の見極め** : 志望企業のURLや過去の先輩の体験談から、どのテスト（CAB、玉手箱、SPI等）が使われるか特定する。\n- **時間を測った演習** : 問題の難易度より制限時間が厳しいため、市販の対策本やアプリを使い、本番を意識して素早く正確に解く訓練を重ねる。\n- **素直な性格検査** : 企業に良く見せようと偽らず、一貫性を持たせて回答する。[](https://biz.moneyforward.com/payroll/basic/108203/) [[1]](https://biz.moneyforward.com/payroll/basic/108203/)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)\n\n志望している**具体的な企業名** や**職種（SE、プログラマー、総合職など）** を教えていただければ、さらに詳しい対策方法や、よく使われる適性検査の傾向をお伝えできます。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、 一般的な SPI だけでなく、 CAB や 玉手箱 などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。",
-                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-c342840fa53c:2)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.theport.jp/portcareer/article/161860/) だけでなく、[CAB](https://engineer-shukatu.jp/column/archives/49214) や[玉手箱](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)",
+                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-c342840fa53c:2)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.theport.jp/portcareer/article/161860/) だけでなく、[CAB](https://engineer-shukatu.jp/column/archives/49214) や[玉手箱](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.theport.jp/portcareer/article/161860/)",
                   "links": [
                     {
                       "type": "link_element",
@@ -41513,7 +41513,7 @@
                       "type": "images_element",
                       "alt": "適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-c342840fa53c:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-c342840fa53c:3"
                     }
                   ],
                   "references": [
@@ -42244,7 +42244,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:74"
+        "tag": "site-a.example:IT就活:74"
       },
       "result": [
         {
@@ -42777,7 +42777,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:75"
+        "tag": "site-a.example:IT就活:75"
       },
       "result": [
         {
@@ -43563,7 +43563,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:76"
+        "tag": "site-a.example:IT就活:76"
       },
       "result": [
         {
@@ -43594,21 +43594,21 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:4)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)\n\n主なテストの種類\n\n- **SPI** ：基礎能力（言語・非言語）と性格を測定する、全業界で最も導入されているテスト。\n- **玉手箱** ：計数・言語・英語があり、1問あたりの制限時間が非常に短い。\n- **CAB / Web-CAB** ：ITエンジニア（SE・PG）採用で多用される。暗算、法則性、命令表、暗号など論理的思考力を厳しく見る。\n- **コーディングテスト** ：一部の技術職選考で、プログラミングスキルを直接測るために課される。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://reashu.com/it-character_test/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[4]](https://job.tracks.run/columns/engineer-job-coding-test)[[5]](https://sanden-sys.com/it-tenshoku-test/)\n\n効率的な対策方法\n\n- **志望企業の形式を調べる** ：口コミサイトや就活体験談（[ワンキャリア](https://www.onecareer.jp/experiences/5/test) など）で過去の出題形式を先回りしてリサーチする。\n- **問題集を繰り返す** ：SPIや玉手箱は市販の対策本やアプリを使い、解法パターンを暗記してスピードを上げる。\n- **CAB特有の問題に慣れる** ：法則性や暗号など、独特の出題形式があるため専用の問題や模試で練習しておく。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://www.onecareer.jp/experiences/5/test)[[3]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[5]](https://www.theport.jp/portcareer/qa/7042/)\n\n志望している企業や職種（総合職、インフラエンジニア、開発エンジニアなど）が決まっていれば、**具体的な出題傾向** や**おすすめの対策参考書** をご案内できます。何でも教えてください。",
+              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:4)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)\n\n主なテストの種類\n\n- **SPI** ：基礎能力（言語・非言語）と性格を測定する、全業界で最も導入されているテスト。\n- **玉手箱** ：計数・言語・英語があり、1問あたりの制限時間が非常に短い。\n- **CAB / Web-CAB** ：ITエンジニア（SE・PG）採用で多用される。暗算、法則性、命令表、暗号など論理的思考力を厳しく見る。\n- **コーディングテスト** ：一部の技術職選考で、プログラミングスキルを直接測るために課される。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://reashu.com/it-character_test/)[[3]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[4]](https://job.tracks.run/columns/engineer-job-coding-test)[[5]](https://sanden-sys.com/it-tenshoku-test/)\n\n効率的な対策方法\n\n- **志望企業の形式を調べる** ：口コミサイトや就活体験談（[ワンキャリア](https://www.onecareer.jp/experiences/5/test) など）で過去の出題形式を先回りしてリサーチする。\n- **問題集を繰り返す** ：SPIや玉手箱は市販の対策本やアプリを使い、解法パターンを暗記してスピードを上げる。\n- **CAB特有の問題に慣れる** ：法則性や暗号など、独特の出題形式があるため専用の問題や模試で練習しておく。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://www.onecareer.jp/experiences/5/test)[[3]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[4]](https://www.youtube.com/watch?v=38l8eLox2UQ&vl=ja&t=81)[[5]](https://www.theport.jp/portcareer/qa/7042/)\n\n志望している企業や職種（総合職、インフラエンジニア、開発エンジニアなど）が決まっていれば、**具体的な出題傾向** や**おすすめの対策参考書** をご案内できます。何でも教えてください。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "IT就活のテスト（適性検査・WEBテスト）では、 圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します 。能力検査と性格検査の対策が必須です。",
-                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:2)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)",
+                  "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:2)\nIT就活のテスト（適性検査・WEBテスト）では、`圧倒的シェアの「SPI」や大手SIer等で使われる「玉手箱」、そしてIT・エンジニア職（SE・プログラマー）特有の「CAB（Web-CAB）」が頻出します` 。能力検査と性格検査の対策が必須です。[](https://engineer-shukatu.jp/column/archives/49214) [[1]](https://engineer-shukatu.jp/column/archives/49214)[[2]](https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://reashu.com/it-character_test/)",
                   "links": null,
                   "images": [
                     {
                       "type": "images_element",
                       "alt": "適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...",
                       "url": null,
-                      "image_url": "https://api.dataforseo.com/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:3"
+                      "image_url": "https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-9d3a04bc3c07:3"
                     }
                   ],
                   "references": [
@@ -44387,7 +44387,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:77"
+        "tag": "site-a.example:IT就活:77"
       },
       "result": [
         {
@@ -44958,7 +44958,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:78"
+        "tag": "site-a.example:IT就活:78"
       },
       "result": [
         {
@@ -45544,7 +45544,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:79"
+        "tag": "site-a.example:IT就活:79"
       },
       "result": [
         {
@@ -46111,7 +46111,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:80"
+        "tag": "site-a.example:IT就活:80"
       },
       "result": [
         {
@@ -46665,7 +46665,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:81"
+        "tag": "site-a.example:IT就活:81"
       },
       "result": [
         {
@@ -47218,7 +47218,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:82"
+        "tag": "site-a.example:IT就活:82"
       },
       "result": [
         {
@@ -47737,7 +47737,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:83"
+        "tag": "site-a.example:IT就活:83"
       },
       "result": [
         {
@@ -48334,7 +48334,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:84"
+        "tag": "site-a.example:IT就活:84"
       },
       "result": [
         {
@@ -48923,7 +48923,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:85"
+        "tag": "site-a.example:IT就活:85"
       },
       "result": [
         {
@@ -49478,7 +49478,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:86"
+        "tag": "site-a.example:IT就活:86"
       },
       "result": [
         {
@@ -50019,7 +50019,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:87"
+        "tag": "site-a.example:IT就活:87"
       },
       "result": [
         {
@@ -50574,7 +50574,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:88"
+        "tag": "site-a.example:IT就活:88"
       },
       "result": [
         {
@@ -51151,7 +51151,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:89"
+        "tag": "site-a.example:IT就活:89"
       },
       "result": [
         {
@@ -51734,7 +51734,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:90"
+        "tag": "site-a.example:IT就活:90"
       },
       "result": [
         {
@@ -52298,7 +52298,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:91"
+        "tag": "site-a.example:IT就活:91"
       },
       "result": [
         {
@@ -52866,7 +52866,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:92"
+        "tag": "site-a.example:IT就活:92"
       },
       "result": [
         {
@@ -53421,7 +53421,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:93"
+        "tag": "site-a.example:IT就活:93"
       },
       "result": [
         {
@@ -53929,7 +53929,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:94"
+        "tag": "site-a.example:IT就活:94"
       },
       "result": [
         {
@@ -54548,7 +54548,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:95"
+        "tag": "site-a.example:IT就活:95"
       },
       "result": [
         {
@@ -55035,7 +55035,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:96"
+        "tag": "site-a.example:IT就活:96"
       },
       "result": [
         {
@@ -55479,7 +55479,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:97"
+        "tag": "site-a.example:IT就活:97"
       },
       "result": [
         {
@@ -56081,7 +56081,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:98"
+        "tag": "site-a.example:IT就活:98"
       },
       "result": [
         {
@@ -56760,7 +56760,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:99"
+        "tag": "site-a.example:IT就活:99"
       },
       "result": [
         {
@@ -57278,7 +57278,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:100"
+        "tag": "site-a.example:IT就活:100"
       },
       "result": [
         {
@@ -57831,7 +57831,7 @@
         "device": "desktop",
         "os": "windows",
         "depth": 10,
-        "tag": "it-shukatu.com:IT就活:101"
+        "tag": "site-a.example:IT就活:101"
       },
       "result": [
         {

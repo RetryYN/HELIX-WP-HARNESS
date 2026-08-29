@@ -220,7 +220,7 @@
     },
     "/v1/related-keywords": {
       "post": {
-        "description": "関連キーワード取得。\n\n指定キーワードに部分一致するキーワードをラッコのDBから大量に取得する。\n関連語が欲しい場合はまずPOST /v1/suggest-keywordsを使い、さらに大量にKWを取得したい場合にのみ当機能を使う。\n\n最大25,000件を取得。月間検索数・SEO難易度・CPC・競合性などのSEO指標付きで返却。\nSEO難易度はデータがない場合が多い。またSEO指標は最新でない可能性がある。\nこの指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得すること。\n\n検索意図の近いキーワードを取得したい場合はPOST /v1/ranking-keywordsを、\nLSIキーワードを取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
+        "description": "関連キーワード取得。\n\n指定キーワードに部分一致するキーワードをseo-tool-aのDBから大量に取得する。\n関連語が欲しい場合はまずPOST /v1/suggest-keywordsを使い、さらに大量にKWを取得したい場合にのみ当機能を使う。\n\n最大25,000件を取得。月間検索数・SEO難易度・CPC・競合性などのSEO指標付きで返却。\nSEO難易度はデータがない場合が多い。またSEO指標は最新でない可能性がある。\nこの指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得すること。\n\n検索意図の近いキーワードを取得したい場合はPOST /v1/ranking-keywordsを、\nLSIキーワードを取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
         "operationId": "RelatedKeywordsController_search",
         "parameters": [],
         "requestBody": {
@@ -654,7 +654,7 @@
     },
     "/v1/question-search": {
       "post": {
-        "description": "よくある質問検索。\n指定キーワードを含む質問を、相対需要の高い順に最大1,000件取得する。\nQ&A/SEO記事作成や、AIO/GEO/LLMO対策の際、質問サンプルを得るのに有用。\n\nラッコキーワードのDBに蓄積した質問文を返却する。\nユーザーがGoogle検索AIモードや、チャットAIに入力する可能性の高い質問・疑問を網羅的に集められる。\n\n相対需要は、その検索結果内で最も需要が高い質問を100とした1〜100の相対値。\n絶対的な検索数や表示回数ではないため、検索キーワードが異なる結果の間では比較できない。\n\n質問文・相対需要・出現時期での絞り込み（filter）と、相対需要・出現時期での並び替え（sortBy / orderBy）ができる。\n\nそのキーワードを検索したときにGoogle検索結果に表示される質問を取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
+        "description": "よくある質問検索。\n指定キーワードを含む質問を、相対需要の高い順に最大1,000件取得する。\nQ&A/SEO記事作成や、AIO/GEO/LLMO対策の際、質問サンプルを得るのに有用。\n\nseo-tool-aのDBに蓄積した質問文を返却する。\nユーザーがGoogle検索AIモードや、チャットAIに入力する可能性の高い質問・疑問を網羅的に集められる。\n\n相対需要は、その検索結果内で最も需要が高い質問を100とした1〜100の相対値。\n絶対的な検索数や表示回数ではないため、検索キーワードが異なる結果の間では比較できない。\n\n質問文・相対需要・出現時期での絞り込み（filter）と、相対需要・出現時期での並び替え（sortBy / orderBy）ができる。\n\nそのキーワードを検索したときにGoogle検索結果に表示される質問を取得したい場合はPOST /v1/other-keywordsを使う。\n\n1リクエストあたり1.5クレジットを消費。",
         "operationId": "QuestionSearchController_search",
         "parameters": [],
         "requestBody": {
@@ -4324,7 +4324,7 @@
     },
     "/v1/search-rank/{requestId}/results/{entryNo}/serp": {
       "get": {
-        "description": "検索順位チェックSERP取得。POST /v1/search-rank/{requestId}/results で取得した entryNo を指定して、その検索順位チェック結果1件分の検索結果一覧（順位チェック実行時に取得したSERPデータ）を取得する。\n\nSERP上のposition、page.title/url/descriptionは、POST /v1/search-rank で順位チェックが完了した時点のデータを返す。\nこれ以外のSEO指標（topKeyword.position含む）は、本機能でデータ取得した時点でラッコキーワードデータベースが保持している値を返す。\nラッコキーワードデータベースの情報は最新ではない・データがない可能性がある。\nSEO指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得するか、POST /v1/search-rankで最新の検索順位を取得すること。\n\nクレジットは消費しない。",
+        "description": "検索順位チェックSERP取得。POST /v1/search-rank/{requestId}/results で取得した entryNo を指定して、その検索順位チェック結果1件分の検索結果一覧（順位チェック実行時に取得したSERPデータ）を取得する。\n\nSERP上のposition、page.title/url/descriptionは、POST /v1/search-rank で順位チェックが完了した時点のデータを返す。\nこれ以外のSEO指標（topKeyword.position含む）は、本機能でデータ取得した時点でseo-tool-aデータベースが保持している値を返す。\nseo-tool-aデータベースの情報は最新ではない・データがない可能性がある。\nSEO指標を重要視する用途なら、データ取得後にPOST /v1/search-volumeで最新のSEO指標を取得するか、POST /v1/search-rankで最新の検索順位を取得すること。\n\nクレジットは消費しない。",
         "operationId": "SearchRankSerpCacheController_getSerpCache",
         "parameters": [
           {
@@ -4711,8 +4711,8 @@
     }
   },
   "info": {
-    "title": "ラッコキーワードAPI",
-    "description": "ラッコキーワードAPIの仕様です。<br>スタンダードプランでAPIキー（最大5個）を発行することで利用できます。<br>取得データは社内利用の範囲でご利用いただけます。サービスへの組み込み等をご検討の際は<a href=\"https://rakkokeyword.com/knowledge/9510/\" target=\"_blank\" rel=\"noopener noreferrer\">API利用ガイドライン</a>・<a href=\"https://rakkokeyword.com/knowledge/terms/\" target=\"_blank\" rel=\"noopener noreferrer\">利用規約</a>を厳守の上ご利用ください。<br>MCPの設定方法や接続手順については、<a href=\"https://rakkokeyword.com/knowledge/9777/\" target=\"_blank\" rel=\"noopener noreferrer\">MCP設定ガイド</a>をご覧ください。<br><br><a href=\"/api-docs.json\" download=\"rakko-keyword-api-docs.json\">API Docs（JSON（OpenAPI）/ AI・プログラム向け）</a><br><a href=\"/api-docs.md\" download=\"rakko-keyword-api-docs.md\">API Docs（Markdown / 人間向け）</a>",
+    "title": "seo-tool-a API",
+    "description": "seo-tool-a APIの仕様です。<br>スタンダードプランでAPIキー（最大5個）を発行することで利用できます。<br>取得データは社内利用の範囲でご利用いただけます。サービスへの組み込み等をご検討の際は<a href=\"https://seo-tool-a.example/knowledge/9510/\" target=\"_blank\" rel=\"noopener noreferrer\">API利用ガイドライン</a>・<a href=\"https://seo-tool-a.example/knowledge/terms/\" target=\"_blank\" rel=\"noopener noreferrer\">利用規約</a>を厳守の上ご利用ください。<br>MCPの設定方法や接続手順については、<a href=\"https://seo-tool-a.example/knowledge/9777/\" target=\"_blank\" rel=\"noopener noreferrer\">MCP設定ガイド</a>をご覧ください。<br><br><a href=\"/api-docs.json\" download=\"seo-tool-a-keyword-api-docs.json\">API Docs（JSON（OpenAPI）/ AI・プログラム向け）</a><br><a href=\"/api-docs.md\" download=\"seo-tool-a-keyword-api-docs.md\">API Docs（Markdown / 人間向け）</a>",
     "version": "1.14.4",
     "contact": {},
     "license": {
@@ -4723,7 +4723,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://api.rakkokeyword.com",
+      "url": "https://api.seo-tool-a.example",
       "description": "本番環境"
     }
   ],
@@ -4744,7 +4744,7 @@
             "type": "string",
             "minLength": 1,
             "description": "サジェスト取得の元となる検索キーワード。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "modes": {
             "default": [
@@ -4991,7 +4991,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "サジェスト取得の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   },
                   "suggestEngines": {
                     "type": "array",
@@ -5048,7 +5048,7 @@
                     "keyword": {
                       "type": "string",
                       "description": "サジェストキーワード文字列",
-                      "example": "ラッコ 水族館"
+                      "example": "seo-tool-a 水族館"
                     },
                     "suggestClass": {
                       "type": "string",
@@ -5123,7 +5123,7 @@
                               "type": "null"
                             }
                           ],
-                          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
+                          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
                           "example": "last_30_days"
                         }
                       },
@@ -5213,7 +5213,7 @@
             "type": "string",
             "minLength": 1,
             "description": "関連キーワード取得の元となる検索キーワード。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "matchType": {
             "default": "partialMatch",
@@ -5429,7 +5429,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "関連キーワード取得の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   }
                 },
                 "required": [
@@ -5465,7 +5465,7 @@
                     "keyword": {
                       "type": "string",
                       "description": "検索キーワードを元に取得した関連キーワード",
-                      "example": "ラッコ 水族館"
+                      "example": "seo-tool-a 水族館"
                     },
                     "metrics": {
                       "type": "object",
@@ -5535,7 +5535,7 @@
                               "type": "null"
                             }
                           ],
-                          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
+                          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
                           "example": "last_30_days"
                         }
                       },
@@ -5587,7 +5587,7 @@
             "type": "string",
             "minLength": 1,
             "description": "潜在的な検索キーワード（LSI）および関連する質問（PAA）を取得するための検索キーワード。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "sortBy": {
             "default": "importance",
@@ -5648,7 +5648,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "潜在的な検索キーワード/質問（LSI/PAA）取得の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   }
                 },
                 "required": [
@@ -5692,12 +5692,12 @@
                     },
                     "keyword": {
                       "description": "取得した潜在的な検索キーワード。type が lsi の場合に含まれる。",
-                      "example": "ラッコ 水族館",
+                      "example": "seo-tool-a 水族館",
                       "type": "string"
                     },
                     "question": {
                       "description": "取得した関連する質問。type が paa の場合に含まれる。",
-                      "example": "ラッコはどこで見れますか？",
+                      "example": "seo-tool-aはどこで見れますか？",
                       "type": "string"
                     },
                     "importance": {
@@ -5713,7 +5713,7 @@
                     "sourceKeyword": {
                       "type": "string",
                       "description": "このキーワードまたは質問の取得元となったキーワード",
-                      "example": "ラッコ"
+                      "example": "seo-tool-a"
                     },
                     "metrics": {
                       "description": "SEO関連の各種指標。type が lsi の場合のみ含まれる。",
@@ -5784,7 +5784,7 @@
                               "type": "null"
                             }
                           ],
-                          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
+                          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
                           "example": "last_30_days"
                         }
                       },
@@ -5836,7 +5836,7 @@
             "type": "string",
             "minLength": 1,
             "description": "よくある質問検索の元となる検索キーワード。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "filter": {
             "description": "結果のフィルタリング条件。質問文・相対需要・出現時期などで絞り込む。",
@@ -5976,7 +5976,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "よくある質問検索の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   },
                   "filter": {
                     "description": "リクエストで指定された絞り込み条件（質問文・相対需要・出現時期）。指定がない場合は省略される。",
@@ -6115,7 +6115,7 @@
                     "question": {
                       "type": "string",
                       "description": "検索キーワードに関連する質問",
-                      "example": "ラッコが絶滅しそうな理由は何ですか?"
+                      "example": "seo-tool-aが絶滅しそうな理由は何ですか?"
                     },
                     "metrics": {
                       "type": "object",
@@ -6142,7 +6142,7 @@
                               "type": "null"
                             }
                           ],
-                          "description": "出現時期。質問が最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
+                          "description": "出現時期。質問が最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
                           "example": "last_30_days"
                         }
                       },
@@ -6191,7 +6191,7 @@
             "type": "string",
             "minLength": 1,
             "description": "同時ランクインキーワード取得の元となる検索キーワード。指定キーワードの検索上位URLが他にランクインしているキーワードを取得する。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "searchTop": {
             "default": 20,
@@ -6454,7 +6454,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "同時ランクインキーワード取得の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   }
                 },
                 "required": [
@@ -6490,7 +6490,7 @@
                     "keyword": {
                       "type": "string",
                       "description": "同時ランクインしているキーワード",
-                      "example": "ラッコ 水族館"
+                      "example": "seo-tool-a 水族館"
                     },
                     "wordCount": {
                       "type": "number",
@@ -6587,7 +6587,7 @@
             },
             "description": "キーワード（入力上限50,000件）",
             "example": [
-              "ラッコ",
+              "seo-tool-a",
               "カワウソ"
             ]
           },
@@ -6864,7 +6864,7 @@
                     "keywordSummary": {
                       "type": "string",
                       "description": "キーワードのサマリ（カンマ区切り、先頭20件・255文字以内で切り詰め）",
-                      "example": "ラッコ,カワウソ"
+                      "example": "seo-tool-a,カワウソ"
                     },
                     "keywordCount": {
                       "type": "number",
@@ -7288,7 +7288,7 @@
                     "keyword": {
                       "type": "string",
                       "description": "キーワード",
-                      "example": "ラッコ"
+                      "example": "seo-tool-a"
                     },
                     "dataSource": {
                       "anyOf": [
@@ -7370,7 +7370,7 @@
                               "type": "null"
                             }
                           ],
-                          "description": "出現時期。キーワードが最初にラッコキーワードデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
+                          "description": "出現時期。キーワードが最初にseo-tool-aデータベースで検出された時期を日付範囲ラベルで表す。不明な場合は null。",
                           "example": "last_30_days"
                         }
                       },
@@ -7676,7 +7676,7 @@
                   "type": "string",
                   "minLength": 1,
                   "description": "ドメインまたはURL",
-                  "example": "https://rakkokeyword.com/"
+                  "example": "https://seo-tool-a.example/"
                 },
                 "matchType": {
                   "default": "sub_domain",
@@ -7698,7 +7698,7 @@
             "description": "獲得キーワード調査の対象ドメインまたはURLとマッチタイプの配列。最大20件まで指定可能。各要素は { url, matchType } のオブジェクト。",
             "example": [
               {
-                "url": "https://rakkokeyword.com/",
+                "url": "https://seo-tool-a.example/",
                 "matchType": "sub_domain"
               }
             ]
@@ -7992,7 +7992,7 @@
                     "keyword": {
                       "type": "string",
                       "description": "対象が獲得しているSEOキーワード",
-                      "example": "ラッコ"
+                      "example": "seo-tool-a"
                     },
                     "metrics": {
                       "type": "object",
@@ -8107,7 +8107,7 @@
                   "type": "string",
                   "minLength": 1,
                   "description": "ドメインまたはURL",
-                  "example": "https://rakkokeyword.com/"
+                  "example": "https://seo-tool-a.example/"
                 },
                 "matchType": {
                   "default": "sub_domain",
@@ -8129,7 +8129,7 @@
             "description": "獲得キーワード調査（ページ軸）の対象ドメインまたはURLとマッチタイプの配列。最大20件まで指定可能。",
             "example": [
               {
-                "url": "https://rakkokeyword.com/",
+                "url": "https://seo-tool-a.example/",
                 "matchType": "sub_domain"
               }
             ]
@@ -8240,7 +8240,7 @@
                   "includes": {
                     "description": "含むURLのリスト（複数入力時はOR）",
                     "example": [
-                      "https://rakkokeyword.com/"
+                      "https://seo-tool-a.example/"
                     ],
                     "type": "array",
                     "items": {
@@ -8250,7 +8250,7 @@
                   "notIncludes": {
                     "description": "含まないURLのリスト（複数入力時はOR）",
                     "example": [
-                      "https://rakkokeyword.com/result/"
+                      "https://seo-tool-a.example/result/"
                     ],
                     "type": "array",
                     "items": {
@@ -8436,12 +8436,12 @@
                         "title": {
                           "type": "string",
                           "description": "ページタイトル",
-                          "example": "ラッコキーワード｜キーワード分析ツール"
+                          "example": "seo-tool-a｜キーワード分析ツール"
                         },
                         "url": {
                           "type": "string",
                           "description": "ページURL",
-                          "example": "https://rakkokeyword.com/"
+                          "example": "https://seo-tool-a.example/"
                         }
                       },
                       "required": [
@@ -8482,7 +8482,7 @@
                         "keyword": {
                           "type": "string",
                           "description": "このページで最もSEO流入を獲得しているトップキーワード",
-                          "example": "ラッコ"
+                          "example": "seo-tool-a"
                         },
                         "position": {
                           "type": "number",
@@ -8565,7 +8565,7 @@
             "type": "string",
             "minLength": 1,
             "description": "競合分析を行う対象のドメインURL。対象サイトの競合サイトを抽出し、キーワード重複率や流入数などの指標を比較する。",
-            "example": "https://rakkokeyword.com/"
+            "example": "https://seo-tool-a.example/"
           },
           "sortBy": {
             "default": "etv",
@@ -8632,7 +8632,7 @@
                     },
                     "description": "競合サイト抽出の対象URLまたはドメイン一覧",
                     "example": [
-                      "https://rakkoma.com/"
+                      "https://seo-tool-a-co.example/"
                     ]
                   }
                 },
@@ -8672,12 +8672,12 @@
                         "domain": {
                           "type": "string",
                           "description": "競合サイトのドメイン名",
-                          "example": "rakko.inc"
+                          "example": "seo-tool-a.inc"
                         },
                         "title": {
                           "type": "string",
                           "description": "競合サイトのタイトル。SERP データから取得できない場合は空文字。",
-                          "example": "ラッコ株式会社"
+                          "example": "seo-tool-a株式会社"
                         }
                       },
                       "required": [
@@ -8787,7 +8787,7 @@
             },
             "description": "一括サイト調査の対象URL一覧（1〜100件）。各URLの推定流入数・獲得キーワード数・ページ数の現在値と、その推移（0〜100指数）を取得する。",
             "example": [
-              "https://rakkokeyword.com/"
+              "https://seo-tool-a.example/"
             ]
           },
           "urlMatchType": {
@@ -8842,7 +8842,7 @@
                     },
                     "description": "urlMatchType で整形した検索対象パターン一覧（items と同数・同順）",
                     "example": [
-                      "*.rakkokeyword.com/*"
+                      "*.seo-tool-a.example/*"
                     ]
                   },
                   "urlMatchType": {
@@ -8894,7 +8894,7 @@
                         "target": {
                           "type": "string",
                           "description": "urlMatchType で整形した検索対象パターン（url: host/path / forward_url: host/path* / domain: host/* / sub_domain: *.host/*）",
-                          "example": "*.rakkokeyword.com/*"
+                          "example": "*.seo-tool-a.example/*"
                         }
                       },
                       "required": [
@@ -9144,7 +9144,7 @@
             "type": "string",
             "minLength": 1,
             "description": "集客コンテンツ検索の検索キーワード。指定キーワードに関連する上位表示コンテンツを検索する。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "searchTarget": {
             "default": "titleAndKeywordAndDescription",
@@ -9269,7 +9269,7 @@
                   "includes": {
                     "description": "含むURLのリスト（複数入力時はOR）",
                     "example": [
-                      "https://rakkokeyword.com/"
+                      "https://seo-tool-a.example/"
                     ],
                     "type": "array",
                     "items": {
@@ -9279,7 +9279,7 @@
                   "notIncludes": {
                     "description": "含まないURLのリスト（複数入力時はOR）",
                     "example": [
-                      "https://rakkokeyword.com/result/"
+                      "https://seo-tool-a.example/result/"
                     ],
                     "type": "array",
                     "items": {
@@ -9431,7 +9431,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "集客コンテンツ検索の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   }
                 },
                 "required": [
@@ -9470,17 +9470,17 @@
                         "domain": {
                           "type": "string",
                           "description": "ページのドメイン名",
-                          "example": "rakkokeyword.com"
+                          "example": "seo-tool-a.example"
                         },
                         "url": {
                           "type": "string",
                           "description": "ページの完全なURL",
-                          "example": "https://rakkokeyword.com/result/contentSearch?q=%E3%83%A9%E3%83%83%E3%82%B3"
+                          "example": "https://seo-tool-a.example/result/contentSearch?q=%E3%83%A9%E3%83%83%E3%82%B3"
                         },
                         "title": {
                           "type": "string",
                           "description": "ページのタイトル",
-                          "example": "ラッコキーワード"
+                          "example": "seo-tool-a"
                         },
                         "description": {
                           "type": "string",
@@ -9528,7 +9528,7 @@
                         "keyword": {
                           "type": "string",
                           "description": "このページで最もSEO流入を獲得しているトップキーワード",
-                          "example": "ラッコ"
+                          "example": "seo-tool-a"
                         },
                         "wordCount": {
                           "type": "number",
@@ -9616,7 +9616,7 @@
             "type": "string",
             "minLength": 1,
             "description": "見出し抽出を行う検索キーワード。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "lessHeadlines": {
             "default": false,
@@ -9723,7 +9723,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "見出し抽出の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   }
                 },
                 "required": [
@@ -9791,12 +9791,12 @@
                         "title": {
                           "type": "string",
                           "description": "検索結果ページのタイトル",
-                          "example": "ラッコ - Wikipedia"
+                          "example": "seo-tool-a - Wikipedia"
                         },
                         "description": {
                           "type": "string",
                           "description": "検索結果ページのディスクリプション",
-                          "example": "ラッコは、..."
+                          "example": "seo-tool-aは、..."
                         }
                       },
                       "required": [
@@ -9845,7 +9845,7 @@
                           "text": {
                             "type": "string",
                             "description": "見出しテキスト",
-                            "example": "ラッコ"
+                            "example": "seo-tool-a"
                           }
                         },
                         "required": [
@@ -9895,7 +9895,7 @@
             "type": "string",
             "minLength": 1,
             "description": "共起語取得の元となる検索キーワード。1文字以上の文字列を指定する。",
-            "example": "ラッコ"
+            "example": "seo-tool-a"
           },
           "getDetails": {
             "default": true,
@@ -9968,7 +9968,7 @@
                   "keyword": {
                     "type": "string",
                     "description": "共起語取得の元になった検索キーワード",
-                    "example": "ラッコ"
+                    "example": "seo-tool-a"
                   }
                 },
                 "required": [
@@ -10058,7 +10058,7 @@
                           "title": {
                             "type": "string",
                             "description": "ページタイトル",
-                            "example": "ラッコ"
+                            "example": "seo-tool-a"
                           },
                           "url": {
                             "type": "string",
@@ -10146,7 +10146,7 @@
             },
             "description": "順位チェックするキーワードの配列",
             "example": [
-              "ラッコ",
+              "seo-tool-a",
               "カワウソ"
             ]
           },
@@ -10159,8 +10159,8 @@
             },
             "description": "順位チェックするURL/ドメインの配列。最大50件まで指定可能。",
             "example": [
-              "https://rakkokeyword.com",
-              "https://rakkokeyword.com/result/contentSearch?q=%E3%83%A9%E3%83%83%E3%82%B3"
+              "https://seo-tool-a.example",
+              "https://seo-tool-a.example/result/contentSearch?q=%E3%83%A9%E3%83%83%E3%82%B3"
             ]
           },
           "matchType": {
@@ -10447,12 +10447,12 @@
                     "keywordSummary": {
                       "type": "string",
                       "description": "キーワードのサマリ（カンマ区切り、先頭20件・255文字以内で切り詰め）",
-                      "example": "ラッコ,カワウソ"
+                      "example": "seo-tool-a,カワウソ"
                     },
                     "urlSummary": {
                       "type": "string",
                       "description": "URLのサマリ（カンマ区切り、先頭20件・255文字以内で切り詰め）",
-                      "example": "https://rakkokeyword.com,https://rakko.inc"
+                      "example": "https://seo-tool-a.example,https://seo-tool-a.inc"
                     },
                     "keywordCount": {
                       "type": "number",
@@ -10906,7 +10906,7 @@
                         "target": {
                           "type": "string",
                           "description": "順位チェック対象のURLパターンまたはドメイン",
-                          "example": "*.rakkoma.com/*"
+                          "example": "*.seo-tool-a-co.example/*"
                         },
                         "estimatedTraffic": {
                           "type": "number",
@@ -11063,7 +11063,7 @@
                           "target": {
                             "type": "string",
                             "description": "順位チェック対象のURLパターンまたはドメイン",
-                            "example": "*.rakkoma.com/*"
+                            "example": "*.seo-tool-a-co.example/*"
                           },
                           "position": {
                             "anyOf": [
@@ -11087,7 +11087,7 @@
                               }
                             ],
                             "description": "実際にランクインしたURL。未検出の場合は null。",
-                            "example": "https://rakkoma.com/"
+                            "example": "https://seo-tool-a-co.example/"
                           },
                           "estimatedTraffic": {
                             "type": "number",
@@ -11884,17 +11884,17 @@
                         "domain": {
                           "type": "string",
                           "description": "サイトのドメイン名",
-                          "example": "rakkokeyword.com"
+                          "example": "seo-tool-a.example"
                         },
                         "url": {
                           "type": "string",
                           "description": "サイトのトップページURL",
-                          "example": "https://rakkokeyword.com/"
+                          "example": "https://seo-tool-a.example/"
                         },
                         "title": {
                           "type": "string",
                           "description": "トップページのタイトル",
-                          "example": "ラッコキーワード"
+                          "example": "seo-tool-a"
                         },
                         "description": {
                           "type": "string",

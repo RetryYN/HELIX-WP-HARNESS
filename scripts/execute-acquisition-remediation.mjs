@@ -3,15 +3,15 @@ import {mkdir,readFile,writeFile} from "node:fs/promises";
 import path from "node:path";
 import {auditAcquisitionLifetimeBudget} from "./acquisition-lifetime-budget.mjs";
 
-const API="https://api.dataforseo.com/v3";
+const API="https://api.data-provider-b.example/v3";
 const dashboardUrl=process.env.WP_DASHBOARD_URL??"http://127.0.0.1:4173";
 const outputDir=path.resolve(process.env.WP_ACQUISITION_OUTPUT??`.helix/evidence/acquisition-remediation/${new Date().toISOString().replaceAll(":","-")}`);
 const approvedCap=Number(process.env.WP_APPROVED_BUDGET_USD);
 const lifetimeCap=Number(process.env.WP_LIFETIME_TEST_BUDGET_USD??5);
 const evidenceRoot=path.resolve(process.env.WP_ACQUISITION_EVIDENCE_ROOT??path.dirname(outputDir));
 const legacyCostEvidencePath=path.resolve(process.env.WP_LEGACY_ACQUISITION_COST_EVIDENCE??"artifacts/poc/keyword-workbook-100-live/result.json");
-const login=process.env.DFS_LOGIN,password=process.env.DFS_PASSWORD;
-if(!login||!password)throw new Error("DFS_LOGIN and DFS_PASSWORD are required");
+const login=process.env.DATA_PROVIDER_B_LOGIN,password=process.env.DATA_PROVIDER_B_PASSWORD;
+if(!login||!password)throw new Error("DATA_PROVIDER_B_LOGIN and DATA_PROVIDER_B_PASSWORD are required");
 if(!Number.isFinite(approvedCap)||approvedCap<=0)throw new Error("WP_APPROVED_BUDGET_USD must be a positive number");
 if(!Number.isFinite(lifetimeCap)||lifetimeCap<=0||lifetimeCap>5)throw new Error("WP_LIFETIME_TEST_BUDGET_USD must be positive and no greater than the user-approved lifetime cap of USD 5");
 const sha=(value)=>createHash("sha256").update(typeof value==="string"?value:JSON.stringify(value)).digest("hex");
@@ -19,10 +19,10 @@ const getJson=async(url)=>{const response=await fetch(url);if(!response.ok)throw
 const request=async(endpoint,init={})=>{const response=await fetch(`${API}${endpoint}`,{...init,headers:{Authorization:`Basic ${Buffer.from(`${login}:${password}`).toString("base64")}`,"Content-Type":"application/json"}});if(!response.ok)throw new Error(`${endpoint}: HTTP ${response.status}`);const body=await response.json();if(body.status_code!==20000)throw new Error(`${endpoint}: API ${body.status_code} ${body.status_message}`);return body};
 
 const [portfolioResponse,batchesResponse,readinessResponse,approvalResponse]=await Promise.all([
-  getJson(`${dashboardUrl}/api/v1/acquisition-remediation-portfolio?site_id=it-shukatu.com&limit=100`),
-  getJson(`${dashboardUrl}/api/v1/acquisition-remediation-portfolio?site_id=it-shukatu.com&view=batches&limit=100`),
-  getJson(`${dashboardUrl}/api/v1/acquisition-execution-readiness?site_id=it-shukatu.com`),
-  getJson(`${dashboardUrl}/api/v1/acquisition-approval-manifest?site_id=it-shukatu.com`),
+  getJson(`${dashboardUrl}/api/v1/acquisition-remediation-portfolio?site_id=site-a.example&limit=100`),
+  getJson(`${dashboardUrl}/api/v1/acquisition-remediation-portfolio?site_id=site-a.example&view=batches&limit=100`),
+  getJson(`${dashboardUrl}/api/v1/acquisition-execution-readiness?site_id=site-a.example`),
+  getJson(`${dashboardUrl}/api/v1/acquisition-approval-manifest?site_id=site-a.example`),
 ]);
 const portfolio={candidates:portfolioResponse.data,batches:batchesResponse.data,summary:portfolioResponse.summary},readiness=readinessResponse.data,approval=approvalResponse.data;
 if(!readiness?.technical_ready)throw new Error(`technical readiness failed: ${(readiness?.blockers??[]).join(", ")}`);

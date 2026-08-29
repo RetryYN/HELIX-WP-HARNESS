@@ -28,9 +28,9 @@
     },
     {
       "evidence_id": "WP-POC-03",
-      "path": "evidence/poc-image-pipeline/dfs-poc3-final.json",
+      "path": "evidence/poc-image-pipeline/data-provider-b-poc3-final.json",
       "sha256": "37eea42aba429848a62beeafee4c330c2bcb938669e9ee5bebb825ee56ae120b",
-      "finding": "DFS standard queueでJP SERP、PAA、AI Overview、suggestionを取得し費用を実測",
+      "finding": "DPB standard queueでJP SERP、PAA、AI Overview、suggestionを取得し費用を実測",
       "adopt": ["WP-FR-KW-02", "WP-NFR-COST-01"],
       "limits": ["証跡本文にローカルcredential所在の記述があるため原本は複製しない", "SERP変動を固定真実として扱わない"]
     },

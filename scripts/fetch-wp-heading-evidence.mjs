@@ -2,8 +2,8 @@ import {mkdir,writeFile} from "node:fs/promises";
 import {createHash} from "node:crypto";
 import path from "node:path";
 
-const siteUrl=process.env.WP_SITE_URL??"https://it-shukatu-college.com/";
-const siteId=process.env.WP_SITE_ID??"it-shukatu.com";
+const siteUrl=process.env.WP_SITE_URL??"https://site-a.example/";
+const siteId=process.env.WP_SITE_ID??"site-a.example";
 const output=path.resolve(process.argv[2]??".helix/evidence/wp-headings/manifest.json");
 const summaryOutput=path.resolve(process.env.WP_HEADING_SUMMARY??"artifacts/poc/wp-heading-summary.json");
 const decode=(value)=>value.replace(/<[^>]+>/g," ").replace(/&#(\d+);/g,(_,code)=>String.fromCodePoint(Number(code))).replace(/&#x([\da-f]+);/gi,(_,code)=>String.fromCodePoint(Number.parseInt(code,16))).replace(/&nbsp;/gi," ").replace(/&amp;/gi,"&").replace(/&lt;/gi,"<").replace(/&gt;/gi,">").replace(/&quot;/gi,'"').replace(/&#(?:0*39|x0*27);/gi,"'").replace(/\s+/g," ").trim();
