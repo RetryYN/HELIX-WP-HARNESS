@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "f1548b059b8402172950303f241fd800eda8630694fdb7980c9215e52aa8dec4",
+  "inventory_digest": "31fc7b8e88742b7cfe7df03d7b747571703c5ab2a7aac021e5df6025bebc55ec",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -596,7 +596,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10からhost 219・directory 308・page 540単位の獲得KW逆引きindexをtask/group/rank/URL証跡付きで実装。同一KW複数観測は最小順位へ集約し、最良順位→観測回数→keywordの決定順でtop observed keywordを固定。全rank keyword DBではなく保持top10限定を明示し、traffic/value・圏外を推定しない。全rank keyword母集団、推定traffic/value、長期順位履歴は未取得",
+      "remaining_gap": "観測100KW×上位10からhost 219・directory 308・page 540単位の獲得KW逆引きindexをtask/group/rank/URL証跡付きで実装。同一KW複数観測は最小順位へ集約し、最良順位→観測回数→keywordの決定順でtop observed keywordを固定。さらに同一検索契約2時点をhost 226・directory 327・page 593へ集約し、継続・新規・消失と前後最良順位を逆引き可能。全rank keyword DBではなく保持top10・同一KW snapshot限定を明示し、traffic/value・圏外を推定しない。全rank keyword母集団、推定traffic/value、長期順位履歴は未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -660,7 +660,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "0b586e4151f35759159770388911d23af3254d76f335d9040c2655e9249e8e3c"
+      "evidence_digest": "a42cd65fbd8487f16786133ac1af12138136068f2e80c0b157b19ea3ddde6cd6"
     },
     {
       "capability_id": "influx_pages",
@@ -671,7 +671,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10の565ページをKW/group/rank/top-KW別に集約しUI実装。さらに保持済み同一KWの98比較からページ出現履歴1,019件（継続785・新規114・消失120）と順位・visibility差分をDB/API/MCP/UIへ接続。全rank keyword母集団、推定traffic/value、120日継続履歴は未取得",
+      "remaining_gap": "観測100KW×上位10の565ページをKW/group/rank/top-KW別に集約しUI実装。さらに保持済み同一KWの98比較からページ出現履歴1,019件（継続785・新規114・消失120）と順位・visibility差分をDB/API/MCP/UIへ接続。さらにhost 226・directory 327・page 593単位へkeyword履歴を集約し、消失を圏外と断定しない逆引き画面・API・MCPを実装。全rank keyword母集団、推定traffic/value、120日継続履歴は未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -735,7 +735,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "49652c988c0611783fd9eb5da1f76a0beea524c0dfb93e1992f32079c28659a1"
+      "evidence_digest": "f3dc5a7844965da80cb4aaa80e4f0bc50e1c6c2636d20240dad3ce93237fa46f"
     },
     {
       "capability_id": "competitive_domains",
@@ -1868,7 +1868,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に96 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に97 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1898,7 +1898,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "e76a35cef1b7ad5a1d7b4af7047592b1cbf456176cda11ef575338aedb36a3d4"
+      "evidence_digest": "ff63141237c339c0df8b42c48b2c3f7e7e768cf60f587da63a494cbab9a387cb"
     },
     {
       "capability_id": "mcp",
@@ -1909,7 +1909,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む79 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む80 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1939,7 +1939,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "bbe50bc01a2ae37e6ef3e11d8d2d280e084d3708d46371c13a6f240da578c985"
+      "evidence_digest": "7c8feccbc3710f18973b63b0edf416cb9dd13e83ac6294167b39143dde3f53bd"
     },
     {
       "capability_id": "credit_history",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "aed7954e6a21ba8c00d06bcad511dfca2e654f2af31e9cf71fcdb1dcf96292c9"
+  "audit_digest": "4b4af6e71cbd918850b1a91b3da763cb3ac57e59eb341b9c0cff46875cdc4f69"
 }
