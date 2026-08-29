@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "28fbe417fc09f3aa5f34bf4dcf03e61fd50f6968fed10e9eb67e931e5bc279a3",
+  "inventory_digest": "6485d72dd516957aa654ff3d1e26a4065f683244b1811ad9a7da7bbc8544300b",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -102,6 +102,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -138,6 +139,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -146,7 +149,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "2bdde936503789c9f0063e0745ff754260bc588c2ef8bde249a385c645fd5a95"
+      "evidence_digest": "5eea097e1465efdacbb6c9e4adf8976d2887bee3f01358d77193f927b4b7c460"
     },
     {
       "capability_id": "lsi_paa",
@@ -171,6 +174,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -207,6 +211,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -215,7 +221,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "72fe72599ce00f713b2ef919f6b7a6b50c4604b268e572745e8502736c04f2bb"
+      "evidence_digest": "2254be6b37acf158e1f6cff34007a6e6dc80f7b54e0fcd84c8e8c4243ad83cc5"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -240,6 +246,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -276,6 +283,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -284,7 +293,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "80aaabb40e59e8fd3cc9b8216e20c104af44ea57cea7a553d4c7de2df5512bf4"
+      "evidence_digest": "4062166abdc8335b80cc1595441eca984abe95c3e37a19642ba5588ac4f7c97b"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -295,7 +304,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。さらに全取得portfolioを生涯累計5 USDへ横断配分し、確定0.1014 USD控除後に6,510候補・4.8984 USDをplan-only選択、4,182延期。前回試行済97補完taskは再試行reviewへ隔離し二重取得を防止。latest/monthly/difficulty実測とprovider job実行は未取得",
+      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。さらに全取得portfolioを生涯累計5 USDへ横断配分し、確定0.1014 USD控除後に6,510候補・4.8984 USDをplan-only選択、4,182延期。前回試行済97補完taskは再試行reviewへ隔離し二重取得を防止。選択6,510候補を機能別・最大100件のimmutable 67 batchへ固定し、候補集合・batch・費用digest、累計4.9998 USD整合、価格再確認・正確な承認challenge、実行権限falseを実装。latest/monthly/difficulty実測とprovider job実行は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -309,6 +318,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -345,6 +355,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -353,7 +365,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "e3fd8cad9c4318332086d92cbc0b4d06323714dfce8a1d49737f70b47e86de9c"
+      "evidence_digest": "39737baf5c5a8cd6724092aec4f30da257f051b0dcfa27af139d210bdd1ab4d2"
     },
     {
       "capability_id": "influx_keywords",
@@ -378,6 +390,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -414,6 +427,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -422,7 +437,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "5addfb9d66ebb666379772aa8665abf3b4d496e5460d1f468826963bea601f06"
+      "evidence_digest": "ebdf9d6786554b8f2b5d282cd24c4c31b1c7f81c65c4717a759af6e6e7f1f087"
     },
     {
       "capability_id": "influx_pages",
@@ -447,6 +462,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -483,6 +499,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -491,7 +509,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "9045ea27b6299752df79c4932ba545cb4421bc3692cb61a2920985f6e079b183"
+      "evidence_digest": "30ea438b6c236eb89a163fca435bb74d2488842b059fea5cc2b8b274146aefef"
     },
     {
       "capability_id": "competitive_domains",
@@ -516,6 +534,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -552,6 +571,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -560,7 +581,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "e9b2bd42ff237441df2dbaed698981b71d99b3173329e4dc77a1975bb8238b93"
+      "evidence_digest": "30a91121a0710568f35a5bd06345da61c2807047c5dcb4c45e4ebbb9ca5eb6f5"
     },
     {
       "capability_id": "bulk_site_research",
@@ -627,6 +648,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -663,6 +685,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -671,7 +695,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "2b3f77f7e3e4a4c1a97aac67032a45f4e727bb6b537c28dd7cac0baa8f5a980b"
+      "evidence_digest": "60a6d4598c373a459819045eb6f7683e1f305d395fc0c2066117e63dd1bd9840"
     },
     {
       "capability_id": "search_rank",
@@ -696,6 +720,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -732,6 +757,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -740,7 +767,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "6049b517503d62f861057051918302fafdfbe0cfe22c308fd2a8ca630752ef38"
+      "evidence_digest": "3a03179a55102ee709155c52389f4e936714e59866f80f5e66d3aa99dfd54e7f"
     },
     {
       "capability_id": "headline",
@@ -765,6 +792,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -801,6 +829,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -809,7 +839,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "a74139d22480045c1f05aa02a41839a3f0a03306011e873f7d181d067855a8de"
+      "evidence_digest": "dca279193110ce47d0395c6c8a38d3ff376de9490c9bfd702974b2f0cba797be"
     },
     {
       "capability_id": "cooccurrence",
@@ -834,6 +864,7 @@
         "scripts/acquisition-remediation-evidence.mjs",
         "scripts/acquisition-lifetime-budget.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "scripts/execute-acquisition-remediation.mjs",
         "scripts/collect-acquisition-remediation.mjs",
         "scripts/demand-occurrence-integrity.mjs",
@@ -870,6 +901,8 @@
         "node scripts/test-acquisition-lifetime-budget.mjs",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
         "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
         "node scripts/test-simultaneous-rank-integrity.mjs",
         "node scripts/test-rank-monitor-plan.mjs",
         "node scripts/test-rank-monitor-plan-api.mjs",
@@ -878,7 +911,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "2d84425699a9d0bbfbcb0514162dd60ce5903c39ac08f069df1036cb112fbf05"
+      "evidence_digest": "c2d05d6d907d32bfd3fb42ca26ac75197c9f35a1def28663d50b8d237125a24a"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -1217,15 +1250,18 @@
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
         "scripts/test-provider-acquisition-plan.mjs"
       ],
       "verification_commands": [
         "npm run provider:acquisition-plan:test",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
-        "node scripts/test-acquisition-lifetime-allocation-api.mjs"
+        "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "21600e1dc0192fee4c24980d4172d78e4d4526a497da1a5a198fa9ecb87921c9"
+      "evidence_digest": "dc885f0ca0d902326a9e8d1e619e207b67bc06966c443832e5a2eb278e6f3f7b"
     },
     {
       "capability_id": "synonyms",
@@ -1304,15 +1340,18 @@
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
         "scripts/test-provider-acquisition-plan.mjs"
       ],
       "verification_commands": [
         "npm run provider:acquisition-plan:test",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
-        "node scripts/test-acquisition-lifetime-allocation-api.mjs"
+        "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "adf11a6fdac46d73fdfab9603f1ea9c4970d44073517b61d5659353e1feec40c"
+      "evidence_digest": "2c9c60c598ed7887ebf8171751b089e451fc7de79dcf4c68ae0ed0c4f8276aac"
     },
     {
       "capability_id": "google_trends",
@@ -1327,15 +1366,18 @@
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
         "scripts/test-provider-acquisition-plan.mjs"
       ],
       "verification_commands": [
         "npm run provider:acquisition-plan:test",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
-        "node scripts/test-acquisition-lifetime-allocation-api.mjs"
+        "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "2fdce4d251ce007d9c81318758749d57fb1430f19413c4b14d34cfe7feba3483"
+      "evidence_digest": "3c0267d4aa48aadff0698051ab30dab94b06e408f55728fe89705700517504bd"
     },
     {
       "capability_id": "news",
@@ -1350,15 +1392,18 @@
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
         "scripts/test-provider-acquisition-plan.mjs"
       ],
       "verification_commands": [
         "npm run provider:acquisition-plan:test",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
-        "node scripts/test-acquisition-lifetime-allocation-api.mjs"
+        "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "2a171d8ccd0845d661f27922d5f187dad7f9ef76033e69367aeb529debf01891"
+      "evidence_digest": "828905fcc3655c36b905bf50221f612b937353b564a1ca6ab62e4847bd1f673e"
     },
     {
       "capability_id": "quick_search",
@@ -1453,7 +1498,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に80 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に81 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1466,7 +1511,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "95d3186ad4c258334fe80cd6fa76180496a360fcda116715d0698ce5eba15330"
+      "evidence_digest": "49b92bba53f8fdfcebddd72860beb81fcacadc239f5968cd2625e8c912ad3a91"
     },
     {
       "capability_id": "mcp",
@@ -1477,7 +1522,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の60 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の61 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1490,7 +1535,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "54fdca633c2bf431dd5a53d3b798f2a7f0a8bf2eed56e0e90e5f3defd9c5df4a"
+      "evidence_digest": "7ac678fbe8a976db58a11a83d83bde71d80468e01a43255047cbbf9358dd94ba"
     },
     {
       "capability_id": "credit_history",
@@ -1501,20 +1546,23 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "DFSのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.1014 USD・残4.8986 USDを監査し、全portfolio配分後も合計4.9998 USDに制限。Rakko credit換算・Rakko account/API key lifecycleは未取得・未実装",
+      "remaining_gap": "DFSのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.1014 USD・残4.8986 USDを監査し、全portfolio配分後も合計4.9998 USDに制限し、6,510候補を67 immutable batchへ固定。価格再確認・正確な承認challengeが未充足のため実行権限false。Rakko credit換算・Rakko account/API key lifecycleは未取得・未実装",
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
+        "scripts/acquisition-lifetime-approval-manifest.mjs",
         "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
         "scripts/test-provider-acquisition-plan.mjs"
       ],
       "verification_commands": [
         "npm run provider:acquisition-plan:test",
         "node scripts/test-acquisition-lifetime-allocation.mjs",
-        "node scripts/test-acquisition-lifetime-allocation-api.mjs"
+        "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "74a0acdfcfa3bf3c277f657fce5b7eddac11e2af020fc3a2e109008560696ba5"
+      "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "dca0b022a47e6bd31ee1b2a4b5832b7bb6a26bdb2c55dc531408872455320402"
+  "audit_digest": "089e4bb54a4fa2e545cafb161befc8b5d93ecd0f4034458b15533d54dfdb3f1e"
 }
