@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "4dfac3c72cba8807cc12ca9313fda37b71153150da2076145e18a02d7656d243",
+  "inventory_digest": "c54c99fc8d2bcbba79461fd1a877761a7268755db803dc46cbd15b3756914517",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1183,7 +1183,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。時間独立・人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -1228,7 +1228,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "430fb9d8ee31bc42d55bf932170585cee912fe90c75bb3a902df1ed61abede59"
+      "evidence_digest": "0d00f53c34e55fcf3a9f887a21af0fc1b536f058555cbb56be55ba611778f355"
     },
     {
       "capability_id": "ai_heading",
@@ -1239,7 +1239,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0、時間独立・人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
       "authoritative_evidence": [
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
@@ -1284,7 +1284,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "df8d1f2a144bacfcbdf82c1b60dcfee53da9c0120d22304a0f77e668fa45f6fa"
+      "evidence_digest": "248511dd8a137bd365d2cb400584cac583bb98820ef7f7bb351880287a39b8e4"
     },
     {
       "capability_id": "ai_body",
@@ -1818,5 +1818,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "dbb8936bbab9cab562805116ba1ce62ff17cd17608f5ffe04f4df3fb3a563cfb"
+  "audit_digest": "bfb48935c08a90db7eeadbbb7ffdbec77ad2a3bd668f5152e2bca593ca72d3cd"
 }
