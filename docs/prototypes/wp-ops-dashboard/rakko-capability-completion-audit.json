@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "32e73c5d83a78c421baf935b6bca1b2fc5c5fdaf9bae2a5e1f58b84585bda4ec",
+  "inventory_digest": "d3b3c885eba9c1adeabdf3d8be99530b9cf363c4e0666e812ae66a3d0c1d676b",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1706,12 +1706,14 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に81 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に84 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
         "docs/research/evidence/public-search-country-metadata.json",
         "scripts/public-api-credit-estimator.mjs",
+        "scripts/public-api-operation-graph.mjs",
+        "docs/research/public-api-operation-graph.json",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -1723,11 +1725,12 @@
         "node scripts/test-public-search-metadata-api.mjs",
         "node scripts/test-public-api-credit-estimator.mjs",
         "node scripts/test-public-api-credit-estimator-api.mjs",
+        "npm run research:public-operation-graph:test",
         "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "9f708fdabf8a08211cebdca7e7267fda9ed95c1b815d4e75628ebbcc66d29f6e"
+      "evidence_digest": "c150e6c5cfd4e8a4dcaa5001bc2b3b12750868a6b62535522e687deab13e9000"
     },
     {
       "capability_id": "mcp",
@@ -1738,12 +1741,14 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む65 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む67 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
         "docs/research/evidence/public-search-country-metadata.json",
         "scripts/public-api-credit-estimator.mjs",
+        "scripts/public-api-operation-graph.mjs",
+        "docs/research/public-api-operation-graph.json",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -1755,11 +1760,12 @@
         "node scripts/test-public-search-metadata-api.mjs",
         "node scripts/test-public-api-credit-estimator.mjs",
         "node scripts/test-public-api-credit-estimator-api.mjs",
+        "npm run research:public-operation-graph:test",
         "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "ccf4facce2c98e40b6f6fbc8e3d19744d21fb93b05e32bfce71286435e6c773d"
+      "evidence_digest": "f29a88b37dfe5f7711419a14c5293439a285510d685bdceabdcc92c78b5eb48e"
     },
     {
       "capability_id": "credit_history",
@@ -1788,5 +1794,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "390d713ec775d033153a1ba82ae9897199814ada40c66423412acf4796548c64"
+  "audit_digest": "b93e8aeb6cf395e90e21f5415e32384b76d275e00d141f31d0d1e4b233eaa8bc"
 }

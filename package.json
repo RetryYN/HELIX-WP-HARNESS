@@ -33,6 +33,8 @@
     "research:rakko-completion:build": "node scripts/build-rakko-capability-completion-audit.mjs",
     "research:rakko-completion:test": "node scripts/test-rakko-capability-completion-audit.mjs",
     "research:public-credit:test": "node scripts/test-public-contract-drift.mjs && node scripts/test-public-api-credit-estimator.mjs && node scripts/test-public-api-credit-estimator-api.mjs",
+    "research:public-operation-graph:build": "node scripts/build-public-api-operation-graph.mjs",
+    "research:public-operation-graph:test": "node scripts/test-public-api-operation-graph.mjs && node scripts/test-public-api-operation-graph-api.mjs",
     "research:serp-data-audit:build": "node scripts/build-serp-data-coverage-audit.mjs",
     "research:serp-data-audit:test": "node scripts/test-serp-data-coverage.mjs",
     "reference:japan-locations:refresh": "node scripts/acquire-japan-location-data.mjs",
