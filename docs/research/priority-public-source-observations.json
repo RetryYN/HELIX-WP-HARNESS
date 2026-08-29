@@ -1,0 +1,38 @@
+{
+  "observed_at": "2026-08-30T00:00:00.000Z",
+  "acquisition_cost_usd": 0,
+  "capture_method": "manual_public_web_review",
+  "rows": [
+    {
+      "claim_id": "it-shukatu-serp-026:section:6",
+      "candidate_digest": "299b5b484a09afa9d3854b68ddc814384d6a8b7d32e10883760fea1bb7ec07af",
+      "query": "就活 キャリアプラン itの年収 公式",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://www.ipa.go.jp/archive/publish/hjuojm0000007e6n-att/000085255.pdf",
+      "title": "IT人材の年収（現在、目標としている年収）",
+      "publisher": "独立行政法人情報処理推進機構",
+      "source_class": "government",
+      "observed_facts": [
+        "先端IT従事者と先端IT非従事者について、現在の年収帯と目標年収帯の分布を比較している。",
+        "特定企業、役職、就活時点の年収を示す資料ではない。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "The public report supports general IT salary context but does not directly support the ambiguous article topic as a concrete salary claim.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-062:section:7",
+      "candidate_digest": "72eab6e93cc30f5c704c857a2ad6eb26f8849037a3134474488c28382a6da1c5",
+      "query": "MUITの部長の年収はいくらですか？ 公式",
+      "result_state": "no_qualifying_result",
+      "url": null,
+      "title": null,
+      "publisher": null,
+      "source_class": null,
+      "observed_facts": [],
+      "direct_support_state": "not_supported",
+      "decision_reason": "No qualifying public first-party source directly supporting a department-head salary figure was observed.",
+      "source_snapshot_retained": false
+    }
+  ]
+}
