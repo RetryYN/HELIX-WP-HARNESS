@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "de5fce9c13ffcb045499b3eda1e16612d1ef9b5086737dec77c9e2ce2792b66c",
+  "inventory_digest": "8796cda3a22cc6666a90fb8dca4ffdf4ee45cb7dda9be20c662b41c2bf4b76da",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -1521,7 +1521,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage等の61 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録review等63 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1534,7 +1534,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "7ac678fbe8a976db58a11a83d83bde71d80468e01a43255047cbbf9358dd94ba"
+      "evidence_digest": "fb861d74aa48a85361affb1806fa2f294ad44e40881a53b7cf0a1a2363ba9da3"
     },
     {
       "capability_id": "credit_history",
@@ -1563,5 +1563,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "69425967bc8b71ab7d2117205ff6f592a553f60de8b7b8adbe42105bfd9a26d4"
+  "audit_digest": "1c7f98667fe10334d953eea96c8f1b5b42f7b792649bfd3934ad985ac0a30a83"
 }
