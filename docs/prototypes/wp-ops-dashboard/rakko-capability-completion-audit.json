@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "526f7f7e9b49cfc562edb863657f8fa63aad01f09127a0b5b1400e5cd66c07c2",
+  "inventory_digest": "cd035eca0b3e4867bcf619ea1653dc8735fb418169574bd4cf1b5f4ac3a07cd5",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -746,7 +746,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。さらに現行219 domainをKW・page・content取得状態・履歴へ統合した観測site directoryと、共有KW・group・順位重みから1,797 domain edgeを持つ類似graphを追加（孤立0、最大共有KW 32）。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）を既存group拡張reviewへ接続し、圏外・全市場gap・traffic機会とは断定しない。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
+      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。さらに現行219 domainをKW・page・content取得状態・履歴へ統合した観測site directoryと、共有KW・group・順位重みから1,797 domain edgeを持つ類似graphを追加（孤立0、最大共有KW 32）。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）を既存group拡張reviewへ接続。さらに27件を既存記事11本の拡張review、59件を新規記事reviewへroutingし、公開blocker 85件を接続。圏外・全市場gap・traffic機会・順位効果とは断定せず、自動編集・公開0。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -810,7 +810,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "a0dbb583dff51fac6addcfc3ecdf7b26034538181e197e7ee04590ef8a335c48"
+      "evidence_digest": "43c3118efe34c200de5fbb11a590e1d518f6a2c145909b949f69e776244db435"
     },
     {
       "capability_id": "bulk_site_research",
@@ -842,7 +842,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移に加え、保持top10の観測site directory 219 domainを獲得KW・page・最良順位・content取得・2時点履歴付きで実装。content接続205 domainは最終host完全一致、履歴接続138 domainで、未知Web全体・traffic推定ではない。さらに219 domain・1,797 edgeの観測類似graphで共有KW/group/Jaccard/順位重みを検索可能。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）をreview可能。外部domain/content index、推定trafficによる未知site検索は未取得",
+      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移に加え、保持top10の観測site directory 219 domainを獲得KW・page・最良順位・content取得・2時点履歴付きで実装。content接続205 domainは最終host完全一致、履歴接続138 domainで、未知Web全体・traffic推定ではない。さらに219 domain・1,797 edgeの観測類似graphで共有KW/group/Jaccard/順位重みを検索可能。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）をreview可能。27件を既存記事11本の拡張review、59件を新規記事reviewへroutingし、自動変更0。外部domain/content index、推定trafficによる未知site検索は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-dashboard-api.mjs",
@@ -852,7 +852,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "4c5a02f52849d350f8aa7e84a53e2b4aaa468d4fbe9f3399053c88c062c71655"
+      "evidence_digest": "86fc66273c346e520b8aa9c98bdd8d10309749293d227e56d5314e0dc9b9e265"
     },
     {
       "capability_id": "content_search",
@@ -1868,7 +1868,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に100 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に101 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1898,7 +1898,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "979a3709f5f5196cbaed76886b59519c858bcbde52f74a90eac11c1a046db793"
+      "evidence_digest": "1a866231cedbe692b70bd404b7a8188b2a6b1273d4255e8e13fec8cd8dce2642"
     },
     {
       "capability_id": "mcp",
@@ -1909,7 +1909,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む83 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む84 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1939,7 +1939,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "b5a17f573f805f6e4263a9aeacb283cfe75b96a8af91d6392115507e6a9a686b"
+      "evidence_digest": "ebc5c61ef6be72addf8d99c15e31736f7ced5cd68498e1ed255902c828a36743"
     },
     {
       "capability_id": "credit_history",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "63d02c14b7fe1c186f03989ca4149229916142c40a950f885bf0f521993ee4d8"
+  "audit_digest": "7b8457c317cd246a90c400c5a52deb7b745de0f3a104bd10ed5488787e094ad9"
 }
