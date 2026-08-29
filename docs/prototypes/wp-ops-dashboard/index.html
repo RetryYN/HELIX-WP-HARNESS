@@ -289,6 +289,15 @@
       <div class="table-wrap"><table><thead><tr><th>機能</th><th>完成判定</th><th>blocker</th><th>残存gap</th><th>権威証拠</th><th>digest</th></tr></thead><tbody id="capability-audit-rows"></tbody></table></div>
       <div class="subsection-head"><h3>Web / APIクレジット契約分離</h3><p>公開OpenAPIに明記されたAPI消費量をWeb版・HELIXローカル処理と混同せず照合します。表示だけで消費しません</p></div>
       <div id="public-credit-contract-metrics" class="metrics"></div>
+      <div class="filters" id="public-credit-estimator-controls">
+        <label>調査<select id="public-credit-operation"><option value="search_volume">一括検索指標</option><option value="search_rank">順位取得</option><option value="bulk_site_research">一括サイト調査</option></select></label>
+        <label>キーワード数<input id="public-credit-keyword-count" type="number" min="1" max="50000" value="20"></label>
+        <label>取得深度<select id="public-credit-depth"><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option></select></label>
+        <label>URL数<input id="public-credit-url-count" type="number" min="1" max="100" value="1"></label>
+        <label><input id="public-credit-difficulty" type="checkbox"> SEO難易度</label>
+        <button id="public-credit-estimate" type="button">クレジット見積</button>
+      </div>
+      <div id="public-credit-estimate-result" class="notice"><span>provider credit専用。累計5米ドル予算へは加算せず、有料取得も実行しません。</span></div>
       <div class="table-wrap"><table><thead><tr><th>機能</th><th>operation</th><th>API credit</th><th>台帳記載</th></tr></thead><tbody id="public-credit-contract-rows"></tbody></table></div>
       <div class="subsection-head"><h3>外部SEOデータfield対応監査</h3><p>全field occurrenceを保持対応・未取得・input非互換・contract shape・1:1未対応へ分類します。意味対応とwire互換を混同しません</p></div>
       <div id="rakko-field-audit-summary" class="metrics"></div>
