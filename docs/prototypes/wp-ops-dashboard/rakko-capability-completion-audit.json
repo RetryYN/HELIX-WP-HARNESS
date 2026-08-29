@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
-  "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "8796cda3a22cc6666a90fb8dca4ffdf4ee45cb7dda9be20c662b41c2bf4b76da",
+  "evidence_cutoff": "2026-08-29",
+  "inventory_digest": "ba5ce9d960f7f00b0cccebe3aca8471e0d7b0ea8f9bbaacb0133732986cb8735",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -706,7 +706,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "同一検索契約の2時点・98KWを履歴化し、任意domain/URLの順位・title変更に加え、domain 954件とpage 1,019件の継続／新規／消失・最良順位・visibility差分を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を圏外と断定しないrank-state oracleをDB/API/MCP/UIへ実装。さらに100KWについて自サイトdomain・週次・120日・100位深度の監視候補を生成し、必要19観測、残回数、次回期限を接続。登録済0・実行済0を明示。真の圏外確認、120日継続取得、provider登録job、volume/difficulty/trafficは未実装",
+      "remaining_gap": "同一検索契約の2時点・98KWを履歴化し、任意domain/URLの順位・title変更に加え、domain 954件とpage 1,019件の継続／新規／消失・最良順位・visibility差分を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を圏外と断定しないrank-state oracleをDB/API/MCP/UIへ実装。100KWの週次・120日・100位監視候補ではdesktop保持証拠と同一locationのmobile未観測variantを分離し、地域別locationは推測せず100件すべて選択必須として明示。登録済0・実行済0。真の圏外確認、地域選択、mobile/地域実測、120日継続取得、provider登録job、volume/difficulty/trafficは未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -767,7 +767,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "3a03179a55102ee709155c52389f4e936714e59866f80f5e66d3aa99dfd54e7f"
+      "evidence_digest": "684183d30f1d280bc735e5b2c5c1923d473aaeef3fad02896656987491cb8afa"
     },
     {
       "capability_id": "headline",
@@ -1563,5 +1563,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "1c7f98667fe10334d953eea96c8f1b5b42f7b792649bfd3934ad985ac0a30a83"
+  "audit_digest": "798339098b89a035b2d5c914d42ec828357dd73eefa13b31131a816cf7f39d37"
 }
