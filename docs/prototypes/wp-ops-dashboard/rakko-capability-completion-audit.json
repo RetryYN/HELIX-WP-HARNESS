@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "79dd4ccc8ddce630eda301d8feb86be1397fa6c5e631a7f34c940ee9fe996c13",
+  "inventory_digest": "3c0ba3622ae604babc1b286b4d6e438fefb129f14319df1c641b799ae6032368",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1127,7 +1127,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。60記事群のprovider非依存challengerへbaseline ID・根拠ID・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。model/価格/予算再配分/明示承認未確定のため生成0、品質・順位効果は未証明",
+      "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。60記事群のprovider非依存challengerへschema準拠canonical baseline payload・artifact ID・根拠ID・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。model/価格/予算再配分/明示承認未確定のため生成0、品質・順位効果は未証明",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1191,7 +1191,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "adc404482cca91ff6ca454ff8a493e5301960f9c28609816d486c47b66703311"
+      "evidence_digest": "83f4ecd3909d41f19e189d7fdcfc8634a1ccd1be68353d2d1b04cfa192119535"
     },
     {
       "capability_id": "ai_title",
@@ -1202,7 +1202,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1266,7 +1266,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "428c8e803dc44a4eea1a7a37fc5091638cd2530d82e1f8023d4a8ef6f87a4cc0"
+      "evidence_digest": "2e4bd1e7e210db385c1389b4f77899fbd0db04bc9c1e4182271e20d4a5a4aa31"
     },
     {
       "capability_id": "ai_heading",
@@ -1277,7 +1277,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1341,7 +1341,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "dc1794a4e48ed0ea6561f6966c4d4e64050d3f77b62a3ad1dd8da1abcd221e1f"
+      "evidence_digest": "47cd9a2da6849ede44fdf0ceba398539ac05d50eccdd467f5505c6ae19976437"
     },
     {
       "capability_id": "ai_body",
@@ -1427,7 +1427,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。57記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。外部LLM生成・model/価格・人手判定は未実行",
+      "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。57記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。外部LLM生成・model/価格・人手判定は未実行",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1491,7 +1491,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "e2e824f72b5b3fcdbd4c200da168f806de4824617adf6043e4073d75d72eee01"
+      "evidence_digest": "137ed6037307b8db6b5b87c8e94adf813158026014c0677d9120aa5f81085a42"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -1502,7 +1502,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。60記事群のprovider非依存challengerへbaseline・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLMによる新語生成・model/価格・人手判定は未実行",
+      "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。60記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLMによる新語生成・model/価格・人手判定は未実行",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1566,7 +1566,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "de0496d23009206a00597d214a9b65acb485cbdf417269acfc615b5f18cc343b"
+      "evidence_digest": "8ef77a61c1dbcc4fbde694a290cc1c38e9183e2547e7b845548937c6b57545f3"
     },
     {
       "capability_id": "hashtags",
@@ -1932,5 +1932,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "286faf4fdbb182122a4d9c06d8f23fd1530a5e8dc3e34dfd89d5509a2e7ce02e"
+  "audit_digest": "dc2235656939b002fc10580a98213d78aa13303a67c2e05037ae371a567bb510"
 }
