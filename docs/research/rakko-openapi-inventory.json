@@ -1,6 +1,6 @@
 {
   "schema_version": "rakko-openapi-inventory.v1",
-  "generated_at": "2026-08-29T07:30:25.778Z",
+  "generated_at": "2026-08-29T07:41:03.951Z",
   "source_url": "https://api.rakkokeyword.com/docs/swagger-ui-init.js",
   "source_sha256": "9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573",
   "openapi_version": "3.1.1",
@@ -250,16 +250,19 @@
         "500": "object",
         "503": "object"
       },
-      "status": "planned",
+      "status": "partial",
       "provider_relation": "confirmed_correspondence",
       "confidence": "high",
       "dfs_candidates": [
         "Appendix locations"
       ],
       "helix_evidence": [
-        "fixed location_code 2392"
+        "public-search-metadata.mjs",
+        "public-search-metadata.json",
+        "public-search-country-metadata.json",
+        "GET /api/v1/market/locations"
       ],
-      "gap": "metadata同期・検索UI未実装"
+      "gap": "216か国＋日本下位地域1,144件を保持・検索可能。公開nameと数値provider codeの1:1対応は未証明"
     },
     {
       "operation": "GET /v1/metadata/languages",
@@ -272,16 +275,18 @@
         "500": "object",
         "503": "object"
       },
-      "status": "planned",
+      "status": "partial",
       "provider_relation": "confirmed_correspondence",
       "confidence": "high",
       "dfs_candidates": [
         "Appendix languages"
       ],
       "helix_evidence": [
-        "fixed language_code ja"
+        "public-search-metadata.mjs",
+        "public-search-metadata.json",
+        "GET /api/v1/market/languages"
       ],
-      "gap": "metadata同期・選択UI未実装"
+      "gap": "46言語名を保持・検索可能。公開nameと内部language codeの1:1対応はJapanese以外未証明"
     },
     {
       "operation": "POST /v1/influx-keywords",

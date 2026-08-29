@@ -1,0 +1,996 @@
+{
+  "schema_version": "provider-provenance-hypothesis.v1",
+  "operation_count": 24,
+  "evidence_state_counts": {
+    "observed_contract_correspondence": 4,
+    "provider_unknown": 1,
+    "retained_partial_reproduction": 6,
+    "retained_transform_reproduction": 2,
+    "schema_only_provider_hypothesis": 5,
+    "workflow_layer_hypothesis": 6
+  },
+  "confidence_counts": {
+    "high": 18,
+    "medium": 5,
+    "low": 1
+  },
+  "internal_stack_proven_count": 0,
+  "vendor_confirmation_observed": false,
+  "rows": [
+    {
+      "operation_id": "SuggestKeywordsController_search",
+      "operation": "POST /v1/suggest-keywords",
+      "summary": "サジェストキーワード取得",
+      "status": "planned",
+      "provider_relation": "provider_mix",
+      "confidence": "medium",
+      "evidence_state": "schema_only_provider_hypothesis",
+      "candidate_upstream_capabilities": [
+        "Keywords Data APIs",
+        "SERP autocomplete"
+      ],
+      "transformation_hypothesis": [
+        "query multiple upstream surfaces",
+        "normalize keyword candidates",
+        "deduplicate",
+        "filter/sort"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 11,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [],
+      "remaining_gap": "multi-engine suggest、最大1万件、filter/sortを未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "cdf4db27b55fad188777db3ce485c4822f998725bb26dbe8c865eec7b3afa386"
+    },
+    {
+      "operation_id": "RelatedKeywordsController_search",
+      "operation": "POST /v1/related-keywords",
+      "summary": "関連キーワード取得",
+      "status": "planned",
+      "provider_relation": "strong_inference",
+      "confidence": "medium",
+      "evidence_state": "schema_only_provider_hypothesis",
+      "candidate_upstream_capabilities": [
+        "Labs related_keywords",
+        "Labs keywords_for_keywords"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 9,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [],
+      "remaining_gap": "matchType、指標、filter/sort付き大量関連語を未取得",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "0ab5b8404d76205383f49151e821b70240ddabcb38e9befee4238259e373cd56"
+    },
+    {
+      "operation_id": "OtherKeywordsController_search",
+      "operation": "POST /v1/other-keywords",
+      "summary": "潜在的な検索キーワード/質問（LSI/PAA）取得",
+      "status": "partial",
+      "provider_relation": "strong_inference",
+      "confidence": "high",
+      "evidence_state": "retained_partial_reproduction",
+      "candidate_upstream_capabilities": [
+        "SERP Advanced people_also_ask/related_searches"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [
+        "serp_demand_occurrences",
+        "content_topic_proposals"
+      ],
+      "retained_semantic_field_count": 12,
+      "unacquired_payload_field_count": 1,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "dfs_tasks.keyword",
+        "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.competition_index",
+        "keyword_market_metrics.cpc",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
+        "serp_demands.demand_type",
+        "serp_demands.importance_score",
+        "serp_demands.representative_value",
+        "serp_demands.source_keywords",
+        "serp_demands[demand_type=paa].count",
+        "serp_demands[demand_type=related_search].count"
+      ],
+      "remaining_gap": "PAA回答click depthとラッコ固有LSI集合が未取得",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "a7f4688686290e91be5e11cc7cd9ae91be374b060008632a7c1eef75f78241c1"
+    },
+    {
+      "operation_id": "QuestionSearchController_search",
+      "operation": "POST /v1/question-search",
+      "summary": "よくある質問検索取得",
+      "status": "planned",
+      "provider_relation": "unknown",
+      "confidence": "low",
+      "evidence_state": "provider_unknown",
+      "candidate_upstream_capabilities": [
+        "Labs/Keywords Data plus external Q&A corpus"
+      ],
+      "transformation_hypothesis": [],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 12,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [],
+      "remaining_gap": "質問DBのprovider・母集団・更新周期が公開契約から確定不能",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "bc0610f2af71f28872ef66b186b62024e2bbb4686d2e37ae767c6b266b03ad6d"
+    },
+    {
+      "operation_id": "RankingKeywordsController_search",
+      "operation": "POST /v1/ranking-keywords",
+      "summary": "同時ランクインキーワード取得",
+      "status": "partial",
+      "provider_relation": "strong_inference",
+      "confidence": "high",
+      "evidence_state": "retained_partial_reproduction",
+      "candidate_upstream_capabilities": [
+        "Labs related_keywords",
+        "SERP URL intersection"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [
+        "serp_page_keyword_edges",
+        "simultaneous_keyword_relations",
+        "serp_intent_fingerprints",
+        "serp_intent_pair_reviews",
+        "keyword_boundary_reviews",
+        "serp_depth_stability",
+        "content_topology_reviews",
+        "content_consolidation_blueprints"
+      ],
+      "retained_semantic_field_count": 10,
+      "unacquired_payload_field_count": 0,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "api.data.length",
+        "api.meta.total",
+        "dfs_tasks.keyword",
+        "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.competition_index",
+        "keyword_market_metrics.cpc",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
+        "simultaneous_keyword_relations.overlap_ratio",
+        "simultaneous_keyword_relations.reciprocal_rank_score",
+        "simultaneous_keyword_relations.target_keyword derived word count"
+      ],
+      "remaining_gap": "観測100KW内のURL交差、複合intent、境界consensus、深度安定性、group-level記事topologyと統合title/heading差分を実装。Labs全rank keywordとprovider可変searchRange母集団は未取得",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "1eb0485d0331ca0055110c2e2cd04348cf9892e33718e2e373b1547ea9c27363"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_register",
+      "operation": "POST /v1/search-volume",
+      "summary": "一括キーワード調査登録",
+      "status": "partial",
+      "provider_relation": "strong_inference",
+      "confidence": "high",
+      "evidence_state": "schema_only_provider_hypothesis",
+      "candidate_upstream_capabilities": [
+        "Keywords Data Google Ads search_volume",
+        "Labs bulk_keyword_difficulty"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [
+        "imported_keywords.search_volume",
+        "imported_keywords.cpc",
+        "imported_keywords.competition"
+      ],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 0,
+      "execution_metadata_field_count": 2,
+      "helix_targets": [],
+      "remaining_gap": "最新再取得、月次推移、SEO難易度、地域言語、async lifecycle未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "90f3da16bdbdbb6610d2a3c0e2ec21f65ea8cfaa5ce5a54a6a24fa7d6bd3b76f"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_listHistories",
+      "operation": "GET /v1/search-volume/histories",
+      "summary": "一括キーワード調査履歴一覧取得",
+      "status": "planned",
+      "provider_relation": "consumer_workflow",
+      "confidence": "high",
+      "evidence_state": "workflow_layer_hypothesis",
+      "candidate_upstream_capabilities": [
+        "consumer persistence over async tasks"
+      ],
+      "transformation_hypothesis": [
+        "register upstream task",
+        "persist consumer request identity",
+        "poll status",
+        "filter/sort/page results"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 16,
+      "execution_metadata_field_count": 2,
+      "helix_targets": [],
+      "remaining_gap": "request history未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "fdbea836ad67d1652f5c327ac3d8141cad89ab79dd1f70b0ea7c69709678a89b"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_getStatus",
+      "operation": "GET /v1/search-volume/{requestId}/status",
+      "summary": "一括キーワード調査ステータス取得",
+      "status": "planned",
+      "provider_relation": "consumer_workflow",
+      "confidence": "high",
+      "evidence_state": "workflow_layer_hypothesis",
+      "candidate_upstream_capabilities": [
+        "provider task status"
+      ],
+      "transformation_hypothesis": [
+        "register upstream task",
+        "persist consumer request identity",
+        "poll status",
+        "filter/sort/page results"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 4,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [],
+      "remaining_gap": "async job status未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "97a4b4e7494349a57c32770ba2faee5674c75bdb67fb9d19a89d42d864304eb4"
+    },
+    {
+      "operation_id": "SearchVolumeHistoryController_getResults",
+      "operation": "POST /v1/search-volume/{requestId}/results",
+      "summary": "一括キーワード調査データ取得",
+      "status": "planned",
+      "provider_relation": "consumer_workflow",
+      "confidence": "high",
+      "evidence_state": "workflow_layer_hypothesis",
+      "candidate_upstream_capabilities": [
+        "Keywords Data/Labs results plus consumer filtering"
+      ],
+      "transformation_hypothesis": [
+        "register upstream task",
+        "persist consumer request identity",
+        "poll status",
+        "filter/sort/page results"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 18,
+      "execution_metadata_field_count": 2,
+      "helix_targets": [],
+      "remaining_gap": "noiseReduction/filter/sort/pagination未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "5337bc293978541af0cbc4e40c8dcf20b563b6fff95c325e1f7a5cc7c8f5a6e5"
+    },
+    {
+      "operation_id": "SearchVolumeMetadataController_getLocations",
+      "operation": "GET /v1/metadata/locations",
+      "summary": "地域一覧取得",
+      "status": "partial",
+      "provider_relation": "confirmed_correspondence",
+      "confidence": "high",
+      "evidence_state": "observed_contract_correspondence",
+      "candidate_upstream_capabilities": [
+        "Appendix locations"
+      ],
+      "transformation_hypothesis": [
+        "project upstream contract fields",
+        "retain source identity",
+        "apply consumer response envelope"
+      ],
+      "retained_evidence": [
+        "public-search-metadata.mjs",
+        "public-search-metadata.json",
+        "public-search-country-metadata.json",
+        "GET /api/v1/market/locations"
+      ],
+      "retained_semantic_field_count": 3,
+      "unacquired_payload_field_count": 0,
+      "execution_metadata_field_count": 0,
+      "helix_targets": [
+        "api.market.locations.consumed_credit=0",
+        "retained_public_search_locations.country_iso_code",
+        "retained_public_search_locations.name"
+      ],
+      "remaining_gap": "216か国＋日本下位地域1,144件を保持・検索可能。公開nameと数値provider codeの1:1対応は未証明",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "36e9c4373dea0e29f3e3bf04c4b6733ab4a031278945c52dcc4fb3da0ccddc54"
+    },
+    {
+      "operation_id": "SearchVolumeMetadataController_getLanguages",
+      "operation": "GET /v1/metadata/languages",
+      "summary": "言語一覧取得",
+      "status": "partial",
+      "provider_relation": "confirmed_correspondence",
+      "confidence": "high",
+      "evidence_state": "observed_contract_correspondence",
+      "candidate_upstream_capabilities": [
+        "Appendix languages"
+      ],
+      "transformation_hypothesis": [
+        "project upstream contract fields",
+        "retain source identity",
+        "apply consumer response envelope"
+      ],
+      "retained_evidence": [
+        "public-search-metadata.mjs",
+        "public-search-metadata.json",
+        "GET /api/v1/market/languages"
+      ],
+      "retained_semantic_field_count": 2,
+      "unacquired_payload_field_count": 0,
+      "execution_metadata_field_count": 0,
+      "helix_targets": [
+        "api.market.languages.consumed_credit=0",
+        "retained_public_search_languages.name"
+      ],
+      "remaining_gap": "46言語名を保持・検索可能。公開nameと内部language codeの1:1対応はJapanese以外未証明",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "d317700ae27ce89d703b22b9a26927cddffde76f396291fd2870b8c17c9dfe39"
+    },
+    {
+      "operation_id": "InfluxKeywordsController_searchKeyword",
+      "operation": "POST /v1/influx-keywords",
+      "summary": "獲得キーワード調査取得",
+      "status": "partial",
+      "provider_relation": "strong_inference",
+      "confidence": "high",
+      "evidence_state": "retained_partial_reproduction",
+      "candidate_upstream_capabilities": [
+        "Labs ranked_keywords"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [
+        "serp_page_keyword_edges",
+        "serp_page_coverage",
+        "serp_domain_coverage",
+        "competitor-domains dashboard"
+      ],
+      "retained_semantic_field_count": 9,
+      "unacquired_payload_field_count": 4,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "api.data.length",
+        "api.meta.total",
+        "dfs_tasks.keyword",
+        "domain_ranked_keywords.rank_absolute",
+        "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.competition_index",
+        "keyword_market_metrics.cpc",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
+        "serp_organic_results.position",
+        "serp_organic_results.url",
+        "serp_page_coverage.canonical_url"
+      ],
+      "remaining_gap": "観測100KW内のdomain/page別keyword・position逆引きは実装。全rank DB、subdomain/directory match、traffic/value/historyは未取得",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "8478e3a196723e3ade683495e8c67ecc3a9694e4293fb382b72898ac4e47c7e6"
+    },
+    {
+      "operation_id": "InfluxPagesController_searchPage",
+      "operation": "POST /v1/influx-pages",
+      "summary": "獲得ページ調査取得",
+      "status": "partial",
+      "provider_relation": "strong_inference",
+      "confidence": "high",
+      "evidence_state": "retained_partial_reproduction",
+      "candidate_upstream_capabilities": [
+        "Labs relevant_pages",
+        "ranked_keywords aggregation"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [
+        "serp_page_keyword_edges",
+        "serp_page_coverage",
+        "competitor-pages dashboard"
+      ],
+      "retained_semantic_field_count": 10,
+      "unacquired_payload_field_count": 4,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "api.data.length",
+        "api.meta.total",
+        "competitor_pages.title",
+        "dfs_tasks.keyword",
+        "domain_ranked_keywords.rank_absolute",
+        "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
+        "serp_organic_results.position",
+        "serp_organic_results.title",
+        "serp_organic_results.url",
+        "serp_page_coverage.canonical_url",
+        "serp_page_coverage.keyword_count"
+      ],
+      "remaining_gap": "観測565 pageのkeyword/group/best-rank/top-keyword集計は実装。全rank DB、推定traffic/value/historyは未取得",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "462c39db58f5854049007260e1371e13d20b0e808c8401f7da7b285f66d64381"
+    },
+    {
+      "operation_id": "CompetitiveController_searchCompetitive",
+      "operation": "POST /v1/competitive",
+      "summary": "競合サイト抽出",
+      "status": "partial",
+      "provider_relation": "strong_inference",
+      "confidence": "high",
+      "evidence_state": "retained_partial_reproduction",
+      "candidate_upstream_capabilities": [
+        "Labs competitors_domain"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [
+        "serp_page_keyword_edges",
+        "serp_domain_coverage",
+        "competitor-domains dashboard"
+      ],
+      "retained_semantic_field_count": 10,
+      "unacquired_payload_field_count": 2,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "api.data.length",
+        "api.domains.comparison.competitor_unique_keyword_count",
+        "api.domains.comparison.duplicate_keyword_count",
+        "api.domains.comparison.duplicate_rate_target",
+        "api.domains.comparison.jaccard_overlap_rate",
+        "api.domains.comparison.target_unique_keyword_count",
+        "api.meta.total",
+        "competitor_pages.title",
+        "serp_domain_coverage.domain",
+        "serp_domain_coverage.keyword_count",
+        "serp_domain_coverage.page_count",
+        "serp_organic_results.domain",
+        "serp_organic_results.title"
+      ],
+      "remaining_gap": "観測100KW内のdomain被覆・keyword/group/page/rank集計は実装。全rank DBの重複率分母、推定traffic/valueは未取得",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "73e919e6191f529d61619065f7eb152e82dfe43e9b4adb46307e7a4dea56ca48"
+    },
+    {
+      "operation_id": "BulkSiteResearchController_searchBulkSiteResearch",
+      "operation": "POST /v1/bulk-site-research",
+      "summary": "一括サイト調査",
+      "status": "planned",
+      "provider_relation": "strong_inference",
+      "confidence": "medium",
+      "evidence_state": "schema_only_provider_hypothesis",
+      "candidate_upstream_capabilities": [
+        "Labs bulk_traffic_estimation",
+        "ranked_keywords summaries"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 34,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [],
+      "remaining_gap": "複数siteのkeyword/traffic/domain rank一括取得未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "52290bdccca75e072fb72c2fdebb24d79c7b4136d258329f254a6cea9867accb"
+    },
+    {
+      "operation_id": "ContentSearchController_search",
+      "operation": "POST /v1/content-search",
+      "summary": "集客コンテンツ検索",
+      "status": "partial",
+      "provider_relation": "strong_inference",
+      "confidence": "medium",
+      "evidence_state": "retained_partial_reproduction",
+      "candidate_upstream_capabilities": [
+        "Labs ranked_keywords/relevant_pages filtered by keyword"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [
+        "competitor_pages",
+        "competitor_headings",
+        "serp_organic_results.description",
+        "competitor_page_task_evidence",
+        "competitor-content dashboard"
+      ],
+      "retained_semantic_field_count": 13,
+      "unacquired_payload_field_count": 2,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "api.data.length",
+        "api.meta.total",
+        "competitor_pages.title",
+        "dfs_tasks.keyword",
+        "domain_ranked_keywords.rank_absolute",
+        "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
+        "serp_domain_coverage.domain",
+        "serp_organic_results.description",
+        "serp_organic_results.domain",
+        "serp_organic_results.position",
+        "serp_organic_results.title",
+        "serp_organic_results.url",
+        "serp_page_coverage.canonical_url",
+        "serp_page_coverage.keyword_count",
+        "serp_page_coverage.top_keyword derived word count"
+      ],
+      "remaining_gap": "上位10候補の取得成功535 pageでtitle/H1-H6/SERP description/獲得KW検索とrank逆引きは実装。全page index、推定topKeywordCollapse、traffic metrics未取得",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "de27622929939700ff3e104f82ad00f2b5a357b3addb8207d57eaa51db11063c"
+    },
+    {
+      "operation_id": "HeadlineController_search",
+      "operation": "POST /v1/headline",
+      "summary": "見出し抽出取得",
+      "status": "partial",
+      "provider_relation": "inferred_transform",
+      "confidence": "high",
+      "evidence_state": "retained_transform_reproduction",
+      "candidate_upstream_capabilities": [
+        "SERP Advanced plus OnPage Content Parsing"
+      ],
+      "transformation_hypothesis": [
+        "acquire ranked pages",
+        "parse page content",
+        "normalize extracted units",
+        "aggregate derived metrics"
+      ],
+      "retained_evidence": [
+        "competitor_pages",
+        "competitor_headings",
+        "competitor_page_task_evidence",
+        "GET /api/v1/headings",
+        "headline-analysis dashboard"
+      ],
+      "retained_semantic_field_count": 15,
+      "unacquired_payload_field_count": 0,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "api.data.length",
+        "api.meta.total",
+        "competitor_headings.level",
+        "competitor_headings.text",
+        "competitor_headings.text derived word count",
+        "competitor_headings.text derived word count average",
+        "competitor_headings.text derived word count max",
+        "competitor_headings.text derived word count min",
+        "competitor_pages.title",
+        "competitor_pages→competitor_headings derived average",
+        "competitor_pages→competitor_headings derived count",
+        "dfs_tasks.keyword",
+        "domain_ranked_keywords.rank_absolute",
+        "imported_keywords.raw_keyword",
+        "serp_organic_results.description",
+        "serp_organic_results.position",
+        "serp_organic_results.title",
+        "serp_organic_results.url",
+        "serp_page_coverage.canonical_url"
+      ],
+      "remaining_gap": "現行上位10pageで階層・検索・除外語・scope・ページ構造・文字数統計を実装。上位11〜20pageとRakko wire互換は未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "3f47365bf80293ad17102a2ee2cd975af6c04323ec59b1b73f05846414d2d998"
+    },
+    {
+      "operation_id": "CoOccurrenceController_search",
+      "operation": "POST /v1/co-occurrence",
+      "summary": "共起語取得",
+      "status": "partial",
+      "provider_relation": "inferred_transform",
+      "confidence": "high",
+      "evidence_state": "retained_transform_reproduction",
+      "candidate_upstream_capabilities": [
+        "SERP Advanced plus OnPage Content Parsing plus tokenizer"
+      ],
+      "transformation_hypothesis": [
+        "acquire ranked pages",
+        "parse page content",
+        "normalize extracted units",
+        "aggregate derived metrics"
+      ],
+      "retained_evidence": [
+        "competitor_terms",
+        "competitor_task_terms",
+        "competitor_page_terms"
+      ],
+      "retained_semantic_field_count": 17,
+      "unacquired_payload_field_count": 0,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [
+        "api.cooccurrence.rakko_semantics.page_details[].page_count",
+        "api.cooccurrence.rakko_semantics.page_details[].page_count_in_headline",
+        "api.cooccurrence.rakko_semantics.site_count_heading",
+        "api.cooccurrence.rakko_semantics.site_count_total",
+        "api.data.length",
+        "api.meta.total",
+        "competitor_page_terms.count",
+        "competitor_page_terms.heading_count",
+        "competitor_page_terms.title_count",
+        "competitor_pages.title",
+        "competitor_task_terms.heading_count",
+        "competitor_task_terms.term",
+        "competitor_task_terms.title_count",
+        "competitor_task_terms.total_count",
+        "competitor_terms.heading_count",
+        "competitor_terms.term",
+        "competitor_terms.title_count",
+        "competitor_terms.total_count",
+        "dfs_tasks.keyword",
+        "imported_keywords.raw_keyword",
+        "serp_organic_results.rank_absolute",
+        "serp_organic_results.title",
+        "serp_organic_results.url",
+        "serp_page_coverage.canonical_url"
+      ],
+      "remaining_gap": "現行上位10page。上位11〜20pageとRakko getDetails wire互換は未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "b83d18b9a3d532f15bf8a0faf07f841f04bc00c0c51c514affa915f427bb1f15"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_register",
+      "operation": "POST /v1/search-rank",
+      "summary": "検索順位チェック登録",
+      "status": "partial",
+      "provider_relation": "confirmed_correspondence",
+      "confidence": "high",
+      "evidence_state": "observed_contract_correspondence",
+      "candidate_upstream_capabilities": [
+        "SERP Google Organic task_post/live"
+      ],
+      "transformation_hypothesis": [
+        "project upstream contract fields",
+        "retain source identity",
+        "apply consumer response envelope"
+      ],
+      "retained_evidence": [
+        "dfs_tasks",
+        "serp_organic_results"
+      ],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 0,
+      "execution_metadata_field_count": 2,
+      "helix_targets": [],
+      "remaining_gap": "target URL、可変depth/device/os/地域言語、履歴job未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "c22c8db86c1ed04899170dd3dba7de1d1953cbf8bd64b02678cdcf804a7b4827"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_listHistories",
+      "operation": "GET /v1/search-rank/histories",
+      "summary": "検索順位チェック履歴一覧取得",
+      "status": "planned",
+      "provider_relation": "consumer_workflow",
+      "confidence": "high",
+      "evidence_state": "workflow_layer_hypothesis",
+      "candidate_upstream_capabilities": [
+        "consumer persistence over SERP tasks"
+      ],
+      "transformation_hypothesis": [
+        "register upstream task",
+        "persist consumer request identity",
+        "poll status",
+        "filter/sort/page results"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 15,
+      "execution_metadata_field_count": 2,
+      "helix_targets": [],
+      "remaining_gap": "順位計測履歴未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "5e4e17c2929b5ea41db82d9c39b26a619556e0bd116f19e7ec85343ef6f7c331"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_getStatus",
+      "operation": "GET /v1/search-rank/{requestId}/status",
+      "summary": "検索順位チェックステータス取得",
+      "status": "planned",
+      "provider_relation": "consumer_workflow",
+      "confidence": "high",
+      "evidence_state": "workflow_layer_hypothesis",
+      "candidate_upstream_capabilities": [
+        "SERP task status"
+      ],
+      "transformation_hypothesis": [
+        "register upstream task",
+        "persist consumer request identity",
+        "poll status",
+        "filter/sort/page results"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 3,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [],
+      "remaining_gap": "順位計測job status未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "b64967fec65973786354aa08f675cd2cbad98001c77269bdc2cdec168fd7dd28"
+    },
+    {
+      "operation_id": "SearchRankHistoryController_getResults",
+      "operation": "POST /v1/search-rank/{requestId}/results",
+      "summary": "検索順位チェック結果データ取得",
+      "status": "planned",
+      "provider_relation": "consumer_workflow",
+      "confidence": "high",
+      "evidence_state": "workflow_layer_hypothesis",
+      "candidate_upstream_capabilities": [
+        "SERP results plus consumer aggregation"
+      ],
+      "transformation_hypothesis": [
+        "register upstream task",
+        "persist consumer request identity",
+        "poll status",
+        "filter/sort/page results"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 28,
+      "execution_metadata_field_count": 3,
+      "helix_targets": [],
+      "remaining_gap": "target順位、aggregation、filter/sort未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "2d4416e55335a44335e5b643e3e1c1ca5ea36c9edc58025d8f3927bbb94e2cdd"
+    },
+    {
+      "operation_id": "SearchRankSerpCacheController_getSerpCache",
+      "operation": "GET /v1/search-rank/{requestId}/results/{entryNo}/serp",
+      "summary": "検索順位チェック結果詳細データ取得",
+      "status": "partial",
+      "provider_relation": "confirmed_correspondence",
+      "confidence": "high",
+      "evidence_state": "observed_contract_correspondence",
+      "candidate_upstream_capabilities": [
+        "SERP Google Organic Advanced cache"
+      ],
+      "transformation_hypothesis": [
+        "project upstream contract fields",
+        "retain source identity",
+        "apply consumer response envelope"
+      ],
+      "retained_evidence": [
+        "serp_organic_results",
+        "serp_ai_overviews",
+        "serp_demand_occurrences"
+      ],
+      "retained_semantic_field_count": 11,
+      "unacquired_payload_field_count": 3,
+      "execution_metadata_field_count": 3,
+      "helix_targets": [
+        "api.data.length",
+        "competitor_pages.title",
+        "dfs_tasks.keyword",
+        "dfs_tasks.observed_at",
+        "domain_ranked_keywords.rank_absolute",
+        "imported_keywords.raw_keyword",
+        "keyword_difficulty_enrichment.keyword_difficulty",
+        "keyword_market_metrics.search_volume",
+        "keyword_monthly_searches.search_volume",
+        "serp_organic_results.description",
+        "serp_organic_results.position",
+        "serp_organic_results.title",
+        "serp_organic_results.url",
+        "serp_page_coverage.canonical_url"
+      ],
+      "remaining_gap": "request/entry lifecycleとresponse互換未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "7726f76dd70ca536c51d7aa03bed0f4930e781080c46bd634be1528a55d96311"
+    },
+    {
+      "operation_id": "SiteSearchController_search",
+      "operation": "POST /v1/site-search",
+      "summary": "サイト検索",
+      "status": "planned",
+      "provider_relation": "strong_inference",
+      "confidence": "medium",
+      "evidence_state": "schema_only_provider_hypothesis",
+      "candidate_upstream_capabilities": [
+        "SERP with site: operator",
+        "Labs ranked pages"
+      ],
+      "transformation_hypothesis": [
+        "query candidate upstream dataset",
+        "normalize response fields",
+        "aggregate/filter for consumer contract"
+      ],
+      "retained_evidence": [],
+      "retained_semantic_field_count": 0,
+      "unacquired_payload_field_count": 24,
+      "execution_metadata_field_count": 1,
+      "helix_targets": [],
+      "remaining_gap": "site directory/filter contract未実装",
+      "internal_stack_claim": "not_proven",
+      "vendor_confirmation_observed": false,
+      "counterevidence_required": [
+        "upstream request/response trace tied to this operation",
+        "official implementation disclosure or equivalent first-party evidence"
+      ],
+      "external_request_executed": false,
+      "hypothesis_digest": "54cfbdbc0d4a2c747bdd6b33eed2e4a4ff04b619100bfa973bce42404cbc86bf"
+    }
+  ],
+  "external_request_executed": false,
+  "audit_digest": "6b84cb170845615ae5830def7ed6ed7c9b6c7732a90c2f3a1d279d809329a2ca"
+}

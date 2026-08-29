@@ -305,6 +305,9 @@
       <div class="subsection-head"><h3>operation別・取得／保持マトリクス</h3><p>response fieldを保持済みDB target・未取得・1:1未対応・wire shapeへ分離し、取得後に捨てる可能性と未取得を混同しません</p></div>
       <div id="public-retention-matrix-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>operation</th><th>保持mapping</th><th>payload未取得</th><th>実行meta / 未mapping</th><th>contract shape</th><th>HELIX target</th><th>digest</th></tr></thead><tbody id="public-retention-matrix-rows"></tbody></table></div>
+      <div class="subsection-head"><h3>upstream来歴・変換仮説監査</h3><p>field signatureと保持証拠から候補upstreamと変換工程を較正します。契約対応が強くても内部実装の証明とは扱いません</p></div>
+      <div id="provider-provenance-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>operation</th><th>証拠状態</th><th>候補upstream</th><th>変換仮説</th><th>保持証拠</th><th>内部実装claim</th><th>digest</th></tr></thead><tbody id="provider-provenance-rows"></tbody></table></div>
       <div class="subsection-head"><h3>外部SEOデータfield対応監査</h3><p>全field occurrenceを保持対応・未取得・input非互換・contract shape・1:1未対応へ分類します。意味対応とwire互換を混同しません</p></div>
       <div id="rakko-field-audit-summary" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>schema</th><th>field</th><th>処遇</th><th>HELIX target</th><th>判定理由</th><th>field ID</th></tr></thead><tbody id="rakko-field-audit-rows"></tbody></table></div>
