@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "5236deed30ba412ef9084fb77ef475c148188f11358bc9e0b0f4255f90ce87d1",
+  "inventory_digest": "2d4866a762c552e17a70eacdfae181e4bd3d0dd151c64ba2e11f6850afe64bb0",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1579,6 +1579,8 @@
       ],
       "remaining_gap": "/api/v1に81 GET routeを実装し、公開OpenAPI全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
+        "scripts/public-search-metadata.mjs",
+        "docs/research/evidence/public-search-metadata.json",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -1586,11 +1588,13 @@
         "scripts/test-keyword-dashboard-mcp.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-public-search-metadata.mjs",
+        "node scripts/test-public-search-metadata-api.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "49b92bba53f8fdfcebddd72860beb81fcacadc239f5968cd2625e8c912ad3a91"
+      "evidence_digest": "7f25b14423a01c3465eff09837c3129fc3ba95b2d88dd2d06821e5f353671d60"
     },
     {
       "capability_id": "mcp",
@@ -1601,8 +1605,10 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録review等63 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した日本地域1,145件・言語46件のmetadata検索を含む65 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
+        "scripts/public-search-metadata.mjs",
+        "docs/research/evidence/public-search-metadata.json",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -1610,11 +1616,13 @@
         "scripts/test-keyword-dashboard-mcp.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-public-search-metadata.mjs",
+        "node scripts/test-public-search-metadata-api.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "fb861d74aa48a85361affb1806fa2f294ad44e40881a53b7cf0a1a2363ba9da3"
+      "evidence_digest": "0f2c65092bd104c358aa8e4ee5bb4be2ecc2a31f9161f3027aa2ce2971a8efb0"
     },
     {
       "capability_id": "credit_history",
@@ -1643,5 +1651,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "0255808e28c6f95daee3ec758059dcb3806b439a4628f29191af3f5db64a9af7"
+  "audit_digest": "d179018751690cb20b0c3a48a820b345d95704b98df71daf5ebbe7ba0bc75b74"
 }
