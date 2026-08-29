@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repoRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
-const defaultRoot=path.resolve(repoRoot,"artifacts/poc/keyword-workbook-100-live/raw");
+const defaultRoots=["keyword-workbook-100-live","keyword-serp","keyword-serp-intent-pair"].map((dataset)=>path.resolve(repoRoot,`artifacts/poc/${dataset}/raw`));
 const present=(value)=>value!==null&&value!==undefined&&value!==""&&(!Array.isArray(value)||value.length>0);
 
 const projectedFields=new Set([
@@ -15,7 +15,7 @@ const projectedFields=new Set([
   "related_searches.items"
 ]);
 const genericallyProjectedItemFields=new Set(["type","rank_group","rank_absolute","page","position","xpath","title","url"]);
-const payloadProjectedItemTypes=new Set(["people_also_ask","related_searches","ai_overview","knowledge_graph","people_also_search","images","video"]);
+const payloadProjectedItemTypes=new Set(["people_also_ask","related_searches","ai_overview","knowledge_graph","people_also_search","images","video","jobs"]);
 const decisionConnectedFields=new Set([
   "result.spell","result.item_types","organic.rank_group","organic.rank_absolute","organic.domain","organic.title","organic.url","organic.breadcrumb","organic.website_name","organic.description","organic.pre_snippet","organic.timestamp","organic.highlighted","organic.links","organic.rating","organic.price","organic.is_video","organic.checks",
   "ai_overview.asynchronous_ai_overview","ai_overview.markdown","ai_overview.references","people_also_ask.items.title","people_also_ask.items.seed_question","related_searches.items"
@@ -55,6 +55,7 @@ const consumerRules=[
   [/^ai_overview\.references\[\]\.(?:position|source|domain|url|title|text)$/u,"scripts/aio-citation-analysis.mjs","reference.url","AIO citation normalization"],
   [/^ai_overview\.references\[\]\.type$/u,"scripts/aio-element-source-lineage.mjs","row.type","AIO global reference type reconciliation"],
   [/^(?:knowledge_graph|images|video)\.items\[\]/u,"scripts/serp-feature-items.mjs","feature.payload","special SERP item normalization"],
+  [/^jobs\./u,"scripts/keyword-dashboard-db.mjs","raw_snapshot_feature_evidence","retained isolated feature evidence and job-item review"],
   [/^result\.spell\.(?:keyword|type)$/u,"scripts/serp-action-signals.mjs","task.spell","spelling correction guidance"]
   ,[/^(?:people_also_ask|related_searches|ai_overview|knowledge_graph|people_also_search|images|video)\.(?:type|rank_group|rank_absolute|page|position|xpath|title|subtitle|description|image_url|url)$/u,"scripts/serp-feature-placement.mjs","feature.rank_absolute","feature placement and prominence evidence"]
   ,[/^people_also_search\.items\[\]$/u,"scripts/serp-feature-items.mjs","typeof value","special feature text-item normalization"]
@@ -64,18 +65,20 @@ const decisionLeafOverrides=[/^ai_overview\.references\[\]\./u,/^ai_overview\.it
 const purposeForLeaf=(field)=>{if(decisionLeafOverrides.some((pattern)=>pattern.test(field)))return"decision_connected";for(const ancestor of ancestors(field)){const classification=classificationFor(ancestor);if(classification!=="unclassified")return classification}return"evidence_only"};
 const walkLeaves=(value,prefix,bump)=>{if(value==null||value==="")return;if(Array.isArray(value)){if(!value.length)return;for(const item of value)typeof item==="object"&&item!==null?walkLeaves(item,`${prefix}[]`,bump):bump(`${prefix}[]`);return}if(typeof value==="object"){for(const [key,item] of Object.entries(value))walkLeaves(item,`${prefix}.${key}`,bump);return}bump(prefix)};
 
-export function auditSerpDataCoverage(rawRoot=defaultRoot){
-  const files=readdirSync(rawRoot).filter((name)=>name.endsWith(".json")).sort();
+export function auditSerpDataCoverage(rawRoots=defaultRoots){
+  const roots=(Array.isArray(rawRoots)?rawRoots:[rawRoots]).map((root)=>path.resolve(root));
+  const entries=roots.flatMap((root)=>readdirSync(root).filter((name)=>name.endsWith(".json")).sort().map((name)=>({root,name,dataset:path.basename(path.dirname(root))})));
   const captured=new Map();
   const rawLeafCaptured=new Map(),bumpLeaf=(field)=>rawLeafCaptured.set(field,(rawLeafCaptured.get(field)??0)+1);
   const bump=(field,amount=1)=>captured.set(field,(captured.get(field)??0)+amount);
   const booleanObservations=new Map(),observeBoolean=(field,value)=>{const row=booleanObservations.get(field)??{field,observed_count:0,true_count:0,false_count:0};row.observed_count+=1;value===true||value===1?row.true_count+=1:row.false_count+=1;booleanObservations.set(field,row)};
   const itemTypes=new Map();
   let paaQuestions=0,paaAnswers=0,paaReferences=0,aioItems=0,aioReferences=0;
-  for(const name of files){
-    const task=JSON.parse(readFileSync(path.join(rawRoot,name),"utf8")).tasks?.[0];
+  const taskIds=new Set(),duplicateTaskIds=[];
+  for(const {root,name} of entries){
+    const task=JSON.parse(readFileSync(path.join(root,name),"utf8")).tasks?.[0];
     const result=task?.result?.[0];
-    if(!task||!result)continue;
+    if(!task||!result)continue;if(taskIds.has(task.id)){duplicateTaskIds.push(task.id);continue}taskIds.add(task.id);
     for(const [key,value] of Object.entries(task))if(key!=="result")walkLeaves(value,`task.${key}`,bumpLeaf);for(const [key,value] of Object.entries(result))if(key!=="items")walkLeaves(value,`result.${key}`,bumpLeaf);
     for(const [field,value] of Object.entries({"task.id":task.id,"task.status_code":task.status_code,"task.status_message":task.status_message,"task.time":task.time,"task.cost":task.cost,"task.result_count":task.result_count,"task.path":task.path,"task.data.keyword":task.data?.keyword,"result.keyword":result.keyword,"result.type":result.type,"result.se_domain":result.se_domain,"result.location_code":result.location_code,"result.language_code":result.language_code,"result.check_url":result.check_url,"result.datetime":result.datetime,"result.spell":result.spell,"result.refinement_chips":result.refinement_chips,"result.item_types":result.item_types,"result.se_results_count":result.se_results_count,"result.pages_count":result.pages_count,"result.items_count":result.items_count}))if(present(value))bump(field);
     for(const item of result.items??[]){
@@ -94,7 +97,7 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
   const classifiedProjected=capturedAndProjected.map((row)=>({...row,classification:classificationFor(row.field)})),decisionConnected=classifiedProjected.filter((row)=>row.classification==="decision_connected"),evidenceOnly=classifiedProjected.filter((row)=>row.classification==="evidence_only"),unclassified=classifiedProjected.filter((row)=>row.classification==="unclassified");
   const rawLeafFields=[...rawLeafCaptured].map(([field,nonempty_count])=>{const consumer=consumerFor(field),decisionState=purposeForLeaf(field);return{field,nonempty_count,...leafProjection(field),decision_state:decisionState,consumer}}),rawOnlyLeafFields=rawLeafFields.filter((row)=>row.projection_state==="raw_only"),projectedLeafFields=rawLeafFields.filter((row)=>row.projection_state==="projected"),consumerMissingFields=rawLeafFields.filter((row)=>row.consumer?.verification_state==="missing_source_reference");
   return {
-    schema_version:"serp-data-coverage-audit.v9",raw_files:files.length,
+    schema_version:"serp-data-coverage-audit.v10",raw_files:entries.length,raw_tasks:taskIds.size,duplicate_task_ids:duplicateTaskIds,raw_dataset_summary:roots.map((root)=>({dataset:path.basename(path.dirname(root)),root:path.relative(repoRoot,root),file_count:entries.filter((entry)=>entry.root===root).length})),
     item_type_counts:Object.fromEntries(itemTypes),captured_and_projected:capturedAndProjected,captured_raw_only:capturedRawOnly,
     raw_leaf_field_summary:{field_count:rawLeafFields.length,projected_field_count:projectedLeafFields.length,raw_only_field_count:rawOnlyLeafFields.length,decision_connected_field_count:rawLeafFields.filter((row)=>row.decision_state==="decision_connected").length,evidence_only_field_count:rawLeafFields.filter((row)=>row.decision_state==="evidence_only").length,consumer_verified_field_count:rawLeafFields.filter((row)=>row.consumer?.verification_state==="verified_source_reference").length,consumer_missing_field_count:consumerMissingFields.length},raw_leaf_fields:rawLeafFields,raw_only_leaf_fields:rawOnlyLeafFields,consumer_missing_fields:consumerMissingFields,
     decision_connected:decisionConnected,evidence_only_projected:evidenceOnly,projected_but_unclassified:unclassified,projected_but_not_decision_connected:[...evidenceOnly,...unclassified],boolean_observations:[...booleanObservations.values()],
@@ -115,4 +118,4 @@ export function auditSerpDataCoverage(rawRoot=defaultRoot){
   };
 }
 
-if(process.argv[1]===fileURLToPath(import.meta.url))console.log(JSON.stringify(auditSerpDataCoverage(process.argv[2]?path.resolve(process.argv[2]):defaultRoot),null,2));
+if(process.argv[1]===fileURLToPath(import.meta.url))console.log(JSON.stringify(auditSerpDataCoverage(process.argv[2]?path.resolve(process.argv[2]):defaultRoots),null,2));
