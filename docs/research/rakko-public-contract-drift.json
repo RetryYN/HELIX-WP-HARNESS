@@ -1,7 +1,9 @@
 {
   "schema_version":"rakko-public-contract-drift.v1",
-  "checked_at":"2026-08-29",
-  "source":"retained official OpenAPI 3.1.1 plus current official function index",
+  "checked_at":"2026-08-30",
+  "source":"live official OpenAPI 3.1.1 plus current official AI integration guide and function update index",
+  "openapi_contract":{"document_version":"1.14.4","openapi_version":"3.1.1","source_sha256":"9787b2c19662e9b1946ae1fa4de539f4f8e1493f47b5a220d58410e011fe2573","schema_count":41,"field_count":952,"live_drift_detected":false},
+  "mcp_contract":{"transport":"streamable_http_stateless","http_methods":["POST"],"protocol":"json_rpc_2.0","authentication":["oauth_2_1_cimd","oauth_2_1_dynamic_client_registration","api_key"],"rate_limit_requests":60,"rate_limit_window_seconds":60,"api_feature_family_count":14,"api_feature_parity_claimed":true,"content_creation_helpers_available":false,"credit_multiplier_vs_web":1.5},
   "operation_count":24,
   "new_inventory_capabilities":[{"id":"seo_difficulty","reason":"current official function index exposes a dedicated SEO difficulty guide and contract"}],
   "api_credit_contracts":[
