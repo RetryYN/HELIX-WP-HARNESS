@@ -9,6 +9,7 @@ const outputDir=path.resolve(process.env.WP_ACQUISITION_OUTPUT??`.helix/evidence
 const approvedCap=Number(process.env.WP_APPROVED_BUDGET_USD);
 const lifetimeCap=Number(process.env.WP_LIFETIME_TEST_BUDGET_USD??5);
 const evidenceRoot=path.resolve(process.env.WP_ACQUISITION_EVIDENCE_ROOT??path.dirname(outputDir));
+const legacyCostEvidencePath=path.resolve(process.env.WP_LEGACY_ACQUISITION_COST_EVIDENCE??"artifacts/poc/keyword-workbook-100-live/result.json");
 const login=process.env.DFS_LOGIN,password=process.env.DFS_PASSWORD;
 if(!login||!password)throw new Error("DFS_LOGIN and DFS_PASSWORD are required");
 if(!Number.isFinite(approvedCap)||approvedCap<=0)throw new Error("WP_APPROVED_BUDGET_USD must be a positive number");
@@ -29,7 +30,10 @@ if(approval?.price_expired)throw new Error("price snapshot expired");
 if(portfolio?.summary?.remediation_task_count!==98||portfolio?.summary?.batch_count!==1)throw new Error("approved scope must be exactly 98 tasks in one batch");
 if(Number(portfolio.summary.maximum_cost_usd)>approvedCap)throw new Error(`plan maximum ${portfolio.summary.maximum_cost_usd} exceeds approved cap ${approvedCap}`);
 if(approval.candidate_count!==98||approval.batch_count!==1||approval.maximum_cost?.amount!==portfolio.summary.maximum_cost_usd)throw new Error("approval manifest does not match portfolio");
-const lifetimeBudget=auditAcquisitionLifetimeBudget(evidenceRoot,{lifetimeCapUsd:lifetimeCap,plannedMaximumCostUsd:Number(portfolio.summary.maximum_cost_usd),candidateSetDigest:approval.candidate_set_digest,excludeRunPath:outputDir});
+let legacyCostEvidence;try{legacyCostEvidence=JSON.parse(await readFile(legacyCostEvidencePath,"utf8"))}catch(error){throw new Error(`lifetime cost evidence is required and unreadable: ${legacyCostEvidencePath}: ${error.message}`)}
+if(!Array.isArray(legacyCostEvidence.tasks)||!legacyCostEvidence.tasks.length)throw new Error(`lifetime cost evidence has no task ledger: ${legacyCostEvidencePath}`);
+const legacyCommittedEntries=legacyCostEvidence.tasks.map((row)=>({source_id:row.task_id,cost:row.cost,observed_at:row.observed_at,source_digest:row.response_digest}));
+const lifetimeBudget=auditAcquisitionLifetimeBudget(evidenceRoot,{lifetimeCapUsd:lifetimeCap,plannedMaximumCostUsd:Number(portfolio.summary.maximum_cost_usd),candidateSetDigest:approval.candidate_set_digest,excludeRunPath:outputDir,legacyCommittedEntries});
 if(!lifetimeBudget.within_lifetime_cap)throw new Error(`lifetime test budget exceeded: committed ${lifetimeBudget.committed_cost_usd} + planned ${lifetimeBudget.planned_maximum_cost_usd} > ${lifetimeBudget.lifetime_cap_usd} USD`);
 if(lifetimeBudget.duplicate_candidate_set_submitted)throw new Error("candidate set was already submitted; duplicate paid execution is forbidden");
 const candidates=portfolio.candidates;

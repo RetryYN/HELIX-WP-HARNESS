@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "1ab82665fe1e6c236d381551a3167c0429d01c5660e2d3855f2c1b2e363f8646",
+  "inventory_digest": "2fdf6c3c1f30ea74b88c06e34b9d159595c445b1a7a843364dfbe829c23f0714",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -442,7 +442,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。さらに全取得portfolioを生涯累計5 USDへ横断配分し、確定0.1014 USD控除後に6,510候補・4.8984 USDをplan-only選択、4,182延期。前回試行済97補完taskは再試行reviewへ隔離し二重取得を防止。選択6,510候補を機能別・最大100件のimmutable 67 batchへ固定し、候補集合・batch・費用digest、累計4.9998 USD整合、価格再確認・正確な承認challenge、実行権限falseを実装。latest/monthly/difficulty実測とprovider job実行は未取得",
+      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。さらに全取得portfolioを生涯累計5 USDへ横断配分し、確定0.3014 USD控除後に6,243候補・4.69815 USDをplan-only選択、4,182延期。前回試行済97補完taskは再試行reviewへ隔離し二重取得を防止。選択6,243候補を機能別・最大100件のimmutable 64 batchへ固定し、候補集合・batch・費用digest、累計4.99955 USD整合、価格再確認・正確な承認challenge、実行権限falseを実装。latest/monthly/difficulty実測とprovider job実行は未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -506,7 +506,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "9ee713d3da05e603cab10500f71e6b1eaabe65c1b91ba44774773e3d834af0d7"
+      "evidence_digest": "f5dc7872e941759e85da6bf7d06a0b436971a2f7667a2cfe10b75642344381ea"
     },
     {
       "capability_id": "seo_difficulty",
@@ -1950,7 +1950,7 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "DFSのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.1014 USD・残4.8986 USDを監査し、全portfolio配分後も合計4.9998 USDに制限し、6,510候補を67 immutable batchへ固定。価格再確認・正確な承認challengeが未充足のため実行権限false。Rakko credit換算・Rakko account/API key lifecycleは未取得・未実装",
+      "remaining_gap": "DFSのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.3014 USD・残4.6986 USDを監査し、全portfolio配分後も合計4.99955 USDに制限し、6,243候補を64 immutable batchへ固定。価格再確認・正確な承認challengeが未充足のため実行権限false。Rakko credit換算・Rakko account/API key lifecycleは未取得・未実装",
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
@@ -1965,8 +1965,8 @@
         "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
         "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
+      "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "7a8b5964b4b534f840b08b29f64ce322b9b12590bea200d945ca7237a7af7bfd"
+  "audit_digest": "7ffc8a00475b6d9d5a44c4328c7e884fb39988a4a3c0f369ea9ca9eb4bcb4ff0"
 }
