@@ -217,6 +217,12 @@ raw snapshot自体は保持しているため再投影は可能である。v23�
 non-empty fieldはすべて専用列または`serp_feature_occurrences.payload_json`へ投影済みで、rawにしか
 残らないfieldは0件だった。ただし「保存済み」と「意思決定へ接続済み」は別であり、後者は未接続が残る。
 
+注: 上記は当時の主分析corpus 100件に対する履歴記録である。現行v10監査は公開raw 3 dataset・110 taskへ拡張し、
+195 primitive leaf fieldを検査する。追加で見つかった`jobs`系16 fieldは
+`raw_snapshot_feature_evidence`へpayload、snapshot digest、evidence digest付きで構造化し、別corpus登録レビューから
+検索可能にした。195 fieldすべて投影・consumer検証済み、raw-only 0である。求人featureは現行サイトへ自動割当せず、
+施策判断にも昇格させない証拠専用データとして扱う。
+
 ### 10.1 rawからDBへ投影済み
 
 - task ID、seed keyword、cost、observed time、snapshot path、SHA-256 digest
