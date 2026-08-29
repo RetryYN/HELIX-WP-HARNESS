@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "3c0ba3622ae604babc1b286b4d6e438fefb129f14319df1c641b799ae6032368",
+  "inventory_digest": "1ab82665fe1e6c236d381551a3167c0429d01c5660e2d3855f2c1b2e363f8646",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -219,6 +219,7 @@
       ],
       "remaining_gap": "489質問候補をsource→occurrence→SERP task→回答状態→記事coverageへ接続しlineage異常0。PAA 581 occurrenceを276正規化node・148親子edge・最大深度3へ展開。循環4 node/6 edgeと複数親23 nodeを見出し階層reviewへ隔離し、非循環単一親64 nodeのみ編集候補。回答は解決12・未解決569。解決済み8件を質問候補lineageへ接続し、未接続4件も回答本文・出典URL・表を再取得なしの編集reviewとしてAPI/MCP/UIへ接続。100 seed外の大規模質問index・相対検索量・未解決569件のcompletionは未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -244,6 +245,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -278,7 +281,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "8354539afdf0656ad6a8898db38b9738c843297ffad46e01487ff13da6344f80"
+      "evidence_digest": "0f322032fb77a6f8883afc21595ab24fa87078adc66bb5f9072d9210b3c56ba0"
     },
     {
       "capability_id": "lsi_paa",
@@ -291,6 +294,7 @@
       ],
       "remaining_gap": "PAA 276 + 関連検索494 = 770固有需要を1,373 occurrenceへlossless逆引き。seed付き190 occurrenceから148親子edge・最大深度3を復元し、循環/複数親を自動見出し化しない。補完前後96同一KW cohort・2観測日を比較し、1,563需要を継続910・新規419・消失234へ分類。継続のみ安定見出し候補、変動653はreview。長期appearance history・外部大規模母集団・未解決回答569件のcompletionは未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -316,6 +320,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -350,7 +356,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "2254be6b37acf158e1f6cff34007a6e6dc80f7b54e0fcd84c8e8c4243ad83cc5"
+      "evidence_digest": "01fc387cf089c5981097484763efc1899925af823f8c2f2e07550ca03b3120d9"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -363,6 +369,7 @@
       ],
       "remaining_gap": "339同時rank relationのshared URL count・top10 overlap・reciprocal rank scoreを再計算し整合異常0。同一group 85・group横断254・top10完全一致2、boundary接続68・intent接続96・URL evidenceのみ175。共有URLから自動mergeしない。URL graph・複合intent・境界・top3/5/10安定性と記事設計を実装済み。最大5,000件のrank DB母集団は未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -388,6 +395,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -422,7 +431,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "4062166abdc8335b80cc1595441eca984abe95c3e37a19642ba5588ac4f7c97b"
+      "evidence_digest": "84d7b1bc2191fe713e97ede08b0e8f67c2798966ae4f88e8971e7505e494e229"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -435,6 +444,7 @@
       ],
       "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。さらに全取得portfolioを生涯累計5 USDへ横断配分し、確定0.1014 USD控除後に6,510候補・4.8984 USDをplan-only選択、4,182延期。前回試行済97補完taskは再試行reviewへ隔離し二重取得を防止。選択6,510候補を機能別・最大100件のimmutable 67 batchへ固定し、候補集合・batch・費用digest、累計4.9998 USD整合、価格再確認・正確な承認challenge、実行権限falseを実装。latest/monthly/difficulty実測とprovider job実行は未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -460,6 +470,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -494,7 +506,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "39737baf5c5a8cd6724092aec4f30da257f051b0dcfa27af139d210bdd1ab4d2"
+      "evidence_digest": "9ee713d3da05e603cab10500f71e6b1eaabe65c1b91ba44774773e3d834af0d7"
     },
     {
       "capability_id": "seo_difficulty",
@@ -509,6 +521,7 @@
       "authoritative_evidence": [
         "scripts/seo-difficulty-contract.mjs",
         "docs/research/rakko-public-contract-drift.json",
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -536,6 +549,8 @@
       "verification_commands": [
         "node scripts/test-seo-difficulty-contract.mjs",
         "node scripts/test-public-contract-drift.mjs",
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -570,7 +585,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "40a35b918afe4d71b08ad314f9ba15c3fc095b93af5a927dd7f566abeaec8bdd"
+      "evidence_digest": "2b41ce1984322c6b1569a08178f4277f0d837fedfb90eb3ab16aad5e43c4daea"
     },
     {
       "capability_id": "influx_keywords",
@@ -583,6 +598,7 @@
       ],
       "remaining_gap": "観測100KW×上位10 URL内はdomain/page→獲得KW・順位を逆引き可能。全rank keyword DB、subdomain/directory match、推定traffic/value/historyは未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -608,6 +624,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -642,7 +660,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "ebdf9d6786554b8f2b5d282cd24c4c31b1c7f81c65c4717a759af6e6e7f1f087"
+      "evidence_digest": "403ffcbbc46a9f573e79e51b4da503cc39a212e6d0a06239d883f26ff37d91f7"
     },
     {
       "capability_id": "influx_pages",
@@ -655,6 +673,7 @@
       ],
       "remaining_gap": "観測100KW×上位10の565ページをKW/group/rank/top-KW別に集約しUI実装。さらに保持済み同一KWの98比較からページ出現履歴1,019件（継続785・新規114・消失120）と順位・visibility差分をDB/API/MCP/UIへ接続。全rank keyword母集団、推定traffic/value、120日継続履歴は未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -680,6 +699,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -714,7 +735,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "30ea438b6c236eb89a163fca435bb74d2488842b059fea5cc2b8b274146aefef"
+      "evidence_digest": "49652c988c0611783fd9eb5da1f76a0beea524c0dfb93e1992f32079c28659a1"
     },
     {
       "capability_id": "competitive_domains",
@@ -727,6 +748,7 @@
       ],
       "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -752,6 +774,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -786,7 +810,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "30a91121a0710568f35a5bd06345da61c2807047c5dcb4c45e4ebbb9ca5eb6f5"
+      "evidence_digest": "31cf98c37a8eec683533149b25150d532456ec5114865c61ce3eaee38c4de968"
     },
     {
       "capability_id": "bulk_site_research",
@@ -841,6 +865,7 @@
       ],
       "remaining_gap": "上位10候補の取得成功535ページと取得失敗29ページのSERP代替証拠に加え、description/pre-snippet/breadcrumb/highlight/sitelink/rating/price/video属性と観測獲得KWの検索・逆引きUI/APIを実装。snippetを本文見出し・共起語へ昇格しない。全page/rank index、推定top keyword、traffic metricsは未取得",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -866,6 +891,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -900,7 +927,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "60a6d4598c373a459819045eb6f7683e1f305d395fc0c2066117e63dd1bd9840"
+      "evidence_digest": "36c7f29bbff04571ba8eecb5eb9a06f16cafad2f0217b92e9078f599c617de01"
     },
     {
       "capability_id": "search_rank",
@@ -911,8 +938,9 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "同一検索契約の2時点・98KWを履歴化し、任意domain/URLの順位・title変更に加え、domain 954件とpage 1,019件の継続／新規／消失・最良順位・visibility差分を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を圏外と断定しないrank-state oracleをDB/API/MCP/UIへ実装。100KWの週次・120日・100位監視候補ではdesktop保持証拠と同一locationのmobile未観測variantを分離。API/MCP/UIで端末とprovider location codeを明示したdigest付き契約previewを生成。さらに消費0で保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件の公開catalogで名称を完全一致検証し、公開名と数値codeの対応は別証拠として未検証のまま分離。地域名だけで数値codeがない契約、Japanese以外で内部language code対応がない契約はblockedにする。登録・実行は0。真の圏外確認、数値provider codeと公開地域名の公式対応表、mobile/地域実測、120日継続取得、provider登録job、volume/difficulty/trafficは未実装",
+      "remaining_gap": "同一検索契約の2時点・98KWを履歴化し、任意domain/URLの順位・title変更に加え、domain 954件とpage 1,019件の継続／新規／消失・最良順位・visibility差分を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を圏外と断定しないrank-state oracleをDB/API/MCP/UIへ実装。100KWの週次・120日・100位監視候補ではdesktop保持証拠と同一locationのmobile未観測variantを分離。API/MCP/UIで端末とprovider location codeを明示したdigest付き契約previewを生成。さらに消費0で保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件の公開catalogで名称を完全一致検証し、公開名と数値codeの対応は別証拠として未検証のまま分離。地域名だけで数値codeがない契約、Japanese以外で内部language code対応がない契約はblockedにする。登録・実行は0。真の圏外確認、保持100 taskのrequest・response echo・check URL三点照合でJapan=2392、Japanese=jaを100/100観測対応として証明し、全地域公式catalogは未証明のまま分離。mobile/地域実測、120日継続取得、provider登録job、volume/difficulty/trafficは未実装",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -938,6 +966,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -972,7 +1002,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "fa18250ae24a39056ba1de1e12970b544e7f28b27dbe6c1964fb3f9ce6c6fbff"
+      "evidence_digest": "ae36b298c804ef558fa72ab5894977b90788a4c6118eab697ff66d421a04126b"
     },
     {
       "capability_id": "headline",
@@ -985,6 +1015,7 @@
       ],
       "remaining_gap": "top10 acquired（18,424 headings）。H1〜H6・検索・除外語・task/group scope・ページ構造・本文文字数・平均/中央値をAPI/UI実装。top11〜20とRakko固有の除外条件wire互換は未実装",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -1010,6 +1041,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -1044,7 +1077,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "dca279193110ce47d0395c6c8a38d3ff376de9490c9bfd702974b2f0cba797be"
+      "evidence_digest": "800e6a7db43de02bf4f9e6caf95a864dc7ca1449d4faab65b305c7a87b6661c0"
     },
     {
       "capability_id": "cooccurrence",
@@ -1057,6 +1090,7 @@
       ],
       "remaining_gap": "top10 acquired。task/group/URL evidence and extra metrics implemented; top11〜20 and Rakko getDetails wire compatibility gap",
       "authoritative_evidence": [
+        "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
         "scripts/paa-question-expansion-graph.mjs",
@@ -1082,6 +1116,8 @@
         "scripts/audit-serp-data-coverage.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "node scripts/test-search-contract-code-mapping-api.mjs",
         "node scripts/test-question-lineage-oracle.mjs",
         "node scripts/test-paa-question-expansion-graph.mjs",
         "node scripts/test-paa-question-expansion-api.mjs",
@@ -1116,7 +1152,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "c2d05d6d907d32bfd3fb42ca26ac75197c9f35a1def28663d50b8d237125a24a"
+      "evidence_digest": "27e36206c5f8f3efacf879637f211ba21a621bd9d269b1f5056902961ae2c434"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -1832,7 +1868,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に94 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に95 GET routeを実装し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1862,7 +1898,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "05963a41d3d07b1834f81b6b0c7bc22907bb7d6d297896081a753e646ec9cbc0"
+      "evidence_digest": "149fb62f38bc7fbdbbbe917cc41410fd8f1793af459bbb145e8fcbebdfc42969"
     },
     {
       "capability_id": "mcp",
@@ -1873,7 +1909,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む77 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpにinitialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む78 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1903,7 +1939,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "f8761debe62effe56fec8a3b633bad9e95887f19e58e5f40b2b030afd8f06b40"
+      "evidence_digest": "b6d4b2fce3fbd82c2bef461f7bf2c1531964cc52ef4c83a7a2987236cbc11296"
     },
     {
       "capability_id": "credit_history",
@@ -1932,5 +1968,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "dc2235656939b002fc10580a98213d78aa13303a67c2e05037ae371a567bb510"
+  "audit_digest": "7a8b5964b4b534f840b08b29f64ce322b9b12590bea200d945ca7237a7af7bfd"
 }

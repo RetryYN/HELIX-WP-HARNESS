@@ -57,6 +57,8 @@
     "prototype:generation-challenger-manifest:test": "node scripts/test-generation-challenger-manifest.mjs",
     "prototype:generation-challenger-manifest:api:test": "node scripts/test-generation-challenger-manifest-api.mjs",
     "prototype:generation-challenger-result:test": "node scripts/test-generation-challenger-result-contract.mjs",
+    "prototype:search-contract-code-mapping:test": "node scripts/test-search-contract-code-mapping-oracle.mjs",
+    "prototype:search-contract-code-mapping:api:test": "node scripts/test-search-contract-code-mapping-api.mjs",
     "prototype:mcp:test": "node scripts/test-keyword-dashboard-mcp.mjs",
     "prototype:content-task-holdout:test": "node scripts/test-content-task-holdout-oracle.mjs && node scripts/test-content-task-holdout-api.mjs",
     "prototype:content-editorial-review:test": "node scripts/test-content-editorial-review-packet.mjs && node scripts/test-content-editorial-review-api.mjs && node scripts/test-content-editorial-review-ui-export.mjs && node scripts/test-content-editorial-review-import.mjs",
