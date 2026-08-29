@@ -52,6 +52,8 @@
     "prototype:generation-execution-manifest:api:test": "node scripts/test-generation-execution-manifest-api.mjs",
     "prototype:paid-test-budget-scenarios:test": "node scripts/test-paid-test-budget-scenarios.mjs",
     "prototype:paid-test-budget-scenarios:api:test": "node scripts/test-paid-test-budget-scenarios-api.mjs",
+    "prototype:content-rich-block-plan:test": "node scripts/test-content-rich-block-plan.mjs",
+    "prototype:content-rich-block-plan:api:test": "node scripts/test-content-rich-block-plan-api.mjs",
     "prototype:mcp:test": "node scripts/test-keyword-dashboard-mcp.mjs",
     "prototype:content-task-holdout:test": "node scripts/test-content-task-holdout-oracle.mjs && node scripts/test-content-task-holdout-api.mjs",
     "prototype:content-editorial-review:test": "node scripts/test-content-editorial-review-packet.mjs && node scripts/test-content-editorial-review-api.mjs && node scripts/test-content-editorial-review-ui-export.mjs && node scripts/test-content-editorial-review-import.mjs",
