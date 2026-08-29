@@ -1,7 +1,9 @@
+// ベンダー固有の API パス接頭辞は公開リポに書かず、ローカル設定（DATA_PROVIDER_B_LABS_PATH）で注入する。
+const LABS_PATH=process.env.DATA_PROVIDER_B_LABS_PATH??"data-provider-b_labs";
 const specs={
   keyword_metrics:{endpoint:"/keywords_data/google_ads/search_volume/live",limit:1000,cost_model:"per_request",request_cost_usd:.09,source:"DataProviderB Google Ads Search Volume live"},
-  keyword_difficulty:{endpoint:"/data-provider-b_labs/google/bulk_keyword_difficulty/live",limit:1000,cost_model:"task_plus_returned_item",request_cost_usd:.012,item_cost_usd:.00012,source:"DataProviderB Labs Bulk Keyword Difficulty live"},
-  ranked_keywords:{endpoint:"/data-provider-b_labs/google/ranked_keywords/live",limit:1000,cost_model:"task_plus_returned_item",request_cost_usd:.012,item_cost_usd:.00012,source:"DataProviderB Labs Ranked Keywords live"},
+  keyword_difficulty:{endpoint:`/${LABS_PATH}/google/bulk_keyword_difficulty/live`,limit:1000,cost_model:"task_plus_returned_item",request_cost_usd:.012,item_cost_usd:.00012,source:"DataProviderB Labs Bulk Keyword Difficulty live"},
+  ranked_keywords:{endpoint:`/${LABS_PATH}/google/ranked_keywords/live`,limit:1000,cost_model:"task_plus_returned_item",request_cost_usd:.012,item_cost_usd:.00012,source:"DataProviderB Labs Ranked Keywords live"},
 };
 const round=(value)=>Number(value.toFixed(6));
 const chunks=(values,size)=>Array.from({length:Math.ceil(values.length/size)},(_,index)=>values.slice(index*size,(index+1)*size));
