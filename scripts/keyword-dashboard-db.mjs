@@ -42,6 +42,7 @@ import {attachEditorialDecisionProgress,buildContentEditorialReviewPacket} from 
 import {buildDemandOccurrenceIntegrity} from "./demand-occurrence-integrity.mjs";
 import {buildSimultaneousRankIntegrity} from "./simultaneous-rank-integrity.mjs";
 import {buildRankMonitorPlan} from "./rank-monitor-plan.mjs";
+import {buildSearchContractCodeMappingOracle} from "./search-contract-code-mapping-oracle.mjs";
 import {buildSeoActionQueue} from "./seo-action-queue.mjs";
 import {buildKeywordAcquisitionPortfolio} from "./keyword-acquisition-portfolio.mjs";
 import {buildTitleRepairOracle} from "./title-repair-oracle.mjs";
@@ -634,7 +635,7 @@ export function projectDashboard(db) {
     const siteContractRows=acquisitionContractFulfillment.rows.filter((row)=>row.site_id===site.site_id);site.acquisition_contract_fulfillment={policy:acquisitionContractFulfillment.policy,rows:siteContractRows,summary:{task_count:siteContractRows.length,expansion_required_count:siteContractRows.filter((row)=>row.fulfillment_state==="expansion_required").length,fulfilled_or_not_applicable_count:siteContractRows.filter((row)=>row.fulfillment_state!=="expansion_required").length,aio_async_load_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("aio_async_load_not_requested")).length,paa_click_depth_not_requested_count:siteContractRows.filter((row)=>row.review_codes.includes("paa_click_depth_not_requested")).length,recorded_cost_usd:Number(siteContractRows.reduce((sum,row)=>sum+row.cost_usd,0).toFixed(8)),auto_retrieval_count:0}};site.acquisition_remediation_portfolio=buildAcquisitionRemediationPortfolio(siteContractRows,[...taskScopeById.values()].filter((row)=>row.site_id===site.site_id));site.acquisition_execution_readiness=buildAcquisitionExecutionReadiness(site.acquisition_remediation_portfolio);site.acquisition_approval_manifest=buildAcquisitionApprovalManifest(site.acquisition_remediation_portfolio,site.acquisition_execution_readiness);
     site.association_evidence_oracle=buildAssociationEvidenceOracle(site.lexical_index.associations,keywordInventory.filter((row)=>row.site_id===site.site_id));
     site.variant_evidence_oracle=buildVariantEvidenceOracle(site.lexical_index.variant_clusters,keywordInventory.filter((row)=>row.site_id===site.site_id));
-    const siteTaskIds=new Set(groups.filter((group)=>group.site_id===site.site_id).flatMap((group)=>group.task_ids));
+    const siteTaskIds=new Set(groups.filter((group)=>group.site_id===site.site_id).flatMap((group)=>group.task_ids));site.search_contract_code_mapping_oracle=buildSearchContractCodeMappingOracle(serpTaskMetadata.filter((row)=>siteTaskIds.has(row.task_id)));
     site.qa_site_evidence=buildRetainedQaSiteEvidence(serpOrganicResults,[...taskScopeById.values()].filter((row)=>row.site_id===site.site_id),competitorPages);
     site.semantic_candidate_review=buildSemanticCandidateReview(site.association_evidence_oracle.rows,serpOrganicResults,siteTaskIds);
     site.suggest_evidence_oracle=buildSuggestEvidenceOracle(keywordInventory.filter((row)=>row.site_id===site.site_id));
