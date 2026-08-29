@@ -35,6 +35,8 @@
     "research:public-credit:test": "node scripts/test-public-contract-drift.mjs && node scripts/test-public-api-credit-estimator.mjs && node scripts/test-public-api-credit-estimator-api.mjs",
     "research:public-operation-graph:build": "node scripts/build-public-api-operation-graph.mjs",
     "research:public-operation-graph:test": "node scripts/test-public-api-operation-graph.mjs && node scripts/test-public-api-operation-graph-api.mjs",
+    "research:public-retention:build": "node scripts/build-public-api-retention-matrix.mjs",
+    "research:public-retention:test": "node scripts/test-public-api-retention-matrix.mjs && node scripts/test-public-api-retention-matrix-api.mjs",
     "research:serp-data-audit:build": "node scripts/build-serp-data-coverage-audit.mjs",
     "research:serp-data-audit:test": "node scripts/test-serp-data-coverage.mjs",
     "reference:japan-locations:refresh": "node scripts/acquire-japan-location-data.mjs",
