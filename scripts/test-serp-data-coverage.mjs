@@ -11,8 +11,8 @@ assert.equal(audit.acquired_but_empty_or_incomplete.paa_questions,396);
 assert.equal(audit.acquired_but_empty_or_incomplete.paa_answer_items,0,"PAA questions are present but answers were not expanded/acquired");
 assert.equal(audit.acquired_but_empty_or_incomplete.aio_items,69);
 assert.equal(audit.acquired_but_empty_or_incomplete.aio_references,96);
-assert.equal(audit.schema_version,"serp-data-coverage-audit.v6");
-assert.deepEqual(audit.raw_leaf_field_summary,{field_count:179,projected_field_count:179,raw_only_field_count:0,decision_connected_field_count:179,evidence_only_field_count:0,consumer_verified_field_count:179,consumer_missing_field_count:0});
+assert.equal(audit.schema_version,"serp-data-coverage-audit.v7");
+assert.deepEqual(audit.raw_leaf_field_summary,{field_count:179,projected_field_count:179,raw_only_field_count:0,decision_connected_field_count:78,evidence_only_field_count:101,consumer_verified_field_count:179,consumer_missing_field_count:0});
 assert.equal(audit.raw_leaf_fields.length,179,"every non-empty primitive leaf path in raw DFS snapshots must be inventoried");
 assert.deepEqual(audit.raw_only_leaf_fields,[],"every observed raw leaf must resolve to a structured, normalized, ancestor-JSON, or feature-payload projection");
 assert.ok(audit.raw_leaf_fields.some((row)=>row.field==="organic.links[].description"&&row.nonempty_count===5&&row.projection_ancestor==="organic.links"&&row.storage_kind==="ancestor_json"));
@@ -21,6 +21,7 @@ assert.ok(audit.raw_leaf_fields.some((row)=>row.field==="organic.rank_group"&&ro
 assert.ok(audit.raw_leaf_fields.some((row)=>row.field==="organic.links[].description"&&row.consumer?.file==="scripts/keyword-dashboard-api.mjs"&&row.consumer.verification_state==="verified_source_reference"));
 assert.ok(audit.raw_leaf_fields.some((row)=>row.field==="organic.timestamp"&&row.decision_state==="decision_connected"&&row.consumer?.file==="scripts/serp-freshness-signals.mjs"));
 assert.ok(audit.raw_leaf_fields.some((row)=>row.field==="ai_overview.references[].type"&&row.decision_state==="decision_connected"&&row.consumer?.file==="scripts/aio-element-source-lineage.mjs"));
+assert.ok(audit.raw_leaf_fields.some((row)=>row.field==="task.id"&&row.decision_state==="evidence_only"&&row.consumer?.verification_state==="verified_source_reference"),"being retained and consumed must not falsely imply use in an SEO decision");
 assert.deepEqual(audit.consumer_missing_fields,[],"a declared decision consumer must have a verified source token");
 assert.deepEqual(audit.captured_raw_only,[],"every non-empty field in the current 100 snapshots must remain queryable in a dedicated or generic projection");
 assert.ok(audit.captured_and_projected.some((row)=>row.field==="organic.description"&&row.nonempty_count===918),"organic descriptions must be projected for content planning");
