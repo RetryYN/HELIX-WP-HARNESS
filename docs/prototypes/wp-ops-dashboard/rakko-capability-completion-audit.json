@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "984a57e1c7f18c9c09dd0c35ff3e3ce6438568838a16a541303fa59e59d00208",
+  "inventory_digest": "ad2a86f093080eb0d4c3f171f233cbc0dc282d99b2d6227e287abba08452be19",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -746,7 +746,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。さらに現行219 domainをKW・page・content取得状態・履歴へ統合した観測site directoryと、共有KW・group・順位重みから1,797 domain edgeを持つ類似graphを追加（孤立0、最大共有KW 32）。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）を既存group拡張reviewへ接続。さらに27件を既存記事11本の拡張review、59件を新規記事reviewへroutingし、公開blocker 85件を接続。既存記事27件はGSC query coverage 12、記事coverage 80%以上・query未観測6、部分coverage gap review 9へ再分類し、観測順位不在だけで追記しないgateを追加。新規記事59件もtopologyで既存記事境界review 4・別記事＋内部link review 5・計画group review 17・直接新規review 33へ分離。直接新規33候補はgroup単位で28記事briefへ集約し、重複記事候補5件を抑止、最大4KW/brief、title・outline接続28/28、公開block 28、自動作成0。カニバリ断定なし。圏外・全市場gap・traffic機会・順位効果とは断定せず、自動編集・公開0。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
+      "remaining_gap": "観測100KW×上位10 URLのdomain被覆graph・サイト別UIを実装。さらに保持済み同一KWの98比較からdomain履歴954件（継続789・新規81・消失84）、最良順位・URL数・visibility差分をDB/API/MCP/UIへ接続。さらに現行219 domainをKW・page・content取得状態・履歴へ統合した観測site directoryと、共有KW・group・順位重みから1,797 domain edgeを持つ類似graphを追加（孤立0、最大共有KW 32）。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）を既存group拡張reviewへ接続。さらに27件を既存記事11本の拡張review、59件を新規記事reviewへroutingし、公開blocker 85件を接続。既存記事27件はGSC query coverage 12、記事coverage 80%以上・query未観測6、部分coverage gap review 9へ再分類し、観測順位不在だけで追記しないgateを追加。新規記事59件もtopologyで既存記事境界review 4・別記事＋内部link review 5・計画group review 17・直接新規review 33へ分離。直接新規33候補はgroup単位で28記事briefへ集約し、重複記事候補5件を抑止、最大4KW/brief、title・outline接続28/28、構成review 10（選択見出しreview 11件）・claim/citation準備18へ編集段階を分離、公開block 28、自動作成0。カニバリ断定なし。圏外・全市場gap・traffic機会・順位効果とは断定せず、自動編集・公開0。全rank keyword母集団、全検索市場を分母にした重複率、推定traffic/valueは未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -810,7 +810,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "559259da4f5365b7f206ac39df1c29a6f60bf50f3a4af97a5f1b9ab372defb4f"
+      "evidence_digest": "9ea7ce2f3b95c9027aa0ffb359586d4e2c4fd152158c021929fdfd4adf6ea9f1"
     },
     {
       "capability_id": "bulk_site_research",
@@ -842,7 +842,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移に加え、保持top10の観測site directory 219 domainを獲得KW・page・最良順位・content取得・2時点履歴付きで実装。content接続205 domainは最終host完全一致、履歴接続138 domainで、未知Web全体・traffic推定ではない。さらに219 domain・1,797 edgeの観測類似graphで共有KW/group/Jaccard/順位重みを検索可能。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）をreview可能。27件を既存記事11本の拡張review、59件を新規記事reviewへrouting。既存記事はquery coverage 12・強coverage 6・部分gap review 9へ再分類。新規59件も既存記事境界4・内部link 5・計画group 17・直接新規33へtopology分類。直接新規33候補は28記事briefへ集約し、重複5件を抑止、最大4KW/brief、title・outline接続28/28、公開block 28、自動変更0。外部domain/content index、推定trafficによる未知site検索は未取得",
+      "remaining_gap": "登録site directoryのlabel/domain検索と比較画面遷移に加え、保持top10の観測site directory 219 domainを獲得KW・page・最良順位・content取得・2時点履歴付きで実装。content接続205 domainは最終host完全一致、履歴接続138 domainで、未知Web全体・traffic推定ではない。さらに219 domain・1,797 edgeの観測類似graphで共有KW/group/Jaccard/順位重みを検索可能。対象domainの観測近傍8 domainから、保持depth内で対象を観測できないKW 86件（複数近傍支持50件）をreview可能。27件を既存記事11本の拡張review、59件を新規記事reviewへrouting。既存記事はquery coverage 12・強coverage 6・部分gap review 9へ再分類。新規59件も既存記事境界4・内部link 5・計画group 17・直接新規33へtopology分類。直接新規33候補は28記事briefへ集約し、重複5件を抑止、最大4KW/brief、title・outline接続28/28、構成review 10・claim/citation準備18へ編集段階を分離、公開block 28、自動変更0。外部domain/content index、推定trafficによる未知site検索は未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-dashboard-api.mjs",
@@ -852,7 +852,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "20b834b903a2478ca8817e91c0f0674a6176543d6af410d9fd007cab4e268394"
+      "evidence_digest": "08bc6d97de3a70120fc6705b3a8d8147cdfdcb20adccaadfcea6446f27359613"
     },
     {
       "capability_id": "content_search",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "d5bb8a56e4de8f5379b93eab496f485a2b8b7d509589754d095ace476a80648e"
+  "audit_digest": "9d6ef0c017955414faa253d6ea9aac0df975008ec3b330fb0fbc322283a0b0f3"
 }
