@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-26",
-  "inventory_digest": "53654c5f08388520cebd66750d8afff26a6ece3111e9b7b27e35771072de67b8",
+  "inventory_digest": "de5fce9c13ffcb045499b3eda1e16612d1ef9b5086737dec77c9e2ce2792b66c",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -88,7 +88,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "489質問候補をsource→occurrence→SERP task→回答状態→記事coverageへ接続しlineage異常0。PAA 581 occurrenceを276正規化node・148親子edge・最大深度3へ展開。循環4 node/6 edgeと複数親23 nodeを見出し階層reviewへ隔離し、非循環単一親64 nodeのみ編集候補。回答は解決12・未解決569で、100 seed外の大規模質問index・相対検索量・回答completionは未取得",
+      "remaining_gap": "489質問候補をsource→occurrence→SERP task→回答状態→記事coverageへ接続しlineage異常0。PAA 581 occurrenceを276正規化node・148親子edge・最大深度3へ展開。循環4 node/6 edgeと複数親23 nodeを見出し階層reviewへ隔離し、非循環単一親64 nodeのみ編集候補。回答は解決12・未解決569。解決済み8件を質問候補lineageへ接続し、未接続4件も回答本文・出典URL・表を再取得なしの編集reviewとしてAPI/MCP/UIへ接続。100 seed外の大規模質問index・相対検索量・未解決569件のcompletionは未取得",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -149,7 +149,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "5eea097e1465efdacbb6c9e4adf8976d2887bee3f01358d77193f927b4b7c460"
+      "evidence_digest": "8354539afdf0656ad6a8898db38b9738c843297ffad46e01487ff13da6344f80"
     },
     {
       "capability_id": "lsi_paa",
@@ -1563,5 +1563,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "cb57af01c069692c764b4026fda63702c17af9f2b0952a47d5e38818dbbe1bdf"
+  "audit_digest": "69425967bc8b71ab7d2117205ff6f592a553f60de8b7b8adbe42105bfd9a26d4"
 }
