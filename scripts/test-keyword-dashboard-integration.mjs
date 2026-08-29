@@ -423,7 +423,7 @@ assert.match(app,/元KW台帳/);assert.match(app,/siteInventory\.filter/);
 assert.match(app,/data\.raw_snapshot_inventory/);assert.match(app,/分析未接続/);assert.match(app,/rawInventoryRows/);
 assert.match(app,/snapshot_reuse_audit/);assert.match(app,/snapshot-history-rows/);assert.match(app,/同一KW履歴へ接続/);assert.match(html,/raw取得台帳（再利用監査）/);assert.match(html,/snapshot-reuse-metrics/);
 assert.match(app,/isolated_corpus_review/);assert.match(app,/isolated-corpus-rows/);assert.match(html,/別corpus登録レビュー/);assert.match(html,/isolated-corpus-metrics/);
-assert.match(app,/requested_contract_preview|rank-monitor-device/);assert.match(html,/rank-monitor-device/);assert.match(html,/rank-monitor-location/);
+assert.match(app,/requested_contract_preview|rank-monitor-device/);assert.match(app,/validateRankMonitorMetadata/);assert.match(html,/rank-monitor-device/);assert.match(html,/rank-monitor-location/);assert.match(html,/rank-monitor-location-name/);assert.match(html,/rank-monitor-language-name/);
 assert.match(app,/qa_appearance_history/);assert.match(app,/renderQaAppearanceHistory/);assert.match(app,/qa-site-copy/);assert.match(html,/qa-history-rows/);assert.match(html,/Q&Aページ出現履歴/);assert.match(html,/証拠をコピー/);
 assert.match(app,/snapshot-target-rows/);assert.match(app,/retained-target-rank-track\.v2/);assert.match(app,/観測なし（depth/);assert.match(app,/圏外確定なし/);assert.doesNotMatch(app,/previous_rank\?\?"圏外"/);assert.match(html,/保持履歴のtarget順位track/);assert.match(html,/snapshot-target-mode/);
 assert.match(app,/wp_paragraph_summaries/);assert.match(app,/renderParagraphStructures/);assert.match(html,/本文非保持の段落構造/);assert.match(html,/paragraph-structure-table/);

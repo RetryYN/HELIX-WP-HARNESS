@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "2d4866a762c552e17a70eacdfae181e4bd3d0dd151c64ba2e11f6850afe64bb0",
+  "inventory_digest": "8e6e65b3c9f7f0ecd86fe6f540dea30bc9b283fcabbeebc27488c05b88fd03f7",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -782,7 +782,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "同一検索契約の2時点・98KWを履歴化し、任意domain/URLの順位・title変更に加え、domain 954件とpage 1,019件の継続／新規／消失・最良順位・visibility差分を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を圏外と断定しないrank-state oracleをDB/API/MCP/UIへ実装。100KWの週次・120日・100位監視候補ではdesktop保持証拠と同一locationのmobile未観測variantを分離。API/MCP/UIで端末とprovider location codeを明示したdigest付き契約previewを生成し、地域codeはuser supplied/unverifiedとして保持証拠と分離する。登録・実行は0。真の圏外確認、provider地域metadata全件、mobile/地域実測、120日継続取得、provider登録job、volume/difficulty/trafficは未実装",
+      "remaining_gap": "同一検索契約の2時点・98KWを履歴化し、任意domain/URLの順位・title変更に加え、domain 954件とpage 1,019件の継続／新規／消失・最良順位・visibility差分を追跡。各snapshotの実観測depthとobserved/not_observed_within_depthを保持し、集合への出現・退出を圏外と断定しないrank-state oracleをDB/API/MCP/UIへ実装。100KWの週次・120日・100位監視候補ではdesktop保持証拠と同一locationのmobile未観測variantを分離。API/MCP/UIで端末とprovider location codeを明示したdigest付き契約previewを生成。さらに消費0で保持した日本地域1,145件・言語46件の公開catalogで名称を完全一致検証し、公開名と数値codeの対応は別証拠として未検証のまま分離。地域名だけで数値codeがない契約、Japanese以外で内部language code対応がない契約はblockedにする。登録・実行は0。真の圏外確認、数値provider codeと公開地域名の公式対応表、mobile/地域実測、120日継続取得、provider登録job、volume/difficulty/trafficは未実装",
       "authoritative_evidence": [
         "scripts/keyword-dashboard-db.mjs",
         "scripts/question-lineage-oracle.mjs",
@@ -843,7 +843,7 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "088c096cd8063951ff28d586f2f162d9801e812ec6e3bc746573da32d2522480"
+      "evidence_digest": "15c20682df1865e390aea1a3920a0668fc52c89c0212af690c014deae402febd"
     },
     {
       "capability_id": "headline",
@@ -1651,5 +1651,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "d179018751690cb20b0c3a48a820b345d95704b98df71daf5ebbe7ba0bc75b74"
+  "audit_digest": "3b493e4ae5b76040d110dc8e3fd40a3cda082bdbf44db019bb08df40895d3933"
 }
