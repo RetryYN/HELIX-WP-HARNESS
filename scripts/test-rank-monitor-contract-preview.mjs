@@ -1,0 +1,8 @@
+import assert from "node:assert/strict";
+import {previewRankMonitorContracts} from "./rank-monitor-contract-preview.mjs";
+
+const rows=[{site_id:"s",group_id:"g",keyword:"検索語",source_task_id:"t",target:"example.com",contract:{location_code:2392,language_code:"ja",se_domain:"google.com",device:"desktop",os:null},coverage_contracts:[{location_code:2392,language_code:"ja",se_domain:"google.com",device:"desktop",os:null,evidence_state:"retained_observation"}]}];
+const mobile=previewRankMonitorContracts(rows,{device:"mobile"})[0];assert.equal(mobile.contract.location_code,2392);assert.equal(mobile.contract.os,"android");assert.equal(mobile.device_evidence_state,"planned_unobserved_variant");assert.equal(mobile.location_evidence_state,"retained_observation");assert.equal(mobile.registration_state,"preview_only_not_registered");assert.equal(mobile.preview_digest.length,64);
+const regional=previewRankMonitorContracts(rows,{device:"mobile",locationCode:2128})[0];assert.equal(regional.regional_variant,true);assert.equal(regional.location_code_explicit,true);assert.equal(regional.location_evidence_state,"user_supplied_unverified_provider_code");assert.equal(regional.contract_review_state,"ready_for_registration_review");assert.equal(regional.external_acquisition_triggered,false);
+assert.throws(()=>previewRankMonitorContracts(rows,{device:"tablet"}),/device/);assert.throws(()=>previewRankMonitorContracts(rows,{locationCode:0}),/location_code/);
+console.log("rank monitor contract preview: OK (explicit device/location, unverified regional code, no registration)");
