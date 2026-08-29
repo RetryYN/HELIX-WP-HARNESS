@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "4b787559f7c4d6fbd677028aabcde8f7d00ace9b51ad7eb6dea2530031bd05a3",
+  "inventory_digest": "32e73c5d83a78c421baf935b6bca1b2fc5c5fdaf9bae2a5e1f58b84585bda4ec",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -17,6 +17,17 @@
   "public_contract_credits": {
     "operation_count": 24,
     "credit_contract_count": 12,
+    "dynamic_credit_contract_count": 3,
+    "zero_credit_operation_count": 9,
+    "unclassified_operation_count": 0,
+    "operation_classification": {
+      "fixed_credit_count": 12,
+      "dynamic_credit_count": 3,
+      "zero_credit_count": 9,
+      "unclassified_count": 0
+    },
+    "accounting_unit": "provider_credit_not_usd",
+    "usd_conversion_supported": false,
     "web_and_api_separated": true,
     "paid_request_executed": false,
     "rows": [
@@ -24,73 +35,111 @@
         "operation_id": "SuggestKeywordsController_search",
         "capability_id": "suggest",
         "credits": 1.5,
+        "contract_kind": "fixed",
         "inventory_credits": "HELIX retained search 0; public API 1.5/request; paid external acquisition separately gated"
       },
       {
         "operation_id": "RelatedKeywordsController_search",
         "capability_id": "related_keywords",
         "credits": 1.5,
+        "contract_kind": "fixed",
         "inventory_credits": "web 1/search; public API 1.5/request"
       },
       {
         "operation_id": "OtherKeywordsController_search",
         "capability_id": "lsi_paa",
         "credits": 22.5,
+        "contract_kind": "fixed",
         "inventory_credits": "web 15/search; public API 22.5/request"
       },
       {
         "operation_id": "QuestionSearchController_search",
         "capability_id": "question_search",
         "credits": 1.5,
+        "contract_kind": "fixed",
         "inventory_credits": "web 1/search; public API/MCP 1.5/request"
       },
       {
         "operation_id": "RankingKeywordsController_search",
         "capability_id": "simultaneous_ranking",
         "credits": 4.5,
+        "contract_kind": "fixed",
         "inventory_credits": "web 3/search; public API 4.5/request"
       },
       {
         "operation_id": "InfluxKeywordsController_searchKeyword",
         "capability_id": "influx_keywords",
         "credits": 4.5,
+        "contract_kind": "fixed",
         "inventory_credits": "web 3/search; public API 4.5/request"
       },
       {
         "operation_id": "InfluxPagesController_searchPage",
         "capability_id": "influx_pages",
         "credits": 4.5,
+        "contract_kind": "fixed",
         "inventory_credits": "web within influx research; public API 4.5/request"
       },
       {
         "operation_id": "CompetitiveController_searchCompetitive",
         "capability_id": "competitive_domains",
         "credits": 4.5,
+        "contract_kind": "fixed",
         "inventory_credits": "within influx research; API 4.5/request"
       },
       {
         "operation_id": "ContentSearchController_search",
         "capability_id": "content_search",
         "credits": 4.5,
+        "contract_kind": "fixed",
         "inventory_credits": "web 3/search; public API 4.5/request"
       },
       {
         "operation_id": "HeadlineController_search",
         "capability_id": "headline",
         "credits": 3,
+        "contract_kind": "fixed",
         "inventory_credits": "web 2/search; public API 3/request"
       },
       {
         "operation_id": "CoOccurrenceController_search",
         "capability_id": "cooccurrence",
         "credits": 3,
+        "contract_kind": "fixed",
         "inventory_credits": "web 2/search; public API 3/request"
       },
       {
         "operation_id": "SiteSearchController_search",
         "capability_id": "site_search",
         "credits": 1.5,
+        "contract_kind": "fixed",
         "inventory_credits": "HELIX local filter 0; public API 1.5/request"
+      }
+    ],
+    "dynamic_rows": [
+      {
+        "operation_id": "SearchVolumeHistoryController_register",
+        "capability_id": "bulk_keyword_research",
+        "formula": "max(15, keyword_count * (0.03 + (seo_difficulty ? 0.75 : 0)))",
+        "accounting_unit": "provider_credit_not_usd",
+        "contract_kind": "dynamic",
+        "inventory_credits": "public API 0.03/keyword, minimum 15; difficulty +0.75/keyword (provider credits, not USD)"
+      },
+      {
+        "operation_id": "SearchRankHistoryController_register",
+        "capability_id": "search_rank",
+        "formula": "keyword_count * (0.9 + ((depth - 30) / 10) * 0.3)",
+        "accounting_unit": "provider_credit_not_usd",
+        "contract_kind": "dynamic",
+        "inventory_credits": "public API 0.9/keyword for top30 +0.3 per additional 10 ranks (provider credits, not USD)"
+      },
+      {
+        "operation_id": "BulkSiteResearchController_searchBulkSiteResearch",
+        "capability_id": "bulk_site_research",
+        "formula": "max(4.5, url_count * 0.45)",
+        "accounting_unit": "provider_credit_not_usd",
+        "contract_kind": "dynamic",
+        "inventory_credits": "HELIX retained-data comparison 0; public API 0.45/URL, minimum 4.5 (provider credits, not USD)"
       }
     ]
   },
@@ -1662,6 +1711,7 @@
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
         "docs/research/evidence/public-search-country-metadata.json",
+        "scripts/public-api-credit-estimator.mjs",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -1671,11 +1721,13 @@
       "verification_commands": [
         "node scripts/test-public-search-metadata.mjs",
         "node scripts/test-public-search-metadata-api.mjs",
+        "node scripts/test-public-api-credit-estimator.mjs",
+        "node scripts/test-public-api-credit-estimator-api.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "519a314883c0dc71b96c6ebe5e59b9b356d52973b5a257f8648a3c97a6303682"
+      "evidence_digest": "9f708fdabf8a08211cebdca7e7267fda9ed95c1b815d4e75628ebbcc66d29f6e"
     },
     {
       "capability_id": "mcp",
@@ -1691,6 +1743,7 @@
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
         "docs/research/evidence/public-search-country-metadata.json",
+        "scripts/public-api-credit-estimator.mjs",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -1700,11 +1753,13 @@
       "verification_commands": [
         "node scripts/test-public-search-metadata.mjs",
         "node scripts/test-public-search-metadata-api.mjs",
+        "node scripts/test-public-api-credit-estimator.mjs",
+        "node scripts/test-public-api-credit-estimator-api.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "574b2006f2810efd009b1b005a05294720b5ec5877a29c3103ffb8d88cf14e44"
+      "evidence_digest": "ccf4facce2c98e40b6f6fbc8e3d19744d21fb93b05e32bfce71286435e6c773d"
     },
     {
       "capability_id": "credit_history",
@@ -1733,5 +1788,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "a7ab1d6b3d214cc0ee024791d12170c3eb30b6caf44bdbd79cc89c2f5388766e"
+  "audit_digest": "390d713ec775d033153a1ba82ae9897199814ada40c66423412acf4796548c64"
 }

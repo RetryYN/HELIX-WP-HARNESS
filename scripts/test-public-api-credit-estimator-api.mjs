@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import {routeResearchApi,researchOpenApi} from "./keyword-dashboard-api.mjs";
+import {handleMcpMessage} from "./keyword-dashboard-mcp.mjs";
+const data={sites:[],groups:[]},request=(query)=>{const url=new URL(`http://localhost/api/v1/credits/estimate?${query}`);return routeResearchApi(url.pathname,url,data)};
+assert.equal(researchOpenApi.info.version,"2.60.0");
+const volume=request("operation=search_volume&keyword_count=20&seo_difficulty=true");assert.equal(volume.status,200);assert.equal(volume.body.estimate.estimated_credit,15.6);assert.equal(volume.body.estimate.accounting_unit,"provider_credit_not_usd");assert.equal(volume.body.estimate.usd_cost,null);assert.equal(volume.body.paid_request_executed,false);
+const rank=request("operation=search_rank&keyword_count=2&depth=100&url_count=50");assert.equal(rank.status,200);assert.equal(rank.body.estimate.estimated_credit,6);assert.equal(rank.body.estimate.url_count_affects_credit,false);
+const sites=request("operation=bulk_site_research&url_count=11");assert.equal(sites.status,200);assert.equal(sites.body.estimate.estimated_credit,4.95);
+assert.equal(request("operation=search_rank&keyword_count=2&depth=35").status,400);assert.equal(request("operation=search_volume&keyword_count=1&seo_difficulty=yes").status,400);
+const mcp=handleMcpMessage({jsonrpc:"2.0",id:1,method:"tools/call",params:{name:"estimate_public_api_credits",arguments:{operation:"search_rank",keyword_count:2,depth:40,url_count:3}}},data);assert.equal(mcp.result.structuredContent.estimate.estimated_credit,2.4);assert.equal(mcp.result.structuredContent.provenance.external_acquisition_triggered,false);
+const listed=handleMcpMessage({jsonrpc:"2.0",id:2,method:"tools/list"},data).result.tools;assert.equal(listed.length,66);assert(listed.some((tool)=>tool.name==="estimate_public_api_credits"));
+console.log("public API credit estimator API/MCP: OK (API 2.60.0, 66 read-only tools, zero paid requests)");

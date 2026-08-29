@@ -18,6 +18,23 @@
     {"operation_id":"CoOccurrenceController_search","capability_id":"cooccurrence","credits":3},
     {"operation_id":"SiteSearchController_search","capability_id":"site_search","credits":1.5}
   ],
+  "dynamic_api_credit_contracts":[
+    {"operation_id":"SearchVolumeHistoryController_register","capability_id":"bulk_keyword_research","formula":"max(15, keyword_count * (0.03 + (seo_difficulty ? 0.75 : 0)))","accounting_unit":"provider_credit_not_usd"},
+    {"operation_id":"SearchRankHistoryController_register","capability_id":"search_rank","formula":"keyword_count * (0.9 + ((depth - 30) / 10) * 0.3)","accounting_unit":"provider_credit_not_usd"},
+    {"operation_id":"BulkSiteResearchController_searchBulkSiteResearch","capability_id":"bulk_site_research","formula":"max(4.5, url_count * 0.45)","accounting_unit":"provider_credit_not_usd"}
+  ],
+  "zero_credit_operations":[
+    "SearchVolumeHistoryController_listHistories",
+    "SearchVolumeHistoryController_getStatus",
+    "SearchVolumeHistoryController_getResults",
+    "SearchVolumeMetadataController_getLocations",
+    "SearchVolumeMetadataController_getLanguages",
+    "SearchRankHistoryController_listHistories",
+    "SearchRankHistoryController_getStatus",
+    "SearchRankHistoryController_getResults",
+    "SearchRankSerpCacheController_getSerpCache"
+  ],
+  "operation_classification":{"fixed_credit_count":12,"dynamic_credit_count":3,"zero_credit_count":9,"unclassified_count":0},
   "interpretation":"web UI credits and public API credits are distinct contracts and must not be collapsed",
   "paid_request_executed":false
 }
