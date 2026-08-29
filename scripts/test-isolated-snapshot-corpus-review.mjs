@@ -1,0 +1,7 @@
+import assert from "node:assert/strict";
+import {buildIsolatedSnapshotCorpusReview} from "./isolated-snapshot-corpus-review.mjs";
+
+const make=(task_id,keyword,item_types=["organic"])=>({task_id,reuse_state:"out_of_scope",location_code:2392,language_code:"ja",se_domain:"google.com",evidence_digest:"a".repeat(64),inventory:{task_id,keyword,artifact_dataset:"raw",observed_at:"2026-08-23T00:00:00Z",cost:0.0006,item_types,snapshot_digest:"b".repeat(64)}});
+const review=buildIsolatedSnapshotCorpusReview([make("a","seo 記事"),make("b","seo 外注"),make("c","ライター 副業"),make("d","記事作成 副業",["organic","jobs"]),{task_id:"current",reuse_state:"current_analysis",inventory:{keyword:"seo"}}]);
+assert.equal(review.summary.isolated_snapshot_count,4);assert.equal(review.summary.corpus_candidate_count,2);assert.equal(review.summary.jobs_feature_candidate_count,1);assert.equal(review.summary.auto_assignment_count,0);assert.deepEqual(review.rows.map((row)=>row.keyword_count),[2,2]);assert.ok(review.rows.every((row)=>row.contract_consistent&&row.current_site_assignment===null&&row.source_identity_required&&!row.auto_site_assignment&&row.evidence_digest.length===64));
+console.log("isolated snapshot corpus review: OK (token components, contract evidence, no automatic assignment)");
