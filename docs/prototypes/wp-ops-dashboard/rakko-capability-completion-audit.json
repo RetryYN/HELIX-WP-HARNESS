@@ -1129,6 +1129,7 @@
       ],
       "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。LLM model/prompt/output metadataは未実装",
       "authoritative_evidence": [
+        "scripts/generation-provenance-ledger.mjs",
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
         "scripts/content-task-holdout-oracle.mjs",
@@ -1149,6 +1150,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-provenance:test",
+        "npm run prototype:generation-provenance:api:test",
         "npm run prototype:content-task-holdout:test",
         "npm run prototype:content-editorial-review:test",
         "node scripts/test-title-serp-pattern-oracle.mjs",
@@ -1174,7 +1177,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "5d628383436150cb4effa532a57f202569695ebaef986640d7c4cfe53e8aadf0"
+      "evidence_digest": "6de8129c76933d22df149f645f8d4d29cc3368b2c88bdd82f505d3acc8d1e758"
     },
     {
       "capability_id": "ai_title",
@@ -1187,6 +1190,7 @@
       ],
       "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。LLM runtime/model/prompt metadataと実順位効果検証は未実装",
       "authoritative_evidence": [
+        "scripts/generation-provenance-ledger.mjs",
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
         "scripts/content-task-holdout-oracle.mjs",
@@ -1207,6 +1211,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-provenance:test",
+        "npm run prototype:generation-provenance:api:test",
         "npm run prototype:content-task-holdout:test",
         "npm run prototype:content-editorial-review:test",
         "node scripts/test-title-serp-pattern-oracle.mjs",
@@ -1232,7 +1238,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "1591f8e6e555e6e5953ec8feda4f539c9a36fff3c6c65f8ed4050578d90c57ef"
+      "evidence_digest": "18e187cbaef1f2d3379c750885d584e806c25d74d9feddcf69ea11810a6bad5f"
     },
     {
       "capability_id": "ai_heading",
@@ -1245,6 +1251,7 @@
       ],
       "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。LLM outline variants/model/promptと編集者による意味保持確認は未実装",
       "authoritative_evidence": [
+        "scripts/generation-provenance-ledger.mjs",
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
         "scripts/content-task-holdout-oracle.mjs",
@@ -1265,6 +1272,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-provenance:test",
+        "npm run prototype:generation-provenance:api:test",
         "npm run prototype:content-task-holdout:test",
         "npm run prototype:content-editorial-review:test",
         "node scripts/test-title-serp-pattern-oracle.mjs",
@@ -1290,7 +1299,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "7e068aad69d4d06b233265b74b1d1a3c08436fb62d0192290f972c2c5c2a9766"
+      "evidence_digest": "a6a18dc358dd42d15f6745d3b41155e7cb9a747fd88199a597e32f85a06ad87a"
     },
     {
       "capability_id": "ai_body",
@@ -1303,6 +1312,7 @@
       ],
       "remaining_gap": "63記事・573 claim・2,018根拠参照をpublication readinessへ統合し、実質510 claimをP0 64/P1 168/P2 278へ分類。情報源要件別に初回探索query 510本を選定し、代替1,020本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり107・なし403を区別し、費用未見積・価格確認必須・実行0・検証0・承認0。63/63記事をblocked。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、rich copy、list/table本文生成は未実装",
       "authoritative_evidence": [
+        "scripts/generation-provenance-ledger.mjs",
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
         "scripts/content-task-holdout-oracle.mjs",
@@ -1323,6 +1333,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-provenance:test",
+        "npm run prototype:generation-provenance:api:test",
         "npm run prototype:content-task-holdout:test",
         "npm run prototype:content-editorial-review:test",
         "node scripts/test-title-serp-pattern-oracle.mjs",
@@ -1348,7 +1360,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "fdb8947234c5b2d1730afb771a3bd9441ee7fcd0fcedbb184ba7d404b12e2431"
+      "evidence_digest": "18f55ca89fe3b15b82cc9701d032aa7d9192eaa507922d915498dea695e1dbc7"
     },
     {
       "capability_id": "ai_questions",
@@ -1361,6 +1373,7 @@
       ],
       "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。外部LLMによる新規質問生成・model/prompt metadataは未実行",
       "authoritative_evidence": [
+        "scripts/generation-provenance-ledger.mjs",
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
         "scripts/content-task-holdout-oracle.mjs",
@@ -1381,6 +1394,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-provenance:test",
+        "npm run prototype:generation-provenance:api:test",
         "npm run prototype:content-task-holdout:test",
         "npm run prototype:content-editorial-review:test",
         "node scripts/test-title-serp-pattern-oracle.mjs",
@@ -1406,7 +1421,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "8776abdf902d5a9bb9fbf5450fc53c166b811235a48053a693d230c51bb0f898"
+      "evidence_digest": "6fe1ae079b855ebccf2a5135866bf8bb9126273739b7753bf4dc1081f6435397"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -1419,6 +1434,7 @@
       ],
       "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。LLMによる新語生成・model/prompt metadataは未実装",
       "authoritative_evidence": [
+        "scripts/generation-provenance-ledger.mjs",
         "scripts/content-topic-proposals.mjs",
         "scripts/content-generation-review.mjs",
         "scripts/content-task-holdout-oracle.mjs",
@@ -1439,6 +1455,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "npm run prototype:generation-provenance:test",
+        "npm run prototype:generation-provenance:api:test",
         "npm run prototype:content-task-holdout:test",
         "npm run prototype:content-editorial-review:test",
         "node scripts/test-title-serp-pattern-oracle.mjs",
@@ -1464,7 +1482,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "b233774d63787ed70290d6ca61968af46101dad1942d6fb141bfeb091be2aff2"
+      "evidence_digest": "2eccaba12b90d3e6459f23afdfe7b52c0361564e8ea9b41ecbdaacb1a3332346"
     },
     {
       "capability_id": "hashtags",
@@ -1830,5 +1848,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "f45ba57bc70a6c4b724ba746c17b66ce14ab48d936cb9be953beda90b01bc459"
+  "audit_digest": "67de7d01916305ce1e1d035f5a599b4d2cd0ba2ba365e17fee238e230d07b3b3"
 }
