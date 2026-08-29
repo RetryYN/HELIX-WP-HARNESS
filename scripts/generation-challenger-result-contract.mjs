@@ -30,9 +30,9 @@ export function validateGenerationChallengerOutput(request,envelope){
   return{...record,result_digest:digest(record)};
 }
 
-export function buildBlindedChallengerReviewPacket(request,baselineOutput,validatedResult){
+export function buildBlindedChallengerReviewPacket(request,validatedResult){
   if(validatedResult.request_digest!==request.request_digest)throw new Error("validated result does not match request");
-  const challengerFirst=parseInt(validatedResult.result_digest.slice(0,2),16)%2===0,base={schema_version:"generation-challenger-review-packet.v1",request_id:request.request_id,capability:request.capability,rubric:request.evaluation_contract.rubric,minimum_reviewers:request.evaluation_contract.minimum_reviewers,option_a:challengerFirst?validatedResult.output:baselineOutput,option_b:challengerFirst?baselineOutput:validatedResult.output,origin_labels_hidden:true,source_scores_hidden:true,resolution_exposed:false,automatic_winner_selection:false,auto_content_mutation:false};
+  const challengerFirst=parseInt(validatedResult.result_digest.slice(0,2),16)%2===0,base={schema_version:"generation-challenger-review-packet.v1",request_id:request.request_id,capability:request.capability,rubric:request.evaluation_contract.rubric,minimum_reviewers:request.evaluation_contract.minimum_reviewers,option_a:challengerFirst?validatedResult.output:request.input.baseline_payload,option_b:challengerFirst?request.input.baseline_payload:validatedResult.output,origin_labels_hidden:true,source_scores_hidden:true,resolution_exposed:false,automatic_winner_selection:false,auto_content_mutation:false};
   const resolution={challenger_option:challengerFirst?"a":"b",baseline_option:challengerFirst?"b":"a",request_digest:request.request_digest,result_digest:validatedResult.result_digest};
   return{packet:{...base,packet_digest:digest(base)},resolution:{...resolution,resolution_digest:digest(resolution)}};
 }
