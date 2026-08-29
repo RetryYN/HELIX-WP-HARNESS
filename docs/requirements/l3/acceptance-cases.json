@@ -31,7 +31,7 @@
     {"id":"WP-AC-PERF-01A","requirement_id":"WP-NFR-PERF-01","polarity":"positive","oracle":"指定datasetと環境でcold p95 1秒、操作p95 300ms以内"},
     {"id":"WP-AC-PERF-01B","requirement_id":"WP-NFR-PERF-01","polarity":"boundary","oracle":"workload、環境、sampling不足の測定を合格根拠にしない"},
     {"id":"WP-AC-COST-01A","requirement_id":"WP-NFR-COST-01","polarity":"positive","oracle":"standard queue、cache、週次取得、月次費用を再現できる"},
-    {"id":"WP-AC-COST-01B","requirement_id":"WP-NFR-COST-01","polarity":"negative","oracle":"月5 USD上限を超える要求を外部送信前に停止する"},
+    {"id":"WP-AC-COST-01B","requirement_id":"WP-NFR-COST-01","polarity":"negative","oracle":"過去の全有料テスト確定支出と今回の最大費用の合計が生涯累計5 USD上限を超える要求を、外部送信前に停止する"},
     {"id":"WP-AC-PRIV-01A","requirement_id":"WP-NFR-PRIV-01","polarity":"positive","oracle":"全datasetに目的、class、保持期間、purge、ownerが存在する"},
     {"id":"WP-AC-PRIV-01B","requirement_id":"WP-NFR-PRIV-01","polarity":"negative","oracle":"期限超過または目的不明dataを解析正本へ昇格しない"},
     {"id":"WP-AC-PERM-01A","requirement_id":"WP-NFR-PERM-01","polarity":"positive","oracle":"actorは許可された操作と対象siteだけを実行できる"},
