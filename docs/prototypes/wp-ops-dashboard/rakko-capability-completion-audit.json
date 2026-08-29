@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "e98fffff62d3600f20c49803a850ab02ca135bbada31f6774f28ee6a0692dcb3",
+  "inventory_digest": "aed5295f5e9ab49ebb4381316653b99444e56feb8e6151161fb62b6226412471",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1388,7 +1388,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、さらに新規記事のP0 2・P1 10の計12 claimを無料公開Webで実確認し、計画query 7・公式主体向け適応query 5をimmutable候補へ接続。直接支持3・文脈補助6・適格sourceなし3、要件充足3のみを証拠化し、曖昧entityをfail-closed維持。費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
+      "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、さらに新規記事のP0 2・P1 10・P2 5の計17 claimを無料公開Webで実確認し、計画query 12・公式主体向け適応query 5をimmutable候補へ接続。直接支持6・文脈補助8・適格sourceなし3、要件充足6のみを証拠化し、一般面接論からSE固有助言を推論せず曖昧entityもfail-closed維持。費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1452,7 +1452,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "a9e0725a67bb9341ff3f07db3d9e8c7ebc0b7bf98210ef770a8cad339b06ab73"
+      "evidence_digest": "8169569d6c5179e997f06d8b6881156bde5c522f9802a8cd33cc91cbe428dfcc"
     },
     {
       "capability_id": "ai_questions",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "f02b9d95783d8ac541d644b78dfd6ccb1c5f3962703ab4588ed6af7b7600a3d0"
     }
   ],
-  "audit_digest": "3c6f66bad829ea74f29c8bdbd380bfc78ba7a35af4ae8c6ee36cd04f152ead44"
+  "audit_digest": "ddbeb47ae1d829ca47dc1daf3eac085251b9f130e2efe24b1a62ea8529a80958"
 }
