@@ -1,7 +1,7 @@
 {
   "schema_version": "rakko-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "231eff3eebf0f0e767e04a1b3207c5ac759e4bdd4294ee08d84e584115083193",
+  "inventory_digest": "a651409bb9c7a8a47e62aa23bfea57e7c0b105503c06c08ddff854e9d7e22880",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 34,
@@ -1336,10 +1336,11 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "保持SERPからQ&Aページ64 occurrence・63検索KW・44固有pageを復元し、source・順位・title・description・取得状態・digestをDB/API/MCP/UIへ接続。同一URLを集約し、重複page 13・複数KW page 13・複数記事群page 5、最大6KW横断を逆引き可能。保持済みの同一契約2時点比較から retained・entered_observed_depth・exited_observed_depth の出現履歴を復元し、観測範囲外を削除・圏外とは断定しない。本文派生証拠50、SERP要約のみ13、robots拒否1を分離し、回答本文非保持・外部取得0を明示。専用の外部Q&A全体index、教えてGoo実測、回答本文、長期時系列、専用copy exportは未取得",
+      "remaining_gap": "保持SERPからQ&Aページ64 occurrence・63検索KW・44固有pageを復元し、source・順位・title・description・取得状態・digestをDB/API/MCP/UIへ接続。同一URLを集約し、重複page 13・複数KW page 13・複数記事群page 5、最大6KW横断を逆引き可能。保持済みの同一契約2時点比較から retained・entered_observed_depth・exited_observed_depth の出現履歴を復元し、観測範囲外を削除・圏外とは断定しない。本文派生証拠50、SERP要約のみ13、robots拒否1を分離し、回答本文非保持・外部取得0を明示。観測・page集約・出現履歴を境界宣言とdigest付きの専用TSV copy exportへ接続。専用の外部Q&A全体index、教えてGoo実測、回答本文、長期時系列は未取得",
       "authoritative_evidence": [
         "scripts/retained-qa-site-evidence.mjs",
         "scripts/qa-appearance-history.mjs",
+        "scripts/qa-copy-export.mjs",
         "scripts/keyword-dashboard-db.mjs",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
@@ -1349,10 +1350,11 @@
       "verification_commands": [
         "node scripts/test-retained-qa-site-evidence.mjs",
         "node scripts/test-qa-appearance-history.mjs",
+        "node scripts/test-qa-copy-export.mjs",
         "node scripts/test-retained-qa-site-evidence-api.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "2c0d3fea4ac7d15549ba068574beca8694f902ec82c13cbf94b53cfb424d0458"
+      "evidence_digest": "82a30647768b344cd7bc209ae56c63be6a9d3316b20cc8dc9a6e375db12b167c"
     },
     {
       "capability_id": "google_trends",
@@ -1565,5 +1567,5 @@
       "evidence_digest": "fab48a3f178d46d7d578dfcce57f870a3c9282a7739235be9f08df693ca35e4e"
     }
   ],
-  "audit_digest": "b61b78f9c3f3c669f3ae79ceff15b8d99df85da5cbf1332345d764b28d8cbea1"
+  "audit_digest": "1f3036999fba0ba06732b0516c2b055e31e7885076dc8c82fd70d2debc1d69ce"
 }
