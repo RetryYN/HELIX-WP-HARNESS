@@ -5,7 +5,7 @@
 - L1 企画書 `docs/planning/l1-plan-autonomous-wp-harness.md` = **confirmed**（2026-08-21、変更なし）。
 - 現行 PLAN = `PLAN-L2-001-s1-draft-post-requirements`（`.helix/state/current-plan`、未完）。
 - **2026-08-25〜27、`research/rakko-keyword-analysis` で Rakko キーワード分析 PoC が
-  ハーネス未経由で 88 コミット進行**。成果は
+  ハーネス未経由で 90 コミット進行**。成果は
   `docs/poc/rakko-keyword-analysis-poc-summary-2026-08-27.md` に索引化した（一次完了・未検証・未要求化）。
 - `helix doctor` は赤（doc 雛形欠落・nfr-registry 欠落・decision-packet 不整合）。8/21 時点の green から後退。
 - codex は `codex/wp-poc5-required-topics`（worktree）で作業中。research ブランチへ直接 push しない。

@@ -10,7 +10,7 @@ source_range: 2577737..66e106b
 
 ## 1. 何が起きたか
 
-- 2026-08-25〜27、`research/rakko-keyword-analysis` ブランチで **88 コミット / 110 ファイル / +23,665 行** が
+- 2026-08-25〜27、`research/rakko-keyword-analysis` ブランチで **90 コミット / 110 ファイル / +23,665 行** が
   ハーネス（`.helix/` の PLAN・resume-point・harness.db）を経由せずに積まれた。
 - 本書はその成果を **PoC 証跡として回収** し、`PLAN-L2-001-s1-draft-post-requirements` の入力に接続するための索引である。
   内容の正しさを検証したものではない（検証は要求化の段階で行う）。
