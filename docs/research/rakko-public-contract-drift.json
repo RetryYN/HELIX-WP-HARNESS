@@ -1,0 +1,23 @@
+{
+  "schema_version":"rakko-public-contract-drift.v1",
+  "checked_at":"2026-08-29",
+  "source":"retained official OpenAPI 3.1.1 plus current official function index",
+  "operation_count":24,
+  "new_inventory_capabilities":[{"id":"seo_difficulty","reason":"current official function index exposes a dedicated SEO difficulty guide and contract"}],
+  "api_credit_contracts":[
+    {"operation_id":"SuggestKeywordsController_search","credits":1.5},
+    {"operation_id":"RelatedKeywordsController_search","credits":1.5},
+    {"operation_id":"OtherKeywordsController_search","credits":22.5},
+    {"operation_id":"QuestionSearchController_search","credits":1.5},
+    {"operation_id":"RankingKeywordsController_search","credits":4.5},
+    {"operation_id":"InfluxKeywordsController_searchKeyword","credits":4.5},
+    {"operation_id":"InfluxPagesController_searchPage","credits":4.5},
+    {"operation_id":"CompetitiveController_searchCompetitive","credits":4.5},
+    {"operation_id":"ContentSearchController_search","credits":4.5},
+    {"operation_id":"HeadlineController_search","credits":3},
+    {"operation_id":"CoOccurrenceController_search","credits":3},
+    {"operation_id":"SiteSearchController_search","credits":1.5}
+  ],
+  "interpretation":"web UI credits and public API credits are distinct contracts and must not be collapsed",
+  "paid_request_executed":false
+}
