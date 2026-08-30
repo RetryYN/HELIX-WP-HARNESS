@@ -1,19 +1,220 @@
 import assert from "node:assert/strict";
-import {openDashboardDb,projectDashboard} from "./keyword-dashboard-db.mjs";
-import {routeResearchApi} from "./keyword-dashboard-api.mjs";
+import { openDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
+import { routeResearchApi } from "./keyword-dashboard-api.mjs";
 
-const db=openDashboardDb(".helix/keyword-dashboard.sqlite");
+const db = openDashboardDb(".helix/keyword-dashboard.sqlite");
 try {
-  const dashboard=projectDashboard(db),site=dashboard.sites[0],analysis=site.content_consolidation_blueprints,summary=analysis.summary;
-  assert.equal(summary.blueprint_count,analysis.rows.length);assert.equal(summary.projected_merged_heading_count,summary.recommended_duplicate_representative_count+summary.unique_heading_count);assert.equal(summary.preview_heading_count,summary.projected_merged_heading_count);assert.equal(summary.auto_mutation,false);assert.equal(summary.external_acquisition_triggered,false);
-  const url=new URL(`http://localhost/api/v1/consolidation-blueprints?site_id=${encodeURIComponent(site.site_id)}&limit=100`),response=routeResearchApi(url.pathname,url,dashboard,db);assert.equal(response.status,200);assert.equal(response.body.meta.total,analysis.rows.length);
-  for(const row of response.body.data){assert.equal(row.title_selection_state,"unresolved_not_auto_selected");assert.equal(row.blueprint_state,"review_required");assert.equal(row.duplicate_heading_pair_count,row.duplicate_heading_pairs.length);assert.equal(row.unique_heading_count,row.unique_headings.length);assert.equal(row.projected_merged_heading_count,row.recommended_duplicate_representative_count+row.unique_heading_count);assert.equal(row.survivor_recommendation_state,"review_only_recommendation");assert.ok(row.duplicate_heading_pairs.every((item)=>item.recommendation_state==="review_only_recommendation"&&item.resolution_state==="unresolved_representative_not_auto_selected"));assert.equal(row.merged_outline_gate.heading_count,row.merged_outline_gate.h2_count+row.merged_outline_gate.h3_count);assert.equal(row.merged_outline_gate.source_evidence_count,row.merged_outline_gate.preview_evidence_count);assert.equal(row.merged_outline_gate.evidence_preservation_ratio,1);assert.deepEqual(row.merged_outline_gate.missing_evidence_ids,[]);assert.equal(row.merged_title_gate.axis_coverage_ratio,1);assert.equal(row.merged_title_gate.evidence_preservation_ratio,1);assert.equal(row.merged_title_gate.selection_state,"review_only_not_applied");assert.equal(row.auto_mutation,false);assert.equal(row.blueprint_digest.length,64);
-    const draft=row.merged_draft_preview;assert.equal(draft.claims.length,draft.sections.length+1);assert.equal(draft.gate.source_claim_count,draft.gate.source_claim_lineage_count);assert.equal(draft.gate.claim_lineage_preservation_ratio,1);assert.equal(draft.gate.source_evidence_count,draft.gate.preview_evidence_count);assert.equal(draft.gate.evidence_preservation_ratio,1);assert.equal(draft.gate.source_citation_recommendation_count,draft.gate.mapped_citation_recommendation_count);assert.equal(draft.gate.covered_citation_source_claim_count+draft.gate.missing_citation_source_claim_ids.length,draft.gate.applicable_citation_source_claim_count);assert.equal(draft.gate.publication_state,"blocked");assert(draft.gate.reason_codes.includes("primary_source_verification_pending"));assert.equal(draft.selection_state,"review_only_not_applied");assert.equal(draft.auto_approval,false);assert.equal(draft.preview_digest.length,64);}
-  assert.equal(response.body.auto_mutation,false);
+  const dashboard = projectDashboard(db),
+    site = dashboard.sites[0],
+    analysis = site.content_consolidation_blueprints,
+    summary = analysis.summary;
+  assert.equal(summary.blueprint_count, analysis.rows.length);
+  assert.equal(
+    summary.projected_merged_heading_count,
+    summary.recommended_duplicate_representative_count +
+      summary.unique_heading_count,
+  );
+  assert.equal(
+    summary.preview_heading_count,
+    summary.projected_merged_heading_count,
+  );
+  assert.equal(summary.auto_mutation, false);
+  assert.equal(summary.external_acquisition_triggered, false);
+  const url = new URL(
+      `http://localhost/api/v1/consolidation-blueprints?site_id=${encodeURIComponent(site.site_id)}&limit=100`,
+    ),
+    response = routeResearchApi(url.pathname, url, dashboard, db);
+  assert.equal(response.status, 200);
+  assert.equal(response.body.meta.total, analysis.rows.length);
+  for (const row of response.body.data) {
+    assert.equal(row.title_selection_state, "unresolved_not_auto_selected");
+    assert.equal(row.blueprint_state, "review_required");
+    assert.equal(
+      row.duplicate_heading_pair_count,
+      row.duplicate_heading_pairs.length,
+    );
+    assert.equal(row.unique_heading_count, row.unique_headings.length);
+    assert.equal(
+      row.projected_merged_heading_count,
+      row.recommended_duplicate_representative_count + row.unique_heading_count,
+    );
+    assert.equal(
+      row.survivor_recommendation_state,
+      "review_only_recommendation",
+    );
+    assert.ok(
+      row.duplicate_heading_pairs.every(
+        (item) =>
+          item.recommendation_state === "review_only_recommendation" &&
+          item.resolution_state ===
+            "unresolved_representative_not_auto_selected",
+      ),
+    );
+    assert.equal(
+      row.merged_outline_gate.heading_count,
+      row.merged_outline_gate.h2_count + row.merged_outline_gate.h3_count,
+    );
+    assert.equal(
+      row.merged_outline_gate.source_evidence_count,
+      row.merged_outline_gate.preview_evidence_count,
+    );
+    assert.equal(row.merged_outline_gate.evidence_preservation_ratio, 1);
+    assert.deepEqual(row.merged_outline_gate.missing_evidence_ids, []);
+    assert.equal(row.merged_title_gate.axis_coverage_ratio, 1);
+    assert.equal(row.merged_title_gate.evidence_preservation_ratio, 1);
+    assert.equal(
+      row.merged_title_gate.selection_state,
+      "review_only_not_applied",
+    );
+    assert.equal(row.auto_mutation, false);
+    assert.equal(row.blueprint_digest.length, 64);
+    const draft = row.merged_draft_preview;
+    assert.equal(draft.claims.length, draft.sections.length + 1);
+    assert.equal(
+      draft.gate.source_claim_count,
+      draft.gate.source_claim_lineage_count,
+    );
+    assert.equal(draft.gate.claim_lineage_preservation_ratio, 1);
+    assert.equal(
+      draft.gate.source_evidence_count,
+      draft.gate.preview_evidence_count,
+    );
+    assert.equal(draft.gate.evidence_preservation_ratio, 1);
+    assert.equal(
+      draft.gate.source_citation_recommendation_count,
+      draft.gate.mapped_citation_recommendation_count,
+    );
+    assert.equal(
+      draft.gate.covered_citation_source_claim_count +
+        draft.gate.missing_citation_source_claim_ids.length,
+      draft.gate.applicable_citation_source_claim_count,
+    );
+    assert.equal(draft.gate.publication_state, "blocked");
+    assert(
+      draft.gate.reason_codes.includes("primary_source_verification_pending"),
+    );
+    assert.equal(draft.selection_state, "review_only_not_applied");
+    assert.equal(draft.auto_approval, false);
+    assert.equal(draft.preview_digest.length, 64);
+  }
+  assert.equal(response.body.auto_mutation, false);
 
-  const citationUrl=new URL(`http://localhost/api/v1/consolidation-citations?site_id=${encodeURIComponent(site.site_id)}&approval_state=unreviewed&limit=100`),citationResponse=routeResearchApi(citationUrl.pathname,citationUrl,dashboard,db),citations=citationResponse.body.data,claimAudits=citationResponse.body.claim_audits,backfill=citationResponse.body.backfill_candidates;
-  assert.equal(citationResponse.status,200);assert.equal(citationResponse.body.meta.total,citations.length);assert.equal(citationResponse.body.summary.filtered_recommendation_count,citations.length);assert.equal(citationResponse.body.summary.unreviewed_count,citationResponse.body.summary.recommendation_count);assert.equal(citationResponse.body.summary.approved_count,0);assert.equal(citationResponse.body.summary.rejected_count,0);assert.equal(citationResponse.body.summary.auto_approval,false);assert.equal(citationResponse.body.summary.external_acquisition_triggered,false);assert.equal(citationResponse.body.coverage_summary.claim_count,claimAudits.length);assert.equal(citationResponse.body.coverage_summary.complete_coverage_count+citationResponse.body.coverage_summary.partial_coverage_count+citationResponse.body.coverage_summary.no_candidate_count,claimAudits.length);assert.equal(citationResponse.body.backfill_summary.backfill_candidate_count,backfill.length);assert.equal(citationResponse.body.backfill_summary.selection_state,"review_only_not_applied");assert.equal(citationResponse.body.backfill_summary.auto_approval,false);assert.equal(citationResponse.body.backfill_summary.external_acquisition_triggered,false);
-  assert.ok(citations.every((item)=>item.recommendation_digest.length===64&&item.source_claim_id&&!item.source_claim_id.startsWith("consolidation:")&&item.merged_claim_id.startsWith("consolidation:")&&item.approval_state==="unreviewed"&&!item.auto_approval&&item.observation_lineage.length===item.citation_ids.length&&item.authority_audit.primary_source_state==="not_proven_from_retained_evidence"));assert.ok(claimAudits.every((item)=>item.publication_state==="blocked"&&!item.auto_approval&&item.audit_digest.length===64&&item.primary_source_requirement.acquisition_state==="planned_not_executed"&&!item.primary_source_requirement.external_acquisition_triggered&&!item.primary_source_requirement.auto_approval));assert.ok(backfill.every((item)=>item.candidate_origin==="cross_group_retained_corpus"&&item.backfill_state==="proposed_unreviewed"&&item.selection_state==="review_only_not_applied"&&!item.auto_approval&&item.backfill_digest.length===64&&item.observation_lineage.every((observation)=>observation.resolution_state==="resolved"&&observation.snapshot_digest.length===64)));
-  const domain=new URL(`http://localhost/api/v1/consolidation-citations?site_id=${encodeURIComponent(site.site_id)}&domain=competitor-42.example&limit=100`),domainResponse=routeResearchApi(domain.pathname,domain,dashboard,db);assert.ok(domainResponse.body.meta.total>0);assert.ok(domainResponse.body.data.every((item)=>item.domain==="competitor-42.example"));const noSite=new URL("http://localhost/api/v1/consolidation-citations"),wrongSite=new URL("http://localhost/api/v1/consolidation-citations?site_id=missing");assert.equal(routeResearchApi(noSite.pathname,noSite,dashboard,db).status,400);assert.equal(routeResearchApi(wrongSite.pathname,wrongSite,dashboard,db).status,404);
-  console.log("content consolidation blueprint API: OK (lossless title/outline/draft lineage, publication blocked, review-only)");
-} finally { db.close(); }
+  const citationUrl = new URL(
+      `http://localhost/api/v1/consolidation-citations?site_id=${encodeURIComponent(site.site_id)}&approval_state=unreviewed&limit=100`,
+    ),
+    citationResponse = routeResearchApi(
+      citationUrl.pathname,
+      citationUrl,
+      dashboard,
+      db,
+    ),
+    citations = citationResponse.body.data,
+    claimAudits = citationResponse.body.claim_audits,
+    backfill = citationResponse.body.backfill_candidates;
+  assert.equal(citationResponse.status, 200);
+  assert.equal(citationResponse.body.meta.total, citations.length);
+  assert.equal(
+    citationResponse.body.summary.filtered_recommendation_count,
+    citations.length,
+  );
+  assert.equal(
+    citationResponse.body.summary.unreviewed_count,
+    citationResponse.body.summary.recommendation_count,
+  );
+  assert.equal(citationResponse.body.summary.approved_count, 0);
+  assert.equal(citationResponse.body.summary.rejected_count, 0);
+  assert.equal(citationResponse.body.summary.auto_approval, false);
+  assert.equal(
+    citationResponse.body.summary.external_acquisition_triggered,
+    false,
+  );
+  assert.equal(
+    citationResponse.body.coverage_summary.claim_count,
+    claimAudits.length,
+  );
+  assert.equal(
+    citationResponse.body.coverage_summary.complete_coverage_count +
+      citationResponse.body.coverage_summary.partial_coverage_count +
+      citationResponse.body.coverage_summary.no_candidate_count,
+    claimAudits.length,
+  );
+  assert.equal(
+    citationResponse.body.backfill_summary.backfill_candidate_count,
+    backfill.length,
+  );
+  assert.equal(
+    citationResponse.body.backfill_summary.selection_state,
+    "review_only_not_applied",
+  );
+  assert.equal(citationResponse.body.backfill_summary.auto_approval, false);
+  assert.equal(
+    citationResponse.body.backfill_summary.external_acquisition_triggered,
+    false,
+  );
+  assert.ok(
+    citations.every(
+      (item) =>
+        item.recommendation_digest.length === 64 &&
+        item.source_claim_id &&
+        !item.source_claim_id.startsWith("consolidation:") &&
+        item.merged_claim_id.startsWith("consolidation:") &&
+        item.approval_state === "unreviewed" &&
+        !item.auto_approval &&
+        item.observation_lineage.length === item.citation_ids.length &&
+        item.authority_audit.primary_source_state ===
+          "not_proven_from_retained_evidence",
+    ),
+  );
+  assert.ok(
+    claimAudits.every(
+      (item) =>
+        item.publication_state === "blocked" &&
+        !item.auto_approval &&
+        item.audit_digest.length === 64 &&
+        item.primary_source_requirement.acquisition_state ===
+          "planned_not_executed" &&
+        !item.primary_source_requirement.external_acquisition_triggered &&
+        !item.primary_source_requirement.auto_approval,
+    ),
+  );
+  assert.ok(
+    backfill.every(
+      (item) =>
+        item.candidate_origin === "cross_group_retained_corpus" &&
+        item.backfill_state === "proposed_unreviewed" &&
+        item.selection_state === "review_only_not_applied" &&
+        !item.auto_approval &&
+        item.backfill_digest.length === 64 &&
+        item.observation_lineage.every(
+          (observation) =>
+            observation.resolution_state === "resolved" &&
+            observation.snapshot_digest.length === 64,
+        ),
+    ),
+  );
+  const retainedDomain = citations[0]?.domain;
+  assert(retainedDomain, "at least one retained citation domain is required");
+  const domain = new URL(
+      `http://localhost/api/v1/consolidation-citations?site_id=${encodeURIComponent(site.site_id)}&domain=${encodeURIComponent(retainedDomain)}&limit=100`,
+    ),
+    domainResponse = routeResearchApi(domain.pathname, domain, dashboard, db);
+  assert.ok(domainResponse.body.meta.total > 0);
+  assert.ok(domainResponse.body.data.every((item) => item.domain === retainedDomain));
+  const noSite = new URL("http://localhost/api/v1/consolidation-citations"),
+    wrongSite = new URL(
+      "http://localhost/api/v1/consolidation-citations?site_id=missing",
+    );
+  assert.equal(
+    routeResearchApi(noSite.pathname, noSite, dashboard, db).status,
+    400,
+  );
+  assert.equal(
+    routeResearchApi(wrongSite.pathname, wrongSite, dashboard, db).status,
+    404,
+  );
+  console.log(
+    "content consolidation blueprint API: OK (lossless title/outline/draft lineage, publication blocked, review-only)",
+  );
+} finally {
+  db.close();
+}

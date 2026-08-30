@@ -1,17 +1,192 @@
 import assert from "node:assert/strict";
-import {openDashboardDb,projectDashboard} from "./keyword-dashboard-db.mjs";
-import {routeResearchApi} from "./keyword-dashboard-api.mjs";
-import {handleMcpMessage} from "./keyword-dashboard-mcp.mjs";
+import { openDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
+import { routeResearchApi } from "./keyword-dashboard-api.mjs";
+import { handleMcpMessage } from "./keyword-dashboard-mcp.mjs";
 
-const db=openDashboardDb(".helix/keyword-dashboard.sqlite");
+const db = openDashboardDb(".helix/keyword-dashboard.sqlite");
 try {
-  const dashboard=projectDashboard(db),site=dashboard.sites[0],audit=site.snapshot_reuse_audit,summary=audit.summary,count=(state)=>audit.rows.filter((row)=>row.reuse_state===state).length;
-  assert.equal(summary.snapshot_count,audit.rows.length);assert.equal(summary.current_analysis_count,count("current_analysis"));assert.equal(summary.historical_comparison_count,count("historical_comparable"));assert.equal(summary.adjacent_candidate_count,count("adjacent_intent_candidate"));assert.equal(summary.out_of_scope_count,db.prepare("SELECT COUNT(*) count FROM raw_snapshot_reuse_audit WHERE reuse_state='out_of_scope'").get().count);assert.equal(summary.historical_comparison_count,audit.comparisons.length);assert.equal(summary.external_acquisition_triggered,false);assert.equal(db.prepare("SELECT COUNT(*) count FROM raw_snapshot_reuse_audit").get().count,audit.rows.length+summary.out_of_scope_count);assert(audit.comparisons.every((row)=>row.contract_match&&row.evidence_digest.length===64&&row.policy==="same-keyword-snapshot-diff.v3"&&row.scope.absence_confirms_unranked===false));
-  const history=routeResearchApi("/api/v1/snapshot-history",new URL(`http://localhost/api/v1/snapshot-history?site_id=${site.site_id}`),dashboard,db);assert.equal(history.status,200);assert.equal(history.body.meta.total,audit.comparisons.length);assert.equal(history.body.view,"comparisons");assert.equal(history.body.auto_mutation,false);
-  const adjacent=routeResearchApi("/api/v1/snapshot-history",new URL(`http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=reuse&state=adjacent_intent_candidate`),dashboard,db);assert.equal(adjacent.status,200);assert.equal(adjacent.body.meta.total,summary.adjacent_candidate_count);assert(adjacent.body.data.every((row)=>row.reuse_state==="adjacent_intent_candidate"));
-  const isolated=routeResearchApi("/api/v1/snapshot-history",new URL(`http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=isolated`),dashboard,db),isolatedRows=audit.isolated_corpus_review.rows;assert.equal(isolated.status,200);assert.equal(isolated.body.meta.total,isolatedRows.length);assert.equal(isolated.body.summary.auto_assignment_count,0);assert(isolated.body.data.every((row)=>row.current_site_assignment===null&&!row.auto_site_assignment&&row.evidence_digest.length===64));const isolatedMcp=handleMcpMessage({jsonrpc:"2.0",id:9,method:"tools/call",params:{name:"review_isolated_snapshot_corpora",arguments:{site_id:site.site_id,limit:100}}},dashboard);assert.equal(isolatedMcp.result.structuredContent.meta.total,isolatedRows.length);assert.equal(isolatedMcp.result.structuredContent.view,"isolated");
-  const targets=routeResearchApi("/api/v1/snapshot-history",new URL(`http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=targets&target=qiita.com&match_mode=domain`),dashboard,db);assert.equal(targets.status,200);assert.equal(targets.body.meta.limit,25);assert.equal(targets.body.data.length,targets.body.meta.total);assert.equal(targets.body.policy,"retained-target-rank-track.v2");assert(targets.body.data.every((row)=>row.domain==="qiita.com"&&row.previous_observation_state==="observed"&&(row.current_rank!=null||row.rank_absence_interpretation==="outside_observed_set_unknown_rank")&&!row.confirmed_unranked&&row.evidence_digest.length===64));const missingTarget=routeResearchApi("/api/v1/snapshot-history",new URL(`http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=targets`),dashboard,db);assert.equal(missingTarget.status,400);
-  const sites=routeResearchApi("/api/v1/sites",new URL("http://localhost/api/v1/sites"),dashboard,db);assert.equal(sites.body.data[0].snapshot_reuse_audit,undefined);const rankStatus=routeResearchApi("/api/v1/rank/status",new URL(`http://localhost/api/v1/rank/status?site_id=${site.site_id}`),dashboard,db);assert.equal(rankStatus.status,200);assert.equal(rankStatus.body.data.state,"retained_history_available");assert.equal(rankStatus.body.data.history_count,audit.comparisons.length);assert.equal(rankStatus.body.data.tracked_keyword_count,new Set(audit.comparisons.map((row)=>row.keyword)).size);assert.equal(rankStatus.body.data.scope.continuous_schedule,false);
-  const rankResults=routeResearchApi("/api/v1/rank/results",new URL(`http://localhost/api/v1/rank/results?site_id=${site.site_id}`),dashboard,db);assert.equal(rankResults.status,200);assert.equal(rankResults.body.meta.total,audit.comparisons.length);assert.equal(rankResults.body.view,"comparisons");assert.equal(rankResults.body.policy,"same-keyword-snapshot-diff.v3");assert.equal(rankResults.body.scope.absence_confirms_unranked,false);const rankTargets=routeResearchApi("/api/v1/rank/results",new URL(`http://localhost/api/v1/rank/results?site_id=${site.site_id}&target=qiita.com`),dashboard,db);assert.equal(rankTargets.body.meta.total,targets.body.meta.total);assert.equal(rankTargets.body.view,"targets");assert.equal(rankTargets.body.policy,"retained-target-rank-track.v2");
-  console.log(`SERP snapshot history API OK: ${audit.rows.length+summary.out_of_scope_count} audited, ${audit.comparisons.length} historical comparisons, ${summary.adjacent_candidate_count} adjacent candidates, ${summary.out_of_scope_count} isolated scope rows`);
-} finally { db.close(); }
+  const dashboard = projectDashboard(db),
+    site = dashboard.sites[0],
+    audit = site.snapshot_reuse_audit,
+    summary = audit.summary,
+    count = (state) =>
+      audit.rows.filter((row) => row.reuse_state === state).length;
+  assert.equal(summary.snapshot_count, audit.rows.length);
+  assert.equal(summary.current_analysis_count, count("current_analysis"));
+  assert.equal(
+    summary.historical_comparison_count,
+    count("historical_comparable"),
+  );
+  assert.equal(
+    summary.adjacent_candidate_count,
+    count("adjacent_intent_candidate"),
+  );
+  assert.equal(
+    summary.out_of_scope_count,
+    db
+      .prepare(
+        "SELECT COUNT(*) count FROM raw_snapshot_reuse_audit WHERE reuse_state='out_of_scope'",
+      )
+      .get().count,
+  );
+  assert.equal(summary.historical_comparison_count, audit.comparisons.length);
+  assert.equal(summary.external_acquisition_triggered, false);
+  assert.equal(
+    db.prepare("SELECT COUNT(*) count FROM raw_snapshot_reuse_audit").get()
+      .count,
+    audit.rows.length + summary.out_of_scope_count,
+  );
+  assert(
+    audit.comparisons.every(
+      (row) =>
+        row.contract_match &&
+        row.evidence_digest.length === 64 &&
+        row.policy === "same-keyword-snapshot-diff.v3" &&
+        row.scope.absence_confirms_unranked === false,
+    ),
+  );
+  const history = routeResearchApi(
+    "/api/v1/snapshot-history",
+    new URL(`http://localhost/api/v1/snapshot-history?site_id=${site.site_id}`),
+    dashboard,
+    db,
+  );
+  assert.equal(history.status, 200);
+  assert.equal(history.body.meta.total, audit.comparisons.length);
+  assert.equal(history.body.view, "comparisons");
+  assert.equal(history.body.auto_mutation, false);
+  const adjacent = routeResearchApi(
+    "/api/v1/snapshot-history",
+    new URL(
+      `http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=reuse&state=adjacent_intent_candidate`,
+    ),
+    dashboard,
+    db,
+  );
+  assert.equal(adjacent.status, 200);
+  assert.equal(adjacent.body.meta.total, summary.adjacent_candidate_count);
+  assert(
+    adjacent.body.data.every(
+      (row) => row.reuse_state === "adjacent_intent_candidate",
+    ),
+  );
+  const isolated = routeResearchApi(
+      "/api/v1/snapshot-history",
+      new URL(
+        `http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=isolated`,
+      ),
+      dashboard,
+      db,
+    ),
+    isolatedRows = audit.isolated_corpus_review.rows;
+  assert.equal(isolated.status, 200);
+  assert.equal(isolated.body.meta.total, isolatedRows.length);
+  assert.equal(isolated.body.summary.auto_assignment_count, 0);
+  assert(
+    isolated.body.data.every(
+      (row) =>
+        row.current_site_assignment === null &&
+        !row.auto_site_assignment &&
+        row.evidence_digest.length === 64,
+    ),
+  );
+  const isolatedMcp = handleMcpMessage(
+    {
+      jsonrpc: "2.0",
+      id: 9,
+      method: "tools/call",
+      params: {
+        name: "review_isolated_snapshot_corpora",
+        arguments: { site_id: site.site_id, limit: 100 },
+      },
+    },
+    dashboard,
+  );
+  assert.equal(
+    isolatedMcp.result.structuredContent.meta.total,
+    isolatedRows.length,
+  );
+  assert.equal(isolatedMcp.result.structuredContent.view, "isolated");
+  const targets = routeResearchApi(
+    "/api/v1/snapshot-history",
+    new URL(
+      `http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=targets&target=qiita.com&match_mode=domain`,
+    ),
+    dashboard,
+    db,
+  );
+  assert.equal(targets.status, 200);
+  assert.equal(targets.body.meta.limit, 25);
+  assert.equal(targets.body.data.length, targets.body.meta.total);
+  assert.equal(targets.body.policy, "retained-target-rank-track.v2");
+  assert(
+    targets.body.data.every(
+      (row) =>
+        row.domain === "qiita.com" &&
+        (row.previous_observation_state === "observed" ||
+          row.current_rank != null) &&
+        (row.current_rank != null ||
+          row.rank_absence_interpretation ===
+            "outside_observed_set_unknown_rank") &&
+        !row.confirmed_unranked &&
+        row.evidence_digest.length === 64,
+    ),
+  );
+  const missingTarget = routeResearchApi(
+    "/api/v1/snapshot-history",
+    new URL(
+      `http://localhost/api/v1/snapshot-history?site_id=${site.site_id}&view=targets`,
+    ),
+    dashboard,
+    db,
+  );
+  assert.equal(missingTarget.status, 400);
+  const sites = routeResearchApi(
+    "/api/v1/sites",
+    new URL("http://localhost/api/v1/sites"),
+    dashboard,
+    db,
+  );
+  assert.equal(sites.body.data[0].snapshot_reuse_audit, undefined);
+  const rankStatus = routeResearchApi(
+    "/api/v1/rank/status",
+    new URL(`http://localhost/api/v1/rank/status?site_id=${site.site_id}`),
+    dashboard,
+    db,
+  );
+  assert.equal(rankStatus.status, 200);
+  assert.equal(rankStatus.body.data.state, "retained_history_available");
+  assert.equal(rankStatus.body.data.history_count, audit.comparisons.length);
+  assert.equal(
+    rankStatus.body.data.tracked_keyword_count,
+    new Set(audit.comparisons.map((row) => row.keyword)).size,
+  );
+  assert.equal(rankStatus.body.data.scope.continuous_schedule, false);
+  const rankResults = routeResearchApi(
+    "/api/v1/rank/results",
+    new URL(`http://localhost/api/v1/rank/results?site_id=${site.site_id}`),
+    dashboard,
+    db,
+  );
+  assert.equal(rankResults.status, 200);
+  assert.equal(rankResults.body.meta.total, audit.comparisons.length);
+  assert.equal(rankResults.body.view, "comparisons");
+  assert.equal(rankResults.body.policy, "same-keyword-snapshot-diff.v3");
+  assert.equal(rankResults.body.scope.absence_confirms_unranked, false);
+  const rankTargets = routeResearchApi(
+    "/api/v1/rank/results",
+    new URL(
+      `http://localhost/api/v1/rank/results?site_id=${site.site_id}&target=qiita.com`,
+    ),
+    dashboard,
+    db,
+  );
+  assert.equal(rankTargets.body.meta.total, targets.body.meta.total);
+  assert.equal(rankTargets.body.view, "targets");
+  assert.equal(rankTargets.body.policy, "retained-target-rank-track.v2");
+  console.log(
+    `SERP snapshot history API OK: ${audit.rows.length + summary.out_of_scope_count} audited, ${audit.comparisons.length} historical comparisons, ${summary.adjacent_candidate_count} adjacent candidates, ${summary.out_of_scope_count} isolated scope rows`,
+  );
+} finally {
+  db.close();
+}

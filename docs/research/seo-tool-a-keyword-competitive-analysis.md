@@ -1489,6 +1489,14 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 各記事はproposal数、編集状態内訳、proposal set digest、packet ID/digestを保持し、API/MCP/UIから公開停止理由と証跡を逆引きできる。
 - 現行DBは8 proposalすべて未判断、packet 0である。該当記事群は判断gateと手動反映gateの両方がfail closedとなり、自動適用・自動承認・自動公開は0である。
 
+### 10.112 public-source verification / citation判断台帳（API 2.114 / SQLite v74）
+
+- 公開ソース確認37 claimのうち、観測上 `directly_supported` かつsource要件を満たす12件だけを編集審査packetへ入れる。packet、各review item、元source text、evidenceをSHA-256 digestで固定し、対象外claimを承認候補へ混入させない。
+- 編集者はsource identity、source要件、claim直接支持の3条件を個別確認し、`approved_for_claim_use`、`changes_requested`、`rejected`、`deferred` を判断する。利用承認は3条件がすべてtrueの場合だけ受理し、reviewer不一致も保持する。
+- UIはreviewer識別文字列をブラウザ内でhash化した判断JSONを出力する。importerは既定dry-run、明示 `--commit` のみSQLiteへ永続化し、packet digest不一致、古いitem digest、重複reviewer投入を拒否する。
+- 12件は3記事群の独立した `public_source_review_decision` gateへ接続する。未審査・非承認はblocked、全件承認後も本文への手動反映reviewを要求し、記事全体のclaim verification/citation approval gateを解除しない。
+- 現行DBは実reviewer判断0件で12/12未審査、記事公開解除0件である。API/MCP/UIは読み取り専用で、自動承認・自動反映・自動公開・追加外部取得・追加費用は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
