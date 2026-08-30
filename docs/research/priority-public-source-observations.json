@@ -484,6 +484,105 @@
       "direct_support_state": "not_supported",
       "decision_reason": "No qualifying evidence can guarantee non-discovery across employers, roles, dress requirements, or future workplace circumstances.",
       "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-064:section:4",
+      "candidate_digest": "6dec76d67d634bc75c91c2f6d7b6abe6774b663ee3018dc0a9c9d7c497068999",
+      "query": "タトゥー 就職 できない 一次情報",
+      "executed_query": "タトゥー 雇用 労働市場 査読研究",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The absolute outcome was reframed toward peer-reviewed labor-market evidence rather than anecdotal hiring advice.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://research-repository.uwa.edu.au/en/publications/are-tattoos-associated-with-employment-and-wage-discrimination-an/",
+      "title": "Are tattoos associated with employment and wage discrimination? Analyzing the relationships between body art and labor market outcomes",
+      "publisher": "University of Western Australia Research Repository",
+      "source_class": "academic",
+      "observed_facts": [
+        "米国標本では、個人属性を考慮した後にタトゥー保有者の雇用・賃金・所得上の不利益を示す実証証拠は得られなかったと報告している。",
+        "採用担当者の評価実験では可視タトゥーが採用可能性を下げる別研究もあり、職種や可視性による条件差がある。",
+        "日本の全職種・全企業に直接一般化できる研究ではない。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "Peer-reviewed evidence contradicts a universal inability-to-work claim but is jurisdiction- and design-specific, so it cannot establish a single Japanese hiring outcome.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-064:section:6",
+      "candidate_digest": "386fa5ed10f36e12ca84b730dd3abba49c8981e7e66394bf8cc5faee5df053d8",
+      "query": "就活タトゥーの面接 一次情報",
+      "executed_query": "労働局 タトゥー 採用 面接 業務上支障",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The general interview query was narrowed to official labor-office guidance on job-related necessity and applicant explanation.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://jsite.mhlw.go.jp/nara-roudoukyoku/content/contents/002219542.pdf",
+      "title": "公正な採用選考をめざして",
+      "publisher": "奈良労働局",
+      "source_class": "government",
+      "observed_facts": [
+        "接客等でタトゥーが業務上支障となる可能性がある場合、支障となる理由と入社後の制限を説明する必要があるとしている。",
+        "すべての職種で質問・不採用を認める一律基準ではなく、業務との関係を求めている。"
+      ],
+      "direct_support_state": "directly_supported",
+      "decision_reason": "The labor-office material directly supports role-specific interview handling and explanation duties without creating a universal exclusion rule.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-064:section:7",
+      "candidate_digest": "cd822b1b9a7c8283bbcfb449eb467692440c6ef9f19b2cfeebc7f6b07c8ebfcd",
+      "query": "タトゥー 就活 知恵袋 一次情報",
+      "executed_query": "タトゥー 就活 知恵袋 投稿",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The query was narrowed to the named user-generated surface to test whether any independently attributable evidence accompanied the posts.",
+      "result_state": "no_qualifying_result",
+      "url": null,
+      "title": null,
+      "publisher": null,
+      "source_class": null,
+      "observed_facts": [],
+      "direct_support_state": "not_supported",
+      "decision_reason": "User-generated answers were observed, but none supplied qualifying independent corroboration for a general employment claim.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-064:section:8",
+      "candidate_digest": "2b3383c8ff7105113b88eb7a12f9afd720b77969f9ed201f423cb11d3573a2b9",
+      "query": "大学生 タトゥー 就職 一次情報",
+      "executed_query": "大学生 タトゥー 就職 調査 論文",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The advice query was reframed toward an attributable higher-education study of student beliefs and employment expectations.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://eric.ed.gov/?id=EJ1095414",
+      "title": "The Millennial's Perception of Tattoos: Self Expression or Business Faux Pas?",
+      "publisher": "ERIC",
+      "source_class": "academic",
+      "observed_facts": [
+        "大学生調査で、可視タトゥーが採用可能性へ悪影響を与え得ると学生が認識していたことを報告している。",
+        "タトゥー保有学生の多くが追加する位置を就職への影響と関連付けて考慮したと報告している。",
+        "学生の認識調査であり、日本企業の実採否率を測定したものではない。"
+      ],
+      "direct_support_state": "directly_supported",
+      "decision_reason": "The academic student survey directly supports a university-student employment-perception claim while retaining its population and outcome limitations.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-064:section:9",
+      "candidate_digest": "a36ad463192f41974051782e568898dd0b1a13f1b8316d01fdc7c9a516584bd8",
+      "query": "タトゥー 就職 バレる 一次情報",
+      "executed_query": "労働局 タトゥー 採用 面接 業務上支障",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The discovery prediction was reframed toward official guidance describing circumstances in which appearance may be job-related.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://jsite.mhlw.go.jp/nara-roudoukyoku/content/contents/002219542.pdf",
+      "title": "公正な採用選考をめざして",
+      "publisher": "奈良労働局",
+      "source_class": "government",
+      "observed_facts": [
+        "接客等で業務上支障となる可能性と入社後制限の事前説明を例示している。",
+        "採用時または入社後に必ずタトゥーが発覚する確率や調査方法は示していない。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "Official guidance identifies role-specific relevance but does not establish whether or when a tattoo will be discovered.",
+      "source_snapshot_retained": false
     }
   ]
 }
