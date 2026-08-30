@@ -46,7 +46,7 @@
       {
         "path": "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
         "exists": true,
-        "sha256": "c3b4711b85a91db763ea6cf2d2d0ab4f1dc8bfb84fa00c7c78a4bd87ce1c6929"
+        "sha256": "d08934c635c1c0451e83051b654906b571b1d6f3c643dd25e8e822199b68400f"
       },
       {
         "path": "docs/research/evidence/public-search-country-metadata.json",
@@ -1235,7 +1235,7 @@
         "definition_sha256": "cd41056c3e6b8bd65740903e7947d5a770f6ef2274fefaa870380ed97a97fdc5"
       }
     ],
-    "catalog_digest": "2ce4ccad865fabac570a90a4124f5f9378fb2018d57ebb6fc709a13af99ae740"
+    "catalog_digest": "6c7e54c9ef6ecef8f97e9cbf1d81a4cb8f8417482b9b029de54e19438bfc16ce"
   },
   "proof_attestation": {
     "receipt_present": true,
@@ -3226,11 +3226,11 @@
         "verification_command_count": 5,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "aea0cb038aa66f59ed70b5a2fdd1dd3bbe4f4282521213d5212e473d31af80fb",
+        "artifact_set_digest": "d67d9f2f64ffc64b67f5c78e2dac557ca40fdc23c4d8c91be4e62eb94b21ced8",
         "command_set_digest": "5583fed7d2ec6b11a94a48dea682e9e2893003a2730173c03c90b282fa5a3db5",
         "attestation_digest": null
       },
-      "evidence_digest": "43ab8de0298f84bf9ce0d813e0a6c08658d7ae07343b98788f2420cb50eb24c3"
+      "evidence_digest": "506366862fd5bbc44808ccf437c07f5f87f3c374b3a43e6f07ec9b62d29a609c"
     },
     {
       "capability_id": "synonyms",
@@ -3421,11 +3421,11 @@
         "verification_command_count": 5,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "aea0cb038aa66f59ed70b5a2fdd1dd3bbe4f4282521213d5212e473d31af80fb",
+        "artifact_set_digest": "d67d9f2f64ffc64b67f5c78e2dac557ca40fdc23c4d8c91be4e62eb94b21ced8",
         "command_set_digest": "5583fed7d2ec6b11a94a48dea682e9e2893003a2730173c03c90b282fa5a3db5",
         "attestation_digest": null
       },
-      "evidence_digest": "8f667bdbc885e2452f242d893e0c51175a0d292a861f35b0e415bb6a25240d1c"
+      "evidence_digest": "4ac8d3d8a3029e1fd0e8013d2a58aa5b2aa000e29ab52a32f3cf5dc628e3f0c8"
     },
     {
       "capability_id": "news",
@@ -3458,11 +3458,11 @@
         "verification_command_count": 5,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "aea0cb038aa66f59ed70b5a2fdd1dd3bbe4f4282521213d5212e473d31af80fb",
+        "artifact_set_digest": "d67d9f2f64ffc64b67f5c78e2dac557ca40fdc23c4d8c91be4e62eb94b21ced8",
         "command_set_digest": "5583fed7d2ec6b11a94a48dea682e9e2893003a2730173c03c90b282fa5a3db5",
         "attestation_digest": null
       },
-      "evidence_digest": "e6213d13ec767dd26499ceffe53331e6b4552e4f7bdc3faf653de270c1cd8c71"
+      "evidence_digest": "4b8f3dfe36c47a37722da0e1a41944b92ec92f232751a394767dc75d090990e3"
     },
     {
       "capability_id": "quick_search",
@@ -3727,12 +3727,12 @@
         "verification_command_count": 5,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "aea0cb038aa66f59ed70b5a2fdd1dd3bbe4f4282521213d5212e473d31af80fb",
+        "artifact_set_digest": "d67d9f2f64ffc64b67f5c78e2dac557ca40fdc23c4d8c91be4e62eb94b21ced8",
         "command_set_digest": "5583fed7d2ec6b11a94a48dea682e9e2893003a2730173c03c90b282fa5a3db5",
         "attestation_digest": null
       },
-      "evidence_digest": "1d5b256dea409bfb41894c67f6de093a765a04d89b653d90bb091850ab770679"
+      "evidence_digest": "f3eddb95e05dbc880ba9fda7ba92e2afa7b1c2583534cea085309278b200b073"
     }
   ],
-  "audit_digest": "f284b153649bced3fb916560d54ecdb01120563239043cb0241d422228b96d8f"
+  "audit_digest": "9bf6b1209f62546d54f2122ef0a931c5f9ed4f0a4488ec80b029821c5bab90f6"
 }
