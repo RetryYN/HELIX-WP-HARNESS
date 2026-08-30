@@ -820,14 +820,14 @@
       "task_id": "08231446-1317-0139-0000-777f59106881",
       "post_status_code": 20000,
       "organic_urls": [
-        "https://competitor-152.example/company/shukatsutimes-review",
+        "https://competitor-152.example/company/site-a-review",
         "https://competitor-199.example/events/7",
-        "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
+        "https://sub2.competitor-87.example/entry/site-a-reputation",
         "https://competitor-14.example/service",
         "https://sns.example/site-a"
       ],
       "raw_file": "raw/08231446-1317-0139-0000-777f59106881.json",
-      "response_digest": "1e2b39aff90ea0f7594016e748fa5ef5854b14beec3395cb5546bd231a62cd26",
+      "response_digest": "8ac6cedccfc17a58dc34d13829708b3e52805d81138fec7baabff1b014ceb047",
       "cost": 0.002
     },
     {
@@ -2292,14 +2292,14 @@
       "task_id": "08231451-1317-0139-0000-79e28e639433",
       "post_status_code": 20000,
       "organic_urls": [
-        "https://competitor-152.example/company/shukatsutimes-review",
-        "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
+        "https://competitor-152.example/company/site-a-review",
+        "https://sub2.competitor-87.example/entry/site-a-reputation",
         "https://competitor-199.example/events/7",
         "https://sns.example/site-a",
         "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12274857132"
       ],
       "raw_file": "raw/08231451-1317-0139-0000-79e28e639433.json",
-      "response_digest": "2c4957eb6cbbedd5c8577476784a3ed509534be84f5b3088861625cd7cb6de24",
+      "response_digest": "0bf7e4024794c0f55b7b3a02e4b0f878efd35586c88e1990d8072475127d02a8",
       "cost": 0.002
     },
     {
@@ -43173,10 +43173,10 @@
         "left": "site-a.example:IT就活:4",
         "right": "site-a.example:IT就活:98",
         "shared_urls": [
-          "https://competitor-152.example/company/shukatsutimes-review",
+          "https://competitor-152.example/company/site-a-review",
           "https://competitor-199.example/events/7",
           "https://sns.example/site-a",
-          "https://sub2.competitor-87.example/entry/syukatu-times-reputation"
+          "https://sub2.competitor-87.example/entry/site-a-reputation"
         ],
         "shared_count": 4,
         "denominator": 5,
@@ -74636,7 +74636,7 @@
       ]
     }
   ],
-  "reproducibility_digest": "466d0544320297b119e29e4cf5f1f9cfee24ea5d0d574164da92935a637b62e9",
+  "reproducibility_digest": "1af59850ce531a4994bae64b3af2bfcce60155ca6c6d7e99f969ac7e6dc44302",
   "keyword_hierarchy": [
     {
       "source_keyword_id": "site-a.example:IT就活:10",
