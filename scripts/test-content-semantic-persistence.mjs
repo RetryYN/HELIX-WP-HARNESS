@@ -5,13 +5,13 @@ const dbPath=".helix/keyword-dashboard.sqlite";
 const snapshot=()=>{
   const db=openDashboardDb(dbPath);
   try{
-    const data=projectDashboard(db),resolvedGroups=data.groups.filter((row)=>row.main_keyword),reviews=data.content_semantic_reviews,tasks=data.content_semantic_resolution_tasks;
+    const data=projectDashboard(db),resolvedGroups=data.groups.filter((row)=>row.main_keyword),reviews=data.content_semantic_reviews,tasks=data.content_semantic_resolution_tasks,packet=data.sites[0].semantic_resolution_decision_packet;
     assert.equal(reviews.length,resolvedGroups.length);
     assert.equal(db.prepare("SELECT COUNT(*) count FROM content_semantic_reviews").get().count,reviews.length);
     assert.equal(db.prepare("SELECT COUNT(*) count FROM content_semantic_resolution_tasks").get().count,tasks.length);
     assert(tasks.length>0);
     assert(tasks.every((row)=>row.task_digest.length===64&&row.concept.supporting_keyword_ids.length>0&&row.concept.supporting_keyword_samples.length>0&&row.concept.path_digests.length>0&&!row.auto_resolution&&!row.auto_group_assignment&&!row.auto_selection&&!row.auto_content_mutation));
-    return {review_digests:reviews.map((row)=>[row.group_id,row.review_digest]),task_digests:tasks.map((row)=>[row.task_id,row.task_digest,row.priority_score,row.priority_band])};
+    assert.deepEqual(packet.evidence_readiness_counts,{direct_group_evidence_observed:6,candidate_group_boundary_review:35,source_lineage_only:103});return {review_digests:reviews.map((row)=>[row.group_id,row.review_digest]),task_digests:tasks.map((row)=>[row.task_id,row.task_digest,row.priority_score,row.priority_band]),decision_packet_digest:packet.packet_digest,evidence_readiness_counts:packet.evidence_readiness_counts};
   }finally{db.close()}
 };
 
