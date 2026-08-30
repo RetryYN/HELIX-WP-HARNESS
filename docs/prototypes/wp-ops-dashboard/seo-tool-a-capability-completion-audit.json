@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "ebb1ff5a4faaf8bc3f0070a378879b960950e12d7e08ae05ac5194556354d817",
+  "inventory_digest": "ffb88757f8370b3764005806cf90dcd34b5f00b87176fa961b7fc73fc6440e45",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1388,7 +1388,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、さらに新規記事のP0 2・P1 10・P2 20の計32 claimを無料公開Webで実確認し、計画query 12・entity/法的論点/研究対象明確化の適応query 20をimmutable候補へ接続。直接支持10・文脈補助14・適格sourceなし8、要件充足10のみを証拠化し、一般面接論から職種固有助言、規模情報から大手分類、投稿型情報から客観的入社難易度、給与情報から賞与月数、公正採用・解雇の一般原則から申告義務・発覚・退学・解雇の個別結果、海外研究から日本の全職種共通結果を推論せずfail-closed維持。費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
+      "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、さらに新規記事のP0 2・P1 10・P2 25の計37 claimを無料公開Webで実確認し、計画query 12・entity/法的論点/研究/評価条件明確化の適応query 25をimmutable候補へ接続。直接支持12・文脈補助17・適格sourceなし8、要件充足12のみを証拠化し、一般面接論から職種固有助言、規模情報から大手分類、投稿型情報から客観的入社難易度、給与情報から賞与月数、公正採用・解雇の一般原則から申告義務・発覚・退学・解雇の個別結果、海外研究から日本の全職種共通結果、主観的な服装評価や条件付きの自社納期から普遍的な独立評価を推論せずfail-closed維持。費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1452,7 +1452,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "19aa9a3b37a98f763c52efcdb6608896726e56ed75262a30ddad19208cae2cc3"
+      "evidence_digest": "b372cea004b2c5d1e5393cb37c1eb69238ce29485afa933c91aea58dcffd7044"
     },
     {
       "capability_id": "ai_questions",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "ed8eb9a9fb2f8f8808246c08dec5ccbab87c5f4a8fbedc59ca8b03278dc1e716"
     }
   ],
-  "audit_digest": "542a8cc27d373240f2a6730846d79cc106425a2194227aef666538aabe2191a3"
+  "audit_digest": "a30058523d16a79b226404ae869888d540b08f8b26823b948c426460483f31d1"
 }

@@ -583,6 +583,111 @@
       "direct_support_state": "contextual_only",
       "decision_reason": "Official guidance identifies role-specific relevance but does not establish whether or when a tattoo will be discovered.",
       "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-031:section:1",
+      "candidate_digest": "5d965c4086d25125b368b881f88ea9a7f3a15ca5bec317d7b617bf00b310926d",
+      "query": "suit select 就活の選び方 一次情報",
+      "executed_query": "就活 スーツ 選び方 購入実態 調査",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The brand-led advice query was reframed toward an attributable survey of young adults' actual selection factors and purchased brands.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://cm-marketinglab.mynavi.jp/column/research_recruitsuit/",
+      "title": "リクルートスーツの購入実態を調査！人気ブランドや重視する点など就活におけるスーツの選び方を徹底解説",
+      "publisher": "マイナビ マーケティング・広報ラボ",
+      "source_class": "independent_editorial",
+      "observed_facts": [
+        "18〜25歳の大学生・若手社会人306人を対象に、購入色、点数、ブランド、重視点を調査している。",
+        "購入時の重視点は着心地、長く使えること、コストパフォーマンス、ストレッチ素材の順だった。",
+        "男性回答では対象ブランドが購入ブランド上位群に含まれたが、推奨または面接成果を示す調査ではない。"
+      ],
+      "direct_support_state": "directly_supported",
+      "decision_reason": "The attributable independent survey directly supports evidence-based selection factors and observed brand use without turning purchase frequency into a recommendation.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-031:section:2",
+      "candidate_digest": "a50e4c70d5cdb3532effa7cb011ad04609649c60f6f0144c380291bf0b20fd81",
+      "query": "suit select 就活の面接 一次情報",
+      "executed_query": "ハローワーク 面接 スーツ 服装 清潔感",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The brand-specific phrase was reframed toward public employment-service guidance on interview attire.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://jsite.mhlw.go.jp/kanagawa-hellowork/content/contents/001891587.pdf",
+      "title": "就職応援セミナー 面接対策",
+      "publisher": "港北公共職業安定所",
+      "source_class": "government",
+      "observed_facts": [
+        "面接時の服装は清潔さを基本とし、オーソドックスなものを用意するよう案内している。",
+        "スーツ、シャツ、靴、髪型等を事前に確認するチェック項目を示している。",
+        "特定ブランドの適否や採用成果は評価していない。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "Official interview guidance supports general attire requirements but cannot establish that one retailer's products are uniquely suitable for interviews.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-031:section:4",
+      "candidate_digest": "b3d43b87ae49e933b51acdc251bbd01c710e7fbb7406c8fdee898e3605d5d85f",
+      "query": "SUIT SELECTの評判は？ 一次情報",
+      "executed_query": "SUIT SELECT 評判 第三者 顧客満足度 調査",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The open-ended reputation query was narrowed to a third-party survey with a disclosed respondent definition and scoring dimensions.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://life.oricon.co.jp/rank-suit-shop/company/suit-select/",
+      "title": "SUIT SELECTの評判・口コミ｜スーツショップ",
+      "publisher": "オリコン顧客満足度",
+      "source_class": "independent_editorial",
+      "observed_facts": [
+        "過去3年以内の購入・選定関与者2,582人を対象とするスーツショップ調査のブランド別得点を掲載している。",
+        "商品、接客、コーディネート、利用、お直し、コストパフォーマンス等を分けて評価している。",
+        "利用者コメントは個人の見解であり、調査会社自身の意見ではないと明記している。"
+      ],
+      "direct_support_state": "directly_supported",
+      "decision_reason": "The independent survey directly supports a multidimensional reputation summary while retaining respondent and user-comment boundaries.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-031:section:5",
+      "candidate_digest": "ac76172417524b8b38d1acf2addb910aa53097824b07610ab0116ccc92ad9380",
+      "query": "SUIT Selectはダサいですか？ 一次情報",
+      "executed_query": "SUIT SELECT ダサい アンケート 評価",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The subjective yes-or-no query was reframed toward an attributed style-opinion survey rather than search-result sentiment.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://dasaism.com/suits-select/",
+      "title": "スーツセレクトはダサい？評判とコーディネートの注意点、改善のコツを紹介",
+      "publisher": "ダサイズム",
+      "source_class": "independent_editorial",
+      "observed_facts": [
+        "クラウドソーシング回答を用いたスタイル評価を掲載している。",
+        "記事に広告が含まれ、検索結果上では標本数・募集条件・代表性を十分確認できない。",
+        "美的評価は用途、着用者、組合せ、回答者によって変わる。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "The attributed opinion survey is relevant context, but subjective style and incomplete sampling detail cannot establish a universal aesthetic verdict.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-031:section:6",
+      "candidate_digest": "4520e80e6a8a27a4e92e0f5a97f923d73d969dcebe18320898bbefd7e21bc98f",
+      "query": "SUIT Selectの仕上がりはどれくらいですか？ 一次情報",
+      "executed_query": "SUIT SELECT オーダー 仕上がり 納期 公式",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The ambiguous finish question was reframed to the first-party delivery schedule and its material/factory conditions.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://www.suit-select.com/aispeedorder/",
+      "title": "AI SPEED ORDER",
+      "publisher": "SUIT SELECT",
+      "source_class": "company_official",
+      "observed_facts": [
+        "限定生地の国内仕上げは最速10日、その他の国内仕上げは最速2週間、海外仕上げは最速3週間としている。",
+        "時期、生地、縫製工場、年末年始や盆期間によって通常より日数を要すると明記している。",
+        "会社公式情報であり、実納期の独立検証ではない。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "The first-party schedule provides conditional delivery context, but the P2 independent-corroboration requirement remains unsatisfied.",
+      "source_snapshot_retained": false
     }
   ]
 }
