@@ -1,0 +1,16 @@
+{
+  "schema_version": "helix-public-lexical-corpus-source.v1",
+  "dataset_name": "Japanese WordNet Synonyms Database",
+  "dataset_version": "1.0",
+  "source_page": "https://bond-lab.github.io/wnja/jpn/downloads.html",
+  "source_archive": "https://github.com/bond-lab/wnja/releases/download/v1.1/wnjpn-syn-database.1.0.zip",
+  "source_archive_sha256": "02e9a9188de840360a8e457bafc7d876b08386b0062694d2c683dc3c5c161185",
+  "pair_file": "japanese-synonym-pairs-v1.0.tsv",
+  "pair_file_sha256": "d8a017df64945559aa3c8f713efba96c52cada3055558135762f76c482339a9e",
+  "pair_count": 11753,
+  "annotation": "human_reviewed_synonym_pairs",
+  "license_file": "LICENSE-JAPANESE-WORDNET",
+  "attribution": "Japanese WordNet (v1.1) © 2009-2011 NICT, 2012-2015 Francis Bond and 2016-2024 Francis Bond, Takayuki Kuribayashi",
+  "retrieved_at": "2026-08-30T10:53:06+09:00",
+  "acquisition_cost_usd": 0
+}

@@ -1,15 +1,15 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "ffb88757f8370b3764005806cf90dcd34b5f00b87176fa961b7fc73fc6440e45",
+  "inventory_digest": "cf23427fcf681822acb0a960d62f4485aec6cfd7713e7a1417c0b18062cf5757",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
-    "proven_complete_count": 4,
-    "incomplete_count": 31,
+    "proven_complete_count": 5,
+    "incomplete_count": 30,
     "blocker_counts": {
       "contract_or_auth_parity": 2,
-      "corpus_or_acquisition_depth": 18,
+      "corpus_or_acquisition_depth": 17,
       "external_provider_or_account_data": 5,
       "generation_runtime_or_quality_oracle": 6
     }
@@ -155,7 +155,12 @@
       ],
       "remaining_gap": "10,694元行を10,619正規化候補へlossless集約し、重複候補74・重複元行149・volume競合20、SERP取得100/未取得10,594、15 source sheetを監査。前方/部分/all-token検索、source row、取得状態、CSV/JSONを実装。外部8 surfaceの観測coverageはすべてfalseで、増量・appearance historyも未取得",
       "authoritative_evidence": [
+        "scripts/public-synonym-evidence.mjs",
+        "docs/research/public-lexical-corpus/source-manifest.json",
+        "docs/research/public-lexical-corpus/LICENSE-JAPANESE-WORDNET",
         "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/suggest-evidence-oracle.mjs",
@@ -166,6 +171,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-public-synonym-evidence.mjs",
+        "node scripts/test-public-synonym-evidence-api.mjs",
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-suggest-evidence-oracle.mjs",
@@ -174,7 +181,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "2f1eb0d7965fc73ca50e19f2c197da58e77960b876a39ed96544974f90f632b7"
+      "evidence_digest": "d452b5504cb6bec3c10a930bf084eac414d4ab98a341c4a70ba4e3322ec062a2"
     },
     {
       "capability_id": "related_keywords",
@@ -187,7 +194,12 @@
       ],
       "remaining_gap": "10,594未取得実在KWから733元行・792候補をtoken overlap/association/volume/source ID付きで実装。複数group候補56行を同点18・僅差5・明確先頭33へ分離し、review 23は自動割当停止。外部大規模index・match type・appearance timeは未取得",
       "authoritative_evidence": [
+        "scripts/public-synonym-evidence.mjs",
+        "docs/research/public-lexical-corpus/source-manifest.json",
+        "docs/research/public-lexical-corpus/LICENSE-JAPANESE-WORDNET",
         "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/suggest-evidence-oracle.mjs",
@@ -198,6 +210,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-public-synonym-evidence.mjs",
+        "node scripts/test-public-synonym-evidence-api.mjs",
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-suggest-evidence-oracle.mjs",
@@ -206,7 +220,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "a6a954e086b926a6e89b81493e0682babe09f80753ca926959baa08d84c35b11"
+      "evidence_digest": "555fc3071db3b265181beaac8d39cd02155ac1a27505092f0915559ea699e03c"
     },
     {
       "capability_id": "question_search",
@@ -1633,15 +1647,18 @@
     {
       "capability_id": "synonyms",
       "name": "類語・同義語",
-      "parity_status": "incomplete",
-      "helix_status": "partial",
-      "completion_evidence_state": "contradicted_by_retained_gap",
-      "blocker_classes": [
-        "corpus_or_acquisition_depth"
-      ],
-      "remaining_gap": "表記variant 921 cluster・2,075元表記・1,492 pairをsource証拠付きで再検証。さらに強い相互共起を保持SERP title/snippet URL文脈へ照合した168関係候補を追加し、複合語候補2・文脈重複23・文脈分離41・証拠不足102へ分離、shared URL occurrence 330、編集判断済み0。いずれも意味的同義性や交換可能性は推論しない。意味的同義語の外部辞書は未取得",
+      "parity_status": "proven_complete",
+      "helix_status": "implemented",
+      "completion_evidence_state": "proven",
+      "blocker_classes": [],
+      "remaining_gap": "人手で同義判定された公開日本語語彙11,753 pair・9,487語をversion 1.0、archive/file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語の両方向・部分検索をAPI/MCP/UIへ実装し、保有corpus 585語中206語・840 pairとの接続も監査。表記variant 921 cluster、共起association 1,636 edge、SERP文脈候補168 pairとは証拠種別を分離。辞書上の語対を記事文脈での無条件交換可能性とは扱わず全11,753 pairをcontext review必須、自動置換0。取得費用0",
       "authoritative_evidence": [
+        "scripts/public-synonym-evidence.mjs",
+        "docs/research/public-lexical-corpus/source-manifest.json",
+        "docs/research/public-lexical-corpus/LICENSE-JAPANESE-WORDNET",
         "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/suggest-evidence-oracle.mjs",
@@ -1652,6 +1669,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-public-synonym-evidence.mjs",
+        "node scripts/test-public-synonym-evidence-api.mjs",
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-suggest-evidence-oracle.mjs",
@@ -1660,7 +1679,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "ed97fe3a3ce30c72a93a1e82cc155918d247063b54b3583a466c6e8b1ab806c4"
+      "evidence_digest": "65b9d501f3d39e18f4406287fe4a63480cb2c73c1baa99ec3cea81b3bae94562"
     },
     {
       "capability_id": "associations",
@@ -1673,7 +1692,12 @@
       ],
       "remaining_gap": "7,087有効keyword documentから585基準語・1,636関係を実装。cosineとsource rowを再計算検証し、強336・中395・弱905、相互top-K 1,002・片方向top-K 634、完全sample 1,589・20件上限sample 47、整合異常0。観測共起であり意味的同義性は推論しない。外部association corpusは未取得",
       "authoritative_evidence": [
+        "scripts/public-synonym-evidence.mjs",
+        "docs/research/public-lexical-corpus/source-manifest.json",
+        "docs/research/public-lexical-corpus/LICENSE-JAPANESE-WORDNET",
         "scripts/keyword-dashboard-db.mjs",
+        "scripts/keyword-dashboard-api.mjs",
+        "scripts/keyword-dashboard-mcp.mjs",
         "scripts/keyword-lineage-ledger.mjs",
         "scripts/related-keyword-boundary-oracle.mjs",
         "scripts/suggest-evidence-oracle.mjs",
@@ -1684,6 +1708,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-public-synonym-evidence.mjs",
+        "node scripts/test-public-synonym-evidence-api.mjs",
         "node scripts/test-keyword-lineage-ledger.mjs",
         "node scripts/test-related-keyword-boundary-oracle.mjs",
         "node scripts/test-suggest-evidence-oracle.mjs",
@@ -1692,7 +1718,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "4d210c5fce8608210dcaa2fa4a2396938f1afd0640e3c39c3bbc78fb08e4b5e5"
+      "evidence_digest": "76fb533599c8a3a31eecfd2858cfb445658f1c2859802648dc20bb4d91698fc7"
     },
     {
       "capability_id": "qa_sites",
@@ -1909,7 +1935,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む90 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む91 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1939,7 +1965,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "e214c2eaf50e32d4aa2b4102aebbb0364010e0a6c278d8866f8704391c725d29"
+      "evidence_digest": "177c06aaf52d9388d5c2b67b4819ce6a5304db7df9bb562e0e87073359fdc2ec"
     },
     {
       "capability_id": "credit_history",
@@ -1968,5 +1994,5 @@
       "evidence_digest": "ed8eb9a9fb2f8f8808246c08dec5ccbab87c5f4a8fbedc59ca8b03278dc1e716"
     }
   ],
-  "audit_digest": "a30058523d16a79b226404ae869888d540b08f8b26823b948c426460483f31d1"
+  "audit_digest": "757dee1701f8f18ce31cade631f00ee82afbf6b1270a93fbdced8abb5a29a501"
 }
