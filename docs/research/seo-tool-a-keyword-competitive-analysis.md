@@ -1422,6 +1422,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 現行監査は35/35機能でartifact/command integrity成功、欠落0、未解決0。ただしcommandの解決性と実行済み証跡は分離し、実行attestationは0として明示する。
 - 画面は完成6/35と同時に証拠整合35、証拠異常0、実行証跡0を表示する。これは残存gapや外部品質を完成扱いするものではない。
 
+### 10.102 機能完成proof execution attestation
+
+- 完成候補6機能が引用する検証commandを重複除去し、16 commandを実行した。各commandの終了code、signal、timeout、所要時間、stdout/stderr SHA-256と末尾をreceiptへ保持する。
+- Node commandは対象test file SHA-256、npm commandはpackage script定義SHA-256をcommand-set digestへ含める。artifact集合・command実体・inventoryのいずれかが変わると旧receiptは一致せず、実際に再構築時に完成0/35へfail closedとなることを確認した。
+- SHA追加後に16/16 commandを再実行し、類語・連想語・quick search・補助tool・data output・bookmarkletの6/6機能を再attestした。dashboard完全回帰は約19分49秒で成功した。
+- receiptは外部取得・model実行・有料実行をすべてfalseで固定する。29機能の残存gap、人手品質、順位効果、外部contract parityはattestation対象外であり、完成監査は6/35のままである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
