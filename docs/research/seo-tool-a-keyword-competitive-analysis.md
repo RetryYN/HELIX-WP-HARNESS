@@ -1408,6 +1408,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - API/MCPは準備度filterを提供し、画面は元keywordのsheet/row、文字列、候補group、境界state、keyword/path evidence digestを展開表示する。
 - 準備度は編集作業のroutingであり、sense適合・需要観測・編集承認を代替しない。自動group割当・候補選定・content変更は0のままである。
 
+### 10.100 盲検編集consensus・裁定queue（API 2.104）
+
+- 永続化済みの盲検title/heading A/B判断をreviewer単位で重複排除し、78 pairを2名待ち・合意候補・不一致・意味保持違反・両案却下・同点裁定へ排他的に分類する。
+- 2名未満は合意にせず、headingで一方でも意味保持がfalseなら、選好が一致しても必ず人手裁定へ戻す。両案却下・同点も自動勝者に変換しない。
+- API/MCP/UIは候補originと解決表を隠したまま状態、reviewer数、選好集合、意味保持違反数、digestを表示する。自動選定・content変更は常に0である。
+- 実DBは判断0件のため78/78 pairが2名待ちである。合意・品質・順位効果を捏造せず、実reviewer判断の投入後にのみ状態が進む。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
