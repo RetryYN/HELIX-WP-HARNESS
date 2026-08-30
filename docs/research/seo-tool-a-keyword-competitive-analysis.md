@@ -1386,6 +1386,14 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 全記事群処理用に意味グラフ・10,694行inventory・group接続を共有し、同一実DBで意味解析区間を約68秒から約12秒へ短縮した。
 - typed pathは曖昧性を含む編集判断用証拠であり、需要・同義性・順位因果・自動group割当・自動選定・自動本文変更は推論しない。外部取得費用は0 USD。
 
+### 10.97 semantic resolution編集判断台帳（API 2.103 / SQLite v72）
+
+- 63記事群・144 taskをsource task/review digestへ固定したdecision packetへ変換し、sense適合、直接group証拠、需要証拠、編集判断を別fieldで記録する。
+- `approved_for_consideration`はsense=`relevant`、group=`supported`、demand=`observed`の全条件が揃わない限りvalidationで拒否する。古いtask digest、未知task、重複decision、schema不一致もfail closedにする。
+- importerは既定dry-runで、`--commit`指定時だけSQLiteへdecision setとdecisionを保存する。同一reviewerの同一packet再投入は禁止する。
+- API/MCP/UIへ未判断・考慮承認・却下・保留・reviewer不一致を投影するが、group割当、title/H2選定、本文変更への自動反映は常に0である。
+- 実packetは144件すべて未判断のまま保持し、人手判断を実施したとは主張しない。外部取得費用は0 USD。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

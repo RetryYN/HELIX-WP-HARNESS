@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "6b96d4f0c03c796ac19d42edce09ddfdb9852dbff4a2e49b7cb257ad04051565",
+  "inventory_digest": "62174dd7c1848549af95356ed60ab07673f0054e50a20f8b4f2455b9393f7650",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1995,7 +1995,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む94 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む95 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -2025,7 +2025,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "8e62a9f48201cede83fc727c3bb168ef107eb9caea6e5b48c5406554747e6a50"
+      "evidence_digest": "4dcf2650351ecc8b8788735c73be5da8050d7238f1ac848f32bbd57d9956c34f"
     },
     {
       "capability_id": "credit_history",
@@ -2054,5 +2054,5 @@
       "evidence_digest": "ed8eb9a9fb2f8f8808246c08dec5ccbab87c5f4a8fbedc59ca8b03278dc1e716"
     }
   ],
-  "audit_digest": "db0f51fd1278c29b9eef2de17cab1adb06ecfb96c80694eb41259b9cd48f4a43"
+  "audit_digest": "14bd03d29b19be1ecc5cf26f771d4d2c5ad3a1c02c328fedc0b8a8468e7191f3"
 }
