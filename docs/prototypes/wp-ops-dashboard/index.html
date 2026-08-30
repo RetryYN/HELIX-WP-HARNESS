@@ -136,6 +136,10 @@
       <div class="filters"><select id="semantic-depth" aria-label="意味グラフ探索深度"><option value="1">直接edge</option><option value="2">2階層</option><option value="3">3階層</option></select><select id="semantic-relation" aria-label="意味関係"><option value="all">全関係</option><option value="hype">上位概念</option><option value="hypo">下位概念</option><option value="sim">類似概念</option><option value="attr">属性</option><option value="mprt">全体の部分</option><option value="hprt">部分を含む全体</option><option value="also">関連参照</option></select></div>
       <div id="semantic-graph-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>深度</th><th>起点</th><th>関係</th><th>接続先</th><th>定義</th><th>証跡</th></tr></thead><tbody id="semantic-graph-rows"></tbody></table><div id="semantic-graph-empty" class="empty-state"></div></div>
+      <div class="subsection-head"><h3>関連キーワード逆引き</h3><p>入力語のlexical一致と意味pathを保有10,694行へ逆引きし、既存group候補・境界reviewまで接続します</p></div>
+      <div class="filters"><select id="graph-related-state" aria-label="関連KW根拠状態"><option value="all">全根拠</option><option value="lexical_supported">文字列支持</option><option value="semantic_path_review">意味path要確認</option><option value="lexical_and_semantic_path">文字列＋意味path</option></select><select id="graph-related-review" aria-label="group境界review"><option value="all">全境界</option><option value="required">group要review</option><option value="supported">group候補支持</option></select></div>
+      <div id="graph-related-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>候補KW</th><th>根拠状態</th><th>score</th><th>意味path</th><th>group境界</th><th>元行・証跡</th></tr></thead><tbody id="graph-related-rows"></tbody></table><div id="graph-related-empty" class="empty-state"></div></div>
       <div class="subsection-head"><h3>同一token集合の表記variant</h3><p>語順・空白・表記が異なる元行をsource identity付きで束ねます</p></div>
       <div id="variant-evidence-metrics" class="metrics"></div>
       <div id="semantic-candidate-metrics" class="metrics"></div>
