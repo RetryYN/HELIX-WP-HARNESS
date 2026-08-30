@@ -1461,6 +1461,12 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 原query、実行query、探索判断理由、claim/candidate/source evidence digestを保持したまま、unsupported answerを削除した編集scopeを生成する。例として、非公開の役職年収や賞与月数を断定せず公開範囲を説明し、曖昧なサービスは正式名称・URLの特定を先行させる。
 - API/MCP/UIでfailure kindと安全scopeを逆引きする。これは本文の自動書換えではなく編集review案であり、事実回答の推論・自動置換・自動承認・自動公開・外部取得はいずれも0である。
 
+### 10.108 evidence-safe draft revision proposal（API 2.110）
+
+- evidence-safe reframe 8件を保持draft claimへclaim IDで全件逆引きし、孤児0・重複0を確認した。元claim text、claim kind、verification state、31 evidence ID、citation ID、draft revision/reframe/public evidence digestを保持する。
+- failure kind別に、断定を避けた見出し案と本文scope案を決定論生成し、元claim・提案見出し・提案本文の文字数差分を保持する。非公開の数値、曖昧entity、個人動機、将来結果などを事実回答へ変換しない。
+- 8/8 proposalは `blocked_source_verification_and_editor_review` のままで、unsupported answer削除、編集revision review、source検証、citation承認を個別blockerとして保持する。API/MCP/UIは提案を表示するが、自動置換・自動承認・自動公開・外部取得は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
