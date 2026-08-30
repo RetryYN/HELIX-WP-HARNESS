@@ -1,8 +1,9 @@
 import {createHash} from "node:crypto";
 import {queryPublicSemanticGraph} from "./public-semantic-graph-query.mjs";
+import {tokenizeMatchText} from "./keyword-article-matching.mjs";
 
 const digest=(value)=>createHash("sha256").update(JSON.stringify(value)).digest("hex"),normalize=(value)=>String(value??"").normalize("NFKC").trim().toLocaleLowerCase("ja-JP"),round=(value)=>Math.round(value*1e6)/1e6;
-const tokensOf=(value)=>normalize(value).split(/\s+/u).filter(Boolean);
+const tokensOf=(value)=>[...new Set([...normalize(value).split(/\s+/u),...tokenizeMatchText(value).map(normalize)].filter((token)=>token.length>=2))];
 const boundary=(groups)=>{if(!groups.length)return{state:"no_group_candidate",review_required:true,margin:null};if(groups.some((row)=>row.connection_state==="acquired_group_member"))return{state:"acquired_group_evidence",review_required:false,margin:null};if(groups.length===1)return{state:"unique_group_candidate",review_required:false,margin:null};const margin=round(groups[0].proposal_score-groups[1].proposal_score);return{state:margin<=.000001?"multi_group_tie_review":margin>=10?"multi_group_clear_leader":"multi_group_margin_review",review_required:margin<10,margin}};
 
 export function queryGraphRelatedKeywords(db,{siteId,query,depth=1,maxSemanticEdges=500}={}){
