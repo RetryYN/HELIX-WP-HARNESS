@@ -1302,7 +1302,7 @@
         "function": "live",
         "se": "google",
         "se_type": "organic",
-        "keyword": "就活タイムズ",
+        "keyword": "サイトA",
         "location_code": 2392,
         "language_code": "ja",
         "device": "desktop",
@@ -1312,7 +1312,7 @@
       },
       "result": [
         {
-          "keyword": "就活タイムズ",
+          "keyword": "サイトA",
           "type": "organic",
           "se_domain": "google.com",
           "location_code": 2392,
@@ -1339,11 +1339,11 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "domain": "competitor-152.example",
-              "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底 ...",
-              "url": "https://competitor-152.example/company/shukatsutimes-review/",
+              "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底 ...",
+              "url": "https://competitor-152.example/company/site-a-review/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://competitor-152.example › shukatsutimes-review",
+              "breadcrumb": "https://competitor-152.example › site-a-review",
               "website_name": "日本語教師ジョブ",
               "is_image": false,
               "is_video": false,
@@ -1351,7 +1351,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2025/12/16 — 担当者によって対応の質が悪い可能性がある. 就活タイムズは、担当者が就活生の要望にあわせてエージェントやイベントの紹介を行ってくれることが特徴です ...",
+              "description": "2025/12/16 — 担当者によって対応の質が悪い可能性がある. サイトAは、担当者が就活生の要望にあわせてエージェントやイベントの紹介を行ってくれることが特徴です ...",
               "pre_snippet": "12/16/2025 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -1392,7 +1392,7 @@
               "items": [
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズはやばいですか？",
+                  "title": "サイトAはやばいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
                   "expanded_element": [
@@ -1406,7 +1406,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就職タイムズとは何ですか？",
+                  "title": "サイトAとは何ですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
                   "expanded_element": [
@@ -1420,7 +1420,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズからの電話はしつこいですか？",
+                  "title": "サイトAからの電話はしつこいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
                   "expanded_element": [
@@ -1457,12 +1457,12 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[5]/div[1]/div[1]",
               "domain": "competitor-199.example",
-              "title": "就活タイムズ",
+              "title": "サイトA",
               "url": "https://competitor-199.example/events/7/",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-199.example › events",
-              "website_name": "就活タイムズ",
+              "website_name": "サイトA",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -1495,8 +1495,8 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[7]/div[1]/div[1]",
               "domain": "sub2.competitor-87.example",
-              "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の ...",
-              "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
+              "title": "【サイトAはやばい？怪しい？】評判・実態と利用前の ...",
+              "url": "https://sub2.competitor-87.example/entry/site-a-reputation",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://sub2.competitor-87.example › 就活サイト",
@@ -1507,7 +1507,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2026/08/05 — 結論から言うと、就活タイムズは運営会社がしっかりしていて、やばいサイトでも怪しいサイトでもないと言えます。 ではなぜ「 ...",
+              "description": "2026/08/05 — 結論から言うと、サイトAは運営会社がしっかりしていて、やばいサイトでも怪しいサイトでもないと言えます。 ではなぜ「 ...",
               "pre_snippet": "08/05/2026 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -1515,7 +1515,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": null,
               "faq": null,
@@ -1569,12 +1569,12 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[11]/div[1]/div[1]",
               "domain": "x.com",
-              "title": "就活タイムズ運営事務局 (@site-a-handle) / Posts / X",
+              "title": "サイトA運営事務局 (@site-a-handle) / Posts / X",
               "url": "https://sns.example/site-a",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "20 人以上のフォロワー",
-              "website_name": "X · shukatsu202303",
+              "website_name": "X · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -1607,7 +1607,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[13]/div[1]/div[1]",
               "domain": "detail.chiebukuro.yahoo.co.jp",
-              "title": "就活タイムズの退会で困っている方はいらっしゃいますか。私 ...",
+              "title": "サイトAの退会で困っている方はいらっしゃいますか。私 ...",
               "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13320334588",
               "cache_url": null,
               "related_search_url": null,
@@ -1619,7 +1619,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2025/09/24 — 自分も以前就活タイムズに登録していて、退会の方法がわかりづらくて困ったことがありました。 調べた限りだと、マイページや設定画面から直接退会できる ...",
+              "description": "2025/09/24 — 自分も以前サイトAに登録していて、退会の方法がわかりづらくて困ったことがありました。 調べた限りだと、マイページや設定画面から直接退会できる ...",
               "pre_snippet": "09/24/2025 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -1627,7 +1627,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": null,
               "faq": null,
@@ -1645,7 +1645,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[15]/div[1]/div[1]",
               "domain": "competitor-171.example",
-              "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業 ...",
+              "title": "新卒就活に特化した情報サイト『サイトA』で企業 ...",
               "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
               "cache_url": null,
               "related_search_url": null,
@@ -1657,7 +1657,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2022/09/06 — 『就活タイムズ（https://competitor-199.example/）』は、新卒就活に特化した、お役立ち情報満載のキャリア情報プラットフォームです。 就活に関する情報や、 ...",
+              "description": "2022/09/06 — 『サイトA（https://competitor-199.example/）』は、新卒就活に特化した、お役立ち情報満載のキャリア情報プラットフォームです。 就活に関する情報や、 ...",
               "pre_snippet": "09/06/2022 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -1665,7 +1665,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": null,
               "faq": null,
@@ -1683,8 +1683,8 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[17]/div[1]/div[1]",
               "domain": "sub1.competitor-40.example",
-              "title": "就活タイムズはやばい？評判・口コミをもとにしつこいと言 ...",
-              "url": "https://sub1.competitor-40.example/shukatsu-site/site-reputation/shukatsu-times-reputation/",
+              "title": "サイトAはやばい？評判・口コミをもとにしつこいと言 ...",
+              "url": "https://sub1.competitor-40.example/shukatsu-site/site-reputation/site-a-reputation/",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://sub1.competitor-40.example › site-reputation › shu...",
@@ -1719,12 +1719,12 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[19]/div[1]/div[1]",
               "domain": "www.instagram.com",
-              "title": "【公式】就活情報@就活タイムズ (@site-a-handle)",
+              "title": "【公式】就活情報@サイトA (@site-a-handle)",
               "url": "https://sns.example/site-a",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "7790 人以上のフォロワー",
-              "website_name": "Instagram · shukatsulabo",
+              "website_name": "Instagram · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -1755,14 +1755,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[3]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
               "items": [
-                "就活タイムズ 怪しい",
-                "就活タイムズ 登録 した 覚えがない",
-                "就活タイムズ 評判",
-                "就活タイムズ ログイン",
-                "就活タイムズ 退会 できない",
-                "就活タイムズ ホームページ",
-                "就活タイムズ 電話 無視",
-                "就活タイムズ うざい"
+                "サイトA 怪しい",
+                "サイトA 登録 した 覚えがない",
+                "サイトA 評判",
+                "サイトA ログイン",
+                "サイトA 退会 できない",
+                "サイトA ホームページ",
+                "サイトA 電話 無視",
+                "サイトA うざい"
               ],
               "rectangle": null
             }
@@ -3057,14 +3057,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:4)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://competitor-113.example/whitecareer/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)\n\n就活における評価とメリット\n\n- **学習意欲の証明** ：基礎的な努力ができる姿勢を示せます。\n- **文系・非IT職での差別化** ：最低限のIT・セキュリティ知識がある安心感を与えられます。\n- **取得の容易さ** ：勉強時間約100時間で合格できるため、コスパが良い資格です。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://competitor-113.example/whitecareer/blog/14635)\n\n注意点とおすすめの動き方\n\n- **単体での過信は禁物** ：エンジニア職や専門職では評価対象になりにくく、上位資格（基本情報技術者など）が必要です。\n- **アピール方法が鍵** ：「なぜ取得したか」「どう実務に活かすか」を具体的に伝えることが重要です。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://www.competitor-227.example/portcareer/article/35165/)\n\nもしよろしければ、以下の点を教えてください：\n\n- 志望している**業界・職種** （IT、事務、営業など）\n- 現在の**学年** や就活のスケジュール\n\n状況に合わせて、今取るべきか別の対策を優先すべきかをご提案します。",
+              "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:4)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://competitor-113.example/<redacted-user>/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)\n\n就活における評価とメリット\n\n- **学習意欲の証明** ：基礎的な努力ができる姿勢を示せます。\n- **文系・非IT職での差別化** ：最低限のIT・セキュリティ知識がある安心感を与えられます。\n- **取得の容易さ** ：勉強時間約100時間で合格できるため、コスパが良い資格です。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://competitor-113.example/<redacted-user>/blog/14635)\n\n注意点とおすすめの動き方\n\n- **単体での過信は禁物** ：エンジニア職や専門職では評価対象になりにくく、上位資格（基本情報技術者など）が必要です。\n- **アピール方法が鍵** ：「なぜ取得したか」「どう実務に活かすか」を具体的に伝えることが重要です。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://www.competitor-227.example/portcareer/article/35165/)\n\nもしよろしければ、以下の点を教えてください：\n\n- 志望している**業界・職種** （IT、事務、営業など）\n- 現在の**学年** や就活のスケジュール\n\n状況に合わせて、今取るべきか別の対策を優先すべきかをご提案します。",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "ITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、 文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます 。",
-                  "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:2)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://competitor-113.example/whitecareer/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)",
+                  "markdown": "![ITパスポートは就活・転職活動に有利になる国家資格？ 活躍できる ...](https://api.data-provider-b.example/cdn/i/08231446-1317-0139-0000-7c6c5cbf2899:2)\nITパスポートは、ITや経営の基礎知識を証明できる国家資格です 。就活において劇的に内定が増える決定打にはなりませんが、`文系学生のITリテラシーや学習意欲のアピール、非IT職やIT企業の営業・事務職での基礎力証明としてプラスに働きます`。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://competitor-113.example/<redacted-user>/blog/14635)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)",
                   "links": null,
                   "images": [
                     {
@@ -3089,7 +3089,7 @@
                       "position": "left",
                       "source": "competitor-113.example",
                       "domain": "competitor-113.example",
-                      "url": "https://competitor-113.example/whitecareer/blog/14635",
+                      "url": "https://competitor-113.example/<redacted-user>/blog/14635",
                       "title": "ITパスポートは就活で意味ある?|文系でも取るべき?【認定機関が解説】",
                       "text": "ITパスポートは就活で意味ある?| 文系でも取るべき?【認定機関が解説】｜ホワイト企業が集まる就活情報サイト * ホワイ..."
                     },
@@ -3109,7 +3109,7 @@
                   "position": "left",
                   "title": "就活における評価とメリット",
                   "text": "学習意欲の証明 ：基礎的な努力ができる姿勢を示せます。 文系・非IT職での差別化 ：最低限のIT・セキュリティ知識がある安心感を与えられます。 取得の容易さ ：勉強時間約100時間で合格できるため、コスパが良い資格です。",
-                  "markdown": "- **学習意欲の証明** ：基礎的な努力ができる姿勢を示せます。\n- **文系・非IT職での差別化** ：最低限のIT・セキュリティ知識がある安心感を与えられます。\n- **取得の容易さ** ：勉強時間約100時間で合格できるため、コスパが良い資格です。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://competitor-113.example/whitecareer/blog/14635)",
+                  "markdown": "- **学習意欲の証明** ：基礎的な努力ができる姿勢を示せます。\n- **文系・非IT職での差別化** ：最低限のIT・セキュリティ知識がある安心感を与えられます。\n- **取得の容易さ** ：勉強時間約100時間で合格できるため、コスパが良い資格です。[](https://www.competitor-08.example/it_passport/column/get-a-job/) [[1]](https://www.competitor-08.example/it_passport/column/get-a-job/)[[2]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10304621285)[[3]](https://competitor-113.example/<redacted-user>/blog/14635)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -3136,7 +3136,7 @@
                       "position": "left",
                       "source": "competitor-113.example",
                       "domain": "competitor-113.example",
-                      "url": "https://competitor-113.example/whitecareer/blog/14635",
+                      "url": "https://competitor-113.example/<redacted-user>/blog/14635",
                       "title": "ITパスポートは就活で意味ある?|文系でも取るべき?【認定機関が解説】",
                       "text": "ITパスポートは就活で意味ある?| 文系でも取るべき?【認定機関が解説】｜ホワイト企業が集まる就活情報サイト * ホワイ..."
                     }
@@ -3215,7 +3215,7 @@
                   "position": "right",
                   "source": "competitor-113.example",
                   "domain": "competitor-113.example",
-                  "url": "https://competitor-113.example/whitecareer/blog/14635",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14635",
                   "title": "ITパスポートは就活で意味ある?|文系でも取るべき?【認定機関が解説】",
                   "text": "ITパスポートは就活で意味ある?| 文系でも取るべき?【認定機関が解説】｜ホワイト企業が集まる就活情報サイト * ホワイ..."
                 },
@@ -3367,7 +3367,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "ITパスポートは就活で意味ある?|文系でも取るべき?【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14635",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14635",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -7958,7 +7958,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[14]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT通信業界 人気企業ランキング2027|Sky,NTTデータ【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14648",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14648",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -7984,14 +7984,14 @@
                   "type": "link_element",
                   "title": "IT・通信業界 人気企業ランキング...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#1_IT_2027",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#1_IT_2027",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ランキングを就活に活かす4ステ...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#7_4",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#7_4",
                   "domain": "competitor-113.example"
                 }
               ],
@@ -26718,7 +26718,7 @@
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "4万 人以上のフォロワー",
-              "website_name": "Instagram · suitselect_japan_official",
+              "website_name": "Instagram · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -26890,7 +26890,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[19]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "リクルートスーツはどこで買うべき？失敗しない選び方と ...",
-              "url": "https://competitor-113.example/whitecareer/blog/6062",
+              "url": "https://competitor-113.example/<redacted-user>/blog/6062",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -27302,7 +27302,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "入社後にしたいこと例文7選｜業種・職種別に解説",
-              "url": "https://competitor-113.example/whitecareer/blog/6223",
+              "url": "https://competitor-113.example/<redacted-user>/blog/6223",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -29350,7 +29350,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[10]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT通信業界 人気企業ランキング2027|Sky,NTTデータ【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14648",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14648",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -29376,14 +29376,14 @@
                   "type": "link_element",
                   "title": "IT・通信業界 人気企業ランキング...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#1_IT_2027",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#1_IT_2027",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "人気企業に就職するために必要...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#5",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#5",
                   "domain": "competitor-113.example"
                 }
               ],
@@ -30428,7 +30428,7 @@
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "5.7万 人以上のフォロワー",
-              "website_name": "X · syukatsurisu",
+              "website_name": "X · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -30461,14 +30461,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "X（旧Twitter）は、`リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります` 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。[](https://competitor-177.example/shukatsu-twitter/) [[1]](https://competitor-177.example/shukatsu-twitter/)[[2]](https://competitor-113.example/whitecareer/blog/14778)[[3]](https://competitor-244.example/blog/4848/)[[4]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)\n\n活用方法\n\n- **情報収集** ：選考体験記や業界動向をハッシュタグ（例：`#27卒` ）でリアルタイムに追う。\n- **仲間づくり** ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。\n- **スカウト・交流** ：社会人や人事の発信を参考にする。[](https://competitor-244.example/blog/4848/) [[1]](https://competitor-244.example/blog/4848/)[[2]](https://competitor-113.example/whitecareer/blog/14778)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)\n\n注意点\n\n- **身バレ防止** ：大学名や学部、具体的なエピソードを特定されないようにする。\n- **情報の真偽** ：不確かな噂や、高額セミナーへの誘導、怪しいアカウントに注意する。\n- **比較による焦り** ：他の就活生の内定報告などで自己肯定感を下げないようにする。[](https://competitor-177.example/shukatsu-twitter/) [[1]](https://competitor-177.example/shukatsu-twitter/)[[2]](https://competitor-43.example/media/article/1312/)\n\n就活アカウントの**具体的な運用方法** や、**おすすめのハッシュタグ・検索ワード** について知りたいですか？",
+              "markdown": "X（旧Twitter）は、`リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります` 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。[](https://competitor-177.example/shukatsu-twitter/) [[1]](https://competitor-177.example/shukatsu-twitter/)[[2]](https://competitor-113.example/<redacted-user>/blog/14778)[[3]](https://competitor-244.example/blog/4848/)[[4]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)\n\n活用方法\n\n- **情報収集** ：選考体験記や業界動向をハッシュタグ（例：`#27卒` ）でリアルタイムに追う。\n- **仲間づくり** ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。\n- **スカウト・交流** ：社会人や人事の発信を参考にする。[](https://competitor-244.example/blog/4848/) [[1]](https://competitor-244.example/blog/4848/)[[2]](https://competitor-113.example/<redacted-user>/blog/14778)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)\n\n注意点\n\n- **身バレ防止** ：大学名や学部、具体的なエピソードを特定されないようにする。\n- **情報の真偽** ：不確かな噂や、高額セミナーへの誘導、怪しいアカウントに注意する。\n- **比較による焦り** ：他の就活生の内定報告などで自己肯定感を下げないようにする。[](https://competitor-177.example/shukatsu-twitter/) [[1]](https://competitor-177.example/shukatsu-twitter/)[[2]](https://competitor-43.example/media/article/1312/)\n\n就活アカウントの**具体的な運用方法** や、**おすすめのハッシュタグ・検索ワード** について知りたいですか？",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
                   "text": "X（旧Twitter）は、 リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。",
-                  "markdown": "X（旧Twitter）は、`リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります` 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。[](https://competitor-177.example/shukatsu-twitter/) [[1]](https://competitor-177.example/shukatsu-twitter/)[[2]](https://competitor-113.example/whitecareer/blog/14778)[[3]](https://competitor-244.example/blog/4848/)[[4]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)",
+                  "markdown": "X（旧Twitter）は、`リアルタイムの選考情報収集や就活仲間との情報交換に活用される一方、身バレや偽情報のリスクもあります` 。利用時は専用の「就活アカウント」を新規作成し、本名や顔写真を避けて運用するのが基本です。[](https://competitor-177.example/shukatsu-twitter/) [[1]](https://competitor-177.example/shukatsu-twitter/)[[2]](https://competitor-113.example/<redacted-user>/blog/14778)[[3]](https://competitor-244.example/blog/4848/)[[4]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -30486,7 +30486,7 @@
                       "position": "left",
                       "source": "competitor-113.example",
                       "domain": "competitor-113.example",
-                      "url": "https://competitor-113.example/whitecareer/blog/14778",
+                      "url": "https://competitor-113.example/<redacted-user>/blog/14778",
                       "title": "就活×SNS活用術|X就活垢の作り方と運用を認定機関が解説",
                       "text": "1. 就活で使う4つのSNSの役割. ☆ 4つのSNSの使い分け. ① X(旧Twitter)— メイン情報源 リアルタ..."
                     },
@@ -30515,7 +30515,7 @@
                   "position": "left",
                   "title": "活用方法",
                   "text": "情報収集 ：選考体験記や業界動向をハッシュタグ（例： #27卒 ）でリアルタイムに追う。 仲間づくり ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。 スカウト・交流 ：社会人や人事の発信を参考にする。",
-                  "markdown": "- **情報収集** ：選考体験記や業界動向をハッシュタグ（例：`#27卒` ）でリアルタイムに追う。\n- **仲間づくり** ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。\n- **スカウト・交流** ：社会人や人事の発信を参考にする。[](https://competitor-244.example/blog/4848/) [[1]](https://competitor-244.example/blog/4848/)[[2]](https://competitor-113.example/whitecareer/blog/14778)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)",
+                  "markdown": "- **情報収集** ：選考体験記や業界動向をハッシュタグ（例：`#27卒` ）でリアルタイムに追う。\n- **仲間づくり** ：同じ境遇の就活生と繋がリ、進捗状況や悩みを共有する。\n- **スカウト・交流** ：社会人や人事の発信を参考にする。[](https://competitor-244.example/blog/4848/) [[1]](https://competitor-244.example/blog/4848/)[[2]](https://competitor-113.example/<redacted-user>/blog/14778)[[3]](https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14298545364)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -30533,7 +30533,7 @@
                       "position": "left",
                       "source": "competitor-113.example",
                       "domain": "competitor-113.example",
-                      "url": "https://competitor-113.example/whitecareer/blog/14778",
+                      "url": "https://competitor-113.example/<redacted-user>/blog/14778",
                       "title": "就活×SNS活用術|X就活垢の作り方と運用を認定機関が解説",
                       "text": "1. 就活で使う4つのSNSの役割. ☆ 4つのSNSの使い分け. ① X(旧Twitter)— メイン情報源 リアルタ..."
                     },
@@ -30630,7 +30630,7 @@
                   "position": "right",
                   "source": "competitor-113.example",
                   "domain": "competitor-113.example",
-                  "url": "https://competitor-113.example/whitecareer/blog/14778",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14778",
                   "title": "就活×SNS活用術|X就活垢の作り方と運用を認定機関が解説",
                   "text": "1. 就活で使う4つのSNSの役割. ☆ 4つのSNSの使い分け. ① X(旧Twitter)— メイン情報源 リアルタ..."
                 }
@@ -30978,7 +30978,7 @@
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "7560 人以上のフォロワー",
-              "website_name": "X · careertasu",
+              "website_name": "X · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -34526,7 +34526,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT通信業界 人気企業ランキング2027|Sky,NTTデータ【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14648",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14648",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -34552,14 +34552,14 @@
                   "type": "link_element",
                   "title": "IT・通信業界 人気企業ランキング...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#1_IT_2027",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#1_IT_2027",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ランキングに出ない優良企業の...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#6",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#6",
                   "domain": "competitor-113.example"
                 }
               ],
@@ -41477,7 +41477,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-c342840fa53c:4)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.competitor-227.example/portcareer/article/161860/) だけでなく、[CAB](https://competitor-68.example/column/archives/49214) や[玉手箱](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://competitor-68.example/column/archives/49214) [[1]](https://competitor-68.example/column/archives/49214)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)\n\n主なIT適性検査の種類と特徴\n\n- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-113.example/whitecareer/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://competitor-68.example/column/archives/49214) [[1]](https://competitor-68.example/column/archives/49214)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=<redacted-post>&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.competitor-227.example/portcareer/article/161860/)\n\n効率的な対策の進め方\n\n- **形式の見極め** : 志望企業のURLや過去の先輩の体験談から、どのテスト（CAB、玉手箱、SPI等）が使われるか特定する。\n- **時間を測った演習** : 問題の難易度より制限時間が厳しいため、市販の対策本やアプリを使い、本番を意識して素早く正確に解く訓練を重ねる。\n- **素直な性格検査** : 企業に良く見せようと偽らず、一貫性を持たせて回答する。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)[[4]](https://www.youtube.com/watch?v=<redacted-post>&vl=ja&t=81)\n\n志望している**具体的な企業名** や**職種（SE、プログラマー、総合職など）** を教えていただければ、さらに詳しい対策方法や、よく使われる適性検査の傾向をお伝えできます。",
+              "markdown": "![適性検査一覧】IT業界で導入されている試験と対策 | 導入企業一覧 ...](https://api.data-provider-b.example/cdn/i/08231450-1317-0139-0000-c342840fa53c:4)\nIT企業の就活では、基礎的な論理的思考力や情報処理能力を測るため、一般的な[SPI](https://www.competitor-227.example/portcareer/article/161860/) だけでなく、[CAB](https://competitor-68.example/column/archives/49214) や[玉手箱](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) などの適性検査が数多く実施されます 。職種や企業に応じた出題傾向を把握し、早期に対策を始めることが重要です。[](https://competitor-68.example/column/archives/49214) [[1]](https://competitor-68.example/column/archives/49214)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)\n\n主なIT適性検査の種類と特徴\n\n- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-113.example/<redacted-user>/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://competitor-68.example/column/archives/49214) [[1]](https://competitor-68.example/column/archives/49214)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=<redacted-post>&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.competitor-227.example/portcareer/article/161860/)\n\n効率的な対策の進め方\n\n- **形式の見極め** : 志望企業のURLや過去の先輩の体験談から、どのテスト（CAB、玉手箱、SPI等）が使われるか特定する。\n- **時間を測った演習** : 問題の難易度より制限時間が厳しいため、市販の対策本やアプリを使い、本番を意識して素早く正確に解く訓練を重ねる。\n- **素直な性格検査** : 企業に良く見せようと偽らず、一貫性を持たせて回答する。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)[[4]](https://www.youtube.com/watch?v=<redacted-post>&vl=ja&t=81)\n\n志望している**具体的な企業名** や**職種（SE、プログラマー、総合職など）** を教えていただければ、さらに詳しい対策方法や、よく使われる適性検査の傾向をお伝えできます。",
               "items": [
                 {
                   "type": "ai_overview_element",
@@ -41551,7 +41551,7 @@
                   "position": "left",
                   "title": "主なIT適性検査の種類と特徴",
                   "text": "CAB（Web-CAB） : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。 玉手箱 : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。 SPI : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。 ATPP : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。",
-                  "markdown": "- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-113.example/whitecareer/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://competitor-68.example/column/archives/49214) [[1]](https://competitor-68.example/column/archives/49214)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=<redacted-post>&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.competitor-227.example/portcareer/article/161860/)",
+                  "markdown": "- **CAB（Web-CAB）** : コンピュータ職（SE・プログラマー）に特化したテスト。暗算、法則性、命令表、暗号が出題され、高い処理速度と論理的思考力が求められる。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-113.example/<redacted-user>/blog/14974)\n- **玉手箱** : 大手IT企業やITコンサルで多用される。同じ問題形式が連続するため、電卓の扱いやスピーディなタイムマネジメントが鍵となる。[](https://competitor-68.example/column/archives/49214) [[1]](https://competitor-68.example/column/archives/49214)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.competitor-227.example/portcareer/article/161860/)\n- **SPI** : 多くの企業が導入する標準的なテスト。言語・非言語分野の基礎的な問題に加え、テストセンター形式では推論や資料読み取りが重視される。[](https://biz.competitor-140.example/payroll/basic/108203/) [[1]](https://biz.competitor-140.example/payroll/basic/108203/)[[2]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[3]](https://www.youtube.com/watch?v=<redacted-post>&vl=ja&t=81)\n- **ATPP** : 一部の難関企業や日本IBMなどで使われる、数列やマトリクス図形から法則を読み解くエンジニア向けの検査。[](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/) [[1]](https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p15929/)[[2]](https://www.competitor-227.example/portcareer/article/161860/)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -41569,7 +41569,7 @@
                       "position": "left",
                       "source": "competitor-113.example",
                       "domain": "competitor-113.example",
-                      "url": "https://competitor-113.example/whitecareer/blog/14974",
+                      "url": "https://competitor-113.example/<redacted-user>/blog/14974",
                       "title": "CABの対策｜IT・エンジニア職向け適性検査の出題形式と解き方を解説",
                       "text": "CABとは?IT・エンジニア職向けの適性検査. CABはIT職の適性を測るために設計された検査で、コンピュータ職に必要な..."
                     },
@@ -41711,7 +41711,7 @@
                   "position": "right",
                   "source": "competitor-113.example",
                   "domain": "competitor-113.example",
-                  "url": "https://competitor-113.example/whitecareer/blog/14974",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14974",
                   "title": "CABの対策｜IT・エンジニア職向け適性検査の出題形式と解き方を解説",
                   "text": "CABとは?IT・エンジニア職向けの適性検査. CABはIT職の適性を測るために設計された検査で、コンピュータ職に必要な..."
                 },
@@ -42105,7 +42105,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[17]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT・エンジニア職向け適性検査の出題形式と解き方を解説",
-              "url": "https://competitor-113.example/whitecareer/blog/14974",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14974",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -42131,21 +42131,21 @@
                   "type": "link_element",
                   "title": "CABとは?IT・エンジニア職向け...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14974#CABIT",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14974#CABIT",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "4科目の出題傾向",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14974#4",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14974#4",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "CABの対策法",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14974#CAB",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14974#CAB",
                   "domain": "competitor-113.example"
                 }
               ],
@@ -48052,7 +48052,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[11]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT通信業界 人気企業ランキング2027|Sky,NTTデータ【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14648",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14648",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -48078,14 +48078,14 @@
                   "type": "link_element",
                   "title": "IT・通信業界 人気企業ランキング...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#1_IT_2027",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#1_IT_2027",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ランキングを就活に活かす4ステ...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#7_4",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#7_4",
                   "domain": "competitor-113.example"
                 }
               ],
@@ -48439,7 +48439,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT通信業界 人気企業ランキング2027|Sky,NTTデータ【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14648",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14648",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -48465,14 +48465,14 @@
                   "type": "link_element",
                   "title": "IT・通信業界 人気企業ランキング...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#1_IT_2027",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#1_IT_2027",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ランキングを就活に活かす4ステ...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#7_4",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#7_4",
                   "domain": "competitor-113.example"
                 }
               ],
@@ -53998,7 +53998,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT通信業界 人気企業ランキング2027|Sky,NTTデータ【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14648",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14648",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -54024,14 +54024,14 @@
                   "type": "link_element",
                   "title": "IT・通信業界 人気企業ランキング...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#1_IT_2027",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#1_IT_2027",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "人気企業に就職するために必要...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#5",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#5",
                   "domain": "competitor-113.example"
                 }
               ],
@@ -56075,7 +56075,7 @@
         "function": "live",
         "se": "google",
         "se_type": "organic",
-        "keyword": "就活タイムズとは",
+        "keyword": "サイトAとは",
         "location_code": 2392,
         "language_code": "ja",
         "device": "desktop",
@@ -56085,7 +56085,7 @@
       },
       "result": [
         {
-          "keyword": "就活タイムズとは",
+          "keyword": "サイトAとは",
           "type": "organic",
           "se_domain": "google.com",
           "location_code": 2392,
@@ -56112,14 +56112,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "就活タイムズ は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n主な特徴と提供内容\n\n- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n評判と注意点\n\n- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://sub2.competitor-87.example/entry/syukatu-times-reputation)",
+              "markdown": "サイトA は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n主な特徴と提供内容\n\n- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n評判と注意点\n\n- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://sub2.competitor-87.example/entry/site-a-reputation)",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
-                  "text": "就活タイムズ は、Ann株式会社が運営する、 新卒学生向けの 就活情報ポータルサイト です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。",
-                  "markdown": "就活タイムズ は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
+                  "text": "サイトA は、Ann株式会社が運営する、 新卒学生向けの 就活情報ポータルサイト です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。",
+                  "markdown": "サイトA は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -56128,17 +56128,17 @@
                       "position": "left",
                       "source": "日本語教師ジョブ",
                       "domain": "competitor-152.example",
-                      "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                      "url": "https://competitor-152.example/company/site-a-review/",
+                      "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                     },
                     {
                       "type": "ai_overview_reference",
                       "position": "left",
-                      "source": "就活タイムズ",
+                      "source": "サイトA",
                       "domain": "competitor-199.example",
                       "url": "https://competitor-199.example/events/6/",
-                      "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                      "title": "スピード内定を目指しませんか？ - サイトA",
                       "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
                     },
                     {
@@ -56147,7 +56147,7 @@
                       "source": "PR TIMES",
                       "domain": "competitor-171.example",
                       "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
-                      "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                      "title": "新卒就活に特化した情報サイト『サイトA』で企業インタビューの ...",
                       "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
                     }
                   ]
@@ -56157,7 +56157,7 @@
                   "position": "left",
                   "title": "主な特徴と提供内容",
                   "text": "就活お役立ち記事 : 業界研究、自己PR・志望動機、選考対策などの解説 イベント・エージェント紹介 : 就活イベントや個別支援サービスの案内 関連ツール連携 : SPIや面接対策用アプリなどの情報提供",
-                  "markdown": "- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
+                  "markdown": "- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -56166,17 +56166,17 @@
                       "position": "left",
                       "source": "日本語教師ジョブ",
                       "domain": "competitor-152.example",
-                      "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                      "url": "https://competitor-152.example/company/site-a-review/",
+                      "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                     },
                     {
                       "type": "ai_overview_reference",
                       "position": "left",
-                      "source": "就活タイムズ",
+                      "source": "サイトA",
                       "domain": "competitor-199.example",
                       "url": "https://competitor-199.example/events/6/",
-                      "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                      "title": "スピード内定を目指しませんか？ - サイトA",
                       "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
                     },
                     {
@@ -56185,7 +56185,7 @@
                       "source": "PR TIMES",
                       "domain": "competitor-171.example",
                       "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
-                      "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                      "title": "新卒就活に特化した情報サイト『サイトA』で企業インタビューの ...",
                       "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
                     }
                   ]
@@ -56195,7 +56195,7 @@
                   "position": "left",
                   "title": "評判と注意点",
                   "text": "「怪しい・しつこい」と言われる理由 : 登録後の案内電話やメールの頻度が高く感じられることがあります。 利用時のポイント : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。",
-                  "markdown": "- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://sub2.competitor-87.example/entry/syukatu-times-reputation)",
+                  "markdown": "- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://sub2.competitor-87.example/entry/site-a-reputation)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -56204,18 +56204,18 @@
                       "position": "left",
                       "source": "日本語教師ジョブ",
                       "domain": "competitor-152.example",
-                      "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                      "url": "https://competitor-152.example/company/site-a-review/",
+                      "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                     },
                     {
                       "type": "ai_overview_reference",
                       "position": "left",
                       "source": "就活攻略論",
                       "domain": "sub2.competitor-87.example",
-                      "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
-                      "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
-                      "text": "就活タイムズはやばいサイトか？怪しいか調査！ 就活タイムズの概要を見たところで、気になるのが「就活タイムズはやばいサイト..."
+                      "url": "https://sub2.competitor-87.example/entry/site-a-reputation",
+                      "title": "【サイトAはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
+                      "text": "サイトAはやばいサイトか？怪しいか調査！ サイトAの概要を見たところで、気になるのが「サイトAはやばいサイト..."
                     }
                   ]
                 }
@@ -56226,26 +56226,26 @@
                   "position": "right",
                   "source": "日本語教師ジョブ",
                   "domain": "competitor-152.example",
-                  "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                  "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                  "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                  "url": "https://competitor-152.example/company/site-a-review/",
+                  "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                  "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                 },
                 {
                   "type": "ai_overview_reference",
                   "position": "right",
                   "source": "就活攻略論",
                   "domain": "sub2.competitor-87.example",
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
-                  "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
-                  "text": "就活タイムズはやばいサイトか？怪しいか調査！ 就活タイムズの概要を見たところで、気になるのが「就活タイムズはやばいサイト..."
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation",
+                  "title": "【サイトAはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
+                  "text": "サイトAはやばいサイトか？怪しいか調査！ サイトAの概要を見たところで、気になるのが「サイトAはやばいサイト..."
                 },
                 {
                   "type": "ai_overview_reference",
                   "position": "right",
-                  "source": "就活タイムズ",
+                  "source": "サイトA",
                   "domain": "competitor-199.example",
                   "url": "https://competitor-199.example/events/6/",
-                  "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                  "title": "スピード内定を目指しませんか？ - サイトA",
                   "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
                 },
                 {
@@ -56254,7 +56254,7 @@
                   "source": "PR TIMES",
                   "domain": "competitor-171.example",
                   "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
-                  "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                  "title": "新卒就活に特化した情報サイト『サイトA』で企業インタビューの ...",
                   "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
                 }
               ],
@@ -56268,11 +56268,11 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]",
               "domain": "competitor-152.example",
-              "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底 ...",
-              "url": "https://competitor-152.example/company/shukatsutimes-review/",
+              "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底 ...",
+              "url": "https://competitor-152.example/company/site-a-review/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://competitor-152.example › shukatsutimes-review",
+              "breadcrumb": "https://competitor-152.example › site-a-review",
               "website_name": "日本語教師ジョブ",
               "is_image": false,
               "is_video": false,
@@ -56280,7 +56280,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2025/12/16 — 連絡が頻繁に届く可能性がある. 就活タイムズは、新卒の就活に特化した情報提供やエージェントの紹介などを行っているサービスです。 登録することで就活 ...",
+              "description": "2025/12/16 — 連絡が頻繁に届く可能性がある. サイトAは、新卒の就活に特化した情報提供やエージェントの紹介などを行っているサービスです。 登録することで就活 ...",
               "pre_snippet": "12/16/2025 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -56288,7 +56288,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": null,
               "faq": null,
@@ -56308,7 +56308,7 @@
               "items": [
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズは怪しいですか？",
+                  "title": "サイトAは怪しいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
                   "expanded_element": [
@@ -56322,7 +56322,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズはどんな会社？",
+                  "title": "サイトAはどんな会社？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
                   "expanded_element": [
@@ -56336,7 +56336,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズからの電話はしつこいですか？",
+                  "title": "サイトAからの電話はしつこいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
                   "expanded_element": [
@@ -56350,7 +56350,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就職タイムズを退会するにはどうすればいいですか？",
+                  "title": "サイトAを退会するにはどうすればいいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
                   "expanded_element": [
@@ -56373,8 +56373,8 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]",
               "domain": "sub2.competitor-87.example",
-              "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の ...",
-              "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
+              "title": "【サイトAはやばい？怪しい？】評判・実態と利用前の ...",
+              "url": "https://sub2.competitor-87.example/entry/site-a-reputation",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://sub2.competitor-87.example › 就活サイト",
@@ -56385,7 +56385,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2026/08/05 — 結論から言うと、就活タイムズは運営会社がしっかりしていて、やばいサイトでも怪しいサイトでもないと言えます。 ではなぜ「 ...",
+              "description": "2026/08/05 — 結論から言うと、サイトAは運営会社がしっかりしていて、やばいサイトでも怪しいサイトでもないと言えます。 ではなぜ「 ...",
               "pre_snippet": "08/05/2026 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -56393,28 +56393,28 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": [
                 {
                   "type": "link_element",
-                  "title": "就活タイムズとは？",
+                  "title": "サイトAとは？",
                   "description": null,
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%A8%E3%81%AF",
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%A8%E3%81%AF",
                   "domain": "sub2.competitor-87.example"
                 },
                 {
                   "type": "link_element",
-                  "title": "補足】就活タイムズの退会方法",
+                  "title": "補足】サイトAの退会方法",
                   "description": null,
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation#%E8%A3%9C%E8%B6%B3%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AE%E9%80%80%E4%BC%9A%E6%96%B9%E6%B3%95",
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation#%E8%A3%9C%E8%B6%B3%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AE%E9%80%80%E4%BC%9A%E6%96%B9%E6%B3%95",
                   "domain": "sub2.competitor-87.example"
                 },
                 {
                   "type": "link_element",
-                  "title": "就活タイムズに関してよくある質問",
+                  "title": "サイトAに関してよくある質問",
                   "description": null,
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AB%E9%96%A2%E3%81%97%E3%81%A6%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F",
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AB%E9%96%A2%E3%81%97%E3%81%A6%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F",
                   "domain": "sub2.competitor-87.example"
                 }
               ],
@@ -56433,12 +56433,12 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]",
               "domain": "competitor-199.example",
-              "title": "就活タイムズ",
+              "title": "サイトA",
               "url": "https://competitor-199.example/events/7/",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-199.example › events",
-              "website_name": "就活タイムズ",
+              "website_name": "サイトA",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -56471,12 +56471,12 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[9]/div[1]/div[1]",
               "domain": "x.com",
-              "title": "就活タイムズ運営事務局 (@site-a-handle) / Posts / X",
+              "title": "サイトA運営事務局 (@site-a-handle) / Posts / X",
               "url": "https://sns.example/site-a",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "20 人以上のフォロワー",
-              "website_name": "X · shukatsu202303",
+              "website_name": "X · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -56509,7 +56509,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[1]/div[1]",
               "domain": "detail.chiebukuro.yahoo.co.jp",
-              "title": "緊急です。今就活をしているのですが、就活タイムズという ...",
+              "title": "緊急です。今就活をしているのですが、サイトAという ...",
               "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12274857132",
               "cache_url": null,
               "related_search_url": null,
@@ -56521,7 +56521,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2023/02/01 — 緊急です。今就活をしているのですが、就活タイムズという登録をした覚えがない人から電話がかかってきてセミナーやらエージェントなどを8つほど ...",
+              "description": "2023/02/01 — 緊急です。今就活をしているのですが、サイトAという登録をした覚えがない人から電話がかかってきてセミナーやらエージェントなどを8つほど ...",
               "pre_snippet": "02/01/2023 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -56529,7 +56529,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": [
                 {
@@ -56605,8 +56605,8 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[15]/div[1]/div[1]",
               "domain": "sub1.competitor-40.example",
-              "title": "就活タイムズはやばい？評判・口コミをもとにしつこいと言 ...",
-              "url": "https://sub1.competitor-40.example/shukatsu-site/site-reputation/shukatsu-times-reputation/",
+              "title": "サイトAはやばい？評判・口コミをもとにしつこいと言 ...",
+              "url": "https://sub1.competitor-40.example/shukatsu-site/site-reputation/site-a-reputation/",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://sub1.competitor-40.example › site-reputation › shu...",
@@ -56643,7 +56643,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[17]/div[1]/div[1]",
               "domain": "competitor-171.example",
-              "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業 ...",
+              "title": "新卒就活に特化した情報サイト『サイトA』で企業 ...",
               "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
               "cache_url": null,
               "related_search_url": null,
@@ -56655,7 +56655,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2022/09/06 — 『就活タイムズ（https://competitor-199.example/）』は、新卒就活に特化した、お役立ち情報満載のキャリア情報プラットフォームです。 就活に関する情報や、 ...",
+              "description": "2022/09/06 — 『サイトA（https://competitor-199.example/）』は、新卒就活に特化した、お役立ち情報満載のキャリア情報プラットフォームです。 就活に関する情報や、 ...",
               "pre_snippet": "09/06/2022 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -56663,7 +56663,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": null,
               "faq": null,
@@ -56686,7 +56686,7 @@
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-199.example › events",
-              "website_name": "就活タイムズ",
+              "website_name": "サイトA",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -56719,14 +56719,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
               "items": [
-                "就活タイムズ 登録してない",
-                "就活タイムズ やばい",
-                "就活タイムズ 退会",
-                "就活タイムズ ホームページ",
-                "就活タイムズ 電話 無視",
-                "就活 タイムズ 勝手 に 登録",
-                "就活 タイムズ 勝手 に 予約",
-                "就活タイムズ うざい"
+                "サイトA 登録してない",
+                "サイトA やばい",
+                "サイトA 退会",
+                "サイトA ホームページ",
+                "サイトA 電話 無視",
+                "サイトA 勝手 に 登録",
+                "サイトA 勝手 に 予約",
+                "サイトA うざい"
               ],
               "rectangle": null
             }
@@ -57955,7 +57955,7 @@
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "9920 人以上のフォロワー",
-              "website_name": "X · kei__tenshoku",
+              "website_name": "X · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,

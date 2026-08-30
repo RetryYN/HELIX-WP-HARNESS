@@ -10,7 +10,7 @@ slice: cross
 
 VPS `helix-worker`からXServerレンタルサーバー上のWordPressを自動管理するPoCは実施済みであり、
 P0〜P4の主要成功条件を満たす証跡がVPSローカルの独立Gitリポジトリ
-`/home/tenni/dev/poc-wp`に存在する。credentialや実値を本リポジトリへ複製せず、commit IDと
+`<local-path> IDと
 証跡digestだけを監査参照とする。
 
 これは次を証明する。

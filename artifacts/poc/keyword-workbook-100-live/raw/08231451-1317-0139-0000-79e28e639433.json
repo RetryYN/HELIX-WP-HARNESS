@@ -23,7 +23,7 @@
         "function": "live",
         "se": "google",
         "se_type": "organic",
-        "keyword": "就活タイムズとは",
+        "keyword": "サイトAとは",
         "location_code": 2392,
         "language_code": "ja",
         "device": "desktop",
@@ -33,7 +33,7 @@
       },
       "result": [
         {
-          "keyword": "就活タイムズとは",
+          "keyword": "サイトAとは",
           "type": "organic",
           "se_domain": "google.com",
           "location_code": 2392,
@@ -60,14 +60,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "就活タイムズ は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n主な特徴と提供内容\n\n- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n評判と注意点\n\n- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://sub2.competitor-87.example/entry/syukatu-times-reputation)",
+              "markdown": "サイトA は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n主な特徴と提供内容\n\n- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)\n\n評判と注意点\n\n- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://sub2.competitor-87.example/entry/site-a-reputation)",
               "items": [
                 {
                   "type": "ai_overview_element",
                   "position": "left",
                   "title": null,
-                  "text": "就活タイムズ は、Ann株式会社が運営する、 新卒学生向けの 就活情報ポータルサイト です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。",
-                  "markdown": "就活タイムズ は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
+                  "text": "サイトA は、Ann株式会社が運営する、 新卒学生向けの 就活情報ポータルサイト です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。",
+                  "markdown": "サイトA は、Ann株式会社が運営する、`新卒学生向けの就活情報ポータルサイト` です。就活ノウハウや業界研究、おすすめの就活エージェントや選考イベントの紹介情報を無料で提供しています。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -76,17 +76,17 @@
                       "position": "left",
                       "source": "日本語教師ジョブ",
                       "domain": "competitor-152.example",
-                      "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                      "url": "https://competitor-152.example/company/site-a-review/",
+                      "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                     },
                     {
                       "type": "ai_overview_reference",
                       "position": "left",
-                      "source": "就活タイムズ",
+                      "source": "サイトA",
                       "domain": "competitor-199.example",
                       "url": "https://competitor-199.example/events/6/",
-                      "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                      "title": "スピード内定を目指しませんか？ - サイトA",
                       "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
                     },
                     {
@@ -95,7 +95,7 @@
                       "source": "PR TIMES",
                       "domain": "competitor-171.example",
                       "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
-                      "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                      "title": "新卒就活に特化した情報サイト『サイトA』で企業インタビューの ...",
                       "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
                     }
                   ]
@@ -105,7 +105,7 @@
                   "position": "left",
                   "title": "主な特徴と提供内容",
                   "text": "就活お役立ち記事 : 業界研究、自己PR・志望動機、選考対策などの解説 イベント・エージェント紹介 : 就活イベントや個別支援サービスの案内 関連ツール連携 : SPIや面接対策用アプリなどの情報提供",
-                  "markdown": "- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
+                  "markdown": "- **就活お役立ち記事** : 業界研究、自己PR・志望動機、選考対策などの解説\n- **イベント・エージェント紹介** : 就活イベントや個別支援サービスの案内\n- **関連ツール連携** : SPIや面接対策用アプリなどの情報提供[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://competitor-199.example/events/6/)[[3]](https://competitor-171.example/main/html/rd/p/000000007.000103472.html)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -114,17 +114,17 @@
                       "position": "left",
                       "source": "日本語教師ジョブ",
                       "domain": "competitor-152.example",
-                      "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                      "url": "https://competitor-152.example/company/site-a-review/",
+                      "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                     },
                     {
                       "type": "ai_overview_reference",
                       "position": "left",
-                      "source": "就活タイムズ",
+                      "source": "サイトA",
                       "domain": "competitor-199.example",
                       "url": "https://competitor-199.example/events/6/",
-                      "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                      "title": "スピード内定を目指しませんか？ - サイトA",
                       "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
                     },
                     {
@@ -133,7 +133,7 @@
                       "source": "PR TIMES",
                       "domain": "competitor-171.example",
                       "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
-                      "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                      "title": "新卒就活に特化した情報サイト『サイトA』で企業インタビューの ...",
                       "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
                     }
                   ]
@@ -143,7 +143,7 @@
                   "position": "left",
                   "title": "評判と注意点",
                   "text": "「怪しい・しつこい」と言われる理由 : 登録後の案内電話やメールの頻度が高く感じられることがあります。 利用時のポイント : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。",
-                  "markdown": "- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/shukatsutimes-review/) [[1]](https://competitor-152.example/company/shukatsutimes-review/)[[2]](https://sub2.competitor-87.example/entry/syukatu-times-reputation)",
+                  "markdown": "- **「怪しい・しつこい」と言われる理由** : 登録後の案内電話やメールの頻度が高く感じられることがあります。\n- **利用時のポイント** : 運営元は正規の企業ですが、連絡が不要な場合は設定や担当者への意思表示で調整が可能です。[](https://competitor-152.example/company/site-a-review/) [[1]](https://competitor-152.example/company/site-a-review/)[[2]](https://sub2.competitor-87.example/entry/site-a-reputation)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -152,18 +152,18 @@
                       "position": "left",
                       "source": "日本語教師ジョブ",
                       "domain": "competitor-152.example",
-                      "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                      "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                      "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                      "url": "https://competitor-152.example/company/site-a-review/",
+                      "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                      "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                     },
                     {
                       "type": "ai_overview_reference",
                       "position": "left",
                       "source": "就活攻略論",
                       "domain": "sub2.competitor-87.example",
-                      "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
-                      "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
-                      "text": "就活タイムズはやばいサイトか？怪しいか調査！ 就活タイムズの概要を見たところで、気になるのが「就活タイムズはやばいサイト..."
+                      "url": "https://sub2.competitor-87.example/entry/site-a-reputation",
+                      "title": "【サイトAはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
+                      "text": "サイトAはやばいサイトか？怪しいか調査！ サイトAの概要を見たところで、気になるのが「サイトAはやばいサイト..."
                     }
                   ]
                 }
@@ -174,26 +174,26 @@
                   "position": "right",
                   "source": "日本語教師ジョブ",
                   "domain": "competitor-152.example",
-                  "url": "https://competitor-152.example/company/shukatsutimes-review/",
-                  "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底分析",
-                  "text": "【登録やばい？】 就活タイムズは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
+                  "url": "https://competitor-152.example/company/site-a-review/",
+                  "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底分析",
+                  "text": "【登録やばい？】 サイトAは怪しいのか40人の評判を徹底分析 | 日本語教師ジョブ株式会社 * 事業内容 ... *"
                 },
                 {
                   "type": "ai_overview_reference",
                   "position": "right",
                   "source": "就活攻略論",
                   "domain": "sub2.competitor-87.example",
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
-                  "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
-                  "text": "就活タイムズはやばいサイトか？怪しいか調査！ 就活タイムズの概要を見たところで、気になるのが「就活タイムズはやばいサイト..."
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation",
+                  "title": "【サイトAはやばい？怪しい？】評判・実態と利用前の注意点を解説！",
+                  "text": "サイトAはやばいサイトか？怪しいか調査！ サイトAの概要を見たところで、気になるのが「サイトAはやばいサイト..."
                 },
                 {
                   "type": "ai_overview_reference",
                   "position": "right",
-                  "source": "就活タイムズ",
+                  "source": "サイトA",
                   "domain": "competitor-199.example",
                   "url": "https://competitor-199.example/events/6/",
-                  "title": "スピード内定を目指しませんか？ - 就活タイムズ",
+                  "title": "スピード内定を目指しませんか？ - サイトA",
                   "text": "就活生に向けた就活を成功に導くためのサービス、イベント情報などを発信している就活情報ポータルサイトです。他にも就活に役立..."
                 },
                 {
@@ -202,7 +202,7 @@
                   "source": "PR TIMES",
                   "domain": "competitor-171.example",
                   "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
-                  "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業インタビューの ...",
+                  "title": "新卒就活に特化した情報サイト『サイトA』で企業インタビューの ...",
                   "text": "御社のサービスの魅力を引き出す記事を作成させていただきます。お問い合わせは下記までお願いします。 ▽お問い合わせフォーム..."
                 }
               ],
@@ -216,11 +216,11 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]",
               "domain": "competitor-152.example",
-              "title": "【登録やばい？】就活タイムズは怪しいのか40人の評判を徹底 ...",
-              "url": "https://competitor-152.example/company/shukatsutimes-review/",
+              "title": "【登録やばい？】サイトAは怪しいのか40人の評判を徹底 ...",
+              "url": "https://competitor-152.example/company/site-a-review/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://competitor-152.example › shukatsutimes-review",
+              "breadcrumb": "https://competitor-152.example › site-a-review",
               "website_name": "日本語教師ジョブ",
               "is_image": false,
               "is_video": false,
@@ -228,7 +228,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2025/12/16 — 連絡が頻繁に届く可能性がある. 就活タイムズは、新卒の就活に特化した情報提供やエージェントの紹介などを行っているサービスです。 登録することで就活 ...",
+              "description": "2025/12/16 — 連絡が頻繁に届く可能性がある. サイトAは、新卒の就活に特化した情報提供やエージェントの紹介などを行っているサービスです。 登録することで就活 ...",
               "pre_snippet": "12/16/2025 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -236,7 +236,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": null,
               "faq": null,
@@ -256,7 +256,7 @@
               "items": [
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズは怪しいですか？",
+                  "title": "サイトAは怪しいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]",
                   "expanded_element": [
@@ -270,7 +270,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズはどんな会社？",
+                  "title": "サイトAはどんな会社？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]",
                   "expanded_element": [
@@ -284,7 +284,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就活タイムズからの電話はしつこいですか？",
+                  "title": "サイトAからの電話はしつこいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]",
                   "expanded_element": [
@@ -298,7 +298,7 @@
                 },
                 {
                   "type": "people_also_ask_element",
-                  "title": "就職タイムズを退会するにはどうすればいいですか？",
+                  "title": "サイトAを退会するにはどうすればいいですか？",
                   "seed_question": null,
                   "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]",
                   "expanded_element": [
@@ -321,8 +321,8 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[5]/div[1]/div[1]",
               "domain": "sub2.competitor-87.example",
-              "title": "【就活タイムズはやばい？怪しい？】評判・実態と利用前の ...",
-              "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation",
+              "title": "【サイトAはやばい？怪しい？】評判・実態と利用前の ...",
+              "url": "https://sub2.competitor-87.example/entry/site-a-reputation",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://sub2.competitor-87.example › 就活サイト",
@@ -333,7 +333,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2026/08/05 — 結論から言うと、就活タイムズは運営会社がしっかりしていて、やばいサイトでも怪しいサイトでもないと言えます。 ではなぜ「 ...",
+              "description": "2026/08/05 — 結論から言うと、サイトAは運営会社がしっかりしていて、やばいサイトでも怪しいサイトでもないと言えます。 ではなぜ「 ...",
               "pre_snippet": "08/05/2026 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -341,28 +341,28 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": [
                 {
                   "type": "link_element",
-                  "title": "就活タイムズとは？",
+                  "title": "サイトAとは？",
                   "description": null,
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%A8%E3%81%AF",
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%A8%E3%81%AF",
                   "domain": "sub2.competitor-87.example"
                 },
                 {
                   "type": "link_element",
-                  "title": "補足】就活タイムズの退会方法",
+                  "title": "補足】サイトAの退会方法",
                   "description": null,
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation#%E8%A3%9C%E8%B6%B3%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AE%E9%80%80%E4%BC%9A%E6%96%B9%E6%B3%95",
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation#%E8%A3%9C%E8%B6%B3%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AE%E9%80%80%E4%BC%9A%E6%96%B9%E6%B3%95",
                   "domain": "sub2.competitor-87.example"
                 },
                 {
                   "type": "link_element",
-                  "title": "就活タイムズに関してよくある質問",
+                  "title": "サイトAに関してよくある質問",
                   "description": null,
-                  "url": "https://sub2.competitor-87.example/entry/syukatu-times-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AB%E9%96%A2%E3%81%97%E3%81%A6%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F",
+                  "url": "https://sub2.competitor-87.example/entry/site-a-reputation#%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%81%AB%E9%96%A2%E3%81%97%E3%81%A6%E3%82%88%E3%81%8F%E3%81%82%E3%82%8B%E8%B3%AA%E5%95%8F",
                   "domain": "sub2.competitor-87.example"
                 }
               ],
@@ -381,12 +381,12 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[7]/div[1]/div[1]",
               "domain": "competitor-199.example",
-              "title": "就活タイムズ",
+              "title": "サイトA",
               "url": "https://competitor-199.example/events/7/",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-199.example › events",
-              "website_name": "就活タイムズ",
+              "website_name": "サイトA",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -419,12 +419,12 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[9]/div[1]/div[1]",
               "domain": "x.com",
-              "title": "就活タイムズ運営事務局 (@site-a-handle) / Posts / X",
+              "title": "サイトA運営事務局 (@site-a-handle) / Posts / X",
               "url": "https://sns.example/site-a",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "20 人以上のフォロワー",
-              "website_name": "X · shukatsu202303",
+              "website_name": "X · site-a-handle",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -457,7 +457,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[11]/div[1]/div[1]",
               "domain": "detail.chiebukuro.yahoo.co.jp",
-              "title": "緊急です。今就活をしているのですが、就活タイムズという ...",
+              "title": "緊急です。今就活をしているのですが、サイトAという ...",
               "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12274857132",
               "cache_url": null,
               "related_search_url": null,
@@ -469,7 +469,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2023/02/01 — 緊急です。今就活をしているのですが、就活タイムズという登録をした覚えがない人から電話がかかってきてセミナーやらエージェントなどを8つほど ...",
+              "description": "2023/02/01 — 緊急です。今就活をしているのですが、サイトAという登録をした覚えがない人から電話がかかってきてセミナーやらエージェントなどを8つほど ...",
               "pre_snippet": "02/01/2023 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -477,7 +477,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": [
                 {
@@ -553,8 +553,8 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[15]/div[1]/div[1]",
               "domain": "sub1.competitor-40.example",
-              "title": "就活タイムズはやばい？評判・口コミをもとにしつこいと言 ...",
-              "url": "https://sub1.competitor-40.example/shukatsu-site/site-reputation/shukatsu-times-reputation/",
+              "title": "サイトAはやばい？評判・口コミをもとにしつこいと言 ...",
+              "url": "https://sub1.competitor-40.example/shukatsu-site/site-reputation/site-a-reputation/",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://sub1.competitor-40.example › site-reputation › shu...",
@@ -591,7 +591,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[17]/div[1]/div[1]",
               "domain": "competitor-171.example",
-              "title": "新卒就活に特化した情報サイト『就活タイムズ』で企業 ...",
+              "title": "新卒就活に特化した情報サイト『サイトA』で企業 ...",
               "url": "https://competitor-171.example/main/html/rd/p/000000007.000103472.html",
               "cache_url": null,
               "related_search_url": null,
@@ -603,7 +603,7 @@
               "is_malicious": false,
               "is_web_story": false,
               "checks": null,
-              "description": "2022/09/06 — 『就活タイムズ（https://competitor-199.example/）』は、新卒就活に特化した、お役立ち情報満載のキャリア情報プラットフォームです。 就活に関する情報や、 ...",
+              "description": "2022/09/06 — 『サイトA（https://competitor-199.example/）』は、新卒就活に特化した、お役立ち情報満載のキャリア情報プラットフォームです。 就活に関する情報や、 ...",
               "pre_snippet": "09/06/2022 00:00:00",
               "extended_snippet": null,
               "images": null,
@@ -611,7 +611,7 @@
               "rating": null,
               "price": null,
               "highlighted": [
-                "就活タイムズ"
+                "サイトA"
               ],
               "links": null,
               "faq": null,
@@ -634,7 +634,7 @@
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-199.example › events",
-              "website_name": "就活タイムズ",
+              "website_name": "サイトA",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -667,14 +667,14 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]",
               "items": [
-                "就活タイムズ 登録してない",
-                "就活タイムズ やばい",
-                "就活タイムズ 退会",
-                "就活タイムズ ホームページ",
-                "就活タイムズ 電話 無視",
-                "就活 タイムズ 勝手 に 登録",
-                "就活 タイムズ 勝手 に 予約",
-                "就活タイムズ うざい"
+                "サイトA 登録してない",
+                "サイトA やばい",
+                "サイトA 退会",
+                "サイトA ホームページ",
+                "サイトA 電話 無視",
+                "サイトA 勝手 に 登録",
+                "サイトA 勝手 に 予約",
+                "サイトA うざい"
               ],
               "rectangle": null
             }
