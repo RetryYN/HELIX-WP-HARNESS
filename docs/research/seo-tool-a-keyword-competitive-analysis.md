@@ -1467,6 +1467,21 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - failure kind別に、断定を避けた見出し案と本文scope案を決定論生成し、元claim・提案見出し・提案本文の文字数差分を保持する。非公開の数値、曖昧entity、個人動機、将来結果などを事実回答へ変換しない。
 - 8/8 proposalは `blocked_source_verification_and_editor_review` のままで、unsupported answer削除、編集revision review、source検証、citation承認を個別blockerとして保持する。API/MCP/UIは提案を表示するが、自動置換・自動承認・自動公開・外部取得は0である。
 
+### 10.109 evidence-safe revision編集判断台帳（API 2.111 / SQLite v73）
+
+- 8 proposalのset digest、proposal digest、reviewer digestを固定し、編集判断を `approved_for_manual_revision`、`changes_requested`、`rejected`、`deferred` でSQLiteへ永続化する。importerは既定dry-runで、明示 `--commit` 時のみ書き込み、同一proposal set・reviewerの再投入を拒否する。
+- `approved_for_manual_revision` は、unsupported answer削除、新しい事実claimなし、source lineage確認の3条件がすべてtrueの場合だけ受理する。これは手動修正へ進む許可であって、sourceの事実検証・citation承認・公開承認ではない。
+- API/MCP/UIは未判断・手動修正可・変更要求・却下・延期・reviewer不一致を表示する。判断後も全proposalの公開gateを `blocked_source_verification_and_editor_review` に固定し、自動置換・自動適用・自動公開を0に保つ。
+- dry-run、明示commit、SQLite close/reopen後のprogress復元、重複拒否を実DBで検証した。現行DBへ実reviewer判断は投入していないため8/8が未判断である。
+
+### 10.110 approved-only manual draft revision packet（API 2.112）
+
+- `approved_for_manual_revision` の編集判断を持つproposalだけを記事群単位へ集約し、元draft revisionと次revision候補のtitle、section、claim、text、HTMLをbefore/after artifactとして構成する。claim IDからsection・paragraphを厳密に解決できない場合はfail closedとする。
+- 見出しと対象paragraph/claimだけをproposalへ置換し、元draftのevidence ID・citation ID集合が完全一致することを検証する。差分にはproposal digestと全decision digestを保持し、source revisionから逆引きできる。
+- 現行DBは実reviewer承認0件のためpacket 0、blocked proposal 8である。未判断を承認済みに見せず、API/MCP/UIは `editor_decision_pending` として表示する。
+- UIはproposalごとに編集状態と3つの安全確認を入力し、reviewer識別文字列をブラウザ内でSHA-256化したdecision JSONを出力する。ブラウザからDBへ直接書き込まず、既存importerのdry-runと明示commitを経由する。
+- packet生成後もartifactは未適用で、手動revision review、source検証、citation承認を公開blockerとして保持する。自動適用・自動承認・自動公開・外部取得は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
