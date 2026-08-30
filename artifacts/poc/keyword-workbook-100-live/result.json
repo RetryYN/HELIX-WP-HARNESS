@@ -812,11 +812,11 @@
       "source_file_digest": "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e",
       "source_sheet": "IT就活",
       "source_row": 4,
-      "keyword": "就活タイムズ",
+      "keyword": "サイトA",
       "search_volume": 1600,
       "cpc": 419,
       "competition": 9,
-      "normalized_keyword": "就活タイムズ",
+      "normalized_keyword": "サイトA",
       "task_id": "08231446-1317-0139-0000-777f59106881",
       "post_status_code": 20000,
       "organic_urls": [
@@ -2284,11 +2284,11 @@
       "source_file_digest": "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e",
       "source_sheet": "IT就活",
       "source_row": 98,
-      "keyword": "就活タイムズとは",
+      "keyword": "サイトAとは",
       "search_volume": 0,
       "cpc": 0,
       "competition": 0,
-      "normalized_keyword": "就活タイムズとは",
+      "normalized_keyword": "サイトAとは",
       "task_id": "08231451-1317-0139-0000-79e28e639433",
       "post_status_code": 20000,
       "organic_urls": [
@@ -73968,7 +73968,7 @@
       "group_id": "article-group-24",
       "site_id": "site-a.example",
       "resolution_state": "resolved",
-      "main_keyword": "就活タイムズ",
+      "main_keyword": "サイトA",
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 1600,
@@ -73976,7 +73976,7 @@
       "context_scope_id": "context:general",
       "hierarchy_depth": 1,
       "intent_keywords": [
-        "就活タイムズとは"
+        "サイトAとは"
       ],
       "source_keyword_ids": [
         "site-a.example:IT就活:4",
@@ -75462,7 +75462,7 @@
     },
     {
       "source_keyword_id": "site-a.example:IT就活:4",
-      "keyword": "就活タイムズ",
+      "keyword": "サイトA",
       "normalized_terms": [
         "就活",
         "タイムズ"
@@ -77032,7 +77032,7 @@
     },
     {
       "source_keyword_id": "site-a.example:IT就活:98",
-      "keyword": "就活タイムズとは",
+      "keyword": "サイトAとは",
       "normalized_terms": [
         "就活",
         "タイムズ"
