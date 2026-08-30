@@ -1455,6 +1455,12 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 各actionはpending task ID、task digest、semantic decision packet digest、影響するtitle/heading候補数とcontent種別を保持する。現行queueは全184 actionのうちsemantic sense review 35件で、144 taskを全件包含する。
 - priority bandを第一キー、impact scoreを第二キーにして並べる。これは編集順の補助であり、context適合・採否・順位効果を推論せず、実行・自動承認・content変更は0である。
 
+### 10.107 unsupported claimのevidence-safe reframe（API 2.109）
+
+- 無料公開source監査で `not_supported` だった8 claimを再監査し、非公開の定量事実2、entity曖昧性2、個人動機1、機関別規程1、将来結果の保証1、投稿の一般化1へ全件・排他的に分類した。
+- 原query、実行query、探索判断理由、claim/candidate/source evidence digestを保持したまま、unsupported answerを削除した編集scopeを生成する。例として、非公開の役職年収や賞与月数を断定せず公開範囲を説明し、曖昧なサービスは正式名称・URLの特定を先行させる。
+- API/MCP/UIでfailure kindと安全scopeを逆引きする。これは本文の自動書換えではなく編集review案であり、事実回答の推論・自動置換・自動承認・自動公開・外部取得はいずれも0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
