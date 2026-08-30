@@ -1378,6 +1378,14 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 判断層未接続のURL evidenceも消さずに保持するが、共有URLだけからmergeを推論しない。すべてread-only・auto mutationなし。
 - 最大5,000件の全rank keyword母集団は未取得のため、比較対象機能の完全性は未証明。
 
+### 10.96 全記事群semantic resolution台帳（API 2.102 / SQLite v71）
+
+- 主キーワードを持つ63記事群すべてについて、保持済みtyped semantic pathとtitle/H2候補をDB構築時に照合し、63 review・144概念別resolution taskをSQLiteへ永続化する。
+- 各taskはpriority score/band、review effort、対象title/H2候補、候補group、元keyword ID、sheet/row付きsupport sample、意味path digest、解消要件、task digestを保持する。title/H2に重複するpreviewは概念単位へ集約する。
+- SQLiteをclose/reopenした前後でreview digest、task digest、priorityが完全一致することを自動検査する。API/MCP/UIはリクエスト時の再計算ではなく同じ永続台帳を読む。
+- 全記事群処理用に意味グラフ・10,694行inventory・group接続を共有し、同一実DBで意味解析区間を約68秒から約12秒へ短縮した。
+- typed pathは曖昧性を含む編集判断用証拠であり、需要・同義性・順位因果・自動group割当・自動選定・自動本文変更は推論しない。外部取得費用は0 USD。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
