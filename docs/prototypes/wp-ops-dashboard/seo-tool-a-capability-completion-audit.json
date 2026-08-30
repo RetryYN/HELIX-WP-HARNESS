@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "2b8423fbae404ce3b13e9838cdaa840e155870cfa73f48949360990e846fe445",
+  "inventory_digest": "002edc2691315f9661f95f54ea47c9d0f94f0066b151253966cacd8633ee9ffb",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -155,6 +155,7 @@
       ],
       "remaining_gap": "10,694元行を10,619正規化候補へlossless集約し、重複候補74・重複元行149・volume競合20、SERP取得100/未取得10,594、15 source sheetを監査。前方/部分/all-token検索、source row、取得状態、CSV/JSONを実装。外部8 surfaceの観測coverageはすべてfalseで、増量・appearance historyも未取得",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/graph-related-keyword-query.mjs",
         "scripts/public-semantic-graph.mjs",
         "scripts/public-semantic-graph-query.mjs",
@@ -175,6 +176,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "node scripts/test-graph-related-keyword-query.mjs",
         "node scripts/test-graph-related-keyword-api.mjs",
         "node scripts/test-public-semantic-graph.mjs",
@@ -189,7 +192,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "1359852df6ff5b0271c3acda74bcf643b6462c52c4330783112382ea1211c6ee"
+      "evidence_digest": "c8b8f69d331d46d9defca3fa27127f3797c2a7e9bfecc690208fbb3e7e911d73"
     },
     {
       "capability_id": "related_keywords",
@@ -202,6 +205,7 @@
       ],
       "remaining_gap": "10,594未取得実在KWから733元行・792候補をtoken overlap/association/volume/source ID付きで実装。複数group候補56行を同点18・僅差5・明確先頭33へ分離し、review 23は自動割当停止。さらに任意入力をtoken化し、公開意味graphの曖昧sense別typed path（最大2階層）から保有10,694元行へ逆引きするAPI/MCP/UIを追加。lexical・semantic path・group evidenceを別scoreにし、source sheet/row・relation/path digest・既存group候補・境界marginへ接続。意味path単独候補はsense review必須で、自動group割当・同義性・検索需要・順位効果・市場全体coverage・自動編集はいずれも0。外部大規模index・match type・appearance timeは未取得のため完成扱いしない",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/graph-related-keyword-query.mjs",
         "scripts/public-semantic-graph.mjs",
         "scripts/public-semantic-graph-query.mjs",
@@ -222,6 +226,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "node scripts/test-graph-related-keyword-query.mjs",
         "node scripts/test-graph-related-keyword-api.mjs",
         "node scripts/test-public-semantic-graph.mjs",
@@ -236,7 +242,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "9ae63a85eb742d8cd694c985a203015c2ee286081af3a8aea1df3085834d5a9d"
+      "evidence_digest": "94b3b83ed927c782aae45279afcebf85892c26e786e16b028f43ca8fbd5134b5"
     },
     {
       "capability_id": "question_search",
@@ -1195,6 +1201,7 @@
       ],
       "remaining_gap": "実在未取得KW限定のdeterministic proposal 792件を実装しLLM比較基準化。60記事群のprovider非依存challengerへschema準拠canonical baseline payload・artifact ID・根拠ID・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。model/価格/予算再配分/明示承認未確定のため生成0、品質・順位効果は未証明",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
@@ -1221,6 +1228,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "npm run prototype:generation-challenger-manifest:test",
         "npm run prototype:generation-challenger-manifest:api:test",
         "npm run prototype:generation-challenger-result:test",
@@ -1257,7 +1266,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "83f4ecd3909d41f19e189d7fdcfc8634a1ccd1be68353d2d1b04cfa192119535"
+      "evidence_digest": "96ae86d6d6c179f020a95743805256924d6eab27b4d95b55890d70db899085dc"
     },
     {
       "capability_id": "ai_title",
@@ -1268,8 +1277,9 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。さらに主KWを日本語形態token化し、公開typed意味graph→保有KWへ逆引きした上位24概念をtitle候補へ照合する意味coverage reviewをAPI/MCP/UIへ追加。概念包含・未包含を分離し、sense曖昧性、必須topic非推論、需要・同義・順位効果・自動選定0を明示。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
@@ -1296,6 +1306,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "npm run prototype:generation-challenger-manifest:test",
         "npm run prototype:generation-challenger-manifest:api:test",
         "npm run prototype:generation-challenger-result:test",
@@ -1332,7 +1344,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "2e4bd1e7e210db385c1389b4f77899fbd0db04bc9c1e4182271e20d4a5a4aa31"
+      "evidence_digest": "b004374fb5a007551d5e55e5c620371a1cfc0d8e057def0eeceb3e99d0f9b6c0"
     },
     {
       "capability_id": "ai_heading",
@@ -1343,8 +1355,9 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。さらに同じ上位24概念をH2/H3候補へ照合する意味coverage reviewをAPI/MCP/UIへ追加。概念包含・未包含を分離し、sense曖昧性、必須topic非推論、需要・同義・順位効果・自動選定0を明示。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
@@ -1371,6 +1384,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "npm run prototype:generation-challenger-manifest:test",
         "npm run prototype:generation-challenger-manifest:api:test",
         "npm run prototype:generation-challenger-result:test",
@@ -1407,7 +1422,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "47cd9a2da6849ede44fdf0ceba398539ac05d50eccdd467f5505c6ae19976437"
+      "evidence_digest": "5d7100e91666e7971fabde4e18cacabf295b8b79ccae1c0a8e181c23848b3e71"
     },
     {
       "capability_id": "ai_body",
@@ -1420,6 +1435,7 @@
       ],
       "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、さらに新規記事のP0 2・P1 10・P2 25の計37 claimを無料公開Webで実確認し、計画query 12・entity/法的論点/研究/評価条件明確化の適応query 25をimmutable候補へ接続。直接支持12・文脈補助17・適格sourceなし8、要件充足12のみを証拠化し、一般面接論から職種固有助言、規模情報から大手分類、投稿型情報から客観的入社難易度、給与情報から賞与月数、公正採用・解雇の一般原則から申告義務・発覚・退学・解雇の個別結果、海外研究から日本の全職種共通結果、主観的な服装評価や条件付きの自社納期から普遍的な独立評価を推論せずfail-closed維持。費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
@@ -1446,6 +1462,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "npm run prototype:generation-challenger-manifest:test",
         "npm run prototype:generation-challenger-manifest:api:test",
         "npm run prototype:generation-challenger-result:test",
@@ -1482,7 +1500,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "b372cea004b2c5d1e5393cb37c1eb69238ce29485afa933c91aea58dcffd7044"
+      "evidence_digest": "c6fa2eb90fe7e5164601af83b9ac1c6c9292d7062f029d00a03cf294309f8be7"
     },
     {
       "capability_id": "ai_questions",
@@ -1495,6 +1513,7 @@
       ],
       "remaining_gap": "実測PAA passthroughと関連検索由来の質問候補を別区分でDB/API/UI実装。occurrence、input/evidence digest、generator version、review state付き。57記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。外部LLM生成・model/価格・人手判定は未実行",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
@@ -1521,6 +1540,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "npm run prototype:generation-challenger-manifest:test",
         "npm run prototype:generation-challenger-manifest:api:test",
         "npm run prototype:generation-challenger-result:test",
@@ -1557,7 +1578,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "137ed6037307b8db6b5b87c8e94adf813158026014c0677d9120aa5f81085a42"
+      "evidence_digest": "6e809ba233366d3eb587b9b82cbd1c695be145ed7bc19feed147ce75f20e77cd"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -1570,6 +1591,7 @@
       ],
       "remaining_gap": "inventory-related-keyword.v2でsource-backed候補を実装。60記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。LLMによる新語生成・model/価格・人手判定は未実行",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
         "scripts/content-rich-block-plan.mjs",
@@ -1596,6 +1618,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "npm run prototype:generation-challenger-manifest:test",
         "npm run prototype:generation-challenger-manifest:api:test",
         "npm run prototype:generation-challenger-result:test",
@@ -1632,7 +1656,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "8ef77a61c1dbcc4fbde694a290cc1c38e9183e2547e7b845548937c6b57545f3"
+      "evidence_digest": "1e3976721f79e5e56f0929365275428b56ae73d750a590acf58b4881925b3384"
     },
     {
       "capability_id": "hashtags",
@@ -1669,6 +1693,7 @@
       "blocker_classes": [],
       "remaining_gap": "人手で同義判定された公開日本語語彙11,753 pair・9,487語をversion 1.0、archive/file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語の両方向・部分検索をAPI/MCP/UIへ実装し、保有corpus 585語中206語・840 pairとの接続も監査。表記variant 921 cluster、共起association 1,636 edge、SERP文脈候補168 pairとは証拠種別を分離。辞書上の語対を記事文脈での無条件交換可能性とは扱わず全11,753 pairをcontext review必須、自動置換0。取得費用0",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/graph-related-keyword-query.mjs",
         "scripts/public-semantic-graph.mjs",
         "scripts/public-semantic-graph-query.mjs",
@@ -1689,6 +1714,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "node scripts/test-graph-related-keyword-query.mjs",
         "node scripts/test-graph-related-keyword-api.mjs",
         "node scripts/test-public-semantic-graph.mjs",
@@ -1703,7 +1730,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "c0d4072fdf6eae048050602bbc82043a1cad46652b34c3125eba2faf03c7862e"
+      "evidence_digest": "6e673ee8daefad0b2e39af906beb9981cceb92437cebb69a35c89ec0511c1396"
     },
     {
       "capability_id": "associations",
@@ -1714,6 +1741,7 @@
       "blocker_classes": [],
       "remaining_gap": "公開日本語意味グラフの158,058 sense・93,834語・57,238 synset定義・21種115,295 direct edgeをversion 1.1、archive/派生3 file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語のexact/partial sense起点から有向edgeの正方向・逆方向意味を分離し、循環抑止・最大3階層・2,000 edge上限の探索をAPI/MCP/UIへ実装。保有corpus 585語中425語を意味graphへ接続。別系統として7,087 keyword document由来585基準語・1,636共起関係も保持し、semantic edge・共起・人手同義語を混同しない。意味graphから同義性・検索需要・順位因果・自動content変更を推論せず、取得費用0",
       "authoritative_evidence": [
+        "scripts/content-semantic-coverage-review.mjs",
         "scripts/graph-related-keyword-query.mjs",
         "scripts/public-semantic-graph.mjs",
         "scripts/public-semantic-graph-query.mjs",
@@ -1734,6 +1762,8 @@
         "scripts/test-keyword-dashboard-integration.mjs"
       ],
       "verification_commands": [
+        "node scripts/test-content-semantic-coverage-review.mjs",
+        "node scripts/test-content-semantic-coverage-api.mjs",
         "node scripts/test-graph-related-keyword-query.mjs",
         "node scripts/test-graph-related-keyword-api.mjs",
         "node scripts/test-public-semantic-graph.mjs",
@@ -1748,7 +1778,7 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "577649e97f9ab6bfc9905ff0e0000d9ed971a4a312da4108915d27c8bcef611b"
+      "evidence_digest": "ceac01ee45e832c19840e52143e818be78cae778761d153dc9e25f99df17a0e0"
     },
     {
       "capability_id": "qa_sites",
@@ -1965,7 +1995,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む93 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む94 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -1995,7 +2025,7 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "08f70bee375f0bdada21ccc158e91a86d2f4dbb8fcad658a9eb0b16aa66c2dc0"
+      "evidence_digest": "8e62a9f48201cede83fc727c3bb168ef107eb9caea6e5b48c5406554747e6a50"
     },
     {
       "capability_id": "credit_history",
@@ -2024,5 +2054,5 @@
       "evidence_digest": "ed8eb9a9fb2f8f8808246c08dec5ccbab87c5f4a8fbedc59ca8b03278dc1e716"
     }
   ],
-  "audit_digest": "871b0e6c6e5811d257d29ea0ccaaf7d13afce9dc441f36ea5c2121d7252230fd"
+  "audit_digest": "7f0174d1d300bdeefc1421c16930cca3d8dbf73677abd1ca09b4cefdc0646736"
 }
