@@ -1429,6 +1429,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - SHA追加後に16/16 commandを再実行し、類語・連想語・quick search・補助tool・data output・bookmarkletの6/6機能を再attestした。dashboard完全回帰は約19分49秒で成功した。
 - receiptは外部取得・model実行・有料実行をすべてfalseで固定する。29機能の残存gap、人手品質、順位効果、外部contract parityはattestation対象外であり、完成監査は6/35のままである。
 
+### 10.103 semantic task需要証拠readiness（API 2.105 / packet v3）
+
+- 144 semantic taskの1,987 source keyword参照を保持keyword台帳へ全件接続し、孤児0を確認した。検索volumeの正値・zero・欠損、SERP取得状態、sheet/row/source IDを別fieldで保持する。
+- task概念のnormalized文字列を保持PAA・関連検索へ包含照合し、occurrence ID、需要種別、観測文字列、source keyword、task/group、snapshot digest、観測時刻を最大10 sampleずつ逆引きする。包含は文脈観測であり、概念単体のvolumeとは扱わない。
+- 排他的readinessは、概念を含むSERP需要63、supporting KWのSERP観測1、正値volumeのみ79、zero volumeのみ1。概念需要occurrence参照は延べ777件である。
+- API/MCPは需要readiness filterを提供し、画面はSERP需要sampleとsupporting KW volumeを展開表示する。絶対概念volume推論・需要判断の自動承認・group割当・候補選定・content変更はすべて0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
