@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "002edc2691315f9661f95f54ea47c9d0f94f0066b151253966cacd8633ee9ffb",
+  "inventory_digest": "665c799678fdba3cdfb76c8bace9406409fe7220ba0e6062638b05f4bfdb7fcb",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1277,7 +1277,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。さらに主KWを日本語形態token化し、公開typed意味graph→保有KWへ逆引きした上位24概念をtitle候補へ照合する意味coverage reviewをAPI/MCP/UIへ追加。概念包含・未包含を分離し、sense曖昧性、必須topic非推論、需要・同義・順位効果・自動選定0を明示。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
+      "remaining_gap": "185 deterministic variantsと63記事群の共同最適化に加え、保持需要と観測形態からHELIX独自の修正候補63件を生成。需要履歴付きtitle候補116件を安定68・混在review 23・変動のみ21・履歴不足4へ分類。競合由来title 63件も継続ページ根拠61・履歴不足review 2へ分類。さらに品質・証拠・需要・競合継続・SERP形態のensembleで52件のtitle選定差分を提示し、現在→推奨を52比較単位へ分解してscore・根拠gain・tradeoffを説明、公開readinessへ接続。さらにtask分離holdoutで全候補を監査し、独立評価可能74・signal改善41・同等11・低下22・task漏洩0・証拠不足685を明示。さらに過去snapshot holdoutで時間独立評価可能731・改善356・同等191・低下184・時間漏洩0・過去証拠不足28を明示。さらに現在/推奨の盲検編集A/B 78 pairを4 strata・A/B現行配置39/39で固定し、5基準採点・heading意味保持・packet/reviewer digest必須のdecision importerを実装。採点0のため人手品質・順位効果は未証明。競合title copy・順位効果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。さらに主KWを日本語形態token化し、公開typed意味graph→保有KWへ逆引きした上位24概念をtitle候補へ照合する意味coverage reviewをAPI/MCP/UIへ追加。概念包含・未包含を分離し、さらに直接の上位・下位・類似・関連pathかつ保有KW支持2件以上の最大6概念からtitle/heading各6件の決定論previewを生成。直接group証拠なしは選定blockし、sense曖昧性、必須topic非推論、需要・同義・順位効果・自動選定0を明示。LLM runtime/model/価格/人手判定と実順位効果検証は未実装",
       "authoritative_evidence": [
         "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
@@ -1344,7 +1344,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "b004374fb5a007551d5e55e5c620371a1cfc0d8e057def0eeceb3e99d0f9b6c0"
+      "evidence_digest": "b004df9237a3c7ce2a367bf9f6da531e70443c795cd81ba6a9f935f742f1cb50"
     },
     {
       "capability_id": "ai_heading",
@@ -1355,7 +1355,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。さらに同じ上位24概念をH2/H3候補へ照合する意味coverage reviewをAPI/MCP/UIへ追加。概念包含・未包含を分離し、sense曖昧性、必須topic非推論、需要・同義・順位効果・自動選定0を明示。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
+      "remaining_gap": "question/related/competitor/特殊SERP別580候補、510候補のH2/H3階層選定を実装。需要履歴付きheading候補388件を安定266・混在review 12・変動のみ90・履歴不足20へ分類。競合由来heading 187件も継続ページ根拠181・履歴不足review 6へ分類。品質・証拠・需要・競合継続・SERP形態のensembleで20記事群のheading選定差分を提示し、現在→推奨をH2/H3・根拠種別・文字trigramの全体最適対応へ分解。全体54記事群・86説明（構造対応26・対応根拠なし8・同点7）のscore・根拠gain・tradeoffを説明して公開readinessへ接続。task分離holdoutをtitleと共通運用しtask漏洩0。過去snapshot holdoutも共通運用し時間独立評価可能731・時間漏洩0、盲検編集A/B 78 pairをtitleと共通運用し、採点0のため人手品質・順位効果は未証明。意味保持確認済0、競合見出しcopy・順位因果推測・自動差替なし。63記事群のprovider非依存challengerへschema準拠canonical baseline payload・根拠・実prompt・JSON schema・token ceiling・盲検5基準評価を固定し、結果のschema・根拠ID閉包・費用/token上限をfail-closed検証して自動選定なしの盲検packetへ変換可能。さらに同じ上位24概念をH2/H3候補へ照合する意味coverage reviewをAPI/MCP/UIへ追加。概念包含・未包含を分離し、さらに直接の上位・下位・類似・関連pathかつ保有KW支持2件以上の最大6概念からtitle/heading各6件の決定論previewを生成。直接group証拠なしは選定blockし、sense曖昧性、必須topic非推論、需要・同義・順位効果・自動選定0を明示。LLM outline実行/model/価格と編集者による意味保持確認は未実装",
       "authoritative_evidence": [
         "scripts/content-semantic-coverage-review.mjs",
         "scripts/generation-challenger-manifest.mjs",
@@ -1422,7 +1422,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "5d7100e91666e7971fabde4e18cacabf295b8b79ccae1c0a8e181c23848b3e71"
+      "evidence_digest": "c546fff3deefeb79f9f6b9d77643398c8d8f996b429ca42557d635d76be4163c"
     },
     {
       "capability_id": "ai_body",
@@ -2054,5 +2054,5 @@
       "evidence_digest": "ed8eb9a9fb2f8f8808246c08dec5ccbab87c5f4a8fbedc59ca8b03278dc1e716"
     }
   ],
-  "audit_digest": "7f0174d1d300bdeefc1421c16930cca3d8dbf73677abd1ca09b4cefdc0646736"
+  "audit_digest": "740f83afda8dab4616cb03de0507dba4f105f1f7a78037e47f8b9f251e9cc1ed"
 }
