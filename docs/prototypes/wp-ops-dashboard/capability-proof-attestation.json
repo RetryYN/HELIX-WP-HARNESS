@@ -214,7 +214,7 @@
       "duration_ms": 32444,
       "stdout_sha256": "25dcbff71644bee2aefa65713c35806affdf260d2791da008fed61afcbb29f9b",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "stdout_tail": "\n> helix-wp-harness@0.1.0 prototype:keyword-dashboard:test\n> node scripts/test-keyword-dashboard-suite.mjs\n\ndashboard suite: portable evidence mode (/home/tenni/dev/poc-wp/data/サイトAキーワードマップ.xlsx is intentionally not stored in the public repository; full 10,694-row gate remains local)\ndashboard bind policy: OK (loopback default, explicit remote override required)\nkeyword dashboard isolated empty-state test: ok\n",
+      "stdout_tail": "\n> helix-wp-harness@0.1.0 prototype:keyword-dashboard:test\n> node scripts/test-keyword-dashboard-suite.mjs\n\ndashboard suite: portable evidence mode (<local-path> is intentionally not stored in the public repository; full 10,694-row gate remains local)\ndashboard bind policy: OK (loopback default, explicit remote override required)\nkeyword dashboard isolated empty-state test: ok\n",
       "stderr_tail": "",
       "passed": true,
       "result_digest": "4ff47bc40a06cae7ffa529ac6e155a6842e634c877f1a2421b0c3b89666bc146"
@@ -346,5 +346,5 @@
       "attestation_digest": "b6bf01867998414cbad0b4398238cc922f797a9ae0475076b25516fa38e3ee58"
     }
   ],
-  "receipt_digest": "b3bcc88da8a9cce361b63a00294589f2c06d271d6f22d06395f2ddf3a14c9441"
+  "receipt_digest": "d3ebb125de8720f06228306d77fa0780f09e3bf9c8dc426e69d2135453cd8764"
 }

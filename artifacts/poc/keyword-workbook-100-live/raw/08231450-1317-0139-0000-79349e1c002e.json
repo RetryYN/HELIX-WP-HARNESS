@@ -134,7 +134,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[3]/div[1]/div[1]",
               "domain": "competitor-113.example",
               "title": "IT通信業界 人気企業ランキング2027|Sky,NTTデータ【認定 ...",
-              "url": "https://competitor-113.example/whitecareer/blog/14648",
+              "url": "https://competitor-113.example/<redacted-user>/blog/14648",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://competitor-113.example › ホーム › 就活お役⽴ちブログ",
@@ -160,14 +160,14 @@
                   "type": "link_element",
                   "title": "IT・通信業界 人気企業ランキング...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#1_IT_2027",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#1_IT_2027",
                   "domain": "competitor-113.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ランキングを就活に活かす4ステ...",
                   "description": null,
-                  "url": "https://competitor-113.example/whitecareer/blog/14648#7_4",
+                  "url": "https://competitor-113.example/<redacted-user>/blog/14648#7_4",
                   "domain": "competitor-113.example"
                 }
               ],
