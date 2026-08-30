@@ -72,12 +72,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
-              "domain": "www.theport.jp",
+              "domain": "www.competitor-227.example",
               "title": "【2026年】IT業界のニュース｜就活時事問題対策 | PORTキャリア",
-              "url": "https://www.theport.jp/portcareer/article/273704/",
+              "url": "https://www.competitor-227.example/portcareer/article/273704/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://www.theport.jp › トップ › その他",
+              "breadcrumb": "https://www.competitor-227.example › トップ › その他",
               "website_name": "ポート株式会社（PORT INC.）",
               "is_image": false,
               "is_video": false,
@@ -98,22 +98,22 @@
                   "type": "link_element",
                   "title": "①電通総研と日鉄ソリューション...",
                   "description": null,
-                  "url": "https://www.theport.jp/portcareer/article/273704/#%E2%91%A0%E9%9B%BB%E9%80%9A%E7%B7%8F%E7%A0%94%E3%81%A8%E6%97%A5%E9%89%84%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BA%EF%BC%88NSSOL%EF%BC%89%E3%81%8C%E5%8D%94%E6%A5%AD",
-                  "domain": "www.theport.jp"
+                  "url": "https://www.competitor-227.example/portcareer/article/273704/#%E2%91%A0%E9%9B%BB%E9%80%9A%E7%B7%8F%E7%A0%94%E3%81%A8%E6%97%A5%E9%89%84%E3%82%BD%E3%83%AA%E3%83%A5%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%BA%EF%BC%88NSSOL%EF%BC%89%E3%81%8C%E5%8D%94%E6%A5%AD",
+                  "domain": "www.competitor-227.example"
                 },
                 {
                   "type": "link_element",
                   "title": "面接での回答例（最近気になるニ...",
                   "description": null,
-                  "url": "https://www.theport.jp/portcareer/article/273704/#%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%81%AE%E5%9B%9E%E7%AD%94%E4%BE%8B%EF%BC%88%E6%9C%80%E8%BF%91%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8B%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%EF%BC%89-2",
-                  "domain": "www.theport.jp"
+                  "url": "https://www.competitor-227.example/portcareer/article/273704/#%E9%9D%A2%E6%8E%A5%E3%81%A7%E3%81%AE%E5%9B%9E%E7%AD%94%E4%BE%8B%EF%BC%88%E6%9C%80%E8%BF%91%E6%B0%97%E3%81%AB%E3%81%AA%E3%82%8B%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%EF%BC%89-2",
+                  "domain": "www.competitor-227.example"
                 },
                 {
                   "type": "link_element",
                   "title": "関連ニュース",
                   "description": null,
-                  "url": "https://www.theport.jp/portcareer/article/273704/#%E9%96%A2%E9%80%A3%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9-2",
-                  "domain": "www.theport.jp"
+                  "url": "https://www.competitor-227.example/portcareer/article/273704/#%E9%96%A2%E9%80%A3%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9-2",
+                  "domain": "www.competitor-227.example"
                 }
               ],
               "faq": null,
@@ -130,12 +130,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
-              "domain": "engineer-shukatu.jp",
+              "domain": "competitor-68.example",
               "title": "就活時期のニュースチェックの裏技教えます",
-              "url": "https://engineer-shukatu.jp/column/archives/22235",
+              "url": "https://competitor-68.example/column/archives/22235",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://engineer-shukatu.jp › column › archives",
+              "breadcrumb": "https://competitor-68.example › column › archives",
               "website_name": "エンジニア就活",
               "is_image": false,
               "is_video": false,
@@ -169,12 +169,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
-              "domain": "shukatsu-venture.com",
+              "domain": "competitor-200.example",
               "title": "【2026年最新版・例文5選】就活でIT業界の最新ニュース聞かれ ...",
-              "url": "https://shukatsu-venture.com/article/308192",
+              "url": "https://competitor-200.example/article/308192",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://shukatsu-venture.com › article",
+              "breadcrumb": "https://competitor-200.example › article",
               "website_name": "ベンチャー就活ナビ",
               "is_image": false,
               "is_video": false,
@@ -198,22 +198,22 @@
                   "type": "link_element",
                   "title": "▷ はじめに",
                   "description": null,
-                  "url": "https://shukatsu-venture.com/article/308192#h2-1",
-                  "domain": "shukatsu-venture.com"
+                  "url": "https://competitor-200.example/article/308192#h2-1",
+                  "domain": "competitor-200.example"
                 },
                 {
                   "type": "link_element",
                   "title": "▷ 【IT業界の最近のニュース】最...",
                   "description": null,
-                  "url": "https://shukatsu-venture.com/article/308192#h2-5",
-                  "domain": "shukatsu-venture.com"
+                  "url": "https://competitor-200.example/article/308192#h2-5",
+                  "domain": "competitor-200.example"
                 },
                 {
                   "type": "link_element",
                   "title": "▷ 【IT業界の最近のニュース】基...",
                   "description": null,
-                  "url": "https://shukatsu-venture.com/article/308192#h2-7",
-                  "domain": "shukatsu-venture.com"
+                  "url": "https://competitor-200.example/article/308192#h2-7",
+                  "domain": "competitor-200.example"
                 }
               ],
               "faq": null,
@@ -230,13 +230,13 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
-              "domain": "unison-career.jp",
+              "domain": "competitor-238.example",
               "title": "IT業界の就活で使える最近のニュース一覧！情報収集と面接で ...",
-              "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/",
+              "url": "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://unison-career.jp › ... › ユニゾン㊙対策",
-              "website_name": "unison-career.jp",
+              "breadcrumb": "https://competitor-238.example › ... › ユニゾン㊙対策",
+              "website_name": "competitor-238.example",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -258,15 +258,15 @@
                   "type": "link_element",
                   "title": "2.IT業界の就活で使えるニュース...",
                   "description": null,
-                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/#2IT%E6%A5%AD%E7%95%8C%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9",
-                  "domain": "unison-career.jp"
+                  "url": "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/#2IT%E6%A5%AD%E7%95%8C%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E3%81%AE%E9%81%B8%E3%81%B3%E6%96%B9",
+                  "domain": "competitor-238.example"
                 },
                 {
                   "type": "link_element",
                   "title": "5.就活で使えるIT業界の最新ニ...",
                   "description": null,
-                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/#5%E5%B0%B1%E6%B4%BB%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8BIT%E6%A5%AD%E7%95%8C%E3%81%AE%E6%9C%80%E6%96%B0%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E4%B8%80%E8%A6%A7",
-                  "domain": "unison-career.jp"
+                  "url": "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/unison-secret-guide/p16903/#5%E5%B0%B1%E6%B4%BB%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8BIT%E6%A5%AD%E7%95%8C%E3%81%AE%E6%9C%80%E6%96%B0%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%E4%B8%80%E8%A6%A7",
+                  "domain": "competitor-238.example"
                 }
               ],
               "faq": null,
@@ -283,12 +283,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]",
-              "domain": "www.itmedia.co.jp",
+              "domain": "www.competitor-103.example",
               "title": "「IT業界」関連の最新 ニュース・レビュー・解説 記事 まとめ",
-              "url": "https://www.itmedia.co.jp/keywords/it_industry.html",
+              "url": "https://www.competitor-103.example/keywords/it_industry.html",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://www.itmedia.co.jp › keywords › it_industry",
+              "breadcrumb": "https://www.competitor-103.example › keywords › it_industry",
               "website_name": "ITmedia",
               "is_image": false,
               "is_video": false,
@@ -324,7 +324,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
               "domain": "note.com",
               "title": "【27卒・28卒向け】IT企業の面接で「最近気になるITニュースは ...",
-              "url": "https://note.com/mild_walrus6702/n/n14417b2d93c2",
+              "url": "https://note.com/<redacted-user>/n/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "高評価 6 件  ·  3 か月前",
@@ -398,13 +398,13 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
-              "domain": "unistyleinc.com",
+              "domain": "competitor-240.example",
               "title": "【最新版】就活に役立つ時事問題ネタ15選！各業界への影響も ...",
-              "url": "https://unistyleinc.com/techniques/1759",
+              "url": "https://competitor-240.example/techniques/1759",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://unistyleinc.com › 就活テクニック",
-              "website_name": "unistyleinc.com",
+              "breadcrumb": "https://competitor-240.example › 就活テクニック",
+              "website_name": "competitor-240.example",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -426,22 +426,22 @@
                   "type": "link_element",
                   "title": "時事問題ネタ(1)新型コロナウイ...",
                   "description": null,
-                  "url": "https://unistyleinc.com/techniques/1759#2",
-                  "domain": "unistyleinc.com"
+                  "url": "https://competitor-240.example/techniques/1759#2",
+                  "domain": "competitor-240.example"
                 },
                 {
                   "type": "link_element",
                   "title": "時事問題ネタ(5)SDGs",
                   "description": null,
-                  "url": "https://unistyleinc.com/techniques/1759#6",
-                  "domain": "unistyleinc.com"
+                  "url": "https://competitor-240.example/techniques/1759#6",
+                  "domain": "competitor-240.example"
                 },
                 {
                   "type": "link_element",
                   "title": "時事問題ネタ(8)EC",
                   "description": null,
-                  "url": "https://unistyleinc.com/techniques/1759#9",
-                  "domain": "unistyleinc.com"
+                  "url": "https://competitor-240.example/techniques/1759#9",
+                  "domain": "competitor-240.example"
                 }
               ],
               "faq": null,
@@ -525,12 +525,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
-              "domain": "tenshoku.mynavi.jp",
+              "domain": "sub3.competitor-146.example",
               "title": "面接での「最近のニュース」の回答例文｜業界別の時事ネタ【 ...",
-              "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/",
+              "url": "https://sub3.competitor-146.example/knowhow/mensetsu/guide/13/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://tenshoku.mynavi.jp › ... › 面接対策ガイド",
+              "breadcrumb": "https://sub3.competitor-146.example › ... › 面接対策ガイド",
               "website_name": "マイナビ転職",
               "is_image": false,
               "is_video": false,
@@ -553,22 +553,22 @@
                   "type": "link_element",
                   "title": "回答例文2【エレクトロニクス業界】",
                   "description": null,
-                  "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/#eg02",
-                  "domain": "tenshoku.mynavi.jp"
+                  "url": "https://sub3.competitor-146.example/knowhow/mensetsu/guide/13/#eg02",
+                  "domain": "sub3.competitor-146.example"
                 },
                 {
                   "type": "link_element",
                   "title": "回答例文3【IT業界】",
                   "description": null,
-                  "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/#eg03",
-                  "domain": "tenshoku.mynavi.jp"
+                  "url": "https://sub3.competitor-146.example/knowhow/mensetsu/guide/13/#eg03",
+                  "domain": "sub3.competitor-146.example"
                 },
                 {
                   "type": "link_element",
                   "title": "回答例文9【建築業界】",
                   "description": null,
-                  "url": "https://tenshoku.mynavi.jp/knowhow/mensetsu/guide/13/#eg09",
-                  "domain": "tenshoku.mynavi.jp"
+                  "url": "https://sub3.competitor-146.example/knowhow/mensetsu/guide/13/#eg09",
+                  "domain": "sub3.competitor-146.example"
                 }
               ],
               "faq": null,

@@ -237,7 +237,7 @@
   "capabilities": [
     {
       "capability_id": "synonyms",
-      "artifact_set_digest": "711e6da9e6955618ab63a64c142ecc35593e618852bb2a66be04f3c7b0c69de4",
+      "artifact_set_digest": "18eb3d561f1de5f7b4887d672196eb1985c4c7d90e6d2103d4b3c6ef30a6c952",
       "command_set_digest": "1e9a01be6b519c0fd4e8c75010c55d9246f5db4ac7117aaebe5d454d931dd0ea",
       "expected_command_count": 15,
       "executed_command_count": 15,
@@ -260,11 +260,11 @@
         "ddfa40ee78d0b3bb026c85bd6acae2b3500723b6b5b5ce28b69b4c13566d3f59",
         "f6888ae70831ccfced882ccf9572664b9a6f1ed47d1bedd7e91ffbd2870c7e05"
       ],
-      "attestation_digest": "fef725676452212ad61de78d1b9fd28ee3139ca933c31bf1bd1eb7b48a93da90"
+      "attestation_digest": "7fcf6bfb09d71742d8c8f6c01f6a0403b91769e05ffca9afae1b3a8b87393154"
     },
     {
       "capability_id": "associations",
-      "artifact_set_digest": "711e6da9e6955618ab63a64c142ecc35593e618852bb2a66be04f3c7b0c69de4",
+      "artifact_set_digest": "18eb3d561f1de5f7b4887d672196eb1985c4c7d90e6d2103d4b3c6ef30a6c952",
       "command_set_digest": "1e9a01be6b519c0fd4e8c75010c55d9246f5db4ac7117aaebe5d454d931dd0ea",
       "expected_command_count": 15,
       "executed_command_count": 15,
@@ -287,7 +287,7 @@
         "ddfa40ee78d0b3bb026c85bd6acae2b3500723b6b5b5ce28b69b4c13566d3f59",
         "f6888ae70831ccfced882ccf9572664b9a6f1ed47d1bedd7e91ffbd2870c7e05"
       ],
-      "attestation_digest": "89f071fbbc5a331a30a9ebb16d73731cc78bd714c068c1759ef8a14e01ab4715"
+      "attestation_digest": "c3843c39c404ac0a1c2f4917856c4a2c793aeb5add1a2fc64e4be1c7dd9823ea"
     },
     {
       "capability_id": "quick_search",
@@ -346,5 +346,5 @@
       "attestation_digest": "2494a35a5d45b097df45225a6735dc2b23b8792421ceaf48ceefc8c2f41e0673"
     }
   ],
-  "receipt_digest": "b63769be3f15bbe7d49976f01e889e403e4421081529cfd206561eb7b21bb770"
+  "receipt_digest": "5ce9ddeaa98e978ce298f87a34df03d1c00ccae2aad4816733bd725bb2cfc0c7"
 }

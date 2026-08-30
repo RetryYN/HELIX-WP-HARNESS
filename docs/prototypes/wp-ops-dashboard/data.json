@@ -5,7 +5,7 @@
   "sites": [
     {
       "site_id": "site-b.example",
-      "label": "大人のひとりビジネスラボ",
+      "label": "サイトB",
       "domain": "site-b.example",
       "status": "active",
       "is_pinned": true,
@@ -13,7 +13,7 @@
     },
     {
       "site_id": "site-a.example",
-      "label": "IT就活大学",
+      "label": "サイトA",
       "domain": "site-a.example",
       "status": "active",
       "is_pinned": true,
@@ -32,9 +32,9 @@
         "sheet": 1,
         "row": 16
       },
-      "source_location": "IT就活大学キーワードマップ.xlsx / IT就活 / 16行",
+      "source_location": "サイトAキーワードマップ.xlsx / IT就活 / 16行",
       "search_volume": 70,
-      "search_volume_source": "IT就活大学キーワードマップ.xlsx / IT就活",
+      "search_volume_source": "サイトAキーワードマップ.xlsx / IT就活",
       "intent_keywords": [
         "it 就活サイト 比較",
         "it 就活サイト おすすめ"
@@ -78,10 +78,10 @@
         "08231127-1317-0066-0000-6695f73ea2c8"
       ],
       "shared_urls": [
-        "https://coeteco.jp/articles/14332",
-        "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site",
-        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
-        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+        "https://competitor-49.example/articles/14332",
+        "https://competitor-68.example/tensyoku/it-tenshoku-site",
+        "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it"
       ]
     },
     {
@@ -94,9 +94,9 @@
         "sheet": 3,
         "row": 7
       },
-      "source_location": "大人のひとりビジネスラボ.xlsx / キーワード割り当て / 8行",
+      "source_location": "サイトB.xlsx / キーワード割り当て / 8行",
       "search_volume": "1000-10000",
-      "search_volume_source": "大人のひとりビジネスラボ.xlsx / キーワード割り当て",
+      "search_volume_source": "サイトB.xlsx / キーワード割り当て",
       "intent_keywords": [
         "記事作成 副業"
       ],

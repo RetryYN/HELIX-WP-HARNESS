@@ -2,7 +2,7 @@
   "schema_version": "helix-public-lexical-corpus-source.v1",
   "dataset_name": "Japanese WordNet Synonyms Database",
   "dataset_version": "1.0",
-  "source_page": "https://bond-lab.github.io/wnja/jpn/downloads.html",
+  "source_page": "https://sub1.competitor-80.example/wnja/jpn/downloads.html",
   "source_archive": "https://github.com/bond-lab/wnja/releases/download/v1.1/wnjpn-syn-database.1.0.zip",
   "source_archive_sha256": "02e9a9188de840360a8e457bafc7d876b08386b0062694d2c683dc3c5c161185",
   "pair_file": "japanese-synonym-pairs-v1.0.tsv",

@@ -4717,7 +4717,7 @@
     "contact": {},
     "license": {
       "name": "License: Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      "url": "http://www.competitor-16.example/licenses/LICENSE-2.0.html"
     }
   },
   "tags": [],
@@ -9475,7 +9475,7 @@
                         "url": {
                           "type": "string",
                           "description": "ページの完全なURL",
-                          "example": "https://seo-tool-a.example/result/contentSearch?q=%E3%83%A9%E3%83%83%E3%82%B3"
+                          "example": "https://seo-tool-a.example/result/contentSearch?q=seo-tool-a"
                         },
                         "title": {
                           "type": "string",
@@ -9786,7 +9786,7 @@
                         "url": {
                           "type": "string",
                           "description": "検索結果ページの URL",
-                          "example": "https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%83%E3%82%B3"
+                          "example": "https://ja.wikipedia.org/wiki/seo-tool-a"
                         },
                         "title": {
                           "type": "string",
@@ -10063,7 +10063,7 @@
                           "url": {
                             "type": "string",
                             "description": "ページURL",
-                            "example": "https://ja.wikipedia.org/wiki/%E3%83%A9%E3%83%83%E3%82%B3"
+                            "example": "https://ja.wikipedia.org/wiki/seo-tool-a"
                           },
                           "count": {
                             "type": "number",
@@ -10160,7 +10160,7 @@
             "description": "順位チェックするURL/ドメインの配列。最大50件まで指定可能。",
             "example": [
               "https://seo-tool-a.example",
-              "https://seo-tool-a.example/result/contentSearch?q=%E3%83%A9%E3%83%83%E3%82%B3"
+              "https://seo-tool-a.example/result/contentSearch?q=seo-tool-a"
             ]
           },
           "matchType": {
@@ -10452,7 +10452,7 @@
                     "urlSummary": {
                       "type": "string",
                       "description": "URLのサマリ（カンマ区切り、先頭20件・255文字以内で切り詰め）",
-                      "example": "https://seo-tool-a.example,https://seo-tool-a.inc"
+                      "example": "https://competitor-189.example://seo-tool-a.inc"
                     },
                     "keywordCount": {
                       "type": "number",

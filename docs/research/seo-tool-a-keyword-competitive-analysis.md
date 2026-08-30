@@ -333,7 +333,7 @@ seo-tool-aの上位20サイト深度とは異なる。上位11〜20への拡張�
 
 #### 元キーワードExcel
 
-`IT就活大学キーワードマップ.xlsx` は15 sheet、A列に値があるkeyword行だけで10,694行ある。
+`サイトAキーワードマップ.xlsx` は15 sheet、A列に値があるkeyword行だけで10,694行ある。
 DB v25で15 sheet全10,694行をsource sheet・row identity付きでキーワード台帳と階層へ取り込んだ。
 このうちSERP実測・施策group接続済みは先頭sheet `IT就活` の100行だけであり、残りは明示的に
 `SERP未取得`とする。
@@ -476,8 +476,8 @@ dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し�
 最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを許可し、bodyは1MiB、
 protocol versionは2025-03-26/06-18/11-25に制限する。SeoToolA OAuthやcredit連携とは称さない。
 
-- MCP Tools仕様: <https://modelcontextprotocol.io/specification/2025-06-18/server/tools>
-- MCP Streamable HTTP仕様: <https://modelcontextprotocol.io/specification/2025-03-26/basic/transports>
+- MCP Tools仕様: <https://competitor-138.example/specification/2025-06-18/server/tools>
+- MCP Streamable HTTP仕様: <https://competitor-138.example/specification/2025-03-26/basic/transports>
 
 ### 10.19 サイト検索と横断比較
 
@@ -709,7 +709,7 @@ word countを含む計10 fieldを追加で意味対応へ移した。SeoToolA `g
 `/api/v1/domains`へ`target_domain`を追加し、100 task・各上位10件の`serp_page_keyword_edges`からdomain別KW集合を比較する。
 重複KW数、target基準重複率、Jaccard率、競合固有KW数、target固有KW数、重複KW一覧を返し、policyとscopeに
 `full_rank_database:false`を明記する。画面でも比較基準domainを選択でき、両方の率を並記する。実測例では
-`detail.chiebukuro.yahoo.co.jp`の61観測KWを基準に`unison-career.jp`と28KWが重複し、target基準45.9%、Jaccard35.9%、
+`detail.chiebukuro.yahoo.co.jp`の61観測KWを基準に`competitor-238.example`と28KWが重複し、target基準45.9%、Jaccard35.9%、
 競合固有17、target固有33となった。これをSeoToolAの重複率と同じ分母だとは主張せず、定義が再現可能な独自比較として扱う。
 
 ### 10.44 上位10pageへの競合content証拠拡張

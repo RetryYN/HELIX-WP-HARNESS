@@ -22,14 +22,14 @@
       "normalized_keyword": "it 就活サイト",
       "task_id": "08231116-1317-0066-0000-424d8b63361e",
       "organic_urls": [
-        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
-        "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
-        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
-        "https://engineer-shukatu.jp/",
-        "https://careerselect.jp/"
+        "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it",
+        "https://qiita.com/%3Credacted-user%3E/items/%3Credacted-post%3E",
+        "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://competitor-68.example/",
+        "https://competitor-42.example/"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-424d8b63361e.json",
-      "response_digest": "2f5bd680d026e9c44359c0f690113bc079ceaa294009ce96deef833b9e269b17",
+      "response_digest": "e95973dfa455c311a2d64f5d8cffb848dbe06fde001b58574001fdc9ca7d917d",
       "cost": 0.0006
     },
     {
@@ -38,14 +38,14 @@
       "normalized_keyword": "it 就活 サイト",
       "task_id": "08231116-1317-0066-0000-366cdf30d777",
       "organic_urls": [
-        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
-        "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
-        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
-        "https://engineer-shukatu.jp/",
-        "https://careerselect.jp/"
+        "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it",
+        "https://qiita.com/%3Credacted-user%3E/items/%3Credacted-post%3E",
+        "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://competitor-68.example/",
+        "https://competitor-42.example/"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-366cdf30d777.json",
-      "response_digest": "af2b633b2b4ae71ffd1ff67afc363ab96626c4edec6a7295bc55dbd719036503",
+      "response_digest": "14248e1059990ef0eb385d54001401d8d7a69311b3947ad4ad76107f8d5e2597",
       "cost": 0.0006
     },
     {
@@ -54,14 +54,14 @@
       "normalized_keyword": "seo 記事",
       "task_id": "08231116-1317-0066-0000-b828ed158ada",
       "organic_urls": [
-        "https://www.seohacks.net/blog/20719",
-        "https://leadnine.co.jp/media-seo/6417",
-        "https://search-engine-pirates.co.jp/column/content-seo/seo-article",
-        "https://www.lany.co.jp/blog/plots",
-        "https://x-buzz.co.jp/writing/content-marketing/9953"
+        "https://www.competitor-190.example/blog/20719",
+        "https://competitor-122.example/media-seo/6417",
+        "https://competitor-188.example/column/content-seo/seo-article",
+        "https://www.competitor-121.example/blog/plots",
+        "https://competitor-249.example/writing/content-marketing/9953"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-b828ed158ada.json",
-      "response_digest": "999388d080ccdaf00115764f286667b18f6464ac80fe82b6d03b789719c0e7c5",
+      "response_digest": "c774828467dc6c3c302b178e23daaa40b99726df10413e383464d714da951e75",
       "cost": 0.0006
     },
     {
@@ -70,14 +70,14 @@
       "normalized_keyword": "seo ライティング",
       "task_id": "08231116-1317-0066-0000-0aac2b1c4203",
       "organic_urls": [
-        "https://moltsinc.co.jp/media/knowledge/5343",
-        "https://sol.ferret-one.com/blog/seo-writing",
-        "https://www.willgate.co.jp/promonista/seo-writing",
-        "https://www.youtube.com/watch?v=siH1MXALUTI",
-        "https://bluemonkey.jp/media/column/seo-lighting"
+        "https://competitor-139.example/media/knowledge/5343",
+        "https://sub1.competitor-72.example/blog/seo-writing",
+        "https://www.competitor-246.example/promonista/seo-writing",
+        "https://www.youtube.com/watch?v=%3Credacted-post%3E",
+        "https://competitor-28.example/media/column/seo-lighting"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-0aac2b1c4203.json",
-      "response_digest": "4b85e94404ce1913eb47fd2503fa3734cc341adfd83769a10ea5554d8cd40b81",
+      "response_digest": "e61c9c89350ef3b2c551bb595433fd96db4ec0e4d626b82c83a9543106a06e10",
       "cost": 0.0006
     },
     {
@@ -86,14 +86,14 @@
       "normalized_keyword": "seo 外注",
       "task_id": "08231116-1317-0066-0000-80313b2be4a5",
       "organic_urls": [
-        "https://webanalytics.speee.jp/media/article/seo-outsource",
-        "https://www.seohacks.net/blog/10185",
-        "https://mieru-ca.com/blog/seo-commission",
-        "https://rank-quest.jp/column/column/subcontracting-request",
-        "https://www.willgate.co.jp/promonista/seo_outsource"
+        "https://sub1.competitor-207.example/media/article/seo-outsource",
+        "https://www.competitor-190.example/blog/10185",
+        "https://competitor-136.example/blog/seo-commission",
+        "https://competitor-175.example/column/column/subcontracting-request",
+        "https://www.competitor-246.example/promonista/seo_outsource"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-80313b2be4a5.json",
-      "response_digest": "e29a65ace30a62faa6ad549b5b0b0b628c722873c25399714850c344857af023",
+      "response_digest": "65d55551711f4ef8974b3341c77fa6a1ff687ff45e9033e72c3ca5d10222e931",
       "cost": 0.0006
     },
     {
@@ -102,14 +102,14 @@
       "normalized_keyword": "seo 代行",
       "task_id": "08231115-1317-0066-0000-0e767dc7d8af",
       "organic_urls": [
-        "https://rank-quest.jp/column/column/seoagency",
-        "https://www.cinc-j.co.jp/analytics/seo",
-        "https://www.plan-b.co.jp/blog/seo/85288",
-        "https://white-link.com/sem-plus/seo-company",
-        "https://takuwil.spool.co.jp/column/article/seo-agency"
+        "https://competitor-175.example/column/column/seoagency",
+        "https://www.competitor-46.example/analytics/seo",
+        "https://www.competitor-170.example/blog/seo/85288",
+        "https://competitor-245.example/sem-plus/seo-company",
+        "https://sub1.competitor-208.example/column/article/seo-agency"
       ],
       "raw_file": "raw/08231115-1317-0066-0000-0e767dc7d8af.json",
-      "response_digest": "37167848faa467c7311ad38c9967f5739e12185d8dbb9bf7db079c80bd47052f",
+      "response_digest": "dfe50c15e2acfe24ee00fee51ba90e3b99bef42e9ad74e0ccc456aef1e704ca7",
       "cost": 0.0006
     },
     {
@@ -118,14 +118,14 @@
       "normalized_keyword": "記事作成 副業",
       "task_id": "08231116-1317-0066-0000-3b748a72e76d",
       "organic_urls": [
-        "https://crowdworks.jp/public/jobs/group/writing_beginner",
-        "https://www.lancers.jp/work/search/writing/writing?srsltid=AfmBOooU1HANY7mUd5zKawIRVqwyjYK9sfomlQjoSzFxd1dP0m_aT6Sm",
-        "https://www.craudia.com/crarepo/archives/1794",
-        "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
-        "https://hipro-job.jp/pro/and_hipro/column/A000000807"
+        "https://competitor-54.example/public/jobs/group/writing_beginner",
+        "https://www.competitor-120.example/work/search/writing/writing?srsltid=AfmBOooU1HANY7mUd5zKawIRVqwyjYK9sfomlQjoSzFxd1dP0m_aT6Sm",
+        "https://www.competitor-51.example/crarepo/archives/1794",
+        "https://jp.competitor-93.example/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+        "https://competitor-89.example/pro/and_hipro/column/A000000807"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-3b748a72e76d.json",
-      "response_digest": "e42edf6893651c1b32aea7f588e1312dc872d4aa9f6982827f3174ea06538239",
+      "response_digest": "c2f31864d7e5690b7c4708e1afe7e1150d6b65beecc30bc556d53a1d7c8ce0e0",
       "cost": 0.0006,
       "search_volume_min": 100,
       "search_volume_max": 1000
@@ -136,14 +136,14 @@
       "normalized_keyword": "ライター 副業",
       "task_id": "08231116-1317-0066-0000-2a5bb8fc7c4d",
       "organic_urls": [
-        "https://note.com/asami_7716/n/n1a92cbbf4542",
-        "https://crowdworks.jp/public/jobs/group/writing_beginner",
-        "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
-        "https://shuuumatu-worker.jp/projects?jobtypes=writer",
-        "https://hipro-job.jp/pro/and_hipro/column/A000000807"
+        "https://note.com/%3Credacted-user%3E/n/%3Credacted-post%3E",
+        "https://competitor-54.example/public/jobs/group/writing_beginner",
+        "https://jp.competitor-93.example/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
+        "https://competitor-202.example/projects?jobtypes=writer",
+        "https://competitor-89.example/pro/and_hipro/column/A000000807"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
-      "response_digest": "cc52c9a1ba3412ee1230ba1e53c2e9339884d3261a21ca9369e02cf7acb1dcf3",
+      "response_digest": "f5fad8d4cf8d314d4dd0599dad7a0f344d8f67d37e6a061a1815235fc3b3d0c8",
       "cost": 0.0006,
       "search_volume_min": 1000,
       "search_volume_max": 10000
@@ -162,16 +162,17 @@
         "left": "4769dfab:IT就活:16",
         "right": "4769dfab:IT就活:17",
         "shared_urls": [
-          "https://careerselect.jp/",
-          "https://engineer-shukatu.jp/",
-          "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
-          "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
-          "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+          "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+          "https://competitor-42.example/",
+          "https://competitor-68.example/",
+          "https://qiita.com/%3Credacted-user%3E/items/%3Credacted-post%3E",
+          "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it"
         ],
         "shared_count": 5,
         "denominator": 5,
         "ratio": 1,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "high",
         "likely_same_intent": true
       },
@@ -183,6 +184,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -194,6 +196,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -205,6 +208,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -216,6 +220,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -227,6 +232,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -238,6 +244,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -249,6 +256,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -260,6 +268,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -271,6 +280,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -282,6 +292,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -293,6 +304,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -304,6 +316,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -315,6 +328,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -326,6 +340,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -337,6 +352,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -348,6 +364,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -359,6 +376,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -370,6 +388,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -381,6 +400,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -392,6 +412,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -403,6 +424,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -414,6 +436,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -425,6 +448,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -436,6 +460,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -447,6 +472,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -458,6 +484,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -465,14 +492,15 @@
         "left": "bec89ab9:キーワード割り当て:7",
         "right": "bec89ab9:キーワード割り当て:8",
         "shared_urls": [
-          "https://crowdworks.jp/public/jobs/group/writing_beginner",
-          "https://hipro-job.jp/pro/and_hipro/column/A000000807",
-          "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html"
+          "https://competitor-54.example/public/jobs/group/writing_beginner",
+          "https://competitor-89.example/pro/and_hipro/column/A000000807",
+          "https://jp.competitor-93.example/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html"
         ],
         "shared_count": 3,
         "denominator": 5,
         "ratio": 0.6,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "possible",
         "likely_same_intent": true
       }
@@ -482,14 +510,15 @@
         "left": "bec89ab9:キーワード割り当て:7",
         "right": "bec89ab9:キーワード割り当て:8",
         "shared_urls": [
-          "https://crowdworks.jp/public/jobs/group/writing_beginner",
-          "https://hipro-job.jp/pro/and_hipro/column/A000000807",
-          "https://jp.indeed.com/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html"
+          "https://competitor-54.example/public/jobs/group/writing_beginner",
+          "https://competitor-89.example/pro/and_hipro/column/A000000807",
+          "https://jp.competitor-93.example/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html"
         ],
         "shared_count": 3,
         "denominator": 5,
         "ratio": 0.6,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "possible",
         "likely_same_intent": true
       }
@@ -551,5 +580,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "312ad93db555acc4133090cd8cff430473edae8928aae968260f2ba7aad08a68"
+  "reproducibility_digest": "606e97cadb65be60faea5cfcda71c96a626ef64b4b94613cfad0ce33c926e876"
 }
