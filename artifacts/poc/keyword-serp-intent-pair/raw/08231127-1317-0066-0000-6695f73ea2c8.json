@@ -64,12 +64,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
-              "domain": "coeteco.jp",
+              "domain": "competitor-49.example",
               "title": "ITエンジニアに強い就活サイトおすすめ16選【2026年8月最新 ...",
-              "url": "https://coeteco.jp/articles/14332",
+              "url": "https://competitor-49.example/articles/14332",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://coeteco.jp › ... › コエテコキャリアマガジン › 就活",
+              "breadcrumb": "https://competitor-49.example › ... › コエテコキャリアマガジン › 就活",
               "website_name": "コエテコ",
               "is_image": false,
               "is_video": false,
@@ -92,22 +92,22 @@
                   "type": "link_element",
                   "title": "ITエンジニア就職に強い就活サイ...",
                   "description": null,
-                  "url": "https://coeteco.jp/articles/14332#content_1",
-                  "domain": "coeteco.jp"
+                  "url": "https://competitor-49.example/articles/14332#content_1",
+                  "domain": "competitor-49.example"
                 },
                 {
                   "type": "link_element",
                   "title": "その他 (11件)",
                   "description": null,
-                  "url": "https://coeteco.jp/articles/14332#content_12",
-                  "domain": "coeteco.jp"
+                  "url": "https://competitor-49.example/articles/14332#content_12",
+                  "domain": "competitor-49.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ITエンジニア向け就活サイトの種類",
                   "description": null,
-                  "url": "https://coeteco.jp/articles/14332#content_23",
-                  "domain": "coeteco.jp"
+                  "url": "https://competitor-49.example/articles/14332#content_23",
+                  "domain": "competitor-49.example"
                 }
               ],
               "faq": null,
@@ -124,13 +124,13 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]",
-              "domain": "unison-career.jp",
+              "domain": "competitor-238.example",
               "title": "ITエンジニアの就活サイト23選！新卒におすすめ人気 ...",
-              "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/",
+              "url": "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://unison-career.jp › ... › IT就活対策 › IT就活知識",
-              "website_name": "unison-career.jp",
+              "breadcrumb": "https://competitor-238.example › ... › IT就活対策 › IT就活知識",
+              "website_name": "competitor-238.example",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -152,15 +152,15 @@
                   "type": "link_element",
                   "title": "6.ITエンジニアの就活サイトおす...",
                   "description": null,
-                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/#6IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0TOP10",
-                  "domain": "unison-career.jp"
+                  "url": "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/#6IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8A%E3%81%99%E3%81%99%E3%82%81%E3%83%A9%E3%83%B3%E3%82%AD%E3%83%B3%E3%82%B0TOP10",
+                  "domain": "competitor-238.example"
                 },
                 {
                   "type": "link_element",
                   "title": "7.ITエンジニアの就活サイトの活...",
                   "description": null,
-                  "url": "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/#7IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95",
-                  "domain": "unison-career.jp"
+                  "url": "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254/#7IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AE%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%B4%BB%E7%94%A8%E6%96%B9%E6%B3%95",
+                  "domain": "competitor-238.example"
                 }
               ],
               "faq": null,
@@ -179,7 +179,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]",
               "domain": "qiita.com",
               "title": "【全エンジニア必見】エンジニア就活で本当に使ってよかった ...",
-              "url": "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+              "url": "https://qiita.com/<redacted-user>/items/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://qiita.com › 初心者",
@@ -228,12 +228,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
-              "domain": "www.neo-career.co.jp",
+              "domain": "www.competitor-149.example",
               "title": "ITエンジニア向け就活サイトおすすめ24選【2026年8月】",
-              "url": "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
+              "url": "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://www.neo-career.co.jp › ... › 就活 › 就活サービス",
+              "breadcrumb": "https://www.competitor-149.example › ... › 就活 › 就活サービス",
               "website_name": "株式会社ネオキャリア",
               "is_image": false,
               "is_video": false,
@@ -256,15 +256,15 @@
                   "type": "link_element",
                   "title": "【エージェント型】ITエンジニア向...",
                   "description": null,
-                  "url": "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it#482928_h2_1",
-                  "domain": "www.neo-career.co.jp"
+                  "url": "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it#482928_h2_1",
+                  "domain": "www.competitor-149.example"
                 },
                 {
                   "type": "link_element",
                   "title": "【情報掲載型】ITエンジニア向け...",
                   "description": null,
-                  "url": "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it#482931_h2_1",
-                  "domain": "www.neo-career.co.jp"
+                  "url": "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it#482931_h2_1",
+                  "domain": "www.competitor-149.example"
                 }
               ],
               "faq": null,
@@ -348,12 +348,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
-              "domain": "engineer-shukatu.jp",
+              "domain": "competitor-68.example",
               "title": "IT転職サイトおすすめ27選｜ランキングTOP15と厳選12社を ...",
-              "url": "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site/",
+              "url": "https://competitor-68.example/tensyoku/it-tenshoku-site/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://engineer-shukatu.jp › tensyoku › it-tenshoku-site",
+              "breadcrumb": "https://competitor-68.example › tensyoku › it-tenshoku-site",
               "website_name": "エンジニア就活",
               "is_image": false,
               "is_video": false,
@@ -377,15 +377,15 @@
                   "type": "link_element",
                   "title": "厳選】独自の強みをもつIT特化型...",
                   "description": null,
-                  "url": "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site/#outline_1__2-1",
-                  "domain": "engineer-shukatu.jp"
+                  "url": "https://competitor-68.example/tensyoku/it-tenshoku-site/#outline_1__2-1",
+                  "domain": "competitor-68.example"
                 },
                 {
                   "type": "link_element",
                   "title": "目的別】IT業界に強い転職サイト",
                   "description": null,
-                  "url": "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site/#outline_1__4",
-                  "domain": "engineer-shukatu.jp"
+                  "url": "https://competitor-68.example/tensyoku/it-tenshoku-site/#outline_1__4",
+                  "domain": "competitor-68.example"
                 }
               ],
               "faq": null,
@@ -402,12 +402,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
-              "domain": "paiza.jp",
+              "domain": "competitor-167.example",
               "title": "＜就活学生向け＞ITエンジニア特化型就活サイト｜paiza新卒",
-              "url": "https://paiza.jp/pages/students/recruit",
+              "url": "https://competitor-167.example/pages/students/recruit",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://paiza.jp › pages › students › recruit",
+              "breadcrumb": "https://competitor-167.example › pages › students › recruit",
               "website_name": "paiza",
               "is_image": false,
               "is_video": false,
@@ -440,12 +440,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[16]/div[1]/div[1]",
-              "domain": "rookie.levtech.jp",
+              "domain": "sub1.competitor-125.example",
               "title": "ITエンジニアを目指す新卒学生向け就活サービス｜レバテック ...",
-              "url": "https://rookie.levtech.jp/",
+              "url": "https://sub1.competitor-125.example/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://rookie.levtech.jp",
+              "breadcrumb": "https://sub1.competitor-125.example",
               "website_name": "レバテックルーキー",
               "is_image": false,
               "is_video": false,
@@ -478,12 +478,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[18]/div[1]/div[1]",
-              "domain": "engineer.beet-agent.com",
+              "domain": "sub1.competitor-21.example",
               "title": "ITエンジニア向け就活サイトおすすめランキング26選【徹底比較】",
-              "url": "https://engineer.beet-agent.com/1488/",
+              "url": "https://sub1.competitor-21.example/1488/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://engineer.beet-agent.com › エンジニアの転職",
+              "breadcrumb": "https://sub1.competitor-21.example › エンジニアの転職",
               "website_name": "BEET-AGENT",
               "is_image": false,
               "is_video": false,
@@ -508,15 +508,15 @@
                   "type": "link_element",
                   "title": "ITエンジニアにおすすめのエージ...",
                   "description": null,
-                  "url": "https://engineer.beet-agent.com/1488/#index_id1",
-                  "domain": "engineer.beet-agent.com"
+                  "url": "https://sub1.competitor-21.example/1488/#index_id1",
+                  "domain": "sub1.competitor-21.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ITエンジニアにおすすめのスカウ...",
                   "description": null,
-                  "url": "https://engineer.beet-agent.com/1488/#index_id2",
-                  "domain": "engineer.beet-agent.com"
+                  "url": "https://sub1.competitor-21.example/1488/#index_id2",
+                  "domain": "sub1.competitor-21.example"
                 }
               ],
               "faq": null,
@@ -533,12 +533,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
-              "domain": "renew-career.com",
+              "domain": "competitor-180.example",
               "title": "【2026年最新】ITエンジニア向け就活サイトおすすめ20選！ ...",
-              "url": "https://renew-career.com/magazine/jobhunt-engineer-service/",
+              "url": "https://competitor-180.example/magazine/jobhunt-engineer-service/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://renew-career.com › ... › 就活サイト",
+              "breadcrumb": "https://competitor-180.example › ... › 就活サイト",
               "website_name": "Renewインターン",
               "is_image": false,
               "is_video": false,
@@ -561,15 +561,15 @@
                   "type": "link_element",
                   "title": "ITエンジニア向け就活サイト【逆...",
                   "description": null,
-                  "url": "https://renew-career.com/magazine/jobhunt-engineer-service/#IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E5%90%91%E3%81%91%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%80%90%E9%80%86%E6%B1%82%E4%BA%BA%E3%83%BB%E3%82%B9%E3%82%AB%E3%82%A6%E3%83%88%E3%80%91",
-                  "domain": "renew-career.com"
+                  "url": "https://competitor-180.example/magazine/jobhunt-engineer-service/#IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E5%90%91%E3%81%91%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%80%90%E9%80%86%E6%B1%82%E4%BA%BA%E3%83%BB%E3%82%B9%E3%82%AB%E3%82%A6%E3%83%88%E3%80%91",
+                  "domain": "competitor-180.example"
                 },
                 {
                   "type": "link_element",
                   "title": "ITエンジニア向け就活サイト【就...",
                   "description": null,
-                  "url": "https://renew-career.com/magazine/jobhunt-engineer-service/#IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E5%90%91%E3%81%91%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%80%90%E5%B0%B1%E6%B4%BB%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%80%91",
-                  "domain": "renew-career.com"
+                  "url": "https://competitor-180.example/magazine/jobhunt-engineer-service/#IT%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E5%90%91%E3%81%91%E5%B0%B1%E6%B4%BB%E3%82%B5%E3%82%A4%E3%83%88%E3%80%90%E5%B0%B1%E6%B4%BB%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%80%91",
+                  "domain": "competitor-180.example"
                 }
               ],
               "faq": null,

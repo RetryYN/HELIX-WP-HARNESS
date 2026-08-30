@@ -2,7 +2,7 @@
   "schema_version": "helix-public-semantic-graph-source.v1",
   "dataset_name": "Japanese WordNet",
   "dataset_version": "1.1",
-  "source_page": "https://bond-lab.github.io/wnja/jpn/downloads.html",
+  "source_page": "https://sub1.competitor-80.example/wnja/jpn/downloads.html",
   "source_archive": "https://github.com/bond-lab/wnja/releases/download/v1.1/wnjpn.db.gz",
   "source_archive_sha256": "64a14dcfe3ba296566e91a70a2fc0616e85cf2ee7b7fd8cdcbc66c8b12a505a5",
   "sense_file": "japanese-wordnet-senses-v1.1.tsv.gz",

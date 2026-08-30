@@ -11,3 +11,5 @@
 - 過去期間の外部エクスポートに対する tree anchor
 
 これらについて元データを推測したり、伏せ字化後のデータから別の値を捏造したりしていない。raw fixture が再取得される場合は、既存の生成スクリプトで新しい証跡一式を作成し、その時点の digest を付与する。
+
+今回の伏せ字化では、保持された fixture と構造化 manifest から再計算可能な fixture tree、raw response、SERP 再現性、親子 evidence の digest を更新し、元データを保持しない document/title/head、本文・section・paragraph、robots・sitemap、外部 response・workbook、過去 export の tree anchor は provenance anchor として据え置いた。
