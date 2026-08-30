@@ -1449,6 +1449,12 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 現行DBは判断未投入のため144/144 taskがpendingで、35記事群すべてが語義review必須である。既存のclaim検証・引用承認blockerとは独立して表示し、どのgateが未充足かを混同しない。
 - 各記事へsense readiness内訳、pending task ID、semantic decision packet digestを固定し、API/MCP/UIから逆引きできる。辞書pathが一意でも編集判断を代替せず、文脈適合推論・自動承認・自動公開は0である。
 
+### 10.106 semantic editorial impact queue（API 2.108）
+
+- pending semantic task 144件を35記事群へ重複なく集約し、既存priority、影響候補数、複数senseまたは直接path欠損、group境界review workloadから編集impact scoreを決定論算出する。
+- 各actionはpending task ID、task digest、semantic decision packet digest、影響するtitle/heading候補数とcontent種別を保持する。現行queueは全184 actionのうちsemantic sense review 35件で、144 taskを全件包含する。
+- priority bandを第一キー、impact scoreを第二キーにして並べる。これは編集順の補助であり、context適合・採否・順位効果を推論せず、実行・自動承認・content変更は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
