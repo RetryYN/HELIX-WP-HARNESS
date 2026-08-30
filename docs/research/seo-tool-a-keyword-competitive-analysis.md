@@ -1415,6 +1415,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - API/MCP/UIは候補originと解決表を隠したまま状態、reviewer数、選好集合、意味保持違反数、digestを表示する。自動選定・content変更は常に0である。
 - 実DBは判断0件のため78/78 pairが2名待ちである。合意・品質・順位効果を捏造せず、実reviewer判断の投入後にのみ状態が進む。
 
+### 10.101 機能完成証拠integrity gate
+
+- 35機能の完成監査が引用する全artifactを存在確認し、内容SHA-256を監査recordと全体digestへ固定する。引用先の欠落・変更はdigest差分として検出できる。
+- 全検証commandをNode scriptまたはpackage scriptとして解決し、存在しないscript・未定義commandを機能別に数える。証拠欠落またはcommand未解決が1件でもあれば、`implemented`表記だけでは完成証明へ昇格させない。
+- 現行監査は35/35機能でartifact/command integrity成功、欠落0、未解決0。ただしcommandの解決性と実行済み証跡は分離し、実行attestationは0として明示する。
+- 画面は完成6/35と同時に証拠整合35、証拠異常0、実行証跡0を表示する。これは残存gapや外部品質を完成扱いするものではない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
