@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "20a102d4338047daa53e38dee49d95e93277c97a10c6ead67b48791291cbdc9d",
+  "inventory_digest": "7b737235e2a869851830aa3ee4dcc4fb7f6e910e3a10d9aa5d07b3072244673e",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1388,7 +1388,7 @@
       "blocker_classes": [
         "generation_runtime_or_quality_oracle"
       ],
-      "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、さらに新規記事のP0 2・P1 10・P2 10の計22 claimを無料公開Webで実確認し、計画query 12・entity明確化の適応query 10をimmutable候補へ接続。直接支持8・文脈補助10・適格sourceなし4、要件充足8のみを証拠化し、一般面接論から職種固有助言、規模情報から大手分類、投稿型情報から客観的入社難易度、給与情報から賞与月数を推論せずfail-closed維持。費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
+      "remaining_gap": "63記事・575 claim・2,024根拠参照をpublication readinessへ統合し、実質512 claimをP0 63/P1 168/P2 281へ分類。情報源要件別に初回探索query 512本を選定し、代替1,024本は初回実行から回避、P0順・最大100件の6 batchへ編成。citation候補あり109・なし403を区別し、さらに新規記事のP0 2・P1 10・P2 15の計27 claimを無料公開Webで実確認し、計画query 12・entity/法的論点明確化の適応query 15をimmutable候補へ接続。直接支持8・文脈補助12・適格sourceなし7、要件充足8のみを証拠化し、一般面接論から職種固有助言、規模情報から大手分類、投稿型情報から客観的入社難易度、給与情報から賞与月数、公正採用・解雇の一般原則から申告義務・発覚・退学・解雇の個別結果を推論せずfail-closed維持。費用未見積・価格確認必須・実行0・検証0・承認0。さらにSERP観測formatだけから18記事・55 rich block contract（video 42、comparison table 3、求人2、画像3、entity/citation/review 5）をsectionへ接続。全payload/render/挿入0、未対応format 0、source・編集gate未充足のため63/63記事をblocked。63本文generation requestのprompt/output schema/token/model/価格/累計5 USD gateもdigest固定し実行可能0。LLM実行、公式一次情報取得と検証、編集者の採否・引用承認、複数revision、source完備後のrich copy・list/table本文renderは未実装",
       "authoritative_evidence": [
         "scripts/generation-challenger-manifest.mjs",
         "scripts/generation-challenger-result-contract.mjs",
@@ -1452,7 +1452,7 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "99ec780e4a09ac4a7839d6619b51ea9ca5c79b0a1d5059c97f670dd7ae944e3a"
+      "evidence_digest": "8077ff98dd56b17d8db16beb1b13ee73f28f06a6976c71405e0e02b5f368a6c2"
     },
     {
       "capability_id": "ai_questions",
@@ -1968,5 +1968,5 @@
       "evidence_digest": "ed8eb9a9fb2f8f8808246c08dec5ccbab87c5f4a8fbedc59ca8b03278dc1e716"
     }
   ],
-  "audit_digest": "9742430e1cefce5b08e394dda7011e8ca0e51e41865f44e4db6d8e7917eb54f4"
+  "audit_digest": "9c9182de6cd6f60b632660d2d83dd19fdf90437802c7ed0c02b6b456ff747a0c"
 }
