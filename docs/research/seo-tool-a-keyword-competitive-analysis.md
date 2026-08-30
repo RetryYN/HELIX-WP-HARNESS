@@ -1401,6 +1401,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - browser exportと同じhelperの出力を、既存importerのdry-run、明示`--commit`、SQLite close/reopen後のprogress投影までE2E検証した。
 - browserはDBへ直接書き込まず、export後も自動group割当・候補選定・content変更は0。実判断は引き続き0件である。
 
+### 10.99 semantic task証拠準備度・lineage drilldown
+
+- 144 taskを、直接group証拠観測6件、候補group境界review 35件、source lineageのみ103件へ決定論分類した。3分類は排他的で合計144件となる。
+- 各taskへ準備度reason、直接group証拠flag、候補group ID、境界review sample数、source sheet、元keyword ID/sample、意味path digestをpacket v2で保持する。
+- API/MCPは準備度filterを提供し、画面は元keywordのsheet/row、文字列、候補group、境界state、keyword/path evidence digestを展開表示する。
+- 準備度は編集作業のroutingであり、sense適合・需要観測・編集承認を代替しない。自動group割当・候補選定・content変更は0のままである。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
