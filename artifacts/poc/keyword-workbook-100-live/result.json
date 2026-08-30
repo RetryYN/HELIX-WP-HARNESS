@@ -827,7 +827,7 @@
         "https://sns.example/site-a"
       ],
       "raw_file": "raw/08231446-1317-0139-0000-777f59106881.json",
-      "response_digest": "3795f606c6abeef8e30736fb1abf8c3d62e4ff24bc8adba7815dc9f394a9f4f6",
+      "response_digest": "1e2b39aff90ea0f7594016e748fa5ef5854b14beec3395cb5546bd231a62cd26",
       "cost": 0.002
     },
     {
@@ -2299,7 +2299,7 @@
         "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12274857132"
       ],
       "raw_file": "raw/08231451-1317-0139-0000-79e28e639433.json",
-      "response_digest": "f0653bacbf7172db396940f2b8f6ba5e1b0501991f870f0075d4d4e696be611f",
+      "response_digest": "2c4957eb6cbbedd5c8577476784a3ed509534be84f5b3088861625cd7cb6de24",
       "cost": 0.002
     },
     {
@@ -73972,7 +73972,7 @@
       "main_keyword_origin": "actual_keyword_highest_search_volume_after_context_hierarchy_and_modifier_exclusion",
       "derived_parent_candidate": null,
       "main_search_volume": 1600,
-      "root_source_keyword_id": "derived:就活",
+      "root_source_keyword_id": "derived:サイト",
       "context_scope_id": "context:general",
       "hierarchy_depth": 1,
       "intent_keywords": [
@@ -74636,7 +74636,7 @@
       ]
     }
   ],
-  "reproducibility_digest": "8a3a4374a1bd7141603dceca365ec28b85bd2b3d8dcc7b94ba9dc8f1f2b2eafc",
+  "reproducibility_digest": "466d0544320297b119e29e4cf5f1f9cfee24ea5d0d574164da92935a637b62e9",
   "keyword_hierarchy": [
     {
       "source_keyword_id": "site-a.example:IT就活:10",
@@ -75464,21 +75464,21 @@
       "source_keyword_id": "site-a.example:IT就活:4",
       "keyword": "サイトA",
       "normalized_terms": [
-        "就活",
-        "タイムズ"
+        "サイト",
+        "a"
       ],
-      "normalized_keyword": "就活 タイムズ",
+      "normalized_keyword": "サイト a",
       "tree_path": [
-        "就活",
-        "タイムズ"
+        "サイト",
+        "a"
       ],
       "term_count": 2,
       "relation": "child",
       "representative_source_keyword_id": "site-a.example:IT就活:4",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "derived:就活",
-      "root_keyword": "就活",
+      "root_source_keyword_id": "derived:サイト",
+      "root_keyword": "サイト",
       "context_scope_id": "context:general",
       "depth": 1
     },
@@ -77034,21 +77034,21 @@
       "source_keyword_id": "site-a.example:IT就活:98",
       "keyword": "サイトAとは",
       "normalized_terms": [
-        "就活",
-        "タイムズ"
+        "サイト",
+        "a"
       ],
-      "normalized_keyword": "就活 タイムズ",
+      "normalized_keyword": "サイト a",
       "tree_path": [
-        "就活",
-        "タイムズ"
+        "サイト",
+        "a"
       ],
       "term_count": 2,
       "relation": "reordered_alias",
       "representative_source_keyword_id": "site-a.example:IT就活:4",
       "parent_source_keyword_id": null,
       "parent_keyword": null,
-      "root_source_keyword_id": "derived:就活",
-      "root_keyword": "就活",
+      "root_source_keyword_id": "derived:サイト",
+      "root_keyword": "サイト",
       "context_scope_id": "context:general",
       "depth": 1
     },
