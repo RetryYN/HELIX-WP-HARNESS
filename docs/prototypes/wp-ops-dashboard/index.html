@@ -127,8 +127,11 @@
     </section>
 
     <section id="lexical-explorer" class="view">
-      <div class="section-head table-toolbar"><div><h2>類語・表記variant・連想語</h2><p>10,694行の保有corpusから導出。外部辞書の意味的同義語とは区別します</p></div><div class="filters"><input id="lexical-search" type="search" placeholder="語・variantを検索" aria-label="語彙検索"></div></div>
+      <div class="section-head table-toolbar"><div><h2>類語・表記variant・連想語</h2><p>人手判定済み公開類語と、10,694行の保有corpusから導出した表記・共起関係を区別して表示します</p></div><div class="filters"><input id="lexical-search" type="search" placeholder="語・variantを検索" aria-label="語彙検索"></div></div>
       <div id="lexical-metrics" class="metrics"></div>
+      <div class="subsection-head"><h3>人手判定済み公開類語</h3><p>version・license・digestを固定した11,753語対。文脈に合う置換かは編集確認が必要です</p></div>
+      <div id="public-synonym-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>語</th><th>類語</th><th>判定</th><th>文脈確認</th><th>証跡</th></tr></thead><tbody id="public-synonym-rows"></tbody></table><div id="public-synonym-empty" class="empty-state"></div></div>
       <div class="subsection-head"><h3>同一token集合の表記variant</h3><p>語順・空白・表記が異なる元行をsource identity付きで束ねます</p></div>
       <div id="variant-evidence-metrics" class="metrics"></div>
       <div id="semantic-candidate-metrics" class="metrics"></div>
