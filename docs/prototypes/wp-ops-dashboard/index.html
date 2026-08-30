@@ -132,6 +132,10 @@
       <div class="subsection-head"><h3>人手判定済み公開類語</h3><p>version・license・digestを固定した11,753語対。文脈に合う置換かは編集確認が必要です</p></div>
       <div id="public-synonym-metrics" class="metrics"></div>
       <div class="table-wrap"><table><thead><tr><th>語</th><th>類語</th><th>判定</th><th>文脈確認</th><th>証跡</th></tr></thead><tbody id="public-synonym-rows"></tbody></table><div id="public-synonym-empty" class="empty-state"></div></div>
+      <div class="subsection-head"><h3>公開意味グラフ</h3><p>上位・下位・部分・属性など21種の直接edgeを最大3階層まで探索。共起・同義語・検索需要とは分離します</p></div>
+      <div class="filters"><select id="semantic-depth" aria-label="意味グラフ探索深度"><option value="1">直接edge</option><option value="2">2階層</option><option value="3">3階層</option></select><select id="semantic-relation" aria-label="意味関係"><option value="all">全関係</option><option value="hype">上位概念</option><option value="hypo">下位概念</option><option value="sim">類似概念</option><option value="attr">属性</option><option value="mprt">全体の部分</option><option value="hprt">部分を含む全体</option><option value="also">関連参照</option></select></div>
+      <div id="semantic-graph-metrics" class="metrics"></div>
+      <div class="table-wrap"><table><thead><tr><th>深度</th><th>起点</th><th>関係</th><th>接続先</th><th>定義</th><th>証跡</th></tr></thead><tbody id="semantic-graph-rows"></tbody></table><div id="semantic-graph-empty" class="empty-state"></div></div>
       <div class="subsection-head"><h3>同一token集合の表記variant</h3><p>語順・空白・表記が異なる元行をsource identity付きで束ねます</p></div>
       <div id="variant-evidence-metrics" class="metrics"></div>
       <div id="semantic-candidate-metrics" class="metrics"></div>
