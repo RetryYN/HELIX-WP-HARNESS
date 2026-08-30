@@ -160,8 +160,8 @@ const evidence = {
   sources: workbookPath
     ? [{ file: path.basename(workbookPath), file_sha256: workbookDigest }]
     : [
-      { file: "大人のひとりビジネスラボ.xlsx", file_sha256: "bec89ab9d505d50cc687893733ba21f1512a3ee8ac5e366fea1755c27a8c39ca" },
-      { file: "IT就活大学キーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
+      { file: "サイトB.xlsx", file_sha256: "bec89ab9d505d50cc687893733ba21f1512a3ee8ac5e366fea1755c27a8c39ca" },
+      { file: "サイトAキーワードマップ.xlsx", file_sha256: "4769dfab9c9213d77d3442499b03909cf77ad9c536155ec1c43dfa38e701342e" },
     ],
   tasks: completed,
   grouping: { algorithm: GROUPING_ALGORITHM, decision: GROUPING_DECISION, ...grouping },

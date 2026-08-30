@@ -1,9 +1,9 @@
 const socialHosts=["x.com","twitter.com","instagram.com","tiktok.com","facebook.com","note.com"];
 const videoHosts=["youtube.com","youtu.be","vimeo.com"];
-const qaHosts=["detail.chiebukuro.yahoo.co.jp","quora.com","teratail.com"];
+const qaHosts=["sub2.competitor-253.example","quora.com","teratail.com"];
 const databaseSignals=[/\/jobs?(?:\/|$)/,/\/companies?(?:\/|$)/,/\/reviews?(?:\/|$)/,/\/search(?:\/|$)/,/\/ranking(?:\/|$)/,/business_categories/,/求人/,/企業一覧/,/口コミ/];
 const articleSignals=[/\/articles?(?:\/|$)/,/\/column(?:s)?(?:\/|$)/,/\/blog(?:\/|$)/,/\/guide(?:\/|$)/,/\/news(?:\/|$)/,/\/media(?:\/|$)/,/\/qa(?:\/|$)/,/\/archives?\//];
-const newsHosts=["news.yahoo.co.jp","nhk.or.jp","nikkei.com","asahi.com","mainichi.jp","yomiuri.co.jp"];
+const newsHosts=["news.competitor-253.example","nhk.or.jp","nikkei.com","asahi.com","mainichi.jp","yomiuri.co.jp"];
 const hostname=(url)=>{try{return new URL(url).hostname.toLowerCase().replace(/^www\./,"")}catch{return""}};
 export const PAGE_TYPE_LABELS={article:"記事",pdf:"PDF",video:"動画",social:"SNS",service_top:"サービスTOP",corporate_home:"企業HP",database:"データベース型",category:"一覧・カテゴリ",qa_forum:"Q&A・掲示板",news:"ニュース",tool:"ツール",other:"その他"};
 

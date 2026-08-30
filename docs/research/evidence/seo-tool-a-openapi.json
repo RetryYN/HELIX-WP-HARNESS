@@ -4717,7 +4717,7 @@
     "contact": {},
     "license": {
       "name": "License: Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      "url": "http://www.competitor-16.example/licenses/LICENSE-2.0.html"
     }
   },
   "tags": [],
@@ -10452,7 +10452,7 @@
                     "urlSummary": {
                       "type": "string",
                       "description": "URLのサマリ（カンマ区切り、先頭20件・255文字以内で切り詰め）",
-                      "example": "https://seo-tool-a.example,https://seo-tool-a.inc"
+                      "example": "https://competitor-189.example://seo-tool-a.inc"
                     },
                     "keywordCount": {
                       "type": "number",

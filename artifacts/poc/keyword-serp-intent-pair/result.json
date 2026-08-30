@@ -22,14 +22,14 @@
       "normalized_keyword": "it 就活サイト 比較",
       "task_id": "08231127-1317-0066-0000-27b983625bf0",
       "organic_urls": [
-        "https://coeteco.jp/articles/14332",
-        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
-        "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site",
-        "https://engineer.beet-agent.com/1488",
-        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+        "https://competitor-49.example/articles/14332",
+        "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://competitor-68.example/tensyoku/it-tenshoku-site",
+        "https://sub1.competitor-21.example/1488",
+        "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it"
       ],
       "raw_file": "raw/08231127-1317-0066-0000-27b983625bf0.json",
-      "response_digest": "5fccc66446718d6df9e384f81047e85127564d3dc3b9c349bfccafcea7915e8e",
+      "response_digest": "dffea35b762229d2937d4baadb6e06e9b5f09d7ea364fcfa01d4092af11f6505",
       "cost": 0.0006
     },
     {
@@ -38,14 +38,14 @@
       "normalized_keyword": "it 就活サイト おすすめ",
       "task_id": "08231127-1317-0066-0000-6695f73ea2c8",
       "organic_urls": [
-        "https://coeteco.jp/articles/14332",
-        "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+        "https://competitor-49.example/articles/14332",
+        "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
         "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
-        "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it",
-        "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site"
+        "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it",
+        "https://competitor-68.example/tensyoku/it-tenshoku-site"
       ],
       "raw_file": "raw/08231127-1317-0066-0000-6695f73ea2c8.json",
-      "response_digest": "16d5af545cc7f6ce7c07be65a24d1dfb04dff3dddbc667a2f9797baca139e0bf",
+      "response_digest": "9ca60e76b2c6f920ac066928b146ebd54dd683a4573185649bd13ea379e5c16b",
       "cost": 0.0006
     }
   ],
@@ -61,10 +61,10 @@
         "left": "probe:it-job-site:comparison",
         "right": "probe:it-job-site:recommended",
         "shared_urls": [
-          "https://coeteco.jp/articles/14332",
-          "https://engineer-shukatu.jp/tensyoku/it-tenshoku-site",
-          "https://unison-career.jp/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
-          "https://www.neo-career.co.jp/careertrus/shukatsu_shukatsusite_it"
+          "https://competitor-49.example/articles/14332",
+          "https://competitor-68.example/tensyoku/it-tenshoku-site",
+          "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+          "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it"
         ],
         "shared_count": 4,
         "denominator": 5,
@@ -108,5 +108,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "ac318d23775154bedef09b7982257e3506e7acf1d9e5181e2c6dd5409cddfea5"
+  "reproducibility_digest": "12d2059363d77122c28df2274ad9f9d1a8ecdee2461c0abf079ea872bdb9db71"
 }

@@ -333,7 +333,7 @@ seo-tool-aの上位20サイト深度とは異なる。上位11〜20への拡張�
 
 #### 元キーワードExcel
 
-`IT就活大学キーワードマップ.xlsx` は15 sheet、A列に値があるkeyword行だけで10,694行ある。
+`サイトAキーワードマップ.xlsx` は15 sheet、A列に値があるkeyword行だけで10,694行ある。
 DB v25で15 sheet全10,694行をsource sheet・row identity付きでキーワード台帳と階層へ取り込んだ。
 このうちSERP実測・施策group接続済みは先頭sheet `IT就活` の100行だけであり、残りは明示的に
 `SERP未取得`とする。
@@ -425,7 +425,7 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 
 - 公式補助ツール一覧: <https://seo-tool-a.example/knowledge/tool/>
 - 地域キーワード生成仕様: <https://seo-tool-a.example/techo/generate-local-keywords/>
-- 日本郵便UTF-8全国CSV: <https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html>
+- 日本郵便UTF-8全国CSV: <https://sub1.competitor-107.example/service/search/zipcode/download/utf-zip.html>
 - 国土数値情報・鉄道2025年度版: <https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html>
 
 ### 10.12 横断クイック検索
@@ -476,8 +476,8 @@ dashboard serverの `/mcp` にStreamable HTTPのJSON response modeを追加し�
 最大100行・read-only・外部取得なしとする。Originはlocalhost系またはheaderなしだけを許可し、bodyは1MiB、
 protocol versionは2025-03-26/06-18/11-25に制限する。SeoToolA OAuthやcredit連携とは称さない。
 
-- MCP Tools仕様: <https://modelcontextprotocol.io/specification/2025-06-18/server/tools>
-- MCP Streamable HTTP仕様: <https://modelcontextprotocol.io/specification/2025-03-26/basic/transports>
+- MCP Tools仕様: <https://competitor-138.example/specification/2025-06-18/server/tools>
+- MCP Streamable HTTP仕様: <https://competitor-138.example/specification/2025-03-26/basic/transports>
 
 ### 10.19 サイト検索と横断比較
 
@@ -709,7 +709,7 @@ word countを含む計10 fieldを追加で意味対応へ移した。SeoToolA `g
 `/api/v1/domains`へ`target_domain`を追加し、100 task・各上位10件の`serp_page_keyword_edges`からdomain別KW集合を比較する。
 重複KW数、target基準重複率、Jaccard率、競合固有KW数、target固有KW数、重複KW一覧を返し、policyとscopeに
 `full_rank_database:false`を明記する。画面でも比較基準domainを選択でき、両方の率を並記する。実測例では
-`detail.chiebukuro.yahoo.co.jp`の61観測KWを基準に`unison-career.jp`と28KWが重複し、target基準45.9%、Jaccard35.9%、
+`sub2.competitor-253.example`の61観測KWを基準に`competitor-238.example`と28KWが重複し、target基準45.9%、Jaccard35.9%、
 競合固有17、target固有33となった。これをSeoToolAの重複率と同じ分母だとは主張せず、定義が再現可能な独自比較として扱う。
 
 ### 10.44 上位10pageへの競合content証拠拡張
@@ -866,7 +866,7 @@ market enrichment tableは現時点で空だがsite identity列を持たない�
 初回修正ではedge列を`url`と誤記し、全URLが`undefined` keyへ集約されて565件が1件になる不具合をruntimeで検出した。
 テスト側も同じ誤列名を使って期待値1を作っていたため、誤実装と誤oracleが同時に通っていた。実schemaの
 `canonical_url`へ統一し、単なる自己整合ではなく主siteの既知母数565件も固定assertする。runtimeでもpages total 565、
-`detail.chiebukuro.yahoo.co.jp`は44 page・61 KWと確認した。
+`sub2.competitor-253.example`は44 page・61 KWと確認した。
 
 ### 10.55 DPB市場enrichmentのsite identity
 
