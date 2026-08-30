@@ -5,17 +5,16 @@
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
-    "proven_complete_count": 4,
-    "incomplete_count": 31,
+    "proven_complete_count": 6,
+    "incomplete_count": 29,
     "evidence_integrity_pass_count": 35,
     "evidence_integrity_failure_count": 0,
     "missing_artifact_count": 0,
     "unresolved_verification_command_count": 0,
-    "execution_attested_capability_count": 4,
+    "execution_attested_capability_count": 6,
     "blocker_counts": {
       "contract_or_auth_parity": 2,
       "corpus_or_acquisition_depth": 16,
-      "execution_attestation_missing_or_stale": 2,
       "external_provider_or_account_data": 5,
       "generation_runtime_or_quality_oracle": 6
     }
@@ -1245,7 +1244,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 16,
-    "receipt_digest": "b63769be3f15bbe7d49976f01e889e403e4421081529cfd206561eb7b21bb770",
+    "receipt_digest": "5ce9ddeaa98e978ce298f87a34df03d1c00ccae2aad4816733bd725bb2cfc0c7",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -3236,12 +3235,10 @@
     {
       "capability_id": "synonyms",
       "name": "類語・同義語",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "人手で同義判定された公開日本語語彙11,753 pair・9,487語をversion 1.0、archive/file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語の両方向・部分検索をAPI/MCP/UIへ実装し、保有corpus 585語中206語・840 pairとの接続も監査。表記variant 921 cluster、共起association 1,636 edge、SERP文脈候補168 pairとは証拠種別を分離。辞書上の語対を記事文脈での無条件交換可能性とは扱わず全11,753 pairをcontext review必須、自動置換0。取得費用0",
       "authoritative_evidence": [
         "scripts/content-semantic-coverage-review.mjs",
@@ -3287,22 +3284,20 @@
         "missing_artifact_count": 0,
         "verification_command_count": 15,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "18eb3d561f1de5f7b4887d672196eb1985c4c7d90e6d2103d4b3c6ef30a6c952",
         "command_set_digest": "1e9a01be6b519c0fd4e8c75010c55d9246f5db4ac7117aaebe5d454d931dd0ea",
-        "attestation_digest": null
+        "attestation_digest": "7fcf6bfb09d71742d8c8f6c01f6a0403b91769e05ffca9afae1b3a8b87393154"
       },
-      "evidence_digest": "a4c0e137189ed8ef4ec969d88093cb76bb6f8a810835f32521956b5239b7e551"
+      "evidence_digest": "3f2993337ffedff726b16ec58dbee989e87bccc1c17d4a0d257b79482e32185b"
     },
     {
       "capability_id": "associations",
       "name": "周辺語・連想語",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "公開日本語意味グラフの158,058 sense・93,834語・57,238 synset定義・21種115,295 direct edgeをversion 1.1、archive/派生3 file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語のexact/partial sense起点から有向edgeの正方向・逆方向意味を分離し、循環抑止・最大3階層・2,000 edge上限の探索をAPI/MCP/UIへ実装。保有corpus 585語中425語を意味graphへ接続。別系統として7,087 keyword document由来585基準語・1,636共起関係も保持し、semantic edge・共起・人手同義語を混同しない。意味graphから同義性・検索需要・順位因果・自動content変更を推論せず、取得費用0",
       "authoritative_evidence": [
         "scripts/content-semantic-coverage-review.mjs",
@@ -3348,12 +3343,12 @@
         "missing_artifact_count": 0,
         "verification_command_count": 15,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "18eb3d561f1de5f7b4887d672196eb1985c4c7d90e6d2103d4b3c6ef30a6c952",
         "command_set_digest": "1e9a01be6b519c0fd4e8c75010c55d9246f5db4ac7117aaebe5d454d931dd0ea",
-        "attestation_digest": null
+        "attestation_digest": "c3843c39c404ac0a1c2f4917856c4a2c793aeb5add1a2fc64e4be1c7dd9823ea"
       },
-      "evidence_digest": "78b7981938f0c514d642e67191093a429629cc0b0efcdb4e6d99ddae16f94baa"
+      "evidence_digest": "3aaf7cb3a4eb67cdb4013c81d5ab9ed5b7adf0758f19a406c18768b98b3fae4c"
     },
     {
       "capability_id": "qa_sites",
@@ -3739,5 +3734,5 @@
       "evidence_digest": "cea4a4cfdec09c1cadf98e3a5223c92f16c6b0830d6f9295614a7e3c488a53dd"
     }
   ],
-  "audit_digest": "a52eb924bc883520f61ad186cddce3a4067efcb1666cace09a109d809134fa89"
+  "audit_digest": "cd364d6fece1ebb274a85e3d57da32c87bf967dfa260960b971c8f703ad37c2b"
 }
