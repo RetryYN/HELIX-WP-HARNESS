@@ -7,12 +7,1072 @@
     "capability_count": 35,
     "proven_complete_count": 6,
     "incomplete_count": 29,
+    "evidence_integrity_pass_count": 35,
+    "evidence_integrity_failure_count": 0,
+    "missing_artifact_count": 0,
+    "unresolved_verification_command_count": 0,
+    "execution_attested_capability_count": 0,
     "blocker_counts": {
       "contract_or_auth_parity": 2,
       "corpus_or_acquisition_depth": 16,
       "external_provider_or_account_data": 5,
       "generation_runtime_or_quality_oracle": 6
     }
+  },
+  "evidence_integrity_catalog": {
+    "artifact_count": 88,
+    "verification_command_count": 101,
+    "artifacts": [
+      {
+        "path": "docs/prototypes/wp-ops-dashboard/app.js",
+        "exists": true,
+        "sha256": "f7a8246f2614035634c45361fd366590b51f1959c783d64fac214537bd817ffb"
+      },
+      {
+        "path": "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
+        "exists": true,
+        "sha256": "51ba2807556d72d99b678c77232ef1e113da67f34560c47eb7d3dadc56087845"
+      },
+      {
+        "path": "docs/prototypes/wp-ops-dashboard/index.html",
+        "exists": true,
+        "sha256": "e3365e2be3b8eae90c8663f11a8315ba399cdcedeaa6952bccec7016694da306"
+      },
+      {
+        "path": "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
+        "exists": true,
+        "sha256": "93982ea47cc565c68814617d3ed9e0b6be82dad75117fe01d7c9a7c2820fd1a1"
+      },
+      {
+        "path": "docs/research/evidence/public-search-country-metadata.json",
+        "exists": true,
+        "sha256": "65792da5786557d8b0e7c548798ffa9202f3dae74e5a3f8a942dfb4a5b213c74"
+      },
+      {
+        "path": "docs/research/evidence/public-search-metadata.json",
+        "exists": true,
+        "sha256": "278b3908c54c434bb9061069fce029ed1c6eb5d306816809417da2b62fb866cf"
+      },
+      {
+        "path": "docs/research/provider-provenance-hypothesis.json",
+        "exists": true,
+        "sha256": "257bc9a007f9a34876b3c342df4d86d0dbb8867efb582c3cb52f5fc453c005fd"
+      },
+      {
+        "path": "docs/research/public-api-operation-graph.json",
+        "exists": true,
+        "sha256": "bdf5c5b667cda387c785c2abba5c6837176532922f26cab96f89288589cdfba7"
+      },
+      {
+        "path": "docs/research/public-api-retention-matrix.json",
+        "exists": true,
+        "sha256": "a4deca67fedf3ee8f492ee1ae12afe7b0413a372a9818688e914a09337127a4b"
+      },
+      {
+        "path": "docs/research/public-lexical-corpus/LICENSE-JAPANESE-WORDNET",
+        "exists": true,
+        "sha256": "c1db706ee91c7620a2b8f9dfdebc076fb5b99b793c433603820f6c0c8d764283"
+      },
+      {
+        "path": "docs/research/public-lexical-corpus/semantic-source-manifest.json",
+        "exists": true,
+        "sha256": "6e5d6542e04f1ab29ad5629030b740490703cec6516e311071d6c6cfa2aef914"
+      },
+      {
+        "path": "docs/research/public-lexical-corpus/source-manifest.json",
+        "exists": true,
+        "sha256": "33e61a8dd057fb810f931de09a07c93eefba1599112506c9e0ad5e9a56c18122"
+      },
+      {
+        "path": "docs/research/seo-tool-a-public-contract-drift.json",
+        "exists": true,
+        "sha256": "45d672008fe39306c5373ef3cd38be610ee17db498df2c4ae575f02251da0832"
+      },
+      {
+        "path": "scripts/acquisition-approval-manifest.mjs",
+        "exists": true,
+        "sha256": "7e9296cbbe76b640e4943ac7e56e3b255d36cfec044c6b7d12fc80c43bb1784f"
+      },
+      {
+        "path": "scripts/acquisition-contract-fulfillment.mjs",
+        "exists": true,
+        "sha256": "4fa555d3ca4a5d7e92abaa31459ec8d3e7d5df56693f00e47937b8336436fe20"
+      },
+      {
+        "path": "scripts/acquisition-execution-readiness.mjs",
+        "exists": true,
+        "sha256": "8f5fc28ca9bb136d099f83cd4e80f7b8c0c27e317b037a7d50a6accaf03a8d0f"
+      },
+      {
+        "path": "scripts/acquisition-lifetime-allocation.mjs",
+        "exists": true,
+        "sha256": "21f67048a6ae699cbbccb04f2820d2e7aae50aca5ea4dfadef150eeef7d6be40"
+      },
+      {
+        "path": "scripts/acquisition-lifetime-approval-manifest.mjs",
+        "exists": true,
+        "sha256": "9979354f9ca7b06e52836b671c2e7032f1f6060a85c3d8f8c0a9d20d4cf37d15"
+      },
+      {
+        "path": "scripts/acquisition-lifetime-budget.mjs",
+        "exists": true,
+        "sha256": "af66d97dbb31ab4a92aedf690b81d39dd060de92448afd7fc0fe645fa71d3606"
+      },
+      {
+        "path": "scripts/acquisition-remediation-evidence.mjs",
+        "exists": true,
+        "sha256": "3d712b37660f488a4142ab0c6e654839ad170c6697316b864cff386dff790435"
+      },
+      {
+        "path": "scripts/acquisition-remediation-portfolio.mjs",
+        "exists": true,
+        "sha256": "5cd2d9d75a1409eadbe36008d3b5c5d0c6dd24cebb39e918b7c088a334d386c0"
+      },
+      {
+        "path": "scripts/ai-question-candidates.mjs",
+        "exists": true,
+        "sha256": "d59f61ef44bd756720159a48de33a3004477f0c313ad475714f896f323071201"
+      },
+      {
+        "path": "scripts/aio-completion-portfolio.mjs",
+        "exists": true,
+        "sha256": "117f1d91f25591789b86b4fdc311adc5b0bea552a3f00b8cba1a699ea2b13f81"
+      },
+      {
+        "path": "scripts/association-evidence-oracle.mjs",
+        "exists": true,
+        "sha256": "aabddf3be9cef27d861a03ae3d293d19cb2b15aab2727d8f1d9441406188499f"
+      },
+      {
+        "path": "scripts/audit-serp-data-coverage.mjs",
+        "exists": true,
+        "sha256": "e7059ea8ae460338a4198f1cec659365d484583f46d7eb238f733363bc984277"
+      },
+      {
+        "path": "scripts/claim-discovery-portfolio.mjs",
+        "exists": true,
+        "sha256": "4cb40b16f35dbeda547b3b9f3eff61529093f18bf730e374092541bda4a5b501"
+      },
+      {
+        "path": "scripts/claim-verification-queue.mjs",
+        "exists": true,
+        "sha256": "01a5a080b04e228fa498588fa565a9abf7241b5a9408375823b6f5c90ef1d509"
+      },
+      {
+        "path": "scripts/collect-acquisition-remediation.mjs",
+        "exists": true,
+        "sha256": "f3791c06fba6bbbc728c64192b41cc672f7770c265e1f69d80b8894984285486"
+      },
+      {
+        "path": "scripts/competitive-appearance-history.mjs",
+        "exists": true,
+        "sha256": "826537f85392b752ccf37da67accc089d5ac449c67fb495d3727217de321c54f"
+      },
+      {
+        "path": "scripts/content-competitive-stability.mjs",
+        "exists": true,
+        "sha256": "3823a0bf586adcc1db4d883ba6caad8310008e8b7657ff2327f4a294fbeabb68"
+      },
+      {
+        "path": "scripts/content-demand-stability.mjs",
+        "exists": true,
+        "sha256": "dc7293af4ce4a58a58e18624e2b2df0173c03e457b5b763768e19f417b891915"
+      },
+      {
+        "path": "scripts/content-draft-package.mjs",
+        "exists": true,
+        "sha256": "9e277ec38cb6937b6cc8ee10d90f05f3ff9350843f807e632bce70c84dcc8e36"
+      },
+      {
+        "path": "scripts/content-editorial-review-packet.mjs",
+        "exists": true,
+        "sha256": "c7b21f6ee42b2376facd0f6c4d5bfe031e1e74a93890451a789000f5f71b6ccc"
+      },
+      {
+        "path": "scripts/content-evidence-ensemble-selection.mjs",
+        "exists": true,
+        "sha256": "34fe1ed0eef42c8fff84707639b4a3901b4631c135bd2f03ed11aef16c438e88"
+      },
+      {
+        "path": "scripts/content-generation-review.mjs",
+        "exists": true,
+        "sha256": "47b4183854ca424c7aebf0b6ef7c3163b96524021f7190be65530fd0ca564792"
+      },
+      {
+        "path": "scripts/content-readiness-oracle.mjs",
+        "exists": true,
+        "sha256": "130923a2b9ac560cdc3821cf6b3a120c3912f1885016a86fa37f75b8399c940c"
+      },
+      {
+        "path": "scripts/content-rich-block-plan.mjs",
+        "exists": true,
+        "sha256": "ebeb1fec8442d39ac59e7e5e29b0e91b89e08824bd7e6333bcd1142439315c58"
+      },
+      {
+        "path": "scripts/content-selection-delta-explanations.mjs",
+        "exists": true,
+        "sha256": "3367f0af9d88bad3524309268618bc286e9c389b3028dc6b7da79dcbdab8cb9d"
+      },
+      {
+        "path": "scripts/content-semantic-coverage-review.mjs",
+        "exists": true,
+        "sha256": "09feffdab1b2e2dfdf85f614df5706d9f8389f06496864ae248bc1335b2d6e03"
+      },
+      {
+        "path": "scripts/content-task-holdout-oracle.mjs",
+        "exists": true,
+        "sha256": "c515f0ae235352ae239ad857147a5a2869a127c0622f5e830ef1a879e38576d3"
+      },
+      {
+        "path": "scripts/content-topic-proposals.mjs",
+        "exists": true,
+        "sha256": "bb4425b95c55ef49057789315f66521a1bca1f2afa3cdac29e5b6ae1af1647f1"
+      },
+      {
+        "path": "scripts/demand-appearance-history.mjs",
+        "exists": true,
+        "sha256": "883cd58414792a69dcd69a41a3fbfdab594fe4b9effd2392f7bc8e3bd3d8060a"
+      },
+      {
+        "path": "scripts/demand-occurrence-integrity.mjs",
+        "exists": true,
+        "sha256": "a719da78cea46a1fa9743be9db1c40c6bd000248cbd4d24b15b22af8473741e5"
+      },
+      {
+        "path": "scripts/execute-acquisition-remediation.mjs",
+        "exists": true,
+        "sha256": "0093f8f252125465b2af7cf4f15a0eea5d2a4c2a7ee235e5367fed59757f136d"
+      },
+      {
+        "path": "scripts/generation-challenger-manifest.mjs",
+        "exists": true,
+        "sha256": "a7fcac89cfb4e4561322cd69b25470e5cf0810834501bc69a26642058d0929c0"
+      },
+      {
+        "path": "scripts/generation-challenger-result-contract.mjs",
+        "exists": true,
+        "sha256": "9e43f3f9e41f7437723609a7ee36165d8a3a1993516e1d49ef88c48620cab4ef"
+      },
+      {
+        "path": "scripts/generation-execution-manifest.mjs",
+        "exists": true,
+        "sha256": "9b65b5db94004725745ca770222b6b9b032737d8c088aab18727e6d3c9cef4d5"
+      },
+      {
+        "path": "scripts/generation-provenance-ledger.mjs",
+        "exists": true,
+        "sha256": "92ed0bedad4ef4d031498fdc4ba795a922f060229aad7615b2c4d4de761fcaff"
+      },
+      {
+        "path": "scripts/graph-related-keyword-query.mjs",
+        "exists": true,
+        "sha256": "c8670112545d35f4b9224f2051e78862e42ea7253366cd2de0ec3928fd4a336a"
+      },
+      {
+        "path": "scripts/heading-repair-oracle.mjs",
+        "exists": true,
+        "sha256": "a6122a5ab0d26e3f4aeab347e9a705dfe3af6974c45069f2adab2400df504e3b"
+      },
+      {
+        "path": "scripts/heading-serp-pattern-oracle.mjs",
+        "exists": true,
+        "sha256": "373139a4690e19f85a0f9b2f908c698f76ea59ab4a597a6d8e6bd12bc96e64db"
+      },
+      {
+        "path": "scripts/keyword-acquisition-portfolio.mjs",
+        "exists": true,
+        "sha256": "766a950fc3d32bea1cab22b6d2310af7a2bfeb67d3cd21e6fa7607a406896e21"
+      },
+      {
+        "path": "scripts/keyword-dashboard-api.mjs",
+        "exists": true,
+        "sha256": "80a908fd956f036bce5de300fb78056d5d5a27a85d9f3f3e038aa0265cc2291e"
+      },
+      {
+        "path": "scripts/keyword-dashboard-db.mjs",
+        "exists": true,
+        "sha256": "690ff100373af37a573e662b9192fd081ea3e90a80fdd95353bee8a4cfb219cb"
+      },
+      {
+        "path": "scripts/keyword-dashboard-mcp.mjs",
+        "exists": true,
+        "sha256": "e710b5e7618fcb4d6940d50291177332cd45f68660d663287a8336f8e8eb9024"
+      },
+      {
+        "path": "scripts/keyword-lineage-ledger.mjs",
+        "exists": true,
+        "sha256": "1c58507f5459d2ee049323eab79d67d63d2f331c73663eba3926cdfc3ea06271"
+      },
+      {
+        "path": "scripts/paa-answer-completion-portfolio.mjs",
+        "exists": true,
+        "sha256": "59fa51482cea6c60611bce22b8e730be9c187412974827ac02dda4d608f57932"
+      },
+      {
+        "path": "scripts/paa-question-expansion-graph.mjs",
+        "exists": true,
+        "sha256": "c3860d4c6da153b119c808d5c0712fb40a3c044114ea3ee9614f7b552f233015"
+      },
+      {
+        "path": "scripts/paid-test-budget-scenarios.mjs",
+        "exists": true,
+        "sha256": "ee9595d600bcbc1cfe380a1973838b3e9106e6ab8f722d2ff7a95c98af27a681"
+      },
+      {
+        "path": "scripts/provider-acquisition-plan.mjs",
+        "exists": true,
+        "sha256": "2f167166ffb21669a756b799cc2a8d081df63a21880208ccdc43e8d83cd9f7fc"
+      },
+      {
+        "path": "scripts/provider-provenance-hypothesis.mjs",
+        "exists": true,
+        "sha256": "771392b9e084618822715754e7f432fb67eac6558e24c8f9606ece2c7c24f8e6"
+      },
+      {
+        "path": "scripts/public-api-credit-estimator.mjs",
+        "exists": true,
+        "sha256": "74ebccb15e4d052c03d66ab6e1a242e8728da90b14be14b6d278590c2b1e9aba"
+      },
+      {
+        "path": "scripts/public-api-operation-graph.mjs",
+        "exists": true,
+        "sha256": "29b0bb33fac56c304aaaa85f522049a6d80900e8d65ee4a2de668d6b3a9a9518"
+      },
+      {
+        "path": "scripts/public-api-retention-matrix.mjs",
+        "exists": true,
+        "sha256": "e58dcaf6453e1f76a3c2f0400051d4cc2aedd4e263b6df741347e16a30ae7292"
+      },
+      {
+        "path": "scripts/public-search-metadata.mjs",
+        "exists": true,
+        "sha256": "3d4e82d97a5a3665d94bdcd5711836281053a83a71861319e83f52a598cb05a0"
+      },
+      {
+        "path": "scripts/public-semantic-graph-query.mjs",
+        "exists": true,
+        "sha256": "c1c3b053150753c20e53222dca7f36f58272368b91334e78bdcfe767660b26b2"
+      },
+      {
+        "path": "scripts/public-semantic-graph.mjs",
+        "exists": true,
+        "sha256": "0e470ea3d4ee780ed3f54bcaa0075e2e6bca7ccd27f0a5a70fed9998f235fad1"
+      },
+      {
+        "path": "scripts/public-synonym-evidence.mjs",
+        "exists": true,
+        "sha256": "10eddf0e6745e60d917b418f65df1cfee9827d69c487b556871b406cf1ca97f9"
+      },
+      {
+        "path": "scripts/qa-appearance-history.mjs",
+        "exists": true,
+        "sha256": "c37c432fe920322998e7df4a4588c8c238eb10a2dd20c72d55968a3a355a6d6b"
+      },
+      {
+        "path": "scripts/qa-copy-export.mjs",
+        "exists": true,
+        "sha256": "94935429527d6354cb847b74f684aac3f18b346cc172236f2e134ca76f0599bf"
+      },
+      {
+        "path": "scripts/question-lineage-oracle.mjs",
+        "exists": true,
+        "sha256": "49b6e7fe011391fd4ecd593d3ac203215df37e906f9af65b671724268fff1f3a"
+      },
+      {
+        "path": "scripts/rank-monitor-plan.mjs",
+        "exists": true,
+        "sha256": "784bb405ab4e067022372b6cedbbe23fcefcc63af45c79cb2df3ef29cf6e5815"
+      },
+      {
+        "path": "scripts/related-keyword-boundary-oracle.mjs",
+        "exists": true,
+        "sha256": "fd90af8a0ec67e90dc136a6678d11a6851324ed865aaac25552e627147ec2615"
+      },
+      {
+        "path": "scripts/retained-qa-site-evidence.mjs",
+        "exists": true,
+        "sha256": "85a3ec2ec3ab1ce2e41ec571d4cb1b7f14eb0befba1f558d8316bbe17a023735"
+      },
+      {
+        "path": "scripts/search-contract-code-mapping-oracle.mjs",
+        "exists": true,
+        "sha256": "2c666352dbe2c2baf98940f9f534388143f22b8058e71178430f7f3998ffa1a8"
+      },
+      {
+        "path": "scripts/semantic-candidate-review.mjs",
+        "exists": true,
+        "sha256": "dc3dde37f814ae92307824b2940e6ce095dbc56ea01f2e3ea2388f1998bbd675"
+      },
+      {
+        "path": "scripts/seo-action-queue.mjs",
+        "exists": true,
+        "sha256": "3ebf77732862a6403311d0428776c9c4c9f624fd3e2149d8477018c164ac1432"
+      },
+      {
+        "path": "scripts/seo-difficulty-contract.mjs",
+        "exists": true,
+        "sha256": "bca7b5da00ab561eb1737e907b23d7e0aabfa0148ad1050c0c999785575e5c50"
+      },
+      {
+        "path": "scripts/simultaneous-rank-integrity.mjs",
+        "exists": true,
+        "sha256": "38962ff26603b6906ab5d047827495f2ad53665b417eb4fe0dd5dc0c3d7f520d"
+      },
+      {
+        "path": "scripts/suggest-evidence-oracle.mjs",
+        "exists": true,
+        "sha256": "01f7dbf98b2bfc53999bf4d5e5fba96dd906df3c4fc9adf28100187c0f25b506"
+      },
+      {
+        "path": "scripts/test-dashboard-table-state.mjs",
+        "exists": true,
+        "sha256": "56e81f055f116f86e7e90c594be54d0e2487d5c1d07db40bad24a5041bb572e4"
+      },
+      {
+        "path": "scripts/test-keyword-dashboard-api.mjs",
+        "exists": true,
+        "sha256": "2f71842dede54cad79aee092f42f42b0359a37d333c69af92795fb3ac8d64c79"
+      },
+      {
+        "path": "scripts/test-keyword-dashboard-integration.mjs",
+        "exists": true,
+        "sha256": "ce9a42593f39aede2eb55e50a88501cc2c5386ce9f3024011b3fd68cf90411e0"
+      },
+      {
+        "path": "scripts/test-keyword-dashboard-mcp.mjs",
+        "exists": true,
+        "sha256": "3c508cbed030e9692653585b09f0086aa1ae32218f2157b58d551f5aed4cdf9e"
+      },
+      {
+        "path": "scripts/test-provider-acquisition-plan.mjs",
+        "exists": true,
+        "sha256": "8e08c86e35ceba6b5f7e1ecf597948e87623f42d31366af4170e948293c60137"
+      },
+      {
+        "path": "scripts/title-repair-oracle.mjs",
+        "exists": true,
+        "sha256": "15f44c8eae3c01d1044fdb2a233e029314c1298069d524a28e7175df3f4e9361"
+      },
+      {
+        "path": "scripts/title-serp-pattern-oracle.mjs",
+        "exists": true,
+        "sha256": "7f4e4e8a0c30c00b6e0330985d2df8733056e3e5aef5e15ffbff2f68996d868e"
+      },
+      {
+        "path": "scripts/variant-evidence-oracle.mjs",
+        "exists": true,
+        "sha256": "14db1fdbe2de9d69ef54aef1076b3142f7fe69a1358d7966018690e0e71bbfb9"
+      }
+    ],
+    "commands": [
+      {
+        "command": "node scripts/test-acquisition-approval-manifest-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-approval-manifest-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-approval-manifest.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-approval-manifest.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-contract-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-contract-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-contract-fulfillment.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-contract-fulfillment.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-execution-readiness-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-execution-readiness-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-execution-readiness.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-execution-readiness.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-lifetime-allocation-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-lifetime-allocation.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-lifetime-allocation.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-lifetime-approval-manifest-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-lifetime-approval-manifest.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-lifetime-budget.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-lifetime-budget.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-remediation-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-remediation-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-remediation-evidence.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-remediation-evidence.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-acquisition-remediation-portfolio.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-acquisition-remediation-portfolio.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-aio-completion-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-aio-completion-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-aio-completion-portfolio.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-aio-completion-portfolio.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-association-evidence-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-association-evidence-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-claim-discovery-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-claim-discovery-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-claim-discovery-portfolio.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-claim-discovery-portfolio.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-claim-verification-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-claim-verification-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-claim-verification-queue.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-claim-verification-queue.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-competitive-appearance-history-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-competitive-appearance-history-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-competitive-appearance-history.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-competitive-appearance-history.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-competitive-stability-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-competitive-stability-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-competitive-stability.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-competitive-stability.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-demand-stability-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-demand-stability-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-demand-stability.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-demand-stability.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-evidence-ensemble-selection-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-evidence-ensemble-selection.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-evidence-ensemble-selection.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-readiness-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-readiness-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-readiness-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-readiness-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-selection-delta-explanations-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-selection-delta-explanations-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-selection-delta-explanations.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-selection-delta-explanations.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-semantic-coverage-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-semantic-coverage-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-content-semantic-coverage-review.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-content-semantic-coverage-review.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-demand-appearance-history-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-demand-appearance-history-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-demand-appearance-history.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-demand-appearance-history.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-demand-occurrence-integrity.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-demand-occurrence-integrity.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-graph-related-keyword-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-graph-related-keyword-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-graph-related-keyword-query.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-graph-related-keyword-query.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-heading-repair-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-heading-repair-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-heading-repair-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-heading-repair-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-heading-serp-pattern-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-heading-serp-pattern-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-keyword-acquisition-portfolio-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-keyword-acquisition-portfolio.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-keyword-acquisition-portfolio.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-keyword-lineage-ledger.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-keyword-lineage-ledger.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-paa-answer-completion-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-paa-answer-completion-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-paa-answer-completion-portfolio.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-paa-answer-completion-portfolio.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-paa-question-expansion-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-paa-question-expansion-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-paa-question-expansion-graph.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-paa-question-expansion-graph.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-api-credit-estimator-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-api-credit-estimator-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-api-credit-estimator.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-api-credit-estimator.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-contract-drift.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-contract-drift.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-search-metadata-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-search-metadata-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-search-metadata.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-search-metadata.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-semantic-graph-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-semantic-graph-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-semantic-graph.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-semantic-graph.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-synonym-evidence-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-synonym-evidence-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-public-synonym-evidence.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-synonym-evidence.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-qa-appearance-history.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-qa-appearance-history.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-qa-copy-export.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-qa-copy-export.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-question-lineage-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-question-lineage-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-rank-monitor-plan-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-rank-monitor-plan-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-rank-monitor-plan.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-rank-monitor-plan.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-related-keyword-boundary-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-related-keyword-boundary-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-retained-qa-site-evidence-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-retained-qa-site-evidence-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-retained-qa-site-evidence.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-retained-qa-site-evidence.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-search-contract-code-mapping-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-search-contract-code-mapping-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-search-contract-code-mapping-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-search-contract-code-mapping-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-semantic-candidate-review.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-semantic-candidate-review.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-seo-action-queue-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-seo-action-queue-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-seo-difficulty-contract.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-seo-difficulty-contract.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-serp-data-coverage.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-serp-data-coverage.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-simultaneous-rank-integrity.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-simultaneous-rank-integrity.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-suggest-evidence-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-suggest-evidence-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-title-repair-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-title-repair-api.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-title-repair-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-title-repair-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-title-serp-pattern-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-title-serp-pattern-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "node scripts/test-variant-evidence-oracle.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-variant-evidence-oracle.mjs",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:ai-questions:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:ai-questions:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:content-editorial-review:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:content-editorial-review:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:content-rich-block-plan:api:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:content-rich-block-plan:api:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:content-rich-block-plan:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:content-rich-block-plan:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:content-task-holdout:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:content-task-holdout:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:generation-challenger-manifest:api:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:generation-challenger-manifest:api:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:generation-challenger-manifest:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:generation-challenger-manifest:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:generation-challenger-result:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:generation-challenger-result:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:generation-execution-manifest:api:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:generation-execution-manifest:api:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:generation-execution-manifest:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:generation-execution-manifest:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:generation-provenance:api:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:generation-provenance:api:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:generation-provenance:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:generation-provenance:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:keyword-dashboard:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:keyword-dashboard:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:mcp:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:mcp:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:paid-test-budget-scenarios:api:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:paid-test-budget-scenarios:api:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:paid-test-budget-scenarios:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:paid-test-budget-scenarios:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:research-api:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:research-api:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run prototype:table-state:test",
+        "resolution_kind": "package_script",
+        "target": "prototype:table-state:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run provider:acquisition-plan:test",
+        "resolution_kind": "package_script",
+        "target": "provider:acquisition-plan:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run research:provider-provenance:test",
+        "resolution_kind": "package_script",
+        "target": "research:provider-provenance:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run research:public-operation-graph:test",
+        "resolution_kind": "package_script",
+        "target": "research:public-operation-graph:test",
+        "resolved": true
+      },
+      {
+        "command": "npm run research:public-retention:test",
+        "resolution_kind": "package_script",
+        "target": "research:public-retention:test",
+        "resolved": true
+      }
+    ],
+    "catalog_digest": "b002549ec191a3daedd72f6d1f4a380d80632a41836d00a3a854f4a2e5280a41"
   },
   "public_contract_credits": {
     "operation_count": 24,
@@ -192,7 +1252,17 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "c8b8f69d331d46d9defca3fa27127f3797c2a7e9bfecc690208fbb3e7e911d73"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 19,
+        "missing_artifact_count": 0,
+        "verification_command_count": 15,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "41e5a1898c7b9f73ff881b17464aacfc6263f7cb2315589419b20cbac396115d",
+        "command_set_digest": "ffaa9d0bd818ada07682dbf2a4f4e52ac90156c9c6aca8b47169171cab9d2052"
+      },
+      "evidence_digest": "dc838fb1823c7f0b56b310f25627e92c2518f91a9fa86f210770663c51869fe4"
     },
     {
       "capability_id": "related_keywords",
@@ -242,7 +1312,17 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "94b3b83ed927c782aae45279afcebf85892c26e786e16b028f43ca8fbd5134b5"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 19,
+        "missing_artifact_count": 0,
+        "verification_command_count": 15,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "41e5a1898c7b9f73ff881b17464aacfc6263f7cb2315589419b20cbac396115d",
+        "command_set_digest": "ffaa9d0bd818ada07682dbf2a4f4e52ac90156c9c6aca8b47169171cab9d2052"
+      },
+      "evidence_digest": "393157207b2334123b0d6c3b0fd62d7ed0b3b10b7b6b233e5bf24f5eff76c103"
     },
     {
       "capability_id": "question_search",
@@ -317,7 +1397,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "0f322032fb77a6f8883afc21595ab24fa87078adc66bb5f9072d9210b3c56ba0"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "ce4ccb7be542854cad38688b509672878faa44295ccb63e62f998d646242f93d"
     },
     {
       "capability_id": "lsi_paa",
@@ -392,7 +1482,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "01fc387cf089c5981097484763efc1899925af823f8c2f2e07550ca03b3120d9"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "524784f63dcea41b963b67ffe0db57949720e82d7d1f71ae22a61ed98085005f"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -467,7 +1567,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "84d7b1bc2191fe713e97ede08b0e8f67c2798966ae4f88e8971e7505e494e229"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "8501e7a6d7d0f035bb7b147e3e098ceb577a3bc35755baedbcaafbaa9af93418"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -542,7 +1652,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "f5dc7872e941759e85da6bf7d06a0b436971a2f7667a2cfe10b75642344381ea"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "5e387591c3cc5610bfb050eb08905854274d89ceb305fabbad33248506f7156d"
     },
     {
       "capability_id": "seo_difficulty",
@@ -621,7 +1741,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "e97b95025e091c9fe9d06d5688e7236cb49a923cc1f51087e09b173d930ba125"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 26,
+        "missing_artifact_count": 0,
+        "verification_command_count": 37,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "0ddbe5cce386ff879e620503848593c5d54d1418c2825299104b0d1a4fafa668",
+        "command_set_digest": "0ee0a0ae4c4e0d94b42b8d670cf162f5f1ea93ed6ec000ee9e6118f59fc816ae"
+      },
+      "evidence_digest": "41a44e7564835971c45b6b643d90ea69de2d829806b978b966108bb4dca81e14"
     },
     {
       "capability_id": "influx_keywords",
@@ -696,7 +1826,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "a42cd65fbd8487f16786133ac1af12138136068f2e80c0b157b19ea3ddde6cd6"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "bb1e9df77ca92b8f6af42384ac69d397ade9f82eb544bf40d9e549a39dac0b6b"
     },
     {
       "capability_id": "influx_pages",
@@ -771,7 +1911,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "f3dc5a7844965da80cb4aaa80e4f0bc50e1c6c2636d20240dad3ce93237fa46f"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "eac135b6c6c5faaa7fd72782ee03e608759d018d7a492a6720befc0d49a71094"
     },
     {
       "capability_id": "competitive_domains",
@@ -846,7 +1996,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "eeea5d8414620d998e7ee6f1b718b0f159c6fb51c654ba09d5e67599065c9226"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "f513c99af9db93820eae55bc70ec794e347a9f4a3976537e263a482c9dc5a312"
     },
     {
       "capability_id": "bulk_site_research",
@@ -867,7 +2027,17 @@
         "npm run prototype:research-api:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "d22c61c000f7e14f149e255941281a4473a7e1243bc3c9a6d73005aaf751d47f"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 3,
+        "missing_artifact_count": 0,
+        "verification_command_count": 2,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "ab4d2cb378f0406254c4aff1c3b6162d114e30c492bd4fb97495eb6a5f465c31",
+        "command_set_digest": "16d10fdba58a6d61385fee0f4857155a18e188447fd1e1dfdde313056183fda2"
+      },
+      "evidence_digest": "716c6f400f5861be6cf99c14262c4b39e5c804e65a3c988626a5159916efb394"
     },
     {
       "capability_id": "site_search",
@@ -888,7 +2058,17 @@
         "npm run prototype:research-api:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "9c91ad47afc49deb7088a8d10ccef74f8ba2810bc230b7e58cac9e3d049f3bf0"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 3,
+        "missing_artifact_count": 0,
+        "verification_command_count": 2,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "ab4d2cb378f0406254c4aff1c3b6162d114e30c492bd4fb97495eb6a5f465c31",
+        "command_set_digest": "16d10fdba58a6d61385fee0f4857155a18e188447fd1e1dfdde313056183fda2"
+      },
+      "evidence_digest": "493edc22de8888c7ba6b5ffeada3d5a41268c6ecacec5e8e237633ec0ce0db3a"
     },
     {
       "capability_id": "content_search",
@@ -963,7 +2143,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "74f00ee6b61363832e28a0de21ea1193e25808b9cda60ebe5c586d597dc00b8c"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "554545e793e4c3b07d7096d223ef2ba7fd664cd7415262b615b54e84ca1bf1dc"
     },
     {
       "capability_id": "search_rank",
@@ -1038,7 +2228,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "ae36b298c804ef558fa72ab5894977b90788a4c6118eab697ff66d421a04126b"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "52d36993b294675aa08d8b83ad4fccae46ab54d0b3c60cc1c0a06f067711b9fa"
     },
     {
       "capability_id": "headline",
@@ -1113,7 +2313,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "159f7bc07a6da9867d8ff7aa7ebfa5601ccf842d4cf0a2fca42be28b5f97f7c7"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "2298bac56c059d36b188f0210ede0599e97e6650ed1395264a4cd4fc9ca29b34"
     },
     {
       "capability_id": "cooccurrence",
@@ -1188,7 +2398,17 @@
         "npm run prototype:keyword-dashboard:test",
         "node scripts/test-serp-data-coverage.mjs"
       ],
-      "evidence_digest": "3e718e4b9ff44d60de02248deb03d12c85992b7268078f2ff1561fac2a330c2a"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 24,
+        "missing_artifact_count": 0,
+        "verification_command_count": 35,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "5d41f6d2f336ac26dbdfdb7262c248384f8ae5ddf0ab8d04a296385f0b477b33",
+        "command_set_digest": "592e2782627de289177991513a79dfc307150d896b31b98215d65445da70a78c"
+      },
+      "evidence_digest": "088ee1200f67d4d495ea99e9070c7d4bcaa45f0b7da888e0e9a636d3ea13e107"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -1266,7 +2486,17 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "96ae86d6d6c179f020a95743805256924d6eab27b4d95b55890d70db899085dc"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 25,
+        "missing_artifact_count": 0,
+        "verification_command_count": 37,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d1f6e0186d83fa0b14a13e655d6d581cad1f49661b128768e0e48d668a79f7b1",
+        "command_set_digest": "811e8d5a4b5bb398677c7a3a3e4a1e864dae1f3f298347ea1725ee86646cad2b"
+      },
+      "evidence_digest": "cf2a69ec7d1ae534e618a0d6c6ab8a05d7422371f7ab767a3a99c46fb6a0e5a5"
     },
     {
       "capability_id": "ai_title",
@@ -1344,7 +2574,17 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "7213b41c65718f2ddc230ed8175bbabd3608c384c26a4f262af9ec3434c913cf"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 25,
+        "missing_artifact_count": 0,
+        "verification_command_count": 37,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d1f6e0186d83fa0b14a13e655d6d581cad1f49661b128768e0e48d668a79f7b1",
+        "command_set_digest": "811e8d5a4b5bb398677c7a3a3e4a1e864dae1f3f298347ea1725ee86646cad2b"
+      },
+      "evidence_digest": "4fc6c1ae2f981dc3be862e6d0ae5630df3d96bd17c9ff0bf5a95997d1c9ac40e"
     },
     {
       "capability_id": "ai_heading",
@@ -1422,7 +2662,17 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "5e04d9402c18575b5475d59c8c063db47abd66afd4ee36a22aeff4c70a648037"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 25,
+        "missing_artifact_count": 0,
+        "verification_command_count": 37,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d1f6e0186d83fa0b14a13e655d6d581cad1f49661b128768e0e48d668a79f7b1",
+        "command_set_digest": "811e8d5a4b5bb398677c7a3a3e4a1e864dae1f3f298347ea1725ee86646cad2b"
+      },
+      "evidence_digest": "b15d9a56bb16c8ba4ded8c8edb5b86cc6d8fd677f436b2e7e09f1155fa7ee9ae"
     },
     {
       "capability_id": "ai_body",
@@ -1500,7 +2750,17 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "c6fa2eb90fe7e5164601af83b9ac1c6c9292d7062f029d00a03cf294309f8be7"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 25,
+        "missing_artifact_count": 0,
+        "verification_command_count": 37,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d1f6e0186d83fa0b14a13e655d6d581cad1f49661b128768e0e48d668a79f7b1",
+        "command_set_digest": "811e8d5a4b5bb398677c7a3a3e4a1e864dae1f3f298347ea1725ee86646cad2b"
+      },
+      "evidence_digest": "17fafc2a0d9eeac6d8fd262ef2aeec6568d6f76b9b92b3a0fbaf713ddb1f8114"
     },
     {
       "capability_id": "ai_questions",
@@ -1578,7 +2838,17 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "6e809ba233366d3eb587b9b82cbd1c695be145ed7bc19feed147ce75f20e77cd"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 25,
+        "missing_artifact_count": 0,
+        "verification_command_count": 37,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d1f6e0186d83fa0b14a13e655d6d581cad1f49661b128768e0e48d668a79f7b1",
+        "command_set_digest": "811e8d5a4b5bb398677c7a3a3e4a1e864dae1f3f298347ea1725ee86646cad2b"
+      },
+      "evidence_digest": "39df07006700d2e1479ce223d5a4626942d20f5f3ed771c929ac7b97909671ef"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -1656,7 +2926,17 @@
         "npm run prototype:ai-questions:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "1e3976721f79e5e56f0929365275428b56ae73d750a590acf58b4881925b3384"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 25,
+        "missing_artifact_count": 0,
+        "verification_command_count": 37,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d1f6e0186d83fa0b14a13e655d6d581cad1f49661b128768e0e48d668a79f7b1",
+        "command_set_digest": "811e8d5a4b5bb398677c7a3a3e4a1e864dae1f3f298347ea1725ee86646cad2b"
+      },
+      "evidence_digest": "b0b5dbeca8bc76cb43498fe1321a78b4530e58c3bc80c45f11c028dd17efdcc7"
     },
     {
       "capability_id": "hashtags",
@@ -1682,14 +2962,24 @@
         "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
         "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "dc885f0ca0d902326a9e8d1e619e207b67bc06966c443832e5a2eb278e6f3f7b"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 5,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "8cadc736a35e86221cdfa75b46691a71015f3cc69bcee05599179bc89a3dde83",
+        "command_set_digest": "3bba9d16d882d1a61f1f903bb98a852e2a3bfac1ffa9c7e206183574b13c726f"
+      },
+      "evidence_digest": "3cfa51aff5fc6e1b036c9d67ca199050c74f0bcea8cd724071c2023ba10b3d22"
     },
     {
       "capability_id": "synonyms",
       "name": "類語・同義語",
       "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "proven",
+      "completion_evidence_state": "artifact_integrity_proven_execution_attestation_separate",
       "blocker_classes": [],
       "remaining_gap": "人手で同義判定された公開日本語語彙11,753 pair・9,487語をversion 1.0、archive/file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語の両方向・部分検索をAPI/MCP/UIへ実装し、保有corpus 585語中206語・840 pairとの接続も監査。表記variant 921 cluster、共起association 1,636 edge、SERP文脈候補168 pairとは証拠種別を分離。辞書上の語対を記事文脈での無条件交換可能性とは扱わず全11,753 pairをcontext review必須、自動置換0。取得費用0",
       "authoritative_evidence": [
@@ -1730,14 +3020,24 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "6e673ee8daefad0b2e39af906beb9981cceb92437cebb69a35c89ec0511c1396"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 19,
+        "missing_artifact_count": 0,
+        "verification_command_count": 15,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "41e5a1898c7b9f73ff881b17464aacfc6263f7cb2315589419b20cbac396115d",
+        "command_set_digest": "ffaa9d0bd818ada07682dbf2a4f4e52ac90156c9c6aca8b47169171cab9d2052"
+      },
+      "evidence_digest": "d0fc4049b43cd116cc82ff21664f48cb12e7a8ced2a634e6fc4c8c1c5afe265e"
     },
     {
       "capability_id": "associations",
       "name": "周辺語・連想語",
       "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "proven",
+      "completion_evidence_state": "artifact_integrity_proven_execution_attestation_separate",
       "blocker_classes": [],
       "remaining_gap": "公開日本語意味グラフの158,058 sense・93,834語・57,238 synset定義・21種115,295 direct edgeをversion 1.1、archive/派生3 file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語のexact/partial sense起点から有向edgeの正方向・逆方向意味を分離し、循環抑止・最大3階層・2,000 edge上限の探索をAPI/MCP/UIへ実装。保有corpus 585語中425語を意味graphへ接続。別系統として7,087 keyword document由来585基準語・1,636共起関係も保持し、semantic edge・共起・人手同義語を混同しない。意味graphから同義性・検索需要・順位因果・自動content変更を推論せず、取得費用0",
       "authoritative_evidence": [
@@ -1778,7 +3078,17 @@
         "node scripts/test-association-evidence-oracle.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "ceac01ee45e832c19840e52143e818be78cae778761d153dc9e25f99df17a0e0"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 19,
+        "missing_artifact_count": 0,
+        "verification_command_count": 15,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "41e5a1898c7b9f73ff881b17464aacfc6263f7cb2315589419b20cbac396115d",
+        "command_set_digest": "ffaa9d0bd818ada07682dbf2a4f4e52ac90156c9c6aca8b47169171cab9d2052"
+      },
+      "evidence_digest": "039cae432a9e979653fa031f77967b95e60852c6ad1a6737b38e43e0ec6c54d7"
     },
     {
       "capability_id": "qa_sites",
@@ -1807,7 +3117,17 @@
         "node scripts/test-retained-qa-site-evidence-api.mjs",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "82a30647768b344cd7bc209ae56c63be6a9d3316b20cc8dc9a6e375db12b167c"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 8,
+        "missing_artifact_count": 0,
+        "verification_command_count": 5,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "432f4b2559507b66cb760cb77bbae4e4c2aaf67e511b6887bf0dc35d9d2ae151",
+        "command_set_digest": "e0702716bb0098a727781733abac910ed44cecdb4f6cd91f097cf7b38235a7d4"
+      },
+      "evidence_digest": "ac443e47333865c324b515684ef6a301a4c30aa9fdb06c221f2441e1c4663a62"
     },
     {
       "capability_id": "google_trends",
@@ -1833,7 +3153,17 @@
         "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
         "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "17c8261d60e2b5fc9bbd5902d5e1da24c38660a2f164a3cc1c6419e62782937f"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 5,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "8cadc736a35e86221cdfa75b46691a71015f3cc69bcee05599179bc89a3dde83",
+        "command_set_digest": "3bba9d16d882d1a61f1f903bb98a852e2a3bfac1ffa9c7e206183574b13c726f"
+      },
+      "evidence_digest": "3cb0f68bec78badcebda782138d1df9b552795453533632d6433c0aa07ef036f"
     },
     {
       "capability_id": "news",
@@ -1859,14 +3189,24 @@
         "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
         "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "3fb1796f2060773fca9030b02bed033247ed1b81a6e1ef0851f39a1df2a21f25"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 5,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "8cadc736a35e86221cdfa75b46691a71015f3cc69bcee05599179bc89a3dde83",
+        "command_set_digest": "3bba9d16d882d1a61f1f903bb98a852e2a3bfac1ffa9c7e206183574b13c726f"
+      },
+      "evidence_digest": "060480ba5561f4c8517850f85a3358e375c6b38c63c258e8271f4dcbbbcefc32"
     },
     {
       "capability_id": "quick_search",
       "name": "クイックサーチ",
       "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "proven",
+      "completion_evidence_state": "artifact_integrity_proven_execution_attestation_separate",
       "blocker_classes": [],
       "remaining_gap": "元KW、施策group、質問需要、類語連想、GSC記事、競合contentの6 source横断検索と各filter/treeへの遷移を実装。未取得provider datasetは検索対象外",
       "authoritative_evidence": [
@@ -1880,14 +3220,24 @@
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "c737478b05caf735bfce8769f3921946b4f36420925b3633f8e6aceb059c7773"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 2,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "6a7018d947a47e88e866418a7e517011c1e3fbc95e34d77459fef640fbba735b",
+        "command_set_digest": "3220ee933800c9c3d41b5205638faa6b47e72dbe5b1b6e6841ce84bf33a824bc"
+      },
+      "evidence_digest": "065fef85be6ee730b6b9090cdf0fd57966ba46c81a0b12bcae93f5038225b2bb"
     },
     {
       "capability_id": "auxiliary_tools",
       "name": "補助ツール",
       "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "proven",
+      "completion_evidence_state": "artifact_integrity_proven_execution_attestation_separate",
       "blocker_classes": [],
       "remaining_gap": "9操作を実装。地域生成は日本郵便2026-07-31版の47都道府県/1,892市区町村・郡町村と国交省2025年度版の9,046駅groupをarchive/evidence digest付きで使用",
       "authoritative_evidence": [
@@ -1901,14 +3251,24 @@
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "19f02c880edd171d9581709338028c6f42d1cc2e967108d04206995513fd7266"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 2,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "6a7018d947a47e88e866418a7e517011c1e3fbc95e34d77459fef640fbba735b",
+        "command_set_digest": "3220ee933800c9c3d41b5205638faa6b47e72dbe5b1b6e6841ce84bf33a824bc"
+      },
+      "evidence_digest": "e3008b9b4b0f036a5dd6f7dbfb4536d93ce5530b2f01bdc37d40e08bc6442144"
     },
     {
       "capability_id": "data_output",
       "name": "データ出力・copy/filter/sort URL state",
       "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "proven",
+      "completion_evidence_state": "artifact_integrity_proven_execution_attestation_separate",
       "blocker_classes": [],
       "remaining_gap": "既知契約範囲を実装。filtered CSV/JSON、全16 viewのsite-scoped JSON snapshot、browser-only最大50件履歴、全filterの共通f.* URL state、全tableの任意column昇降sort・ARIA・keyboard・sort.* URL復元を提供",
       "authoritative_evidence": [
@@ -1922,14 +3282,24 @@
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "1afc9e6dc66e59f4327f02f4984ffad08c5ce0904b738644527d497dd7b34044"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 2,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "6a7018d947a47e88e866418a7e517011c1e3fbc95e34d77459fef640fbba735b",
+        "command_set_digest": "3220ee933800c9c3d41b5205638faa6b47e72dbe5b1b6e6841ce84bf33a824bc"
+      },
+      "evidence_digest": "4f134ca072a063724c6100969e1d3640a1024cb41b1085fb80c499a150420d82"
     },
     {
       "capability_id": "bookmarklet",
       "name": "ブックマークレット",
       "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "proven",
+      "completion_evidence_state": "artifact_integrity_proven_execution_attestation_separate",
       "blocker_classes": [],
       "remaining_gap": "選択文字、未選択時page titleをquick_qへ渡しsite別横断検索を別tabで開く。本文送信・保存なし",
       "authoritative_evidence": [
@@ -1943,7 +3313,17 @@
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test"
       ],
-      "evidence_digest": "5f54c1be04b004fe931c33a0d42c4005ed9bd0a047e49953c67804c57bed1696"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 2,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "6a7018d947a47e88e866418a7e517011c1e3fbc95e34d77459fef640fbba735b",
+        "command_set_digest": "3220ee933800c9c3d41b5205638faa6b47e72dbe5b1b6e6841ce84bf33a824bc"
+      },
+      "evidence_digest": "da495dbae0a1260d2422e88f5ed196fcf7c006f1a68a2e44e3c9d9ea44f44632"
     },
     {
       "capability_id": "public_api",
@@ -1984,7 +3364,17 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "d00f8db1e1300ca889c034d06472128e7eb1ee7c7144d7a72a1138bc25b6e846"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 15,
+        "missing_artifact_count": 0,
+        "verification_command_count": 10,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d502836f8bc41673deb5f6150afda8e920e5c7ce52c16637fc5db703dffb481a",
+        "command_set_digest": "d1c9de40fe1653e0ee1caf5b863bfb1fec960eb177f6b7e641902147fb01deed"
+      },
+      "evidence_digest": "2412e6ac3367f770bdb8ad59595f5b5c091eb0e52c604401c2f66adcc0dbba88"
     },
     {
       "capability_id": "mcp",
@@ -2025,7 +3415,17 @@
         "npm run prototype:research-api:test",
         "npm run prototype:mcp:test"
       ],
-      "evidence_digest": "69a96e87f62f29af674b0114e0ac098b25eb900320112408f4d578e88d2ca8ef"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 15,
+        "missing_artifact_count": 0,
+        "verification_command_count": 10,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "d502836f8bc41673deb5f6150afda8e920e5c7ce52c16637fc5db703dffb481a",
+        "command_set_digest": "d1c9de40fe1653e0ee1caf5b863bfb1fec960eb177f6b7e641902147fb01deed"
+      },
+      "evidence_digest": "01538c88fd90829fface63e90fc8e1527e54669aac2a5b53590ddb40ec8281a3"
     },
     {
       "capability_id": "credit_history",
@@ -2051,8 +3451,18 @@
         "node scripts/test-acquisition-lifetime-approval-manifest.mjs",
         "node scripts/test-acquisition-lifetime-approval-manifest-api.mjs"
       ],
-      "evidence_digest": "ed8eb9a9fb2f8f8808246c08dec5ccbab87c5f4a8fbedc59ca8b03278dc1e716"
+      "evidence_integrity": {
+        "state": "integrity_verified_execution_not_attested",
+        "artifact_count": 5,
+        "missing_artifact_count": 0,
+        "verification_command_count": 5,
+        "unresolved_command_count": 0,
+        "execution_attested": false,
+        "artifact_set_digest": "8cadc736a35e86221cdfa75b46691a71015f3cc69bcee05599179bc89a3dde83",
+        "command_set_digest": "3bba9d16d882d1a61f1f903bb98a852e2a3bfac1ffa9c7e206183574b13c726f"
+      },
+      "evidence_digest": "a6e82a9afadfdb38ddf3a35317bfc0b4df4b78dca9b0535412a1b3e6793ffa59"
     }
   ],
-  "audit_digest": "aae3cf1c3c823eb95f5ad6e36ea1fa05e1aa3ade4ca92d6505a7b98d0e62bdd9"
+  "audit_digest": "8c4f8fc16a458b14f34443be72f8f1baa775c4818fa44e15d3314239b179854a"
 }
