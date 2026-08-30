@@ -1436,6 +1436,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 排他的readinessは、概念を含むSERP需要63、supporting KWのSERP観測1、正値volumeのみ79、zero volumeのみ1。概念需要occurrence参照は延べ777件である。
 - API/MCPは需要readiness filterを提供し、画面はSERP需要sampleとsupporting KW volumeを展開表示する。絶対概念volume推論・需要判断の自動承認・group割当・候補選定・content変更はすべて0である。
 
+### 10.104 semantic sense readinessとtyped-edge lineage（API 2.106 / packet v4）
+
+- 144 semantic taskについて、概念語の辞書sense、品詞、定義、query token側synset、taskが指定する関係型の直接edgeを保持DBから再構成した。辞書定義欠損taskは0である。
+- 排他的readinessは、直接pathで一意に支持されるsense 113、複数senseが支持されるtask 23、辞書senseはあるが直接pathを再構成できないtask 8、辞書senseなし0である。延べ辞書sense参照1,071、path支持sense参照173を保持する。
+- 各候補はsense/definition/edgeのdigest、source/target synset、relation ID・型・labelまで逆引きできる。API/MCPは `sense_readiness` filterを提供し、画面は候補定義とtyped-edge lineageを展開表示する。
+- 直接pathが一意でも文脈適合を自動確定しない。sense自動選択・文脈適合推論・group割当・候補選定・content変更はすべて0で、編集者の語義判断を必須とする。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
