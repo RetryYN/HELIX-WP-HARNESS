@@ -294,6 +294,103 @@
       "direct_support_state": "contextual_only",
       "decision_reason": "The official interview guidance is relevant but cannot directly establish SE-specific new-graduate advice.",
       "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-062:section:2",
+      "candidate_digest": "364c52f97fa6180dccedca6dc9d9765bb5ca46b6bb5b572557e52ace5b21dc94",
+      "query": "muit 就活会議の選考 一次情報",
+      "executed_query": "三菱UFJインフォメーションテクノロジー 選考フロー 就活会議",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The acronym was expanded to the registered company name to avoid matching unrelated entities and to target attributable selection evidence.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://syukatsu-kaigi.jp/companies/74022/screening",
+      "title": "三菱ＵＦＪインフォメーションテクノロジーの選考フロー・本選考対策・内定者の傾向と対策",
+      "publisher": "就活会議",
+      "source_class": "independent_editorial",
+      "observed_facts": [
+        "卒年・職種別の投稿に基づく選考フローを掲載し、エントリーシート、面接、Webテスト等の観測段階を区別している。",
+        "投稿由来であり、全応募者に共通する固定フローとは断定できない。"
+      ],
+      "direct_support_state": "directly_supported",
+      "decision_reason": "The independent employment-review source directly documents observed selection flows while retaining the contributor-data limitation.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-062:section:3",
+      "candidate_digest": "b68db75eaa1ab65921a09723483bcb01a361b3e45d35b6cdcd6d00a3fe9d1981",
+      "query": "muit 就活会議の対策 一次情報",
+      "executed_query": "三菱UFJインフォメーションテクノロジー 選考フロー 就活会議",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The acronym was expanded to the registered company name so preparation evidence could be attributed to the intended employer.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://syukatsu-kaigi.jp/companies/74022/screening",
+      "title": "三菱ＵＦＪインフォメーションテクノロジーの選考フロー・本選考対策・内定者の傾向と対策",
+      "publisher": "就活会議",
+      "source_class": "independent_editorial",
+      "observed_facts": [
+        "企業研究で比較理由を具体化するという投稿者ベースの対策例を掲載している。",
+        "合格を保証する公式評価基準ではない。"
+      ],
+      "direct_support_state": "directly_supported",
+      "decision_reason": "The independent source directly supplies attributed preparation examples without treating them as an official scoring rubric or success guarantee.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-062:section:4",
+      "candidate_digest": "f99969b899f00c2cdcf5d547aa0e7c32f6d5605db689e9316e2fe2c60a128904",
+      "query": "MUITは大手ですか？ 一次情報",
+      "executed_query": "三菱UFJインフォメーションテクノロジー 大手 従業員数",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The subjective size label was converted into a registered-name and employee-count query to seek independently attributable scale evidence.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://info.gbiz.go.jp/hojin/ichiran?hojinBango=1010001126197",
+      "title": "三菱ＵＦＪインフォメーションテクノロジー株式会社",
+      "publisher": "経済産業省 Gビズインフォ",
+      "source_class": "government",
+      "observed_facts": [
+        "法人番号、所在地、事業概要、従業員数等の政府保有法人情報を掲載している。",
+        "大手という分類または閾値は示していない。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "The government company record supplies scale context but does not define or classify the company as large, so the label remains unproven.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-062:section:5",
+      "candidate_digest": "1a36f5505970435f4025ae29043420239d5a51bc6cd9ba0ee322a945f0c44c1e",
+      "query": "MUITのボーナスは何ヶ月分ですか？ 一次情報",
+      "executed_query": "三菱UFJインフォメーションテクノロジー ボーナス 何ヶ月",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The acronym was expanded to the registered company name to avoid unrelated bonus results and test the exact quantitative claim.",
+      "result_state": "no_qualifying_result",
+      "url": null,
+      "title": null,
+      "publisher": null,
+      "source_class": null,
+      "observed_facts": [],
+      "direct_support_state": "not_supported",
+      "decision_reason": "No qualifying independent public source establishing a current bonus-month figure was observed; salary or review-site anecdotes cannot be converted into that amount.",
+      "source_snapshot_retained": false
+    },
+    {
+      "claim_id": "it-shukatu-serp-062:section:6",
+      "candidate_digest": "2bc5588e71080f944fecbc92ab4135ebe954aaaf4dc2b04d59bbed0670f9c279",
+      "query": "MUITの入社難易度は？ 一次情報",
+      "executed_query": "三菱UFJインフォメーションテクノロジー 入社難易度",
+      "query_strategy_state": "adapted_for_authoritative_entity_source",
+      "adaptation_reason": "The acronym was expanded to the registered company name to seek an independently attributable hiring-difficulty basis.",
+      "result_state": "qualifying_candidate_observed",
+      "url": "https://www.onecareer.jp/experiences/companies/3825/middle_categories/prehire",
+      "title": "三菱UFJインフォメーションテクノロジーの採用大学・学歴・倍率・就職難易度・内定者レポート",
+      "publisher": "ONE CAREER",
+      "source_class": "independent_editorial",
+      "observed_facts": [
+        "採用実績校、採用者数、定着率および投稿型の選考情報を掲載している。",
+        "応募者総数、合格率、難易度算定式は確認できず、客観的な入社難易度値は確定できない。"
+      ],
+      "direct_support_state": "contextual_only",
+      "decision_reason": "The independent source provides relevant hiring evidence but not a transparent denominator or method sufficient to establish an objective admission-difficulty value.",
+      "source_snapshot_retained": false
     }
   ]
 }
