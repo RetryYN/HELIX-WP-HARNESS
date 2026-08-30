@@ -1394,6 +1394,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - API/MCP/UIへ未判断・考慮承認・却下・保留・reviewer不一致を投影するが、group割当、title/H2選定、本文変更への自動反映は常に0である。
 - 実packetは144件すべて未判断のまま保持し、人手判断を実施したとは主張しない。外部取得費用は0 USD。
 
+### 10.98 semantic resolution画面入力・export
+
+- 概念別task画面にsense適合、直接group証拠、需要証拠、編集判断の4軸入力を追加した。1項目でも入力したtaskは4項目すべてが揃わない限りexportを拒否する。
+- レビュアー識別文字列はブラウザ内でSHA-256化し、平文をdecision JSONへ含めない。packet digestとtask digestを含む`content-semantic-resolution-decisions.v1`を出力する。
+- browser exportと同じhelperの出力を、既存importerのdry-run、明示`--commit`、SQLite close/reopen後のprogress投影までE2E検証した。
+- browserはDBへ直接書き込まず、export後も自動group割当・候補選定・content変更は0。実判断は引き続き0件である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
