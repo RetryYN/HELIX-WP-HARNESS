@@ -1482,6 +1482,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - UIはproposalごとに編集状態と3つの安全確認を入力し、reviewer識別文字列をブラウザ内でSHA-256化したdecision JSONを出力する。ブラウザからDBへ直接書き込まず、既存importerのdry-runと明示commitを経由する。
 - packet生成後もartifactは未適用で、手動revision review、source検証、citation承認を公開blockerとして保持する。自動適用・自動承認・自動公開・外部取得は0である。
 
+### 10.111 evidence-safe revision記事公開gate（API 2.113）
+
+- evidence-safe revision proposalとapproved-only manual packetを記事群単位の公開readinessへ接続する。proposalが1件でも未判断・非承認なら `evidence_safe_revision_decision`、対応packetがなければ `evidence_safe_manual_revision` をblockedにする。
+- 全proposalが手動修正可となりpacketが生成されても、artifactは未適用のため `evidence_safe_manual_revision` を編集review必須に保つ。proposal承認やpacket生成を公開承認へ読み替えない。
+- 各記事はproposal数、編集状態内訳、proposal set digest、packet ID/digestを保持し、API/MCP/UIから公開停止理由と証跡を逆引きできる。
+- 現行DBは8 proposalすべて未判断、packet 0である。該当記事群は判断gateと手動反映gateの両方がfail closedとなり、自動適用・自動承認・自動公開は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
