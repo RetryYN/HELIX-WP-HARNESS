@@ -1443,6 +1443,12 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 各候補はsense/definition/edgeのdigest、source/target synset、relation ID・型・labelまで逆引きできる。API/MCPは `sense_readiness` filterを提供し、画面は候補定義とtyped-edge lineageを展開表示する。
 - 直接pathが一意でも文脈適合を自動確定しない。sense自動選択・文脈適合推論・group割当・候補選定・content変更はすべて0で、編集者の語義判断を必須とする。
 
+### 10.105 記事公開readinessへのsemantic sense gate（API 2.107）
+
+- semantic taskを記事群単位へ再集約し、63記事群中35記事群へ144 taskを接続した。未判断・承認候補・却下・延期・reviewer不一致を排他的に数え、未判断・延期・不一致が1件でもあれば `semantic_sense_resolution` を編集review必須にする。
+- 現行DBは判断未投入のため144/144 taskがpendingで、35記事群すべてが語義review必須である。既存のclaim検証・引用承認blockerとは独立して表示し、どのgateが未充足かを混同しない。
+- 各記事へsense readiness内訳、pending task ID、semantic decision packet digestを固定し、API/MCP/UIから逆引きできる。辞書pathが一意でも編集判断を代替せず、文脈適合推論・自動承認・自動公開は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
