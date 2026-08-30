@@ -1,227 +1,5240 @@
-import {targetRankTracks} from "./serp-snapshot-history.mjs";
-import {previewRankMonitorContracts} from "./rank-monitor-contract-preview.mjs";
-import {findPublicLanguageName,findPublicLocationName,listPublicLanguages,publicSearchMetadataSummary,searchPublicLocations} from "./public-search-metadata.mjs";
-import {estimatePublicApiCredits,publicApiCreditContract} from "./public-api-credit-estimator.mjs";
-import {readFileSync} from "node:fs";
-import {queryPublicSemanticGraph} from "./public-semantic-graph-query.mjs";
-import {queryGraphRelatedKeywords} from "./graph-related-keyword-query.mjs";
-const publicApiOperationGraph=JSON.parse(readFileSync(new URL("../docs/research/public-api-operation-graph.json",import.meta.url),"utf8"));
-const publicApiRetentionMatrix=JSON.parse(readFileSync(new URL("../docs/research/public-api-retention-matrix.json",import.meta.url),"utf8"));
-const providerProvenanceHypothesis=JSON.parse(readFileSync(new URL("../docs/research/provider-provenance-hypothesis.json",import.meta.url),"utf8"));
-const acquisitionRetentionBlueprint=JSON.parse(readFileSync(new URL("../docs/research/acquisition-retention-blueprint.json",import.meta.url),"utf8"));
-const publicContractDrift=JSON.parse(readFileSync(new URL("../docs/research/seo-tool-a-public-contract-drift.json",import.meta.url),"utf8"));
+import { targetRankTracks } from "./serp-snapshot-history.mjs";
+import { previewRankMonitorContracts } from "./rank-monitor-contract-preview.mjs";
+import {
+  findPublicLanguageName,
+  findPublicLocationName,
+  listPublicLanguages,
+  publicSearchMetadataSummary,
+  searchPublicLocations,
+} from "./public-search-metadata.mjs";
+import {
+  estimatePublicApiCredits,
+  publicApiCreditContract,
+} from "./public-api-credit-estimator.mjs";
+import { readFileSync } from "node:fs";
+import { queryPublicSemanticGraph } from "./public-semantic-graph-query.mjs";
+import { queryGraphRelatedKeywords } from "./graph-related-keyword-query.mjs";
+const publicApiOperationGraph = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/research/public-api-operation-graph.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
+const publicApiRetentionMatrix = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/research/public-api-retention-matrix.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
+const providerProvenanceHypothesis = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/research/provider-provenance-hypothesis.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
+const acquisitionRetentionBlueprint = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/research/acquisition-retention-blueprint.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
+const publicContractDrift = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/research/seo-tool-a-public-contract-drift.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
 
-const parseLimit=(value)=>{if(value==null||String(value).trim()==="")return 25;const parsed=Number(value);return Math.max(1,Math.min(100,Number.isInteger(parsed)?parsed:25))},parseCursor=(value)=>{if(value==null||String(value).trim()==="")return 0;const parsed=Number(value);return Math.max(0,Number.isInteger(parsed)?parsed:0)};
-const page=(rows,url)=>{const limit=parseLimit(url.searchParams.get("limit")),offset=parseCursor(url.searchParams.get("cursor")),data=rows.slice(offset,offset+limit),next=offset+data.length<rows.length?String(offset+data.length):null;return{data,meta:{total:rows.length,limit,cursor:String(offset),next_cursor:next}}};
-const envelope=(data)=>({...data,provenance:{scope:"retained_evidence_only",external_acquisition_triggered:false,credentials_exposed:false}}),bad=(status,error)=>({status,body:{error}}),ok=(body)=>({status:200,body:envelope(body)}),norm=(value)=>String(value??"").normalize("NFKC").trim().toLocaleLowerCase("ja-JP");
-const average=(values)=>values.length?values.reduce((sum,value)=>sum+value,0)/values.length:null;
-const median=(values)=>{if(!values.length)return null;const sorted=[...values].sort((a,b)=>a-b),middle=Math.floor(sorted.length/2);return sorted.length%2?sorted[middle]:(sorted[middle-1]+sorted[middle])/2};
-const operations={
-  "/sites":["SiteSearchController_search","BulkSiteResearchController_searchBulkSiteResearch"],"/keywords":["SuggestKeywordsController_search"],"/demands":["OtherKeywordsController_search","QuestionSearchController_search"],"/questions":[],"/groups/{group_id}/brief":[],"/acquisition":[],
-  "/related-keywords":["RelatedKeywordsController_search"],"/simultaneous-rankings":["RankingKeywordsController_search"],"/pages":["InfluxPagesController_searchPage"],"/domains":["CompetitiveController_searchCompetitive"],"/content":["ContentSearchController_search"],"/headings":["HeadlineController_search"],"/titles":[],"/outlines":[],"/cooccurrence":["CoOccurrenceController_search"],"/serp-results":["SearchRankSerpCacheController_getSerpCache"],
-  "/market/locations":["SearchVolumeMetadataController_getLocations"],"/market/languages":["SearchVolumeMetadataController_getLanguages"],"/credits/estimate":[],"/operation-graph":[],"/operation-retention":[],"/acquisition-retention":[],"/provider-provenance":[],"/market/status":["SearchVolumeHistoryController_register","SearchVolumeHistoryController_listHistories","SearchVolumeHistoryController_getStatus"],"/market/results":["SearchVolumeHistoryController_getResults","InfluxKeywordsController_searchKeyword"],"/rank/status":["SearchRankHistoryController_register","SearchRankHistoryController_listHistories","SearchRankHistoryController_getStatus"],"/rank/results":["SearchRankHistoryController_getResults"],"/wordpress/links":[],"/wordpress/paragraphs":[],"/wordpress/seo-metadata":[],"/wordpress/seo-audits":[],"/wordpress/surface":[],"/operation-coverage":[]};
-const paths=Object.fromEntries(Object.entries(operations).map(([path,ids])=>[path,{get:{operationId:`helix_${path.replaceAll(/[{}\/-]/g,"_").replace(/^_+|_+$/g,"")}`,description:"Read-only retained evidence; never triggers provider acquisition.","x-seo-tool-a-operation-ids":ids,responses:{200:{description:"Retained evidence"}}}}]));
-paths["/observed-site-similarity"]={get:{operationId:"helix_observed_site_similarity",description:"Observed-domain similarity by retained shared keywords, groups, and ranks.",responses:{200:{description:"Retained evidence"}}}};
-paths["/observed-site-keyword-opportunities"]={get:{operationId:"helix_observed_site_keyword_opportunities",description:"Review-only keywords observed for similar domains but not observed for the target within retained depth.",responses:{200:{description:"Retained evidence"}}}};
-paths["/observed-keyword-content-routing"]={get:{operationId:"helix_observed_keyword_content_routing",description:"Route observed-neighbor keyword reviews to existing-article expansion or new-article review without mutating content.",responses:{200:{description:"Retained evidence"}}}};
-paths["/observed-opportunity-content-coverage"]={get:{operationId:"helix_observed_opportunity_content_coverage",description:"Gate observed opportunities by existing title, heading, and query coverage before recommending content changes.",responses:{200:{description:"Retained evidence"}}}};
-paths["/new-article-topology-gate"]={get:{operationId:"helix_new_article_topology_gate",description:"Gate new-article reviews against retained group topology and existing-article relationships.",responses:{200:{description:"Retained evidence"}}}};
-paths["/new-article-brief-queue"]={get:{operationId:"helix_new_article_brief_queue",description:"Group-deduplicated new-article briefs with retained title, outline, claim/citation source preparation, and publication-blocker lineage.",responses:{200:{description:"Retained evidence"}}}};
-paths["/new-article-source-discovery-manifest"]={get:{operationId:"helix_new_article_source_discovery_manifest",description:"Article-grouped source-discovery queries with source requirements and fail-closed lifetime-budget state; never executes discovery.",responses:{200:{description:"Plan-only retained evidence"}}}};
-paths["/new-article-public-source-evidence"]={get:{operationId:"helix_new_article_public_source_evidence",description:"Zero-cost public-source checks for priority article claims, retaining contextual and no-result outcomes without approval.",responses:{200:{description:"Fail-closed public evidence"}}}};
-paths["/evidence-safe-claim-reframes"]={get:{operationId:"helix_evidence_safe_claim_reframes",description:"Review-only reframing of unsupported claims into evidence-safe editorial scopes without inventing answers or mutating content.",responses:{200:{description:"Unsupported claim reframing queue"}}}};
-paths["/evidence-safe-draft-revisions"]={get:{operationId:"helix_evidence_safe_draft_revisions",description:"Review-only heading and body-scope revision proposals joined to retained unsupported draft claims and evidence lineage.",responses:{200:{description:"Evidence-safe draft revision proposals"}}}};
-paths["/evidence-safe-manual-revision-packets"]={get:{operationId:"helix_evidence_safe_manual_revision_packets",description:"Approved-only before/after manual draft artifacts with exact claim, section, evidence, citation, proposal, and decision lineage; never applies or publishes revisions.",responses:{200:{description:"Evidence-safe manual revision packets"}}}};
-paths["/new-article-citation-suitability"]={get:{operationId:"helix_new_article_citation_suitability",description:"Audit retained citation recommendations against source-authority and claim-requirement proof without approving candidates.",responses:{200:{description:"Fail-closed retained evidence"}}}};
-paths["/public-contract-freshness"]={get:{operationId:"helix_public_contract_freshness",description:"Current retained live-check metadata for public OpenAPI and MCP transport/auth/rate boundaries; never authenticates or calls paid operations.",responses:{200:{description:"Public contract audit"}}}};
-paths["/observed-sites"]={get:{operationId:"helix_observed_sites",description:"Search retained observed domains with keyword, rank, content, and two-snapshot history evidence.",responses:{200:{description:"Retained evidence"}}}};
-paths["/observed-ranked-keyword-history"]={get:{operationId:"helix_observed_ranked_keyword_history",description:"Two-snapshot host, directory, and page keyword appearance history without unranked inference.",responses:{200:{description:"Retained evidence"}}}};
-paths["/observed-ranked-keywords"]={get:{operationId:"helix_observed_ranked_keywords",description:"Observed host, directory, and page to keyword reverse index within retained top-10 evidence only.",responses:{200:{description:"Retained evidence"}}}};
-const openapi={openapi:"3.1.0",info:{title:"HELIX SEO Research API",version:"2.113.0",description:"Read-only, site-scoped retained SEO evidence. No endpoint triggers external acquisition. External operation IDs are mapping references, not contract compatibility claims."},servers:[{url:"/api/v1"}],paths};
-const operationCoverage=Object.entries(operations).flatMap(([path,ids])=>ids.map((operation_id)=>({operation_id,helix_endpoint:`GET /api/v1${path}`,mapping_state:operation_id.endsWith("_register")?"plan_only_no_mutation":"retained_evidence_projection"})));
-paths["/keyword-decisions"]={get:{operationId:"helix_keyword_decisions",description:"Read-only retained merge, split, and cannibalization evidence; never triggers provider acquisition.","x-seo-tool-a-operation-ids":["RankingKeywordsController_search"],responses:{200:{description:"Retained evidence"}}}};
-paths["/intent-fingerprints"]={get:{operationId:"helix_serp_intent_fingerprints",description:"Composite SERP intent similarity and review-only merge/split candidates; never mutates groups.","x-seo-tool-a-operation-ids":["RankingKeywordsController_search"],responses:{200:{description:"Retained evidence"}}}};
-paths["/keyword-boundaries"]={get:{operationId:"helix_keyword_boundary_consensus",description:"Consensus and conflicts between exact-URL overlap and composite SERP intent evidence; review-only.","x-seo-tool-a-operation-ids":["RankingKeywordsController_search"],responses:{200:{description:"Retained evidence"}}}};
-paths["/depth-stability"]={get:{operationId:"helix_serp_depth_stability",description:"Top3, top5, and top10 exact-URL overlap sensitivity with threshold-flip evidence.","x-seo-tool-a-operation-ids":["RankingKeywordsController_search"],responses:{200:{description:"Retained evidence"}}}};
-paths["/content-topology"]={get:{operationId:"helix_content_topology",description:"Group-level consolidation, hold, separate-article and internal-link reviews tied to selected titles and outlines.","x-seo-tool-a-operation-ids":["RankingKeywordsController_search"],responses:{200:{description:"Retained evidence"}}}};
-paths["/consolidation-blueprints"]={get:{operationId:"helix_content_consolidation_blueprints",description:"Evidence and lexical diffs for consolidation-review titles and headings; no automatic representative selection.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained evidence"}}}};
-paths["/consolidation-citations"]={get:{operationId:"helix_content_consolidation_citations",description:"Normalized source-to-merged claim citation review queue; read-only and never auto-approved.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained evidence"}}}};
-paths["/serp-field-lineage"]={get:{operationId:"helix_serp_field_lineage",description:"Every non-empty primitive raw SERP field path with projection state and a source-verified decision consumer when one exists.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained field and consumer lineage"}}}};
-paths["/freshness-signals"]={get:{operationId:"helix_serp_freshness_signals",description:"Observed top-10 timestamp coverage and age distribution; sparse or missing timestamps never imply evergreen intent.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained freshness evidence"}}}};
-paths["/presentation-integrity"]={get:{operationId:"helix_serp_presentation_integrity",description:"Observed organic presentation attributes and contract anomalies; false flags never prove format absence.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained presentation integrity evidence"}}}};
-paths["/search-contracts"]={get:{operationId:"helix_serp_search_contracts",description:"Search request fingerprint, response echo, and exact-contract comparison eligibility.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained search contract evidence"}}}};
-paths["/paa-answers"]={get:{operationId:"helix_paa_answer_evidence",description:"Observed PAA answer snippets, sources and tables with resolved and asynchronous-pending states kept distinct.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained PAA answer evidence"}}}};
-paths["/aio-element-lineage"]={get:{operationId:"helix_aio_element_source_lineage",description:"AIO element-level references, links and images with reconciliation against the overview reference list.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained AIO element source lineage"}}}};
-paths["/feature-placements"]={get:{operationId:"helix_serp_feature_placements",description:"Observed SERP feature rank and placement envelope; no CTR or demand is inferred.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained SERP feature placement evidence"}}}};
-paths["/heading-patterns"]={get:{operationId:"helix_heading_serp_patterns",description:"Generated heading candidates compared with observed level-specific SERP morphology; no ranking causality is inferred.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained heading pattern evidence"}}}};
-paths["/keyword-lineage"]={get:{operationId:"helix_keyword_source_lineage",description:"Lossless source-row lineage through normalization hierarchy, acquired groups, and related-keyword proposals.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained keyword source lineage"}}}};
-paths["/related-keyword-boundaries"]={get:{operationId:"helix_related_keyword_boundaries",description:"Cross-group proposal score boundaries for retained related-keyword candidates; never auto-assigns a group.","x-seo-tool-a-operation-ids":["RelatedKeywordsController_search"],responses:{200:{description:"Retained related-keyword boundary evidence"}}}};
-paths["/association-evidence"]={get:{operationId:"helix_association_evidence",description:"Audited retained row-cooccurrence edges with cosine reconstruction and evidence samples; semantic equivalence is never inferred.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained association evidence"}}}};
-paths["/variant-evidence"]={get:{operationId:"helix_variant_evidence",description:"Audited source-backed surface variants sharing a normalized token multiset; semantic synonymy and interchangeability are never inferred.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained variant evidence"}}}};
-paths["/semantic-candidate-reviews"]={get:{operationId:"helix_semantic_candidate_reviews",description:"Review-only relations combining strong reciprocal row cooccurrence with retained SERP title/snippet URL context; never asserts synonymy.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained semantic relation candidate evidence"}}}};
-paths["/public-synonyms"]={get:{operationId:"helix_public_synonyms",description:"Search a versioned public corpus of human-reviewed Japanese synonym pairs with license and digest provenance; contextual replacement still requires review.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Public lexical synonym evidence"}}}};
-paths["/public-semantic-graph"]={get:{operationId:"helix_public_semantic_graph",description:"Traverse versioned public Japanese senses and typed semantic edges to depth 1-3 without inferring synonymy, demand, ranking effects, or content changes.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Public semantic graph evidence"}}}};
-paths["/graph-related-keywords"]={get:{operationId:"helix_graph_related_keywords",description:"Reverse-map arbitrary terms through ambiguous typed semantic paths into retained keyword rows and group-boundary evidence without market-wide, demand, synonymy, or ranking inference.","x-seo-tool-a-operation-ids":["RelatedKeywordsController_search"],responses:{200:{description:"Retained graph-assisted related-keyword evidence"}}}};
-paths["/content-semantic-coverage"]={get:{operationId:"helix_content_semantic_coverage",description:"Read restart-stable SQLite semantic coverage, deterministic expansion previews, and deduplicated resolution tasks for every resolved article group without treating concepts as required topics or inferring demand, synonymy, or ranking effects.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Persisted review-only semantic coverage and resolution evidence"}}}};
-paths["/semantic-resolution-decisions"]={get:{operationId:"helix_semantic_resolution_decisions",description:"Read digest-bound semantic editor progress with dictionary senses, definitions, typed-edge lineage, and retained volume/SERP demand lineage; never infer contextual sense or absolute concept demand, assign groups, select candidates, or change content.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Semantic decision packet, sense and demand readiness, and progress"}}}};
-paths["/suggest-evidence"]={get:{operationId:"helix_suggest_evidence",description:"Normalized retained-workbook candidates with lossless source rows, acquisition state and volume conflicts; not an external autocomplete feed.","x-seo-tool-a-operation-ids":["SuggestKeywordsController_search"],responses:{200:{description:"Retained suggest candidate evidence"}}}};
-paths["/question-lineage"]={get:{operationId:"helix_question_lineage",description:"Question candidate lineage from observed PAA or deterministic related-search derivation through source occurrences, answer state and content coverage.","x-seo-tool-a-operation-ids":["QuestionSearchController_search"],responses:{200:{description:"Retained question lineage evidence"}}}};
-paths["/question-expansion-graph"]={get:{operationId:"helix_question_expansion_graph",description:"Normalized PAA parent-child expansion nodes or edges with retained task/group provenance, depth and cycle checks.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained question expansion graph"}}}};
-paths["/demand-occurrence-integrity"]={get:{operationId:"helix_demand_occurrence_integrity",description:"Lossless PAA and related-search aggregate reconstruction with task/group spread, snapshot window and explicit non-volume semantics.","x-seo-tool-a-operation-ids":["OtherKeywordsController_search","QuestionSearchController_search"],responses:{200:{description:"Retained demand occurrence integrity"}}}};
-paths["/demand-appearance-history"]={get:{operationId:"helix_demand_appearance_history",description:"Compare retained same-keyword demand snapshots as persistent, gained or lost with task/date provenance.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained demand appearance history"}}}};
-paths["/simultaneous-rank-integrity"]={get:{operationId:"helix_simultaneous_rank_integrity",description:"Reconstructed shared top-10 URL overlap and reciprocal-rank evidence connected to intent/boundary reviews; never auto-merges keywords.","x-seo-tool-a-operation-ids":["RankingKeywordsController_search"],responses:{200:{description:"Retained simultaneous-rank integrity"}}}};
-paths["/rank/monitor-plan"]={get:{operationId:"helix_rank_monitor_plan",description:"Deterministic 120-day target-monitoring plan separating retained desktop evidence, unobserved mobile variants, and regional location selection; read-only and never auto-registers.","x-seo-tool-a-operation-ids":["SearchRankHistoryController_register","SearchRankHistoryController_getStatus"],responses:{200:{description:"Rank monitoring plan"}}}};
-paths["/action-queue"]={get:{operationId:"helix_seo_action_queue",description:"Evidence-bound editorial, semantic-sense, topology, internal-link, format and monitoring reviews in explicit workflow order; never executes mutations or infers rank lift.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"HELIX SEO action queue"}}}};
-paths["/keyword-acquisition-portfolio"]={get:{operationId:"helix_keyword_acquisition_portfolio",description:"Lossless normalized acquisition candidates and plan-only batches ordered by decision dependency; never submits provider jobs.","x-seo-tool-a-operation-ids":["SearchRankHistoryController_register"],responses:{200:{description:"Keyword acquisition portfolio"}}}};
-paths["/acquisition-lifetime-allocation"]={get:{operationId:"helix_acquisition_lifetime_allocation",description:"Allocate all known acquisition candidates under one cumulative lifetime budget without submitting jobs.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Cumulative acquisition budget allocation"}}}};
-paths["/qa-site-evidence"]={get:{operationId:"helix_qa_site_evidence",description:"Search Q&A pages already observed in retained SERP evidence; this is not a full external Q&A index.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained Q&A page observations"}}}};
-paths["/acquisition-lifetime-approval-manifest"]={get:{operationId:"helix_acquisition_lifetime_approval_manifest",description:"Return immutable cross-portfolio batches, cost integrity, price gate, and exact approval challenge without authorizing execution.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Lifetime allocation approval manifest"}}}};
-paths["/title-repairs"]={get:{operationId:"helix_title_repairs",description:"Evidence-bound HELIX title repairs constrained by observed morphology; never copies observed titles, auto-approves, or infers rank lift.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Title repair review queue"}}}};
-paths["/heading-repairs"]={get:{operationId:"helix_heading_repairs",description:"Evidence-bound HELIX heading repairs constrained by observed level morphology with semantic-preservation review required.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Heading repair review queue"}}}};
-paths["/content-readiness"]={get:{operationId:"helix_content_readiness",description:"Article-level publication readiness across composition, editorial repair, semantic sense decisions, topology, claim verification, and citation approval gates.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Content readiness gate with semantic decision lineage"}}}};
-paths["/content-demand-stability"]={get:{operationId:"helix_content_demand_stability",description:"Assess title and heading candidates against retained persistent, gained and lost demand history.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Content demand stability review"}}}};
-paths["/content-competitive-stability"]={get:{operationId:"helix_content_competitive_stability",description:"Assess competitor-backed title and heading candidates against retained page/domain persistence before editorial use.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Content competitive stability review"}}}};
-paths["/content-evidence-ensemble-selection"]={get:{operationId:"helix_content_evidence_ensemble_selection",description:"Rank title and heading candidates across quality, evidence, demand stability, competitive persistence and observed SERP morphology without auto-selection.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Multi-evidence content selection review"}}}};
-paths["/content-task-holdout"]={get:{operationId:"helix_content_task_holdout",description:"Evaluate title and heading candidates against task-disjoint retained evidence with an explicit leakage audit; not a temporal, human-quality, or ranking-effect experiment.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Task-disjoint content candidate robustness"}}}};
-paths["/content-editorial-review"]={get:{operationId:"helix_content_editorial_review",description:"Return a blinded, balanced editorial A/B review packet without candidate origin labels, source scores, automatic selection, or mutation.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Blinded editorial review queue"}}}};
-paths["/content-editorial-adjudication"]={get:{operationId:"helix_content_editorial_adjudication",description:"Return fail-closed consensus and adjudication states derived from distinct blinded reviewers without exposing candidate origin or applying a winner.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Blinded editorial adjudication queue"}}}};
-paths["/content-selection-delta-explanations"]={get:{operationId:"helix_content_selection_delta_explanations",description:"Explain current-to-recommended title and heading changes as retained-evidence component deltas without applying them.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Explainable content selection deltas"}}}};
-paths["/generation-provenance"]={get:{operationId:"helix_generation_provenance",description:"Audit deterministic, observed-pass-through, packaged-but-unexecuted, and externally generated content artifacts without triggering generation.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Generation provenance ledger"}}}};
-paths["/generation-execution-manifest"]={get:{operationId:"helix_generation_execution_manifest",description:"Inspect immutable prompt, output-schema, model-selection, token-ceiling, cost, cumulative-budget, and approval gates without executing generation.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Generation execution manifest"}}}};
-paths["/paid-test-budget-scenarios"]={get:{operationId:"helix_paid_test_budget_scenarios",description:"Compare acquisition opportunity cost for generation budget reservations under one cumulative paid-test ceiling without reallocating or executing work.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Paid-test budget scenario comparison"}}}};
-paths["/content-rich-block-plans"]={get:{operationId:"helix_content_rich_block_plans",description:"Inspect source-gated rich block contracts derived only from observed SERP format signals without generating payloads or inserting content.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Content rich block plans"}}}};
-paths["/generation-challenger-manifest"]={get:{operationId:"helix_generation_challenger_manifest",description:"Inspect prompt, schema, baseline, evidence, budget and blinded-evaluation contracts for five generation capabilities without executing a model.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Generation challenger manifest"}}}};
-paths["/search-contract-code-mappings"]={get:{operationId:"helix_search_contract_code_mappings",description:"Inspect observed location and language code mappings triangulated from retained request, response echo, and check URL contracts without claiming a full official code catalog.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Observed search contract code mappings"}}}};
-paths["/competitive-appearance-history"]={get:{operationId:"helix_competitive_appearance_history",description:"Aggregate retained same-keyword organic snapshots into domain and page persistence, entry, exit, best-rank and visibility movement evidence.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Competitive domain and page appearance history"}}}};
-paths["/claim-verification-queue"]={get:{operationId:"helix_claim_verification_queue",description:"Risk-tiered verification workload with retained evidence and explicit source requirements; no claim is marked verified by SERP evidence alone.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Claim verification queue"}}}};
-paths["/claim-discovery-portfolio"]={get:{operationId:"helix_claim_discovery_portfolio",description:"Plan-only primary-source discovery candidates and batches with one requirement-specific initial query per claim; never executes external search.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Claim discovery portfolio"}}}};
-paths["/paa-answer-completion"]={get:{operationId:"helix_paa_answer_completion",description:"Pending-only PAA answer completion tasks with click-depth request and maximum pre-refund cost; never submits provider jobs.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"PAA answer completion portfolio"}}}};
-paths["/brands"]={get:{operationId:"helix_serp_brands",description:"Observed SERP display-brand and domain occupancy; never triggers provider acquisition.","x-seo-tool-a-operation-ids":["CompetitiveController_searchCompetitive"],responses:{200:{description:"Retained evidence"}}}};
-paths["/aio-overviews"]={get:{operationId:"helix_aio_overviews",description:"Observed AIO containers with resolved, asynchronous-pending, or empty response state.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained evidence"}}}};
-paths["/aio-completion"]={get:{operationId:"helix_aio_completion",description:"Plan async-AIO-enabled reposts only for retained placeholders whose source request omitted async loading; never submits jobs.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"AIO completion portfolio"}}}};
-paths["/acquisition-contract-fulfillment"]={get:{operationId:"helix_acquisition_contract_fulfillment",description:"Audit requested acquisition flags against returned AIO/PAA payload fulfillment and recorded cost; never retrieves data.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Acquisition contract fulfillment"}}}};
-paths["/acquisition-remediation-portfolio"]={get:{operationId:"helix_acquisition_remediation_portfolio",description:"Combine AIO and PAA remediation flags per source task to avoid duplicate reposts and expose a maximum cost; never submits jobs.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Acquisition remediation portfolio"}}}};
-paths["/acquisition-execution-readiness"]={get:{operationId:"helix_acquisition_execution_readiness",description:"Validate remediation request fields, digests, batch limits, price freshness, budget, and explicit paid-execution approval; never submits jobs.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Acquisition execution readiness"}}}};
-paths["/acquisition-approval-manifest"]={get:{operationId:"helix_acquisition_approval_manifest",description:"Return an immutable candidate, batch, budget, price-expiry, and approval-challenge manifest; never records approval or submits jobs.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Acquisition approval manifest"}}}};
-paths["/snapshot-history"]={get:{operationId:"helix_snapshot_history",description:"Audited reuse of retained SERP snapshots, including same-keyword history, adjacent intent candidates, and separate-corpus registration reviews for isolated evidence.","x-seo-tool-a-operation-ids":["SearchRankHistoryController_getResults"],responses:{200:{description:"Retained evidence"}}}};
-paths["/serp-feature-items"]={get:{operationId:"helix_serp_feature_items",description:"Normalized nested items and source links from retained special SERP features.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained evidence"}}}};
-paths["/compositions"]={get:{operationId:"helix_content_plan_compositions",description:"Evidence-bound title and outline coherence reviews; no automatic approval.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained evidence"}}}};
-paths["/drafts"]={get:{operationId:"helix_content_evidence_drafts",description:"Generated evidence-bound draft revisions with claim verification and publication gates; no automatic approval.","x-seo-tool-a-operation-ids":[],responses:{200:{description:"Retained evidence"}}}};
-operationCoverage.push({operation_id:"RankingKeywordsController_search",helix_endpoint:"GET /api/v1/keyword-decisions",mapping_state:"retained_evidence_projection"});
-operationCoverage.push({operation_id:"CompetitiveController_searchCompetitive",helix_endpoint:"GET /api/v1/brands",mapping_state:"retained_evidence_projection"});
-operationCoverage.push({operation_id:"SearchRankHistoryController_getResults",helix_endpoint:"GET /api/v1/snapshot-history",mapping_state:"retained_evidence_projection"});
-let researchDb=null;
-export const setResearchDb=(db)=>{researchDb=db};
+const parseLimit = (value) => {
+    if (value == null || String(value).trim() === "") return 25;
+    const parsed = Number(value);
+    return Math.max(1, Math.min(100, Number.isInteger(parsed) ? parsed : 25));
+  },
+  parseCursor = (value) => {
+    if (value == null || String(value).trim() === "") return 0;
+    const parsed = Number(value);
+    return Math.max(0, Number.isInteger(parsed) ? parsed : 0);
+  };
+const page = (rows, url) => {
+  const limit = parseLimit(url.searchParams.get("limit")),
+    offset = parseCursor(url.searchParams.get("cursor")),
+    data = rows.slice(offset, offset + limit),
+    next =
+      offset + data.length < rows.length ? String(offset + data.length) : null;
+  return {
+    data,
+    meta: {
+      total: rows.length,
+      limit,
+      cursor: String(offset),
+      next_cursor: next,
+    },
+  };
+};
+const envelope = (data) => ({
+    ...data,
+    provenance: {
+      scope: "retained_evidence_only",
+      external_acquisition_triggered: false,
+      credentials_exposed: false,
+    },
+  }),
+  bad = (status, error) => ({ status, body: { error } }),
+  ok = (body) => ({ status: 200, body: envelope(body) }),
+  norm = (value) =>
+    String(value ?? "")
+      .normalize("NFKC")
+      .trim()
+      .toLocaleLowerCase("ja-JP");
+const average = (values) =>
+  values.length
+    ? values.reduce((sum, value) => sum + value, 0) / values.length
+    : null;
+const median = (values) => {
+  if (!values.length) return null;
+  const sorted = [...values].sort((a, b) => a - b),
+    middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2
+    ? sorted[middle]
+    : (sorted[middle - 1] + sorted[middle]) / 2;
+};
+const operations = {
+  "/sites": [
+    "SiteSearchController_search",
+    "BulkSiteResearchController_searchBulkSiteResearch",
+  ],
+  "/keywords": ["SuggestKeywordsController_search"],
+  "/demands": [
+    "OtherKeywordsController_search",
+    "QuestionSearchController_search",
+  ],
+  "/questions": [],
+  "/groups/{group_id}/brief": [],
+  "/acquisition": [],
+  "/related-keywords": ["RelatedKeywordsController_search"],
+  "/simultaneous-rankings": ["RankingKeywordsController_search"],
+  "/pages": ["InfluxPagesController_searchPage"],
+  "/domains": ["CompetitiveController_searchCompetitive"],
+  "/content": ["ContentSearchController_search"],
+  "/headings": ["HeadlineController_search"],
+  "/titles": [],
+  "/outlines": [],
+  "/cooccurrence": ["CoOccurrenceController_search"],
+  "/serp-results": ["SearchRankSerpCacheController_getSerpCache"],
+  "/market/locations": ["SearchVolumeMetadataController_getLocations"],
+  "/market/languages": ["SearchVolumeMetadataController_getLanguages"],
+  "/credits/estimate": [],
+  "/operation-graph": [],
+  "/operation-retention": [],
+  "/acquisition-retention": [],
+  "/provider-provenance": [],
+  "/market/status": [
+    "SearchVolumeHistoryController_register",
+    "SearchVolumeHistoryController_listHistories",
+    "SearchVolumeHistoryController_getStatus",
+  ],
+  "/market/results": [
+    "SearchVolumeHistoryController_getResults",
+    "InfluxKeywordsController_searchKeyword",
+  ],
+  "/rank/status": [
+    "SearchRankHistoryController_register",
+    "SearchRankHistoryController_listHistories",
+    "SearchRankHistoryController_getStatus",
+  ],
+  "/rank/results": ["SearchRankHistoryController_getResults"],
+  "/wordpress/links": [],
+  "/wordpress/paragraphs": [],
+  "/wordpress/seo-metadata": [],
+  "/wordpress/seo-audits": [],
+  "/wordpress/surface": [],
+  "/operation-coverage": [],
+};
+const paths = Object.fromEntries(
+  Object.entries(operations).map(([path, ids]) => [
+    path,
+    {
+      get: {
+        operationId: `helix_${path.replaceAll(/[{}\/-]/g, "_").replace(/^_+|_+$/g, "")}`,
+        description:
+          "Read-only retained evidence; never triggers provider acquisition.",
+        "x-seo-tool-a-operation-ids": ids,
+        responses: { 200: { description: "Retained evidence" } },
+      },
+    },
+  ]),
+);
+paths["/observed-site-similarity"] = {
+  get: {
+    operationId: "helix_observed_site_similarity",
+    description:
+      "Observed-domain similarity by retained shared keywords, groups, and ranks.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/observed-site-keyword-opportunities"] = {
+  get: {
+    operationId: "helix_observed_site_keyword_opportunities",
+    description:
+      "Review-only keywords observed for similar domains but not observed for the target within retained depth.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/observed-keyword-content-routing"] = {
+  get: {
+    operationId: "helix_observed_keyword_content_routing",
+    description:
+      "Route observed-neighbor keyword reviews to existing-article expansion or new-article review without mutating content.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/observed-opportunity-content-coverage"] = {
+  get: {
+    operationId: "helix_observed_opportunity_content_coverage",
+    description:
+      "Gate observed opportunities by existing title, heading, and query coverage before recommending content changes.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/new-article-topology-gate"] = {
+  get: {
+    operationId: "helix_new_article_topology_gate",
+    description:
+      "Gate new-article reviews against retained group topology and existing-article relationships.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/new-article-brief-queue"] = {
+  get: {
+    operationId: "helix_new_article_brief_queue",
+    description:
+      "Group-deduplicated new-article briefs with retained title, outline, claim/citation source preparation, and publication-blocker lineage.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/new-article-source-discovery-manifest"] = {
+  get: {
+    operationId: "helix_new_article_source_discovery_manifest",
+    description:
+      "Article-grouped source-discovery queries with source requirements and fail-closed lifetime-budget state; never executes discovery.",
+    responses: { 200: { description: "Plan-only retained evidence" } },
+  },
+};
+paths["/new-article-public-source-evidence"] = {
+  get: {
+    operationId: "helix_new_article_public_source_evidence",
+    description:
+      "Zero-cost public-source checks for priority article claims, retaining contextual and no-result outcomes without approval.",
+    responses: { 200: { description: "Fail-closed public evidence" } },
+  },
+};
+paths["/public-source-review-packet"] = {
+  get: {
+    operationId: "helix_public_source_review_packet",
+    description:
+      "Digest-bound editorial source-verification and citation-approval progress for directly supported retained claims; read-only and never auto-applied.",
+    responses: {
+      200: {
+        description: "Public-source review packet and persisted progress",
+      },
+    },
+  },
+};
+paths["/evidence-safe-claim-reframes"] = {
+  get: {
+    operationId: "helix_evidence_safe_claim_reframes",
+    description:
+      "Review-only reframing of unsupported claims into evidence-safe editorial scopes without inventing answers or mutating content.",
+    responses: { 200: { description: "Unsupported claim reframing queue" } },
+  },
+};
+paths["/evidence-safe-draft-revisions"] = {
+  get: {
+    operationId: "helix_evidence_safe_draft_revisions",
+    description:
+      "Review-only heading and body-scope revision proposals joined to retained unsupported draft claims and evidence lineage.",
+    responses: {
+      200: { description: "Evidence-safe draft revision proposals" },
+    },
+  },
+};
+paths["/evidence-safe-manual-revision-packets"] = {
+  get: {
+    operationId: "helix_evidence_safe_manual_revision_packets",
+    description:
+      "Approved-only before/after manual draft artifacts with exact claim, section, evidence, citation, proposal, and decision lineage; never applies or publishes revisions.",
+    responses: {
+      200: { description: "Evidence-safe manual revision packets" },
+    },
+  },
+};
+paths["/new-article-citation-suitability"] = {
+  get: {
+    operationId: "helix_new_article_citation_suitability",
+    description:
+      "Audit retained citation recommendations against source-authority and claim-requirement proof without approving candidates.",
+    responses: { 200: { description: "Fail-closed retained evidence" } },
+  },
+};
+paths["/public-contract-freshness"] = {
+  get: {
+    operationId: "helix_public_contract_freshness",
+    description:
+      "Current retained live-check metadata for public OpenAPI and MCP transport/auth/rate boundaries; never authenticates or calls paid operations.",
+    responses: { 200: { description: "Public contract audit" } },
+  },
+};
+paths["/observed-sites"] = {
+  get: {
+    operationId: "helix_observed_sites",
+    description:
+      "Search retained observed domains with keyword, rank, content, and two-snapshot history evidence.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/observed-ranked-keyword-history"] = {
+  get: {
+    operationId: "helix_observed_ranked_keyword_history",
+    description:
+      "Two-snapshot host, directory, and page keyword appearance history without unranked inference.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/observed-ranked-keywords"] = {
+  get: {
+    operationId: "helix_observed_ranked_keywords",
+    description:
+      "Observed host, directory, and page to keyword reverse index within retained top-10 evidence only.",
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+const openapi = {
+  openapi: "3.1.0",
+  info: {
+    title: "HELIX SEO Research API",
+    version: "2.114.0",
+    description:
+      "Read-only, site-scoped retained SEO evidence. No endpoint triggers external acquisition. External operation IDs are mapping references, not contract compatibility claims.",
+  },
+  servers: [{ url: "/api/v1" }],
+  paths,
+};
+const operationCoverage = Object.entries(operations).flatMap(([path, ids]) =>
+  ids.map((operation_id) => ({
+    operation_id,
+    helix_endpoint: `GET /api/v1${path}`,
+    mapping_state: operation_id.endsWith("_register")
+      ? "plan_only_no_mutation"
+      : "retained_evidence_projection",
+  })),
+);
+paths["/keyword-decisions"] = {
+  get: {
+    operationId: "helix_keyword_decisions",
+    description:
+      "Read-only retained merge, split, and cannibalization evidence; never triggers provider acquisition.",
+    "x-seo-tool-a-operation-ids": ["RankingKeywordsController_search"],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/intent-fingerprints"] = {
+  get: {
+    operationId: "helix_serp_intent_fingerprints",
+    description:
+      "Composite SERP intent similarity and review-only merge/split candidates; never mutates groups.",
+    "x-seo-tool-a-operation-ids": ["RankingKeywordsController_search"],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/keyword-boundaries"] = {
+  get: {
+    operationId: "helix_keyword_boundary_consensus",
+    description:
+      "Consensus and conflicts between exact-URL overlap and composite SERP intent evidence; review-only.",
+    "x-seo-tool-a-operation-ids": ["RankingKeywordsController_search"],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/depth-stability"] = {
+  get: {
+    operationId: "helix_serp_depth_stability",
+    description:
+      "Top3, top5, and top10 exact-URL overlap sensitivity with threshold-flip evidence.",
+    "x-seo-tool-a-operation-ids": ["RankingKeywordsController_search"],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/content-topology"] = {
+  get: {
+    operationId: "helix_content_topology",
+    description:
+      "Group-level consolidation, hold, separate-article and internal-link reviews tied to selected titles and outlines.",
+    "x-seo-tool-a-operation-ids": ["RankingKeywordsController_search"],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/consolidation-blueprints"] = {
+  get: {
+    operationId: "helix_content_consolidation_blueprints",
+    description:
+      "Evidence and lexical diffs for consolidation-review titles and headings; no automatic representative selection.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/consolidation-citations"] = {
+  get: {
+    operationId: "helix_content_consolidation_citations",
+    description:
+      "Normalized source-to-merged claim citation review queue; read-only and never auto-approved.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/serp-field-lineage"] = {
+  get: {
+    operationId: "helix_serp_field_lineage",
+    description:
+      "Every non-empty primitive raw SERP field path with projection state and a source-verified decision consumer when one exists.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained field and consumer lineage" } },
+  },
+};
+paths["/freshness-signals"] = {
+  get: {
+    operationId: "helix_serp_freshness_signals",
+    description:
+      "Observed top-10 timestamp coverage and age distribution; sparse or missing timestamps never imply evergreen intent.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained freshness evidence" } },
+  },
+};
+paths["/presentation-integrity"] = {
+  get: {
+    operationId: "helix_serp_presentation_integrity",
+    description:
+      "Observed organic presentation attributes and contract anomalies; false flags never prove format absence.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Retained presentation integrity evidence" },
+    },
+  },
+};
+paths["/search-contracts"] = {
+  get: {
+    operationId: "helix_serp_search_contracts",
+    description:
+      "Search request fingerprint, response echo, and exact-contract comparison eligibility.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained search contract evidence" } },
+  },
+};
+paths["/paa-answers"] = {
+  get: {
+    operationId: "helix_paa_answer_evidence",
+    description:
+      "Observed PAA answer snippets, sources and tables with resolved and asynchronous-pending states kept distinct.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained PAA answer evidence" } },
+  },
+};
+paths["/aio-element-lineage"] = {
+  get: {
+    operationId: "helix_aio_element_source_lineage",
+    description:
+      "AIO element-level references, links and images with reconciliation against the overview reference list.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained AIO element source lineage" } },
+  },
+};
+paths["/feature-placements"] = {
+  get: {
+    operationId: "helix_serp_feature_placements",
+    description:
+      "Observed SERP feature rank and placement envelope; no CTR or demand is inferred.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Retained SERP feature placement evidence" },
+    },
+  },
+};
+paths["/heading-patterns"] = {
+  get: {
+    operationId: "helix_heading_serp_patterns",
+    description:
+      "Generated heading candidates compared with observed level-specific SERP morphology; no ranking causality is inferred.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained heading pattern evidence" } },
+  },
+};
+paths["/keyword-lineage"] = {
+  get: {
+    operationId: "helix_keyword_source_lineage",
+    description:
+      "Lossless source-row lineage through normalization hierarchy, acquired groups, and related-keyword proposals.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained keyword source lineage" } },
+  },
+};
+paths["/related-keyword-boundaries"] = {
+  get: {
+    operationId: "helix_related_keyword_boundaries",
+    description:
+      "Cross-group proposal score boundaries for retained related-keyword candidates; never auto-assigns a group.",
+    "x-seo-tool-a-operation-ids": ["RelatedKeywordsController_search"],
+    responses: {
+      200: { description: "Retained related-keyword boundary evidence" },
+    },
+  },
+};
+paths["/association-evidence"] = {
+  get: {
+    operationId: "helix_association_evidence",
+    description:
+      "Audited retained row-cooccurrence edges with cosine reconstruction and evidence samples; semantic equivalence is never inferred.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained association evidence" } },
+  },
+};
+paths["/variant-evidence"] = {
+  get: {
+    operationId: "helix_variant_evidence",
+    description:
+      "Audited source-backed surface variants sharing a normalized token multiset; semantic synonymy and interchangeability are never inferred.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained variant evidence" } },
+  },
+};
+paths["/semantic-candidate-reviews"] = {
+  get: {
+    operationId: "helix_semantic_candidate_reviews",
+    description:
+      "Review-only relations combining strong reciprocal row cooccurrence with retained SERP title/snippet URL context; never asserts synonymy.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Retained semantic relation candidate evidence" },
+    },
+  },
+};
+paths["/public-synonyms"] = {
+  get: {
+    operationId: "helix_public_synonyms",
+    description:
+      "Search a versioned public corpus of human-reviewed Japanese synonym pairs with license and digest provenance; contextual replacement still requires review.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Public lexical synonym evidence" } },
+  },
+};
+paths["/public-semantic-graph"] = {
+  get: {
+    operationId: "helix_public_semantic_graph",
+    description:
+      "Traverse versioned public Japanese senses and typed semantic edges to depth 1-3 without inferring synonymy, demand, ranking effects, or content changes.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Public semantic graph evidence" } },
+  },
+};
+paths["/graph-related-keywords"] = {
+  get: {
+    operationId: "helix_graph_related_keywords",
+    description:
+      "Reverse-map arbitrary terms through ambiguous typed semantic paths into retained keyword rows and group-boundary evidence without market-wide, demand, synonymy, or ranking inference.",
+    "x-seo-tool-a-operation-ids": ["RelatedKeywordsController_search"],
+    responses: {
+      200: { description: "Retained graph-assisted related-keyword evidence" },
+    },
+  },
+};
+paths["/content-semantic-coverage"] = {
+  get: {
+    operationId: "helix_content_semantic_coverage",
+    description:
+      "Read restart-stable SQLite semantic coverage, deterministic expansion previews, and deduplicated resolution tasks for every resolved article group without treating concepts as required topics or inferring demand, synonymy, or ranking effects.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: {
+        description:
+          "Persisted review-only semantic coverage and resolution evidence",
+      },
+    },
+  },
+};
+paths["/semantic-resolution-decisions"] = {
+  get: {
+    operationId: "helix_semantic_resolution_decisions",
+    description:
+      "Read digest-bound semantic editor progress with dictionary senses, definitions, typed-edge lineage, and retained volume/SERP demand lineage; never infer contextual sense or absolute concept demand, assign groups, select candidates, or change content.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: {
+        description:
+          "Semantic decision packet, sense and demand readiness, and progress",
+      },
+    },
+  },
+};
+paths["/suggest-evidence"] = {
+  get: {
+    operationId: "helix_suggest_evidence",
+    description:
+      "Normalized retained-workbook candidates with lossless source rows, acquisition state and volume conflicts; not an external autocomplete feed.",
+    "x-seo-tool-a-operation-ids": ["SuggestKeywordsController_search"],
+    responses: { 200: { description: "Retained suggest candidate evidence" } },
+  },
+};
+paths["/question-lineage"] = {
+  get: {
+    operationId: "helix_question_lineage",
+    description:
+      "Question candidate lineage from observed PAA or deterministic related-search derivation through source occurrences, answer state and content coverage.",
+    "x-seo-tool-a-operation-ids": ["QuestionSearchController_search"],
+    responses: { 200: { description: "Retained question lineage evidence" } },
+  },
+};
+paths["/question-expansion-graph"] = {
+  get: {
+    operationId: "helix_question_expansion_graph",
+    description:
+      "Normalized PAA parent-child expansion nodes or edges with retained task/group provenance, depth and cycle checks.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained question expansion graph" } },
+  },
+};
+paths["/demand-occurrence-integrity"] = {
+  get: {
+    operationId: "helix_demand_occurrence_integrity",
+    description:
+      "Lossless PAA and related-search aggregate reconstruction with task/group spread, snapshot window and explicit non-volume semantics.",
+    "x-seo-tool-a-operation-ids": [
+      "OtherKeywordsController_search",
+      "QuestionSearchController_search",
+    ],
+    responses: { 200: { description: "Retained demand occurrence integrity" } },
+  },
+};
+paths["/demand-appearance-history"] = {
+  get: {
+    operationId: "helix_demand_appearance_history",
+    description:
+      "Compare retained same-keyword demand snapshots as persistent, gained or lost with task/date provenance.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained demand appearance history" } },
+  },
+};
+paths["/simultaneous-rank-integrity"] = {
+  get: {
+    operationId: "helix_simultaneous_rank_integrity",
+    description:
+      "Reconstructed shared top-10 URL overlap and reciprocal-rank evidence connected to intent/boundary reviews; never auto-merges keywords.",
+    "x-seo-tool-a-operation-ids": ["RankingKeywordsController_search"],
+    responses: { 200: { description: "Retained simultaneous-rank integrity" } },
+  },
+};
+paths["/rank/monitor-plan"] = {
+  get: {
+    operationId: "helix_rank_monitor_plan",
+    description:
+      "Deterministic 120-day target-monitoring plan separating retained desktop evidence, unobserved mobile variants, and regional location selection; read-only and never auto-registers.",
+    "x-seo-tool-a-operation-ids": [
+      "SearchRankHistoryController_register",
+      "SearchRankHistoryController_getStatus",
+    ],
+    responses: { 200: { description: "Rank monitoring plan" } },
+  },
+};
+paths["/action-queue"] = {
+  get: {
+    operationId: "helix_seo_action_queue",
+    description:
+      "Evidence-bound editorial, semantic-sense, topology, internal-link, format and monitoring reviews in explicit workflow order; never executes mutations or infers rank lift.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "HELIX SEO action queue" } },
+  },
+};
+paths["/keyword-acquisition-portfolio"] = {
+  get: {
+    operationId: "helix_keyword_acquisition_portfolio",
+    description:
+      "Lossless normalized acquisition candidates and plan-only batches ordered by decision dependency; never submits provider jobs.",
+    "x-seo-tool-a-operation-ids": ["SearchRankHistoryController_register"],
+    responses: { 200: { description: "Keyword acquisition portfolio" } },
+  },
+};
+paths["/acquisition-lifetime-allocation"] = {
+  get: {
+    operationId: "helix_acquisition_lifetime_allocation",
+    description:
+      "Allocate all known acquisition candidates under one cumulative lifetime budget without submitting jobs.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Cumulative acquisition budget allocation" },
+    },
+  },
+};
+paths["/qa-site-evidence"] = {
+  get: {
+    operationId: "helix_qa_site_evidence",
+    description:
+      "Search Q&A pages already observed in retained SERP evidence; this is not a full external Q&A index.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained Q&A page observations" } },
+  },
+};
+paths["/acquisition-lifetime-approval-manifest"] = {
+  get: {
+    operationId: "helix_acquisition_lifetime_approval_manifest",
+    description:
+      "Return immutable cross-portfolio batches, cost integrity, price gate, and exact approval challenge without authorizing execution.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Lifetime allocation approval manifest" },
+    },
+  },
+};
+paths["/title-repairs"] = {
+  get: {
+    operationId: "helix_title_repairs",
+    description:
+      "Evidence-bound HELIX title repairs constrained by observed morphology; never copies observed titles, auto-approves, or infers rank lift.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Title repair review queue" } },
+  },
+};
+paths["/heading-repairs"] = {
+  get: {
+    operationId: "helix_heading_repairs",
+    description:
+      "Evidence-bound HELIX heading repairs constrained by observed level morphology with semantic-preservation review required.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Heading repair review queue" } },
+  },
+};
+paths["/content-readiness"] = {
+  get: {
+    operationId: "helix_content_readiness",
+    description:
+      "Article-level publication readiness across composition, editorial repair, semantic sense decisions, topology, claim verification, and citation approval gates.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: {
+        description: "Content readiness gate with semantic decision lineage",
+      },
+    },
+  },
+};
+paths["/content-demand-stability"] = {
+  get: {
+    operationId: "helix_content_demand_stability",
+    description:
+      "Assess title and heading candidates against retained persistent, gained and lost demand history.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Content demand stability review" } },
+  },
+};
+paths["/content-competitive-stability"] = {
+  get: {
+    operationId: "helix_content_competitive_stability",
+    description:
+      "Assess competitor-backed title and heading candidates against retained page/domain persistence before editorial use.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Content competitive stability review" } },
+  },
+};
+paths["/content-evidence-ensemble-selection"] = {
+  get: {
+    operationId: "helix_content_evidence_ensemble_selection",
+    description:
+      "Rank title and heading candidates across quality, evidence, demand stability, competitive persistence and observed SERP morphology without auto-selection.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Multi-evidence content selection review" },
+    },
+  },
+};
+paths["/content-task-holdout"] = {
+  get: {
+    operationId: "helix_content_task_holdout",
+    description:
+      "Evaluate title and heading candidates against task-disjoint retained evidence with an explicit leakage audit; not a temporal, human-quality, or ranking-effect experiment.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Task-disjoint content candidate robustness" },
+    },
+  },
+};
+paths["/content-editorial-review"] = {
+  get: {
+    operationId: "helix_content_editorial_review",
+    description:
+      "Return a blinded, balanced editorial A/B review packet without candidate origin labels, source scores, automatic selection, or mutation.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Blinded editorial review queue" } },
+  },
+};
+paths["/content-editorial-adjudication"] = {
+  get: {
+    operationId: "helix_content_editorial_adjudication",
+    description:
+      "Return fail-closed consensus and adjudication states derived from distinct blinded reviewers without exposing candidate origin or applying a winner.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Blinded editorial adjudication queue" } },
+  },
+};
+paths["/content-selection-delta-explanations"] = {
+  get: {
+    operationId: "helix_content_selection_delta_explanations",
+    description:
+      "Explain current-to-recommended title and heading changes as retained-evidence component deltas without applying them.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Explainable content selection deltas" } },
+  },
+};
+paths["/generation-provenance"] = {
+  get: {
+    operationId: "helix_generation_provenance",
+    description:
+      "Audit deterministic, observed-pass-through, packaged-but-unexecuted, and externally generated content artifacts without triggering generation.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Generation provenance ledger" } },
+  },
+};
+paths["/generation-execution-manifest"] = {
+  get: {
+    operationId: "helix_generation_execution_manifest",
+    description:
+      "Inspect immutable prompt, output-schema, model-selection, token-ceiling, cost, cumulative-budget, and approval gates without executing generation.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Generation execution manifest" } },
+  },
+};
+paths["/paid-test-budget-scenarios"] = {
+  get: {
+    operationId: "helix_paid_test_budget_scenarios",
+    description:
+      "Compare acquisition opportunity cost for generation budget reservations under one cumulative paid-test ceiling without reallocating or executing work.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Paid-test budget scenario comparison" } },
+  },
+};
+paths["/content-rich-block-plans"] = {
+  get: {
+    operationId: "helix_content_rich_block_plans",
+    description:
+      "Inspect source-gated rich block contracts derived only from observed SERP format signals without generating payloads or inserting content.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Content rich block plans" } },
+  },
+};
+paths["/generation-challenger-manifest"] = {
+  get: {
+    operationId: "helix_generation_challenger_manifest",
+    description:
+      "Inspect prompt, schema, baseline, evidence, budget and blinded-evaluation contracts for five generation capabilities without executing a model.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Generation challenger manifest" } },
+  },
+};
+paths["/search-contract-code-mappings"] = {
+  get: {
+    operationId: "helix_search_contract_code_mappings",
+    description:
+      "Inspect observed location and language code mappings triangulated from retained request, response echo, and check URL contracts without claiming a full official code catalog.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Observed search contract code mappings" },
+    },
+  },
+};
+paths["/competitive-appearance-history"] = {
+  get: {
+    operationId: "helix_competitive_appearance_history",
+    description:
+      "Aggregate retained same-keyword organic snapshots into domain and page persistence, entry, exit, best-rank and visibility movement evidence.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: {
+      200: { description: "Competitive domain and page appearance history" },
+    },
+  },
+};
+paths["/claim-verification-queue"] = {
+  get: {
+    operationId: "helix_claim_verification_queue",
+    description:
+      "Risk-tiered verification workload with retained evidence and explicit source requirements; no claim is marked verified by SERP evidence alone.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Claim verification queue" } },
+  },
+};
+paths["/claim-discovery-portfolio"] = {
+  get: {
+    operationId: "helix_claim_discovery_portfolio",
+    description:
+      "Plan-only primary-source discovery candidates and batches with one requirement-specific initial query per claim; never executes external search.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Claim discovery portfolio" } },
+  },
+};
+paths["/paa-answer-completion"] = {
+  get: {
+    operationId: "helix_paa_answer_completion",
+    description:
+      "Pending-only PAA answer completion tasks with click-depth request and maximum pre-refund cost; never submits provider jobs.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "PAA answer completion portfolio" } },
+  },
+};
+paths["/brands"] = {
+  get: {
+    operationId: "helix_serp_brands",
+    description:
+      "Observed SERP display-brand and domain occupancy; never triggers provider acquisition.",
+    "x-seo-tool-a-operation-ids": ["CompetitiveController_searchCompetitive"],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/aio-overviews"] = {
+  get: {
+    operationId: "helix_aio_overviews",
+    description:
+      "Observed AIO containers with resolved, asynchronous-pending, or empty response state.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/aio-completion"] = {
+  get: {
+    operationId: "helix_aio_completion",
+    description:
+      "Plan async-AIO-enabled reposts only for retained placeholders whose source request omitted async loading; never submits jobs.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "AIO completion portfolio" } },
+  },
+};
+paths["/acquisition-contract-fulfillment"] = {
+  get: {
+    operationId: "helix_acquisition_contract_fulfillment",
+    description:
+      "Audit requested acquisition flags against returned AIO/PAA payload fulfillment and recorded cost; never retrieves data.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Acquisition contract fulfillment" } },
+  },
+};
+paths["/acquisition-remediation-portfolio"] = {
+  get: {
+    operationId: "helix_acquisition_remediation_portfolio",
+    description:
+      "Combine AIO and PAA remediation flags per source task to avoid duplicate reposts and expose a maximum cost; never submits jobs.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Acquisition remediation portfolio" } },
+  },
+};
+paths["/acquisition-execution-readiness"] = {
+  get: {
+    operationId: "helix_acquisition_execution_readiness",
+    description:
+      "Validate remediation request fields, digests, batch limits, price freshness, budget, and explicit paid-execution approval; never submits jobs.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Acquisition execution readiness" } },
+  },
+};
+paths["/acquisition-approval-manifest"] = {
+  get: {
+    operationId: "helix_acquisition_approval_manifest",
+    description:
+      "Return an immutable candidate, batch, budget, price-expiry, and approval-challenge manifest; never records approval or submits jobs.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Acquisition approval manifest" } },
+  },
+};
+paths["/snapshot-history"] = {
+  get: {
+    operationId: "helix_snapshot_history",
+    description:
+      "Audited reuse of retained SERP snapshots, including same-keyword history, adjacent intent candidates, and separate-corpus registration reviews for isolated evidence.",
+    "x-seo-tool-a-operation-ids": ["SearchRankHistoryController_getResults"],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/serp-feature-items"] = {
+  get: {
+    operationId: "helix_serp_feature_items",
+    description:
+      "Normalized nested items and source links from retained special SERP features.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/compositions"] = {
+  get: {
+    operationId: "helix_content_plan_compositions",
+    description:
+      "Evidence-bound title and outline coherence reviews; no automatic approval.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/drafts"] = {
+  get: {
+    operationId: "helix_content_evidence_drafts",
+    description:
+      "Generated evidence-bound draft revisions with claim verification and publication gates; no automatic approval.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained evidence" } },
+  },
+};
+operationCoverage.push({
+  operation_id: "RankingKeywordsController_search",
+  helix_endpoint: "GET /api/v1/keyword-decisions",
+  mapping_state: "retained_evidence_projection",
+});
+operationCoverage.push({
+  operation_id: "CompetitiveController_searchCompetitive",
+  helix_endpoint: "GET /api/v1/brands",
+  mapping_state: "retained_evidence_projection",
+});
+operationCoverage.push({
+  operation_id: "SearchRankHistoryController_getResults",
+  helix_endpoint: "GET /api/v1/snapshot-history",
+  mapping_state: "retained_evidence_projection",
+});
+let researchDb = null;
+export const setResearchDb = (db) => {
+  researchDb = db;
+};
 
-export function routeResearchApi(pathname,url,data,db=null){
-  db??=researchDb;
-  if(pathname==="/api/v1/public-contract-freshness")return ok({checked_at:publicContractDrift.checked_at,source:publicContractDrift.source,operation_count:publicContractDrift.operation_count,openapi_contract:publicContractDrift.openapi_contract,mcp_contract:publicContractDrift.mcp_contract,paid_request_executed:false,credentials_used:false});
-  if(pathname==="/api/v1/acquisition-retention"){const disposition=url.searchParams.get("disposition"),q=norm(url.searchParams.get("q")),rows=acquisitionRetentionBlueprint.rows.filter((row)=>(!disposition||disposition==="all"||row.disposition===disposition)&&(!q||norm(`${row.schema} ${row.field_path} ${row.operations.join(" ")} ${row.future_lossless_targets.join(" ")}`).includes(q)));const tableCounts=db?Object.fromEntries(["acquisition_operation_runs","acquisition_raw_payloads","acquisition_operation_entries","acquisition_field_occurrences","traffic_metric_observations","appearance_history_observations","acquisition_semantic_projections"].map((table)=>[table,Number(db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count)])):null;return ok({...page(rows,url),summary:{field_occurrence_count:acquisitionRetentionBlueprint.field_occurrence_count,future_covered_count:acquisitionRetentionBlueprint.future_covered_count,future_uncovered_count:acquisitionRetentionBlueprint.future_uncovered_count,not_acquired_field_count:acquisitionRetentionBlueprint.not_acquired_field_count,filtered_field_count:rows.length,table_counts:tableCounts},blueprint_digest:acquisitionRetentionBlueprint.blueprint_digest,credentials_retained:false,external_request_executed:false})}
-  if(pathname==="/api/v1/market/locations"){let rows;try{rows=searchPublicLocations({locationName:url.searchParams.get("locationName")??"",countryCode:url.searchParams.get("countryCode")??""})}catch(error){return bad(400,error.message)}return ok({...page(rows,url),summary:publicSearchMetadataSummary,filters:{locationName:url.searchParams.get("locationName")??"",countryCode:url.searchParams.get("countryCode")??""},authentication_required:false,consumed_credit:0})}
-  if(pathname==="/api/v1/market/languages")return ok({...page(listPublicLanguages(),url),summary:publicSearchMetadataSummary,authentication_required:false,consumed_credit:0});
-  if(pathname==="/api/v1/credits/estimate"){try{const operation=url.searchParams.get("operation"),keywordCount=Number(url.searchParams.get("keyword_count")),seoRaw=url.searchParams.get("seo_difficulty"),depthRaw=url.searchParams.get("depth"),urlCountRaw=url.searchParams.get("url_count"),seoDifficulty=seoRaw==null?false:seoRaw==="true"?true:seoRaw==="false"?false:(()=>{throw new TypeError("seo_difficulty must be true or false")})();return ok({estimate:estimatePublicApiCredits({operation,keywordCount,seoDifficulty,depth:depthRaw==null?30:Number(depthRaw),urlCount:urlCountRaw==null?undefined:Number(urlCountRaw)}),contract:publicApiCreditContract,mutation_supported:false,paid_request_executed:false})}catch(error){return bad(400,error.message)}}
-  if(pathname==="/api/v1/operation-graph"){const role=url.searchParams.get("role"),credit=url.searchParams.get("credit"),q=norm(url.searchParams.get("q")),rows=publicApiOperationGraph.operations.filter((row)=>(!role||role==="all"||row.lifecycle_role===role)&&(!credit||credit==="all"||row.credit_contract_kind===credit)&&(!q||norm(`${row.operation_id} ${row.path} ${row.summary} ${row.request_fields.map((item)=>item.field).join(" ")}`).includes(q)));return ok({...page(rows,url),summary:{operation_count:publicApiOperationGraph.operation_count,dependency_edge_count:publicApiOperationGraph.dependency_edge_count,lifecycle_counts:publicApiOperationGraph.lifecycle_counts,credit_contract_counts:publicApiOperationGraph.credit_contract_counts,filtered_operation_count:rows.length},dependency_edges:publicApiOperationGraph.dependency_edges,graph_digest:publicApiOperationGraph.graph_digest,filters:{role:role??"all",credit:credit??"all",q:url.searchParams.get("q")??""},external_request_executed:false})}
-  if(pathname==="/api/v1/operation-retention"){const state=url.searchParams.get("state"),q=norm(url.searchParams.get("q")),rows=publicApiRetentionMatrix.rows.filter((row)=>(!state||state==="all"||(state==="retained"?row.disposition_counts.retained_semantic_mapping>0:state==="acquisition_gap"?row.acquisition_required:state==="mapping_gap"?row.mapping_required:state==="execution_metadata_gap"?row.execution_metadata_requires_provider_run:false))&&(!q||norm(`${row.operation_id} ${row.path} ${row.summary} ${row.helix_targets.join(" ")} ${row.unacquired_response_paths.join(" ")} ${row.unmapped_response_paths.join(" ")}`).includes(q)));return ok({...page(rows,url),summary:{operation_count:publicApiRetentionMatrix.operation_count,operation_with_retained_mapping_count:publicApiRetentionMatrix.operation_with_retained_mapping_count,operation_requiring_acquisition_count:publicApiRetentionMatrix.operation_requiring_acquisition_count,operation_requiring_execution_metadata_count:publicApiRetentionMatrix.operation_requiring_execution_metadata_count,operation_requiring_mapping_count:publicApiRetentionMatrix.operation_requiring_mapping_count,disposition_counts:publicApiRetentionMatrix.disposition_counts,filtered_operation_count:rows.length},matrix_digest:publicApiRetentionMatrix.matrix_digest,filters:{state:state??"all",q:url.searchParams.get("q")??""},wire_compatibility_claim:false,external_request_executed:false})}
-  if(pathname==="/api/v1/provider-provenance"){const state=url.searchParams.get("state"),confidence=url.searchParams.get("confidence"),relation=url.searchParams.get("relation"),q=norm(url.searchParams.get("q")),rows=providerProvenanceHypothesis.rows.filter((row)=>(!state||state==="all"||row.evidence_state===state)&&(!confidence||confidence==="all"||row.confidence===confidence)&&(!relation||relation==="all"||row.provider_relation===relation)&&(!q||norm(`${row.operation_id} ${row.summary} ${row.candidate_upstream_capabilities.join(" ")} ${row.transformation_hypothesis.join(" ")} ${row.retained_evidence.join(" ")}`).includes(q)));return ok({...page(rows,url),summary:{operation_count:providerProvenanceHypothesis.operation_count,evidence_state_counts:providerProvenanceHypothesis.evidence_state_counts,confidence_counts:providerProvenanceHypothesis.confidence_counts,internal_stack_proven_count:providerProvenanceHypothesis.internal_stack_proven_count,filtered_operation_count:rows.length},audit_digest:providerProvenanceHypothesis.audit_digest,filters:{state:state??"all",confidence:confidence??"all",relation:relation??"all",q:url.searchParams.get("q")??""},vendor_confirmation_observed:false,internal_stack_claim:"not_proven",external_request_executed:false})}
-  if(pathname==="/api/v1/serp-field-lineage"){const audit=data.serp_field_lineage;if(!audit)return bad(503,"SERP field lineage audit is unavailable");const query=norm(url.searchParams.get("q")),state=url.searchParams.get("projection_state"),use=url.searchParams.get("decision_state"),rows=audit.raw_leaf_fields.filter((row)=>(!query||norm(row.field).includes(query))&&(!state||state==="all"||row.projection_state===state)&&(!use||use==="all"||row.decision_state===use));return ok({...page(rows,url),summary:audit.raw_leaf_field_summary,schema_version:audit.schema_version,filters:{q:url.searchParams.get("q")??"",projection_state:state??"all",decision_state:use??"all"}})}
-  if(pathname==="/api/v1/openapi.json")return{status:200,body:openapi};if(pathname==="/api/v1/operation-coverage")return ok({data:operationCoverage,meta:{mapped_operation_count:operationCoverage.length,contract_compatible:false}});if(pathname==="/api/v1/sites")return ok({data:data.sites.map(({lexical_index,ai_question_candidates,provider_cost_ledger,wp_page_seo_metadata,wp_page_seo_audits,public_surface_inventory,keyword_decision_audit,serp_intent_analysis,keyword_boundary_oracle,serp_depth_stability,content_topology_oracle,content_consolidation_blueprints,content_consolidation_citations,content_consolidation_citation_coverage,content_consolidation_citation_backfill,content_consolidation_citation_observation_lineage,content_consolidation_citation_authority,content_consolidation_primary_source_requirements,content_consolidation_retained_primary_source_discovery,serp_brand_analysis,aio_acquisition_summary,aio_completion_portfolio,acquisition_contract_fulfillment,acquisition_remediation_portfolio,acquisition_execution_readiness,acquisition_approval_manifest,acquisition_lifetime_allocation,acquisition_lifetime_approval_manifest,snapshot_reuse_audit,competitive_appearance_history,rank_monitor_plan,seo_action_queue,keyword_acquisition_portfolio,title_repair_oracle,heading_repair_oracle,content_readiness_oracle,content_competitive_stability,content_evidence_ensemble_selection,content_selection_delta_explanations,content_editorial_review_packet,semantic_resolution_decision_packet,claim_verification_queue,claim_discovery_portfolio,paa_answer_completion_portfolio,generation_provenance_ledger,generation_execution_manifest,generation_challenger_manifest,search_contract_code_mapping_oracle,paid_test_budget_scenarios,content_rich_block_plans,...site})=>site)});
-  const siteId=url.searchParams.get("site_id"),site=data.sites.find((row)=>row.site_id===siteId);if(!pathname.startsWith("/api/v1/groups/")&&!siteId)return bad(400,"site_id is required");if(siteId&&!site)return bad(404,`unknown site_id: ${siteId}`);const groups=(data.groups??[]).filter((row)=>row.site_id===siteId),groupIds=new Set(groups.map((row)=>row.id)),taskIds=new Set(groups.flatMap((row)=>row.task_ids??[])),query=norm(url.searchParams.get("q"));
-  if(pathname==="/api/v1/rank/status"){const comparisons=site.snapshot_reuse_audit?.comparisons??[],plan=site.rank_monitor_plan?.summary??{};return ok({data:{state:comparisons.length?"retained_history_available":"not_acquired",history_count:comparisons.length,tracked_keyword_count:new Set(comparisons.map((row)=>row.keyword)).size,monitor_candidate_count:plan.candidate_count??0,registered_monitor_count:plan.registered_count??0,oldest_observed_at:comparisons.map((row)=>row.previous_observed_at).sort()[0]??null,latest_observed_at:comparisons.map((row)=>row.current_observed_at).sort().at(-1)??null,scope:{retained_snapshot_only:true,continuous_schedule:false,provider_history:false}},mutation_supported:false})}
-  if(pathname==="/api/v1/rank/monitor-plan"){const state=url.searchParams.get("state"),device=url.searchParams.get("device")??"desktop",locationParam=url.searchParams.get("location_code"),locationCode=locationParam==null||locationParam===""?null:Number(locationParam),locationInput=url.searchParams.get("location_name"),languageInput=url.searchParams.get("language_name"),location=locationInput==null||locationInput.trim()===""?findPublicLocationName("Japan"):findPublicLocationName(locationInput),language=languageInput==null||languageInput.trim()===""?findPublicLanguageName("Japanese"):findPublicLanguageName(languageInput),plan=site.rank_monitor_plan??{rows:[],summary:{}};if(!["desktop","mobile"].includes(device))return bad(400,"device must be desktop or mobile");if(locationCode!=null&&(!Number.isInteger(locationCode)||locationCode<=0))return bad(400,"location_code must be a positive integer");if(!location)return bad(400,"location_name must exactly match the retained public catalog");if(!language)return bad(400,"language_name must exactly match the retained public catalog");const source=plan.rows.filter((row)=>(!state||state==="all"||row.history_state===state)&&(!query||norm(`${row.keyword} ${row.target} ${row.group_id}`).includes(query))),previews=previewRankMonitorContracts(source,{device,locationCode,locationName:location.name,languageName:language.name}),rows=source.map((row,index)=>({...row,requested_contract_preview:previews[index]}));return ok({...page(rows,url),summary:{...plan.summary,filtered_candidate_count:rows.length,preview_device:device,preview_location_code:locationCode??rows[0]?.contract.location_code??null,preview_location_name:location.name,preview_language_name:language.name,metadata_catalog_validated_count:previews.length,regional_preview_count:previews.filter((row)=>row.regional_variant).length,blocked_metadata_mapping_count:previews.filter((row)=>row.contract_review_state.startsWith("blocked_")).length,preview_registration_count:0},policy:plan.policy??"rank-monitor-plan.v2",preview_policy:"rank-monitor-contract-preview.v2",filters:{q:url.searchParams.get("q")??"",state:state??"all",device,location_code:locationCode,location_name:location.name,language_name:language.name},mutation_supported:false,auto_registration:false})}
-  if(pathname==="/api/v1/action-queue"){const type=url.searchParams.get("type"),priority=url.searchParams.get("priority"),groupId=url.searchParams.get("group_id"),queue=site.seo_action_queue??{rows:[],summary:{}};if(groupId&&!groupIds.has(groupId))return bad(404,`unknown group_id for site: ${groupId}`);const rows=queue.rows.filter((row)=>(!type||type==="all"||row.action_type===type)&&(!priority||priority==="all"||row.priority_band===priority)&&(!groupId||row.group_ids.includes(groupId))&&(!query||norm(`${row.title} ${row.suggested_next_step} ${row.blocker_codes.join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...queue.summary,filtered_action_count:rows.length},policy:queue.policy??"seo-action-queue.v2",filters:{q:url.searchParams.get("q")??"",type:type??"all",priority:priority??"all",group_id:groupId},mutation_supported:false,auto_execution:false,rank_lift_inferred:false})}
-  if(pathname==="/api/v1/keyword-acquisition-portfolio"){const view=["candidates","batches","covered"].includes(url.searchParams.get("view"))?url.searchParams.get("view"):"candidates",tier=url.searchParams.get("tier"),portfolio=site.keyword_acquisition_portfolio??{candidates:[],batches:[],covered_by_normalized_evidence:[],summary:{}};const source=view==="batches"?portfolio.batches:view==="covered"?portfolio.covered_by_normalized_evidence:portfolio.candidates,rows=source.filter((row)=>(view!=="candidates"||!tier||tier==="all"||row.decision_tier===tier)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},policy:portfolio.policy??"keyword-acquisition-portfolio.v1",view,filters:{q:url.searchParams.get("q")??"",tier:tier??"all"},mutation_supported:false,auto_submission:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/acquisition-lifetime-allocation"){const view=url.searchParams.get("view")==="coverage"?"coverage":"rows",capability=url.searchParams.get("capability"),priority=url.searchParams.get("priority"),state=url.searchParams.get("state"),plan=site.acquisition_lifetime_allocation??{rows:[],summary:{}},source=view==="coverage"?(plan.summary.keyword_source_sheet_coverage??[]):plan.rows,rows=source.filter((row)=>(view!=="rows"||!capability||capability==="all"||row.capability===capability)&&(view!=="rows"||!priority||priority==="all"||row.priority_band===priority)&&(view!=="rows"||!state||state==="all"||row.allocation_state===state)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...plan.summary,filtered_count:rows.length},policy:plan.policy??"acquisition-lifetime-allocation.v2",allocation_strategy:plan.allocation_strategy,view,filters:{q:url.searchParams.get("q")??"",capability:capability??"all",priority:priority??"all",state:state??"all"},mutation_supported:false,auto_submission:false,external_acquisition_triggered:false,explicit_paid_execution_approval_required:true})}
-  if(pathname==="/api/v1/acquisition-lifetime-approval-manifest"){const view=url.searchParams.get("view")==="batches"?"batches":"manifest",capability=url.searchParams.get("capability"),manifest=site.acquisition_lifetime_approval_manifest??{batches:[]};if(view==="batches"){const rows=manifest.batches.filter((row)=>(!capability||capability==="all"||row.capability===capability)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{candidate_count:manifest.candidate_count??0,batch_count:manifest.batch_count??0,maximum_cost_usd:manifest.maximum_cost?.amount??null,filtered_count:rows.length},view,policy:manifest.policy??"acquisition-lifetime-approval-manifest.v1",mutation_supported:false,approval_recording_supported:false,execution_authorized:false,auto_submission:false})}const {batches,...data}=manifest;return ok({data,view,mutation_supported:false,approval_recording_supported:false,execution_authorized:false,external_acquisition_triggered:false,auto_submission:false})}
-  if(pathname==="/api/v1/title-repairs"){const state=url.searchParams.get("state"),groupId=url.searchParams.get("group_id"),oracle=site.title_repair_oracle??{rows:[],summary:{}};if(groupId&&!groupIds.has(groupId))return bad(404,`unknown group_id for site: ${groupId}`);const rows=oracle.rows.filter((row)=>(!state||state==="all"||row.review_state===state)&&(!groupId||row.group_id===groupId)&&(!query||norm(`${row.main_keyword} ${row.source_text} ${row.repaired_text} ${row.source_topics.join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"evidence-title-repair.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",group_id:groupId},mutation_supported:false,auto_approval:false,ranking_effect_inferred:false,copying_competitor_title:false})}
-  if(pathname==="/api/v1/heading-repairs"){const state=url.searchParams.get("state"),level=Number(url.searchParams.get("level")),groupId=url.searchParams.get("group_id"),oracle=site.heading_repair_oracle??{rows:[],summary:{}};if(groupId&&!groupIds.has(groupId))return bad(404,`unknown group_id for site: ${groupId}`);const rows=oracle.rows.filter((row)=>(!state||state==="all"||row.review_state===state)&&(!level||row.heading_level===level)&&(!groupId||row.group_id===groupId)&&(!query||norm(`${row.source_text} ${row.repaired_text} ${row.source_issues.join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"evidence-heading-repair.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",level:level||null,group_id:groupId},mutation_supported:false,semantic_preservation_verified:false,auto_approval:false,ranking_effect_inferred:false,copying_competitor_heading:false})}
-  if(pathname==="/api/v1/content-readiness"){const state=url.searchParams.get("state"),blocker=url.searchParams.get("blocker"),review=url.searchParams.get("review"),oracle=site.content_readiness_oracle??{rows:[],summary:{}};const rows=oracle.rows.filter((row)=>(!state||state==="all"||row.publication_state===state)&&(!blocker||blocker==="all"||row.blocker_codes.includes(blocker))&&(!review||review==="all"||row.review_codes.includes(review))&&(!query||norm(`${row.main_keyword} ${row.blocker_codes.join(" ")} ${row.review_codes.join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"content-readiness-oracle.v3",filters:{q:url.searchParams.get("q")??"",state:state??"all",blocker:blocker??"all",review:review??"all"},mutation_supported:false,auto_approval:false,auto_publication:false,ranking_effect_inferred:false})}
-  if(pathname==="/api/v1/content-demand-stability"){const state=url.searchParams.get("state"),type=url.searchParams.get("type"),oracle=site.content_demand_stability??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!state||state==="all"||row.demand_stability_state===state)&&(!type||type==="all"||row.content_type===type)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"content-demand-stability.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",type:type??"all"},auto_approval:false,ranking_effect_inferred:false})}
-  if(pathname==="/api/v1/content-competitive-stability"){const state=url.searchParams.get("state"),type=url.searchParams.get("type"),oracle=site.content_competitive_stability??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!state||state==="all"||row.competitive_stability_state===state)&&(!type||type==="all"||row.content_type===type)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"content-competitive-stability.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",type:type??"all"},auto_approval:false,copying_competitor_content:false,ranking_effect_inferred:false})}
-  if(pathname==="/api/v1/content-evidence-ensemble-selection"){const view=url.searchParams.get("view")==="candidates"?"candidates":"groups",state=url.searchParams.get("state"),type=url.searchParams.get("type"),oracle=site.content_evidence_ensemble_selection??{group_rows:[],candidate_rows:[],summary:{}},source=view==="candidates"?oracle.candidate_rows:oracle.group_rows,rows=source.filter((row)=>(view!=="groups"||!state||state==="all"||(state==="review"?row.selection_review_required:!row.selection_review_required))&&(view!=="candidates"||!type||type==="all"||row.content_type===type)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"content-evidence-ensemble-selection.v1",view,filters:{q:url.searchParams.get("q")??"",state:state??"all",type:type??"all"},auto_selection:false,auto_content_mutation:false,ranking_effect_inferred:false})}
-  if(pathname==="/api/v1/content-task-holdout"){const state=url.searchParams.get("state"),temporalState=url.searchParams.get("temporal_state"),type=url.searchParams.get("type"),oracle=site.content_task_holdout_oracle??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!state||state==="all"||row.evaluation_state===state)&&(!temporalState||temporalState==="all"||row.temporal_evaluation_state===temporalState)&&(!type||type==="all"||row.content_type===type)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"content-task-holdout-oracle.v2",filters:{q:url.searchParams.get("q")??"",state:state??"all",temporal_state:temporalState??"all",type:type??"all"},task_disjoint:true,temporal_independence_proven:Boolean(oracle.temporal_independence_proven),human_quality_proven:false,ranking_effect_inferred:false,auto_selection:false})}
-  if(pathname==="/api/v1/content-editorial-review"){const type=url.searchParams.get("type"),packet=site.content_editorial_review_packet??{items:[],strata:{}},progress=packet.decision_progress??{},rows=packet.items.filter((row)=>(!type||type==="all"||row.content_type===type)&&(!query||norm(`${row.main_keyword} ${row.option_a_text} ${row.option_b_text}`).includes(query)));return ok({...page(rows,url),summary:{eligible_comparison_count:packet.eligible_comparison_count??0,item_count:packet.item_count??0,excluded_count:packet.excluded_count??0,decision_count:progress.decision_count??0,item_review_coverage_count:progress.item_review_coverage_count??0,double_reviewed_item_count:progress.double_reviewed_item_count??0,reviewer_count:progress.reviewer_count??0,completed_reviewer_count:progress.completed_reviewer_count??0,agreement_item_count:progress.agreement_item_count??0,disagreement_item_count:progress.disagreement_item_count??0,agreement_rate:progress.agreement_rate??null,remaining_double_review_count:Math.max(0,(packet.item_count??0)-(progress.double_reviewed_item_count??0)),option_a_current_count:packet.option_a_current_count??0,option_b_current_count:packet.option_b_current_count??0,strata:packet.strata??{},filtered_count:rows.length},packet_digest:packet.packet_digest,rubric_version:packet.rubric_version,filters:{q:url.searchParams.get("q")??"",type:type??"all"},blinded:true,resolution_exposed:false,human_quality_proven:Boolean(packet.human_quality_proven),auto_selection:false,auto_content_mutation:false})}
-  if(pathname==="/api/v1/content-editorial-adjudication"){const packet=site.content_editorial_review_packet??{},queue=packet.adjudication_queue??{rows:[],summary:{}},state=url.searchParams.get("state"),type=url.searchParams.get("type"),rows=queue.rows.filter((row)=>(!state||state==="all"||row.adjudication_state===state)&&(!type||type==="all"||row.content_type===type)&&(!query||norm(`${row.main_keyword} ${row.content_type} ${row.adjudication_state}`).includes(query)));return ok({...page(rows,url),summary:{...queue.summary,filtered_count:rows.length},packet_digest:queue.packet_digest,queue_digest:queue.queue_digest,filters:{q:url.searchParams.get("q")??"",state:state??"all",type:type??"all"},blinded:true,resolution_exposed:false,auto_selection:false,auto_content_mutation:false})}
-  if(pathname==="/api/v1/content-selection-delta-explanations"){const type=url.searchParams.get("type"),state=url.searchParams.get("state"),gain=url.searchParams.get("dominant_gain"),oracle=site.content_selection_delta_explanations??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!type||type==="all"||row.content_type===type)&&(!state||state==="all"||row.comparison_state===state)&&(!gain||gain==="all"||row.dominant_gain===gain)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"content-selection-delta-explanation.v2",filters:{q:url.searchParams.get("q")??"",type:type??"all",state:state??"all",dominant_gain:gain??"all"},auto_apply:false,auto_content_mutation:false,ranking_effect_inferred:false})}
-  if(pathname==="/api/v1/generation-provenance"){const type=url.searchParams.get("type"),executionState=url.searchParams.get("execution_state"),ledger=site.generation_provenance_ledger??{rows:[],summary:{}},rows=ledger.rows.filter((row)=>(!type||type==="all"||row.artifact_type===type)&&(!executionState||executionState==="all"||row.model_execution.execution_state===executionState)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...ledger.summary,filtered_count:rows.length},policy:ledger.policy??"generation-provenance-ledger.v1",claims:ledger.claims,filters:{q:url.searchParams.get("q")??"",type:type??"all",execution_state:executionState??"all"},mutation_supported:false,external_generation_triggered:false,paid_execution_triggered:false})}
-  if(pathname==="/api/v1/generation-execution-manifest"){const manifest=site.generation_execution_manifest??{requests:[],summary:{}},blocker=url.searchParams.get("blocker"),rows=manifest.requests.filter((row)=>(!blocker||blocker==="all"||row.blockers.includes(blocker))&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...manifest.summary,filtered_count:rows.length},manifest_digest:manifest.manifest_digest,prompt_template:manifest.prompt_template,execution_state:manifest.execution_state,policy:manifest.policy??"generation-execution-manifest.v1",filters:{q:url.searchParams.get("q")??"",blocker:blocker??"all"},mutation_supported:false,approval_recording_supported:false,execution_authorized:false,external_generation_triggered:false,paid_execution_triggered:false})}
-  if(pathname==="/api/v1/paid-test-budget-scenarios"){const portfolio=site.paid_test_budget_scenarios??{rows:[],summary:{}},scenario=url.searchParams.get("scenario"),rows=portfolio.rows.filter((row)=>(!scenario||scenario==="all"||row.scenario_id===scenario)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},portfolio_digest:portfolio.portfolio_digest,comparison_state:portfolio.comparison_state,generation_capacity_claimed:portfolio.generation_capacity_claimed,policy:portfolio.policy??"paid-test-budget-scenarios.v1",filters:{q:url.searchParams.get("q")??"",scenario:scenario??"all"},mutation_supported:false,reallocation_applied:false,external_acquisition_triggered:false,external_generation_triggered:false,paid_execution_triggered:false})}
-  if(pathname==="/api/v1/content-rich-block-plans"){const portfolio=site.content_rich_block_plans??{rows:[],summary:{}},format=url.searchParams.get("format"),view=url.searchParams.get("view")==="blocks"?"blocks":"articles",source=view==="blocks"?portfolio.rows.flatMap((row)=>row.blocks):portfolio.rows,rows=source.filter((row)=>(view!=="blocks"||!format||format==="all"||row.format===format)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},portfolio_digest:portfolio.portfolio_digest,scope:portfolio.scope,publication_state:portfolio.publication_state,view,policy:portfolio.policy??"content-rich-block-plan.v1",filters:{q:url.searchParams.get("q")??"",format:format??"all"},mutation_supported:false,payload_generation_supported:false,auto_insertion:false,auto_publication:false,external_acquisition_triggered:false,external_generation_triggered:false})}
-  if(pathname==="/api/v1/generation-challenger-manifest"){const manifest=site.generation_challenger_manifest??{requests:[],summary:{}},capability=url.searchParams.get("capability"),rows=manifest.requests.filter((row)=>(!capability||capability==="all"||row.capability===capability)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...manifest.summary,filtered_count:rows.length},manifest_digest:manifest.manifest_digest,evaluation_contract:manifest.evaluation_contract,execution_state:manifest.execution_state,generation_quality_proven:manifest.generation_quality_proven,policy:manifest.policy??"generation-challenger-manifest.v1",filters:{q:url.searchParams.get("q")??"",capability:capability??"all"},mutation_supported:false,execution_authorized:false,auto_selection:false,auto_content_mutation:false,external_generation_triggered:false,paid_execution_triggered:false})}
-  if(pathname==="/api/v1/search-contract-code-mappings"){const oracle=site.search_contract_code_mapping_oracle??{rows:[],summary:{}},state=url.searchParams.get("state"),rows=oracle.rows.filter((row)=>(!state||state==="all"||row.mapping_state===state)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},oracle_digest:oracle.oracle_digest,policy:oracle.policy??"search-contract-code-mapping-oracle.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all"},official_full_code_catalog_proven:false,mutation_supported:false,auto_registration:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/competitive-appearance-history"){const state=url.searchParams.get("state"),type=url.searchParams.get("type"),domain=norm(url.searchParams.get("domain")),history=site.competitive_appearance_history??{rows:[],summary:{}},rows=history.rows.filter((row)=>(!state||state==="all"||row.appearance_state===state)&&(!type||type==="all"||row.entity_type===type)&&(!domain||norm(row.domain)===domain)&&(!query||norm(`${row.keyword} ${row.entity} ${row.domain}`).includes(query)));return ok({...page(rows,url),summary:{...history.summary,filtered_count:rows.length},policy:history.policy??"competitive-appearance-history.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",type:type??"all",domain:url.searchParams.get("domain")??""},scope:{retained_same_keyword_snapshots_only:true,full_rank_database:false,absence_confirms_unranked:false},auto_content_mutation:false})}
-  if(pathname==="/api/v1/claim-verification-queue"){const priority=url.searchParams.get("priority"),requirement=url.searchParams.get("requirement"),state=url.searchParams.get("state"),queue=site.claim_verification_queue??{rows:[],summary:{}};const rows=queue.rows.filter((row)=>(!priority||priority==="all"||row.priority_band===priority)&&(!requirement||requirement==="all"||row.source_requirement===requirement)&&(!state||state==="all"||row.verification_state===state)&&(!query||norm(`${row.main_keyword} ${row.topic} ${row.claim_text}`).includes(query)));return ok({...page(rows,url),summary:{...queue.summary,filtered_count:rows.length},policy:queue.policy??"claim-verification-queue.v1",filters:{q:url.searchParams.get("q")??"",priority:priority??"all",requirement:requirement??"all",state:state??"all"},mutation_supported:false,external_discovery_executed:false,claim_verification_inferred:false,auto_approval:false,auto_publication:false})}
-  if(pathname==="/api/v1/claim-discovery-portfolio"){const view=url.searchParams.get("view")==="batches"?"batches":"candidates",priority=url.searchParams.get("priority"),portfolio=site.claim_discovery_portfolio??{candidates:[],batches:[],summary:{}},source=view==="batches"?portfolio.batches:portfolio.candidates,rows=source.filter((row)=>(view!=="candidates"||!priority||priority==="all"||row.priority_band===priority)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},policy:portfolio.policy??"claim-discovery-portfolio.v1",view,filters:{q:url.searchParams.get("q")??"",priority:priority??"all"},mutation_supported:false,external_discovery_executed:false,auto_submission:false,auto_approval:false,estimated_cost_usd:null,price_verification_required:true})}
-  if(pathname==="/api/v1/paa-answer-completion"){const view=url.searchParams.get("view")==="batches"?"batches":"candidates",portfolio=site.paa_answer_completion_portfolio??{candidates:[],batches:[],summary:{}},source=view==="batches"?portfolio.batches:portfolio.candidates,rows=source.filter((row)=>!query||norm(JSON.stringify(row)).includes(query));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},policy:portfolio.policy??"paa-answer-completion-portfolio.v1",view,filters:{q:url.searchParams.get("q")??""},mutation_supported:false,external_acquisition_triggered:false,auto_submission:false,price_verification_required:true})}
-  if(pathname==="/api/v1/aio-completion"){const view=url.searchParams.get("view")==="batches"?"batches":"candidates",portfolio=site.aio_completion_portfolio??{candidates:[],batches:[],summary:{}},source=view==="batches"?portfolio.batches:portfolio.candidates,rows=source.filter((row)=>!query||norm(JSON.stringify(row)).includes(query));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},policy:portfolio.policy??"aio-completion-portfolio.v3",view,filters:{q:url.searchParams.get("q")??""},mutation_supported:false,external_acquisition_triggered:false,auto_submission:false,price_verification_required:true})}
-  if(pathname==="/api/v1/acquisition-contract-fulfillment"){const state=url.searchParams.get("state"),oracle=site.acquisition_contract_fulfillment??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!state||state==="all"||row.fulfillment_state===state)&&(!query||norm(`${row.keyword} ${row.review_codes.join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},policy:oracle.policy??"acquisition-contract-fulfillment.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all"},mutation_supported:false,external_acquisition_triggered:false,auto_retrieval:false})}
-  if(pathname==="/api/v1/acquisition-remediation-portfolio"){const view=url.searchParams.get("view")==="batches"?"batches":"candidates",portfolio=site.acquisition_remediation_portfolio??{candidates:[],batches:[],summary:{}},source=view==="batches"?portfolio.batches:portfolio.candidates,rows=source.filter((row)=>!query||norm(JSON.stringify(row)).includes(query));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},policy:portfolio.policy??"acquisition-remediation-portfolio.v1",view,filters:{q:url.searchParams.get("q")??""},mutation_supported:false,external_acquisition_triggered:false,auto_submission:false,price_verification_required:true})}
-  if(pathname==="/api/v1/acquisition-execution-readiness")return ok({data:site.acquisition_execution_readiness??null,mutation_supported:false,external_acquisition_triggered:false,auto_submission:false});
-  if(pathname==="/api/v1/acquisition-approval-manifest")return ok({data:site.acquisition_approval_manifest??null,mutation_supported:false,approval_recording_supported:false,external_acquisition_triggered:false,auto_submission:false});
-  if(pathname==="/api/v1/rank/results"){const target=url.searchParams.get("target"),matchMode=["domain","url_prefix","exact_url"].includes(url.searchParams.get("match_mode"))?url.searchParams.get("match_mode"):"domain",rows=target?targetRankTracks(site.snapshot_reuse_audit?.comparisons??[],target,matchMode):(site.snapshot_reuse_audit?.comparisons??[]);return ok({...page(rows.filter((row)=>!query||norm(JSON.stringify(row)).includes(query)),url),view:target?"targets":"comparisons",policy:target?"retained-target-rank-track.v2":"same-keyword-snapshot-diff.v3",filters:{q:url.searchParams.get("q")??"",target,match_mode:matchMode},scope:{retained_snapshot_only:true,continuous_schedule:false,provider_history:false,absence_confirms_unranked:false},mutation_supported:false})}
-  if(pathname==="/api/v1/freshness-signals"){const state=url.searchParams.get("state"),rows=(data.serp_freshness_signals??[]).filter((row)=>row.site_id===siteId&&(!state||state==="all"||row.distribution_state===state)&&(!query||norm(`${row.keyword} ${row.review_guidance}`).includes(query))),dated=rows.filter((row)=>row.timestamped_count>0);return ok({...page(rows,url),summary:{task_count:rows.length,timestamped_task_count:dated.length,fresh_dominant_count:rows.filter((row)=>row.distribution_state==="fresh_dominant").length,stale_dominant_count:rows.filter((row)=>row.distribution_state==="stale_dominant").length,mixed_count:rows.filter((row)=>row.distribution_state==="mixed_dated_results").length,insufficient_count:rows.filter((row)=>row.distribution_state==="insufficient_timestamp_coverage").length,future_timestamp_invalid_count:rows.reduce((sum,row)=>sum+row.future_timestamp_invalid_count,0)},policy:"serp-freshness-distribution.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all"},auto_mutation:false})}
-  if(pathname==="/api/v1/presentation-integrity"){const state=url.searchParams.get("state"),rows=(data.serp_presentation_integrity??[]).filter((row)=>row.site_id===siteId&&(!state||state==="all"||row.integrity_state===state)&&(!query||norm(`${row.keyword} ${row.anomalies.map((item)=>item.code).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{task_count:rows.length,verified_count:rows.filter((row)=>row.integrity_state==="verified").length,review_required_count:rows.filter((row)=>row.integrity_state==="review_required").length,organic_result_count:rows.reduce((sum,row)=>sum+row.organic_top10_count,0),video_observation_count:rows.reduce((sum,row)=>sum+row.is_video_count,0),image_observation_count:rows.reduce((sum,row)=>sum+row.is_image_count,0),featured_snippet_observation_count:rows.reduce((sum,row)=>sum+row.is_featured_snippet_count,0),malicious_observation_count:rows.reduce((sum,row)=>sum+row.is_malicious_count,0),web_story_observation_count:rows.reduce((sum,row)=>sum+row.is_web_story_count,0),amp_observation_count:rows.reduce((sum,row)=>sum+row.amp_version_count,0),anomaly_count:rows.reduce((sum,row)=>sum+row.anomaly_count,0)},policy:"serp-presentation-integrity.v1",interpretation_policy:"true_is_observed_format_false_is_not_proof_of_absence",filters:{q:url.searchParams.get("q")??"",state:state??"all"},auto_mutation:false})}
-  if(pathname==="/api/v1/search-contracts"){const state=url.searchParams.get("state"),fingerprint=url.searchParams.get("fingerprint"),rows=(data.serp_search_contracts??[]).filter((row)=>row.site_id===siteId&&(!state||state==="all"||row.contract_state===state)&&(!fingerprint||row.contract_fingerprint===fingerprint)&&(!query||norm(`${row.keyword} ${row.contract_fingerprint} ${row.mismatches.map((item)=>item.field).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{task_count:rows.length,verified_count:rows.filter((row)=>row.contract_state==="verified").length,review_required_count:rows.filter((row)=>row.contract_state==="review_required").length,comparison_eligible_count:rows.filter((row)=>row.comparison_eligible).length,contract_cohort_count:new Set(rows.map((row)=>row.contract_fingerprint)).size,mismatch_count:rows.reduce((sum,row)=>sum+row.mismatch_count,0),total_cost_usd:Number(rows.reduce((sum,row)=>sum+Number(row.status.cost??0),0).toFixed(6))},policy:"serp-search-contract.v1",comparison_rule:"exact_contract_fingerprint_required",filters:{q:url.searchParams.get("q")??"",state:state??"all",fingerprint:fingerprint??null},auto_mutation:false})}
-  if(pathname==="/api/v1/paa-answers"){const state=url.searchParams.get("state"),domain=url.searchParams.get("domain"),rows=(data.paa_answer_evidence??[]).filter((row)=>row.site_id===siteId&&(!state||state==="all"||row.response_state===state)&&(!domain||row.answers.some((answer)=>answer.domain===domain))&&(!query||norm(`${row.question} ${row.source_keyword} ${row.answers.map((answer)=>`${answer.title} ${answer.description} ${answer.featured_title}`).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{question_occurrence_count:rows.length,resolved_question_count:rows.filter((row)=>row.response_state==="resolved").length,async_pending_count:rows.filter((row)=>row.response_state==="async_pending").length,missing_count:rows.filter((row)=>row.response_state==="not_requested_or_missing").length,resolved_answer_count:rows.reduce((sum,row)=>sum+row.answer_count,0),source_domain_count:new Set(rows.flatMap((row)=>row.answers.map((answer)=>answer.domain).filter(Boolean))).size,table_answer_count:rows.flatMap((row)=>row.answers).filter((answer)=>answer.table).length},policy:"paa-answer-evidence.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",domain:domain??null},auto_mutation:false,retry_mutation_supported:false})}
-  if(pathname==="/api/v1/aio-element-lineage"){const state=url.searchParams.get("state"),review=url.searchParams.get("review"),domain=url.searchParams.get("domain"),rows=(data.aio_element_source_lineage??[]).filter((row)=>row.site_id===siteId&&(!state||state==="all"||row.source_state===state)&&(!review||review==="all"||(review==="required"?row.review_required:!row.review_required))&&(!domain||row.references.some((item)=>item.domain===domain)||row.links.some((item)=>item.domain===domain))&&(!query||norm(`${row.source_keyword} ${row.title} ${row.text} ${row.references.map((item)=>`${item.source} ${item.title} ${item.text}`).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{element_count:rows.length,referenced_count:rows.filter((row)=>row.source_state==="referenced").length,link_only_count:rows.filter((row)=>row.source_state==="link_only").length,unreferenced_count:rows.filter((row)=>row.source_state==="unreferenced").length,reference_occurrence_count:rows.reduce((sum,row)=>sum+row.reference_count,0),link_occurrence_count:rows.reduce((sum,row)=>sum+row.link_count,0),image_occurrence_count:rows.reduce((sum,row)=>sum+row.image_count,0),global_reference_match_count:rows.reduce((sum,row)=>sum+row.global_reference_match_count,0),element_only_reference_count:rows.reduce((sum,row)=>sum+row.global_reference_mismatch_count,0),review_required_count:rows.filter((row)=>row.review_required).length},policy:"aio-element-source-lineage.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",review:review??"all",domain:domain??null},auto_mutation:false})}
-  if(pathname==="/api/v1/feature-placements"){const type=url.searchParams.get("type"),prominence=url.searchParams.get("prominence"),state=url.searchParams.get("state"),rows=(data.serp_feature_placements??[]).filter((row)=>row.site_id===siteId&&(!type||type==="all"||row.feature_type===type)&&(!prominence||prominence==="all"||row.prominence_state===prominence)&&(!state||state==="all"||row.placement_state===state)&&(!query||norm(`${row.source_keyword} ${row.feature_type} ${row.title} ${row.subtitle} ${row.description}`).includes(query)));return ok({...page(rows,url),summary:{occurrence_count:rows.length,task_count:new Set(rows.map((row)=>row.task_id)).size,top3_count:rows.filter((row)=>row.prominence_state==="top3").length,below_top3_count:rows.filter((row)=>row.prominence_state==="observed_below_top3").length,rank_not_reported_count:rows.filter((row)=>row.prominence_state==="rank_not_reported").length,verified_count:rows.filter((row)=>row.placement_state==="verified").length,review_required_count:rows.filter((row)=>row.placement_state==="review_required").length,xpath_variant_count:new Set(rows.map((row)=>row.xpath).filter(Boolean)).size,types:Object.fromEntries(Object.entries(Object.groupBy(rows,(row)=>row.feature_type)).map(([key,items])=>[key,items.length]))},policy:"serp-feature-placement.v1",interpretation_policy:"observed_placement_only_no_click_or_demand_inference",filters:{q:url.searchParams.get("q")??"",type:type??"all",prominence:prominence??"all",state:state??"all"},auto_mutation:false})}
-  if(pathname==="/api/v1/heading-patterns"){const requestedGroup=url.searchParams.get("group_id"),state=url.searchParams.get("state"),levelValue=url.searchParams.get("level"),level=levelValue==null?null:Number(levelValue),oracle=site.heading_serp_pattern_oracle??{rows:[],benchmarks:[],summary:{}};if(requestedGroup&&!groupIds.has(requestedGroup))return bad(404,`unknown group_id for site: ${requestedGroup}`);const rows=oracle.rows.filter((row)=>(!requestedGroup||row.group_id===requestedGroup)&&(!state||state==="all"||row.review_state===state)&&(!Number.isInteger(level)||row.heading_level===level)&&(!query||norm(`${row.text} ${row.issues.join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_candidate_count:rows.length,filtered_supported_count:rows.filter((row)=>row.review_state==="observed_pattern_supported").length,filtered_review_count:rows.filter((row)=>row.review_state==="needs_review").length},benchmarks:oracle.benchmarks.filter((row)=>!requestedGroup||row.group_id===requestedGroup),policy:oracle.policy??"heading-serp-pattern-oracle.v1",interpretation_policy:oracle.interpretation_policy??"observed_serp_heading_patterns_no_ranking_causality",filters:{q:url.searchParams.get("q")??"",group_id:requestedGroup,state:state??"all",level:Number.isInteger(level)?level:null},auto_approval:false,ranking_effect_inferred:false})}
-  if(pathname==="/api/v1/keyword-lineage"){const state=url.searchParams.get("state"),duplicates=url.searchParams.get("duplicates"),ledger=site.keyword_lineage_ledger??{rows:[],summary:{}},rows=ledger.rows.filter((row)=>(!state||state==="all"||row.lineage_state===state)&&(!duplicates||duplicates==="all"||(duplicates==="true"?row.normalized_duplicate_count>1:row.normalized_duplicate_count===1))&&(!query||norm(`${row.raw_keyword} ${row.source_sheet} ${row.source_keyword_id}`).includes(query)));return ok({...page(rows,url),summary:{...ledger.summary,filtered_row_count:rows.length,filtered_anomaly_count:rows.filter((row)=>row.lineage_state==="lineage_anomaly").length},policy:ledger.policy??"keyword-source-lineage.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",duplicates:duplicates??"all"},source_rows_losslessly_retained:true,auto_mutation:false})}
-  if(pathname==="/api/v1/related-keyword-boundaries"){const state=url.searchParams.get("state"),review=url.searchParams.get("review"),oracle=site.related_keyword_boundary_oracle??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!state||state==="all"||row.boundary_state===state)&&(!review||review==="all"||(review==="required"?row.review_required:!row.review_required))&&(!query||norm(`${row.keyword} ${row.candidates.map((item)=>item.main_keyword).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_source_count:rows.length,filtered_review_count:rows.filter((row)=>row.review_required).length},policy:oracle.policy??"related-keyword-boundary.v1",clear_margin:oracle.clear_margin,tie_tolerance:oracle.tie_tolerance,filters:{q:url.searchParams.get("q")??"",state:state??"all",review:review??"all"},assignment_state:"proposal_only_not_applied",auto_assignment:false})}
-  if(pathname==="/api/v1/association-evidence"){const strength=url.searchParams.get("strength"),reciprocal=url.searchParams.get("reciprocal"),oracle=site.association_evidence_oracle??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!strength||strength==="all"||row.strength_state===strength)&&(!reciprocal||reciprocal==="all"||(reciprocal==="true"?row.reverse_edge_retained:!row.reverse_edge_retained))&&(!query||norm(`${row.term} ${row.associated_term}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_association_count:rows.length},policy:oracle.policy??"association-evidence-oracle.v1",interpretation_policy:oracle.interpretation_policy??"observed_row_cooccurrence_not_semantic_equivalence",filters:{q:url.searchParams.get("q")??"",strength:strength??"all",reciprocal:reciprocal??"all"},auto_mutation:false})}
-  if(pathname==="/api/v1/variant-evidence"){const state=url.searchParams.get("state"),oracle=site.variant_evidence_oracle??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!state||state==="all"||row.integrity_state===state)&&(!query||norm(row.variants.map((item)=>item.keyword).join(" ")).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_cluster_count:rows.length},policy:oracle.policy??"variant-evidence-oracle.v1",interpretation_policy:oracle.interpretation_policy??"orthographic_or_token_order_variants_not_semantic_synonyms",filters:{q:url.searchParams.get("q")??"",state:state??"all"},external_dictionary_acquired:false,semantic_synonymy_inferred:false,auto_mutation:false})}
-  if(pathname==="/api/v1/semantic-candidate-reviews"){const state=url.searchParams.get("state"),review=site.semantic_candidate_review??{rows:[],summary:{}},rows=review.rows.filter((row)=>(!state||state==="all"||row.review_state===state)&&(!query||norm(`${row.term} ${row.candidate_term}`).includes(query)));return ok({...page(rows,url),summary:{...review.summary,filtered_candidate_pair_count:rows.length},policy:review.policy??"semantic-candidate-review.v1",interpretation_policy:review.interpretation_policy??"cooccurrence_plus_serp_context_relations_not_synonym_assertions",filters:{q:url.searchParams.get("q")??"",state:state??"all"},semantic_equivalence_inferred:false,editor_decision_required:true,auto_mutation:false})}
-  if(pathname==="/api/v1/public-synonyms"){const evidence=site.public_synonym_evidence??{rows:[],summary:{},source:null},rows=evidence.rows.filter((row)=>!query||row.left_normalized.includes(query)||row.right_normalized.includes(query)).map((row)=>({...row,match_side:!query?"unfiltered":row.left_normalized===query&&row.right_normalized===query?"both":row.left_normalized===query?"left_exact":row.right_normalized===query?"right_exact":row.left_normalized.includes(query)?"left_partial":"right_partial"}));return ok({...page(rows,url),summary:{...evidence.summary,filtered_pair_count:rows.length,exact_match_pair_count:rows.filter((row)=>row.match_side.endsWith("_exact")||row.match_side==="both").length},source:evidence.source,policy:evidence.policy??"public-synonym-evidence.v1",interpretation_policy:evidence.interpretation_policy??"human_reviewed_pair_is_lexical_evidence_but_query_context_still_requires_editor_review",filters:{q:url.searchParams.get("q")??""},external_public_corpus_acquired:true,context_review_required:true,automatic_replacement:false,auto_mutation:false})}
-  if(pathname==="/api/v1/public-semantic-graph"){if(!db)return bad(503,"semantic graph database unavailable");const relationTypes=url.searchParams.getAll("relation").flatMap((value)=>value.split(",")).filter(Boolean),depth=Number(url.searchParams.get("depth")??1),graph=queryPublicSemanticGraph(db,{query:url.searchParams.get("q")??"",depth,relationTypes}),evidence=site.public_semantic_graph??{source:null,summary:{}};return ok({...page(graph.rows,url),seeds:graph.seeds,summary:{...evidence.summary,...graph.summary,filtered_relation_count:graph.rows.length},source:evidence.source,policy:graph.policy,interpretation_policy:graph.interpretation_policy,filters:{q:url.searchParams.get("q")??"",depth:graph.summary.max_depth_requested,relation_types:relationTypes},external_public_corpus_acquired:true,direct_edges_distinguished:true,synonymy_inferred:false,search_demand_inferred:false,ranking_effect_inferred:false,auto_mutation:false})}
-  if(pathname==="/api/v1/graph-related-keywords"){if(!db)return bad(503,"related keyword database unavailable");const state=url.searchParams.get("state"),boundaryState=url.searchParams.get("boundary"),review=url.searchParams.get("review"),result=queryGraphRelatedKeywords(db,{siteId:site.site_id,query:url.searchParams.get("q")??"",depth:Number(url.searchParams.get("depth")??1)}),rows=result.rows.filter((row)=>(!state||state==="all"||row.match_state===state)&&(!boundaryState||boundaryState==="all"||row.group_boundary.state===boundaryState)&&(!review||review==="all"||(review==="required"?row.group_boundary.review_required:!row.group_boundary.review_required)));return ok({...page(rows,url),query:result.query,exact_inventory_matches:result.exact_inventory_matches,summary:{...result.summary,filtered_candidate_count:rows.length,filtered_group_review_required_count:rows.filter((row)=>row.group_boundary.review_required).length},policy:result.policy,interpretation_policy:result.interpretation_policy,market_scope:result.market_scope,filters:{q:url.searchParams.get("q")??"",depth:Number(url.searchParams.get("depth")??1),state:state??"all",boundary:boundaryState??"all",review:review??"all"},external_market_coverage:false,sense_disambiguation_required:true,synonymy_inferred:false,search_demand_inferred:false,ranking_effect_inferred:false,auto_group_assignment:false,auto_mutation:false})}
-  if(pathname==="/api/v1/content-semantic-coverage"){if(!db)return bad(503,"semantic database unavailable");const groupId=url.searchParams.get("group_id"),group=groups.find((row)=>row.id===groupId);if(!group)return bad(404,`unknown group_id for site: ${groupId}`);const review=(data.content_semantic_reviews??[]).find((row)=>row.group_id===groupId&&row.site_id===site.site_id);if(!review)return bad(404,`persisted semantic review unavailable for group: ${groupId}`);const decisionPacket=site.semantic_resolution_decision_packet??{items:[],summary:{}},decisionProgress=new Map(decisionPacket.items.map((row)=>[row.task_id,row])),tasks=review.resolution_tasks.map((row)=>({...row,decision_progress:decisionProgress.get(row.task_id)??null})),depth=review.graph_depth,requestedView=url.searchParams.get("view"),view=["expansions","resolution","tasks"].includes(requestedView)?requestedView:"coverage",type=url.searchParams.get("type"),state=url.searchParams.get("state"),source=view==="coverage"?review.rows:view==="tasks"?tasks:view==="resolution"?review.expansion_candidates.filter((row)=>row.resolution_state==="blocked_evidence_resolution_required"):review.expansion_candidates,rows=source.filter((row)=>(!type||type==="all"||row.content_type===type||(row.affected_content_types??[]).includes(type))&&(!state||state==="all"||(view==="coverage"?row.review_state:view==="tasks"?row.resolution_state:row.selection_gate)===state)&&(!query||norm(row.text??row.concept?.term??"").includes(query)));return ok({...page(rows,url),group_id:groupId,main_keyword:group.main_keyword,concepts:review.concepts,summary:{...review.summary,decision_progress:decisionPacket.summary,filtered_candidate_count:rows.length},review_digest:review.review_digest,decision_packet_digest:decisionPacket.packet_digest,view,source:"persisted_sqlite",policy:review.policy,interpretation_policy:review.interpretation_policy,filters:{q:url.searchParams.get("q")??"",group_id:groupId,depth,view,type:type??"all",state:state??"all"},sense_disambiguation_required:true,semantic_requirement_inferred:false,search_demand_inferred:false,synonymy_inferred:false,ranking_effect_inferred:false,auto_selection:false,auto_mutation:false})}
-  if(pathname==="/api/v1/semantic-resolution-decisions"){const packet=site.semantic_resolution_decision_packet??{items:[],summary:{}},progress=url.searchParams.get("progress"),readiness=url.searchParams.get("readiness"),senseReadiness=url.searchParams.get("sense_readiness"),demandReadiness=url.searchParams.get("demand_readiness"),groupId=url.searchParams.get("group_id"),rows=packet.items.filter((row)=>(!groupId||row.group_id===groupId)&&(!progress||progress==="all"||row.resolution_progress_state===progress)&&(!readiness||readiness==="all"||row.evidence_readiness_state===readiness)&&(!senseReadiness||senseReadiness==="all"||row.sense_evidence_readiness_state===senseReadiness)&&(!demandReadiness||demandReadiness==="all"||row.demand_evidence_readiness_state===demandReadiness)&&(!query||norm(`${row.main_keyword} ${row.concept.term} ${row.source_sheets.join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...packet.summary,filtered_count:rows.length},packet_digest:packet.packet_digest,schema_version:packet.schema_version,required_decisions:packet.required_decisions,filters:{q:url.searchParams.get("q")??"",group_id:groupId??"all",progress:progress??"all",readiness:readiness??"all",sense_readiness:senseReadiness??"all",demand_readiness:demandReadiness??"all"},import_mode:"validated_cli_explicit_commit",auto_group_assignment:false,auto_selection:false,auto_content_mutation:false})}
-  if(pathname==="/api/v1/suggest-evidence"){const mode=["prefix","contains","tokens"].includes(url.searchParams.get("mode"))?url.searchParams.get("mode"):"prefix",tokens=query.split(/\s+/u).filter(Boolean),oracle=site.suggest_evidence_oracle??{rows:[],summary:{}},rows=query?oracle.rows.filter((row)=>mode==="prefix"?row.normalized_keyword.startsWith(query):mode==="contains"?row.normalized_keyword.includes(query):tokens.every((token)=>row.normalized_keyword.includes(token))):[];return ok({...page(rows,url),summary:{...oracle.summary,filtered_candidate_count:rows.length,filtered_source_row_count:rows.reduce((sum,row)=>sum+row.source_row_count,0)},policy:oracle.policy??"suggest-evidence-oracle.v1",source_policy:oracle.source_policy??"retained_workbook_not_external_autocomplete",external_surface_coverage:oracle.external_surface_coverage??{},filters:{q:url.searchParams.get("q")??"",mode},external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/question-lineage"){const kind=url.searchParams.get("kind"),coverage=url.searchParams.get("coverage"),view=url.searchParams.get("view")==="unlinked_answers"?"unlinked_answers":"candidates",oracle=site.question_lineage_oracle??{rows:[],unlinked_resolved_answers:[],summary:{}},source=view==="unlinked_answers"?(oracle.unlinked_resolved_answers??[]):oracle.rows,rows=source.filter((row)=>view==="unlinked_answers"?(!query||norm(`${row.question} ${row.source_keyword} ${row.answers.map((answer)=>`${answer.title??""} ${answer.description??""} ${answer.domain??""}`).join(" ")}`).includes(query)):((!kind||kind==="all"||row.candidate_kind===kind)&&(!coverage||coverage==="all"||row.content_coverage?.coverage_status===coverage)&&(!query||norm(`${row.question_text} ${row.source_topic?.display_topic??""} ${row.source_keywords.join(" ")}`).includes(query))));return ok({...page(rows,url),summary:{...oracle.summary,filtered_question_count:rows.length},policy:oracle.policy??"question-lineage-oracle.v1",interpretation_policy:oracle.interpretation_policy??"observed_paa_and_derived_questions_kept_distinct",view,filters:{q:url.searchParams.get("q")??"",kind:kind??"all",coverage:coverage??"all"},auto_approval:false})}
-  if(pathname==="/api/v1/question-expansion-graph"){const view=url.searchParams.get("view")==="edges"?"edges":"nodes",graph=site.paa_question_expansion_graph??{nodes:[],edges:[],summary:{}},source=view==="edges"?graph.edges:graph.nodes,rows=source.filter((row)=>!query||norm(JSON.stringify(row)).includes(query));return ok({...page(rows,url),summary:{...graph.summary,filtered_count:rows.length},policy:graph.policy??"paa-question-expansion-graph.v1",view,filters:{q:url.searchParams.get("q")??""},auto_heading_mutation:false})}
-  if(pathname==="/api/v1/demand-occurrence-integrity"){const type=url.searchParams.get("type"),scope=url.searchParams.get("scope"),oracle=site.demand_occurrence_integrity??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!type||type==="all"||row.demand_type===type)&&(!scope||scope==="all"||row.scope_state===scope)&&(!query||norm(`${row.representative_value} ${row.normalized_value}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_demand_count:rows.length,filtered_occurrence_count:rows.reduce((sum,row)=>sum+row.occurrence_count,0)},policy:oracle.policy??"demand-occurrence-integrity.v1",importance_policy:oracle.importance_policy??"relative_within_retained_corpus_not_absolute_demand",appearance_policy:oracle.appearance_policy??"snapshot_observation_not_continuous_history",filters:{q:url.searchParams.get("q")??"",type:type??"all",scope:scope??"all"},absolute_search_volume_inferred:false,auto_mutation:false})}
-  if(pathname==="/api/v1/demand-appearance-history"){const state=url.searchParams.get("state"),type=url.searchParams.get("type"),history=site.demand_appearance_history??{rows:[],summary:{}},rows=history.rows.filter((row)=>(!state||state==="all"||row.appearance_state===state)&&(!type||type==="all"||row.demand_type===type)&&(!query||norm(`${row.display_value} ${row.keyword}`).includes(query)));return ok({...page(rows,url),summary:{...history.summary,filtered_count:rows.length},policy:history.policy??"demand-appearance-history.v1",filters:{q:url.searchParams.get("q")??"",state:state??"all",type:type??"all"},auto_heading_mutation:false})}
-  if(pathname==="/api/v1/simultaneous-rank-integrity"){const scope=url.searchParams.get("scope"),connection=url.searchParams.get("connection"),oracle=site.simultaneous_rank_integrity??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!scope||scope==="all"||(scope==="same_group"?row.same_group:!row.same_group))&&(!connection||connection==="all"||row.decision_state===connection)&&(!query||norm(`${row.source_keyword} ${row.target_keyword}`).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_relation_count:rows.length},policy:oracle.policy??"simultaneous-rank-integrity.v1",interpretation_policy:oracle.interpretation_policy??"shared_ranked_urls_are_evidence_not_automatic_merge",comparison_depth:oracle.comparison_depth??10,filters:{q:url.searchParams.get("q")??"",scope:scope??"all",connection:connection??"all"},merge_inferred_from_shared_urls:false,auto_mutation:false})}
-  if(pathname==="/api/v1/serp-feature-items"){const type=url.searchParams.get("type"),rows=(data.serp_special_features??[]).filter((feature)=>taskIds.has(feature.task_id)&&(!type||type==="all"||feature.feature_type===type)).flatMap((feature)=>(feature.items??[]).map((item)=>({...item,feature_rank_absolute:feature.rank_absolute,feature_title:feature.title}))).filter((row)=>!query||norm(`${row.text??""} ${row.title??""} ${row.alt??""} ${row.source??""} ${row.url??""} ${row.links.map((link)=>`${link.title??""} ${link.domain??""}`).join(" ")}`).includes(query));return ok({...page(rows,url),summary:{item_count:rows.length,feature_count:new Set(rows.map((row)=>row.feature_id)).size,link_count:rows.reduce((sum,row)=>sum+row.links.length,0),types:Object.fromEntries(Object.entries(Object.groupBy(rows,(row)=>row.feature_type)).map(([key,items])=>[key,items.length]))},filters:{q:url.searchParams.get("q")??"",type:type??"all"}})}
-  if(pathname==="/api/v1/wordpress/surface"){const type=url.searchParams.get("type"),state=url.searchParams.get("state");return ok(page((site.public_surface_inventory??[]).filter((row)=>(!type||row.surface_type===type)&&(!state||row.analysis_state===state)&&(!query||norm(row.canonical_url).includes(query))),url))}
-  if(pathname==="/api/v1/keywords"){const state=url.searchParams.get("state"),rows=(data.keyword_inventory??[]).filter((row)=>row.site_id===siteId&&(!query||norm(row.raw_keyword).includes(query))&&(!state||row.processing_state===state));return ok(page(rows,url))}
-  if(pathname==="/api/v1/demands"){const type=url.searchParams.get("type"),rows=(data.serp_demands??[]).filter((row)=>row.group_ids.some((id)=>groupIds.has(id))&&(!type||type==="all"||row.demand_type===type)&&(!query||norm(`${row.representative_value} ${row.source_keywords.join(" ")}`).includes(query)));return ok(page(rows,url))}
-  if(pathname==="/api/v1/qa-site-evidence"){const requestedView=url.searchParams.get("view"),view=requestedView==="pages"?"pages":requestedView==="history"?"history":requestedView==="copy"?"copy":"observations",source=url.searchParams.get("source"),state=url.searchParams.get("state"),oracle=site.qa_site_evidence??{rows:[],pages:[],summary:{}},history=site.qa_appearance_history??{rows:[],summary:{},policy:"qa-appearance-history.v1"},input=view==="pages"?oracle.pages:view==="history"?history.rows:view==="copy"?[oracle.copy_export].filter(Boolean):oracle.rows,rows=input.filter((row)=>view==="copy"||((!source||source==="all"||row.qa_source===source)&&(!state||state==="all"||(view==="history"?row.state===state:row.content_state===state))&&(!query||norm(JSON.stringify(row)).includes(query))));return ok({...page(rows,url),summary:{...(view==="history"?history.summary:oracle.summary),filtered_count:rows.length},policy:view==="history"?history.policy:view==="copy"?(oracle.copy_export?.policy??"qa-copy-export.v1"):(oracle.policy??"retained-qa-site-evidence.v2"),view,filters:{q:url.searchParams.get("q")??"",source:source??"all",state:state??"all"},absence_confirms_unranked:["history","copy"].includes(view)?false:undefined,full_qa_index:false,answer_text_retained:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/questions"){const kind=url.searchParams.get("kind"),rows=(site.ai_question_candidates??[]).filter((row)=>(!kind||kind==="all"||row.candidate_kind===kind)&&(!query||norm(row.question_text).includes(query)));return ok(page(rows,url))}
-  if(pathname==="/api/v1/related-keywords")return ok(page(groups.flatMap((row)=>(row.related_keyword_proposals??[]).map((item)=>({...item,main_keyword:row.main_keyword}))).filter((row)=>!query||norm(`${row.keyword} ${row.main_keyword}`).includes(query)),url));
-  if(pathname==="/api/v1/keyword-decisions"){const kind=url.searchParams.get("kind"),decision=url.searchParams.get("decision"),review=url.searchParams.get("review"),rows=(site.keyword_decision_audit?.rows??[]).filter((row)=>(!kind||kind==="all"||row.kind===kind)&&(!decision||decision==="all"||row.decision===decision)&&(!review||review==="all"||(review==="required"?row.review_required:!row.review_required))&&(!query||norm(JSON.stringify(row)).includes(query))),summary={decision_count:rows.length,review_count:rows.filter((row)=>row.review_required).length,supported_count:rows.filter((row)=>!row.review_required).length,serp_pair_count:rows.filter((row)=>row.kind==="serp_pair").length,gsc_query_count:rows.filter((row)=>row.kind==="gsc_query").length,article_assignment_count:rows.filter((row)=>row.kind==="article_assignment").length,decision_counts:Object.fromEntries(Object.entries(Object.groupBy(rows,(row)=>row.decision)).map(([key,items])=>[key,items.length])),external_acquisition_triggered:false};return ok({...page(rows,url),summary,policy:site.keyword_decision_audit?.policy??"keyword-decision-audit.v1",filters:{q:url.searchParams.get("q")??"",kind,decision,review},auto_mutation:false})}
-  if(pathname==="/api/v1/intent-fingerprints"){const decision=url.searchParams.get("decision"),review=url.searchParams.get("review"),analysis=site.serp_intent_analysis??{fingerprints:[],pairs:[],summary:{}},rows=analysis.pairs.filter((row)=>(!decision||decision==="all"||row.decision===decision)&&(!review||review==="all"||(review==="required"?row.review_required:!row.review_required))&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...analysis.summary,filtered_pair_count:rows.length,filtered_review_count:rows.filter((row)=>row.review_required).length},fingerprints:analysis.fingerprints,policy:analysis.policy??"serp-intent-fingerprint.v1",filters:{q:url.searchParams.get("q")??"",decision,review},auto_mutation:false})}
-  if(pathname==="/api/v1/keyword-boundaries"){const decision=url.searchParams.get("decision"),action=url.searchParams.get("action"),oracle=site.keyword_boundary_oracle??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!decision||decision==="all"||row.decision===decision)&&(!action||action==="all"||row.recommended_action===action)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_review_count:rows.length},policy:oracle.policy??"keyword-boundary-consensus.v1",filters:{q:url.searchParams.get("q")??"",decision,action},auto_mutation:false})}
-  if(pathname==="/api/v1/depth-stability"){const state=url.searchParams.get("state"),robust=url.searchParams.get("robust"),analysis=site.serp_depth_stability??{rows:[],summary:{}},rows=analysis.rows.filter((row)=>(!state||state==="all"||row.stability_state===state)&&(!robust||robust==="all"||(robust==="true"?row.robust_merge:!row.robust_merge))&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...analysis.summary,filtered_pair_count:rows.length},policy:analysis.policy??"serp-depth-stability.v1",filters:{q:url.searchParams.get("q")??"",state,robust},auto_mutation:false})}
-  if(pathname==="/api/v1/content-topology"){const decision=url.searchParams.get("decision"),review=url.searchParams.get("review"),oracle=site.content_topology_oracle??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!decision||decision==="all"||row.topology_decision===decision)&&(!review||review==="all"||(review==="required"?row.review_required:!row.review_required))&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_group_pair_count:rows.length},policy:oracle.policy??"content-topology-oracle.v1",filters:{q:url.searchParams.get("q")??"",decision,review},auto_mutation:false})}
-  if(pathname==="/api/v1/consolidation-blueprints"){const analysis=site.content_consolidation_blueprints??{rows:[],summary:{}},rows=analysis.rows.filter((row)=>!query||norm(JSON.stringify(row)).includes(query));return ok({...page(rows,url),summary:{...analysis.summary,filtered_blueprint_count:rows.length},policy:analysis.policy??"content-consolidation-blueprint.v7",filters:{q:url.searchParams.get("q")??""},auto_mutation:false})}
-  if(pathname==="/api/v1/consolidation-citations"){const analysis=site.content_consolidation_citations??{rows:[],summary:{}},coverage=site.content_consolidation_citation_coverage??{rows:[],summary:{}},backfill=site.content_consolidation_citation_backfill??{rows:[],summary:{}},approval=url.searchParams.get("approval_state"),domain=url.searchParams.get("domain"),claimId=url.searchParams.get("merged_claim_id"),rows=analysis.rows.filter((row)=>(!approval||approval==="all"||row.approval_state===approval)&&(!domain||row.domain===domain)&&(!claimId||row.merged_claim_id===claimId)&&(!query||norm(`${row.title} ${row.source} ${row.source_text} ${row.url} ${row.source_claim_id} ${row.merged_claim_id}`).includes(query))),claimAudits=coverage.rows.filter((row)=>!claimId||row.merged_claim_id===claimId),backfillCandidates=backfill.rows.filter((row)=>(!domain||row.domain===domain)&&(!claimId||row.merged_claim_id===claimId)&&(!query||norm(`${row.title} ${row.source} ${row.source_text} ${row.url} ${row.target_source_claim_id} ${row.merged_claim_id}`).includes(query)));return ok({...page(rows,url),summary:{...analysis.summary,filtered_recommendation_count:rows.length,filtered_unique_url_count:new Set(rows.map((row)=>row.url)).size},claim_audits:claimAudits,coverage_summary:coverage.summary,coverage_policy:coverage.policy??"content-consolidation-citation-coverage.v1",backfill_candidates:backfillCandidates,backfill_summary:backfill.summary,backfill_policy:backfill.policy??"content-consolidation-citation-backfill.v1",policy:analysis.policy??"content-consolidation-citation-review.v1",filters:{q:url.searchParams.get("q")??"",approval_state:approval??"all",domain:domain??null,merged_claim_id:claimId??null},auto_approval:false})}
-  if(pathname==="/api/v1/titles"){const requestedGroup=url.searchParams.get("group_id");if(requestedGroup&&!groupIds.has(requestedGroup))return bad(404,`unknown group_id for site: ${requestedGroup}`);const state=url.searchParams.get("state"),evidenceType=url.searchParams.get("evidence_type"),issue=url.searchParams.get("issue"),variant=url.searchParams.get("variant"),patternState=url.searchParams.get("pattern_state"),groupById=new Map(groups.map((row)=>[row.id,row])),pageById=new Map((data.competitor_pages??[]).map((row)=>[row.page_id,row])),competitorEvidence=Map.groupBy((data.competitor_page_evidence??[]).filter((row)=>groupIds.has(row.group_id)),(row)=>row.group_id),wpById=new Map((data.gsc_articles??[]).map((row)=>[row.wp_article_id,row])),statePriority={ready:2,needs_review:1,blocked:0},base=(data.content_generation_candidates??[]).filter((row)=>groupIds.has(row.group_id)&&row.content_type==="title").map((row)=>{const group=groupById.get(row.group_id),competitorTitles=(competitorEvidence.get(row.group_id)??[]).map((evidence)=>{const source=pageById.get(evidence.page_id);return source?.title?{page_id:evidence.page_id,title:source.title,character_count:[...source.title].length,best_rank:evidence.best_rank,url:source.url,domain:source.domain}:null}).filter(Boolean).sort((a,b)=>a.best_rank-b.best_rank||a.url.localeCompare(b.url)),lengths=competitorTitles.map((item)=>item.character_count),selection_score=(statePriority[row.review.review_state]??0)*1000+row.review.quality_score*10+Math.min(row.review.evidence_count,9)-Math.abs(row.review.character_count-35)/100-(row.review.oracle.nearest_competitor_similarity??0)/1000;return{...row,group:{group_id:group.id,main_keyword:group.main_keyword,display_keyword:group.display_keyword,category:group.category,wp_article_id:group.wp_article_id},selection_score,competitor_benchmark:{title_count:competitorTitles.length,average_character_count:average(lengths),median_character_count:median(lengths),minimum_character_count:lengths.length?Math.min(...lengths):null,maximum_character_count:lengths.length?Math.max(...lengths):null,titles:competitorTitles},current_wp_title:group.wp_article_id==null?null:wpById.get(group.wp_article_id)?.title??null}}),recommendedByGroup=new Map();for(const row of base.filter((item)=>item.review.review_state!=="blocked")){const current=recommendedByGroup.get(row.group_id);if(!current||row.selection_score>current.selection_score||row.selection_score===current.selection_score&&row.candidate_id.localeCompare(current.candidate_id)<0)recommendedByGroup.set(row.group_id,row)}const rows=base.map((row)=>({...row,recommended_candidate:recommendedByGroup.get(row.group_id)?.candidate_id===row.candidate_id,recommendation_policy:"evidence-title-selection.v1"})).filter((row)=>(!requestedGroup||row.group_id===requestedGroup)&&(!state||state==="all"||row.review.review_state===state)&&(!patternState||patternState==="all"||row.serp_pattern_review?.review_state===patternState)&&(!evidenceType||evidenceType==="all"||row.evidence_type===evidenceType)&&(!issue||row.review.issues.includes(issue))&&(!variant||row.generation.variant_key===variant)&&(!query||norm(`${row.text} ${row.group.main_keyword} ${row.group.category}`).includes(query))).sort((a,b)=>Number(b.recommended_candidate)-Number(a.recommended_candidate)||b.selection_score-a.selection_score||a.group_id.localeCompare(b.group_id)||a.candidate_id.localeCompare(b.candidate_id)),summary={candidate_count:rows.length,group_count:new Set(rows.map((row)=>row.group_id)).size,recommended_count:rows.filter((row)=>row.recommended_candidate).length,ready_count:rows.filter((row)=>row.review.review_state==="ready").length,needs_review_count:rows.filter((row)=>row.review.review_state==="needs_review").length,blocked_count:rows.filter((row)=>row.review.review_state==="blocked").length,average_character_count:average(rows.map((row)=>row.review.character_count)),evidence_resolved_count:rows.filter((row)=>row.review.oracle.evidence_reference_resolved).length,observed_pattern_supported_count:rows.filter((row)=>row.serp_pattern_review?.review_state==="observed_pattern_supported").length,pattern_review_required_count:rows.filter((row)=>row.serp_pattern_review?.review_state==="needs_review").length,pattern_policy:"title-serp-pattern-oracle.v1",ranking_effect_inferred:false,selection_policy:"evidence-title-selection.v1",auto_approval:false};return ok({...page(rows,url),summary,interpretation_policy:"observed_serp_title_patterns_no_ranking_causality",filters:{q:url.searchParams.get("q")??"",group_id:requestedGroup,state,pattern_state:patternState,evidence_type:evidenceType,issue,variant}})}
-  if(pathname==="/api/v1/outlines"){const requestedGroup=url.searchParams.get("group_id");if(requestedGroup&&!groupIds.has(requestedGroup))return bad(404,`unknown group_id for site: ${requestedGroup}`);const status=url.searchParams.get("status"),rows=(data.content_outlines??[]).filter((row)=>groupIds.has(row.group_id)&&(!requestedGroup||row.group_id===requestedGroup)&&(!status||status==="all"||row.status===status)&&(!query||norm(`${row.main_keyword} ${row.sections.flatMap((section)=>[section.text,...section.children.map((child)=>child.text)]).join(" ")}`).includes(query))).sort((a,b)=>a.group_id.localeCompare(b.group_id)),summary={outline_count:rows.length,ready_count:rows.filter((row)=>row.status==="outline_ready").length,blocked_count:rows.filter((row)=>row.status==="blocked").length,candidate_count:rows.reduce((sum,row)=>sum+row.candidate_count,0),selected_count:rows.reduce((sum,row)=>sum+row.selected_count,0),h2_count:rows.reduce((sum,row)=>sum+row.h2_count,0),h3_count:rows.reduce((sum,row)=>sum+row.h3_count,0),omitted_candidate_count:rows.reduce((sum,row)=>sum+row.omitted_candidate_count,0),unassigned_candidate_count:rows.reduce((sum,row)=>sum+row.unassigned_candidates.length,0),selection_policy:"evidence-outline-selection.v1",parent_policy:"shared-evidence-then-character-trigram.v1",auto_approval:false};return ok({...page(rows,url),summary,filters:{q:url.searchParams.get("q")??"",group_id:requestedGroup,status}})}
-  if(pathname==="/api/v1/compositions"){const requestedGroup=url.searchParams.get("group_id");if(requestedGroup&&!groupIds.has(requestedGroup))return bad(404,`unknown group_id for site: ${requestedGroup}`);const state=url.searchParams.get("state"),rows=(data.content_structure_candidates??[]).filter((row)=>groupIds.has(row.group_id)).map((row)=>row.composition).filter((row)=>row&&(!requestedGroup||row.group_id===requestedGroup)&&(!state||state==="all"||row.review_state===state)&&(!query||norm(JSON.stringify(row)).includes(query))).sort((a,b)=>b.quality_score-a.quality_score||a.group_id.localeCompare(b.group_id)),summary={composition_count:rows.length,ready_count:rows.filter((row)=>row.review_state==="ready").length,needs_review_count:rows.filter((row)=>row.review_state==="needs_review").length,blocked_count:rows.filter((row)=>row.review_state==="blocked").length,average_quality:average(rows.map((row)=>row.quality_score)),shared_evidence_count:rows.reduce((sum,row)=>sum+row.metrics.shared_evidence_count,0),selected_heading_count:rows.reduce((sum,row)=>sum+row.metrics.selected_heading_count,0),joint_selection_changed_count:rows.filter((row)=>row.metrics.selection_changed).length,average_title_quality_delta:average(rows.map((row)=>row.metrics.title_quality_delta)),average_evidence_coverage_delta:average(rows.map((row)=>row.metrics.title_evidence_coverage_delta)),average_lexical_coverage_delta:average(rows.map((row)=>row.metrics.title_outline_lexical_coverage_delta)),policy:"content-plan-coherence.v2",auto_approval:false};return ok({...page(rows,url),summary,filters:{q:url.searchParams.get("q")??"",group_id:requestedGroup,state}})}
-  if(pathname==="/api/v1/drafts"){const requestedGroup=url.searchParams.get("group_id");if(requestedGroup&&!groupIds.has(requestedGroup))return bad(404,`unknown group_id for site: ${requestedGroup}`);const publicationState=url.searchParams.get("publication_state"),evidenceState=url.searchParams.get("evidence_state"),citationState=url.searchParams.get("citation_state"),rows=(data.content_structure_candidates??[]).filter((row)=>groupIds.has(row.group_id)).map((row)=>row.draft_package?.draft_revision).filter((row)=>row&&(!requestedGroup||row.group_id===requestedGroup)&&(!publicationState||publicationState==="all"||row.review.publication_state===publicationState)&&(!evidenceState||evidenceState==="all"||(evidenceState==="resolved"?row.evidence_oracle?.all_references_resolved:row.evidence_oracle?.unresolved_evidence_reference_count>0))&&(!citationState||citationState==="all"||(citationState==="has_candidates"?(row.citation_summary?.recommendation_count??0)>0:(row.citation_summary?.recommendation_count??0)===0))&&(!query||norm(`${row.title} ${row.text}`).includes(query))).sort((a,b)=>a.group_id.localeCompare(b.group_id)||b.revision-a.revision),references=rows.flatMap((row)=>row.claim_evidence??[]),citationRecommendations=rows.flatMap((row)=>row.citation_recommendations??[]),summary={draft_count:rows.length,claim_count:rows.reduce((sum,row)=>sum+row.review.claim_count,0),verified_claim_count:rows.reduce((sum,row)=>sum+row.review.verified_claim_count,0),claim_with_resolved_evidence_count:rows.reduce((sum,row)=>sum+(row.evidence_oracle?.claim_with_resolved_evidence_count??0),0),evidence_reference_count:references.length,resolved_evidence_reference_count:references.filter((row)=>row.resolution_state==="resolved").length,unresolved_evidence_reference_count:references.filter((row)=>row.resolution_state==="unresolved").length,evidence_type_counts:Object.fromEntries(Object.entries(Object.groupBy(references,(row)=>row.evidence_type??"unknown")).map(([key,items])=>[key,items.length])),citation_recommendation_count:citationRecommendations.length,claim_with_citation_candidate_count:new Set(citationRecommendations.map((row)=>row.claim_id)).size,citation_candidate_url_count:new Set(citationRecommendations.map((row)=>row.url)).size,citation_approved_count:citationRecommendations.filter((row)=>row.approval_state==="approved").length,citation_unreviewed_count:citationRecommendations.filter((row)=>row.approval_state==="unreviewed").length,publication_ready_count:rows.filter((row)=>row.review.publication_state==="ready").length,blocked_count:rows.filter((row)=>row.review.publication_state==="blocked").length,text_export_count:rows.filter((row)=>row.text).length,html_export_count:rows.filter((row)=>row.html).length,renderer_version:"content-evidence-draft.v1",evidence_policy:"content-claim-evidence-resolution.v1",citation_policy:"content-claim-citation-recommendation.v1",fact_verification_state:"pending_primary_source",auto_approval:false};return ok({...page(rows,url),summary,filters:{q:url.searchParams.get("q")??"",group_id:requestedGroup,publication_state:publicationState,evidence_state:evidenceState,citation_state:citationState}})}
-  if(pathname==="/api/v1/simultaneous-rankings")return ok(page((data.simultaneous_keyword_relations??[]).filter((row)=>taskIds.has(row.source_task_id)&&(!query||norm(`${row.source_keyword} ${row.target_keyword}`).includes(query))),url));
-  if(pathname==="/api/v1/pages"){const scopedEdges=(data.serp_page_keyword_edges??[]).filter((row)=>taskIds.has(row.task_id)),rows=[...Map.groupBy(scopedEdges,(row)=>row.canonical_url).entries()].map(([canonical_url,edges])=>{const top=[...edges].sort((a,b)=>a.rank-b.rank||a.task_id.localeCompare(b.task_id))[0];return{canonical_url,domain:top.domain,keyword_count:new Set(edges.map((row)=>row.task_id)).size,group_count:new Set(edges.map((row)=>row.group_id)).size,best_rank:top.rank,rank_score:edges.reduce((sum,row)=>sum+1/row.rank,0),top_task_id:top.task_id,top_keyword:top.keyword,scope:{site_id:siteId,full_rank_database:false}}}).sort((a,b)=>b.keyword_count-a.keyword_count||b.group_count-a.group_count||b.rank_score-a.rank_score||a.canonical_url.localeCompare(b.canonical_url));return ok(page(rows.filter((row)=>!query||norm(`${row.canonical_url} ${row.domain}`).includes(query)),url))}
-  if(pathname==="/api/v1/brands"){const view=url.searchParams.get("view")==="domains"?"domains":"brands",review=url.searchParams.get("review"),rows=(site.serp_brand_analysis?.[view]??[]).filter((row)=>(!review||review==="all"||(view==="brands"?row.multi_domain_review:row.name_variation_review))&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:site.serp_brand_analysis?.summary??{},policy:site.serp_brand_analysis?.policy??"serp-brand-occupancy.v1",view,filters:{q:url.searchParams.get("q")??"",review},auto_mutation:false})}
-  if(pathname==="/api/v1/aio-overviews"){const state=url.searchParams.get("state"),rows=(data.serp_ai_overviews??[]).filter((row)=>taskIds.has(row.task_id)&&(!state||state==="all"||row.response_state===state)&&(!query||norm(`${row.task_id} ${row.markdown??""}`).includes(query)));return ok({...page(rows,url),summary:site.aio_acquisition_summary,filters:{q:url.searchParams.get("q")??"",state},retry_mutation_supported:false})}
-  if(pathname==="/api/v1/snapshot-history"){const requestedView=url.searchParams.get("view"),view=requestedView==="reuse"?"rows":requestedView==="targets"?"targets":requestedView==="isolated"?"isolated":"comparisons",state=url.searchParams.get("state"),target=url.searchParams.get("target"),matchMode=["domain","url_prefix","exact_url"].includes(url.searchParams.get("match_mode"))?url.searchParams.get("match_mode"):"domain";if(view==="targets"&&!target)return bad(400,"target is required for view=targets");const isolated=site.snapshot_reuse_audit?.isolated_corpus_review??{rows:[],summary:{},policy:"isolated-snapshot-corpus-review.v1"},source=view==="targets"?targetRankTracks(site.snapshot_reuse_audit?.comparisons??[],target,matchMode):view==="isolated"?isolated.rows:(site.snapshot_reuse_audit?.[view]??[]),rows=source.filter((row)=>(!state||state==="all"||row.reuse_state===state||row.state===state||row.review_state===state)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:view==="isolated"?isolated.summary:(site.snapshot_reuse_audit?.summary??{}),policy:view==="targets"?"retained-target-rank-track.v2":view==="isolated"?isolated.policy:(site.snapshot_reuse_audit?.policy??"raw-snapshot-reuse-audit.v1"),view,filters:{q:url.searchParams.get("q")??"",state,target,match_mode:matchMode},auto_mutation:false,auto_site_assignment:false})}
-  if(pathname==="/api/v1/domains"){const targetDomain=url.searchParams.get("target_domain")??site.domain,edges=(data.serp_page_keyword_edges??[]).filter((row)=>taskIds.has(row.task_id)),keywordsByDomain=Map.groupBy(edges,(row)=>row.domain),targetKeywords=new Set((keywordsByDomain.get(targetDomain)??[]).map((row)=>row.keyword)),rows=[...keywordsByDomain.entries()].map(([domain,domainEdges])=>{const competitorKeywords=new Set(domainEdges.map((item)=>item.keyword)),duplicateKeywords=[...competitorKeywords].filter((keyword)=>targetKeywords.has(keyword)),competitorUnique=[...competitorKeywords].filter((keyword)=>!targetKeywords.has(keyword)),targetUnique=[...targetKeywords].filter((keyword)=>!competitorKeywords.has(keyword)),unionCount=new Set([...targetKeywords,...competitorKeywords]).size;return{domain,keyword_count:new Set(domainEdges.map((row)=>row.task_id)).size,group_count:new Set(domainEdges.map((row)=>row.group_id)).size,page_count:new Set(domainEdges.map((row)=>row.canonical_url)).size,best_rank:Math.min(...domainEdges.map((row)=>row.rank)),rank_score:domainEdges.reduce((sum,row)=>sum+1/row.rank,0),scope:{site_id:siteId,full_rank_database:false},comparison:{target_domain:targetDomain,observed_target_keyword_count:targetKeywords.size,duplicate_keyword_count:duplicateKeywords.length,duplicate_rate_target:targetKeywords.size?duplicateKeywords.length/targetKeywords.size:null,jaccard_overlap_rate:unionCount?duplicateKeywords.length/unionCount:null,competitor_unique_keyword_count:competitorUnique.length,target_unique_keyword_count:targetUnique.length,duplicate_keywords:duplicateKeywords,policy:"observed-serp-domain-keyword-set.v2",scope:{site_id:siteId,task_count:taskIds.size,depth:10,full_rank_database:false}}}}).filter((row)=>!query||norm(row.domain).includes(query)).sort((a,b)=>b.keyword_count-a.keyword_count||b.rank_score-a.rank_score||a.domain.localeCompare(b.domain));return ok(page(rows,url))}
-  if(pathname==="/api/v1/cooccurrence"){const scope=url.searchParams.get("scope")==="task"?"task":"group",table=scope==="task"?"competitor_task_terms":"competitor_terms",identity=scope==="task"?"task_id":"group_id",evidenceTable=scope==="task"?"competitor_page_task_evidence":"competitor_page_group_evidence",allowed=scope==="task"?taskIds:groupIds;let rows;if(db)rows=db.prepare(`SELECT * FROM ${table} ORDER BY ${identity},page_count DESC,heading_page_count DESC,weighted_score DESC`).all().filter((row)=>allowed.has(row[identity])).map(({evidence_page_ids_json,...row})=>({...row,evidence_page_ids:JSON.parse(evidence_page_ids_json)}));else rows=(scope==="task"?(data.competitor_task_terms??[]):(data.competitor_terms??[])).filter((row)=>allowed.has(row[identity]));const result=page(rows.filter((row)=>!query||norm(row.term).includes(query)),url);if(db&&url.searchParams.get("details")==="true")for(const row of result.data){const details=db.prepare(`SELECT p.page_id,p.url,p.domain,p.title,e.best_rank,t.count,t.title_count,t.heading_count,t.in_title,t.in_heading FROM competitor_page_terms t JOIN competitor_pages p USING(page_id) JOIN ${evidenceTable} e USING(page_id) WHERE e.${identity}=? AND t.term=? ORDER BY e.best_rank,p.url`).all(row[identity],row.term).map((item)=>({...item,in_title:Boolean(item.in_title),in_heading:Boolean(item.in_heading),page_count:1,page_count_in_headline:Number(item.heading_count>0)}));row.seo_tool_a_semantics={occurrence_page_count:row.total_count,occurrence_title_count:row.title_count,occurrence_heading_count:row.heading_count,site_count_total:new Set(details.map((item)=>item.domain)).size,site_count_heading:new Set(details.filter((item)=>item.heading_count>0).map((item)=>item.domain)).size,page_details:details}}return ok(result)}
-  const sitePageIds=new Set((data.competitor_page_evidence??[]).filter((row)=>groupIds.has(row.group_id)).map((row)=>row.page_id));if(pathname==="/api/v1/content"){const snippetsByPage=Map.groupBy((data.competitor_serp_snippet_evidence??[]).filter((row)=>taskIds.has(row.task_id)),(row)=>row.page_id),pageKeywordIndex=new Map((site.content_page_keyword_evidence?.rows??[]).map((row)=>[row.page_id,row])),rows=(data.competitor_pages??[]).filter((row)=>sitePageIds.has(row.page_id)).map((row)=>({...row,serp_snippets:snippetsByPage.get(row.page_id)??[],observed_keyword_evidence:pageKeywordIndex.get(row.page_id)??null})).filter((row)=>!query||norm(`${row.title} ${row.url} ${row.observed_keyword_evidence?.keywords.map((item)=>item.keyword).join(" ")??""} ${row.serp_snippets.map((item)=>`${item.title} ${item.description}`).join(" ")}`).includes(query));return ok(page(rows,url))}if(pathname==="/api/v1/headings"){const requestedTask=url.searchParams.get("task_id"),requestedGroup=url.searchParams.get("group_id");if(requestedTask&&!taskIds.has(requestedTask))return bad(404,`unknown task_id for site: ${requestedTask}`);if(requestedGroup&&!groupIds.has(requestedGroup))return bad(404,`unknown group_id for site: ${requestedGroup}`);const evidence=(requestedTask?(data.competitor_page_task_evidence??[]).filter((row)=>row.task_id===requestedTask):requestedGroup?(data.competitor_page_evidence??[]).filter((row)=>row.group_id===requestedGroup):(data.competitor_page_task_evidence??[]).filter((row)=>taskIds.has(row.task_id))),bestRankByPage=new Map();for(const row of evidence)bestRankByPage.set(row.page_id,Math.min(bestRankByPage.get(row.page_id)??Infinity,row.best_rank));const scopedPageIds=new Set(bestRankByPage.keys()),levels=new Set(url.searchParams.getAll("level").flatMap((value)=>value.split(",")).map(Number).filter((value)=>Number.isInteger(value)&&value>=1&&value<=6)),excluded=url.searchParams.getAll("exclude").flatMap((value)=>value.split(/[，,\n]/u)).map(norm).filter(Boolean),allScoped=(data.competitor_headings??[]).filter((row)=>scopedPageIds.has(row.page_id)),excludedCount=allScoped.filter((row)=>excluded.some((token)=>norm(row.text).includes(token))).length,pageById=new Map((data.competitor_pages??[]).map((row)=>[row.page_id,row])),filtered=allScoped.filter((row)=>(!levels.size||levels.has(row.level))&&(!query||norm(row.text).includes(query))&&!excluded.some((token)=>norm(row.text).includes(token))).map((row)=>{const source=pageById.get(row.page_id)??{};return{...row,character_count:[...row.text].length,url:source.url??null,domain:source.domain??null,page_title:source.title??null,page_text_length:source.text_length??null,best_rank:bestRankByPage.get(row.page_id)??null}}).sort((a,b)=>a.best_rank-b.best_rank||a.page_id.localeCompare(b.page_id)||a.position-b.position),filteredPageIds=new Set(filtered.map((row)=>row.page_id)),pageLengths=[...filteredPageIds].map((id)=>pageById.get(id)?.text_length).filter(Number.isFinite),perLevel=Object.fromEntries(Array.from({length:6},(_,index)=>[String(index+1),filtered.filter((row)=>row.level===index+1).length])),summary={page_count:filteredPageIds.size,heading_count:filtered.length,excluded_heading_count:excludedCount,per_level_count:perLevel,average_headings_per_page:filteredPageIds.size?filtered.length/filteredPageIds.size:null,average_heading_character_count:average(filtered.map((row)=>row.character_count)),average_page_text_length:average(pageLengths),median_page_text_length:median(pageLengths),depth:{acquired_top:10,provider_target_top:20,complete:false}},filters={q:url.searchParams.get("q")??"",levels:[...levels].sort(),exclude:excluded,task_id:requestedTask,group_id:requestedGroup};if(url.searchParams.get("view")==="pages"){const headingsByPage=Map.groupBy(filtered,(row)=>row.page_id),rows=[...filteredPageIds].map((pageId)=>{const source=pageById.get(pageId)??{},headings=headingsByPage.get(pageId)??[];return{page_id:pageId,url:source.url??null,domain:source.domain??null,title:source.title??null,best_rank:bestRankByPage.get(pageId)??null,text_length:source.text_length??null,heading_count:headings.length,per_level_count:Object.fromEntries(Array.from({length:6},(_,index)=>[String(index+1),headings.filter((row)=>row.level===index+1).length])),headings:headings.map(({url,domain,page_title,page_text_length,best_rank,...heading})=>heading)}}).sort((a,b)=>a.best_rank-b.best_rank||a.url.localeCompare(b.url));return ok({...page(rows,url),summary,filters,view:"pages"})}return ok({...page(filtered,url),summary,filters,view:"headings"})}if(pathname==="/api/v1/cooccurrence"){const scope=url.searchParams.get("scope")==="task"?"task":"group",table=scope==="task"?"competitor_task_terms":"competitor_terms",identity=scope==="task"?"task_id":"group_id",allowed=scope==="task"?taskIds:groupIds;let rows;if(db)rows=db.prepare(`SELECT * FROM ${table} ORDER BY ${identity},page_count DESC,heading_page_count DESC,weighted_score DESC`).all().filter((row)=>allowed.has(row[identity])).map(({evidence_page_ids_json,...row})=>({...row,evidence_page_ids:JSON.parse(evidence_page_ids_json)}));else rows=(scope==="task"?(data.competitor_task_terms??[]):(data.competitor_terms??[])).filter((row)=>allowed.has(row[identity]));return ok(page(rows.filter((row)=>!query||norm(row.term).includes(query)),url))}
-  if(pathname==="/api/v1/serp-results"){const target=url.searchParams.get("target")??"all",feature=url.searchParams.get("feature"),textFor=(row)=>({title:row.title,description:row.description,"pre-snippet":row.pre_snippet,breadcrumb:row.breadcrumb,sitelink:(row.links??[]).map((item)=>`${item.title??""} ${item.description??""} ${item.url??""}`).join(" "),commerce:`${row.rating?JSON.stringify(row.rating):""} ${row.price?JSON.stringify(row.price):""}`,highlight:(row.highlighted??[]).join(" "),all:`${row.title} ${row.url} ${row.description??""} ${row.pre_snippet??""} ${row.breadcrumb??""} ${(row.highlighted??[]).join(" ")} ${(row.links??[]).map((item)=>`${item.title??""} ${item.description??""} ${item.url??""}`).join(" ")} ${row.rating?JSON.stringify(row.rating):""} ${row.price?JSON.stringify(row.price):""}`})[target]??"",featureMatches=(row)=>!feature||(feature==="video"&&row.attributes?.is_video)||(feature==="sitelinks"&&(row.links??[]).length)||(feature==="rated"&&row.rating)||(feature==="priced"&&row.price);return ok(page((data.serp_organic_results??[]).filter((row)=>taskIds.has(row.task_id)&&featureMatches(row)&&(!query||norm(textFor(row)).includes(query))),url))}
-  if(pathname==="/api/v1/new-article-brief-queue"){const state=url.searchParams.get("publication_state"),sourceState=url.searchParams.get("source_preparation_state"),queue=site.new_article_brief_queue??{rows:[],summary:{}},rows=queue.rows.filter((row)=>(!state||state==="all"||row.publication_state===state)&&(!sourceState||sourceState==="all"||row.source_preparation_state===sourceState)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...queue.summary,filtered_count:rows.length},queue_digest:queue.queue_digest,filters:{q:url.searchParams.get("q")??"",publication_state:state??"all",source_preparation_state:sourceState??"all"},automatic_article_creation:false,auto_publication:false,ranking_effect_inferred:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/new-article-source-discovery-manifest"){const manifest=site.new_article_source_discovery_manifest??{rows:[],summary:{}},rows=manifest.rows.filter((row)=>!query||norm(JSON.stringify(row)).includes(query));return ok({...page(rows,url),summary:{...manifest.summary,filtered_count:rows.length},manifest_digest:manifest.manifest_digest,execution_authorized:false,auto_approval:false,auto_publication:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/new-article-public-source-evidence"){const state=url.searchParams.get("support_state"),evidence=site.new_article_public_source_evidence??{rows:[],summary:{}},rows=evidence.rows.filter((row)=>(!state||state==="all"||row.direct_support_state===state)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...evidence.summary,filtered_count:rows.length},evidence_set_digest:evidence.evidence_set_digest,filters:{q:url.searchParams.get("q")??"",support_state:state??"all"},paid_acquisition_triggered:false,requirement_satisfied_count:evidence.summary.requirement_satisfied_count??0,auto_approval:false,auto_publication:false})}
-  if(pathname==="/api/v1/evidence-safe-claim-reframes"){const kind=url.searchParams.get("failure_kind"),oracle=site.evidence_safe_claim_reframes??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!kind||kind==="all"||row.failure_kind===kind)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},reframe_set_digest:oracle.reframe_set_digest,filters:{q:url.searchParams.get("q")??"",failure_kind:kind??"all"},mutation_supported:false,factual_answer_inferred:false,auto_replacement:false,auto_approval:false,auto_publication:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/evidence-safe-draft-revisions"){const kind=url.searchParams.get("failure_kind"),progress=url.searchParams.get("progress"),oracle=site.evidence_safe_draft_revisions??{rows:[],summary:{}},rows=oracle.rows.filter((row)=>(!kind||kind==="all"||row.failure_kind===kind)&&(!progress||progress==="all"||row.editorial_progress_state===progress)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},proposal_set_digest:oracle.proposal_set_digest,progress_digest:oracle.progress_digest,filters:{q:url.searchParams.get("q")??"",failure_kind:kind??"all",progress:progress??"all"},mutation_supported:false,factual_answer_inferred:false,auto_replacement:false,auto_approval:false,auto_apply:false,auto_publication:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/evidence-safe-manual-revision-packets"){const view=url.searchParams.get("view")??"packets",oracle=site.evidence_safe_manual_revision_packets??{packets:[],blocked_proposals:[],summary:{}},source=view==="blocked"?oracle.blocked_proposals:oracle.packets,rows=source.filter((row)=>!query||norm(JSON.stringify(row)).includes(query));return ok({...page(rows,url),summary:{...oracle.summary,filtered_count:rows.length},packet_set_digest:oracle.packet_set_digest,filters:{q:url.searchParams.get("q")??"",view},mutation_supported:false,artifact_applied:false,auto_approval:false,auto_apply:false,auto_publication:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/new-article-citation-suitability"){const state=url.searchParams.get("suitability_state"),gate=site.new_article_citation_suitability_gate??{rows:[],summary:{}},rows=gate.rows.filter((row)=>(!state||state==="all"||row.suitability_state===state)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...gate.summary,filtered_count:rows.length},gate_digest:gate.gate_digest,filters:{q:url.searchParams.get("q")??"",suitability_state:state??"all"},requirement_satisfied:false,auto_approval:false,auto_publication:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/new-article-topology-gate"){const action=url.searchParams.get("review_action"),gate=site.new_article_topology_gate??{rows:[],summary:{}},rows=gate.rows.filter((row)=>(!action||action==="all"||row.review_action===action)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...gate.summary,filtered_count:rows.length},gate_digest:gate.gate_digest,filters:{q:url.searchParams.get("q")??"",review_action:action??"all"},automatic_group_mutation:false,automatic_article_creation:false,auto_publication:false,cannibalization_claimed:false,ranking_effect_inferred:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/observed-opportunity-content-coverage"){const action=url.searchParams.get("review_action"),gate=site.observed_opportunity_content_coverage_gate??{rows:[],summary:{}},rows=gate.rows.filter((row)=>(!action||action==="all"||row.review_action===action)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...gate.summary,filtered_count:rows.length},coverage_gate_digest:gate.coverage_gate_digest,filters:{q:url.searchParams.get("q")??"",review_action:action??"all"},automatic_content_mutation:false,auto_publication:false,ranking_effect_inferred:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/observed-keyword-content-routing"){const action=url.searchParams.get("action"),portfolio=site.observed_keyword_content_routing??{rows:[],summary:{}},rows=portfolio.rows.filter((row)=>(!action||action==="all"||row.action===action)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},routing_digest:portfolio.routing_digest,filters:{q:url.searchParams.get("q")??"",action:action??"all"},automatic_content_mutation:false,auto_publication:false,ranking_effect_inferred:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/observed-site-keyword-opportunities"){const route=url.searchParams.get("review_route"),portfolio=site.observed_site_keyword_opportunities??{rows:[],summary:{}},rows=portfolio.rows.filter((row)=>(!route||route==="all"||row.review_route===route)&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...portfolio.summary,filtered_count:rows.length},opportunity_digest:portfolio.opportunity_digest,filters:{q:url.searchParams.get("q")??"",review_route:route??"all"},target_confirmed_unranked:false,full_market_gap_claimed:false,traffic_inferred:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/observed-site-similarity"){const view=url.searchParams.get("view")==="nodes"?"nodes":"edges",domain=norm(url.searchParams.get("domain")),graph=site.observed_site_similarity_graph??{nodes:[],edges:[],summary:{}},source=view==="nodes"?graph.nodes:graph.edges,rows=source.filter((row)=>(!domain||(view==="nodes"?norm(row.domain)===domain:norm(row.source_domain)===domain||norm(row.target_domain)===domain))&&(!query||norm(JSON.stringify(row)).includes(query)));return ok({...page(rows,url),summary:{...graph.summary,filtered_count:rows.length},graph_digest:graph.graph_digest,view,filters:{q:url.searchParams.get("q")??"",domain:url.searchParams.get("domain")??""},full_market_overlap_claimed:false,traffic_inferred:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/observed-sites"){const historyState=url.searchParams.get("history_state"),directory=site.observed_site_directory??{rows:[],summary:{}},rows=directory.rows.filter((row)=>(!historyState||historyState==="all"||row.history_state_counts[historyState]>0)&&(!query||norm(`${row.domain} ${row.keywords.map((item)=>item.keyword).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...directory.summary,filtered_count:rows.length},directory_digest:directory.directory_digest,filters:{q:url.searchParams.get("q")??"",history_state:historyState??"all"},unknown_web_index:false,traffic_inferred:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/observed-ranked-keyword-history"){const scope=url.searchParams.get("scope"),state=url.searchParams.get("state"),index=site.observed_ranked_keyword_history_index??{rows:[],summary:{}},rows=index.rows.filter((row)=>(!scope||scope==="all"||row.scope_type===scope)&&(!state||state==="all"||row.keywords.some((item)=>item.appearance_state===state))&&(!query||norm(`${row.scope_value} ${row.keywords.map((item)=>item.keyword).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...index.summary,filtered_count:rows.length},index_digest:index.index_digest,filters:{q:url.searchParams.get("q")??"",scope:scope??"all",state:state??"all"},full_rank_database:false,confirmed_unranked:false,external_acquisition_triggered:false})}
-  if(pathname==="/api/v1/observed-ranked-keywords"){const scope=url.searchParams.get("scope"),index=site.observed_ranked_keyword_index??{rows:[],summary:{}},rows=index.rows.filter((row)=>(!scope||scope==="all"||row.scope_type===scope)&&(!query||norm(`${row.scope_value} ${row.keywords.map((item)=>item.keyword).join(" ")}`).includes(query)));return ok({...page(rows,url),summary:{...index.summary,filtered_count:rows.length},index_digest:index.index_digest,filters:{q:url.searchParams.get("q")??"",scope:scope??"all"},full_rank_database:false,traffic_inferred:false,unranked_inference:false,external_acquisition_triggered:false})}if(pathname==="/api/v1/market/locations")return ok({data:[{location_code:2392,name:"Japan",source:"retained acquisition contract"}]});if(pathname==="/api/v1/market/languages")return ok({data:[{language_code:"ja",name:"Japanese",source:"retained acquisition contract"}]});if(pathname==="/api/v1/market/status")return ok({data:site.data_provider_b_enrichment_status,mutation_supported:false});if(pathname==="/api/v1/market/results")return ok({keyword_metrics:(data.keyword_market_metrics??[]).filter((row)=>row.site_id===siteId),monthly_searches:(data.keyword_monthly_searches??[]).filter((row)=>row.site_id===siteId),difficulties:(data.keyword_difficulties??[]).filter((row)=>row.site_id===siteId),ranked_keywords:(data.domain_ranked_keywords??[]).filter((row)=>row.site_id===siteId)});if(pathname==="/api/v1/wordpress/links")return ok(page((data.wp_observed_links??[]).filter((row)=>row.site_id===siteId&&(!query||norm(`${row.anchor_text} ${row.source_section} ${row.resolved_url}`).includes(query))),url));if(pathname==="/api/v1/wordpress/paragraphs"){const articleParam=url.searchParams.get("article_id"),articleId=articleParam==null||articleParam.trim()===""?null:Number(articleParam),element=url.searchParams.get("element"),rows=db.prepare("SELECT * FROM wp_content_paragraphs WHERE site_id=? ORDER BY wp_article_id,position").all(siteId).filter((row)=>(articleId==null||row.wp_article_id===articleId)&&(!element||element==="all"||row.element===element)&&(!query||norm(`${row.wp_article_id} ${row.source_section??""} ${row.element}`).includes(query)));return ok({...page(rows,url),summary:{paragraph_count:rows.length,article_count:new Set(rows.map((row)=>row.wp_article_id)).size,total_text_length:rows.reduce((sum,row)=>sum+row.text_length,0),text_retained:false},filters:{article_id:Number.isInteger(articleId)?articleId:null,element:element??"all",q:url.searchParams.get("q")??""}})}if(pathname==="/api/v1/wordpress/seo-metadata")return ok(page((site.wp_page_seo_metadata??[]).filter((row)=>!query||norm(`${row.title} ${row.description} ${row.canonical_url}`).includes(query)),url));if(pathname==="/api/v1/wordpress/seo-audits"){const state=url.searchParams.get("state");return ok(page((site.wp_page_seo_audits??[]).filter((row)=>(!state||row.state===state)&&(!query||norm(`${row.wp_article_id} ${row.findings.map((item)=>`${item.code} ${item.detail}`).join(" ")}`).includes(query))),url))}
-  const briefMatch=pathname.match(/^\/api\/v1\/groups\/([^/]+)\/brief$/u);if(briefMatch){const groupId=decodeURIComponent(briefMatch[1]),group=(data.groups??[]).find((row)=>row.id===groupId),structure=(data.content_structure_candidates??[]).find((row)=>row.group_id===groupId);if(!group||!structure)return bad(404,`unknown group_id: ${groupId}`);return ok({data:{group,structure,generation_candidates:(data.content_generation_candidates??[]).filter((row)=>row.group_id===groupId)}})}if(pathname==="/api/v1/acquisition")return ok({data:{site_id:siteId,portfolio_metrics:site.portfolio_metrics,provider_cost_ledger:site.provider_cost_ledger,data_disposition:site.data_disposition}});return bad(404,"API route not found")}
-export {openapi as researchOpenApi,operationCoverage};
+export function routeResearchApi(pathname, url, data, db = null) {
+  db ??= researchDb;
+  if (pathname === "/api/v1/public-contract-freshness")
+    return ok({
+      checked_at: publicContractDrift.checked_at,
+      source: publicContractDrift.source,
+      operation_count: publicContractDrift.operation_count,
+      openapi_contract: publicContractDrift.openapi_contract,
+      mcp_contract: publicContractDrift.mcp_contract,
+      paid_request_executed: false,
+      credentials_used: false,
+    });
+  if (pathname === "/api/v1/acquisition-retention") {
+    const disposition = url.searchParams.get("disposition"),
+      q = norm(url.searchParams.get("q")),
+      rows = acquisitionRetentionBlueprint.rows.filter(
+        (row) =>
+          (!disposition ||
+            disposition === "all" ||
+            row.disposition === disposition) &&
+          (!q ||
+            norm(
+              `${row.schema} ${row.field_path} ${row.operations.join(" ")} ${row.future_lossless_targets.join(" ")}`,
+            ).includes(q)),
+      );
+    const tableCounts = db
+      ? Object.fromEntries(
+          [
+            "acquisition_operation_runs",
+            "acquisition_raw_payloads",
+            "acquisition_operation_entries",
+            "acquisition_field_occurrences",
+            "traffic_metric_observations",
+            "appearance_history_observations",
+            "acquisition_semantic_projections",
+          ].map((table) => [
+            table,
+            Number(
+              db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get().count,
+            ),
+          ]),
+        )
+      : null;
+    return ok({
+      ...page(rows, url),
+      summary: {
+        field_occurrence_count:
+          acquisitionRetentionBlueprint.field_occurrence_count,
+        future_covered_count:
+          acquisitionRetentionBlueprint.future_covered_count,
+        future_uncovered_count:
+          acquisitionRetentionBlueprint.future_uncovered_count,
+        not_acquired_field_count:
+          acquisitionRetentionBlueprint.not_acquired_field_count,
+        filtered_field_count: rows.length,
+        table_counts: tableCounts,
+      },
+      blueprint_digest: acquisitionRetentionBlueprint.blueprint_digest,
+      credentials_retained: false,
+      external_request_executed: false,
+    });
+  }
+  if (pathname === "/api/v1/market/locations") {
+    let rows;
+    try {
+      rows = searchPublicLocations({
+        locationName: url.searchParams.get("locationName") ?? "",
+        countryCode: url.searchParams.get("countryCode") ?? "",
+      });
+    } catch (error) {
+      return bad(400, error.message);
+    }
+    return ok({
+      ...page(rows, url),
+      summary: publicSearchMetadataSummary,
+      filters: {
+        locationName: url.searchParams.get("locationName") ?? "",
+        countryCode: url.searchParams.get("countryCode") ?? "",
+      },
+      authentication_required: false,
+      consumed_credit: 0,
+    });
+  }
+  if (pathname === "/api/v1/market/languages")
+    return ok({
+      ...page(listPublicLanguages(), url),
+      summary: publicSearchMetadataSummary,
+      authentication_required: false,
+      consumed_credit: 0,
+    });
+  if (pathname === "/api/v1/credits/estimate") {
+    try {
+      const operation = url.searchParams.get("operation"),
+        keywordCount = Number(url.searchParams.get("keyword_count")),
+        seoRaw = url.searchParams.get("seo_difficulty"),
+        depthRaw = url.searchParams.get("depth"),
+        urlCountRaw = url.searchParams.get("url_count"),
+        seoDifficulty =
+          seoRaw == null
+            ? false
+            : seoRaw === "true"
+              ? true
+              : seoRaw === "false"
+                ? false
+                : (() => {
+                    throw new TypeError("seo_difficulty must be true or false");
+                  })();
+      return ok({
+        estimate: estimatePublicApiCredits({
+          operation,
+          keywordCount,
+          seoDifficulty,
+          depth: depthRaw == null ? 30 : Number(depthRaw),
+          urlCount: urlCountRaw == null ? undefined : Number(urlCountRaw),
+        }),
+        contract: publicApiCreditContract,
+        mutation_supported: false,
+        paid_request_executed: false,
+      });
+    } catch (error) {
+      return bad(400, error.message);
+    }
+  }
+  if (pathname === "/api/v1/operation-graph") {
+    const role = url.searchParams.get("role"),
+      credit = url.searchParams.get("credit"),
+      q = norm(url.searchParams.get("q")),
+      rows = publicApiOperationGraph.operations.filter(
+        (row) =>
+          (!role || role === "all" || row.lifecycle_role === role) &&
+          (!credit ||
+            credit === "all" ||
+            row.credit_contract_kind === credit) &&
+          (!q ||
+            norm(
+              `${row.operation_id} ${row.path} ${row.summary} ${row.request_fields.map((item) => item.field).join(" ")}`,
+            ).includes(q)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        operation_count: publicApiOperationGraph.operation_count,
+        dependency_edge_count: publicApiOperationGraph.dependency_edge_count,
+        lifecycle_counts: publicApiOperationGraph.lifecycle_counts,
+        credit_contract_counts: publicApiOperationGraph.credit_contract_counts,
+        filtered_operation_count: rows.length,
+      },
+      dependency_edges: publicApiOperationGraph.dependency_edges,
+      graph_digest: publicApiOperationGraph.graph_digest,
+      filters: {
+        role: role ?? "all",
+        credit: credit ?? "all",
+        q: url.searchParams.get("q") ?? "",
+      },
+      external_request_executed: false,
+    });
+  }
+  if (pathname === "/api/v1/operation-retention") {
+    const state = url.searchParams.get("state"),
+      q = norm(url.searchParams.get("q")),
+      rows = publicApiRetentionMatrix.rows.filter(
+        (row) =>
+          (!state ||
+            state === "all" ||
+            (state === "retained"
+              ? row.disposition_counts.retained_semantic_mapping > 0
+              : state === "acquisition_gap"
+                ? row.acquisition_required
+                : state === "mapping_gap"
+                  ? row.mapping_required
+                  : state === "execution_metadata_gap"
+                    ? row.execution_metadata_requires_provider_run
+                    : false)) &&
+          (!q ||
+            norm(
+              `${row.operation_id} ${row.path} ${row.summary} ${row.helix_targets.join(" ")} ${row.unacquired_response_paths.join(" ")} ${row.unmapped_response_paths.join(" ")}`,
+            ).includes(q)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        operation_count: publicApiRetentionMatrix.operation_count,
+        operation_with_retained_mapping_count:
+          publicApiRetentionMatrix.operation_with_retained_mapping_count,
+        operation_requiring_acquisition_count:
+          publicApiRetentionMatrix.operation_requiring_acquisition_count,
+        operation_requiring_execution_metadata_count:
+          publicApiRetentionMatrix.operation_requiring_execution_metadata_count,
+        operation_requiring_mapping_count:
+          publicApiRetentionMatrix.operation_requiring_mapping_count,
+        disposition_counts: publicApiRetentionMatrix.disposition_counts,
+        filtered_operation_count: rows.length,
+      },
+      matrix_digest: publicApiRetentionMatrix.matrix_digest,
+      filters: { state: state ?? "all", q: url.searchParams.get("q") ?? "" },
+      wire_compatibility_claim: false,
+      external_request_executed: false,
+    });
+  }
+  if (pathname === "/api/v1/provider-provenance") {
+    const state = url.searchParams.get("state"),
+      confidence = url.searchParams.get("confidence"),
+      relation = url.searchParams.get("relation"),
+      q = norm(url.searchParams.get("q")),
+      rows = providerProvenanceHypothesis.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.evidence_state === state) &&
+          (!confidence ||
+            confidence === "all" ||
+            row.confidence === confidence) &&
+          (!relation ||
+            relation === "all" ||
+            row.provider_relation === relation) &&
+          (!q ||
+            norm(
+              `${row.operation_id} ${row.summary} ${row.candidate_upstream_capabilities.join(" ")} ${row.transformation_hypothesis.join(" ")} ${row.retained_evidence.join(" ")}`,
+            ).includes(q)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        operation_count: providerProvenanceHypothesis.operation_count,
+        evidence_state_counts:
+          providerProvenanceHypothesis.evidence_state_counts,
+        confidence_counts: providerProvenanceHypothesis.confidence_counts,
+        internal_stack_proven_count:
+          providerProvenanceHypothesis.internal_stack_proven_count,
+        filtered_operation_count: rows.length,
+      },
+      audit_digest: providerProvenanceHypothesis.audit_digest,
+      filters: {
+        state: state ?? "all",
+        confidence: confidence ?? "all",
+        relation: relation ?? "all",
+        q: url.searchParams.get("q") ?? "",
+      },
+      vendor_confirmation_observed: false,
+      internal_stack_claim: "not_proven",
+      external_request_executed: false,
+    });
+  }
+  if (pathname === "/api/v1/serp-field-lineage") {
+    const audit = data.serp_field_lineage;
+    if (!audit) return bad(503, "SERP field lineage audit is unavailable");
+    const query = norm(url.searchParams.get("q")),
+      state = url.searchParams.get("projection_state"),
+      use = url.searchParams.get("decision_state"),
+      rows = audit.raw_leaf_fields.filter(
+        (row) =>
+          (!query || norm(row.field).includes(query)) &&
+          (!state || state === "all" || row.projection_state === state) &&
+          (!use || use === "all" || row.decision_state === use),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: audit.raw_leaf_field_summary,
+      schema_version: audit.schema_version,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        projection_state: state ?? "all",
+        decision_state: use ?? "all",
+      },
+    });
+  }
+  if (pathname === "/api/v1/openapi.json")
+    return { status: 200, body: openapi };
+  if (pathname === "/api/v1/operation-coverage")
+    return ok({
+      data: operationCoverage,
+      meta: {
+        mapped_operation_count: operationCoverage.length,
+        contract_compatible: false,
+      },
+    });
+  if (pathname === "/api/v1/sites")
+    return ok({
+      data: data.sites.map(
+        ({
+          lexical_index,
+          ai_question_candidates,
+          provider_cost_ledger,
+          wp_page_seo_metadata,
+          wp_page_seo_audits,
+          public_surface_inventory,
+          keyword_decision_audit,
+          serp_intent_analysis,
+          keyword_boundary_oracle,
+          serp_depth_stability,
+          content_topology_oracle,
+          content_consolidation_blueprints,
+          content_consolidation_citations,
+          content_consolidation_citation_coverage,
+          content_consolidation_citation_backfill,
+          content_consolidation_citation_observation_lineage,
+          content_consolidation_citation_authority,
+          content_consolidation_primary_source_requirements,
+          content_consolidation_retained_primary_source_discovery,
+          serp_brand_analysis,
+          aio_acquisition_summary,
+          aio_completion_portfolio,
+          acquisition_contract_fulfillment,
+          acquisition_remediation_portfolio,
+          acquisition_execution_readiness,
+          acquisition_approval_manifest,
+          acquisition_lifetime_allocation,
+          acquisition_lifetime_approval_manifest,
+          snapshot_reuse_audit,
+          competitive_appearance_history,
+          rank_monitor_plan,
+          seo_action_queue,
+          keyword_acquisition_portfolio,
+          title_repair_oracle,
+          heading_repair_oracle,
+          content_readiness_oracle,
+          content_competitive_stability,
+          content_evidence_ensemble_selection,
+          content_selection_delta_explanations,
+          content_editorial_review_packet,
+          semantic_resolution_decision_packet,
+          claim_verification_queue,
+          claim_discovery_portfolio,
+          paa_answer_completion_portfolio,
+          generation_provenance_ledger,
+          generation_execution_manifest,
+          generation_challenger_manifest,
+          search_contract_code_mapping_oracle,
+          paid_test_budget_scenarios,
+          content_rich_block_plans,
+          ...site
+        }) => site,
+      ),
+    });
+  const siteId = url.searchParams.get("site_id"),
+    site = data.sites.find((row) => row.site_id === siteId);
+  if (!pathname.startsWith("/api/v1/groups/") && !siteId)
+    return bad(400, "site_id is required");
+  if (siteId && !site) return bad(404, `unknown site_id: ${siteId}`);
+  const groups = (data.groups ?? []).filter((row) => row.site_id === siteId),
+    groupIds = new Set(groups.map((row) => row.id)),
+    taskIds = new Set(groups.flatMap((row) => row.task_ids ?? [])),
+    query = norm(url.searchParams.get("q"));
+  if (pathname === "/api/v1/rank/status") {
+    const comparisons = site.snapshot_reuse_audit?.comparisons ?? [],
+      plan = site.rank_monitor_plan?.summary ?? {};
+    return ok({
+      data: {
+        state: comparisons.length
+          ? "retained_history_available"
+          : "not_acquired",
+        history_count: comparisons.length,
+        tracked_keyword_count: new Set(comparisons.map((row) => row.keyword))
+          .size,
+        monitor_candidate_count: plan.candidate_count ?? 0,
+        registered_monitor_count: plan.registered_count ?? 0,
+        oldest_observed_at:
+          comparisons.map((row) => row.previous_observed_at).sort()[0] ?? null,
+        latest_observed_at:
+          comparisons
+            .map((row) => row.current_observed_at)
+            .sort()
+            .at(-1) ?? null,
+        scope: {
+          retained_snapshot_only: true,
+          continuous_schedule: false,
+          provider_history: false,
+        },
+      },
+      mutation_supported: false,
+    });
+  }
+  if (pathname === "/api/v1/rank/monitor-plan") {
+    const state = url.searchParams.get("state"),
+      device = url.searchParams.get("device") ?? "desktop",
+      locationParam = url.searchParams.get("location_code"),
+      locationCode =
+        locationParam == null || locationParam === ""
+          ? null
+          : Number(locationParam),
+      locationInput = url.searchParams.get("location_name"),
+      languageInput = url.searchParams.get("language_name"),
+      location =
+        locationInput == null || locationInput.trim() === ""
+          ? findPublicLocationName("Japan")
+          : findPublicLocationName(locationInput),
+      language =
+        languageInput == null || languageInput.trim() === ""
+          ? findPublicLanguageName("Japanese")
+          : findPublicLanguageName(languageInput),
+      plan = site.rank_monitor_plan ?? { rows: [], summary: {} };
+    if (!["desktop", "mobile"].includes(device))
+      return bad(400, "device must be desktop or mobile");
+    if (
+      locationCode != null &&
+      (!Number.isInteger(locationCode) || locationCode <= 0)
+    )
+      return bad(400, "location_code must be a positive integer");
+    if (!location)
+      return bad(
+        400,
+        "location_name must exactly match the retained public catalog",
+      );
+    if (!language)
+      return bad(
+        400,
+        "language_name must exactly match the retained public catalog",
+      );
+    const source = plan.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.history_state === state) &&
+          (!query ||
+            norm(`${row.keyword} ${row.target} ${row.group_id}`).includes(
+              query,
+            )),
+      ),
+      previews = previewRankMonitorContracts(source, {
+        device,
+        locationCode,
+        locationName: location.name,
+        languageName: language.name,
+      }),
+      rows = source.map((row, index) => ({
+        ...row,
+        requested_contract_preview: previews[index],
+      }));
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...plan.summary,
+        filtered_candidate_count: rows.length,
+        preview_device: device,
+        preview_location_code:
+          locationCode ?? rows[0]?.contract.location_code ?? null,
+        preview_location_name: location.name,
+        preview_language_name: language.name,
+        metadata_catalog_validated_count: previews.length,
+        regional_preview_count: previews.filter((row) => row.regional_variant)
+          .length,
+        blocked_metadata_mapping_count: previews.filter((row) =>
+          row.contract_review_state.startsWith("blocked_"),
+        ).length,
+        preview_registration_count: 0,
+      },
+      policy: plan.policy ?? "rank-monitor-plan.v2",
+      preview_policy: "rank-monitor-contract-preview.v2",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        device,
+        location_code: locationCode,
+        location_name: location.name,
+        language_name: language.name,
+      },
+      mutation_supported: false,
+      auto_registration: false,
+    });
+  }
+  if (pathname === "/api/v1/action-queue") {
+    const type = url.searchParams.get("type"),
+      priority = url.searchParams.get("priority"),
+      groupId = url.searchParams.get("group_id"),
+      queue = site.seo_action_queue ?? { rows: [], summary: {} };
+    if (groupId && !groupIds.has(groupId))
+      return bad(404, `unknown group_id for site: ${groupId}`);
+    const rows = queue.rows.filter(
+      (row) =>
+        (!type || type === "all" || row.action_type === type) &&
+        (!priority || priority === "all" || row.priority_band === priority) &&
+        (!groupId || row.group_ids.includes(groupId)) &&
+        (!query ||
+          norm(
+            `${row.title} ${row.suggested_next_step} ${row.blocker_codes.join(" ")}`,
+          ).includes(query)),
+    );
+    return ok({
+      ...page(rows, url),
+      summary: { ...queue.summary, filtered_action_count: rows.length },
+      policy: queue.policy ?? "seo-action-queue.v2",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        type: type ?? "all",
+        priority: priority ?? "all",
+        group_id: groupId,
+      },
+      mutation_supported: false,
+      auto_execution: false,
+      rank_lift_inferred: false,
+    });
+  }
+  if (pathname === "/api/v1/keyword-acquisition-portfolio") {
+    const view = ["candidates", "batches", "covered"].includes(
+        url.searchParams.get("view"),
+      )
+        ? url.searchParams.get("view")
+        : "candidates",
+      tier = url.searchParams.get("tier"),
+      portfolio = site.keyword_acquisition_portfolio ?? {
+        candidates: [],
+        batches: [],
+        covered_by_normalized_evidence: [],
+        summary: {},
+      };
+    const source =
+        view === "batches"
+          ? portfolio.batches
+          : view === "covered"
+            ? portfolio.covered_by_normalized_evidence
+            : portfolio.candidates,
+      rows = source.filter(
+        (row) =>
+          (view !== "candidates" ||
+            !tier ||
+            tier === "all" ||
+            row.decision_tier === tier) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      policy: portfolio.policy ?? "keyword-acquisition-portfolio.v1",
+      view,
+      filters: { q: url.searchParams.get("q") ?? "", tier: tier ?? "all" },
+      mutation_supported: false,
+      auto_submission: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/acquisition-lifetime-allocation") {
+    const view =
+        url.searchParams.get("view") === "coverage" ? "coverage" : "rows",
+      capability = url.searchParams.get("capability"),
+      priority = url.searchParams.get("priority"),
+      state = url.searchParams.get("state"),
+      plan = site.acquisition_lifetime_allocation ?? { rows: [], summary: {} },
+      source =
+        view === "coverage"
+          ? (plan.summary.keyword_source_sheet_coverage ?? [])
+          : plan.rows,
+      rows = source.filter(
+        (row) =>
+          (view !== "rows" ||
+            !capability ||
+            capability === "all" ||
+            row.capability === capability) &&
+          (view !== "rows" ||
+            !priority ||
+            priority === "all" ||
+            row.priority_band === priority) &&
+          (view !== "rows" ||
+            !state ||
+            state === "all" ||
+            row.allocation_state === state) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...plan.summary, filtered_count: rows.length },
+      policy: plan.policy ?? "acquisition-lifetime-allocation.v2",
+      allocation_strategy: plan.allocation_strategy,
+      view,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        capability: capability ?? "all",
+        priority: priority ?? "all",
+        state: state ?? "all",
+      },
+      mutation_supported: false,
+      auto_submission: false,
+      external_acquisition_triggered: false,
+      explicit_paid_execution_approval_required: true,
+    });
+  }
+  if (pathname === "/api/v1/acquisition-lifetime-approval-manifest") {
+    const view =
+        url.searchParams.get("view") === "batches" ? "batches" : "manifest",
+      capability = url.searchParams.get("capability"),
+      manifest = site.acquisition_lifetime_approval_manifest ?? { batches: [] };
+    if (view === "batches") {
+      const rows = manifest.batches.filter(
+        (row) =>
+          (!capability ||
+            capability === "all" ||
+            row.capability === capability) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+      return ok({
+        ...page(rows, url),
+        summary: {
+          candidate_count: manifest.candidate_count ?? 0,
+          batch_count: manifest.batch_count ?? 0,
+          maximum_cost_usd: manifest.maximum_cost?.amount ?? null,
+          filtered_count: rows.length,
+        },
+        view,
+        policy: manifest.policy ?? "acquisition-lifetime-approval-manifest.v1",
+        mutation_supported: false,
+        approval_recording_supported: false,
+        execution_authorized: false,
+        auto_submission: false,
+      });
+    }
+    const { batches, ...data } = manifest;
+    return ok({
+      data,
+      view,
+      mutation_supported: false,
+      approval_recording_supported: false,
+      execution_authorized: false,
+      external_acquisition_triggered: false,
+      auto_submission: false,
+    });
+  }
+  if (pathname === "/api/v1/title-repairs") {
+    const state = url.searchParams.get("state"),
+      groupId = url.searchParams.get("group_id"),
+      oracle = site.title_repair_oracle ?? { rows: [], summary: {} };
+    if (groupId && !groupIds.has(groupId))
+      return bad(404, `unknown group_id for site: ${groupId}`);
+    const rows = oracle.rows.filter(
+      (row) =>
+        (!state || state === "all" || row.review_state === state) &&
+        (!groupId || row.group_id === groupId) &&
+        (!query ||
+          norm(
+            `${row.main_keyword} ${row.source_text} ${row.repaired_text} ${row.source_topics.join(" ")}`,
+          ).includes(query)),
+    );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "evidence-title-repair.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        group_id: groupId,
+      },
+      mutation_supported: false,
+      auto_approval: false,
+      ranking_effect_inferred: false,
+      copying_competitor_title: false,
+    });
+  }
+  if (pathname === "/api/v1/heading-repairs") {
+    const state = url.searchParams.get("state"),
+      level = Number(url.searchParams.get("level")),
+      groupId = url.searchParams.get("group_id"),
+      oracle = site.heading_repair_oracle ?? { rows: [], summary: {} };
+    if (groupId && !groupIds.has(groupId))
+      return bad(404, `unknown group_id for site: ${groupId}`);
+    const rows = oracle.rows.filter(
+      (row) =>
+        (!state || state === "all" || row.review_state === state) &&
+        (!level || row.heading_level === level) &&
+        (!groupId || row.group_id === groupId) &&
+        (!query ||
+          norm(
+            `${row.source_text} ${row.repaired_text} ${row.source_issues.join(" ")}`,
+          ).includes(query)),
+    );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "evidence-heading-repair.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        level: level || null,
+        group_id: groupId,
+      },
+      mutation_supported: false,
+      semantic_preservation_verified: false,
+      auto_approval: false,
+      ranking_effect_inferred: false,
+      copying_competitor_heading: false,
+    });
+  }
+  if (pathname === "/api/v1/content-readiness") {
+    const state = url.searchParams.get("state"),
+      blocker = url.searchParams.get("blocker"),
+      review = url.searchParams.get("review"),
+      oracle = site.content_readiness_oracle ?? { rows: [], summary: {} };
+    const rows = oracle.rows.filter(
+      (row) =>
+        (!state || state === "all" || row.publication_state === state) &&
+        (!blocker ||
+          blocker === "all" ||
+          row.blocker_codes.includes(blocker)) &&
+        (!review || review === "all" || row.review_codes.includes(review)) &&
+        (!query ||
+          norm(
+            `${row.main_keyword} ${row.blocker_codes.join(" ")} ${row.review_codes.join(" ")}`,
+          ).includes(query)),
+    );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "content-readiness-oracle.v3",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        blocker: blocker ?? "all",
+        review: review ?? "all",
+      },
+      mutation_supported: false,
+      auto_approval: false,
+      auto_publication: false,
+      ranking_effect_inferred: false,
+    });
+  }
+  if (pathname === "/api/v1/content-demand-stability") {
+    const state = url.searchParams.get("state"),
+      type = url.searchParams.get("type"),
+      oracle = site.content_demand_stability ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.demand_stability_state === state) &&
+          (!type || type === "all" || row.content_type === type) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "content-demand-stability.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        type: type ?? "all",
+      },
+      auto_approval: false,
+      ranking_effect_inferred: false,
+    });
+  }
+  if (pathname === "/api/v1/content-competitive-stability") {
+    const state = url.searchParams.get("state"),
+      type = url.searchParams.get("type"),
+      oracle = site.content_competitive_stability ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!state ||
+            state === "all" ||
+            row.competitive_stability_state === state) &&
+          (!type || type === "all" || row.content_type === type) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "content-competitive-stability.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        type: type ?? "all",
+      },
+      auto_approval: false,
+      copying_competitor_content: false,
+      ranking_effect_inferred: false,
+    });
+  }
+  if (pathname === "/api/v1/content-evidence-ensemble-selection") {
+    const view =
+        url.searchParams.get("view") === "candidates" ? "candidates" : "groups",
+      state = url.searchParams.get("state"),
+      type = url.searchParams.get("type"),
+      oracle = site.content_evidence_ensemble_selection ?? {
+        group_rows: [],
+        candidate_rows: [],
+        summary: {},
+      },
+      source =
+        view === "candidates" ? oracle.candidate_rows : oracle.group_rows,
+      rows = source.filter(
+        (row) =>
+          (view !== "groups" ||
+            !state ||
+            state === "all" ||
+            (state === "review"
+              ? row.selection_review_required
+              : !row.selection_review_required)) &&
+          (view !== "candidates" ||
+            !type ||
+            type === "all" ||
+            row.content_type === type) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "content-evidence-ensemble-selection.v1",
+      view,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        type: type ?? "all",
+      },
+      auto_selection: false,
+      auto_content_mutation: false,
+      ranking_effect_inferred: false,
+    });
+  }
+  if (pathname === "/api/v1/content-task-holdout") {
+    const state = url.searchParams.get("state"),
+      temporalState = url.searchParams.get("temporal_state"),
+      type = url.searchParams.get("type"),
+      oracle = site.content_task_holdout_oracle ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.evaluation_state === state) &&
+          (!temporalState ||
+            temporalState === "all" ||
+            row.temporal_evaluation_state === temporalState) &&
+          (!type || type === "all" || row.content_type === type) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "content-task-holdout-oracle.v2",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        temporal_state: temporalState ?? "all",
+        type: type ?? "all",
+      },
+      task_disjoint: true,
+      temporal_independence_proven: Boolean(
+        oracle.temporal_independence_proven,
+      ),
+      human_quality_proven: false,
+      ranking_effect_inferred: false,
+      auto_selection: false,
+    });
+  }
+  if (pathname === "/api/v1/content-editorial-review") {
+    const type = url.searchParams.get("type"),
+      packet = site.content_editorial_review_packet ?? {
+        items: [],
+        strata: {},
+      },
+      progress = packet.decision_progress ?? {},
+      rows = packet.items.filter(
+        (row) =>
+          (!type || type === "all" || row.content_type === type) &&
+          (!query ||
+            norm(
+              `${row.main_keyword} ${row.option_a_text} ${row.option_b_text}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        eligible_comparison_count: packet.eligible_comparison_count ?? 0,
+        item_count: packet.item_count ?? 0,
+        excluded_count: packet.excluded_count ?? 0,
+        decision_count: progress.decision_count ?? 0,
+        item_review_coverage_count: progress.item_review_coverage_count ?? 0,
+        double_reviewed_item_count: progress.double_reviewed_item_count ?? 0,
+        reviewer_count: progress.reviewer_count ?? 0,
+        completed_reviewer_count: progress.completed_reviewer_count ?? 0,
+        agreement_item_count: progress.agreement_item_count ?? 0,
+        disagreement_item_count: progress.disagreement_item_count ?? 0,
+        agreement_rate: progress.agreement_rate ?? null,
+        remaining_double_review_count: Math.max(
+          0,
+          (packet.item_count ?? 0) - (progress.double_reviewed_item_count ?? 0),
+        ),
+        option_a_current_count: packet.option_a_current_count ?? 0,
+        option_b_current_count: packet.option_b_current_count ?? 0,
+        strata: packet.strata ?? {},
+        filtered_count: rows.length,
+      },
+      packet_digest: packet.packet_digest,
+      rubric_version: packet.rubric_version,
+      filters: { q: url.searchParams.get("q") ?? "", type: type ?? "all" },
+      blinded: true,
+      resolution_exposed: false,
+      human_quality_proven: Boolean(packet.human_quality_proven),
+      auto_selection: false,
+      auto_content_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/content-editorial-adjudication") {
+    const packet = site.content_editorial_review_packet ?? {},
+      queue = packet.adjudication_queue ?? { rows: [], summary: {} },
+      state = url.searchParams.get("state"),
+      type = url.searchParams.get("type"),
+      rows = queue.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.adjudication_state === state) &&
+          (!type || type === "all" || row.content_type === type) &&
+          (!query ||
+            norm(
+              `${row.main_keyword} ${row.content_type} ${row.adjudication_state}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...queue.summary, filtered_count: rows.length },
+      packet_digest: queue.packet_digest,
+      queue_digest: queue.queue_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        type: type ?? "all",
+      },
+      blinded: true,
+      resolution_exposed: false,
+      auto_selection: false,
+      auto_content_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/content-selection-delta-explanations") {
+    const type = url.searchParams.get("type"),
+      state = url.searchParams.get("state"),
+      gain = url.searchParams.get("dominant_gain"),
+      oracle = site.content_selection_delta_explanations ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!type || type === "all" || row.content_type === type) &&
+          (!state || state === "all" || row.comparison_state === state) &&
+          (!gain || gain === "all" || row.dominant_gain === gain) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "content-selection-delta-explanation.v2",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        type: type ?? "all",
+        state: state ?? "all",
+        dominant_gain: gain ?? "all",
+      },
+      auto_apply: false,
+      auto_content_mutation: false,
+      ranking_effect_inferred: false,
+    });
+  }
+  if (pathname === "/api/v1/generation-provenance") {
+    const type = url.searchParams.get("type"),
+      executionState = url.searchParams.get("execution_state"),
+      ledger = site.generation_provenance_ledger ?? { rows: [], summary: {} },
+      rows = ledger.rows.filter(
+        (row) =>
+          (!type || type === "all" || row.artifact_type === type) &&
+          (!executionState ||
+            executionState === "all" ||
+            row.model_execution.execution_state === executionState) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...ledger.summary, filtered_count: rows.length },
+      policy: ledger.policy ?? "generation-provenance-ledger.v1",
+      claims: ledger.claims,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        type: type ?? "all",
+        execution_state: executionState ?? "all",
+      },
+      mutation_supported: false,
+      external_generation_triggered: false,
+      paid_execution_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/generation-execution-manifest") {
+    const manifest = site.generation_execution_manifest ?? {
+        requests: [],
+        summary: {},
+      },
+      blocker = url.searchParams.get("blocker"),
+      rows = manifest.requests.filter(
+        (row) =>
+          (!blocker || blocker === "all" || row.blockers.includes(blocker)) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...manifest.summary, filtered_count: rows.length },
+      manifest_digest: manifest.manifest_digest,
+      prompt_template: manifest.prompt_template,
+      execution_state: manifest.execution_state,
+      policy: manifest.policy ?? "generation-execution-manifest.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        blocker: blocker ?? "all",
+      },
+      mutation_supported: false,
+      approval_recording_supported: false,
+      execution_authorized: false,
+      external_generation_triggered: false,
+      paid_execution_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/paid-test-budget-scenarios") {
+    const portfolio = site.paid_test_budget_scenarios ?? {
+        rows: [],
+        summary: {},
+      },
+      scenario = url.searchParams.get("scenario"),
+      rows = portfolio.rows.filter(
+        (row) =>
+          (!scenario || scenario === "all" || row.scenario_id === scenario) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      portfolio_digest: portfolio.portfolio_digest,
+      comparison_state: portfolio.comparison_state,
+      generation_capacity_claimed: portfolio.generation_capacity_claimed,
+      policy: portfolio.policy ?? "paid-test-budget-scenarios.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        scenario: scenario ?? "all",
+      },
+      mutation_supported: false,
+      reallocation_applied: false,
+      external_acquisition_triggered: false,
+      external_generation_triggered: false,
+      paid_execution_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/content-rich-block-plans") {
+    const portfolio = site.content_rich_block_plans ?? {
+        rows: [],
+        summary: {},
+      },
+      format = url.searchParams.get("format"),
+      view = url.searchParams.get("view") === "blocks" ? "blocks" : "articles",
+      source =
+        view === "blocks"
+          ? portfolio.rows.flatMap((row) => row.blocks)
+          : portfolio.rows,
+      rows = source.filter(
+        (row) =>
+          (view !== "blocks" ||
+            !format ||
+            format === "all" ||
+            row.format === format) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      portfolio_digest: portfolio.portfolio_digest,
+      scope: portfolio.scope,
+      publication_state: portfolio.publication_state,
+      view,
+      policy: portfolio.policy ?? "content-rich-block-plan.v1",
+      filters: { q: url.searchParams.get("q") ?? "", format: format ?? "all" },
+      mutation_supported: false,
+      payload_generation_supported: false,
+      auto_insertion: false,
+      auto_publication: false,
+      external_acquisition_triggered: false,
+      external_generation_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/generation-challenger-manifest") {
+    const manifest = site.generation_challenger_manifest ?? {
+        requests: [],
+        summary: {},
+      },
+      capability = url.searchParams.get("capability"),
+      rows = manifest.requests.filter(
+        (row) =>
+          (!capability ||
+            capability === "all" ||
+            row.capability === capability) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...manifest.summary, filtered_count: rows.length },
+      manifest_digest: manifest.manifest_digest,
+      evaluation_contract: manifest.evaluation_contract,
+      execution_state: manifest.execution_state,
+      generation_quality_proven: manifest.generation_quality_proven,
+      policy: manifest.policy ?? "generation-challenger-manifest.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        capability: capability ?? "all",
+      },
+      mutation_supported: false,
+      execution_authorized: false,
+      auto_selection: false,
+      auto_content_mutation: false,
+      external_generation_triggered: false,
+      paid_execution_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/search-contract-code-mappings") {
+    const oracle = site.search_contract_code_mapping_oracle ?? {
+        rows: [],
+        summary: {},
+      },
+      state = url.searchParams.get("state"),
+      rows = oracle.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.mapping_state === state) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      oracle_digest: oracle.oracle_digest,
+      policy: oracle.policy ?? "search-contract-code-mapping-oracle.v1",
+      filters: { q: url.searchParams.get("q") ?? "", state: state ?? "all" },
+      official_full_code_catalog_proven: false,
+      mutation_supported: false,
+      auto_registration: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/competitive-appearance-history") {
+    const state = url.searchParams.get("state"),
+      type = url.searchParams.get("type"),
+      domain = norm(url.searchParams.get("domain")),
+      history = site.competitive_appearance_history ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = history.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.appearance_state === state) &&
+          (!type || type === "all" || row.entity_type === type) &&
+          (!domain || norm(row.domain) === domain) &&
+          (!query ||
+            norm(`${row.keyword} ${row.entity} ${row.domain}`).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...history.summary, filtered_count: rows.length },
+      policy: history.policy ?? "competitive-appearance-history.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        type: type ?? "all",
+        domain: url.searchParams.get("domain") ?? "",
+      },
+      scope: {
+        retained_same_keyword_snapshots_only: true,
+        full_rank_database: false,
+        absence_confirms_unranked: false,
+      },
+      auto_content_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/claim-verification-queue") {
+    const priority = url.searchParams.get("priority"),
+      requirement = url.searchParams.get("requirement"),
+      state = url.searchParams.get("state"),
+      queue = site.claim_verification_queue ?? { rows: [], summary: {} };
+    const rows = queue.rows.filter(
+      (row) =>
+        (!priority || priority === "all" || row.priority_band === priority) &&
+        (!requirement ||
+          requirement === "all" ||
+          row.source_requirement === requirement) &&
+        (!state || state === "all" || row.verification_state === state) &&
+        (!query ||
+          norm(`${row.main_keyword} ${row.topic} ${row.claim_text}`).includes(
+            query,
+          )),
+    );
+    return ok({
+      ...page(rows, url),
+      summary: { ...queue.summary, filtered_count: rows.length },
+      policy: queue.policy ?? "claim-verification-queue.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        priority: priority ?? "all",
+        requirement: requirement ?? "all",
+        state: state ?? "all",
+      },
+      mutation_supported: false,
+      external_discovery_executed: false,
+      claim_verification_inferred: false,
+      auto_approval: false,
+      auto_publication: false,
+    });
+  }
+  if (pathname === "/api/v1/claim-discovery-portfolio") {
+    const view =
+        url.searchParams.get("view") === "batches" ? "batches" : "candidates",
+      priority = url.searchParams.get("priority"),
+      portfolio = site.claim_discovery_portfolio ?? {
+        candidates: [],
+        batches: [],
+        summary: {},
+      },
+      source = view === "batches" ? portfolio.batches : portfolio.candidates,
+      rows = source.filter(
+        (row) =>
+          (view !== "candidates" ||
+            !priority ||
+            priority === "all" ||
+            row.priority_band === priority) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      policy: portfolio.policy ?? "claim-discovery-portfolio.v1",
+      view,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        priority: priority ?? "all",
+      },
+      mutation_supported: false,
+      external_discovery_executed: false,
+      auto_submission: false,
+      auto_approval: false,
+      estimated_cost_usd: null,
+      price_verification_required: true,
+    });
+  }
+  if (pathname === "/api/v1/paa-answer-completion") {
+    const view =
+        url.searchParams.get("view") === "batches" ? "batches" : "candidates",
+      portfolio = site.paa_answer_completion_portfolio ?? {
+        candidates: [],
+        batches: [],
+        summary: {},
+      },
+      source = view === "batches" ? portfolio.batches : portfolio.candidates,
+      rows = source.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      policy: portfolio.policy ?? "paa-answer-completion-portfolio.v1",
+      view,
+      filters: { q: url.searchParams.get("q") ?? "" },
+      mutation_supported: false,
+      external_acquisition_triggered: false,
+      auto_submission: false,
+      price_verification_required: true,
+    });
+  }
+  if (pathname === "/api/v1/aio-completion") {
+    const view =
+        url.searchParams.get("view") === "batches" ? "batches" : "candidates",
+      portfolio = site.aio_completion_portfolio ?? {
+        candidates: [],
+        batches: [],
+        summary: {},
+      },
+      source = view === "batches" ? portfolio.batches : portfolio.candidates,
+      rows = source.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      policy: portfolio.policy ?? "aio-completion-portfolio.v3",
+      view,
+      filters: { q: url.searchParams.get("q") ?? "" },
+      mutation_supported: false,
+      external_acquisition_triggered: false,
+      auto_submission: false,
+      price_verification_required: true,
+    });
+  }
+  if (pathname === "/api/v1/acquisition-contract-fulfillment") {
+    const state = url.searchParams.get("state"),
+      oracle = site.acquisition_contract_fulfillment ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.fulfillment_state === state) &&
+          (!query ||
+            norm(`${row.keyword} ${row.review_codes.join(" ")}`).includes(
+              query,
+            )),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "acquisition-contract-fulfillment.v1",
+      filters: { q: url.searchParams.get("q") ?? "", state: state ?? "all" },
+      mutation_supported: false,
+      external_acquisition_triggered: false,
+      auto_retrieval: false,
+    });
+  }
+  if (pathname === "/api/v1/acquisition-remediation-portfolio") {
+    const view =
+        url.searchParams.get("view") === "batches" ? "batches" : "candidates",
+      portfolio = site.acquisition_remediation_portfolio ?? {
+        candidates: [],
+        batches: [],
+        summary: {},
+      },
+      source = view === "batches" ? portfolio.batches : portfolio.candidates,
+      rows = source.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      policy: portfolio.policy ?? "acquisition-remediation-portfolio.v1",
+      view,
+      filters: { q: url.searchParams.get("q") ?? "" },
+      mutation_supported: false,
+      external_acquisition_triggered: false,
+      auto_submission: false,
+      price_verification_required: true,
+    });
+  }
+  if (pathname === "/api/v1/acquisition-execution-readiness")
+    return ok({
+      data: site.acquisition_execution_readiness ?? null,
+      mutation_supported: false,
+      external_acquisition_triggered: false,
+      auto_submission: false,
+    });
+  if (pathname === "/api/v1/acquisition-approval-manifest")
+    return ok({
+      data: site.acquisition_approval_manifest ?? null,
+      mutation_supported: false,
+      approval_recording_supported: false,
+      external_acquisition_triggered: false,
+      auto_submission: false,
+    });
+  if (pathname === "/api/v1/rank/results") {
+    const target = url.searchParams.get("target"),
+      matchMode = ["domain", "url_prefix", "exact_url"].includes(
+        url.searchParams.get("match_mode"),
+      )
+        ? url.searchParams.get("match_mode")
+        : "domain",
+      rows = target
+        ? targetRankTracks(
+            site.snapshot_reuse_audit?.comparisons ?? [],
+            target,
+            matchMode,
+          )
+        : (site.snapshot_reuse_audit?.comparisons ?? []);
+    return ok({
+      ...page(
+        rows.filter(
+          (row) => !query || norm(JSON.stringify(row)).includes(query),
+        ),
+        url,
+      ),
+      view: target ? "targets" : "comparisons",
+      policy: target
+        ? "retained-target-rank-track.v2"
+        : "same-keyword-snapshot-diff.v3",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        target,
+        match_mode: matchMode,
+      },
+      scope: {
+        retained_snapshot_only: true,
+        continuous_schedule: false,
+        provider_history: false,
+        absence_confirms_unranked: false,
+      },
+      mutation_supported: false,
+    });
+  }
+  if (pathname === "/api/v1/freshness-signals") {
+    const state = url.searchParams.get("state"),
+      rows = (data.serp_freshness_signals ?? []).filter(
+        (row) =>
+          row.site_id === siteId &&
+          (!state || state === "all" || row.distribution_state === state) &&
+          (!query ||
+            norm(`${row.keyword} ${row.review_guidance}`).includes(query)),
+      ),
+      dated = rows.filter((row) => row.timestamped_count > 0);
+    return ok({
+      ...page(rows, url),
+      summary: {
+        task_count: rows.length,
+        timestamped_task_count: dated.length,
+        fresh_dominant_count: rows.filter(
+          (row) => row.distribution_state === "fresh_dominant",
+        ).length,
+        stale_dominant_count: rows.filter(
+          (row) => row.distribution_state === "stale_dominant",
+        ).length,
+        mixed_count: rows.filter(
+          (row) => row.distribution_state === "mixed_dated_results",
+        ).length,
+        insufficient_count: rows.filter(
+          (row) => row.distribution_state === "insufficient_timestamp_coverage",
+        ).length,
+        future_timestamp_invalid_count: rows.reduce(
+          (sum, row) => sum + row.future_timestamp_invalid_count,
+          0,
+        ),
+      },
+      policy: "serp-freshness-distribution.v1",
+      filters: { q: url.searchParams.get("q") ?? "", state: state ?? "all" },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/presentation-integrity") {
+    const state = url.searchParams.get("state"),
+      rows = (data.serp_presentation_integrity ?? []).filter(
+        (row) =>
+          row.site_id === siteId &&
+          (!state || state === "all" || row.integrity_state === state) &&
+          (!query ||
+            norm(
+              `${row.keyword} ${row.anomalies.map((item) => item.code).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        task_count: rows.length,
+        verified_count: rows.filter((row) => row.integrity_state === "verified")
+          .length,
+        review_required_count: rows.filter(
+          (row) => row.integrity_state === "review_required",
+        ).length,
+        organic_result_count: rows.reduce(
+          (sum, row) => sum + row.organic_top10_count,
+          0,
+        ),
+        video_observation_count: rows.reduce(
+          (sum, row) => sum + row.is_video_count,
+          0,
+        ),
+        image_observation_count: rows.reduce(
+          (sum, row) => sum + row.is_image_count,
+          0,
+        ),
+        featured_snippet_observation_count: rows.reduce(
+          (sum, row) => sum + row.is_featured_snippet_count,
+          0,
+        ),
+        malicious_observation_count: rows.reduce(
+          (sum, row) => sum + row.is_malicious_count,
+          0,
+        ),
+        web_story_observation_count: rows.reduce(
+          (sum, row) => sum + row.is_web_story_count,
+          0,
+        ),
+        amp_observation_count: rows.reduce(
+          (sum, row) => sum + row.amp_version_count,
+          0,
+        ),
+        anomaly_count: rows.reduce((sum, row) => sum + row.anomaly_count, 0),
+      },
+      policy: "serp-presentation-integrity.v1",
+      interpretation_policy:
+        "true_is_observed_format_false_is_not_proof_of_absence",
+      filters: { q: url.searchParams.get("q") ?? "", state: state ?? "all" },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/search-contracts") {
+    const state = url.searchParams.get("state"),
+      fingerprint = url.searchParams.get("fingerprint"),
+      rows = (data.serp_search_contracts ?? []).filter(
+        (row) =>
+          row.site_id === siteId &&
+          (!state || state === "all" || row.contract_state === state) &&
+          (!fingerprint || row.contract_fingerprint === fingerprint) &&
+          (!query ||
+            norm(
+              `${row.keyword} ${row.contract_fingerprint} ${row.mismatches.map((item) => item.field).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        task_count: rows.length,
+        verified_count: rows.filter((row) => row.contract_state === "verified")
+          .length,
+        review_required_count: rows.filter(
+          (row) => row.contract_state === "review_required",
+        ).length,
+        comparison_eligible_count: rows.filter((row) => row.comparison_eligible)
+          .length,
+        contract_cohort_count: new Set(
+          rows.map((row) => row.contract_fingerprint),
+        ).size,
+        mismatch_count: rows.reduce((sum, row) => sum + row.mismatch_count, 0),
+        total_cost_usd: Number(
+          rows
+            .reduce((sum, row) => sum + Number(row.status.cost ?? 0), 0)
+            .toFixed(6),
+        ),
+      },
+      policy: "serp-search-contract.v1",
+      comparison_rule: "exact_contract_fingerprint_required",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        fingerprint: fingerprint ?? null,
+      },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/paa-answers") {
+    const state = url.searchParams.get("state"),
+      domain = url.searchParams.get("domain"),
+      rows = (data.paa_answer_evidence ?? []).filter(
+        (row) =>
+          row.site_id === siteId &&
+          (!state || state === "all" || row.response_state === state) &&
+          (!domain || row.answers.some((answer) => answer.domain === domain)) &&
+          (!query ||
+            norm(
+              `${row.question} ${row.source_keyword} ${row.answers.map((answer) => `${answer.title} ${answer.description} ${answer.featured_title}`).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        question_occurrence_count: rows.length,
+        resolved_question_count: rows.filter(
+          (row) => row.response_state === "resolved",
+        ).length,
+        async_pending_count: rows.filter(
+          (row) => row.response_state === "async_pending",
+        ).length,
+        missing_count: rows.filter(
+          (row) => row.response_state === "not_requested_or_missing",
+        ).length,
+        resolved_answer_count: rows.reduce(
+          (sum, row) => sum + row.answer_count,
+          0,
+        ),
+        source_domain_count: new Set(
+          rows.flatMap((row) =>
+            row.answers.map((answer) => answer.domain).filter(Boolean),
+          ),
+        ).size,
+        table_answer_count: rows
+          .flatMap((row) => row.answers)
+          .filter((answer) => answer.table).length,
+      },
+      policy: "paa-answer-evidence.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        domain: domain ?? null,
+      },
+      auto_mutation: false,
+      retry_mutation_supported: false,
+    });
+  }
+  if (pathname === "/api/v1/aio-element-lineage") {
+    const state = url.searchParams.get("state"),
+      review = url.searchParams.get("review"),
+      domain = url.searchParams.get("domain"),
+      rows = (data.aio_element_source_lineage ?? []).filter(
+        (row) =>
+          row.site_id === siteId &&
+          (!state || state === "all" || row.source_state === state) &&
+          (!review ||
+            review === "all" ||
+            (review === "required"
+              ? row.review_required
+              : !row.review_required)) &&
+          (!domain ||
+            row.references.some((item) => item.domain === domain) ||
+            row.links.some((item) => item.domain === domain)) &&
+          (!query ||
+            norm(
+              `${row.source_keyword} ${row.title} ${row.text} ${row.references.map((item) => `${item.source} ${item.title} ${item.text}`).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        element_count: rows.length,
+        referenced_count: rows.filter(
+          (row) => row.source_state === "referenced",
+        ).length,
+        link_only_count: rows.filter((row) => row.source_state === "link_only")
+          .length,
+        unreferenced_count: rows.filter(
+          (row) => row.source_state === "unreferenced",
+        ).length,
+        reference_occurrence_count: rows.reduce(
+          (sum, row) => sum + row.reference_count,
+          0,
+        ),
+        link_occurrence_count: rows.reduce(
+          (sum, row) => sum + row.link_count,
+          0,
+        ),
+        image_occurrence_count: rows.reduce(
+          (sum, row) => sum + row.image_count,
+          0,
+        ),
+        global_reference_match_count: rows.reduce(
+          (sum, row) => sum + row.global_reference_match_count,
+          0,
+        ),
+        element_only_reference_count: rows.reduce(
+          (sum, row) => sum + row.global_reference_mismatch_count,
+          0,
+        ),
+        review_required_count: rows.filter((row) => row.review_required).length,
+      },
+      policy: "aio-element-source-lineage.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        review: review ?? "all",
+        domain: domain ?? null,
+      },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/feature-placements") {
+    const type = url.searchParams.get("type"),
+      prominence = url.searchParams.get("prominence"),
+      state = url.searchParams.get("state"),
+      rows = (data.serp_feature_placements ?? []).filter(
+        (row) =>
+          row.site_id === siteId &&
+          (!type || type === "all" || row.feature_type === type) &&
+          (!prominence ||
+            prominence === "all" ||
+            row.prominence_state === prominence) &&
+          (!state || state === "all" || row.placement_state === state) &&
+          (!query ||
+            norm(
+              `${row.source_keyword} ${row.feature_type} ${row.title} ${row.subtitle} ${row.description}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        occurrence_count: rows.length,
+        task_count: new Set(rows.map((row) => row.task_id)).size,
+        top3_count: rows.filter((row) => row.prominence_state === "top3")
+          .length,
+        below_top3_count: rows.filter(
+          (row) => row.prominence_state === "observed_below_top3",
+        ).length,
+        rank_not_reported_count: rows.filter(
+          (row) => row.prominence_state === "rank_not_reported",
+        ).length,
+        verified_count: rows.filter((row) => row.placement_state === "verified")
+          .length,
+        review_required_count: rows.filter(
+          (row) => row.placement_state === "review_required",
+        ).length,
+        xpath_variant_count: new Set(
+          rows.map((row) => row.xpath).filter(Boolean),
+        ).size,
+        types: Object.fromEntries(
+          Object.entries(Object.groupBy(rows, (row) => row.feature_type)).map(
+            ([key, items]) => [key, items.length],
+          ),
+        ),
+      },
+      policy: "serp-feature-placement.v1",
+      interpretation_policy:
+        "observed_placement_only_no_click_or_demand_inference",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        type: type ?? "all",
+        prominence: prominence ?? "all",
+        state: state ?? "all",
+      },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/heading-patterns") {
+    const requestedGroup = url.searchParams.get("group_id"),
+      state = url.searchParams.get("state"),
+      levelValue = url.searchParams.get("level"),
+      level = levelValue == null ? null : Number(levelValue),
+      oracle = site.heading_serp_pattern_oracle ?? {
+        rows: [],
+        benchmarks: [],
+        summary: {},
+      };
+    if (requestedGroup && !groupIds.has(requestedGroup))
+      return bad(404, `unknown group_id for site: ${requestedGroup}`);
+    const rows = oracle.rows.filter(
+      (row) =>
+        (!requestedGroup || row.group_id === requestedGroup) &&
+        (!state || state === "all" || row.review_state === state) &&
+        (!Number.isInteger(level) || row.heading_level === level) &&
+        (!query || norm(`${row.text} ${row.issues.join(" ")}`).includes(query)),
+    );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...oracle.summary,
+        filtered_candidate_count: rows.length,
+        filtered_supported_count: rows.filter(
+          (row) => row.review_state === "observed_pattern_supported",
+        ).length,
+        filtered_review_count: rows.filter(
+          (row) => row.review_state === "needs_review",
+        ).length,
+      },
+      benchmarks: oracle.benchmarks.filter(
+        (row) => !requestedGroup || row.group_id === requestedGroup,
+      ),
+      policy: oracle.policy ?? "heading-serp-pattern-oracle.v1",
+      interpretation_policy:
+        oracle.interpretation_policy ??
+        "observed_serp_heading_patterns_no_ranking_causality",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: requestedGroup,
+        state: state ?? "all",
+        level: Number.isInteger(level) ? level : null,
+      },
+      auto_approval: false,
+      ranking_effect_inferred: false,
+    });
+  }
+  if (pathname === "/api/v1/keyword-lineage") {
+    const state = url.searchParams.get("state"),
+      duplicates = url.searchParams.get("duplicates"),
+      ledger = site.keyword_lineage_ledger ?? { rows: [], summary: {} },
+      rows = ledger.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.lineage_state === state) &&
+          (!duplicates ||
+            duplicates === "all" ||
+            (duplicates === "true"
+              ? row.normalized_duplicate_count > 1
+              : row.normalized_duplicate_count === 1)) &&
+          (!query ||
+            norm(
+              `${row.raw_keyword} ${row.source_sheet} ${row.source_keyword_id}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...ledger.summary,
+        filtered_row_count: rows.length,
+        filtered_anomaly_count: rows.filter(
+          (row) => row.lineage_state === "lineage_anomaly",
+        ).length,
+      },
+      policy: ledger.policy ?? "keyword-source-lineage.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        duplicates: duplicates ?? "all",
+      },
+      source_rows_losslessly_retained: true,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/related-keyword-boundaries") {
+    const state = url.searchParams.get("state"),
+      review = url.searchParams.get("review"),
+      oracle = site.related_keyword_boundary_oracle ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.boundary_state === state) &&
+          (!review ||
+            review === "all" ||
+            (review === "required"
+              ? row.review_required
+              : !row.review_required)) &&
+          (!query ||
+            norm(
+              `${row.keyword} ${row.candidates.map((item) => item.main_keyword).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...oracle.summary,
+        filtered_source_count: rows.length,
+        filtered_review_count: rows.filter((row) => row.review_required).length,
+      },
+      policy: oracle.policy ?? "related-keyword-boundary.v1",
+      clear_margin: oracle.clear_margin,
+      tie_tolerance: oracle.tie_tolerance,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        review: review ?? "all",
+      },
+      assignment_state: "proposal_only_not_applied",
+      auto_assignment: false,
+    });
+  }
+  if (pathname === "/api/v1/association-evidence") {
+    const strength = url.searchParams.get("strength"),
+      reciprocal = url.searchParams.get("reciprocal"),
+      oracle = site.association_evidence_oracle ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!strength ||
+            strength === "all" ||
+            row.strength_state === strength) &&
+          (!reciprocal ||
+            reciprocal === "all" ||
+            (reciprocal === "true"
+              ? row.reverse_edge_retained
+              : !row.reverse_edge_retained)) &&
+          (!query ||
+            norm(`${row.term} ${row.associated_term}`).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_association_count: rows.length },
+      policy: oracle.policy ?? "association-evidence-oracle.v1",
+      interpretation_policy:
+        oracle.interpretation_policy ??
+        "observed_row_cooccurrence_not_semantic_equivalence",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        strength: strength ?? "all",
+        reciprocal: reciprocal ?? "all",
+      },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/variant-evidence") {
+    const state = url.searchParams.get("state"),
+      oracle = site.variant_evidence_oracle ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.integrity_state === state) &&
+          (!query ||
+            norm(row.variants.map((item) => item.keyword).join(" ")).includes(
+              query,
+            )),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_cluster_count: rows.length },
+      policy: oracle.policy ?? "variant-evidence-oracle.v1",
+      interpretation_policy:
+        oracle.interpretation_policy ??
+        "orthographic_or_token_order_variants_not_semantic_synonyms",
+      filters: { q: url.searchParams.get("q") ?? "", state: state ?? "all" },
+      external_dictionary_acquired: false,
+      semantic_synonymy_inferred: false,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/semantic-candidate-reviews") {
+    const state = url.searchParams.get("state"),
+      review = site.semantic_candidate_review ?? { rows: [], summary: {} },
+      rows = review.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.review_state === state) &&
+          (!query || norm(`${row.term} ${row.candidate_term}`).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...review.summary,
+        filtered_candidate_pair_count: rows.length,
+      },
+      policy: review.policy ?? "semantic-candidate-review.v1",
+      interpretation_policy:
+        review.interpretation_policy ??
+        "cooccurrence_plus_serp_context_relations_not_synonym_assertions",
+      filters: { q: url.searchParams.get("q") ?? "", state: state ?? "all" },
+      semantic_equivalence_inferred: false,
+      editor_decision_required: true,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/public-synonyms") {
+    const evidence = site.public_synonym_evidence ?? {
+        rows: [],
+        summary: {},
+        source: null,
+      },
+      rows = evidence.rows
+        .filter(
+          (row) =>
+            !query ||
+            row.left_normalized.includes(query) ||
+            row.right_normalized.includes(query),
+        )
+        .map((row) => ({
+          ...row,
+          match_side: !query
+            ? "unfiltered"
+            : row.left_normalized === query && row.right_normalized === query
+              ? "both"
+              : row.left_normalized === query
+                ? "left_exact"
+                : row.right_normalized === query
+                  ? "right_exact"
+                  : row.left_normalized.includes(query)
+                    ? "left_partial"
+                    : "right_partial",
+        }));
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...evidence.summary,
+        filtered_pair_count: rows.length,
+        exact_match_pair_count: rows.filter(
+          (row) =>
+            row.match_side.endsWith("_exact") || row.match_side === "both",
+        ).length,
+      },
+      source: evidence.source,
+      policy: evidence.policy ?? "public-synonym-evidence.v1",
+      interpretation_policy:
+        evidence.interpretation_policy ??
+        "human_reviewed_pair_is_lexical_evidence_but_query_context_still_requires_editor_review",
+      filters: { q: url.searchParams.get("q") ?? "" },
+      external_public_corpus_acquired: true,
+      context_review_required: true,
+      automatic_replacement: false,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/public-semantic-graph") {
+    if (!db) return bad(503, "semantic graph database unavailable");
+    const relationTypes = url.searchParams
+        .getAll("relation")
+        .flatMap((value) => value.split(","))
+        .filter(Boolean),
+      depth = Number(url.searchParams.get("depth") ?? 1),
+      graph = queryPublicSemanticGraph(db, {
+        query: url.searchParams.get("q") ?? "",
+        depth,
+        relationTypes,
+      }),
+      evidence = site.public_semantic_graph ?? { source: null, summary: {} };
+    return ok({
+      ...page(graph.rows, url),
+      seeds: graph.seeds,
+      summary: {
+        ...evidence.summary,
+        ...graph.summary,
+        filtered_relation_count: graph.rows.length,
+      },
+      source: evidence.source,
+      policy: graph.policy,
+      interpretation_policy: graph.interpretation_policy,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        depth: graph.summary.max_depth_requested,
+        relation_types: relationTypes,
+      },
+      external_public_corpus_acquired: true,
+      direct_edges_distinguished: true,
+      synonymy_inferred: false,
+      search_demand_inferred: false,
+      ranking_effect_inferred: false,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/graph-related-keywords") {
+    if (!db) return bad(503, "related keyword database unavailable");
+    const state = url.searchParams.get("state"),
+      boundaryState = url.searchParams.get("boundary"),
+      review = url.searchParams.get("review"),
+      result = queryGraphRelatedKeywords(db, {
+        siteId: site.site_id,
+        query: url.searchParams.get("q") ?? "",
+        depth: Number(url.searchParams.get("depth") ?? 1),
+      }),
+      rows = result.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.match_state === state) &&
+          (!boundaryState ||
+            boundaryState === "all" ||
+            row.group_boundary.state === boundaryState) &&
+          (!review ||
+            review === "all" ||
+            (review === "required"
+              ? row.group_boundary.review_required
+              : !row.group_boundary.review_required)),
+      );
+    return ok({
+      ...page(rows, url),
+      query: result.query,
+      exact_inventory_matches: result.exact_inventory_matches,
+      summary: {
+        ...result.summary,
+        filtered_candidate_count: rows.length,
+        filtered_group_review_required_count: rows.filter(
+          (row) => row.group_boundary.review_required,
+        ).length,
+      },
+      policy: result.policy,
+      interpretation_policy: result.interpretation_policy,
+      market_scope: result.market_scope,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        depth: Number(url.searchParams.get("depth") ?? 1),
+        state: state ?? "all",
+        boundary: boundaryState ?? "all",
+        review: review ?? "all",
+      },
+      external_market_coverage: false,
+      sense_disambiguation_required: true,
+      synonymy_inferred: false,
+      search_demand_inferred: false,
+      ranking_effect_inferred: false,
+      auto_group_assignment: false,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/content-semantic-coverage") {
+    if (!db) return bad(503, "semantic database unavailable");
+    const groupId = url.searchParams.get("group_id"),
+      group = groups.find((row) => row.id === groupId);
+    if (!group) return bad(404, `unknown group_id for site: ${groupId}`);
+    const review = (data.content_semantic_reviews ?? []).find(
+      (row) => row.group_id === groupId && row.site_id === site.site_id,
+    );
+    if (!review)
+      return bad(
+        404,
+        `persisted semantic review unavailable for group: ${groupId}`,
+      );
+    const decisionPacket = site.semantic_resolution_decision_packet ?? {
+        items: [],
+        summary: {},
+      },
+      decisionProgress = new Map(
+        decisionPacket.items.map((row) => [row.task_id, row]),
+      ),
+      tasks = review.resolution_tasks.map((row) => ({
+        ...row,
+        decision_progress: decisionProgress.get(row.task_id) ?? null,
+      })),
+      depth = review.graph_depth,
+      requestedView = url.searchParams.get("view"),
+      view = ["expansions", "resolution", "tasks"].includes(requestedView)
+        ? requestedView
+        : "coverage",
+      type = url.searchParams.get("type"),
+      state = url.searchParams.get("state"),
+      source =
+        view === "coverage"
+          ? review.rows
+          : view === "tasks"
+            ? tasks
+            : view === "resolution"
+              ? review.expansion_candidates.filter(
+                  (row) =>
+                    row.resolution_state ===
+                    "blocked_evidence_resolution_required",
+                )
+              : review.expansion_candidates,
+      rows = source.filter(
+        (row) =>
+          (!type ||
+            type === "all" ||
+            row.content_type === type ||
+            (row.affected_content_types ?? []).includes(type)) &&
+          (!state ||
+            state === "all" ||
+            (view === "coverage"
+              ? row.review_state
+              : view === "tasks"
+                ? row.resolution_state
+                : row.selection_gate) === state) &&
+          (!query || norm(row.text ?? row.concept?.term ?? "").includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      group_id: groupId,
+      main_keyword: group.main_keyword,
+      concepts: review.concepts,
+      summary: {
+        ...review.summary,
+        decision_progress: decisionPacket.summary,
+        filtered_candidate_count: rows.length,
+      },
+      review_digest: review.review_digest,
+      decision_packet_digest: decisionPacket.packet_digest,
+      view,
+      source: "persisted_sqlite",
+      policy: review.policy,
+      interpretation_policy: review.interpretation_policy,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: groupId,
+        depth,
+        view,
+        type: type ?? "all",
+        state: state ?? "all",
+      },
+      sense_disambiguation_required: true,
+      semantic_requirement_inferred: false,
+      search_demand_inferred: false,
+      synonymy_inferred: false,
+      ranking_effect_inferred: false,
+      auto_selection: false,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/semantic-resolution-decisions") {
+    const packet = site.semantic_resolution_decision_packet ?? {
+        items: [],
+        summary: {},
+      },
+      progress = url.searchParams.get("progress"),
+      readiness = url.searchParams.get("readiness"),
+      senseReadiness = url.searchParams.get("sense_readiness"),
+      demandReadiness = url.searchParams.get("demand_readiness"),
+      groupId = url.searchParams.get("group_id"),
+      rows = packet.items.filter(
+        (row) =>
+          (!groupId || row.group_id === groupId) &&
+          (!progress ||
+            progress === "all" ||
+            row.resolution_progress_state === progress) &&
+          (!readiness ||
+            readiness === "all" ||
+            row.evidence_readiness_state === readiness) &&
+          (!senseReadiness ||
+            senseReadiness === "all" ||
+            row.sense_evidence_readiness_state === senseReadiness) &&
+          (!demandReadiness ||
+            demandReadiness === "all" ||
+            row.demand_evidence_readiness_state === demandReadiness) &&
+          (!query ||
+            norm(
+              `${row.main_keyword} ${row.concept.term} ${row.source_sheets.join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...packet.summary, filtered_count: rows.length },
+      packet_digest: packet.packet_digest,
+      schema_version: packet.schema_version,
+      required_decisions: packet.required_decisions,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: groupId ?? "all",
+        progress: progress ?? "all",
+        readiness: readiness ?? "all",
+        sense_readiness: senseReadiness ?? "all",
+        demand_readiness: demandReadiness ?? "all",
+      },
+      import_mode: "validated_cli_explicit_commit",
+      auto_group_assignment: false,
+      auto_selection: false,
+      auto_content_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/suggest-evidence") {
+    const mode = ["prefix", "contains", "tokens"].includes(
+        url.searchParams.get("mode"),
+      )
+        ? url.searchParams.get("mode")
+        : "prefix",
+      tokens = query.split(/\s+/u).filter(Boolean),
+      oracle = site.suggest_evidence_oracle ?? { rows: [], summary: {} },
+      rows = query
+        ? oracle.rows.filter((row) =>
+            mode === "prefix"
+              ? row.normalized_keyword.startsWith(query)
+              : mode === "contains"
+                ? row.normalized_keyword.includes(query)
+                : tokens.every((token) =>
+                    row.normalized_keyword.includes(token),
+                  ),
+          )
+        : [];
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...oracle.summary,
+        filtered_candidate_count: rows.length,
+        filtered_source_row_count: rows.reduce(
+          (sum, row) => sum + row.source_row_count,
+          0,
+        ),
+      },
+      policy: oracle.policy ?? "suggest-evidence-oracle.v1",
+      source_policy:
+        oracle.source_policy ?? "retained_workbook_not_external_autocomplete",
+      external_surface_coverage: oracle.external_surface_coverage ?? {},
+      filters: { q: url.searchParams.get("q") ?? "", mode },
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/question-lineage") {
+    const kind = url.searchParams.get("kind"),
+      coverage = url.searchParams.get("coverage"),
+      view =
+        url.searchParams.get("view") === "unlinked_answers"
+          ? "unlinked_answers"
+          : "candidates",
+      oracle = site.question_lineage_oracle ?? {
+        rows: [],
+        unlinked_resolved_answers: [],
+        summary: {},
+      },
+      source =
+        view === "unlinked_answers"
+          ? (oracle.unlinked_resolved_answers ?? [])
+          : oracle.rows,
+      rows = source.filter((row) =>
+        view === "unlinked_answers"
+          ? !query ||
+            norm(
+              `${row.question} ${row.source_keyword} ${row.answers.map((answer) => `${answer.title ?? ""} ${answer.description ?? ""} ${answer.domain ?? ""}`).join(" ")}`,
+            ).includes(query)
+          : (!kind || kind === "all" || row.candidate_kind === kind) &&
+            (!coverage ||
+              coverage === "all" ||
+              row.content_coverage?.coverage_status === coverage) &&
+            (!query ||
+              norm(
+                `${row.question_text} ${row.source_topic?.display_topic ?? ""} ${row.source_keywords.join(" ")}`,
+              ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_question_count: rows.length },
+      policy: oracle.policy ?? "question-lineage-oracle.v1",
+      interpretation_policy:
+        oracle.interpretation_policy ??
+        "observed_paa_and_derived_questions_kept_distinct",
+      view,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        kind: kind ?? "all",
+        coverage: coverage ?? "all",
+      },
+      auto_approval: false,
+    });
+  }
+  if (pathname === "/api/v1/question-expansion-graph") {
+    const view = url.searchParams.get("view") === "edges" ? "edges" : "nodes",
+      graph = site.paa_question_expansion_graph ?? {
+        nodes: [],
+        edges: [],
+        summary: {},
+      },
+      source = view === "edges" ? graph.edges : graph.nodes,
+      rows = source.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...graph.summary, filtered_count: rows.length },
+      policy: graph.policy ?? "paa-question-expansion-graph.v1",
+      view,
+      filters: { q: url.searchParams.get("q") ?? "" },
+      auto_heading_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/demand-occurrence-integrity") {
+    const type = url.searchParams.get("type"),
+      scope = url.searchParams.get("scope"),
+      oracle = site.demand_occurrence_integrity ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!type || type === "all" || row.demand_type === type) &&
+          (!scope || scope === "all" || row.scope_state === scope) &&
+          (!query ||
+            norm(
+              `${row.representative_value} ${row.normalized_value}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...oracle.summary,
+        filtered_demand_count: rows.length,
+        filtered_occurrence_count: rows.reduce(
+          (sum, row) => sum + row.occurrence_count,
+          0,
+        ),
+      },
+      policy: oracle.policy ?? "demand-occurrence-integrity.v1",
+      importance_policy:
+        oracle.importance_policy ??
+        "relative_within_retained_corpus_not_absolute_demand",
+      appearance_policy:
+        oracle.appearance_policy ??
+        "snapshot_observation_not_continuous_history",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        type: type ?? "all",
+        scope: scope ?? "all",
+      },
+      absolute_search_volume_inferred: false,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/demand-appearance-history") {
+    const state = url.searchParams.get("state"),
+      type = url.searchParams.get("type"),
+      history = site.demand_appearance_history ?? { rows: [], summary: {} },
+      rows = history.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.appearance_state === state) &&
+          (!type || type === "all" || row.demand_type === type) &&
+          (!query ||
+            norm(`${row.display_value} ${row.keyword}`).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...history.summary, filtered_count: rows.length },
+      policy: history.policy ?? "demand-appearance-history.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state: state ?? "all",
+        type: type ?? "all",
+      },
+      auto_heading_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/simultaneous-rank-integrity") {
+    const scope = url.searchParams.get("scope"),
+      connection = url.searchParams.get("connection"),
+      oracle = site.simultaneous_rank_integrity ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!scope ||
+            scope === "all" ||
+            (scope === "same_group" ? row.same_group : !row.same_group)) &&
+          (!connection ||
+            connection === "all" ||
+            row.decision_state === connection) &&
+          (!query ||
+            norm(`${row.source_keyword} ${row.target_keyword}`).includes(
+              query,
+            )),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_relation_count: rows.length },
+      policy: oracle.policy ?? "simultaneous-rank-integrity.v1",
+      interpretation_policy:
+        oracle.interpretation_policy ??
+        "shared_ranked_urls_are_evidence_not_automatic_merge",
+      comparison_depth: oracle.comparison_depth ?? 10,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        scope: scope ?? "all",
+        connection: connection ?? "all",
+      },
+      merge_inferred_from_shared_urls: false,
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/serp-feature-items") {
+    const type = url.searchParams.get("type"),
+      rows = (data.serp_special_features ?? [])
+        .filter(
+          (feature) =>
+            taskIds.has(feature.task_id) &&
+            (!type || type === "all" || feature.feature_type === type),
+        )
+        .flatMap((feature) =>
+          (feature.items ?? []).map((item) => ({
+            ...item,
+            feature_rank_absolute: feature.rank_absolute,
+            feature_title: feature.title,
+          })),
+        )
+        .filter(
+          (row) =>
+            !query ||
+            norm(
+              `${row.text ?? ""} ${row.title ?? ""} ${row.alt ?? ""} ${row.source ?? ""} ${row.url ?? ""} ${row.links.map((link) => `${link.title ?? ""} ${link.domain ?? ""}`).join(" ")}`,
+            ).includes(query),
+        );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        item_count: rows.length,
+        feature_count: new Set(rows.map((row) => row.feature_id)).size,
+        link_count: rows.reduce((sum, row) => sum + row.links.length, 0),
+        types: Object.fromEntries(
+          Object.entries(Object.groupBy(rows, (row) => row.feature_type)).map(
+            ([key, items]) => [key, items.length],
+          ),
+        ),
+      },
+      filters: { q: url.searchParams.get("q") ?? "", type: type ?? "all" },
+    });
+  }
+  if (pathname === "/api/v1/wordpress/surface") {
+    const type = url.searchParams.get("type"),
+      state = url.searchParams.get("state");
+    return ok(
+      page(
+        (site.public_surface_inventory ?? []).filter(
+          (row) =>
+            (!type || row.surface_type === type) &&
+            (!state || row.analysis_state === state) &&
+            (!query || norm(row.canonical_url).includes(query)),
+        ),
+        url,
+      ),
+    );
+  }
+  if (pathname === "/api/v1/keywords") {
+    const state = url.searchParams.get("state"),
+      rows = (data.keyword_inventory ?? []).filter(
+        (row) =>
+          row.site_id === siteId &&
+          (!query || norm(row.raw_keyword).includes(query)) &&
+          (!state || row.processing_state === state),
+      );
+    return ok(page(rows, url));
+  }
+  if (pathname === "/api/v1/demands") {
+    const type = url.searchParams.get("type"),
+      rows = (data.serp_demands ?? []).filter(
+        (row) =>
+          row.group_ids.some((id) => groupIds.has(id)) &&
+          (!type || type === "all" || row.demand_type === type) &&
+          (!query ||
+            norm(
+              `${row.representative_value} ${row.source_keywords.join(" ")}`,
+            ).includes(query)),
+      );
+    return ok(page(rows, url));
+  }
+  if (pathname === "/api/v1/qa-site-evidence") {
+    const requestedView = url.searchParams.get("view"),
+      view =
+        requestedView === "pages"
+          ? "pages"
+          : requestedView === "history"
+            ? "history"
+            : requestedView === "copy"
+              ? "copy"
+              : "observations",
+      source = url.searchParams.get("source"),
+      state = url.searchParams.get("state"),
+      oracle = site.qa_site_evidence ?? { rows: [], pages: [], summary: {} },
+      history = site.qa_appearance_history ?? {
+        rows: [],
+        summary: {},
+        policy: "qa-appearance-history.v1",
+      },
+      input =
+        view === "pages"
+          ? oracle.pages
+          : view === "history"
+            ? history.rows
+            : view === "copy"
+              ? [oracle.copy_export].filter(Boolean)
+              : oracle.rows,
+      rows = input.filter(
+        (row) =>
+          view === "copy" ||
+          ((!source || source === "all" || row.qa_source === source) &&
+            (!state ||
+              state === "all" ||
+              (view === "history"
+                ? row.state === state
+                : row.content_state === state)) &&
+            (!query || norm(JSON.stringify(row)).includes(query))),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...(view === "history" ? history.summary : oracle.summary),
+        filtered_count: rows.length,
+      },
+      policy:
+        view === "history"
+          ? history.policy
+          : view === "copy"
+            ? (oracle.copy_export?.policy ?? "qa-copy-export.v1")
+            : (oracle.policy ?? "retained-qa-site-evidence.v2"),
+      view,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        source: source ?? "all",
+        state: state ?? "all",
+      },
+      absence_confirms_unranked: ["history", "copy"].includes(view)
+        ? false
+        : undefined,
+      full_qa_index: false,
+      answer_text_retained: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/questions") {
+    const kind = url.searchParams.get("kind"),
+      rows = (site.ai_question_candidates ?? []).filter(
+        (row) =>
+          (!kind || kind === "all" || row.candidate_kind === kind) &&
+          (!query || norm(row.question_text).includes(query)),
+      );
+    return ok(page(rows, url));
+  }
+  if (pathname === "/api/v1/related-keywords")
+    return ok(
+      page(
+        groups
+          .flatMap((row) =>
+            (row.related_keyword_proposals ?? []).map((item) => ({
+              ...item,
+              main_keyword: row.main_keyword,
+            })),
+          )
+          .filter(
+            (row) =>
+              !query ||
+              norm(`${row.keyword} ${row.main_keyword}`).includes(query),
+          ),
+        url,
+      ),
+    );
+  if (pathname === "/api/v1/keyword-decisions") {
+    const kind = url.searchParams.get("kind"),
+      decision = url.searchParams.get("decision"),
+      review = url.searchParams.get("review"),
+      rows = (site.keyword_decision_audit?.rows ?? []).filter(
+        (row) =>
+          (!kind || kind === "all" || row.kind === kind) &&
+          (!decision || decision === "all" || row.decision === decision) &&
+          (!review ||
+            review === "all" ||
+            (review === "required"
+              ? row.review_required
+              : !row.review_required)) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      ),
+      summary = {
+        decision_count: rows.length,
+        review_count: rows.filter((row) => row.review_required).length,
+        supported_count: rows.filter((row) => !row.review_required).length,
+        serp_pair_count: rows.filter((row) => row.kind === "serp_pair").length,
+        gsc_query_count: rows.filter((row) => row.kind === "gsc_query").length,
+        article_assignment_count: rows.filter(
+          (row) => row.kind === "article_assignment",
+        ).length,
+        decision_counts: Object.fromEntries(
+          Object.entries(Object.groupBy(rows, (row) => row.decision)).map(
+            ([key, items]) => [key, items.length],
+          ),
+        ),
+        external_acquisition_triggered: false,
+      };
+    return ok({
+      ...page(rows, url),
+      summary,
+      policy:
+        site.keyword_decision_audit?.policy ?? "keyword-decision-audit.v1",
+      filters: { q: url.searchParams.get("q") ?? "", kind, decision, review },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/intent-fingerprints") {
+    const decision = url.searchParams.get("decision"),
+      review = url.searchParams.get("review"),
+      analysis = site.serp_intent_analysis ?? {
+        fingerprints: [],
+        pairs: [],
+        summary: {},
+      },
+      rows = analysis.pairs.filter(
+        (row) =>
+          (!decision || decision === "all" || row.decision === decision) &&
+          (!review ||
+            review === "all" ||
+            (review === "required"
+              ? row.review_required
+              : !row.review_required)) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...analysis.summary,
+        filtered_pair_count: rows.length,
+        filtered_review_count: rows.filter((row) => row.review_required).length,
+      },
+      fingerprints: analysis.fingerprints,
+      policy: analysis.policy ?? "serp-intent-fingerprint.v1",
+      filters: { q: url.searchParams.get("q") ?? "", decision, review },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/keyword-boundaries") {
+    const decision = url.searchParams.get("decision"),
+      action = url.searchParams.get("action"),
+      oracle = site.keyword_boundary_oracle ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!decision || decision === "all" || row.decision === decision) &&
+          (!action || action === "all" || row.recommended_action === action) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_review_count: rows.length },
+      policy: oracle.policy ?? "keyword-boundary-consensus.v1",
+      filters: { q: url.searchParams.get("q") ?? "", decision, action },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/depth-stability") {
+    const state = url.searchParams.get("state"),
+      robust = url.searchParams.get("robust"),
+      analysis = site.serp_depth_stability ?? { rows: [], summary: {} },
+      rows = analysis.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.stability_state === state) &&
+          (!robust ||
+            robust === "all" ||
+            (robust === "true" ? row.robust_merge : !row.robust_merge)) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...analysis.summary, filtered_pair_count: rows.length },
+      policy: analysis.policy ?? "serp-depth-stability.v1",
+      filters: { q: url.searchParams.get("q") ?? "", state, robust },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/content-topology") {
+    const decision = url.searchParams.get("decision"),
+      review = url.searchParams.get("review"),
+      oracle = site.content_topology_oracle ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!decision ||
+            decision === "all" ||
+            row.topology_decision === decision) &&
+          (!review ||
+            review === "all" ||
+            (review === "required"
+              ? row.review_required
+              : !row.review_required)) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_group_pair_count: rows.length },
+      policy: oracle.policy ?? "content-topology-oracle.v1",
+      filters: { q: url.searchParams.get("q") ?? "", decision, review },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/consolidation-blueprints") {
+    const analysis = site.content_consolidation_blueprints ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = analysis.rows.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...analysis.summary, filtered_blueprint_count: rows.length },
+      policy: analysis.policy ?? "content-consolidation-blueprint.v7",
+      filters: { q: url.searchParams.get("q") ?? "" },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/consolidation-citations") {
+    const analysis = site.content_consolidation_citations ?? {
+        rows: [],
+        summary: {},
+      },
+      coverage = site.content_consolidation_citation_coverage ?? {
+        rows: [],
+        summary: {},
+      },
+      backfill = site.content_consolidation_citation_backfill ?? {
+        rows: [],
+        summary: {},
+      },
+      approval = url.searchParams.get("approval_state"),
+      domain = url.searchParams.get("domain"),
+      claimId = url.searchParams.get("merged_claim_id"),
+      rows = analysis.rows.filter(
+        (row) =>
+          (!approval ||
+            approval === "all" ||
+            row.approval_state === approval) &&
+          (!domain || row.domain === domain) &&
+          (!claimId || row.merged_claim_id === claimId) &&
+          (!query ||
+            norm(
+              `${row.title} ${row.source} ${row.source_text} ${row.url} ${row.source_claim_id} ${row.merged_claim_id}`,
+            ).includes(query)),
+      ),
+      claimAudits = coverage.rows.filter(
+        (row) => !claimId || row.merged_claim_id === claimId,
+      ),
+      backfillCandidates = backfill.rows.filter(
+        (row) =>
+          (!domain || row.domain === domain) &&
+          (!claimId || row.merged_claim_id === claimId) &&
+          (!query ||
+            norm(
+              `${row.title} ${row.source} ${row.source_text} ${row.url} ${row.target_source_claim_id} ${row.merged_claim_id}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        ...analysis.summary,
+        filtered_recommendation_count: rows.length,
+        filtered_unique_url_count: new Set(rows.map((row) => row.url)).size,
+      },
+      claim_audits: claimAudits,
+      coverage_summary: coverage.summary,
+      coverage_policy:
+        coverage.policy ?? "content-consolidation-citation-coverage.v1",
+      backfill_candidates: backfillCandidates,
+      backfill_summary: backfill.summary,
+      backfill_policy:
+        backfill.policy ?? "content-consolidation-citation-backfill.v1",
+      policy: analysis.policy ?? "content-consolidation-citation-review.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        approval_state: approval ?? "all",
+        domain: domain ?? null,
+        merged_claim_id: claimId ?? null,
+      },
+      auto_approval: false,
+    });
+  }
+  if (pathname === "/api/v1/titles") {
+    const requestedGroup = url.searchParams.get("group_id");
+    if (requestedGroup && !groupIds.has(requestedGroup))
+      return bad(404, `unknown group_id for site: ${requestedGroup}`);
+    const state = url.searchParams.get("state"),
+      evidenceType = url.searchParams.get("evidence_type"),
+      issue = url.searchParams.get("issue"),
+      variant = url.searchParams.get("variant"),
+      patternState = url.searchParams.get("pattern_state"),
+      groupById = new Map(groups.map((row) => [row.id, row])),
+      pageById = new Map(
+        (data.competitor_pages ?? []).map((row) => [row.page_id, row]),
+      ),
+      competitorEvidence = Map.groupBy(
+        (data.competitor_page_evidence ?? []).filter((row) =>
+          groupIds.has(row.group_id),
+        ),
+        (row) => row.group_id,
+      ),
+      wpById = new Map(
+        (data.gsc_articles ?? []).map((row) => [row.wp_article_id, row]),
+      ),
+      statePriority = { ready: 2, needs_review: 1, blocked: 0 },
+      base = (data.content_generation_candidates ?? [])
+        .filter(
+          (row) => groupIds.has(row.group_id) && row.content_type === "title",
+        )
+        .map((row) => {
+          const group = groupById.get(row.group_id),
+            competitorTitles = (competitorEvidence.get(row.group_id) ?? [])
+              .map((evidence) => {
+                const source = pageById.get(evidence.page_id);
+                return source?.title
+                  ? {
+                      page_id: evidence.page_id,
+                      title: source.title,
+                      character_count: [...source.title].length,
+                      best_rank: evidence.best_rank,
+                      url: source.url,
+                      domain: source.domain,
+                    }
+                  : null;
+              })
+              .filter(Boolean)
+              .sort(
+                (a, b) =>
+                  a.best_rank - b.best_rank || a.url.localeCompare(b.url),
+              ),
+            lengths = competitorTitles.map((item) => item.character_count),
+            selection_score =
+              (statePriority[row.review.review_state] ?? 0) * 1000 +
+              row.review.quality_score * 10 +
+              Math.min(row.review.evidence_count, 9) -
+              Math.abs(row.review.character_count - 35) / 100 -
+              (row.review.oracle.nearest_competitor_similarity ?? 0) / 1000;
+          return {
+            ...row,
+            group: {
+              group_id: group.id,
+              main_keyword: group.main_keyword,
+              display_keyword: group.display_keyword,
+              category: group.category,
+              wp_article_id: group.wp_article_id,
+            },
+            selection_score,
+            competitor_benchmark: {
+              title_count: competitorTitles.length,
+              average_character_count: average(lengths),
+              median_character_count: median(lengths),
+              minimum_character_count: lengths.length
+                ? Math.min(...lengths)
+                : null,
+              maximum_character_count: lengths.length
+                ? Math.max(...lengths)
+                : null,
+              titles: competitorTitles,
+            },
+            current_wp_title:
+              group.wp_article_id == null
+                ? null
+                : (wpById.get(group.wp_article_id)?.title ?? null),
+          };
+        }),
+      recommendedByGroup = new Map();
+    for (const row of base.filter(
+      (item) => item.review.review_state !== "blocked",
+    )) {
+      const current = recommendedByGroup.get(row.group_id);
+      if (
+        !current ||
+        row.selection_score > current.selection_score ||
+        (row.selection_score === current.selection_score &&
+          row.candidate_id.localeCompare(current.candidate_id) < 0)
+      )
+        recommendedByGroup.set(row.group_id, row);
+    }
+    const rows = base
+        .map((row) => ({
+          ...row,
+          recommended_candidate:
+            recommendedByGroup.get(row.group_id)?.candidate_id ===
+            row.candidate_id,
+          recommendation_policy: "evidence-title-selection.v1",
+        }))
+        .filter(
+          (row) =>
+            (!requestedGroup || row.group_id === requestedGroup) &&
+            (!state || state === "all" || row.review.review_state === state) &&
+            (!patternState ||
+              patternState === "all" ||
+              row.serp_pattern_review?.review_state === patternState) &&
+            (!evidenceType ||
+              evidenceType === "all" ||
+              row.evidence_type === evidenceType) &&
+            (!issue || row.review.issues.includes(issue)) &&
+            (!variant || row.generation.variant_key === variant) &&
+            (!query ||
+              norm(
+                `${row.text} ${row.group.main_keyword} ${row.group.category}`,
+              ).includes(query)),
+        )
+        .sort(
+          (a, b) =>
+            Number(b.recommended_candidate) - Number(a.recommended_candidate) ||
+            b.selection_score - a.selection_score ||
+            a.group_id.localeCompare(b.group_id) ||
+            a.candidate_id.localeCompare(b.candidate_id),
+        ),
+      summary = {
+        candidate_count: rows.length,
+        group_count: new Set(rows.map((row) => row.group_id)).size,
+        recommended_count: rows.filter((row) => row.recommended_candidate)
+          .length,
+        ready_count: rows.filter((row) => row.review.review_state === "ready")
+          .length,
+        needs_review_count: rows.filter(
+          (row) => row.review.review_state === "needs_review",
+        ).length,
+        blocked_count: rows.filter(
+          (row) => row.review.review_state === "blocked",
+        ).length,
+        average_character_count: average(
+          rows.map((row) => row.review.character_count),
+        ),
+        evidence_resolved_count: rows.filter(
+          (row) => row.review.oracle.evidence_reference_resolved,
+        ).length,
+        observed_pattern_supported_count: rows.filter(
+          (row) =>
+            row.serp_pattern_review?.review_state ===
+            "observed_pattern_supported",
+        ).length,
+        pattern_review_required_count: rows.filter(
+          (row) => row.serp_pattern_review?.review_state === "needs_review",
+        ).length,
+        pattern_policy: "title-serp-pattern-oracle.v1",
+        ranking_effect_inferred: false,
+        selection_policy: "evidence-title-selection.v1",
+        auto_approval: false,
+      };
+    return ok({
+      ...page(rows, url),
+      summary,
+      interpretation_policy:
+        "observed_serp_title_patterns_no_ranking_causality",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: requestedGroup,
+        state,
+        pattern_state: patternState,
+        evidence_type: evidenceType,
+        issue,
+        variant,
+      },
+    });
+  }
+  if (pathname === "/api/v1/outlines") {
+    const requestedGroup = url.searchParams.get("group_id");
+    if (requestedGroup && !groupIds.has(requestedGroup))
+      return bad(404, `unknown group_id for site: ${requestedGroup}`);
+    const status = url.searchParams.get("status"),
+      rows = (data.content_outlines ?? [])
+        .filter(
+          (row) =>
+            groupIds.has(row.group_id) &&
+            (!requestedGroup || row.group_id === requestedGroup) &&
+            (!status || status === "all" || row.status === status) &&
+            (!query ||
+              norm(
+                `${row.main_keyword} ${row.sections.flatMap((section) => [section.text, ...section.children.map((child) => child.text)]).join(" ")}`,
+              ).includes(query)),
+        )
+        .sort((a, b) => a.group_id.localeCompare(b.group_id)),
+      summary = {
+        outline_count: rows.length,
+        ready_count: rows.filter((row) => row.status === "outline_ready")
+          .length,
+        blocked_count: rows.filter((row) => row.status === "blocked").length,
+        candidate_count: rows.reduce(
+          (sum, row) => sum + row.candidate_count,
+          0,
+        ),
+        selected_count: rows.reduce((sum, row) => sum + row.selected_count, 0),
+        h2_count: rows.reduce((sum, row) => sum + row.h2_count, 0),
+        h3_count: rows.reduce((sum, row) => sum + row.h3_count, 0),
+        omitted_candidate_count: rows.reduce(
+          (sum, row) => sum + row.omitted_candidate_count,
+          0,
+        ),
+        unassigned_candidate_count: rows.reduce(
+          (sum, row) => sum + row.unassigned_candidates.length,
+          0,
+        ),
+        selection_policy: "evidence-outline-selection.v1",
+        parent_policy: "shared-evidence-then-character-trigram.v1",
+        auto_approval: false,
+      };
+    return ok({
+      ...page(rows, url),
+      summary,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: requestedGroup,
+        status,
+      },
+    });
+  }
+  if (pathname === "/api/v1/compositions") {
+    const requestedGroup = url.searchParams.get("group_id");
+    if (requestedGroup && !groupIds.has(requestedGroup))
+      return bad(404, `unknown group_id for site: ${requestedGroup}`);
+    const state = url.searchParams.get("state"),
+      rows = (data.content_structure_candidates ?? [])
+        .filter((row) => groupIds.has(row.group_id))
+        .map((row) => row.composition)
+        .filter(
+          (row) =>
+            row &&
+            (!requestedGroup || row.group_id === requestedGroup) &&
+            (!state || state === "all" || row.review_state === state) &&
+            (!query || norm(JSON.stringify(row)).includes(query)),
+        )
+        .sort(
+          (a, b) =>
+            b.quality_score - a.quality_score ||
+            a.group_id.localeCompare(b.group_id),
+        ),
+      summary = {
+        composition_count: rows.length,
+        ready_count: rows.filter((row) => row.review_state === "ready").length,
+        needs_review_count: rows.filter(
+          (row) => row.review_state === "needs_review",
+        ).length,
+        blocked_count: rows.filter((row) => row.review_state === "blocked")
+          .length,
+        average_quality: average(rows.map((row) => row.quality_score)),
+        shared_evidence_count: rows.reduce(
+          (sum, row) => sum + row.metrics.shared_evidence_count,
+          0,
+        ),
+        selected_heading_count: rows.reduce(
+          (sum, row) => sum + row.metrics.selected_heading_count,
+          0,
+        ),
+        joint_selection_changed_count: rows.filter(
+          (row) => row.metrics.selection_changed,
+        ).length,
+        average_title_quality_delta: average(
+          rows.map((row) => row.metrics.title_quality_delta),
+        ),
+        average_evidence_coverage_delta: average(
+          rows.map((row) => row.metrics.title_evidence_coverage_delta),
+        ),
+        average_lexical_coverage_delta: average(
+          rows.map((row) => row.metrics.title_outline_lexical_coverage_delta),
+        ),
+        policy: "content-plan-coherence.v2",
+        auto_approval: false,
+      };
+    return ok({
+      ...page(rows, url),
+      summary,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: requestedGroup,
+        state,
+      },
+    });
+  }
+  if (pathname === "/api/v1/drafts") {
+    const requestedGroup = url.searchParams.get("group_id");
+    if (requestedGroup && !groupIds.has(requestedGroup))
+      return bad(404, `unknown group_id for site: ${requestedGroup}`);
+    const publicationState = url.searchParams.get("publication_state"),
+      evidenceState = url.searchParams.get("evidence_state"),
+      citationState = url.searchParams.get("citation_state"),
+      rows = (data.content_structure_candidates ?? [])
+        .filter((row) => groupIds.has(row.group_id))
+        .map((row) => row.draft_package?.draft_revision)
+        .filter(
+          (row) =>
+            row &&
+            (!requestedGroup || row.group_id === requestedGroup) &&
+            (!publicationState ||
+              publicationState === "all" ||
+              row.review.publication_state === publicationState) &&
+            (!evidenceState ||
+              evidenceState === "all" ||
+              (evidenceState === "resolved"
+                ? row.evidence_oracle?.all_references_resolved
+                : row.evidence_oracle?.unresolved_evidence_reference_count >
+                  0)) &&
+            (!citationState ||
+              citationState === "all" ||
+              (citationState === "has_candidates"
+                ? (row.citation_summary?.recommendation_count ?? 0) > 0
+                : (row.citation_summary?.recommendation_count ?? 0) === 0)) &&
+            (!query || norm(`${row.title} ${row.text}`).includes(query)),
+        )
+        .sort(
+          (a, b) =>
+            a.group_id.localeCompare(b.group_id) || b.revision - a.revision,
+        ),
+      references = rows.flatMap((row) => row.claim_evidence ?? []),
+      citationRecommendations = rows.flatMap(
+        (row) => row.citation_recommendations ?? [],
+      ),
+      summary = {
+        draft_count: rows.length,
+        claim_count: rows.reduce((sum, row) => sum + row.review.claim_count, 0),
+        verified_claim_count: rows.reduce(
+          (sum, row) => sum + row.review.verified_claim_count,
+          0,
+        ),
+        claim_with_resolved_evidence_count: rows.reduce(
+          (sum, row) =>
+            sum +
+            (row.evidence_oracle?.claim_with_resolved_evidence_count ?? 0),
+          0,
+        ),
+        evidence_reference_count: references.length,
+        resolved_evidence_reference_count: references.filter(
+          (row) => row.resolution_state === "resolved",
+        ).length,
+        unresolved_evidence_reference_count: references.filter(
+          (row) => row.resolution_state === "unresolved",
+        ).length,
+        evidence_type_counts: Object.fromEntries(
+          Object.entries(
+            Object.groupBy(references, (row) => row.evidence_type ?? "unknown"),
+          ).map(([key, items]) => [key, items.length]),
+        ),
+        citation_recommendation_count: citationRecommendations.length,
+        claim_with_citation_candidate_count: new Set(
+          citationRecommendations.map((row) => row.claim_id),
+        ).size,
+        citation_candidate_url_count: new Set(
+          citationRecommendations.map((row) => row.url),
+        ).size,
+        citation_approved_count: citationRecommendations.filter(
+          (row) => row.approval_state === "approved",
+        ).length,
+        citation_unreviewed_count: citationRecommendations.filter(
+          (row) => row.approval_state === "unreviewed",
+        ).length,
+        publication_ready_count: rows.filter(
+          (row) => row.review.publication_state === "ready",
+        ).length,
+        blocked_count: rows.filter(
+          (row) => row.review.publication_state === "blocked",
+        ).length,
+        text_export_count: rows.filter((row) => row.text).length,
+        html_export_count: rows.filter((row) => row.html).length,
+        renderer_version: "content-evidence-draft.v1",
+        evidence_policy: "content-claim-evidence-resolution.v1",
+        citation_policy: "content-claim-citation-recommendation.v1",
+        fact_verification_state: "pending_primary_source",
+        auto_approval: false,
+      };
+    return ok({
+      ...page(rows, url),
+      summary,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: requestedGroup,
+        publication_state: publicationState,
+        evidence_state: evidenceState,
+        citation_state: citationState,
+      },
+    });
+  }
+  if (pathname === "/api/v1/simultaneous-rankings")
+    return ok(
+      page(
+        (data.simultaneous_keyword_relations ?? []).filter(
+          (row) =>
+            taskIds.has(row.source_task_id) &&
+            (!query ||
+              norm(`${row.source_keyword} ${row.target_keyword}`).includes(
+                query,
+              )),
+        ),
+        url,
+      ),
+    );
+  if (pathname === "/api/v1/pages") {
+    const scopedEdges = (data.serp_page_keyword_edges ?? []).filter((row) =>
+        taskIds.has(row.task_id),
+      ),
+      rows = [...Map.groupBy(scopedEdges, (row) => row.canonical_url).entries()]
+        .map(([canonical_url, edges]) => {
+          const top = [...edges].sort(
+            (a, b) => a.rank - b.rank || a.task_id.localeCompare(b.task_id),
+          )[0];
+          return {
+            canonical_url,
+            domain: top.domain,
+            keyword_count: new Set(edges.map((row) => row.task_id)).size,
+            group_count: new Set(edges.map((row) => row.group_id)).size,
+            best_rank: top.rank,
+            rank_score: edges.reduce((sum, row) => sum + 1 / row.rank, 0),
+            top_task_id: top.task_id,
+            top_keyword: top.keyword,
+            scope: { site_id: siteId, full_rank_database: false },
+          };
+        })
+        .sort(
+          (a, b) =>
+            b.keyword_count - a.keyword_count ||
+            b.group_count - a.group_count ||
+            b.rank_score - a.rank_score ||
+            a.canonical_url.localeCompare(b.canonical_url),
+        );
+    return ok(
+      page(
+        rows.filter(
+          (row) =>
+            !query ||
+            norm(`${row.canonical_url} ${row.domain}`).includes(query),
+        ),
+        url,
+      ),
+    );
+  }
+  if (pathname === "/api/v1/brands") {
+    const view =
+        url.searchParams.get("view") === "domains" ? "domains" : "brands",
+      review = url.searchParams.get("review"),
+      rows = (site.serp_brand_analysis?.[view] ?? []).filter(
+        (row) =>
+          (!review ||
+            review === "all" ||
+            (view === "brands"
+              ? row.multi_domain_review
+              : row.name_variation_review)) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: site.serp_brand_analysis?.summary ?? {},
+      policy: site.serp_brand_analysis?.policy ?? "serp-brand-occupancy.v1",
+      view,
+      filters: { q: url.searchParams.get("q") ?? "", review },
+      auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/aio-overviews") {
+    const state = url.searchParams.get("state"),
+      rows = (data.serp_ai_overviews ?? []).filter(
+        (row) =>
+          taskIds.has(row.task_id) &&
+          (!state || state === "all" || row.response_state === state) &&
+          (!query ||
+            norm(`${row.task_id} ${row.markdown ?? ""}`).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: site.aio_acquisition_summary,
+      filters: { q: url.searchParams.get("q") ?? "", state },
+      retry_mutation_supported: false,
+    });
+  }
+  if (pathname === "/api/v1/snapshot-history") {
+    const requestedView = url.searchParams.get("view"),
+      view =
+        requestedView === "reuse"
+          ? "rows"
+          : requestedView === "targets"
+            ? "targets"
+            : requestedView === "isolated"
+              ? "isolated"
+              : "comparisons",
+      state = url.searchParams.get("state"),
+      target = url.searchParams.get("target"),
+      matchMode = ["domain", "url_prefix", "exact_url"].includes(
+        url.searchParams.get("match_mode"),
+      )
+        ? url.searchParams.get("match_mode")
+        : "domain";
+    if (view === "targets" && !target)
+      return bad(400, "target is required for view=targets");
+    const isolated = site.snapshot_reuse_audit?.isolated_corpus_review ?? {
+        rows: [],
+        summary: {},
+        policy: "isolated-snapshot-corpus-review.v1",
+      },
+      source =
+        view === "targets"
+          ? targetRankTracks(
+              site.snapshot_reuse_audit?.comparisons ?? [],
+              target,
+              matchMode,
+            )
+          : view === "isolated"
+            ? isolated.rows
+            : (site.snapshot_reuse_audit?.[view] ?? []),
+      rows = source.filter(
+        (row) =>
+          (!state ||
+            state === "all" ||
+            row.reuse_state === state ||
+            row.state === state ||
+            row.review_state === state) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary:
+        view === "isolated"
+          ? isolated.summary
+          : (site.snapshot_reuse_audit?.summary ?? {}),
+      policy:
+        view === "targets"
+          ? "retained-target-rank-track.v2"
+          : view === "isolated"
+            ? isolated.policy
+            : (site.snapshot_reuse_audit?.policy ??
+              "raw-snapshot-reuse-audit.v1"),
+      view,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        state,
+        target,
+        match_mode: matchMode,
+      },
+      auto_mutation: false,
+      auto_site_assignment: false,
+    });
+  }
+  if (pathname === "/api/v1/domains") {
+    const targetDomain = url.searchParams.get("target_domain") ?? site.domain,
+      directoryRows = site.observed_site_directory?.rows ?? [],
+      keywordsByDomain = new Map(
+        directoryRows.map((row) => [row.domain, row.keywords ?? []]),
+      ),
+      targetKeywords = new Set(
+        (keywordsByDomain.get(targetDomain) ?? []).map((row) => row.keyword),
+      ),
+      rows = [...keywordsByDomain.entries()]
+        .map(([domain, domainKeywords]) => {
+          const competitorKeywords = new Set(
+              domainKeywords.map((item) => item.keyword),
+            ),
+            duplicateKeywords = [...competitorKeywords].filter((keyword) =>
+              targetKeywords.has(keyword),
+            ),
+            competitorUnique = [...competitorKeywords].filter(
+              (keyword) => !targetKeywords.has(keyword),
+            ),
+            targetUnique = [...targetKeywords].filter(
+              (keyword) => !competitorKeywords.has(keyword),
+            ),
+            unionCount = new Set([...targetKeywords, ...competitorKeywords])
+              .size;
+          return {
+            domain,
+            keyword_count: domainKeywords.length,
+            group_count: new Set(
+              domainKeywords.flatMap((row) => row.group_ids),
+            ).size,
+            page_count: new Set(
+              domainKeywords.flatMap((row) => row.observed_urls),
+            ).size,
+            best_rank: Math.min(...domainKeywords.map((row) => row.best_rank)),
+            rank_score: domainKeywords.reduce(
+              (sum, row) => sum + 1 / row.best_rank,
+              0,
+            ),
+            scope: { site_id: siteId, full_rank_database: false },
+            comparison: {
+              target_domain: targetDomain,
+              observed_target_keyword_count: targetKeywords.size,
+              duplicate_keyword_count: duplicateKeywords.length,
+              duplicate_rate_target: targetKeywords.size
+                ? duplicateKeywords.length / targetKeywords.size
+                : null,
+              jaccard_overlap_rate: unionCount
+                ? duplicateKeywords.length / unionCount
+                : null,
+              competitor_unique_keyword_count: competitorUnique.length,
+              target_unique_keyword_count: targetUnique.length,
+              duplicate_keywords: duplicateKeywords,
+              policy: "observed-serp-domain-keyword-set.v2",
+              scope: {
+                site_id: siteId,
+                task_count: taskIds.size,
+                depth: 10,
+                full_rank_database: false,
+              },
+            },
+          };
+        })
+        .filter((row) => !query || norm(row.domain).includes(query))
+        .sort(
+          (a, b) =>
+            b.keyword_count - a.keyword_count ||
+            b.rank_score - a.rank_score ||
+            a.domain.localeCompare(b.domain),
+        );
+    return ok(page(rows, url));
+  }
+  if (pathname === "/api/v1/cooccurrence") {
+    const scope = url.searchParams.get("scope") === "task" ? "task" : "group",
+      table = scope === "task" ? "competitor_task_terms" : "competitor_terms",
+      identity = scope === "task" ? "task_id" : "group_id",
+      evidenceTable =
+        scope === "task"
+          ? "competitor_page_task_evidence"
+          : "competitor_page_group_evidence",
+      allowed = scope === "task" ? taskIds : groupIds;
+    let rows;
+    if (db)
+      rows = db
+        .prepare(
+          `SELECT * FROM ${table} ORDER BY ${identity},page_count DESC,heading_page_count DESC,weighted_score DESC`,
+        )
+        .all()
+        .filter((row) => allowed.has(row[identity]))
+        .map(({ evidence_page_ids_json, ...row }) => ({
+          ...row,
+          evidence_page_ids: JSON.parse(evidence_page_ids_json),
+        }));
+    else
+      rows = (
+        scope === "task"
+          ? (data.competitor_task_terms ?? [])
+          : (data.competitor_terms ?? [])
+      ).filter((row) => allowed.has(row[identity]));
+    const result = page(
+      rows.filter((row) => !query || norm(row.term).includes(query)),
+      url,
+    );
+    if (db && url.searchParams.get("details") === "true")
+      for (const row of result.data) {
+        const details = db
+          .prepare(
+            `SELECT p.page_id,p.url,p.domain,p.title,e.best_rank,t.count,t.title_count,t.heading_count,t.in_title,t.in_heading FROM competitor_page_terms t JOIN competitor_pages p USING(page_id) JOIN ${evidenceTable} e USING(page_id) WHERE e.${identity}=? AND t.term=? ORDER BY e.best_rank,p.url`,
+          )
+          .all(row[identity], row.term)
+          .map((item) => ({
+            ...item,
+            in_title: Boolean(item.in_title),
+            in_heading: Boolean(item.in_heading),
+            page_count: 1,
+            page_count_in_headline: Number(item.heading_count > 0),
+          }));
+        row.seo_tool_a_semantics = {
+          occurrence_page_count: row.total_count,
+          occurrence_title_count: row.title_count,
+          occurrence_heading_count: row.heading_count,
+          site_count_total: new Set(details.map((item) => item.domain)).size,
+          site_count_heading: new Set(
+            details
+              .filter((item) => item.heading_count > 0)
+              .map((item) => item.domain),
+          ).size,
+          page_details: details,
+        };
+      }
+    return ok(result);
+  }
+  const sitePageIds = new Set(
+    (data.competitor_page_evidence ?? [])
+      .filter((row) => groupIds.has(row.group_id))
+      .map((row) => row.page_id),
+  );
+  if (pathname === "/api/v1/content") {
+    const snippetsByPage = Map.groupBy(
+        (data.competitor_serp_snippet_evidence ?? []).filter((row) =>
+          taskIds.has(row.task_id),
+        ),
+        (row) => row.page_id,
+      ),
+      pageKeywordIndex = new Map(
+        (site.content_page_keyword_evidence?.rows ?? []).map((row) => [
+          row.page_id,
+          row,
+        ]),
+      ),
+      rows = (data.competitor_pages ?? [])
+        .filter((row) => sitePageIds.has(row.page_id))
+        .map((row) => ({
+          ...row,
+          serp_snippets: snippetsByPage.get(row.page_id) ?? [],
+          observed_keyword_evidence: pageKeywordIndex.get(row.page_id) ?? null,
+        }))
+        .filter(
+          (row) =>
+            !query ||
+            norm(
+              `${row.title} ${row.url} ${row.observed_keyword_evidence?.keywords.map((item) => item.keyword).join(" ") ?? ""} ${row.serp_snippets.map((item) => `${item.title} ${item.description}`).join(" ")}`,
+            ).includes(query),
+        );
+    return ok(page(rows, url));
+  }
+  if (pathname === "/api/v1/headings") {
+    const requestedTask = url.searchParams.get("task_id"),
+      requestedGroup = url.searchParams.get("group_id");
+    if (requestedTask && !taskIds.has(requestedTask))
+      return bad(404, `unknown task_id for site: ${requestedTask}`);
+    if (requestedGroup && !groupIds.has(requestedGroup))
+      return bad(404, `unknown group_id for site: ${requestedGroup}`);
+    const evidence = requestedTask
+        ? (data.competitor_page_task_evidence ?? []).filter(
+            (row) => row.task_id === requestedTask,
+          )
+        : requestedGroup
+          ? (data.competitor_page_evidence ?? []).filter(
+              (row) => row.group_id === requestedGroup,
+            )
+          : (data.competitor_page_task_evidence ?? []).filter((row) =>
+              taskIds.has(row.task_id),
+            ),
+      bestRankByPage = new Map();
+    for (const row of evidence)
+      bestRankByPage.set(
+        row.page_id,
+        Math.min(bestRankByPage.get(row.page_id) ?? Infinity, row.best_rank),
+      );
+    const scopedPageIds = new Set(bestRankByPage.keys()),
+      levels = new Set(
+        url.searchParams
+          .getAll("level")
+          .flatMap((value) => value.split(","))
+          .map(Number)
+          .filter(
+            (value) => Number.isInteger(value) && value >= 1 && value <= 6,
+          ),
+      ),
+      excluded = url.searchParams
+        .getAll("exclude")
+        .flatMap((value) => value.split(/[，,\n]/u))
+        .map(norm)
+        .filter(Boolean),
+      allScoped = (data.competitor_headings ?? []).filter((row) =>
+        scopedPageIds.has(row.page_id),
+      ),
+      excludedCount = allScoped.filter((row) =>
+        excluded.some((token) => norm(row.text).includes(token)),
+      ).length,
+      pageById = new Map(
+        (data.competitor_pages ?? []).map((row) => [row.page_id, row]),
+      ),
+      filtered = allScoped
+        .filter(
+          (row) =>
+            (!levels.size || levels.has(row.level)) &&
+            (!query || norm(row.text).includes(query)) &&
+            !excluded.some((token) => norm(row.text).includes(token)),
+        )
+        .map((row) => {
+          const source = pageById.get(row.page_id) ?? {};
+          return {
+            ...row,
+            character_count: [...row.text].length,
+            url: source.url ?? null,
+            domain: source.domain ?? null,
+            page_title: source.title ?? null,
+            page_text_length: source.text_length ?? null,
+            best_rank: bestRankByPage.get(row.page_id) ?? null,
+          };
+        })
+        .sort(
+          (a, b) =>
+            a.best_rank - b.best_rank ||
+            a.page_id.localeCompare(b.page_id) ||
+            a.position - b.position,
+        ),
+      filteredPageIds = new Set(filtered.map((row) => row.page_id)),
+      pageLengths = [...filteredPageIds]
+        .map((id) => pageById.get(id)?.text_length)
+        .filter(Number.isFinite),
+      perLevel = Object.fromEntries(
+        Array.from({ length: 6 }, (_, index) => [
+          String(index + 1),
+          filtered.filter((row) => row.level === index + 1).length,
+        ]),
+      ),
+      summary = {
+        page_count: filteredPageIds.size,
+        heading_count: filtered.length,
+        excluded_heading_count: excludedCount,
+        per_level_count: perLevel,
+        average_headings_per_page: filteredPageIds.size
+          ? filtered.length / filteredPageIds.size
+          : null,
+        average_heading_character_count: average(
+          filtered.map((row) => row.character_count),
+        ),
+        average_page_text_length: average(pageLengths),
+        median_page_text_length: median(pageLengths),
+        depth: { acquired_top: 10, provider_target_top: 20, complete: false },
+      },
+      filters = {
+        q: url.searchParams.get("q") ?? "",
+        levels: [...levels].sort(),
+        exclude: excluded,
+        task_id: requestedTask,
+        group_id: requestedGroup,
+      };
+    if (url.searchParams.get("view") === "pages") {
+      const headingsByPage = Map.groupBy(filtered, (row) => row.page_id),
+        rows = [...filteredPageIds]
+          .map((pageId) => {
+            const source = pageById.get(pageId) ?? {},
+              headings = headingsByPage.get(pageId) ?? [];
+            return {
+              page_id: pageId,
+              url: source.url ?? null,
+              domain: source.domain ?? null,
+              title: source.title ?? null,
+              best_rank: bestRankByPage.get(pageId) ?? null,
+              text_length: source.text_length ?? null,
+              heading_count: headings.length,
+              per_level_count: Object.fromEntries(
+                Array.from({ length: 6 }, (_, index) => [
+                  String(index + 1),
+                  headings.filter((row) => row.level === index + 1).length,
+                ]),
+              ),
+              headings: headings.map(
+                ({
+                  url,
+                  domain,
+                  page_title,
+                  page_text_length,
+                  best_rank,
+                  ...heading
+                }) => heading,
+              ),
+            };
+          })
+          .sort(
+            (a, b) => a.best_rank - b.best_rank || a.url.localeCompare(b.url),
+          );
+      return ok({ ...page(rows, url), summary, filters, view: "pages" });
+    }
+    return ok({ ...page(filtered, url), summary, filters, view: "headings" });
+  }
+  if (pathname === "/api/v1/cooccurrence") {
+    const scope = url.searchParams.get("scope") === "task" ? "task" : "group",
+      table = scope === "task" ? "competitor_task_terms" : "competitor_terms",
+      identity = scope === "task" ? "task_id" : "group_id",
+      allowed = scope === "task" ? taskIds : groupIds;
+    let rows;
+    if (db)
+      rows = db
+        .prepare(
+          `SELECT * FROM ${table} ORDER BY ${identity},page_count DESC,heading_page_count DESC,weighted_score DESC`,
+        )
+        .all()
+        .filter((row) => allowed.has(row[identity]))
+        .map(({ evidence_page_ids_json, ...row }) => ({
+          ...row,
+          evidence_page_ids: JSON.parse(evidence_page_ids_json),
+        }));
+    else
+      rows = (
+        scope === "task"
+          ? (data.competitor_task_terms ?? [])
+          : (data.competitor_terms ?? [])
+      ).filter((row) => allowed.has(row[identity]));
+    return ok(
+      page(
+        rows.filter((row) => !query || norm(row.term).includes(query)),
+        url,
+      ),
+    );
+  }
+  if (pathname === "/api/v1/serp-results") {
+    const target = url.searchParams.get("target") ?? "all",
+      feature = url.searchParams.get("feature"),
+      textFor = (row) =>
+        ({
+          title: row.title,
+          description: row.description,
+          "pre-snippet": row.pre_snippet,
+          breadcrumb: row.breadcrumb,
+          sitelink: (row.links ?? [])
+            .map(
+              (item) =>
+                `${item.title ?? ""} ${item.description ?? ""} ${item.url ?? ""}`,
+            )
+            .join(" "),
+          commerce: `${row.rating ? JSON.stringify(row.rating) : ""} ${row.price ? JSON.stringify(row.price) : ""}`,
+          highlight: (row.highlighted ?? []).join(" "),
+          all: `${row.title} ${row.url} ${row.description ?? ""} ${row.pre_snippet ?? ""} ${row.breadcrumb ?? ""} ${(row.highlighted ?? []).join(" ")} ${(row.links ?? []).map((item) => `${item.title ?? ""} ${item.description ?? ""} ${item.url ?? ""}`).join(" ")} ${row.rating ? JSON.stringify(row.rating) : ""} ${row.price ? JSON.stringify(row.price) : ""}`,
+        })[target] ?? "",
+      featureMatches = (row) =>
+        !feature ||
+        (feature === "video" && row.attributes?.is_video) ||
+        (feature === "sitelinks" && (row.links ?? []).length) ||
+        (feature === "rated" && row.rating) ||
+        (feature === "priced" && row.price);
+    return ok(
+      page(
+        (data.serp_organic_results ?? []).filter(
+          (row) =>
+            taskIds.has(row.task_id) &&
+            featureMatches(row) &&
+            (!query || norm(textFor(row)).includes(query)),
+        ),
+        url,
+      ),
+    );
+  }
+  if (pathname === "/api/v1/new-article-brief-queue") {
+    const state = url.searchParams.get("publication_state"),
+      sourceState = url.searchParams.get("source_preparation_state"),
+      queue = site.new_article_brief_queue ?? { rows: [], summary: {} },
+      rows = queue.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.publication_state === state) &&
+          (!sourceState ||
+            sourceState === "all" ||
+            row.source_preparation_state === sourceState) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...queue.summary, filtered_count: rows.length },
+      queue_digest: queue.queue_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        publication_state: state ?? "all",
+        source_preparation_state: sourceState ?? "all",
+      },
+      automatic_article_creation: false,
+      auto_publication: false,
+      ranking_effect_inferred: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/new-article-source-discovery-manifest") {
+    const manifest = site.new_article_source_discovery_manifest ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = manifest.rows.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...manifest.summary, filtered_count: rows.length },
+      manifest_digest: manifest.manifest_digest,
+      execution_authorized: false,
+      auto_approval: false,
+      auto_publication: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/new-article-public-source-evidence") {
+    const state = url.searchParams.get("support_state"),
+      evidence = site.new_article_public_source_evidence ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = evidence.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.direct_support_state === state) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...evidence.summary, filtered_count: rows.length },
+      evidence_set_digest: evidence.evidence_set_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        support_state: state ?? "all",
+      },
+      paid_acquisition_triggered: false,
+      requirement_satisfied_count:
+        evidence.summary.requirement_satisfied_count ?? 0,
+      auto_approval: false,
+      auto_publication: false,
+    });
+  }
+  if (pathname === "/api/v1/public-source-review-packet") {
+    const progress = url.searchParams.get("progress"),
+      packet = site.public_source_review_packet ?? { items: [], summary: {} },
+      rows = packet.items.filter(
+        (row) =>
+          (!progress ||
+            progress === "all" ||
+            row.editorial_progress_state === progress) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...packet.summary, filtered_count: rows.length },
+      packet_digest: packet.packet_digest,
+      source_evidence_set_digest: packet.source_evidence_set_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        progress: progress ?? "all",
+      },
+      mutation_supported: false,
+      auto_approval: false,
+      auto_apply: false,
+      auto_publication: false,
+    });
+  }
+  if (pathname === "/api/v1/evidence-safe-claim-reframes") {
+    const kind = url.searchParams.get("failure_kind"),
+      oracle = site.evidence_safe_claim_reframes ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!kind || kind === "all" || row.failure_kind === kind) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      reframe_set_digest: oracle.reframe_set_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        failure_kind: kind ?? "all",
+      },
+      mutation_supported: false,
+      factual_answer_inferred: false,
+      auto_replacement: false,
+      auto_approval: false,
+      auto_publication: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/evidence-safe-draft-revisions") {
+    const kind = url.searchParams.get("failure_kind"),
+      progress = url.searchParams.get("progress"),
+      oracle = site.evidence_safe_draft_revisions ?? { rows: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!kind || kind === "all" || row.failure_kind === kind) &&
+          (!progress ||
+            progress === "all" ||
+            row.editorial_progress_state === progress) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      proposal_set_digest: oracle.proposal_set_digest,
+      progress_digest: oracle.progress_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        failure_kind: kind ?? "all",
+        progress: progress ?? "all",
+      },
+      mutation_supported: false,
+      factual_answer_inferred: false,
+      auto_replacement: false,
+      auto_approval: false,
+      auto_apply: false,
+      auto_publication: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/evidence-safe-manual-revision-packets") {
+    const view = url.searchParams.get("view") ?? "packets",
+      oracle = site.evidence_safe_manual_revision_packets ?? {
+        packets: [],
+        blocked_proposals: [],
+        summary: {},
+      },
+      source = view === "blocked" ? oracle.blocked_proposals : oracle.packets,
+      rows = source.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      packet_set_digest: oracle.packet_set_digest,
+      filters: { q: url.searchParams.get("q") ?? "", view },
+      mutation_supported: false,
+      artifact_applied: false,
+      auto_approval: false,
+      auto_apply: false,
+      auto_publication: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/new-article-citation-suitability") {
+    const state = url.searchParams.get("suitability_state"),
+      gate = site.new_article_citation_suitability_gate ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = gate.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.suitability_state === state) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...gate.summary, filtered_count: rows.length },
+      gate_digest: gate.gate_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        suitability_state: state ?? "all",
+      },
+      requirement_satisfied: false,
+      auto_approval: false,
+      auto_publication: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/new-article-topology-gate") {
+    const action = url.searchParams.get("review_action"),
+      gate = site.new_article_topology_gate ?? { rows: [], summary: {} },
+      rows = gate.rows.filter(
+        (row) =>
+          (!action || action === "all" || row.review_action === action) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...gate.summary, filtered_count: rows.length },
+      gate_digest: gate.gate_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        review_action: action ?? "all",
+      },
+      automatic_group_mutation: false,
+      automatic_article_creation: false,
+      auto_publication: false,
+      cannibalization_claimed: false,
+      ranking_effect_inferred: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-opportunity-content-coverage") {
+    const action = url.searchParams.get("review_action"),
+      gate = site.observed_opportunity_content_coverage_gate ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = gate.rows.filter(
+        (row) =>
+          (!action || action === "all" || row.review_action === action) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...gate.summary, filtered_count: rows.length },
+      coverage_gate_digest: gate.coverage_gate_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        review_action: action ?? "all",
+      },
+      automatic_content_mutation: false,
+      auto_publication: false,
+      ranking_effect_inferred: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-keyword-content-routing") {
+    const action = url.searchParams.get("action"),
+      portfolio = site.observed_keyword_content_routing ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = portfolio.rows.filter(
+        (row) =>
+          (!action || action === "all" || row.action === action) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      routing_digest: portfolio.routing_digest,
+      filters: { q: url.searchParams.get("q") ?? "", action: action ?? "all" },
+      automatic_content_mutation: false,
+      auto_publication: false,
+      ranking_effect_inferred: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-site-keyword-opportunities") {
+    const route = url.searchParams.get("review_route"),
+      portfolio = site.observed_site_keyword_opportunities ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = portfolio.rows.filter(
+        (row) =>
+          (!route || route === "all" || row.review_route === route) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...portfolio.summary, filtered_count: rows.length },
+      opportunity_digest: portfolio.opportunity_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        review_route: route ?? "all",
+      },
+      target_confirmed_unranked: false,
+      full_market_gap_claimed: false,
+      traffic_inferred: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-site-similarity") {
+    const view = url.searchParams.get("view") === "nodes" ? "nodes" : "edges",
+      domain = norm(url.searchParams.get("domain")),
+      graph = site.observed_site_similarity_graph ?? {
+        nodes: [],
+        edges: [],
+        summary: {},
+      },
+      source = view === "nodes" ? graph.nodes : graph.edges,
+      rows = source.filter(
+        (row) =>
+          (!domain ||
+            (view === "nodes"
+              ? norm(row.domain) === domain
+              : norm(row.source_domain) === domain ||
+                norm(row.target_domain) === domain)) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...graph.summary, filtered_count: rows.length },
+      graph_digest: graph.graph_digest,
+      view,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        domain: url.searchParams.get("domain") ?? "",
+      },
+      full_market_overlap_claimed: false,
+      traffic_inferred: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-sites") {
+    const historyState = url.searchParams.get("history_state"),
+      directory = site.observed_site_directory ?? { rows: [], summary: {} },
+      rows = directory.rows.filter(
+        (row) =>
+          (!historyState ||
+            historyState === "all" ||
+            row.history_state_counts[historyState] > 0) &&
+          (!query ||
+            norm(
+              `${row.domain} ${row.keywords.map((item) => item.keyword).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...directory.summary, filtered_count: rows.length },
+      directory_digest: directory.directory_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        history_state: historyState ?? "all",
+      },
+      unknown_web_index: false,
+      traffic_inferred: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-ranked-keyword-history") {
+    const scope = url.searchParams.get("scope"),
+      state = url.searchParams.get("state"),
+      index = site.observed_ranked_keyword_history_index ?? {
+        rows: [],
+        summary: {},
+      },
+      rows = index.rows.filter(
+        (row) =>
+          (!scope || scope === "all" || row.scope_type === scope) &&
+          (!state ||
+            state === "all" ||
+            row.keywords.some((item) => item.appearance_state === state)) &&
+          (!query ||
+            norm(
+              `${row.scope_value} ${row.keywords.map((item) => item.keyword).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...index.summary, filtered_count: rows.length },
+      index_digest: index.index_digest,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        scope: scope ?? "all",
+        state: state ?? "all",
+      },
+      full_rank_database: false,
+      confirmed_unranked: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-ranked-keywords") {
+    const scope = url.searchParams.get("scope"),
+      index = site.observed_ranked_keyword_index ?? { rows: [], summary: {} },
+      rows = index.rows.filter(
+        (row) =>
+          (!scope || scope === "all" || row.scope_type === scope) &&
+          (!query ||
+            norm(
+              `${row.scope_value} ${row.keywords.map((item) => item.keyword).join(" ")}`,
+            ).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...index.summary, filtered_count: rows.length },
+      index_digest: index.index_digest,
+      filters: { q: url.searchParams.get("q") ?? "", scope: scope ?? "all" },
+      full_rank_database: false,
+      traffic_inferred: false,
+      unranked_inference: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/market/locations")
+    return ok({
+      data: [
+        {
+          location_code: 2392,
+          name: "Japan",
+          source: "retained acquisition contract",
+        },
+      ],
+    });
+  if (pathname === "/api/v1/market/languages")
+    return ok({
+      data: [
+        {
+          language_code: "ja",
+          name: "Japanese",
+          source: "retained acquisition contract",
+        },
+      ],
+    });
+  if (pathname === "/api/v1/market/status")
+    return ok({
+      data: site.data_provider_b_enrichment_status,
+      mutation_supported: false,
+    });
+  if (pathname === "/api/v1/market/results")
+    return ok({
+      keyword_metrics: (data.keyword_market_metrics ?? []).filter(
+        (row) => row.site_id === siteId,
+      ),
+      monthly_searches: (data.keyword_monthly_searches ?? []).filter(
+        (row) => row.site_id === siteId,
+      ),
+      difficulties: (data.keyword_difficulties ?? []).filter(
+        (row) => row.site_id === siteId,
+      ),
+      ranked_keywords: (data.domain_ranked_keywords ?? []).filter(
+        (row) => row.site_id === siteId,
+      ),
+    });
+  if (pathname === "/api/v1/wordpress/links")
+    return ok(
+      page(
+        (data.wp_observed_links ?? []).filter(
+          (row) =>
+            row.site_id === siteId &&
+            (!query ||
+              norm(
+                `${row.anchor_text} ${row.source_section} ${row.resolved_url}`,
+              ).includes(query)),
+        ),
+        url,
+      ),
+    );
+  if (pathname === "/api/v1/wordpress/paragraphs") {
+    const articleParam = url.searchParams.get("article_id"),
+      articleId =
+        articleParam == null || articleParam.trim() === ""
+          ? null
+          : Number(articleParam),
+      element = url.searchParams.get("element"),
+      rows = db
+        .prepare(
+          "SELECT * FROM wp_content_paragraphs WHERE site_id=? ORDER BY wp_article_id,position",
+        )
+        .all(siteId)
+        .filter(
+          (row) =>
+            (articleId == null || row.wp_article_id === articleId) &&
+            (!element || element === "all" || row.element === element) &&
+            (!query ||
+              norm(
+                `${row.wp_article_id} ${row.source_section ?? ""} ${row.element}`,
+              ).includes(query)),
+        );
+    return ok({
+      ...page(rows, url),
+      summary: {
+        paragraph_count: rows.length,
+        article_count: new Set(rows.map((row) => row.wp_article_id)).size,
+        total_text_length: rows.reduce((sum, row) => sum + row.text_length, 0),
+        text_retained: false,
+      },
+      filters: {
+        article_id: Number.isInteger(articleId) ? articleId : null,
+        element: element ?? "all",
+        q: url.searchParams.get("q") ?? "",
+      },
+    });
+  }
+  if (pathname === "/api/v1/wordpress/seo-metadata")
+    return ok(
+      page(
+        (site.wp_page_seo_metadata ?? []).filter(
+          (row) =>
+            !query ||
+            norm(
+              `${row.title} ${row.description} ${row.canonical_url}`,
+            ).includes(query),
+        ),
+        url,
+      ),
+    );
+  if (pathname === "/api/v1/wordpress/seo-audits") {
+    const state = url.searchParams.get("state");
+    return ok(
+      page(
+        (site.wp_page_seo_audits ?? []).filter(
+          (row) =>
+            (!state || row.state === state) &&
+            (!query ||
+              norm(
+                `${row.wp_article_id} ${row.findings.map((item) => `${item.code} ${item.detail}`).join(" ")}`,
+              ).includes(query)),
+        ),
+        url,
+      ),
+    );
+  }
+  const briefMatch = pathname.match(/^\/api\/v1\/groups\/([^/]+)\/brief$/u);
+  if (briefMatch) {
+    const groupId = decodeURIComponent(briefMatch[1]),
+      group = (data.groups ?? []).find((row) => row.id === groupId),
+      structure = (data.content_structure_candidates ?? []).find(
+        (row) => row.group_id === groupId,
+      );
+    if (!group || !structure) return bad(404, `unknown group_id: ${groupId}`);
+    return ok({
+      data: {
+        group,
+        structure,
+        generation_candidates: (
+          data.content_generation_candidates ?? []
+        ).filter((row) => row.group_id === groupId),
+      },
+    });
+  }
+  if (pathname === "/api/v1/acquisition")
+    return ok({
+      data: {
+        site_id: siteId,
+        portfolio_metrics: site.portfolio_metrics,
+        provider_cost_ledger: site.provider_cost_ledger,
+        data_disposition: site.data_disposition,
+      },
+    });
+  return bad(404, "API route not found");
+}
+export { openapi as researchOpenApi, operationCoverage };

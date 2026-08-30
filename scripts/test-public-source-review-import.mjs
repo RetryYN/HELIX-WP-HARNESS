@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import {copyFileSync,mkdtempSync,rmSync,writeFileSync} from "node:fs";
+import {tmpdir} from "node:os";
+import path from "node:path";
+import {spawnSync} from "node:child_process";
+import {openDashboardDb,projectDashboard} from "./keyword-dashboard-db.mjs";
+
+const root=mkdtempSync(path.join(tmpdir(),"public-source-review-import-")),dbPath=path.join(root,"dashboard.sqlite"),inputPath=path.join(root,"decisions.json");
+try{
+  copyFileSync(".helix/keyword-dashboard.sqlite",dbPath);let db=openDashboardDb(dbPath),packet=projectDashboard(db).sites[0].public_source_review_packet,item=packet.items[0];assert(item,"full retained evidence must expose at least one eligible public-source review");db.close();const input={schema_version:"public-source-review-decisions.v1",packet_digest:packet.packet_digest,reviewer_digest:"d".repeat(64),decisions:[{review_id:item.review_id,review_digest:item.review_digest,editorial_state:"approved_for_claim_use",source_identity_verified:true,source_requirement_verified:true,claim_direct_support_verified:true,reviewed_at:"2026-08-31T01:30:00+09:00",notes:"fixture review"}]};writeFileSync(inputPath,JSON.stringify(input));
+  const dry=spawnSync(process.execPath,["scripts/import-public-source-review-decisions.mjs","--file",inputPath,"--db",dbPath],{encoding:"utf8"});assert.equal(dry.status,0,dry.stderr);assert.equal(JSON.parse(dry.stdout).state,"validated_not_imported");db=openDashboardDb(dbPath);assert.equal(db.prepare("SELECT COUNT(*) count FROM public_source_review_decisions").get().count,0);db.close();
+  const committed=spawnSync(process.execPath,["scripts/import-public-source-review-decisions.mjs","--file",inputPath,"--db",dbPath,"--commit"],{encoding:"utf8"});assert.equal(committed.status,0,committed.stderr);assert.equal(JSON.parse(committed.stdout).state,"imported");db=openDashboardDb(dbPath);packet=projectDashboard(db).sites[0].public_source_review_packet;assert.equal(packet.summary.approved_for_claim_use_count,1);assert.equal(packet.summary.publication_unblocked_count,0);assert(packet.items.find((row)=>row.review_id===item.review_id).citation_approved);const stored=db.prepare("SELECT auto_approval,auto_apply,auto_publication FROM public_source_review_decisions").get();assert.equal(stored.auto_approval,0);assert.equal(stored.auto_apply,0);assert.equal(stored.auto_publication,0);db.close();
+  const duplicate=spawnSync(process.execPath,["scripts/import-public-source-review-decisions.mjs","--file",inputPath,"--db",dbPath,"--commit"],{encoding:"utf8"});assert.notEqual(duplicate.status,0);assert.match(duplicate.stderr,/already imported/);console.log("public source review import: OK (dry-run, durable approval, duplicate rejection, no auto apply/publication)");
+}finally{rmSync(root,{recursive:true,force:true})}
