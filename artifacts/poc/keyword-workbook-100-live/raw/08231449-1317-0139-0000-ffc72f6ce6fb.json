@@ -72,12 +72,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]",
-              "domain": "sub2.competitor-253.example",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
               "title": "理系大学生です。it企業に就職したいと思っています。その場合",
-              "url": "https://sub2.competitor-253.example/qa/question_detail/q12322253377",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q12322253377",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://sub2.competitor-253.example › ... › 就職、転職",
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
               "website_name": "Yahoo!知恵袋",
               "is_image": false,
               "is_video": false,
@@ -102,21 +102,21 @@
                   "type": "link_element",
                   "title": "情報系学部(理系)につい ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q13288988483",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13288988483",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
                   "title": "IT業界ってぶっちゃけ理系有利 ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q13291623728",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13291623728",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
-                  "title": "sub2.competitor-253.example からの検索結果",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
                   "description": null,
-                  "url": "https://www.google.com/search?q=%E7%90%86%E7%B3%BB+%E5%B0%B1%E6%B4%BB+it+site:sub2.competitor-253.example&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwj3_OjY_7aWAxWWVKQEHQN9CaAQrQIoAnoECCgQAw",
+                  "url": "https://www.google.com/search?q=%E7%90%86%E7%B3%BB+%E5%B0%B1%E6%B4%BB+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwj3_OjY_7aWAxWWVKQEHQN9CaAQrQIoAnoECCgQAw",
                   "domain": "www.google.com"
                 }
               ],
@@ -377,7 +377,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
               "domain": "note.com",
               "title": "文系からIT企業を受けるって不安よな。理系就活塾、動きます。",
-              "url": "https://note.com/dreamy_tiger2468/n/nbcdb870d3f82",
+              "url": "https://note.com/<redacted-user>/n/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "高評価 9 件  ·  1 年前",
@@ -509,7 +509,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[20]/div[1]/div[1]",
               "domain": "qiita.com",
               "title": "理系だけど情報系じゃない新卒がエンジニア職の内定を得る ...",
-              "url": "https://qiita.com/yuzukami1/items/3c2a6977905ca3f27b4b",
+              "url": "https://qiita.com/<redacted-user>/items/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "https://qiita.com › 初心者",

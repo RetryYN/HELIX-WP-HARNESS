@@ -60,7 +60,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "就活がしんどいと感じるのは、あなたの能力が足りないからではありません。`スケジュールや周囲との比較で心が疲れているサイン` です。まずは数日間就活を完全に休む、SNSを見ないなど、自分を一番大切にしてください。[](https://job.competitor-39.example/guide/howto/184/) [[1]](https://job.competitor-39.example/guide/howto/184/)[[2]](https://www.competitor-11.example/job-change/job-hunting-exhaustion/)\n\n心を軽くするコツ\n\n- **完全に休む日を作る** : 一日だけ就活の連絡や準備を一切せず、好きな趣味や睡眠に時間を使う。\n- **不採用は相性と捉える** : お祈りメールは人格否定ではなく、単に企業との縁やタイミングが合わなかっただけ。\n- **人と比べない** : 周囲の内定状況やSNSの情報から離れ、自分のペースを守る。[](https://job.competitor-39.example/guide/howto/184/) [[1]](https://job.competitor-39.example/guide/howto/184/)[[2]](https://competitor-41.example/column/2599)[[3]](https://competitor-166.example/agent/agent-column/hard/)\n\n相談できる場所\n\n- **大学の窓口** : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。\n- **専門の相談窓口** : 気分の落ち込みや不眠が続くときは、厚生労働省の[こころの耳](https://kokoro.mhlw.go.jp/) などの相談窓口を利用する。[](https://competitor-41.example/column/2599) [[1]](https://competitor-41.example/column/2599)[[2]](https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84)[[3]](https://www.youtube.com/watch?v=z2a7ew8bjtw)\n\nもしよければ、何が一番しんどいと感じているか教えてもらえますか？\n\n- **スケジュールや忙しさ** \n- **落ち続けて自信がない** \n- **やりたいことが分からない** \n\nお話を聞かせてくれたら、少し楽になる方法を一緒に考えます。",
+              "markdown": "就活がしんどいと感じるのは、あなたの能力が足りないからではありません。`スケジュールや周囲との比較で心が疲れているサイン` です。まずは数日間就活を完全に休む、SNSを見ないなど、自分を一番大切にしてください。[](https://job.competitor-39.example/guide/howto/184/) [[1]](https://job.competitor-39.example/guide/howto/184/)[[2]](https://www.competitor-11.example/job-change/job-hunting-exhaustion/)\n\n心を軽くするコツ\n\n- **完全に休む日を作る** : 一日だけ就活の連絡や準備を一切せず、好きな趣味や睡眠に時間を使う。\n- **不採用は相性と捉える** : お祈りメールは人格否定ではなく、単に企業との縁やタイミングが合わなかっただけ。\n- **人と比べない** : 周囲の内定状況やSNSの情報から離れ、自分のペースを守る。[](https://job.competitor-39.example/guide/howto/184/) [[1]](https://job.competitor-39.example/guide/howto/184/)[[2]](https://competitor-41.example/column/2599)[[3]](https://competitor-166.example/agent/agent-column/hard/)\n\n相談できる場所\n\n- **大学の窓口** : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。\n- **専門の相談窓口** : 気分の落ち込みや不眠が続くときは、厚生労働省の[こころの耳](https://kokoro.mhlw.go.jp/) などの相談窓口を利用する。[](https://competitor-41.example/column/2599) [[1]](https://competitor-41.example/column/2599)[[2]](https://www.youtube.com/watch?v=<redacted-post>&t=84)[[3]](https://www.youtube.com/watch?v=<redacted-post>)\n\nもしよければ、何が一番しんどいと感じているか教えてもらえますか？\n\n- **スケジュールや忙しさ** \n- **落ち続けて自信がない** \n- **やりたいことが分からない** \n\nお話を聞かせてくれたら、少し楽になる方法を一緒に考えます。",
               "items": [
                 {
                   "type": "ai_overview_element",
@@ -134,7 +134,7 @@
                   "position": "left",
                   "title": "相談できる場所",
                   "text": "大学の窓口 : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。 専門の相談窓口 : 気分の落ち込みや不眠が続くときは、厚生労働省の こころの耳 などの相談窓口を利用する。",
-                  "markdown": "- **大学の窓口** : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。\n- **専門の相談窓口** : 気分の落ち込みや不眠が続くときは、厚生労働省の[こころの耳](https://kokoro.mhlw.go.jp/) などの相談窓口を利用する。[](https://competitor-41.example/column/2599) [[1]](https://competitor-41.example/column/2599)[[2]](https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84)[[3]](https://www.youtube.com/watch?v=z2a7ew8bjtw)",
+                  "markdown": "- **大学の窓口** : 学内のキャリアセンターや信頼できる友人、家族に今の気持ちを素直に話してみる。\n- **専門の相談窓口** : 気分の落ち込みや不眠が続くときは、厚生労働省の[こころの耳](https://kokoro.mhlw.go.jp/) などの相談窓口を利用する。[](https://competitor-41.example/column/2599) [[1]](https://competitor-41.example/column/2599)[[2]](https://www.youtube.com/watch?v=<redacted-post>&t=84)[[3]](https://www.youtube.com/watch?v=<redacted-post>)",
                   "links": [
                     {
                       "type": "link_element",
@@ -160,7 +160,7 @@
                       "position": "left",
                       "source": "YouTube",
                       "domain": "www.youtube.com",
-                      "url": "https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84",
+                      "url": "https://www.youtube.com/watch?v=<redacted-post>&t=84",
                       "title": "「就活がしんどい…」と感じたら見てほしい！就活のプロがモチベーション ...",
                       "text": "認識して欲しいこと。 就活がしんどいと感じやすい4つの原因と。 その対処法についてお伝えしていきます意外と気づいていない..."
                     },
@@ -169,7 +169,7 @@
                       "position": "left",
                       "source": "YouTube",
                       "domain": "www.youtube.com",
-                      "url": "https://www.youtube.com/watch?v=z2a7ew8bjtw",
+                      "url": "https://www.youtube.com/watch?v=<redacted-post>",
                       "title": "【要注意】就活鬱・・・就活ストレスとの付き合い方",
                       "text": "もう全然受からなくてって言っ。 て。 初めて会って。 初めて来た場所。 で。 すごいストレスだと思うん。 です。 否定さ..."
                     }
@@ -210,7 +210,7 @@
                   "position": "right",
                   "source": "YouTube",
                   "domain": "www.youtube.com",
-                  "url": "https://www.youtube.com/watch?v=hpF_h_Bjtmw&t=84",
+                  "url": "https://www.youtube.com/watch?v=<redacted-post>&t=84",
                   "title": "「就活がしんどい…」と感じたら見てほしい！就活のプロがモチベーション ...",
                   "text": "認識して欲しいこと。 就活がしんどいと感じやすい4つの原因と。 その対処法についてお伝えしていきます意外と気づいていない..."
                 },
@@ -228,7 +228,7 @@
                   "position": "right",
                   "source": "YouTube",
                   "domain": "www.youtube.com",
-                  "url": "https://www.youtube.com/watch?v=z2a7ew8bjtw",
+                  "url": "https://www.youtube.com/watch?v=<redacted-post>",
                   "title": "【要注意】就活鬱・・・就活ストレスとの付き合い方",
                   "text": "もう全然受からなくてって言っ。 て。 初めて会って。 初めて来た場所。 で。 すごいストレスだと思うん。 です。 否定さ..."
                 },
@@ -371,12 +371,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]",
-              "domain": "sub2.competitor-253.example",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
               "title": "就活辛いです。ずっと漠然とした不安の中にいて、何が正解な ...",
-              "url": "https://sub2.competitor-253.example/qa/question_detail/q11293984456",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11293984456",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://sub2.competitor-253.example › ... › 就職、転職",
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
               "website_name": "Yahoo!知恵袋",
               "is_image": false,
               "is_video": false,
@@ -399,21 +399,21 @@
                   "type": "link_element",
                   "title": "就活つらいです24卒就活 ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q11281225456",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11281225456",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
                   "title": "ほんと就活がしんどくて、メンタ ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q14315603254",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q14315603254",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
-                  "title": "sub2.competitor-253.example からの検索結果",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
                   "description": null,
-                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%81%A4%E3%82%89%E3%81%84+site:sub2.competitor-253.example&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjn0eKJ_7aWAxVIEFkFHegwCG8QrQIoAnoECCcQAw",
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%81%A4%E3%82%89%E3%81%84+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjn0eKJ_7aWAxVIEFkFHegwCG8QrQIoAnoECCcQAw",
                   "domain": "www.google.com"
                 }
               ],
@@ -511,7 +511,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[12]/div[1]/div[1]",
               "domain": "note.com",
               "title": "就活しんどい 学生も企業も得をしてないこの状況って本当に何？",
-              "url": "https://note.com/ababa_koho/n/n055976038419",
+              "url": "https://note.com/<redacted-user>/n/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "30 件以上の高評価  ·  1 年前",
@@ -549,7 +549,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[13]/div[1]/div[1]/div[1]",
               "domain": "www.youtube.com",
               "title": "「就活がしんどい…」と感じたら見てほしい！就活のプロが ...",
-              "url": "https://www.youtube.com/watch?v=hpF_h_Bjtmw",
+              "url": "https://www.youtube.com/watch?v=<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "視聴回数: 1190 回以上  ·  1 年前",

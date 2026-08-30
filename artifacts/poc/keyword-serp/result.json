@@ -23,13 +23,13 @@
       "task_id": "08231116-1317-0066-0000-424d8b63361e",
       "organic_urls": [
         "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it",
-        "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+        "https://qiita.com/%3Credacted-user%3E/items/%3Credacted-post%3E",
         "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
         "https://competitor-68.example/",
         "https://competitor-42.example/"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-424d8b63361e.json",
-      "response_digest": "20ebd02165a484c4433f853051efb1ee164b1f37f98fe2fcc6705770c72c4323",
+      "response_digest": "e95973dfa455c311a2d64f5d8cffb848dbe06fde001b58574001fdc9ca7d917d",
       "cost": 0.0006
     },
     {
@@ -39,13 +39,13 @@
       "task_id": "08231116-1317-0066-0000-366cdf30d777",
       "organic_urls": [
         "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it",
-        "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
+        "https://qiita.com/%3Credacted-user%3E/items/%3Credacted-post%3E",
         "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
         "https://competitor-68.example/",
         "https://competitor-42.example/"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-366cdf30d777.json",
-      "response_digest": "17041bbc937181368b8b39e1285d9ad9fa0d103a7c1c25c6d590a93d535631c2",
+      "response_digest": "14248e1059990ef0eb385d54001401d8d7a69311b3947ad4ad76107f8d5e2597",
       "cost": 0.0006
     },
     {
@@ -61,7 +61,7 @@
         "https://competitor-249.example/writing/content-marketing/9953"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-b828ed158ada.json",
-      "response_digest": "95abde26342f381f3903d0e241725362ffb2068273f02d48d1b517c074a751b9",
+      "response_digest": "c774828467dc6c3c302b178e23daaa40b99726df10413e383464d714da951e75",
       "cost": 0.0006
     },
     {
@@ -73,11 +73,11 @@
         "https://competitor-139.example/media/knowledge/5343",
         "https://sub1.competitor-72.example/blog/seo-writing",
         "https://www.competitor-246.example/promonista/seo-writing",
-        "https://www.youtube.com/watch?v=siH1MXALUTI",
+        "https://www.youtube.com/watch?v=%3Credacted-post%3E",
         "https://competitor-28.example/media/column/seo-lighting"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-0aac2b1c4203.json",
-      "response_digest": "26b1f3439d480463b224fc1c7ddab3b6f727d127794f4ceea6df9c8e4580bf8c",
+      "response_digest": "e61c9c89350ef3b2c551bb595433fd96db4ec0e4d626b82c83a9543106a06e10",
       "cost": 0.0006
     },
     {
@@ -136,14 +136,14 @@
       "normalized_keyword": "ライター 副業",
       "task_id": "08231116-1317-0066-0000-2a5bb8fc7c4d",
       "organic_urls": [
-        "https://note.com/asami_7716/n/n1a92cbbf4542",
+        "https://note.com/%3Credacted-user%3E/n/%3Credacted-post%3E",
         "https://competitor-54.example/public/jobs/group/writing_beginner",
         "https://jp.competitor-93.example/q-%E3%83%A9%E3%82%A4%E3%82%BF%E3%83%BC-%E5%89%AF%E6%A5%AD-%E6%B1%82%E4%BA%BA.html",
         "https://competitor-202.example/projects?jobtypes=writer",
         "https://competitor-89.example/pro/and_hipro/column/A000000807"
       ],
       "raw_file": "raw/08231116-1317-0066-0000-2a5bb8fc7c4d.json",
-      "response_digest": "42c0ee3a8aef0b1d2eadee0bf4dd7ecda558abb4816edccb0a6c40c5153a6922",
+      "response_digest": "f5fad8d4cf8d314d4dd0599dad7a0f344d8f67d37e6a061a1815235fc3b3d0c8",
       "cost": 0.0006,
       "search_volume_min": 1000,
       "search_volume_max": 10000
@@ -162,16 +162,17 @@
         "left": "4769dfab:IT就活:16",
         "right": "4769dfab:IT就活:17",
         "shared_urls": [
+          "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
           "https://competitor-42.example/",
           "https://competitor-68.example/",
-          "https://qiita.com/JinA293/items/c720e2bd9240eefea7e8",
-          "https://competitor-238.example/shukatsu-media/article/it-job-hunting-guide/it-job-hunting-knowledge/p14254",
+          "https://qiita.com/%3Credacted-user%3E/items/%3Credacted-post%3E",
           "https://www.competitor-149.example/careertrus/shukatsu_shukatsusite_it"
         ],
         "shared_count": 5,
         "denominator": 5,
         "ratio": 1,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "high",
         "likely_same_intent": true
       },
@@ -183,6 +184,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -194,6 +196,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -205,6 +208,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -216,6 +220,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -227,6 +232,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -238,6 +244,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -249,6 +256,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -260,6 +268,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -271,6 +280,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -282,6 +292,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -293,6 +304,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -304,6 +316,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -315,6 +328,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -326,6 +340,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -337,6 +352,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -348,6 +364,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -359,6 +376,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -370,6 +388,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -381,6 +400,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -392,6 +412,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -403,6 +424,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -414,6 +436,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -425,6 +448,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -436,6 +460,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -447,6 +472,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -458,6 +484,7 @@
         "denominator": 5,
         "ratio": 0,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "separate",
         "likely_same_intent": false
       },
@@ -473,6 +500,7 @@
         "denominator": 5,
         "ratio": 0.6,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "possible",
         "likely_same_intent": true
       }
@@ -490,6 +518,7 @@
         "denominator": 5,
         "ratio": 0.6,
         "comparable": true,
+        "same_context": true,
         "intent_confidence": "possible",
         "likely_same_intent": true
       }
@@ -551,5 +580,5 @@
       ]
     }
   ],
-  "reproducibility_digest": "20e0f9ac95df105199cc8265f5289565f6cd3066b2cfa0d247bfdcd6ce96475e"
+  "reproducibility_digest": "606e97cadb65be60faea5cfcda71c96a626ef64b4b94613cfad0ce33c926e876"
 }

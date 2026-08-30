@@ -110,12 +110,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]",
-              "domain": "sub2.competitor-253.example",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
               "title": "SE業界(システムエンジニア)の就活における筆記試験とは ...",
-              "url": "https://sub2.competitor-253.example/qa/question_detail/q11171534901",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11171534901",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://sub2.competitor-253.example › ... › 就職、転職",
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
               "website_name": "Yahoo!知恵袋",
               "is_image": false,
               "is_video": false,
@@ -139,21 +139,21 @@
                   "type": "link_element",
                   "title": "大学4年の就活生です。来 ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q13281413638",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13281413638",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
                   "title": "来週にIT企業の面接と筆 ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q11281103696",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11281103696",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
-                  "title": "sub2.competitor-253.example からの検索結果",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
                   "description": null,
-                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+%E7%AD%86%E8%A8%98%E8%A9%A6%E9%A8%93+it+site:sub2.competitor-253.example&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjTr4r0_7aWAxVNT6QEHasRN0EQrQIoAnoECCwQAw",
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB+%E7%AD%86%E8%A8%98%E8%A9%A6%E9%A8%93+it+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjTr4r0_7aWAxVNT6QEHasRN0EQrQIoAnoECCwQAw",
                   "domain": "www.google.com"
                 }
               ],

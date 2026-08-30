@@ -2,7 +2,7 @@ import {createHash} from "node:crypto";
 
 const digest=(value)=>createHash("sha256").update(JSON.stringify(value)).digest("hex");
 const qaSources=[
-  {source:"yahoo_chiebukuro",matches:(domain)=>domain==="sub2.competitor-253.example"},
+  {source:"yahoo_chiebukuro",matches:(domain)=>domain==="detail.chiebukuro.yahoo.co.jp"},
   {source:"quora",matches:(domain)=>domain==="jp.competitor-172.example"||domain.endsWith(".quora.com")},
   {source:"oshiete_goo",matches:(domain)=>domain==="oshiete.goo.ne.jp"},
   {source:"teratail",matches:(domain)=>domain==="teratail.com"},

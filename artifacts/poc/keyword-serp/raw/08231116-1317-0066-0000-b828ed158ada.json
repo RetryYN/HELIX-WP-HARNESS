@@ -65,7 +65,7 @@
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "asynchronous_ai_overview": false,
-              "markdown": "SEO記事とは、`検索エンジン（Googleなど）の検索結果で上位に表示させるために作るWeb記事` のことです。ユーザーの悩みや知りたいこと（検索意図）にしっかり答え、役に立つ情報を提供することで、サイトへのアクセスを増やします。[](https://www.competitor-190.example/blog/20719/) [[1]](https://www.competitor-190.example/blog/20719/)[[2]](https://competitor-122.example/media-seo/6417/)\n\n詳しい手順やコツについては、詳しい解説が載っている[SEO記事の書き方完全ガイド](https://www.competitor-246.example/promonista/how-to-write-seo-contents/) や[SEO記事とは？特徴や作成手順を解説した記事](https://www.competitor-190.example/blog/20719/) が参考になります。[](https://www.competitor-190.example/blog/20719/) [[1]](https://www.competitor-190.example/blog/20719/)[[2]](https://www.competitor-246.example/promonista/how-to-write-seo-contents/)\n\nSEO記事の基本的な作り方\n\n- **キーワードを選ぶ** ：読者が検索する言葉（キーワード）を決めます。\n- **検索意図を調べる** ：その言葉で検索する人が「何を知りたいのか」を考えます。\n- **構成（設計図）を作る** ：見出しの順番を決め、疑問に順番に答える流れを作ります。\n- **本文を書く** ：結論を先に書き、分かりやすい言葉で説明します。\n- **独自性を入れる** ：他の記事にはない自分の体験や詳しい情報を加えます。[](https://competitor-122.example/media-seo/6417/) [[1]](https://competitor-122.example/media-seo/6417/)[[2]](https://sub1.competitor-150.example/column/contents-marketing_009_seo-article)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)[[4]](https://www.competitor-121.example/blog/plots)[[5]](https://competitor-242.example/blog/seo/seo-media/)\n\nSEO記事について、さらに知りたいことはありますか？\n\n- 詳しい**キーワードの選び方** \n- 読みやすくなる**見出し構成の作り方** \n- AIを使った**記事作成のコツ** \n\n知りたい内容があれば教えてください。",
+              "markdown": "SEO記事とは、`検索エンジン（Googleなど）の検索結果で上位に表示させるために作るWeb記事` のことです。ユーザーの悩みや知りたいこと（検索意図）にしっかり答え、役に立つ情報を提供することで、サイトへのアクセスを増やします。[](https://www.competitor-190.example/blog/20719/) [[1]](https://www.competitor-190.example/blog/20719/)[[2]](https://competitor-122.example/media-seo/6417/)\n\n詳しい手順やコツについては、詳しい解説が載っている[SEO記事の書き方完全ガイド](https://www.competitor-246.example/promonista/how-to-write-seo-contents/) や[SEO記事とは？特徴や作成手順を解説した記事](https://www.competitor-190.example/blog/20719/) が参考になります。[](https://www.competitor-190.example/blog/20719/) [[1]](https://www.competitor-190.example/blog/20719/)[[2]](https://www.competitor-246.example/promonista/how-to-write-seo-contents/)\n\nSEO記事の基本的な作り方\n\n- **キーワードを選ぶ** ：読者が検索する言葉（キーワード）を決めます。\n- **検索意図を調べる** ：その言葉で検索する人が「何を知りたいのか」を考えます。\n- **構成（設計図）を作る** ：見出しの順番を決め、疑問に順番に答える流れを作ります。\n- **本文を書く** ：結論を先に書き、分かりやすい言葉で説明します。\n- **独自性を入れる** ：他の記事にはない自分の体験や詳しい情報を加えます。[](https://competitor-122.example/media-seo/6417/) [[1]](https://competitor-122.example/media-seo/6417/)[[2]](https://sub1.competitor-150.example/column/contents-marketing_009_seo-article)[[3]](https://www.youtube.com/watch?v=<redacted-post>)[[4]](https://www.competitor-121.example/blog/plots)[[5]](https://competitor-242.example/blog/seo/seo-media/)\n\nSEO記事について、さらに知りたいことはありますか？\n\n- 詳しい**キーワードの選び方** \n- 読みやすくなる**見出し構成の作り方** \n- AIを使った**記事作成のコツ** \n\n知りたい内容があれば教えてください。",
               "items": [
                 {
                   "type": "ai_overview_element",
@@ -145,7 +145,7 @@
                   "position": "left",
                   "title": "SEO記事の基本的な作り方",
                   "text": "キーワードを選ぶ ：読者が検索する言葉（キーワード）を決めます。 検索意図を調べる ：その言葉で検索する人が「何を知りたいのか」を考えます。 構成（設計図）を作る ：見出しの順番を決め、疑問に順番に答える流れを作ります。 本文を書く ：結論を先に書き、分かりやすい言葉で説明します。 独自性を入れる ：他の記事にはない自分の体験や詳しい情報を加えます。",
-                  "markdown": "- **キーワードを選ぶ** ：読者が検索する言葉（キーワード）を決めます。\n- **検索意図を調べる** ：その言葉で検索する人が「何を知りたいのか」を考えます。\n- **構成（設計図）を作る** ：見出しの順番を決め、疑問に順番に答える流れを作ります。\n- **本文を書く** ：結論を先に書き、分かりやすい言葉で説明します。\n- **独自性を入れる** ：他の記事にはない自分の体験や詳しい情報を加えます。[](https://competitor-122.example/media-seo/6417/) [[1]](https://competitor-122.example/media-seo/6417/)[[2]](https://sub1.competitor-150.example/column/contents-marketing_009_seo-article)[[3]](https://www.youtube.com/watch?v=RDizVDpADfQ)[[4]](https://www.competitor-121.example/blog/plots)[[5]](https://competitor-242.example/blog/seo/seo-media/)",
+                  "markdown": "- **キーワードを選ぶ** ：読者が検索する言葉（キーワード）を決めます。\n- **検索意図を調べる** ：その言葉で検索する人が「何を知りたいのか」を考えます。\n- **構成（設計図）を作る** ：見出しの順番を決め、疑問に順番に答える流れを作ります。\n- **本文を書く** ：結論を先に書き、分かりやすい言葉で説明します。\n- **独自性を入れる** ：他の記事にはない自分の体験や詳しい情報を加えます。[](https://competitor-122.example/media-seo/6417/) [[1]](https://competitor-122.example/media-seo/6417/)[[2]](https://sub1.competitor-150.example/column/contents-marketing_009_seo-article)[[3]](https://www.youtube.com/watch?v=<redacted-post>)[[4]](https://www.competitor-121.example/blog/plots)[[5]](https://competitor-242.example/blog/seo/seo-media/)",
                   "links": null,
                   "images": null,
                   "references": [
@@ -172,7 +172,7 @@
                       "position": "left",
                       "source": "YouTube",
                       "domain": "www.youtube.com",
-                      "url": "https://www.youtube.com/watch?v=RDizVDpADfQ",
+                      "url": "https://www.youtube.com/watch?v=<redacted-post>",
                       "title": "SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方",
                       "text": "最初に知りたいことは。 何か次に気になることは。 何か。 最後に判断する時何が必要になるのか。 このように並べると記事全..."
                     },
@@ -258,7 +258,7 @@
                   "position": "right",
                   "source": "YouTube",
                   "domain": "www.youtube.com",
-                  "url": "https://www.youtube.com/watch?v=RDizVDpADfQ",
+                  "url": "https://www.youtube.com/watch?v=<redacted-post>",
                   "title": "SEO記事は「検索意図」で決まる！読者に刺さる構成・本文の作り方",
                   "text": "最初に知りたいことは。 何か次に気になることは。 何か。 最後に判断する時何が必要になるのか。 このように並べると記事全..."
                 },
@@ -626,7 +626,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[14]/div[1]/div[1]/div[1]",
               "domain": "www.youtube.com",
               "title": "SEO記事の質は本文を書く前に決まる！ 初心者のための記事 ...",
-              "url": "https://www.youtube.com/watch?v=wI2srZXxeHY",
+              "url": "https://www.youtube.com/watch?v=<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "視聴回数: 140 回以上  ·  3 か月前",

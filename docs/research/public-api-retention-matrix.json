@@ -1,7 +1,7 @@
 {
   "schema_version": "public-api-retention-matrix.v2",
   "source_graph_digest": "d2dd7e1ab0ef97bf521370bb4c22fffcdb5ecdadaab5783df5d5f57f8a4a12c8",
-  "source_field_audit_digest": "9b8cdb57283e05ac2a8c5cce39c55cf8a0f6a0d85a676cfc5e3c809b230a29b3",
+  "source_field_audit_digest": "3a5a898736700018d7e3be5f89e34fe4d15bc6b31c9d02e7f3f388a65f130bd4",
   "operation_count": 24,
   "operation_with_retained_mapping_count": 11,
   "operation_requiring_acquisition_count": 17,
@@ -145,7 +145,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "5549a62d1e021d05ac7fa8e867f01e1eee719598dba70050cf2612fe83c19654"
+      "row_digest": "3ddefd3958d7ee9215bf7e95b0eae81cba14990666e8cbe4fef3a7737b579ed0"
     },
     {
       "operation_id": "CompetitiveController_searchCompetitive",
@@ -252,7 +252,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "88e2ceda693613b4988a697902d9618ee8aa592d94ff89756e2dd8ba37350b1b"
+      "row_digest": "4d0a799ba96d0a35c2fca06f8ec7720e26da957ab988381cc9bb55d3835873ea"
     },
     {
       "operation_id": "HeadlineController_search",
@@ -306,7 +306,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "0e8af6cfaa3155fbc359158ea56106746d0d20caf391cb10e84ab8236422e9e3"
+      "row_digest": "b3f66a3dae36252faaff4070956293d79c89f347db0bf667f77421c8dc7dded2"
     },
     {
       "operation_id": "InfluxKeywordsController_searchKeyword",
@@ -359,7 +359,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "05b6d7b57498459f560753ba372eb21328465cbfc103df698d521075f6d2733b"
+      "row_digest": "2bf654caa2f28795d04b4a112a6ff3762669e1b14d9a6b615ef9791b3f89a176"
     },
     {
       "operation_id": "InfluxPagesController_searchPage",
@@ -413,7 +413,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "244ce30e8d2b28a266b468fae2464c19f5da9d62974f0a84c8141b13b5996ce3"
+      "row_digest": "1be5cab085a5e0e1c9e8961fb85f3750c68915c6c402cd7aad7f727be4159b33"
     },
     {
       "operation_id": "SearchVolumeMetadataController_getLanguages",
@@ -534,7 +534,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "492316dc802a6adb300374527aa42c70ecb7c0b294b4eebda7c0bccad43c4343"
+      "row_digest": "eca27c71ad667c4806e29972e08e86a16b06a9c3ce1456dc522d666ba82cbb96"
     },
     {
       "operation_id": "QuestionSearchController_search",
@@ -628,7 +628,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "2682f603c1f53a2f55f0a578d9b173113e0bdbfccf9acaa4e9519a79ee3ae5a7"
+      "row_digest": "2d7f2b5b1f7eb9dd96924f20311706ba0f20214981c49fad3ce9139d947059b3"
     },
     {
       "operation_id": "RelatedKeywordsController_search",
@@ -827,7 +827,7 @@
       "mapping_required": false,
       "wire_compatibility_claim": false,
       "external_request_executed": false,
-      "row_digest": "ba569aed18b5713ab0c424485bc35de4e3237b915919d499d0143f93825dae91"
+      "row_digest": "a00e8166e66a8a4eab2e309a9cf2a6fcc8af948ef6137dcc0de170b5be649f65"
     },
     {
       "operation_id": "SearchRankHistoryController_getStatus",
@@ -1207,5 +1207,5 @@
   "unclassified_count": 0,
   "wire_compatibility_claim": false,
   "external_request_executed": false,
-  "matrix_digest": "37b553bc02a5a2f1a56dee603ffc4f0fca99dca4d67f019bcb2778ba50645a80"
+  "matrix_digest": "dfae9e032f1d746144260f05cc24786d7ccdffcbe74bf90d9272a6ea26c04dfa"
 }

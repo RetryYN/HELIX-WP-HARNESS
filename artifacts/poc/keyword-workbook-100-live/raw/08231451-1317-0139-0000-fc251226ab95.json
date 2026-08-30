@@ -58,12 +58,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
-              "domain": "sub2.competitor-253.example",
+              "domain": "detail.chiebukuro.yahoo.co.jp",
               "title": "就活、タトゥーについて大企業で見えない位置のタトゥーがok ...",
-              "url": "https://sub2.competitor-253.example/qa/question_detail/q10317023640",
+              "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10317023640",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://sub2.competitor-253.example › ... › 就職、転職",
+              "breadcrumb": "https://detail.chiebukuro.yahoo.co.jp › ... › 就職、転職",
               "website_name": "Yahoo!知恵袋",
               "is_image": false,
               "is_video": false,
@@ -87,21 +87,21 @@
                   "type": "link_element",
                   "title": "タトゥーが入っている新卒就職 ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q11295537316",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q11295537316",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
                   "title": "就活をしているものです。 - 昨 ...",
                   "description": null,
-                  "url": "https://sub2.competitor-253.example/qa/question_detail/q10245091615",
-                  "domain": "sub2.competitor-253.example"
+                  "url": "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10245091615",
+                  "domain": "detail.chiebukuro.yahoo.co.jp"
                 },
                 {
                   "type": "link_element",
-                  "title": "sub2.competitor-253.example からの検索結果",
+                  "title": "detail.chiebukuro.yahoo.co.jp からの検索結果",
                   "description": null,
-                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%83%88%E3%82%A5%E3%83%BC+site:sub2.competitor-253.example&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjIo9ijgLeWAxX4VaQEHQVVNR0QrQIoAnoECA0QAw",
+                  "url": "https://www.google.com/search?q=%E5%B0%B1%E6%B4%BB%E3%82%BF%E3%83%88%E3%82%A5%E3%83%BC+site:detail.chiebukuro.yahoo.co.jp&sca_esv=a59435b42e8ce5fc&hl=ja&gl=JP&sa=X&ved=2ahUKEwjIo9ijgLeWAxX4VaQEHQVVNR0QrQIoAnoECA0QAw",
                   "domain": "www.google.com"
                 }
               ],

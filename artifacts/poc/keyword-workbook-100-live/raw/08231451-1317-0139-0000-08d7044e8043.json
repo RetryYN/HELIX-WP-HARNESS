@@ -62,11 +62,11 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]",
               "domain": "x.com",
               "title": "YouTube早大生のけいくん。今日だけで12件来たんで胸が ...",
-              "url": "https://x.com/boku_higuma/status/1991135365135028731",
+              "url": "https://x.com/<redacted-user>/status/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "80 件以上の高評価  ·  9 か月前",
-              "website_name": "X · boku_higuma",
+              "website_name": "X · <redacted-user>",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,
@@ -113,7 +113,7 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/div[1]",
               "domain": "note.com",
               "title": "君たちはK君のようになってはいけない｜就活ハック",
-              "url": "https://note.com/hack_job/n/nf22f6dcf8fe5",
+              "url": "https://note.com/<redacted-user>/n/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "いいね 1 件  ·  1 年前",
@@ -335,28 +335,28 @@
                   "source": "YouTube · 職歴就活チャンネル",
                   "title": "YouTube",
                   "timestamp": "2025-04-25 00:00:00 +00:00",
-                  "url": "https://www.youtube.com/watch?v=B0drf1Df-xs"
+                  "url": "https://www.youtube.com/watch?v=<redacted-post>"
                 },
                 {
                   "type": "video_element",
                   "source": "YouTube · ぼくひぐま。〜おとなの放課後〜",
                   "title": "【JKでも分かる】就活塾界隈という闇を暴く",
                   "timestamp": "2025-12-07 00:00:00 +00:00",
-                  "url": "https://www.youtube.com/watch?v=lhj4D1JuKnM"
+                  "url": "https://www.youtube.com/watch?v=<redacted-post>"
                 },
                 {
                   "type": "video_element",
                   "source": "YouTube · 内定チャンネル",
                   "title": "【炎上】「実態は学生に安価で外注…」就活塾って価値あるの？",
                   "timestamp": "2026-01-05 00:00:00 +00:00",
-                  "url": "https://www.youtube.com/watch?v=qx2ojdm5ApA"
+                  "url": "https://www.youtube.com/watch?v=<redacted-post>"
                 },
                 {
                   "type": "video_element",
                   "source": "YouTube · 留学兄さんケイ",
                   "title": "偏差値40から100万円のインターンを獲得するまでの道のりを ...",
                   "timestamp": "2025-01-18 00:00:00 +00:00",
-                  "url": "https://www.youtube.com/watch?v=b7Lo3dDZbiM"
+                  "url": "https://www.youtube.com/watch?v=<redacted-post>"
                 }
               ],
               "rectangle": null
@@ -408,11 +408,11 @@
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[19]/div[1]/div[1]",
               "domain": "x.com",
               "title": "早大卒けい君のクレームが40件を超えたことをここにご報告 ...",
-              "url": "https://x.com/boku_higuma/status/1991701840438915108",
+              "url": "https://x.com/<redacted-user>/status/<redacted-post>",
               "cache_url": null,
               "related_search_url": null,
               "breadcrumb": "240 件以上の高評価  ·  9 か月前",
-              "website_name": "X · boku_higuma",
+              "website_name": "X · <redacted-user>",
               "is_image": false,
               "is_video": false,
               "is_featured_snippet": false,

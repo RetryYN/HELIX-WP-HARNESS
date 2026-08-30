@@ -425,7 +425,7 @@ cosine、workbook検索量を別々に採点した。表記variantはrepresentat
 
 - 公式補助ツール一覧: <https://seo-tool-a.example/knowledge/tool/>
 - 地域キーワード生成仕様: <https://seo-tool-a.example/techo/generate-local-keywords/>
-- 日本郵便UTF-8全国CSV: <https://sub1.competitor-107.example/service/search/zipcode/download/utf-zip.html>
+- 日本郵便UTF-8全国CSV: <https://www.post.japanpost.jp/service/search/zipcode/download/utf-zip.html>
 - 国土数値情報・鉄道2025年度版: <https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2025.html>
 
 ### 10.12 横断クイック検索
@@ -709,7 +709,7 @@ word countを含む計10 fieldを追加で意味対応へ移した。SeoToolA `g
 `/api/v1/domains`へ`target_domain`を追加し、100 task・各上位10件の`serp_page_keyword_edges`からdomain別KW集合を比較する。
 重複KW数、target基準重複率、Jaccard率、競合固有KW数、target固有KW数、重複KW一覧を返し、policyとscopeに
 `full_rank_database:false`を明記する。画面でも比較基準domainを選択でき、両方の率を並記する。実測例では
-`sub2.competitor-253.example`の61観測KWを基準に`competitor-238.example`と28KWが重複し、target基準45.9%、Jaccard35.9%、
+`detail.chiebukuro.yahoo.co.jp`の61観測KWを基準に`competitor-238.example`と28KWが重複し、target基準45.9%、Jaccard35.9%、
 競合固有17、target固有33となった。これをSeoToolAの重複率と同じ分母だとは主張せず、定義が再現可能な独自比較として扱う。
 
 ### 10.44 上位10pageへの競合content証拠拡張
@@ -866,7 +866,7 @@ market enrichment tableは現時点で空だがsite identity列を持たない�
 初回修正ではedge列を`url`と誤記し、全URLが`undefined` keyへ集約されて565件が1件になる不具合をruntimeで検出した。
 テスト側も同じ誤列名を使って期待値1を作っていたため、誤実装と誤oracleが同時に通っていた。実schemaの
 `canonical_url`へ統一し、単なる自己整合ではなく主siteの既知母数565件も固定assertする。runtimeでもpages total 565、
-`sub2.competitor-253.example`は44 page・61 KWと確認した。
+`detail.chiebukuro.yahoo.co.jp`は44 page・61 KWと確認した。
 
 ### 10.55 DPB市場enrichmentのsite identity
 
@@ -1442,6 +1442,30 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 排他的readinessは、直接pathで一意に支持されるsense 113、複数senseが支持されるtask 23、辞書senseはあるが直接pathを再構成できないtask 8、辞書senseなし0である。延べ辞書sense参照1,071、path支持sense参照173を保持する。
 - 各候補はsense/definition/edgeのdigest、source/target synset、relation ID・型・labelまで逆引きできる。API/MCPは `sense_readiness` filterを提供し、画面は候補定義とtyped-edge lineageを展開表示する。
 - 直接pathが一意でも文脈適合を自動確定しない。sense自動選択・文脈適合推論・group割当・候補選定・content変更はすべて0で、編集者の語義判断を必須とする。
+
+### 10.105 記事公開readinessへのsemantic sense gate（API 2.107）
+
+- semantic taskを記事群単位へ再集約し、63記事群中35記事群へ144 taskを接続した。未判断・承認候補・却下・延期・reviewer不一致を排他的に数え、未判断・延期・不一致が1件でもあれば `semantic_sense_resolution` を編集review必須にする。
+- 現行DBは判断未投入のため144/144 taskがpendingで、35記事群すべてが語義review必須である。既存のclaim検証・引用承認blockerとは独立して表示し、どのgateが未充足かを混同しない。
+- 各記事へsense readiness内訳、pending task ID、semantic decision packet digestを固定し、API/MCP/UIから逆引きできる。辞書pathが一意でも編集判断を代替せず、文脈適合推論・自動承認・自動公開は0である。
+
+### 10.106 semantic editorial impact queue（API 2.108）
+
+- pending semantic task 144件を35記事群へ重複なく集約し、既存priority、影響候補数、複数senseまたは直接path欠損、group境界review workloadから編集impact scoreを決定論算出する。
+- 各actionはpending task ID、task digest、semantic decision packet digest、影響するtitle/heading候補数とcontent種別を保持する。現行queueは全184 actionのうちsemantic sense review 35件で、144 taskを全件包含する。
+- priority bandを第一キー、impact scoreを第二キーにして並べる。これは編集順の補助であり、context適合・採否・順位効果を推論せず、実行・自動承認・content変更は0である。
+
+### 10.107 unsupported claimのevidence-safe reframe（API 2.109）
+
+- 無料公開source監査で `not_supported` だった8 claimを再監査し、非公開の定量事実2、entity曖昧性2、個人動機1、機関別規程1、将来結果の保証1、投稿の一般化1へ全件・排他的に分類した。
+- 原query、実行query、探索判断理由、claim/candidate/source evidence digestを保持したまま、unsupported answerを削除した編集scopeを生成する。例として、非公開の役職年収や賞与月数を断定せず公開範囲を説明し、曖昧なサービスは正式名称・URLの特定を先行させる。
+- API/MCP/UIでfailure kindと安全scopeを逆引きする。これは本文の自動書換えではなく編集review案であり、事実回答の推論・自動置換・自動承認・自動公開・外部取得はいずれも0である。
+
+### 10.108 evidence-safe draft revision proposal（API 2.110）
+
+- evidence-safe reframe 8件を保持draft claimへclaim IDで全件逆引きし、孤児0・重複0を確認した。元claim text、claim kind、verification state、31 evidence ID、citation ID、draft revision/reframe/public evidence digestを保持する。
+- failure kind別に、断定を避けた見出し案と本文scope案を決定論生成し、元claim・提案見出し・提案本文の文字数差分を保持する。非公開の数値、曖昧entity、個人動機、将来結果などを事実回答へ変換しない。
+- 8/8 proposalは `blocked_source_verification_and_editor_review` のままで、unsupported answer削除、編集revision review、source検証、citation承認を個別blockerとして保持する。API/MCP/UIは提案を表示するが、自動置換・自動承認・自動公開・外部取得は0である。
 
 ## 11. 未検証事項
 

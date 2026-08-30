@@ -215,12 +215,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/div[1]/div[1]",
-              "domain": "www.hht.ac.jp",
+              "domain": "competitor-264.example",
               "title": "IT系の仕事の種類を完全解説！職種別の仕事内容・年収・向い ...",
-              "url": "https://www.hht.ac.jp/news/61646/",
+              "url": "https://competitor-264.example/news/61646/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://www.hht.ac.jp › お知らせ",
+              "breadcrumb": "https://competitor-264.example › お知らせ",
               "website_name": "北海道ハイテクノロジー専門学校",
               "is_image": false,
               "is_video": false,
@@ -243,15 +243,15 @@
                   "type": "link_element",
                   "title": "IT系の代表的な職種 | 開発・エン...",
                   "description": null,
-                  "url": "https://www.hht.ac.jp/news/61646/#IT",
-                  "domain": "www.hht.ac.jp"
+                  "url": "https://competitor-264.example/news/61646/#IT",
+                  "domain": "competitor-264.example"
                 },
                 {
                   "type": "link_element",
                   "title": "IT系の仕事で活躍できる業界",
                   "description": null,
-                  "url": "https://www.hht.ac.jp/news/61646/#IT-6",
-                  "domain": "www.hht.ac.jp"
+                  "url": "https://competitor-264.example/news/61646/#IT-6",
+                  "domain": "competitor-264.example"
                 }
               ],
               "faq": null,
@@ -367,12 +367,12 @@
               "page": 1,
               "position": "left",
               "xpath": "/html[1]/body[1]/div[3]/div[1]/div[13]/div[2]/div[1]/div[2]/div[1]/div[1]/div[14]/div[1]/div[1]",
-              "domain": "www.nca.ac.jp",
+              "domain": "competitor-268.example",
               "title": "ITエンジニアの種類を一覧で解説！仕事内容・年収・あなたに ...",
-              "url": "https://www.nca.ac.jp/contents/column/technology/it_engineer/",
+              "url": "https://competitor-268.example/contents/column/technology/it_engineer/",
               "cache_url": null,
               "related_search_url": null,
-              "breadcrumb": "https://www.nca.ac.jp › Home › AI・ホワイトハッカー",
+              "breadcrumb": "https://competitor-268.example › Home › AI・ホワイトハッカー",
               "website_name": "名古屋デザイン＆テクノロジー専門学校",
               "is_image": false,
               "is_video": false,
@@ -395,15 +395,15 @@
                   "type": "link_element",
                   "title": "1-1. ITエンジニア＝システムを作...",
                   "description": null,
-                  "url": "https://www.nca.ac.jp/contents/column/technology/it_engineer/#IT-2",
-                  "domain": "www.nca.ac.jp"
+                  "url": "https://competitor-268.example/contents/column/technology/it_engineer/#IT-2",
+                  "domain": "competitor-268.example"
                 },
                 {
                   "type": "link_element",
                   "title": "仕事内容・年収・役割の違いを比較",
                   "description": null,
-                  "url": "https://www.nca.ac.jp/contents/column/technology/it_engineer/#i",
-                  "domain": "www.nca.ac.jp"
+                  "url": "https://competitor-268.example/contents/column/technology/it_engineer/#i",
+                  "domain": "competitor-268.example"
                 }
               ],
               "faq": null,
