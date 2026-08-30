@@ -1244,7 +1244,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 16,
-    "receipt_digest": "b3bcc88da8a9cce361b63a00294589f2c06d271d6f22d06395f2ddf3a14c9441",
+    "receipt_digest": "d3ebb125de8720f06228306d77fa0780f09e3bf9c8dc426e69d2135453cd8764",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -3734,5 +3734,5 @@
       "evidence_digest": "1d5b256dea409bfb41894c67f6de093a765a04d89b653d90bb091850ab770679"
     }
   ],
-  "audit_digest": "ad7d2faea29c76955825b646d506ebed0bf0f7590b50c2f07d85a6de90535b43"
+  "audit_digest": "f284b153649bced3fb916560d54ecdb01120563239043cb0241d422228b96d8f"
 }
