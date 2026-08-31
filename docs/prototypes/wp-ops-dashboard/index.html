@@ -1,478 +1,2538 @@
 <!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>キーワード施策ボード</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">HELIX WP HARNESS</p>
-      <h1>キーワード施策ボード</h1>
-    </div>
-    <div class="site-controls"><button id="current-view-export" class="detail-button" type="button">現在ビューJSON</button><div id="site-selector" class="site-tabs" role="tablist" aria-label="対象サイト"></div><div class="freshness"><span class="dot"></span><span id="freshness">実データ読込中</span></div></div>
-  </header>
-
-  <nav class="tabs" aria-label="表示切替">
-    <button class="tab active" data-view="keywords">キーワード一覧</button>
-    <button class="tab" data-view="keyword-tree">キーワードツリー</button>
-    <button class="tab" data-view="lexical-explorer">類語・連想語</button>
-    <button class="tab" data-view="keyword-utilities">補助ツール</button>
-    <button class="tab" data-view="suggest-explorer">サジェスト</button>
-    <button class="tab" data-view="quick-search">クイック検索</button>
-    <button class="tab" data-view="qa-site-search">Q&Aサイト</button>
-    <button class="tab" data-view="demand-search">質問・潜在需要</button>
-    <button class="tab" data-view="ai-questions">質問生成</button>
-    <button class="tab" data-view="article-queries">記事獲得クエリ</button>
-    <button class="tab" data-view="content-plans">コンテンツ設計</button>
-    <button class="tab" data-view="competitor-domains">競合ドメイン</button>
-    <button class="tab" data-view="aio-citations">AIO引用</button>
-    <button class="tab" data-view="acquisition-health">取得状態</button>
-    <button class="tab" data-view="action-queue">SEO実行キュー</button>
-    <button class="tab" data-view="market-data">市場データ</button>
-    <button class="tab" data-view="site-portfolio">サイト比較</button>
-    <button class="tab" data-view="internal-links">内部リンクマップ</button>
-  </nav>
-
-  <main>
-    <section id="keywords" class="view active">
-      <div class="metrics" id="metrics"></div>
-      <div class="toolbar table-toolbar">
-        <div>
-          <h2>メイン施策キーワード一覧</h2>
-          <p>1行＝1記事候補。DBに取り込んだsource_order順で表示。カテゴリーは戦略層取込前の暫定分類</p>
-        </div>
-        <div class="filters">
-          <input id="keyword-search" type="search" placeholder="キーワード検索" aria-label="キーワード検索">
-          <select id="category-parent-filter" aria-label="親カテゴリーで絞り込み"><option value="all">全親カテゴリー</option></select>
-          <select id="category-child-filter" aria-label="子カテゴリーで絞り込み"><option value="all">全子カテゴリー</option></select>
-          <select id="category-grandchild-filter" aria-label="孫カテゴリーで絞り込み"><option value="all">全孫カテゴリー</option></select>
-          <select id="parent-filter" aria-label="メインキーワードで絞り込み"><option value="all">全メインKW</option></select>
-          <select id="state-filter" aria-label="状態で絞り込み"><option value="all">全状態</option></select>
-          <select id="page-size" aria-label="表示件数"><option value="25">25件表示</option><option value="50">50件表示</option><option value="100">100件表示</option><option value="all">すべて表示</option></select>
-        </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>キーワード施策ボード</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">HELIX WP HARNESS</p>
+        <h1>キーワード施策ボード</h1>
       </div>
-      <div class="layout table-layout">
+      <div class="site-controls">
+        <button id="current-view-export" class="detail-button" type="button">現在ビューJSON</button>
+        <div id="site-selector" class="site-tabs" role="tablist" aria-label="対象サイト"></div>
+        <div class="freshness"><span class="dot"></span><span id="freshness">実データ読込中</span></div>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="表示切替">
+      <div class="sidebar-head"><span>分析メニュー</span><button id="sidebar-toggle" type="button" aria-expanded="true" aria-label="サイドパネルを折りたたむ" title="サイドパネルを折りたたむ">‹</button></div>
+      <button class="tab active" data-view="keywords">キーワード一覧</button>
+      <button class="tab" data-view="keyword-tree">キーワードツリー</button>
+      <button class="tab" data-view="lexical-explorer">類語・連想語</button>
+      <button class="tab" data-view="keyword-utilities">補助ツール</button>
+      <button class="tab" data-view="suggest-explorer">サジェスト</button>
+      <button class="tab" data-view="quick-search">クイック検索</button>
+      <button class="tab" data-view="qa-site-search">Q&Aサイト</button>
+      <button class="tab" data-view="demand-search">質問・潜在需要</button>
+      <button class="tab" data-view="ai-questions">質問生成</button>
+      <button class="tab" data-view="article-queries">記事獲得クエリ</button>
+      <button class="tab" data-view="content-plans">コンテンツ設計</button>
+      <button class="tab" data-view="competitor-domains">競合ドメイン</button>
+      <button class="tab" data-view="aio-citations">AIO引用</button>
+      <button class="tab" data-view="acquisition-health">取得状態</button>
+      <button class="tab" data-view="action-queue">SEO実行キュー</button>
+      <button class="tab" data-view="market-data">市場データ</button>
+      <button class="tab" data-view="site-portfolio">サイト比較</button>
+      <button class="tab" data-view="internal-links">内部リンクマップ</button>
+    </nav>
+
+    <div id="sidebar-resizer" class="sidebar-resizer" role="separator" aria-label="サイドパネル幅" aria-orientation="vertical" tabindex="0"></div>
+
+    <main>
+      <section id="keywords" class="view active">
+        <div class="metrics" id="metrics"></div>
+        <div class="toolbar table-toolbar">
+          <div>
+            <h2>メイン施策キーワード一覧</h2>
+            <p>1行＝1記事候補。DBに取り込んだsource_order順で表示。カテゴリーは戦略層取込前の暫定分類</p>
+          </div>
+          <div class="filters">
+            <input id="keyword-search" type="search" placeholder="キーワード検索" aria-label="キーワード検索" />
+            <select id="category-parent-filter" aria-label="親カテゴリーで絞り込み">
+              <option value="all">全親カテゴリー</option>
+            </select>
+            <select id="category-child-filter" aria-label="子カテゴリーで絞り込み">
+              <option value="all">全子カテゴリー</option>
+            </select>
+            <select id="category-grandchild-filter" aria-label="孫カテゴリーで絞り込み">
+              <option value="all">全孫カテゴリー</option>
+            </select>
+            <select id="parent-filter" aria-label="メインキーワードで絞り込み">
+              <option value="all">全メインKW</option>
+            </select>
+            <select id="state-filter" aria-label="状態で絞り込み">
+              <option value="all">全状態</option>
+            </select>
+            <select id="page-size" aria-label="表示件数">
+              <option value="25">25件表示</option>
+              <option value="50">50件表示</option>
+              <option value="100">100件表示</option>
+              <option value="all">すべて表示</option>
+            </select>
+          </div>
+        </div>
+        <div class="layout table-layout">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>親カテゴリー</th>
+                  <th id="category-child-head">子カテゴリー</th>
+                  <th id="category-grandchild-head">孫カテゴリー</th>
+                  <th>メインKW</th>
+                  <th>検索Vol</th>
+                  <th>内包KW</th>
+                  <th>AIO</th>
+                  <th>推奨ページ</th>
+                  <th>施策状態</th>
+                  <th>自サイト記事</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="keyword-rows"></tbody>
+            </table>
+            <div id="table-empty"></div>
+            <div id="pagination" class="pagination" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>キーワード統合・分割・カニバ判定</h3>
+            <p>URL重複と複合SERP意図の合意・矛盾を境界oracleで監査。意味が近いだけでは自動統合しません</p>
+          </div>
+          <div class="filters">
+            <input id="keyword-decision-search" type="search" placeholder="KW・記事を検索" aria-label="キーワード判定検索" /><select id="keyword-decision-kind">
+              <option value="all">全証拠</option>
+              <option value="boundary_oracle">SERP境界oracle</option>
+              <option value="serp_pair">URL重複ペア</option>
+              <option value="gsc_query">GSCカニバ</option>
+              <option value="article_assignment">記事割当</option></select
+            ><select id="keyword-decision-review">
+              <option value="required">要レビュー</option>
+              <option value="all">全判定</option>
+              <option value="supported">現状支持</option>
+            </select>
+          </div>
+        </div>
+        <div id="keyword-decision-metrics" class="metrics"></div>
         <div class="table-wrap">
-          <table><thead><tr><th>親カテゴリー</th><th id="category-child-head">子カテゴリー</th><th id="category-grandchild-head">孫カテゴリー</th><th>メインKW</th><th>検索Vol</th><th>内包KW</th><th>AIO</th><th>推奨ページ</th><th>施策状態</th><th>自サイト記事</th><th></th></tr></thead><tbody id="keyword-rows"></tbody></table>
-          <div id="table-empty"></div>
-          <div id="pagination" class="pagination" aria-live="polite"></div>
+          <table>
+            <thead>
+              <tr>
+                <th>証拠</th>
+                <th>対象</th>
+                <th>現状</th>
+                <th>判定</th>
+                <th>強度</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="keyword-decision-rows"></tbody>
+          </table>
+          <div id="keyword-decision-empty" class="empty-state"></div>
         </div>
-      </div>
-      <div class="subsection-head table-toolbar"><div><h3>キーワード統合・分割・カニバ判定</h3><p>URL重複と複合SERP意図の合意・矛盾を境界oracleで監査。意味が近いだけでは自動統合しません</p></div><div class="filters"><input id="keyword-decision-search" type="search" placeholder="KW・記事を検索" aria-label="キーワード判定検索"><select id="keyword-decision-kind"><option value="all">全証拠</option><option value="boundary_oracle">SERP境界oracle</option><option value="serp_pair">URL重複ペア</option><option value="gsc_query">GSCカニバ</option><option value="article_assignment">記事割当</option></select><select id="keyword-decision-review"><option value="required">要レビュー</option><option value="all">全判定</option><option value="supported">現状支持</option></select></div></div>
-      <div id="keyword-decision-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>証拠</th><th>対象</th><th>現状</th><th>判定</th><th>強度</th><th>証跡</th></tr></thead><tbody id="keyword-decision-rows"></tbody></table><div id="keyword-decision-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><div><h3>SERP深度安定性</h3><p>top3・top5・top10のURL重複判定を比較し、深度で結論が反転するペアを明示します</p></div></div>
-      <div id="depth-stability-metrics" class="metrics"></div>
-      <div id="depth-stability-table" class="table-wrap"></div>
-      <div class="subsection-head"><div><h3>記事トポロジー</h3><p>安定性をgroup・選定タイトル・見出し構成へ逆引きし、統合・保留・別記事・内部リンクをレビューします</p></div></div>
-      <div id="content-topology-metrics" class="metrics"></div>
-      <div id="content-topology-table" class="table-wrap"></div>
-      <div class="subsection-head"><div><h3>統合設計・編集判断</h3><p>タイトル・構成品質・根拠被覆を内訳付きで順位化し、重複見出しの代表候補も提示。推薦のみで自動選定しません</p></div></div>
-      <div id="content-consolidation-metrics" class="metrics"></div>
-      <div id="content-consolidation-table" class="table-wrap"></div>
-      <div class="subsection-head"><div><h3>統合タイトルbrief</h3><p>両groupの固有軸とタイトル根拠を統合し、文字数・全軸coverage・根拠保存を満たすreview-only案を生成します</p></div></div>
-      <div id="merged-title-metrics" class="metrics"></div>
-      <div id="merged-title-table" class="table-wrap"></div>
-      <div class="subsection-head"><div><h3>統合後アウトライン</h3><p>推薦された代表見出しと固有見出しを元のH2/H3順序へ再構成し、親不明・欠落・件数不整合を公開前に止めます</p></div></div>
-      <div id="merged-outline-metrics" class="metrics"></div>
-      <div id="merged-outline-table" class="table-wrap"></div>
-      <div class="subsection-head"><div><h3>統合根拠lineage</h3><p>代表見出しへ相手側だけのSERP根拠を継承し、元候補・追加根拠・21件のunionを逆監査できます</p></div></div>
-      <div id="merged-evidence-metrics" class="metrics"></div>
-      <div id="merged-evidence-table" class="table-wrap"></div>
-      <div class="subsection-head"><div><h3>統合draft package</h3><p>両記事のclaim・根拠・引用候補を統合先へ逆引きし、一次情報確認と引用承認が終わるまで公開を止めます</p></div></div>
-      <div id="merged-draft-metrics" class="metrics"></div>
-      <div id="merged-draft-table" class="table-wrap"></div>
-      <div class="subsection-head"><div><h3>統合citation review queue</h3><p>元claimから統合先claimへ再マップした引用候補をURL・score・承認状態ごとに監査します。全件未承認で自動承認しません</p></div></div>
-      <div id="consolidation-citation-metrics" class="metrics"></div>
-      <div id="consolidation-citation-audit-table" class="table-wrap"></div>
-      <div id="consolidation-citation-backfill-table" class="table-wrap"></div>
-      <div id="consolidation-citation-table" class="table-wrap"></div>
-    </section>
+        <div class="subsection-head">
+          <div>
+            <h3>SERP深度安定性</h3>
+            <p>top3・top5・top10のURL重複判定を比較し、深度で結論が反転するペアを明示します</p>
+          </div>
+        </div>
+        <div id="depth-stability-metrics" class="metrics"></div>
+        <div id="depth-stability-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>記事トポロジー</h3>
+            <p>安定性をgroup・選定タイトル・見出し構成へ逆引きし、統合・保留・別記事・内部リンクをレビューします</p>
+          </div>
+        </div>
+        <div id="content-topology-metrics" class="metrics"></div>
+        <div id="content-topology-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>統合設計・編集判断</h3>
+            <p>タイトル・構成品質・根拠被覆を内訳付きで順位化し、重複見出しの代表候補も提示。推薦のみで自動選定しません</p>
+          </div>
+        </div>
+        <div id="content-consolidation-metrics" class="metrics"></div>
+        <div id="content-consolidation-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>統合タイトルbrief</h3>
+            <p>両groupの固有軸とタイトル根拠を統合し、文字数・全軸coverage・根拠保存を満たすreview-only案を生成します</p>
+          </div>
+        </div>
+        <div id="merged-title-metrics" class="metrics"></div>
+        <div id="merged-title-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>統合後アウトライン</h3>
+            <p>推薦された代表見出しと固有見出しを元のH2/H3順序へ再構成し、親不明・欠落・件数不整合を公開前に止めます</p>
+          </div>
+        </div>
+        <div id="merged-outline-metrics" class="metrics"></div>
+        <div id="merged-outline-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>統合根拠lineage</h3>
+            <p>代表見出しへ相手側だけのSERP根拠を継承し、元候補・追加根拠・21件のunionを逆監査できます</p>
+          </div>
+        </div>
+        <div id="merged-evidence-metrics" class="metrics"></div>
+        <div id="merged-evidence-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>統合draft package</h3>
+            <p>両記事のclaim・根拠・引用候補を統合先へ逆引きし、一次情報確認と引用承認が終わるまで公開を止めます</p>
+          </div>
+        </div>
+        <div id="merged-draft-metrics" class="metrics"></div>
+        <div id="merged-draft-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>統合citation review queue</h3>
+            <p>元claimから統合先claimへ再マップした引用候補をURL・score・承認状態ごとに監査します。全件未承認で自動承認しません</p>
+          </div>
+        </div>
+        <div id="consolidation-citation-metrics" class="metrics"></div>
+        <div id="consolidation-citation-audit-table" class="table-wrap"></div>
+        <div id="consolidation-citation-backfill-table" class="table-wrap"></div>
+        <div id="consolidation-citation-table" class="table-wrap"></div>
+      </section>
 
-    <section id="action-queue" class="view">
-      <div class="section-head table-toolbar"><div><h2>SEO実行キュー</h2><p>分析結果を編集・語義判断・記事境界・内部リンク・表示形式・順位監視のレビューへ接続します。順位上昇を推測せず、自動実行もしません</p></div><div class="filters"><input id="action-queue-search" type="search" placeholder="施策・対象・停止理由" aria-label="SEO実行キュー検索"><select id="action-queue-priority"><option value="all">全優先度</option><option value="P0">P0 公開停止</option><option value="P1">P1 既存記事・統合</option><option value="P2">P2 編集レビュー</option><option value="P3">P3 取得計画</option></select><select id="action-queue-type"><option value="all">全種別</option><option value="semantic_sense_review">語義判断</option><option value="primary_source_verification">一次情報確認</option><option value="content_gap_review">トピック不足</option><option value="content_topology_review">記事境界</option><option value="internal_link_review">内部リンク</option><option value="serp_format_review">表示形式</option><option value="rank_monitor_registration_review">順位監視</option></select></div></div>
-      <div id="action-queue-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>優先</th><th>施策</th><th>対象</th><th>次の判断</th><th>停止理由</th><th>根拠</th><th>状態</th></tr></thead><tbody id="action-queue-rows"></tbody></table><div id="action-queue-empty" class="empty-state"></div></div>
-    </section>
+      <section id="action-queue" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>SEO実行キュー</h2>
+            <p>分析結果を編集・語義判断・記事境界・内部リンク・表示形式・順位監視のレビューへ接続します。順位上昇を推測せず、自動実行もしません</p>
+          </div>
+          <div class="filters">
+            <input id="action-queue-search" type="search" placeholder="施策・対象・停止理由" aria-label="SEO実行キュー検索" /><select id="action-queue-priority">
+              <option value="all">全優先度</option>
+              <option value="P0">P0 公開停止</option>
+              <option value="P1">P1 既存記事・統合</option>
+              <option value="P2">P2 編集レビュー</option>
+              <option value="P3">P3 取得計画</option></select
+            ><select id="action-queue-type">
+              <option value="all">全種別</option>
+              <option value="semantic_sense_review">語義判断</option>
+              <option value="primary_source_verification">一次情報確認</option>
+              <option value="content_gap_review">トピック不足</option>
+              <option value="content_topology_review">記事境界</option>
+              <option value="internal_link_review">内部リンク</option>
+              <option value="serp_format_review">表示形式</option>
+              <option value="rank_monitor_registration_review">順位監視</option>
+            </select>
+          </div>
+        </div>
+        <div id="action-queue-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>優先</th>
+                <th>施策</th>
+                <th>対象</th>
+                <th>次の判断</th>
+                <th>停止理由</th>
+                <th>根拠</th>
+                <th>状態</th>
+              </tr>
+            </thead>
+            <tbody id="action-queue-rows"></tbody>
+          </table>
+          <div id="action-queue-empty" class="empty-state"></div>
+        </div>
+      </section>
 
-    <section id="keyword-tree" class="view">
-      <div class="section-head table-toolbar"><div><h2>キーワードマインドマップ</h2><p>中心語から正規化トークンを放射状に表示。SERP比較境界と枝を絞り込めます</p></div><div class="filters"><select id="tree-root-filter" aria-label="文脈スコープ"><option value="all">全文脈</option></select><select id="tree-branch-filter" aria-label="キーワード枝"><option value="all">すべての枝</option></select></div></div>
-      <div class="tree-summary" id="tree-summary"></div><div class="keyword-tree-canvas" id="keyword-tree-canvas" aria-live="polite"></div><div class="tree-detail" id="tree-detail"></div>
-    </section>
+      <section id="keyword-tree" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>キーワードマインドマップ</h2>
+            <p>中心語から正規化トークンを放射状に表示。SERP比較境界と枝を絞り込めます</p>
+          </div>
+          <div class="filters">
+            <select id="tree-root-filter" aria-label="文脈スコープ">
+              <option value="all">全文脈</option></select
+            ><select id="tree-branch-filter" aria-label="キーワード枝">
+              <option value="all">すべての枝</option>
+            </select>
+          </div>
+        </div>
+        <div class="tree-summary" id="tree-summary"></div>
+        <div class="keyword-tree-canvas" id="keyword-tree-canvas" aria-live="polite"></div>
+        <div class="tree-detail" id="tree-detail"></div>
+      </section>
 
-    <section id="demand-search" class="view">
-      <div class="section-head table-toolbar"><div><h2>質問・潜在需要検索</h2><p>PAAと関連検索の実測を横断集計。重要度は検索量ではなく観測task・group・出現回数の相対scoreです</p></div><div class="filters"><input id="demand-search-input" type="search" placeholder="質問・関連語・取得元KWを検索" aria-label="需要検索"><select id="demand-type-filter"><option value="all">すべて</option><option value="paa">PAA質問</option><option value="related_search">関連検索</option></select><button id="demand-export-csv" type="button">CSV</button><button id="demand-export-json" type="button">JSON</button></div></div>
-      <div id="demand-search-metrics" class="metrics"></div>
-      <div id="demand-integrity-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>需要</th><th>種別</th><th>重要度</th><th>出現</th><th>取得元KW</th><th>group</th><th>SERP位置</th><th>観測期間</th></tr></thead><tbody id="demand-search-rows"></tbody></table><div id="demand-search-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>PAA回答証拠</h3><p>取得済み回答snippet・出典・表を表示し、非同期placeholderは回答本文として扱いません</p></div>
-      <div id="paa-answer-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>質問</th><th>状態</th><th>取得元KW</th><th>回答・表</th><th>出典</th><th>証跡</th></tr></thead><tbody id="paa-answer-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>PAA回答completion計画</h3><p>非同期未回収のtaskだけを再取得候補にし、解決済みとPAA非観測taskを再送しません。最大費用は保持単価による参考値で、実行前に再確認します</p></div>
-      <div id="paa-completion-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>batch</th><th>task</th><th>未回収質問</th><th>最大費用</th><th>状態</th><th>証跡</th></tr></thead><tbody id="paa-completion-batches"></tbody></table></div>
-      <div class="table-wrap"><table><thead><tr><th>取得元KW</th><th>未回収</th><th>回収済</th><th>click depth</th><th>最大費用</th><th>状態</th></tr></thead><tbody id="paa-completion-candidates"></tbody></table></div>
-    </section>
+      <section id="demand-search" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>質問・潜在需要検索</h2>
+            <p>PAAと関連検索の実測を横断集計。重要度は検索量ではなく観測task・group・出現回数の相対scoreです</p>
+          </div>
+          <div class="filters">
+            <input id="demand-search-input" type="search" placeholder="質問・関連語・取得元KWを検索" aria-label="需要検索" /><select id="demand-type-filter">
+              <option value="all">すべて</option>
+              <option value="paa">PAA質問</option>
+              <option value="related_search">関連検索</option></select
+            ><button id="demand-export-csv" type="button">CSV</button><button id="demand-export-json" type="button">JSON</button>
+          </div>
+        </div>
+        <div id="demand-search-metrics" class="metrics"></div>
+        <div id="demand-integrity-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>需要</th>
+                <th>種別</th>
+                <th>重要度</th>
+                <th>出現</th>
+                <th>取得元KW</th>
+                <th>group</th>
+                <th>SERP位置</th>
+                <th>観測期間</th>
+              </tr>
+            </thead>
+            <tbody id="demand-search-rows"></tbody>
+          </table>
+          <div id="demand-search-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>PAA回答証拠</h3>
+          <p>取得済み回答snippet・出典・表を表示し、非同期placeholderは回答本文として扱いません</p>
+        </div>
+        <div id="paa-answer-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>質問</th>
+                <th>状態</th>
+                <th>取得元KW</th>
+                <th>回答・表</th>
+                <th>出典</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="paa-answer-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>PAA回答completion計画</h3>
+          <p>非同期未回収のtaskだけを再取得候補にし、解決済みとPAA非観測taskを再送しません。最大費用は保持単価による参考値で、実行前に再確認します</p>
+        </div>
+        <div id="paa-completion-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>batch</th>
+                <th>task</th>
+                <th>未回収質問</th>
+                <th>最大費用</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="paa-completion-batches"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>取得元KW</th>
+                <th>未回収</th>
+                <th>回収済</th>
+                <th>click depth</th>
+                <th>最大費用</th>
+                <th>状態</th>
+              </tr>
+            </thead>
+            <tbody id="paa-completion-candidates"></tbody>
+          </table>
+        </div>
+      </section>
 
-    <section id="ai-questions" class="view">
-      <div class="section-head table-toolbar"><div><h2>根拠付き質問候補</h2><p>実測PAAはそのまま保持し、関連検索からの派生質問とは明確に分離します</p></div><div class="filters"><input id="ai-question-search" type="search" placeholder="質問・元トピックを検索" aria-label="質問候補検索"><select id="ai-question-kind"><option value="all">すべて</option><option value="observed_question">実測PAA</option><option value="derived_question">派生候補</option></select><button id="ai-question-export-csv" type="button">CSV</button><button id="ai-question-export-json" type="button">JSON</button></div></div>
-      <div id="ai-question-metrics" class="metrics"></div>
-      <div id="question-lineage-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>質問</th><th>区分</th><th>施策KW</th><th>元トピック</th><th>証拠</th><th>生成規則</th><th>レビュー</th></tr></thead><tbody id="ai-question-rows"></tbody></table><div id="ai-question-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>回答済み・質問候補未接続レビュー</h3><p>取得済み回答を再取得せず、候補生成から漏れた質問・回答・出典を編集判断へ戻します</p></div>
-      <div class="table-wrap"><table><thead><tr><th>質問</th><th>取得元KW</th><th>回答</th><th>出典</th><th>状態</th><th>証跡</th></tr></thead><tbody id="question-lineage-unlinked-rows"></tbody></table><div id="question-lineage-unlinked-empty" class="empty-state"></div></div>
-    </section>
+      <section id="ai-questions" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>根拠付き質問候補</h2>
+            <p>実測PAAはそのまま保持し、関連検索からの派生質問とは明確に分離します</p>
+          </div>
+          <div class="filters">
+            <input id="ai-question-search" type="search" placeholder="質問・元トピックを検索" aria-label="質問候補検索" /><select id="ai-question-kind">
+              <option value="all">すべて</option>
+              <option value="observed_question">実測PAA</option>
+              <option value="derived_question">派生候補</option></select
+            ><button id="ai-question-export-csv" type="button">CSV</button><button id="ai-question-export-json" type="button">JSON</button>
+          </div>
+        </div>
+        <div id="ai-question-metrics" class="metrics"></div>
+        <div id="question-lineage-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>質問</th>
+                <th>区分</th>
+                <th>施策KW</th>
+                <th>元トピック</th>
+                <th>証拠</th>
+                <th>生成規則</th>
+                <th>レビュー</th>
+              </tr>
+            </thead>
+            <tbody id="ai-question-rows"></tbody>
+          </table>
+          <div id="ai-question-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>回答済み・質問候補未接続レビュー</h3>
+          <p>取得済み回答を再取得せず、候補生成から漏れた質問・回答・出典を編集判断へ戻します</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>質問</th>
+                <th>取得元KW</th>
+                <th>回答</th>
+                <th>出典</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="question-lineage-unlinked-rows"></tbody>
+          </table>
+          <div id="question-lineage-unlinked-empty" class="empty-state"></div>
+        </div>
+      </section>
 
-    <section id="lexical-explorer" class="view">
-      <div class="section-head table-toolbar"><div><h2>類語・表記variant・連想語</h2><p>人手判定済み公開類語と、10,694行の保有corpusから導出した表記・共起関係を区別して表示します</p></div><div class="filters"><input id="lexical-search" type="search" placeholder="語・variantを検索" aria-label="語彙検索"></div></div>
-      <div id="lexical-metrics" class="metrics"></div>
-      <div class="subsection-head"><h3>人手判定済み公開類語</h3><p>version・license・digestを固定した11,753語対。文脈に合う置換かは編集確認が必要です</p></div>
-      <div id="public-synonym-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>語</th><th>類語</th><th>判定</th><th>文脈確認</th><th>証跡</th></tr></thead><tbody id="public-synonym-rows"></tbody></table><div id="public-synonym-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>公開意味グラフ</h3><p>上位・下位・部分・属性など21種の直接edgeを最大3階層まで探索。共起・同義語・検索需要とは分離します</p></div>
-      <div class="filters"><select id="semantic-depth" aria-label="意味グラフ探索深度"><option value="1">直接edge</option><option value="2">2階層</option><option value="3">3階層</option></select><select id="semantic-relation" aria-label="意味関係"><option value="all">全関係</option><option value="hype">上位概念</option><option value="hypo">下位概念</option><option value="sim">類似概念</option><option value="attr">属性</option><option value="mprt">全体の部分</option><option value="hprt">部分を含む全体</option><option value="also">関連参照</option></select></div>
-      <div id="semantic-graph-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>深度</th><th>起点</th><th>関係</th><th>接続先</th><th>定義</th><th>証跡</th></tr></thead><tbody id="semantic-graph-rows"></tbody></table><div id="semantic-graph-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>関連キーワード逆引き</h3><p>入力語のlexical一致と意味pathを保有10,694行へ逆引きし、既存group候補・境界reviewまで接続します</p></div>
-      <div class="filters"><select id="graph-related-state" aria-label="関連KW根拠状態"><option value="all">全根拠</option><option value="lexical_supported">文字列支持</option><option value="semantic_path_review">意味path要確認</option><option value="lexical_and_semantic_path">文字列＋意味path</option></select><select id="graph-related-review" aria-label="group境界review"><option value="all">全境界</option><option value="required">group要review</option><option value="supported">group候補支持</option></select></div>
-      <div id="graph-related-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>候補KW</th><th>根拠状態</th><th>score</th><th>意味path</th><th>group境界</th><th>元行・証跡</th></tr></thead><tbody id="graph-related-rows"></tbody></table><div id="graph-related-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>同一token集合の表記variant</h3><p>語順・空白・表記が異なる元行をsource identity付きで束ねます</p></div>
-      <div id="variant-evidence-metrics" class="metrics"></div>
-      <div id="semantic-candidate-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>variant</th><th>件数</th><th>元sheet・row</th><th>導出規則</th></tr></thead><tbody id="lexical-variant-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>行共起による連想語</h3><p>document supportとcosine score。記号・数字・無関係な外国語断片はrankingから除外します</p></div>
-      <div id="association-evidence-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>基準語</th><th>連想語</th><th>順位</th><th>共起行</th><th>cosine</th><th>証拠行</th></tr></thead><tbody id="lexical-association-rows"></tbody></table><div id="lexical-empty" class="empty-state"></div></div>
-    </section>
-
-    <section id="keyword-utilities" class="view">
-      <div class="section-head"><div><h2>キーワード補助ツール</h2><p>ブラウザ内で実行し、通信・クレジット消費なし。入力内容はDBへ保存しません</p></div></div>
-      <div class="filters"><select id="utility-mode"><option value="local">地域キーワード生成</option><option value="combine">キーワード掛け合わせ</option><option value="exclude">AからBを除外</option><option value="intersection">A/B重複抽出</option><option value="diff">差分チェック</option><option value="replace">テキスト置換</option><option value="dedupe">重複キーワード除去</option><option value="normalize">キーワード正規化</option><option value="count">文字数カウント</option><option value="overlap_remove">競合/自サイト重複除去</option></select><select id="locality-prefecture" aria-label="都道府県"><option value="all">全国</option></select><select id="locality-scope" aria-label="地域粒度"><option value="prefecture">都道府県</option><option value="municipality">市区町村・郡町村</option><option value="station">駅</option></select><input id="utility-search" type="text" placeholder="置換前"><input id="utility-replacement" type="text" placeholder="置換後"><button id="utility-run" type="button">実行</button><button id="utility-copy" type="button">結果をコピー</button></div>
-      <div class="utility-grid"><label>リストA<textarea id="utility-left" rows="14" placeholder="1行1キーワード"></textarea></label><label>リストB<textarea id="utility-right" rows="14" placeholder="掛け合わせ・比較対象"></textarea></label><label>結果<textarea id="utility-result" rows="14" readonly></textarea></label></div>
-      <div id="utility-summary" class="empty-state"><strong>未実行</strong><span>日本郵便の公式月次住所datasetと、国交省2025年度駅datasetを使用します。</span></div>
-    </section>
-
-    <section id="quick-search" class="view">
-      <div class="section-head table-toolbar"><div><h2>横断クイック検索</h2><p>元KW、施策group、質問需要、語彙、GSC記事、競合contentを一度に検索します</p></div><div class="filters"><input id="quick-search-input" type="search" placeholder="キーワード・URL・記事タイトル" aria-label="横断検索"><a id="quick-search-bookmarklet" class="detail-button" href="#">選択語をHELIXで調査</a></div></div>
-      <div class="notice"><span>上のリンクをブックマークバーへドラッグ。閲覧ページの選択文字（未選択時はページタイトル）を、このsiteの横断検索で開きます。ページ本文は送信・保存しません。</span></div>
-      <div id="quick-search-metrics" class="metrics"></div><div id="quick-search-results" class="cards"></div>
-      <div class="subsection-head"><h3>ブラウザ内検索履歴</h3><p>最大50件をこのブラウザだけに保存します。サーバー・DBへ送信せず、いつでも全消去できます</p><button id="research-history-clear" type="button">履歴を全消去</button></div>
-      <div id="research-history" class="cards"></div>
-    </section>
-
-    <section id="qa-site-search" class="view">
-      <div class="section-head table-toolbar"><div><h2>保持Q&Aサイト証拠</h2><p>既存SERPで実測したQ&Aページだけを検索します。外部Q&A全体の検索結果とは扱いません</p></div><div class="filters"><input id="qa-site-search-input" type="search" placeholder="検索KW・質問タイトル・本文要約" aria-label="Q&Aサイト証拠検索"><select id="qa-site-source"><option value="all">全Q&A source</option><option value="yahoo_chiebukuro">Yahoo!知恵袋</option><option value="quora">Quora</option></select><select id="qa-site-state"><option value="all">全取得状態</option><option value="retained_body_derived_evidence">本文派生証拠あり</option><option value="serp_snippet_only">SERP要約のみ</option><option value="robots_denied_serp_snippet_only">robots拒否・SERP要約のみ</option></select><button id="qa-site-copy" type="button">証拠をコピー</button></div></div>
-      <div class="notice"><span>質問タイトル・SERP要約・順位・取得状態を保持。回答本文は保存しておらず、外部検索や課金も行いません。</span></div>
-      <div id="qa-site-metrics" class="metrics"></div>
-      <div class="subsection-head"><h3>固有Q&Aページの横断需要</h3><p>同じURLの複数SERP出現を統合し、何KW・何記事群で観測されたかを表示します</p></div>
-      <div class="table-wrap"><table><thead><tr><th>Q&Aページ</th><th>観測</th><th>検索KW</th><th>記事群</th><th>順位範囲</th><th>証跡</th></tr></thead><tbody id="qa-site-page-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>観測occurrence</h3><p>検索KWごとの実測順位とSERP表示を保持します</p></div>
-      <div class="table-wrap"><table><thead><tr><th>検索KW</th><th>Q&Aタイトル</th><th>source</th><th>順位</th><th>取得状態</th><th>証跡</th></tr></thead><tbody id="qa-site-rows"></tbody></table><div id="qa-site-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>Q&Aページ出現履歴</h3><p>保持済み同一KWの2時点比較です。新規・退出は観測depth内の状態であり、圏外や削除とは断定しません</p></div>
-      <div id="qa-history-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>検索KW / source</th><th>Q&Aページ</th><th>状態</th><th>前回 → 現在</th><th>観測日</th><th>証跡</th></tr></thead><tbody id="qa-history-rows"></tbody></table><div id="qa-history-empty" class="empty-state"></div></div>
-    </section>
-
-    <section id="suggest-explorer" class="view">
-      <div class="section-head table-toolbar"><div><h2>保有コーパス・サジェスト</h2><p>10,694件の元KWを直接検索。Google等のsurface由来と推測せず、workbook証跡を表示します</p></div><div class="filters"><input id="suggest-input" type="search" placeholder="seed keyword" aria-label="サジェスト検索"><select id="suggest-mode"><option value="prefix">前方一致</option><option value="contains">部分一致</option><option value="tokens">全token一致</option></select><button id="suggest-export-csv" type="button">CSV</button><button id="suggest-export-json" type="button">JSON</button></div></div>
-      <div id="suggest-metrics" class="metrics"></div>
-      <div id="suggest-empty" class="empty-state"><strong>seedを入力</strong><span>外部surfaceへの通信・課金は行いません。</span></div>
-      <div class="table-wrap"><table><thead><tr><th>候補KW</th><th>一致</th><th>検索Vol</th><th>取得状態</th><th>出典sheet</th><th>source row</th></tr></thead><tbody id="suggest-rows"></tbody></table></div>
-    </section>
-
-    <section id="article-queries" class="view">
-      <div class="section-head table-toolbar">
-        <div><h2>記事獲得クエリ</h2><p>1記事1行で主クエリを表示。全獲得クエリは詳細で確認。カテゴリーはWP実割当taxonomy</p></div>
+      <section id="lexical-explorer" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>類語・表記variant・連想語</h2>
+            <p>人手判定済み公開類語と、10,694行の保有corpusから導出した表記・共起関係を区別して表示します</p>
+          </div>
+          <div class="filters">
+            <input id="lexical-search" type="search" placeholder="語・variantを検索" aria-label="語彙検索" />
+          </div>
+        </div>
+        <div id="lexical-metrics" class="metrics"></div>
+        <div class="subsection-head">
+          <h3>人手判定済み公開類語</h3>
+          <p>version・license・digestを固定した11,753語対。文脈に合う置換かは編集確認が必要です</p>
+        </div>
+        <div id="public-synonym-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>語</th>
+                <th>類語</th>
+                <th>判定</th>
+                <th>文脈確認</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="public-synonym-rows"></tbody>
+          </table>
+          <div id="public-synonym-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>公開意味グラフ</h3>
+          <p>上位・下位・部分・属性など21種の直接edgeを最大3階層まで探索。共起・同義語・検索需要とは分離します</p>
+        </div>
         <div class="filters">
-          <input id="query-search" type="search" placeholder="クエリ・記事検索" aria-label="クエリ・記事検索">
-          <select id="query-category-parent-filter" aria-label="親カテゴリーで絞り込み"><option value="all">全親カテゴリー</option></select>
-          <select id="query-category-child-filter" aria-label="子カテゴリーで絞り込み"><option value="all">全子カテゴリー</option></select>
-          <select id="query-category-grandchild-filter" aria-label="孫カテゴリーで絞り込み"><option value="all">全孫カテゴリー</option></select>
-          <select id="query-article-filter" aria-label="記事で絞り込み"><option value="all">全記事</option></select>
-          <select id="query-period-filter" aria-label="取得期間で絞り込み"><option value="all">全期間</option></select>
-          <select id="query-page-size" aria-label="表示件数"><option value="25">25件表示</option><option value="50">50件表示</option><option value="100">100件表示</option><option value="all">すべて表示</option></select>
+          <select id="semantic-depth" aria-label="意味グラフ探索深度">
+            <option value="1">直接edge</option>
+            <option value="2">2階層</option>
+            <option value="3">3階層</option></select
+          ><select id="semantic-relation" aria-label="意味関係">
+            <option value="all">全関係</option>
+            <option value="hype">上位概念</option>
+            <option value="hypo">下位概念</option>
+            <option value="sim">類似概念</option>
+            <option value="attr">属性</option>
+            <option value="mprt">全体の部分</option>
+            <option value="hprt">部分を含む全体</option>
+            <option value="also">関連参照</option>
+          </select>
         </div>
+        <div id="semantic-graph-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>深度</th>
+                <th>起点</th>
+                <th>関係</th>
+                <th>接続先</th>
+                <th>定義</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="semantic-graph-rows"></tbody>
+          </table>
+          <div id="semantic-graph-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>関連キーワード逆引き</h3>
+          <p>入力語のlexical一致と意味pathを保有10,694行へ逆引きし、既存group候補・境界reviewまで接続します</p>
+        </div>
+        <div class="filters">
+          <select id="graph-related-state" aria-label="関連KW根拠状態">
+            <option value="all">全根拠</option>
+            <option value="lexical_supported">文字列支持</option>
+            <option value="semantic_path_review">意味path要確認</option>
+            <option value="lexical_and_semantic_path">文字列＋意味path</option></select
+          ><select id="graph-related-review" aria-label="group境界review">
+            <option value="all">全境界</option>
+            <option value="required">group要review</option>
+            <option value="supported">group候補支持</option>
+          </select>
+        </div>
+        <div id="graph-related-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>候補KW</th>
+                <th>根拠状態</th>
+                <th>score</th>
+                <th>意味path</th>
+                <th>group境界</th>
+                <th>元行・証跡</th>
+              </tr>
+            </thead>
+            <tbody id="graph-related-rows"></tbody>
+          </table>
+          <div id="graph-related-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>同一token集合の表記variant</h3>
+          <p>語順・空白・表記が異なる元行をsource identity付きで束ねます</p>
+        </div>
+        <div id="variant-evidence-metrics" class="metrics"></div>
+        <div id="semantic-candidate-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>variant</th>
+                <th>件数</th>
+                <th>元sheet・row</th>
+                <th>導出規則</th>
+              </tr>
+            </thead>
+            <tbody id="lexical-variant-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>行共起による連想語</h3>
+          <p>document supportとcosine score。記号・数字・無関係な外国語断片はrankingから除外します</p>
+        </div>
+        <div id="association-evidence-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>基準語</th>
+                <th>連想語</th>
+                <th>順位</th>
+                <th>共起行</th>
+                <th>cosine</th>
+                <th>証拠行</th>
+              </tr>
+            </thead>
+            <tbody id="lexical-association-rows"></tbody>
+          </table>
+          <div id="lexical-empty" class="empty-state"></div>
+        </div>
+      </section>
+
+      <section id="keyword-utilities" class="view">
+        <div class="section-head">
+          <div>
+            <h2>キーワード補助ツール</h2>
+            <p>ブラウザ内で実行し、通信・クレジット消費なし。入力内容はDBへ保存しません</p>
+          </div>
+        </div>
+        <div class="filters">
+          <select id="utility-mode">
+            <option value="local">地域キーワード生成</option>
+            <option value="combine">キーワード掛け合わせ</option>
+            <option value="exclude">AからBを除外</option>
+            <option value="intersection">A/B重複抽出</option>
+            <option value="diff">差分チェック</option>
+            <option value="replace">テキスト置換</option>
+            <option value="dedupe">重複キーワード除去</option>
+            <option value="normalize">キーワード正規化</option>
+            <option value="count">文字数カウント</option>
+            <option value="overlap_remove">競合/自サイト重複除去</option></select
+          ><select id="locality-prefecture" aria-label="都道府県">
+            <option value="all">全国</option></select
+          ><select id="locality-scope" aria-label="地域粒度">
+            <option value="prefecture">都道府県</option>
+            <option value="municipality">市区町村・郡町村</option>
+            <option value="station">駅</option></select
+          ><input id="utility-search" type="text" placeholder="置換前" /><input id="utility-replacement" type="text" placeholder="置換後" /><button id="utility-run" type="button">実行</button><button id="utility-copy" type="button">結果をコピー</button>
+        </div>
+        <div class="utility-grid">
+          <label>リストA<textarea id="utility-left" rows="14" placeholder="1行1キーワード"></textarea></label><label>リストB<textarea id="utility-right" rows="14" placeholder="掛け合わせ・比較対象"></textarea></label><label>結果<textarea id="utility-result" rows="14" readonly></textarea></label>
+        </div>
+        <div id="utility-summary" class="empty-state"><strong>未実行</strong><span>日本郵便の公式月次住所datasetと、国交省2025年度駅datasetを使用します。</span></div>
+      </section>
+
+      <section id="quick-search" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>横断クイック検索</h2>
+            <p>元KW、施策group、質問需要、語彙、GSC記事、競合contentを一度に検索します</p>
+          </div>
+          <div class="filters"><input id="quick-search-input" type="search" placeholder="キーワード・URL・記事タイトル" aria-label="横断検索" /><a id="quick-search-bookmarklet" class="detail-button" href="#">選択語をHELIXで調査</a></div>
+        </div>
+        <div class="notice">
+          <span>上のリンクをブックマークバーへドラッグ。閲覧ページの選択文字（未選択時はページタイトル）を、このsiteの横断検索で開きます。ページ本文は送信・保存しません。</span>
+        </div>
+        <div id="quick-search-metrics" class="metrics"></div>
+        <div id="quick-search-results" class="cards"></div>
+        <div class="subsection-head">
+          <h3>ブラウザ内検索履歴</h3>
+          <p>最大50件をこのブラウザだけに保存します。サーバー・DBへ送信せず、いつでも全消去できます</p>
+          <button id="research-history-clear" type="button">履歴を全消去</button>
+        </div>
+        <div id="research-history" class="cards"></div>
+      </section>
+
+      <section id="qa-site-search" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>保持Q&Aサイト証拠</h2>
+            <p>既存SERPで実測したQ&Aページだけを検索します。外部Q&A全体の検索結果とは扱いません</p>
+          </div>
+          <div class="filters">
+            <input id="qa-site-search-input" type="search" placeholder="検索KW・質問タイトル・本文要約" aria-label="Q&Aサイト証拠検索" /><select id="qa-site-source">
+              <option value="all">全Q&A source</option>
+              <option value="yahoo_chiebukuro">Yahoo!知恵袋</option>
+              <option value="quora">Quora</option></select
+            ><select id="qa-site-state">
+              <option value="all">全取得状態</option>
+              <option value="retained_body_derived_evidence">本文派生証拠あり</option>
+              <option value="serp_snippet_only">SERP要約のみ</option>
+              <option value="robots_denied_serp_snippet_only">robots拒否・SERP要約のみ</option></select
+            ><button id="qa-site-copy" type="button">証拠をコピー</button>
+          </div>
+        </div>
+        <div class="notice">
+          <span>質問タイトル・SERP要約・順位・取得状態を保持。回答本文は保存しておらず、外部検索や課金も行いません。</span>
+        </div>
+        <div id="qa-site-metrics" class="metrics"></div>
+        <div class="subsection-head">
+          <h3>固有Q&Aページの横断需要</h3>
+          <p>同じURLの複数SERP出現を統合し、何KW・何記事群で観測されたかを表示します</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Q&Aページ</th>
+                <th>観測</th>
+                <th>検索KW</th>
+                <th>記事群</th>
+                <th>順位範囲</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="qa-site-page-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>観測occurrence</h3>
+          <p>検索KWごとの実測順位とSERP表示を保持します</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>検索KW</th>
+                <th>Q&Aタイトル</th>
+                <th>source</th>
+                <th>順位</th>
+                <th>取得状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="qa-site-rows"></tbody>
+          </table>
+          <div id="qa-site-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>Q&Aページ出現履歴</h3>
+          <p>保持済み同一KWの2時点比較です。新規・退出は観測depth内の状態であり、圏外や削除とは断定しません</p>
+        </div>
+        <div id="qa-history-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>検索KW / source</th>
+                <th>Q&Aページ</th>
+                <th>状態</th>
+                <th>前回 → 現在</th>
+                <th>観測日</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="qa-history-rows"></tbody>
+          </table>
+          <div id="qa-history-empty" class="empty-state"></div>
+        </div>
+      </section>
+
+      <section id="suggest-explorer" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>保有コーパス・サジェスト</h2>
+            <p>10,694件の元KWを直接検索。Google等のsurface由来と推測せず、workbook証跡を表示します</p>
+          </div>
+          <div class="filters">
+            <input id="suggest-input" type="search" placeholder="seed keyword" aria-label="サジェスト検索" /><select id="suggest-mode">
+              <option value="prefix">前方一致</option>
+              <option value="contains">部分一致</option>
+              <option value="tokens">全token一致</option></select
+            ><button id="suggest-export-csv" type="button">CSV</button><button id="suggest-export-json" type="button">JSON</button>
+          </div>
+        </div>
+        <div id="suggest-metrics" class="metrics"></div>
+        <div id="suggest-empty" class="empty-state"><strong>seedを入力</strong><span>外部surfaceへの通信・課金は行いません。</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>候補KW</th>
+                <th>一致</th>
+                <th>検索Vol</th>
+                <th>取得状態</th>
+                <th>出典sheet</th>
+                <th>source row</th>
+              </tr>
+            </thead>
+            <tbody id="suggest-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="article-queries" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>記事獲得クエリ</h2>
+            <p>1記事1行で主クエリを表示。全獲得クエリは詳細で確認。カテゴリーはWP実割当taxonomy</p>
+          </div>
+          <div class="filters">
+            <input id="query-search" type="search" placeholder="クエリ・記事検索" aria-label="クエリ・記事検索" />
+            <select id="query-category-parent-filter" aria-label="親カテゴリーで絞り込み">
+              <option value="all">全親カテゴリー</option>
+            </select>
+            <select id="query-category-child-filter" aria-label="子カテゴリーで絞り込み">
+              <option value="all">全子カテゴリー</option>
+            </select>
+            <select id="query-category-grandchild-filter" aria-label="孫カテゴリーで絞り込み">
+              <option value="all">全孫カテゴリー</option>
+            </select>
+            <select id="query-article-filter" aria-label="記事で絞り込み">
+              <option value="all">全記事</option>
+            </select>
+            <select id="query-period-filter" aria-label="取得期間で絞り込み">
+              <option value="all">全期間</option>
+            </select>
+            <select id="query-page-size" aria-label="表示件数">
+              <option value="25">25件表示</option>
+              <option value="50">50件表示</option>
+              <option value="100">100件表示</option>
+              <option value="all">すべて表示</option>
+            </select>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>親カテゴリー</th>
+                <th id="query-category-child-head">子カテゴリー</th>
+                <th id="query-category-grandchild-head">孫カテゴリー</th>
+                <th>記事</th>
+                <th>WP ID</th>
+                <th>主クエリ</th>
+                <th>表示回数</th>
+                <th>クリック</th>
+                <th>平均掲載順位</th>
+                <th>獲得数</th>
+                <th>取得期間</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="query-rows"></tbody>
+          </table>
+          <div id="query-empty" class="empty-state"></div>
+          <div id="query-pagination" class="pagination" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="content-plans" class="view">
+        <div class="section-head">
+          <div>
+            <h2>根拠付きコンテンツ設計</h2>
+            <p>PAA・関連検索の実測値から、タイトルと見出しの候補を生成。すべて提案状態で、自動承認はしません</p>
+          </div>
+          <span class="proposal-warning">提案のみ・未承認</span>
+        </div>
+        <div id="content-plan-metrics" class="metrics"></div>
+        <div class="subsection-head">
+          <div>
+            <h3>生成provenance台帳</h3>
+            <p>タイトル・見出し・質問・関連語・本文packageを横断し、決定論処理、観測値の転記、モデル未実行を区別します。有料生成や自動承認は行いません</p>
+          </div>
+        </div>
+        <div id="generation-provenance-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>artifact</th>
+                <th>種別</th>
+                <th>生成方式</th>
+                <th>実行状態</th>
+                <th>model / 費用</th>
+                <th>review</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="generation-provenance-rows"></tbody>
+          </table>
+        </div>
+        <h3>本文generation実行manifest</h3>
+        <p class="section-note">prompt・出力schema・token上限・model価格・累計$5予算を実行前に固定します。現在はモデル未選択・価格未確認・生成予算未配分のため停止中です。</p>
+        <div id="generation-manifest-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>記事群 / request</th>
+                <th>prompt契約</th>
+                <th>model</th>
+                <th>token上限</th>
+                <th>最大費用</th>
+                <th>停止条件</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="generation-manifest-rows"></tbody>
+          </table>
+        </div>
+        <h3>5機能 LLM challenger manifest</h3>
+        <p class="section-note">タイトル・見出し・質問・関連語・KW提案を、既存の決定論baselineと盲検比較する契約です。model・価格・生成予算・明示承認が揃うまで実行しません。</p>
+        <div id="generation-challenger-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>記事群 / 機能</th>
+                <th>baseline / 根拠</th>
+                <th>prompt / schema</th>
+                <th>model / 費用</th>
+                <th>盲検評価</th>
+                <th>停止条件</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="generation-challenger-rows"></tbody>
+          </table>
+        </div>
+        <h3>累計$5 再配分scenario</h3>
+        <p class="section-note">生成検証へ予約枠を置いた場合に、現行の取得候補から何件・何ドルを延期する必要があるかを比較します。再配分や実行は行いません。</p>
+        <div id="paid-budget-scenario-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>scenario</th>
+                <th>生成予約</th>
+                <th>取得枠 / 選択</th>
+                <th>延期機会費用</th>
+                <th>優先度影響</th>
+                <th>生成可能件数</th>
+                <th>状態 / 証跡</th>
+              </tr>
+            </thead>
+            <tbody id="paid-budget-scenario-rows"></tbody>
+          </table>
+        </div>
+        <h3>観測format由来 rich block計画</h3>
+        <p class="section-note">比較表・求人一覧・画像・動画・定義などを、観測済みSERP formatから記事sectionへ接続します。source dataと編集承認がないpayloadは生成・挿入しません。</p>
+        <div id="rich-block-plan-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>記事群 / section</th>
+                <th>format</th>
+                <th>block</th>
+                <th>必須field</th>
+                <th>観測根拠</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="rich-block-plan-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <div>
+            <h3>複数証拠ensemble選定差分</h3>
+            <p>需要履歴・競合継続性・SERP形態・品質・証拠解決を合成し、現在選定と推奨順位の差だけをレビューします。自動差し替えはしません</p>
+          </div>
+        </div>
+        <div id="ensemble-selection-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>記事群 / 種別</th>
+                <th>現在</th>
+                <th>推奨</th>
+                <th>score差</th>
+                <th>主な根拠</th>
+                <th>tradeoff</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="ensemble-selection-rows"></tbody>
+          </table>
+        </div>
+        <h3>盲検編集A/Bレビュー</h3>
+        <p class="section-note">A/Bのどちらが現行・推奨か、内部scoreと順位情報を隠して比較します。入力はJSON出力だけで、自動反映しません。</p>
+        <div class="editorial-review-toolbar">
+          <label>レビュアー識別子<input id="editorial-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列" /></label><button id="editorial-review-export" class="detail-button" type="button">採点JSONを出力</button><span id="editorial-review-export-status" role="status">入力0件</span>
+        </div>
+        <div id="editorial-review-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象 / 種別</th>
+                <th>Option A</th>
+                <th>Option B</th>
+                <th>評価rubric</th>
+                <th>採点</th>
+                <th>holdout状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="editorial-review-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>タイトル候補・競合比較</h3>
+            <p>候補品質と、上位タイトルの文字数・主KW位置・疑問形・数字・括弧・区切りの実測分布を比較。順位効果は推測せず、自動承認しません</p>
+          </div>
+          <div class="filters">
+            <input id="title-analysis-search" type="search" placeholder="タイトル・主KW・カテゴリ検索" aria-label="タイトル候補検索" /><select id="title-analysis-state" aria-label="タイトル品質状態">
+              <option value="all">全品質状態</option>
+              <option value="ready">ready</option>
+              <option value="needs_review">要確認</option>
+              <option value="blocked">blocked</option></select
+            ><select id="title-analysis-source" aria-label="タイトル根拠種別">
+              <option value="all">全根拠</option>
+              <option value="serp_demand">SERP需要</option>
+              <option value="competitor_term">競合共起語</option>
+            </select>
+          </div>
+        </div>
+        <div id="title-analysis-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table class="title-analysis-table">
+            <thead>
+              <tr>
+                <th>候補 / 記事群</th>
+                <th>選定</th>
+                <th>品質</th>
+                <th>文字数</th>
+                <th>根拠</th>
+                <th>競合タイトル基準</th>
+                <th>類似・issue</th>
+              </tr>
+            </thead>
+            <tbody id="title-analysis-rows"></tbody>
+          </table>
+          <div id="title-analysis-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <div>
+            <h3>タイトル修正候補</h3>
+            <p>保持済み需要と観測タイトルの形態範囲から、編集レビュー用のHELIX候補を再構成。競合タイトルのコピー・順位効果の推定・自動承認はしません</p>
+          </div>
+        </div>
+        <div id="title-repair-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>元候補</th>
+                <th>修正候補</th>
+                <th>文字数 / 実測IQR</th>
+                <th>需要根拠</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="title-repair-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>H2/H3アウトライン選定</h3>
+            <p>571候補を品質・根拠強度で選び、H3を共有証拠→文字trigram近似の順でH2へ接続。共有証拠・trigram・包含が全て0の候補とblocked候補は本文生成packageへ渡しません</p>
+          </div>
+          <div class="filters">
+            <input id="outline-analysis-search" type="search" placeholder="主KW・見出し検索" aria-label="アウトライン検索" /><select id="outline-analysis-status" aria-label="アウトライン状態">
+              <option value="all">全状態</option>
+              <option value="outline_ready">outline ready</option>
+              <option value="blocked">blocked</option>
+            </select>
+          </div>
+        </div>
+        <div id="outline-analysis-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table class="outline-analysis-table">
+            <thead>
+              <tr>
+                <th>記事群</th>
+                <th>状態</th>
+                <th>選定 / 候補</th>
+                <th>H2/H3</th>
+                <th>根拠</th>
+                <th>階層アウトライン</th>
+              </tr>
+            </thead>
+            <tbody id="outline-analysis-rows"></tbody>
+          </table>
+          <div id="outline-analysis-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>生成見出し・SERP構造監査</h3>
+          <p>H2/H3別の文字数・疑問形・数字・括弧とページ当たり構成を実測比較します。上位構造と順位効果の因果は推測しません</p>
+        </div>
+        <div id="heading-pattern-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>見出し候補</th>
+                <th>階層</th>
+                <th>文字数 / 実測IQR</th>
+                <th>観測母数</th>
+                <th>pattern判定</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="heading-pattern-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <div>
+            <h3>見出し修正候補</h3>
+            <p>形態監査で要確認となった候補だけを、意味保持の人手確認を前提に再構成。競合見出しのコピー・順位効果の推定・自動承認はしません</p>
+          </div>
+        </div>
+        <div id="heading-repair-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>元候補</th>
+                <th>修正候補</th>
+                <th>階層 / 文字数</th>
+                <th>元issue</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="heading-repair-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>タイトル・見出し意味カバレッジ</h3>
+            <p>記事群の主KWから公開意味graphを保有キーワードへ逆引きし、既存候補のcoverageとreview-only追加案を確認します。意味pathは曖昧性review用で、必須トピック・需要・順位要因とは扱いません</p>
+          </div>
+          <div class="filters">
+            <select id="semantic-coverage-group" aria-label="記事群"></select
+            ><select id="semantic-coverage-view" aria-label="表示">
+              <option value="coverage">既存候補coverage</option>
+              <option value="expansions">意味path追加案</option>
+              <option value="resolution">証拠解消queue</option>
+              <option value="tasks">概念別review task</option></select
+            ><select id="semantic-coverage-type" aria-label="候補種別">
+              <option value="all">タイトル＋見出し</option>
+              <option value="title">タイトル</option>
+              <option value="heading">見出し</option></select
+            ><select id="semantic-coverage-state" aria-label="意味coverage状態">
+              <option value="all">全状態</option>
+              <option value="semantic_concept_observed">概念あり</option>
+              <option value="no_semantic_concept_match">概念一致なし</option>
+              <option value="no_graph_evidence">graph証拠なし</option>
+              <option value="editor_review_required">group直接証拠あり</option>
+              <option value="blocked_no_direct_group_support">直接group証拠なし</option>
+            </select>
+          </div>
+        </div>
+        <div id="semantic-coverage-metrics" class="metrics"></div>
+        <div id="semantic-resolution-toolbar" class="editorial-review-toolbar" hidden>
+          <label>レビュアー識別子<input id="semantic-resolution-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列" /></label><button id="semantic-resolution-export" class="detail-button" type="button">意味判断JSONを出力</button><span id="semantic-resolution-export-status" role="status">入力0件</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>候補</th>
+                <th>種別</th>
+                <th>包含概念</th>
+                <th>未包含review</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="semantic-coverage-rows"></tbody>
+          </table>
+          <div id="semantic-coverage-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <div>
+            <h3>記事公開readiness</h3>
+            <p>タイトル・見出し・記事境界・安全修正の編集判断・手動反映・claim検証・引用承認を記事群単位で集約。候補生成や修正案の承認だけを公開可能とは扱いません</p>
+          </div>
+        </div>
+        <div id="content-readiness-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>記事群</th>
+                <th>公開状態</th>
+                <th>停止条件</th>
+                <th>編集review</th>
+                <th>gate内訳</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="content-readiness-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <div>
+            <h3>claim検証キュー</h3>
+            <p>本文の実質claimをリスク別に並べ、必要な情報源と既存証拠を明示。検索結果の観測証拠を事実確認済みとは扱いません</p>
+          </div>
+        </div>
+        <div id="claim-verification-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>優先度</th>
+                <th>claim / 論点</th>
+                <th>必要な情報源</th>
+                <th>保持証拠</th>
+                <th>検証状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="claim-verification-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <div>
+            <h3>一次情報探索portfolio</h3>
+            <p>claimごとに最初の探索queryを1本へ絞り、P0から100件単位で編成。代替queryは保持しつつ初回重複探索を避け、実行・課金は行いません</p>
+          </div>
+        </div>
+        <div id="claim-discovery-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>batch</th>
+                <th>件数</th>
+                <th>優先度</th>
+                <th>費用</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="claim-discovery-batches"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>優先度</th>
+                <th>claim</th>
+                <th>選択query</th>
+                <th>情報源class</th>
+                <th>保持候補</th>
+                <th>状態</th>
+              </tr>
+            </thead>
+            <tbody id="claim-discovery-candidates"></tbody>
+          </table>
+        </div>
+        <div id="content-plan-list" class="content-plan-list" aria-live="polite"></div>
+      </section>
+
+      <section id="competitor-domains" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>SERP競合ドメイン横断分析</h2>
+            <p>上位10件の実測SERPから、複数キーワード・記事群を横断している競合を集計。推測値ではなく取得済みURLの証跡です</p>
+          </div>
+          <div class="filters">
+            <input id="competitor-domain-search" type="search" placeholder="ドメイン・キーワード検索" aria-label="競合ドメイン検索" /><select id="competitor-domain-target" aria-label="比較基準ドメイン"></select
+            ><select id="competitor-domain-scope" aria-label="競合範囲">
+              <option value="all">全競合</option>
+              <option value="multi-keyword">複数KW獲得</option>
+              <option value="multi-group">複数記事群を横断</option>
+            </select>
+          </div>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>SERP表示ブランド占有</h3>
+            <p>URLのdomainとは別にGoogle表示上のwebsite nameを集計。媒体内publisherとサイトbrandを分離します</p>
+          </div>
+          <div class="filters">
+            <input id="brand-search" type="search" placeholder="ブランド・domain検索" aria-label="SERP表示ブランド検索" /><select id="brand-kind">
+              <option value="all">全identity</option>
+              <option value="site_brand">サイトbrand</option>
+              <option value="platform_publisher">媒体publisher</option>
+            </select>
+          </div>
+        </div>
+        <div id="brand-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>表示brand / publisher</th>
+                <th>identity</th>
+                <th>出現</th>
+                <th>被覆KW</th>
+                <th>記事群</th>
+                <th>domain</th>
+                <th>Top3</th>
+                <th>最高順位</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="brand-rows"></tbody>
+          </table>
+          <div id="brand-empty" class="empty-state"></div>
+        </div>
+        <div id="competitor-domain-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table class="competitor-domain-table">
+            <thead>
+              <tr>
+                <th>競合ドメイン</th>
+                <th>獲得KW</th>
+                <th>重複KW</th>
+                <th>target基準率 / Jaccard</th>
+                <th>競合固有 / target固有</th>
+                <th>横断記事群</th>
+                <th>ランクURL</th>
+                <th>最高順位</th>
+                <th>被覆KWと順位</th>
+              </tr>
+            </thead>
+            <tbody id="competitor-domain-rows"></tbody>
+          </table>
+          <div id="competitor-domain-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>競合の獲得ページ</h3>
+          <p>同じ観測SERPをURL単位に集約。全rank DB由来の推定流入・集客価値は未取得のため表示しません</p>
+        </div>
+        <div class="table-wrap">
+          <table class="competitor-page-table">
+            <thead>
+              <tr>
+                <th>競合ページ</th>
+                <th>獲得KW</th>
+                <th>横断記事群</th>
+                <th>最高順位</th>
+                <th>主KW</th>
+                <th>被覆KWと順位</th>
+              </tr>
+            </thead>
+            <tbody id="competitor-page-rows"></tbody>
+          </table>
+          <div id="competitor-page-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>競合コンテンツ検索</h3>
+            <p>本文見出しに加え、SERPのtitle・description・pre-snippet・breadcrumb・sitelink・rating・price・日時・獲得KWを証拠scope付きで検索できます</p>
+          </div>
+          <div class="filters">
+            <input id="competitor-content-search" type="search" placeholder="タイトル・見出し・SERP要素・KWを検索" aria-label="競合コンテンツ検索" /><select id="competitor-content-target" aria-label="検索対象">
+              <option value="all">すべて</option>
+              <option value="title">タイトルのみ</option>
+              <option value="heading">見出しのみ</option>
+              <option value="description">SERP説明文のみ</option>
+              <option value="pre-snippet">pre-snippetのみ</option>
+              <option value="breadcrumb">breadcrumbのみ</option>
+              <option value="sitelink">sitelinkのみ</option>
+              <option value="commerce">rating・priceのみ</option>
+              <option value="highlight">SERP強調語のみ</option>
+              <option value="freshness">公開日時のみ</option>
+              <option value="top-keyword">観測獲得KWのみ</option>
+            </select>
+          </div>
+        </div>
+        <div id="competitor-content-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table class="competitor-content-table">
+            <thead>
+              <tr>
+                <th>競合ページ</th>
+                <th>最高順位</th>
+                <th>対象KW</th>
+                <th>一致した取得証跡</th>
+              </tr>
+            </thead>
+            <tbody id="competitor-content-rows"></tbody>
+          </table>
+          <div id="competitor-content-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>見出し構造分析</h3>
+            <p>取得済み上位10ページのH1〜H6、本文文字数、ページ別構造と平均値を実測。除外語は見出し行だけに適用し、本文を補完推測しません</p>
+          </div>
+          <div class="filters">
+            <input id="headline-search" type="search" placeholder="見出しを検索" aria-label="見出し検索" /><select id="headline-level" aria-label="見出し階層">
+              <option value="all">H1〜H6</option>
+              <option value="1">H1</option>
+              <option value="2">H2</option>
+              <option value="3">H3</option>
+              <option value="4">H4</option>
+              <option value="5">H5</option>
+              <option value="6">H6</option></select
+            ><input id="headline-exclude" type="search" placeholder="除外語（カンマ区切り）" aria-label="見出し除外語" />
+          </div>
+        </div>
+        <div id="headline-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table class="headline-analysis-table">
+            <thead>
+              <tr>
+                <th>順位 / ページ</th>
+                <th>本文文字数</th>
+                <th>見出し数</th>
+                <th>H1〜H6内訳</th>
+                <th>見出し構造</th>
+              </tr>
+            </thead>
+            <tbody id="headline-rows"></tbody>
+          </table>
+          <div id="headline-empty" class="empty-state"></div>
+        </div>
+      </section>
+
+      <section id="aio-citations" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>AIO引用ギャップ</h2>
+            <p>AI Overview 68 containerのうち回答payload取得済み17件と非同期未回収51件を分離。取得済み参照URLだけを通常SERP上位10と照合します</p>
+          </div>
+          <div class="filters">
+            <input id="aio-citation-search" type="search" placeholder="ドメイン・KW・引用タイトル検索" aria-label="AIO引用検索" />
+          </div>
+        </div>
+        <div id="aio-citation-metrics" class="metrics"></div>
+        <div class="subsection-head">
+          <h3>AIO未回収taskの再取得計画</h3>
+          <p>元requestで非同期本文取得が未指定のplaceholderだけを再POST対象化。価格再確認前の自動送信・自動反映は行いません</p>
+        </div>
+        <div id="aio-completion-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW / task</th>
+                <th>method</th>
+                <th>追加課金</th>
+                <th>保持期限</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="aio-completion-rows"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table class="aio-domain-table">
+            <thead>
+              <tr>
+                <th>引用ドメイン</th>
+                <th>引用KW</th>
+                <th>引用回数</th>
+                <th>引用URL</th>
+                <th>通常SERP同一domain</th>
+                <th>通常SERP最高順位</th>
+              </tr>
+            </thead>
+            <tbody id="aio-domain-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>引用URL証跡</h3>
+          <p>同一URL上位表示と同一ドメイン上位表示を別々に表示します</p>
+        </div>
+        <div class="table-wrap">
+          <table class="aio-reference-table">
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>引用元</th>
+                <th>引用タイトル</th>
+                <th>通常SERP</th>
+              </tr>
+            </thead>
+            <tbody id="aio-reference-rows"></tbody>
+          </table>
+          <div id="aio-citation-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>AIO回答の論点ギャップ</h3>
+          <p>AIOの見出し付き要素を、確認済みWordPress記事のタイトル・見出しへ厳格照合します</p>
+        </div>
+        <div class="table-wrap">
+          <table class="aio-element-table">
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>AIO論点</th>
+                <th>引用数</th>
+                <th>既存WP記事</th>
+                <th>AIO回答本文</th>
+              </tr>
+            </thead>
+            <tbody id="aio-element-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>AIO要素別source lineage</h3>
+          <p>各回答要素のreference・link・imageを保持し、全体reference一覧から省略されたelement-only引用をレビューします</p>
+        </div>
+        <div id="aio-lineage-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW / 論点</th>
+                <th>source状態</th>
+                <th>reference / link / image</th>
+                <th>出典</th>
+                <th>全体一覧照合</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="aio-lineage-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="acquisition-health" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>取得状態・SERP feature</h2>
+            <p>DPB taskのstatus・処理時間・費用・check URLと、通常分析で落としやすいSERP featureを表示します</p>
+          </div>
+          <div class="filters">
+            <input id="acquisition-search" type="search" placeholder="KW・feature・status検索" aria-label="取得状態検索" />
+          </div>
+        </div>
+        <div id="acquisition-health-metrics" class="metrics"></div>
+        <div class="subsection-head">
+          <h3>取得request・payload充足監査</h3>
+          <p>requestで指定した拡張取得と実際の回答payloadを照合し、featureの枠だけを本文取得済みと誤認しません</p>
+        </div>
+        <div id="acquisition-contract-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW / task</th>
+                <th>request</th>
+                <th>AIO充足</th>
+                <th>PAA充足</th>
+                <th>費用</th>
+                <th>判定</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="acquisition-contract-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>AIO・PAA統合再取得計画</h3>
+          <p>同じ元taskの不足を1回のrequestへ束ね、二重POSTと余分な費用を回避します。価格確認前には送信しません</p>
+        </div>
+        <div id="acquisition-remediation-metrics" class="metrics"></div>
+        <div id="acquisition-readiness" class="notice"></div>
+        <div id="acquisition-approval-manifest" class="notice"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW / task</th>
+                <th>補完対象</th>
+                <th>request</th>
+                <th>統合費用</th>
+                <th>個別計画との差</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="acquisition-remediation-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>生涯累計予算の横断配分</h3>
+          <p>全取得portfolioを1つの5 USD累計枠へ統合し、確定支出を控除して判断価値順に選択・延期します。計画のみで送信しません</p>
+        </div>
+        <div id="lifetime-allocation-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>source sheet</th>
+                <th>候補</th>
+                <th>選択</th>
+                <th>延期</th>
+                <th>選択率</th>
+                <th>優先度内訳</th>
+              </tr>
+            </thead>
+            <tbody id="lifetime-allocation-coverage"></tbody>
+          </table>
+        </div>
+        <div id="lifetime-allocation-manifest" class="notice"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>immutable batch</th>
+                <th>機能</th>
+                <th>候補</th>
+                <th>優先度</th>
+                <th>最大費用</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="lifetime-allocation-batches"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>優先 / 機能</th>
+                <th>対象</th>
+                <th>判断価値</th>
+                <th>単価</th>
+                <th>配分</th>
+                <th>累計</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="lifetime-allocation-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>データ処遇台帳</h3>
+          <p>未取得・取得失敗・分析未接続・正規化統合・意図的非保持を分離し、欠損理由と是正方法を示します</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>dataset</th>
+                <th>処遇</th>
+                <th>観測</th>
+                <th>期待</th>
+                <th>差分</th>
+                <th>理由</th>
+                <th>是正</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="data-disposition-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>SEO機能・完成監査</h3>
+          <p>実装の存在ではなく、実装・テスト証拠と残存gapを突き合わせます。gapが残る機能を完成扱いしません</p>
+        </div>
+        <div id="capability-audit-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>機能</th>
+                <th>完成判定</th>
+                <th>blocker</th>
+                <th>残存gap</th>
+                <th>権威証拠</th>
+                <th>digest</th>
+              </tr>
+            </thead>
+            <tbody id="capability-audit-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>Web / APIクレジット契約分離</h3>
+          <p>公開OpenAPIに明記されたAPI消費量をWeb版・HELIXローカル処理と混同せず照合します。表示だけで消費しません</p>
+        </div>
+        <div id="public-credit-contract-metrics" class="metrics"></div>
+        <div class="filters" id="public-credit-estimator-controls">
+          <label
+            >調査<select id="public-credit-operation">
+              <option value="search_volume">一括検索指標</option>
+              <option value="search_rank">順位取得</option>
+              <option value="bulk_site_research">一括サイト調査</option>
+            </select></label
+          >
+          <label>キーワード数<input id="public-credit-keyword-count" type="number" min="1" max="50000" value="20" /></label>
+          <label
+            >取得深度<select id="public-credit-depth">
+              <option>30</option>
+              <option>40</option>
+              <option>50</option>
+              <option>60</option>
+              <option>70</option>
+              <option>80</option>
+              <option>90</option>
+              <option>100</option>
+            </select></label
+          >
+          <label>URL数<input id="public-credit-url-count" type="number" min="1" max="100" value="1" /></label>
+          <label><input id="public-credit-difficulty" type="checkbox" /> SEO難易度</label>
+          <button id="public-credit-estimate" type="button">クレジット見積</button>
+        </div>
+        <div id="public-credit-estimate-result" class="notice">
+          <span>provider credit専用。累計5米ドル予算へは加算せず、有料取得も実行しません。</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>機能</th>
+                <th>operation</th>
+                <th>API credit</th>
+                <th>台帳記載</th>
+              </tr>
+            </thead>
+            <tbody id="public-credit-contract-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>公開API operation / lifecycle逆引き</h3>
+          <p>24 operationの入力・出力schema、認証、同期/非同期、明示された依存経路、鮮度注意を保持OpenAPIから完全抽出します</p>
+        </div>
+        <div id="public-contract-freshness-metrics" class="metrics"></div>
+        <div id="public-operation-graph-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>operation</th>
+                <th>method / path</th>
+                <th>role / contract</th>
+                <th>request fields</th>
+                <th>response schemas</th>
+                <th>実行・鮮度</th>
+                <th>digest</th>
+              </tr>
+            </thead>
+            <tbody id="public-operation-graph-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>operation別・取得／保持マトリクス</h3>
+          <p>response fieldを保持済みDB target・未取得・1:1未対応・wire shapeへ分離し、取得後に捨てる可能性と未取得を混同しません</p>
+        </div>
+        <div id="public-retention-matrix-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>operation</th>
+                <th>保持mapping</th>
+                <th>payload未取得</th>
+                <th>実行meta / 未mapping</th>
+                <th>contract shape</th>
+                <th>HELIX target</th>
+                <th>digest</th>
+              </tr>
+            </thead>
+            <tbody id="public-retention-matrix-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>upstream来歴・変換仮説監査</h3>
+          <p>field signatureと保持証拠から候補upstreamと変換工程を較正します。契約対応が強くても内部実装の証明とは扱いません</p>
+        </div>
+        <div id="provider-provenance-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>operation</th>
+                <th>証拠状態</th>
+                <th>候補upstream</th>
+                <th>変換仮説</th>
+                <th>保持証拠</th>
+                <th>内部実装claim</th>
+                <th>digest</th>
+              </tr>
+            </thead>
+            <tbody id="provider-provenance-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>外部SEOデータfield対応監査</h3>
+          <p>全field occurrenceを保持対応・未取得・input非互換・contract shape・1:1未対応へ分類します。意味対応とwire互換を混同しません</p>
+        </div>
+        <div id="seo-tool-a-field-audit-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>schema</th>
+                <th>field</th>
+                <th>処遇</th>
+                <th>HELIX target</th>
+                <th>判定理由</th>
+                <th>field ID</th>
+              </tr>
+            </thead>
+            <tbody id="seo-tool-a-field-audit-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>SERP field利用監査</h3>
+          <p>rawで観測したfieldを施策接続・証拠専用・未分類へ完全分類し、booleanのtrue/falseを分離します</p>
+        </div>
+        <div id="serp-field-audit-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>raw leaf field</th>
+                <th>用途</th>
+                <th>観測</th>
+                <th>保存方式 / consumer</th>
+              </tr>
+            </thead>
+            <tbody id="serp-field-audit-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>元キーワード行lineage</h3>
+          <p>元台帳のsheet・row identityを潰さず、正規化階層・取得済みgroup・関連KW候補への接続と孤児を監査します</p>
+        </div>
+        <div id="keyword-lineage-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>元KW / source</th>
+                <th>処理</th>
+                <th>階層</th>
+                <th>施策group</th>
+                <th>関連候補</th>
+                <th>重複cohort</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="keyword-lineage-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>関連KW group境界</h3>
+          <p>同じ元行が複数groupへ提案された場合のscore差を示し、同点・僅差は自動割当せずレビューへ止めます</p>
+        </div>
+        <div id="related-boundary-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>関連KW</th>
+                <th>候補group</th>
+                <th>先頭候補</th>
+                <th>score差</th>
+                <th>境界判定</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="related-boundary-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>SERP鮮度シグナル</h3>
+          <p>上位10件の公開日時から鮮度分布を判定します。日時欠損を補完せず、取得範囲外の順位や更新要求を断定しません</p>
+        </div>
+        <div id="serp-freshness-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>日時coverage</th>
+                <th>中央値</th>
+                <th>新鮮 / 古い</th>
+                <th>判定</th>
+                <th>編集判断</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="serp-freshness-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>SERP表示証拠・品質ゲート</h3>
+          <p>表示属性のtrueだけを実測証拠として扱い、falseを需要なしの根拠にはしません。取得contractの不整合は施策へ渡す前に停止します</p>
+        </div>
+        <div id="serp-presentation-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>上位結果</th>
+                <th>動画 / 画像</th>
+                <th>featured / story</th>
+                <th>XPath種類</th>
+                <th>品質判定</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="serp-presentation-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>検索取得契約・比較適格性</h3>
+          <p>engine・地域・言語・device・OS・depthをfingerprint化し、request・response・再現URLが一致する結果だけを履歴比較へ渡します</p>
+        </div>
+        <div id="serp-contract-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>検索契約</th>
+                <th>response echo</th>
+                <th>結果 / 費用</th>
+                <th>比較適格性</th>
+                <th>不一致</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="serp-contract-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>SERP feature配置監査</h3>
+          <p>保持済みの表示枠について順位・ページ・配置を観測証拠として示します。クリック率や検索需要は推測しません</p>
+        </div>
+        <div id="serp-feature-placement-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>表示枠</th>
+                <th>順位</th>
+                <th>配置</th>
+                <th>要素</th>
+                <th>判定</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="serp-feature-placement-rows"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table class="acquisition-table">
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>status</th>
+                <th>処理時間</th>
+                <th>費用</th>
+                <th>items</th>
+                <th>検索結果概数</th>
+                <th>SERP feature</th>
+                <th>再現URL</th>
+              </tr>
+            </thead>
+            <tbody id="acquisition-health-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>provider費用台帳</h3>
+          <p>分析採用状態と分離し、差し替え済みtaskを含む全課金履歴を取得元・endpoint・task・raw digestまで追跡します。外部サービスのcredit換算なし／API key非保存です</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>取得日</th>
+                <th>provider</th>
+                <th>種別</th>
+                <th>endpoint</th>
+                <th>source</th>
+                <th>費用</th>
+                <th>証跡digest</th>
+              </tr>
+            </thead>
+            <tbody id="provider-cost-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>provider依存データ取得計画</h3>
+          <p>公式公開単価による見積です。実行直前にaccount単価を再確認し、明示live指定・credentials・承認上限が揃わなければ停止します</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>機能</th>
+                <th>状態</th>
+                <th>job</th>
+                <th>見積</th>
+                <th>coverage</th>
+                <th>未解決条件</th>
+              </tr>
+            </thead>
+            <tbody id="provider-plan-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>キーワード取得編成</h3>
+          <p>未取得元行を正規化重複でまとめ、記事判断を解消する順にplan-only batchへ編成します。現在価格の再確認と承認前には送信しません</p>
+        </div>
+        <div id="keyword-acquisition-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>batch</th>
+                <th>候補</th>
+                <th>判断優先</th>
+                <th>概算</th>
+                <th>lifecycle</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="keyword-acquisition-batches"></tbody>
+          </table>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>候補KW</th>
+                <th>優先根拠</th>
+                <th>元行</th>
+                <th>検索量</th>
+                <th>batch</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="keyword-acquisition-candidates"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>希少SERP featureのraw投影</h3>
+          <p>knowledge graph、people also search、画像、動画をpayload付きで保持します</p>
+        </div>
+        <div class="table-wrap">
+          <table class="special-feature-table">
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>feature</th>
+                <th>順位</th>
+                <th>タイトル</th>
+                <th>URL</th>
+              </tr>
+            </thead>
+            <tbody id="special-feature-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>raw取得台帳（再利用監査）</h3>
+          <p>保存済みsnapshotを現行分析・同一KW履歴・隣接intent・別scopeへ分類し、捨てずに処遇を明示します</p>
+        </div>
+        <div id="snapshot-reuse-metrics" class="metrics"></div>
+        <div class="subsection-head">
+          <h3>別corpus登録レビュー</h3>
+          <p>現サイト境界外の取得済みsnapshotを共有tokenで束ねます。site/groupへ自動割当せず、別corpus登録後に分析します</p>
+        </div>
+        <div id="isolated-corpus-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>corpus候補</th>
+                <th>共有theme</th>
+                <th>取得済みKW</th>
+                <th>SERP feature</th>
+                <th>契約</th>
+                <th>処遇</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="isolated-corpus-rows"></tbody>
+          </table>
+          <div id="isolated-corpus-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>競合ドメイン・ページ出現履歴</h3>
+          <p>同一KWの保持snapshotから継続・新規・消失、最良順位、観測内visibilityを集約します。観測depth外を圏外とは断定しません</p>
+        </div>
+        <div id="competitive-history-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>種別 / 対象</th>
+                <th>KW</th>
+                <th>状態</th>
+                <th>最良順位</th>
+                <th>URL数</th>
+                <th>visibility変化</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="competitive-history-rows"></tbody>
+          </table>
+          <div id="competitive-history-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>順位監視計画</h3>
+            <p>公開catalog名と、保持request・response echo・check URLで観測した数値code対応を別々に検証します。外部取得や自動登録は行いません</p>
+          </div>
+          <div class="filters">
+            <select id="rank-monitor-device" aria-label="順位監視端末">
+              <option value="desktop">desktop</option>
+              <option value="mobile">mobile</option></select
+            ><input id="rank-monitor-location-name" value="Japan" placeholder="公開地域名" aria-label="公開地域名" /><input id="rank-monitor-language-name" value="Japanese" placeholder="公開言語名" aria-label="公開言語名" /><input id="rank-monitor-location" inputmode="numeric" pattern="[0-9]*" placeholder="provider code（地域名とは別）" aria-label="provider location code" />
+          </div>
+        </div>
+        <div id="rank-monitor-plan-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>target</th>
+                <th>保持履歴</th>
+                <th>次回期限</th>
+                <th>観測契約</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="rank-monitor-plan-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head table-toolbar">
+          <div>
+            <h3>保持履歴のtarget順位track</h3>
+            <p>任意domain・URLを指定し、保存済みsnapshot内の順位上昇・下降・新規・消失を追跡します。外部取得は行いません</p>
+          </div>
+          <div class="filters">
+            <input id="snapshot-target" type="search" value="qiita.com" placeholder="domain または URL" aria-label="順位追跡target" /><select id="snapshot-target-mode" aria-label="target一致方法">
+              <option value="domain">domain一致</option>
+              <option value="url_prefix">URL前方一致</option>
+              <option value="exact_url">URL完全一致</option>
+            </select>
+          </div>
+        </div>
+        <div id="snapshot-target-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>target</th>
+                <th>KW</th>
+                <th>前回</th>
+                <th>現在</th>
+                <th>変化</th>
+                <th>観測期間</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="snapshot-target-rows"></tbody>
+          </table>
+          <div id="snapshot-target-empty" class="empty-state"></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>同一KW履歴</th>
+                <th>観測間隔</th>
+                <th>URL重複</th>
+                <th>新規 / 消失</th>
+                <th>順位・title変化</th>
+                <th>feature差分</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="snapshot-history-rows"></tbody>
+          </table>
+          <div id="snapshot-history-empty" class="empty-state"></div>
+        </div>
+        <div class="table-wrap">
+          <table class="raw-inventory-table">
+            <thead>
+              <tr>
+                <th>対象KW</th>
+                <th>取得dataset</th>
+                <th>取得日時</th>
+                <th>費用</th>
+                <th>SERP feature</th>
+                <th>再利用判定</th>
+              </tr>
+            </thead>
+            <tbody id="raw-inventory-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="market-data" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>検索市場・獲得キーワード</h2>
+            <p>最新volume、4年月次、CPC、広告競合度、SEO難易度と、Labs全rank DBの獲得KWを分離表示します</p>
+          </div>
+          <div class="filters">
+            <input id="market-data-search" type="search" placeholder="KW・意図・URL検索" aria-label="市場データ検索" />
+          </div>
+        </div>
+        <div id="market-data-metrics" class="metrics"></div>
+        <div id="market-data-pending" class="empty-state"></div>
+        <div class="subsection-head">
+          <h3>キーワード市場指標</h3>
+          <p>検索量0とprovider未返却を区別し、年月別観測数を表示します</p>
+        </div>
+        <div class="table-wrap">
+          <table class="market-keyword-table">
+            <thead>
+              <tr>
+                <th>キーワード</th>
+                <th>最新volume</th>
+                <th>SEO難易度</th>
+                <th>CPC</th>
+                <th>広告競合度</th>
+                <th>月次履歴</th>
+                <th>更新状態</th>
+              </tr>
+            </thead>
+            <tbody id="market-keyword-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>自ドメイン獲得キーワード</h3>
+          <p>Labsの検索意図、順位、URL、ETV、順位変化を表示します</p>
+        </div>
+        <div class="table-wrap">
+          <table class="market-ranked-table">
+            <thead>
+              <tr>
+                <th>獲得KW</th>
+                <th>意図</th>
+                <th>順位</th>
+                <th>URL</th>
+                <th>volume</th>
+                <th>ETV</th>
+                <th>順位変化</th>
+              </tr>
+            </thead>
+            <tbody id="market-ranked-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>観測獲得キーワード逆引き</h3>
+          <p>保持済み上位10だけをhost・directory・page単位で逆引きします。全rank DB、推定traffic、圏外判定ではありません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>scope</th>
+                <th>対象</th>
+                <th>獲得KW</th>
+                <th>最良順位</th>
+                <th>観測</th>
+                <th>境界</th>
+              </tr>
+            </thead>
+            <tbody id="observed-ranked-keyword-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>観測獲得キーワード履歴</h3>
+          <p>同一検索契約の2時点をhost・directory・page別に集約します。消失は圏外断定ではありません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>scope</th>
+                <th>対象</th>
+                <th>継続</th>
+                <th>新規</th>
+                <th>消失</th>
+                <th>keyword履歴</th>
+              </tr>
+            </thead>
+            <tbody id="observed-ranked-keyword-history-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="site-portfolio" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>サイト横断ポートフォリオ</h2>
+            <p>同じ定義でKW・取得率・記事・競合・質問・費用を比較します。未登録サイトは0件として作らず、母集団外です</p>
+          </div>
+          <div class="filters">
+            <input id="portfolio-search" type="search" placeholder="サイト名・domain検索" aria-label="サイト比較検索" />
+          </div>
+        </div>
+        <div id="portfolio-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>サイト</th>
+                <th>元KW</th>
+                <th>SERP取得</th>
+                <th>group</th>
+                <th>task</th>
+                <th>WP記事</th>
+                <th>GSC query</th>
+                <th>競合page</th>
+                <th>質問候補</th>
+                <th>provider費用</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="portfolio-rows"></tbody>
+          </table>
+          <div id="portfolio-empty" class="empty-state"></div>
+        </div>
+        <div class="subsection-head">
+          <h3>観測サイトdirectory</h3>
+          <p>保持SERP内で観測したdomainだけを、獲得KW・順位・content取得・2時点履歴付きで検索します。未知Web全体の検索ではありません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>domain</th>
+                <th>獲得KW</th>
+                <th>page</th>
+                <th>最良順位</th>
+                <th>content</th>
+                <th>履歴</th>
+              </tr>
+            </thead>
+            <tbody id="observed-site-directory-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>観測domain類似graph</h3>
+          <p>共有KW・group・順位重みで比較します。全検索市場を分母にした競合率ではありません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>domain pair</th>
+                <th>共有KW</th>
+                <th>KW Jaccard</th>
+                <th>共有group</th>
+                <th>順位重み</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="observed-site-similarity-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>観測近傍KW機会review</h3>
+          <p>対象domainを保持深度内で観測できず、類似domainには観測されたKWです。圏外・未保有・traffic機会の断定ではありません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>近傍domain</th>
+                <th>最良順位</th>
+                <th>group</th>
+                <th>review経路</th>
+                <th>証跡境界</th>
+              </tr>
+            </thead>
+            <tbody id="observed-site-keyword-opportunity-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>観測機会の記事施策routing</h3>
+          <p>機会候補を既存記事拡張または新規記事reviewへ接続し、公開blockerを表示します。自動編集・自動公開はありません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>施策review</th>
+                <th>group</th>
+                <th>記事</th>
+                <th>公開状態</th>
+                <th>blocker / 証跡</th>
+              </tr>
+            </thead>
+            <tbody id="observed-keyword-content-routing-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>既存記事coverage gate</h3>
+          <p>title・見出し・GSC queryの保持証拠を先に確認し、観測順位がないだけで追記候補にしません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>coverage状態</th>
+                <th>review action</th>
+                <th>記事coverage</th>
+                <th>query / heading</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="observed-opportunity-content-coverage-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>新規記事topology gate</h3>
+          <p>新規記事候補を既存記事・計画groupとのSERP topologyで確認します。カニバリ断定や自動作成はしません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>keyword</th>
+                <th>review action</th>
+                <th>topology</th>
+                <th>既存記事</th>
+                <th>計画group</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="new-article-topology-gate-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>記事単位の新規brief queue</h3>
+          <p>同一groupの複数KWを1記事briefへまとめ、title・outline・公開blockerを接続します。記事作成はしません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>group / KW</th>
+                <th>title</th>
+                <th>outline</th>
+                <th>composition</th>
+                <th>公開blocker</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="new-article-brief-queue-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>新規記事citation suitability gate</h3>
+          <p>保持引用候補をsource要件と照合します。SERP候補は一次source・独立性の証明なしに承認しません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>claim</th>
+                <th>source要件</th>
+                <th>候補URL</th>
+                <th>source分類</th>
+                <th>suitability</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="new-article-citation-suitability-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>新規記事source discovery manifest</h3>
+          <p>保持引用候補がないclaimだけを記事単位で束ねます。価格未確定・予算未配分・明示承認なしのため実行しません</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>group</th>
+                <th>claim / P0</th>
+                <th>source要件</th>
+                <th>選択query</th>
+                <th>予算状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="new-article-source-discovery-rows"></tbody>
+          </table>
+        </div>
+        <div class="subsection-head">
+          <h3>優先claim公開source evidence</h3>
+          <p>P0/P1/P2 claimを無料の公開情報で確認します。文脈候補や該当なしを根拠充足として扱いません</p>
+        </div>
+        <div id="new-article-public-source-evidence-metrics" class="metrics"></div>
+        <h3>直接支持sourceの編集判断</h3>
+        <p class="section-note">直接支持の観測だけでは承認しません。source identity・source要件・claim直接支持を人手確認し、判断JSONをdry-run importerへ渡します。</p>
+        <div id="public-source-review-metrics" class="metrics"></div>
+        <div class="editorial-review-toolbar">
+          <label>レビュアー識別子<input id="public-source-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列" /></label><button id="public-source-review-export" class="detail-button" type="button">source判断JSONを出力</button><span id="public-source-review-export-status" role="status">入力0件</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>claim</th>
+                <th>source</th>
+                <th>要件</th>
+                <th>進捗</th>
+                <th>安全確認</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="public-source-review-rows"></tbody>
+          </table>
+        </div>
+        <div class="editorial-review-toolbar">
+          <label>レビュアー識別子<input id="safe-revision-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列" /></label><button id="safe-revision-export" class="detail-button" type="button">安全revision判断JSONを出力</button><span id="safe-revision-export-status" role="status">入力0件</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>claim</th>
+                <th>query</th>
+                <th>観測結果</th>
+                <th>source</th>
+                <th>直接支持</th>
+                <th>安全な編集scope</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="new-article-public-source-evidence-rows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="internal-links" class="view">
+        <div class="section-head">
+          <div>
+            <h2>内部リンクマップ</h2>
+            <p>WordPress本文を保存せず抽出した実測リンク。記事間リンク、孤立記事、ハブ、section・anchorを表示します</p>
+          </div>
+        </div>
+        <div id="link-map-metrics" class="metrics"></div>
+        <div id="link-map" class="map-empty"></div>
+        <div class="subsection-head">
+          <h3>本文非保持の段落構造</h3>
+          <p>本文文字列を保存せず、記事別の段落数・要素種別・文字数・section接続を監査します</p>
+        </div>
+        <div id="paragraph-structure-metrics" class="metrics"></div>
+        <div id="paragraph-structure-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <h3>公開SEO head監査</h3>
+          <p>canonical・indexability・title/description・OG・JSON-LDを公開HTML非保持で検査します</p>
+        </div>
+        <div id="seo-audit-metrics" class="metrics"></div>
+        <div id="seo-audit-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <h3>sitemap公開URL母集団</h3>
+          <p>WP postsだけでは落ちるhome・固定ページ・HTML sitemapを、GSC・SEO head・実測内部リンクとの接続状態で表示します</p>
+        </div>
+        <div id="surface-metrics" class="metrics"></div>
+        <div id="surface-table" class="table-wrap"></div>
+        <div class="subsection-head">
+          <h3>根拠付き内部リンク候補</h3>
+          <p>実測リンクが存在しない確定記事ペアだけを、SERP同時ランクとKW語彙から提案します。自動追加はしません</p>
+        </div>
+        <div id="simultaneous-rank-metrics" class="metrics"></div>
+        <div id="link-opportunity-map" class="table-wrap"></div>
+      </section>
+    </main>
+
+    <dialog id="detail-dialog">
+      <div class="dialog-head"><span>判定詳細</span><button id="detail-close" type="button" aria-label="閉じる">×</button></div>
+      <div class="detail" id="group-detail" aria-live="polite"></div>
+    </dialog>
+    <dialog id="site-dialog">
+      <div class="dialog-head"><span>サイト一覧</span><button id="site-close" type="button" aria-label="閉じる">×</button></div>
+      <div class="site-directory">
+        <input id="site-search" type="search" placeholder="サイト名・ドメインで検索" aria-label="サイト検索" />
+        <div id="site-list"></div>
       </div>
-      <div class="table-wrap">
-        <table><thead><tr><th>親カテゴリー</th><th id="query-category-child-head">子カテゴリー</th><th id="query-category-grandchild-head">孫カテゴリー</th><th>記事</th><th>WP ID</th><th>主クエリ</th><th>表示回数</th><th>クリック</th><th>平均掲載順位</th><th>獲得数</th><th>取得期間</th><th></th></tr></thead><tbody id="query-rows"></tbody></table>
-        <div id="query-empty" class="empty-state"></div>
-        <div id="query-pagination" class="pagination" aria-live="polite"></div>
-      </div>
-    </section>
+    </dialog>
+    <dialog id="query-detail-dialog">
+      <div class="dialog-head"><span>記事の獲得クエリ</span><button id="query-detail-close" type="button" aria-label="閉じる">×</button></div>
+      <div class="query-detail" id="query-detail" aria-live="polite"></div>
+    </dialog>
 
-    <section id="content-plans" class="view">
-      <div class="section-head">
-        <div><h2>根拠付きコンテンツ設計</h2><p>PAA・関連検索の実測値から、タイトルと見出しの候補を生成。すべて提案状態で、自動承認はしません</p></div>
-        <span class="proposal-warning">提案のみ・未承認</span>
-      </div>
-      <div id="content-plan-metrics" class="metrics"></div>
-      <div class="subsection-head"><div><h3>生成provenance台帳</h3><p>タイトル・見出し・質問・関連語・本文packageを横断し、決定論処理、観測値の転記、モデル未実行を区別します。有料生成や自動承認は行いません</p></div></div>
-      <div id="generation-provenance-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>artifact</th><th>種別</th><th>生成方式</th><th>実行状態</th><th>model / 費用</th><th>review</th><th>証跡</th></tr></thead><tbody id="generation-provenance-rows"></tbody></table></div>
-      <h3>本文generation実行manifest</h3><p class="section-note">prompt・出力schema・token上限・model価格・累計$5予算を実行前に固定します。現在はモデル未選択・価格未確認・生成予算未配分のため停止中です。</p>
-      <div id="generation-manifest-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>記事群 / request</th><th>prompt契約</th><th>model</th><th>token上限</th><th>最大費用</th><th>停止条件</th><th>証跡</th></tr></thead><tbody id="generation-manifest-rows"></tbody></table></div>
-      <h3>5機能 LLM challenger manifest</h3><p class="section-note">タイトル・見出し・質問・関連語・KW提案を、既存の決定論baselineと盲検比較する契約です。model・価格・生成予算・明示承認が揃うまで実行しません。</p>
-      <div id="generation-challenger-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>記事群 / 機能</th><th>baseline / 根拠</th><th>prompt / schema</th><th>model / 費用</th><th>盲検評価</th><th>停止条件</th><th>証跡</th></tr></thead><tbody id="generation-challenger-rows"></tbody></table></div>
-      <h3>累計$5 再配分scenario</h3><p class="section-note">生成検証へ予約枠を置いた場合に、現行の取得候補から何件・何ドルを延期する必要があるかを比較します。再配分や実行は行いません。</p>
-      <div id="paid-budget-scenario-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>scenario</th><th>生成予約</th><th>取得枠 / 選択</th><th>延期機会費用</th><th>優先度影響</th><th>生成可能件数</th><th>状態 / 証跡</th></tr></thead><tbody id="paid-budget-scenario-rows"></tbody></table></div>
-      <h3>観測format由来 rich block計画</h3><p class="section-note">比較表・求人一覧・画像・動画・定義などを、観測済みSERP formatから記事sectionへ接続します。source dataと編集承認がないpayloadは生成・挿入しません。</p>
-      <div id="rich-block-plan-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>記事群 / section</th><th>format</th><th>block</th><th>必須field</th><th>観測根拠</th><th>状態</th><th>証跡</th></tr></thead><tbody id="rich-block-plan-rows"></tbody></table></div>
-      <div class="subsection-head"><div><h3>複数証拠ensemble選定差分</h3><p>需要履歴・競合継続性・SERP形態・品質・証拠解決を合成し、現在選定と推奨順位の差だけをレビューします。自動差し替えはしません</p></div></div>
-      <div id="ensemble-selection-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>記事群 / 種別</th><th>現在</th><th>推奨</th><th>score差</th><th>主な根拠</th><th>tradeoff</th><th>証跡</th></tr></thead><tbody id="ensemble-selection-rows"></tbody></table></div>
-      <h3>盲検編集A/Bレビュー</h3><p class="section-note">A/Bのどちらが現行・推奨か、内部scoreと順位情報を隠して比較します。入力はJSON出力だけで、自動反映しません。</p>
-      <div class="editorial-review-toolbar"><label>レビュアー識別子<input id="editorial-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列"></label><button id="editorial-review-export" class="detail-button" type="button">採点JSONを出力</button><span id="editorial-review-export-status" role="status">入力0件</span></div>
-      <div id="editorial-review-metrics" class="metrics"></div><div class="table-wrap"><table><thead><tr><th>対象 / 種別</th><th>Option A</th><th>Option B</th><th>評価rubric</th><th>採点</th><th>holdout状態</th><th>証跡</th></tr></thead><tbody id="editorial-review-rows"></tbody></table></div>
-      <div class="subsection-head table-toolbar"><div><h3>タイトル候補・競合比較</h3><p>候補品質と、上位タイトルの文字数・主KW位置・疑問形・数字・括弧・区切りの実測分布を比較。順位効果は推測せず、自動承認しません</p></div><div class="filters"><input id="title-analysis-search" type="search" placeholder="タイトル・主KW・カテゴリ検索" aria-label="タイトル候補検索"><select id="title-analysis-state" aria-label="タイトル品質状態"><option value="all">全品質状態</option><option value="ready">ready</option><option value="needs_review">要確認</option><option value="blocked">blocked</option></select><select id="title-analysis-source" aria-label="タイトル根拠種別"><option value="all">全根拠</option><option value="serp_demand">SERP需要</option><option value="competitor_term">競合共起語</option></select></div></div>
-      <div id="title-analysis-metrics" class="metrics"></div>
-      <div class="table-wrap"><table class="title-analysis-table"><thead><tr><th>候補 / 記事群</th><th>選定</th><th>品質</th><th>文字数</th><th>根拠</th><th>競合タイトル基準</th><th>類似・issue</th></tr></thead><tbody id="title-analysis-rows"></tbody></table><div id="title-analysis-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><div><h3>タイトル修正候補</h3><p>保持済み需要と観測タイトルの形態範囲から、編集レビュー用のHELIX候補を再構成。競合タイトルのコピー・順位効果の推定・自動承認はしません</p></div></div>
-      <div id="title-repair-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>元候補</th><th>修正候補</th><th>文字数 / 実測IQR</th><th>需要根拠</th><th>状態</th><th>証跡</th></tr></thead><tbody id="title-repair-rows"></tbody></table></div>
-      <div class="subsection-head table-toolbar"><div><h3>H2/H3アウトライン選定</h3><p>571候補を品質・根拠強度で選び、H3を共有証拠→文字trigram近似の順でH2へ接続。共有証拠・trigram・包含が全て0の候補とblocked候補は本文生成packageへ渡しません</p></div><div class="filters"><input id="outline-analysis-search" type="search" placeholder="主KW・見出し検索" aria-label="アウトライン検索"><select id="outline-analysis-status" aria-label="アウトライン状態"><option value="all">全状態</option><option value="outline_ready">outline ready</option><option value="blocked">blocked</option></select></div></div>
-      <div id="outline-analysis-metrics" class="metrics"></div>
-      <div class="table-wrap"><table class="outline-analysis-table"><thead><tr><th>記事群</th><th>状態</th><th>選定 / 候補</th><th>H2/H3</th><th>根拠</th><th>階層アウトライン</th></tr></thead><tbody id="outline-analysis-rows"></tbody></table><div id="outline-analysis-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>生成見出し・SERP構造監査</h3><p>H2/H3別の文字数・疑問形・数字・括弧とページ当たり構成を実測比較します。上位構造と順位効果の因果は推測しません</p></div>
-      <div id="heading-pattern-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>見出し候補</th><th>階層</th><th>文字数 / 実測IQR</th><th>観測母数</th><th>pattern判定</th><th>証跡</th></tr></thead><tbody id="heading-pattern-rows"></tbody></table></div>
-      <div class="subsection-head"><div><h3>見出し修正候補</h3><p>形態監査で要確認となった候補だけを、意味保持の人手確認を前提に再構成。競合見出しのコピー・順位効果の推定・自動承認はしません</p></div></div>
-      <div id="heading-repair-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>元候補</th><th>修正候補</th><th>階層 / 文字数</th><th>元issue</th><th>状態</th><th>証跡</th></tr></thead><tbody id="heading-repair-rows"></tbody></table></div>
-      <div class="subsection-head table-toolbar"><div><h3>タイトル・見出し意味カバレッジ</h3><p>記事群の主KWから公開意味graphを保有キーワードへ逆引きし、既存候補のcoverageとreview-only追加案を確認します。意味pathは曖昧性review用で、必須トピック・需要・順位要因とは扱いません</p></div><div class="filters"><select id="semantic-coverage-group" aria-label="記事群"></select><select id="semantic-coverage-view" aria-label="表示"><option value="coverage">既存候補coverage</option><option value="expansions">意味path追加案</option><option value="resolution">証拠解消queue</option><option value="tasks">概念別review task</option></select><select id="semantic-coverage-type" aria-label="候補種別"><option value="all">タイトル＋見出し</option><option value="title">タイトル</option><option value="heading">見出し</option></select><select id="semantic-coverage-state" aria-label="意味coverage状態"><option value="all">全状態</option><option value="semantic_concept_observed">概念あり</option><option value="no_semantic_concept_match">概念一致なし</option><option value="no_graph_evidence">graph証拠なし</option><option value="editor_review_required">group直接証拠あり</option><option value="blocked_no_direct_group_support">直接group証拠なし</option></select></div></div>
-      <div id="semantic-coverage-metrics" class="metrics"></div>
-      <div id="semantic-resolution-toolbar" class="editorial-review-toolbar" hidden><label>レビュアー識別子<input id="semantic-resolution-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列"></label><button id="semantic-resolution-export" class="detail-button" type="button">意味判断JSONを出力</button><span id="semantic-resolution-export-status" role="status">入力0件</span></div>
-      <div class="table-wrap"><table><thead><tr><th>候補</th><th>種別</th><th>包含概念</th><th>未包含review</th><th>状態</th><th>証跡</th></tr></thead><tbody id="semantic-coverage-rows"></tbody></table><div id="semantic-coverage-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><div><h3>記事公開readiness</h3><p>タイトル・見出し・記事境界・安全修正の編集判断・手動反映・claim検証・引用承認を記事群単位で集約。候補生成や修正案の承認だけを公開可能とは扱いません</p></div></div>
-      <div id="content-readiness-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>記事群</th><th>公開状態</th><th>停止条件</th><th>編集review</th><th>gate内訳</th><th>証跡</th></tr></thead><tbody id="content-readiness-rows"></tbody></table></div>
-      <div class="subsection-head"><div><h3>claim検証キュー</h3><p>本文の実質claimをリスク別に並べ、必要な情報源と既存証拠を明示。検索結果の観測証拠を事実確認済みとは扱いません</p></div></div>
-      <div id="claim-verification-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>優先度</th><th>claim / 論点</th><th>必要な情報源</th><th>保持証拠</th><th>検証状態</th><th>証跡</th></tr></thead><tbody id="claim-verification-rows"></tbody></table></div>
-      <div class="subsection-head"><div><h3>一次情報探索portfolio</h3><p>claimごとに最初の探索queryを1本へ絞り、P0から100件単位で編成。代替queryは保持しつつ初回重複探索を避け、実行・課金は行いません</p></div></div>
-      <div id="claim-discovery-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>batch</th><th>件数</th><th>優先度</th><th>費用</th><th>状態</th><th>証跡</th></tr></thead><tbody id="claim-discovery-batches"></tbody></table></div>
-      <div class="table-wrap"><table><thead><tr><th>優先度</th><th>claim</th><th>選択query</th><th>情報源class</th><th>保持候補</th><th>状態</th></tr></thead><tbody id="claim-discovery-candidates"></tbody></table></div>
-      <div id="content-plan-list" class="content-plan-list" aria-live="polite"></div>
-    </section>
-
-    <section id="competitor-domains" class="view">
-      <div class="section-head table-toolbar">
-        <div><h2>SERP競合ドメイン横断分析</h2><p>上位10件の実測SERPから、複数キーワード・記事群を横断している競合を集計。推測値ではなく取得済みURLの証跡です</p></div>
-        <div class="filters"><input id="competitor-domain-search" type="search" placeholder="ドメイン・キーワード検索" aria-label="競合ドメイン検索"><select id="competitor-domain-target" aria-label="比較基準ドメイン"></select><select id="competitor-domain-scope" aria-label="競合範囲"><option value="all">全競合</option><option value="multi-keyword">複数KW獲得</option><option value="multi-group">複数記事群を横断</option></select></div>
-      </div>
-      <div class="subsection-head table-toolbar"><div><h3>SERP表示ブランド占有</h3><p>URLのdomainとは別にGoogle表示上のwebsite nameを集計。媒体内publisherとサイトbrandを分離します</p></div><div class="filters"><input id="brand-search" type="search" placeholder="ブランド・domain検索" aria-label="SERP表示ブランド検索"><select id="brand-kind"><option value="all">全identity</option><option value="site_brand">サイトbrand</option><option value="platform_publisher">媒体publisher</option></select></div></div>
-      <div id="brand-metrics" class="metrics"></div><div class="table-wrap"><table><thead><tr><th>表示brand / publisher</th><th>identity</th><th>出現</th><th>被覆KW</th><th>記事群</th><th>domain</th><th>Top3</th><th>最高順位</th><th>証跡</th></tr></thead><tbody id="brand-rows"></tbody></table><div id="brand-empty" class="empty-state"></div></div>
-      <div id="competitor-domain-metrics" class="metrics"></div>
-      <div class="table-wrap"><table class="competitor-domain-table"><thead><tr><th>競合ドメイン</th><th>獲得KW</th><th>重複KW</th><th>target基準率 / Jaccard</th><th>競合固有 / target固有</th><th>横断記事群</th><th>ランクURL</th><th>最高順位</th><th>被覆KWと順位</th></tr></thead><tbody id="competitor-domain-rows"></tbody></table><div id="competitor-domain-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>競合の獲得ページ</h3><p>同じ観測SERPをURL単位に集約。全rank DB由来の推定流入・集客価値は未取得のため表示しません</p></div>
-      <div class="table-wrap"><table class="competitor-page-table"><thead><tr><th>競合ページ</th><th>獲得KW</th><th>横断記事群</th><th>最高順位</th><th>主KW</th><th>被覆KWと順位</th></tr></thead><tbody id="competitor-page-rows"></tbody></table><div id="competitor-page-empty" class="empty-state"></div></div>
-      <div class="subsection-head table-toolbar"><div><h3>競合コンテンツ検索</h3><p>本文見出しに加え、SERPのtitle・description・pre-snippet・breadcrumb・sitelink・rating・price・日時・獲得KWを証拠scope付きで検索できます</p></div><div class="filters"><input id="competitor-content-search" type="search" placeholder="タイトル・見出し・SERP要素・KWを検索" aria-label="競合コンテンツ検索"><select id="competitor-content-target" aria-label="検索対象"><option value="all">すべて</option><option value="title">タイトルのみ</option><option value="heading">見出しのみ</option><option value="description">SERP説明文のみ</option><option value="pre-snippet">pre-snippetのみ</option><option value="breadcrumb">breadcrumbのみ</option><option value="sitelink">sitelinkのみ</option><option value="commerce">rating・priceのみ</option><option value="highlight">SERP強調語のみ</option><option value="freshness">公開日時のみ</option><option value="top-keyword">観測獲得KWのみ</option></select></div></div>
-      <div id="competitor-content-metrics" class="metrics"></div>
-      <div class="table-wrap"><table class="competitor-content-table"><thead><tr><th>競合ページ</th><th>最高順位</th><th>対象KW</th><th>一致した取得証跡</th></tr></thead><tbody id="competitor-content-rows"></tbody></table><div id="competitor-content-empty" class="empty-state"></div></div>
-      <div class="subsection-head table-toolbar"><div><h3>見出し構造分析</h3><p>取得済み上位10ページのH1〜H6、本文文字数、ページ別構造と平均値を実測。除外語は見出し行だけに適用し、本文を補完推測しません</p></div><div class="filters"><input id="headline-search" type="search" placeholder="見出しを検索" aria-label="見出し検索"><select id="headline-level" aria-label="見出し階層"><option value="all">H1〜H6</option><option value="1">H1</option><option value="2">H2</option><option value="3">H3</option><option value="4">H4</option><option value="5">H5</option><option value="6">H6</option></select><input id="headline-exclude" type="search" placeholder="除外語（カンマ区切り）" aria-label="見出し除外語"></div></div>
-      <div id="headline-metrics" class="metrics"></div>
-      <div class="table-wrap"><table class="headline-analysis-table"><thead><tr><th>順位 / ページ</th><th>本文文字数</th><th>見出し数</th><th>H1〜H6内訳</th><th>見出し構造</th></tr></thead><tbody id="headline-rows"></tbody></table><div id="headline-empty" class="empty-state"></div></div>
-    </section>
-
-    <section id="aio-citations" class="view">
-      <div class="section-head table-toolbar"><div><h2>AIO引用ギャップ</h2><p>AI Overview 68 containerのうち回答payload取得済み17件と非同期未回収51件を分離。取得済み参照URLだけを通常SERP上位10と照合します</p></div><div class="filters"><input id="aio-citation-search" type="search" placeholder="ドメイン・KW・引用タイトル検索" aria-label="AIO引用検索"></div></div>
-      <div id="aio-citation-metrics" class="metrics"></div>
-      <div class="subsection-head"><h3>AIO未回収taskの再取得計画</h3><p>元requestで非同期本文取得が未指定のplaceholderだけを再POST対象化。価格再確認前の自動送信・自動反映は行いません</p></div>
-      <div id="aio-completion-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW / task</th><th>method</th><th>追加課金</th><th>保持期限</th><th>状態</th><th>証跡</th></tr></thead><tbody id="aio-completion-rows"></tbody></table></div>
-      <div class="table-wrap"><table class="aio-domain-table"><thead><tr><th>引用ドメイン</th><th>引用KW</th><th>引用回数</th><th>引用URL</th><th>通常SERP同一domain</th><th>通常SERP最高順位</th></tr></thead><tbody id="aio-domain-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>引用URL証跡</h3><p>同一URL上位表示と同一ドメイン上位表示を別々に表示します</p></div>
-      <div class="table-wrap"><table class="aio-reference-table"><thead><tr><th>対象KW</th><th>引用元</th><th>引用タイトル</th><th>通常SERP</th></tr></thead><tbody id="aio-reference-rows"></tbody></table><div id="aio-citation-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>AIO回答の論点ギャップ</h3><p>AIOの見出し付き要素を、確認済みWordPress記事のタイトル・見出しへ厳格照合します</p></div>
-      <div class="table-wrap"><table class="aio-element-table"><thead><tr><th>対象KW</th><th>AIO論点</th><th>引用数</th><th>既存WP記事</th><th>AIO回答本文</th></tr></thead><tbody id="aio-element-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>AIO要素別source lineage</h3><p>各回答要素のreference・link・imageを保持し、全体reference一覧から省略されたelement-only引用をレビューします</p></div>
-      <div id="aio-lineage-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW / 論点</th><th>source状態</th><th>reference / link / image</th><th>出典</th><th>全体一覧照合</th><th>証跡</th></tr></thead><tbody id="aio-lineage-rows"></tbody></table></div>
-    </section>
-
-    <section id="acquisition-health" class="view">
-      <div class="section-head table-toolbar"><div><h2>取得状態・SERP feature</h2><p>DPB taskのstatus・処理時間・費用・check URLと、通常分析で落としやすいSERP featureを表示します</p></div><div class="filters"><input id="acquisition-search" type="search" placeholder="KW・feature・status検索" aria-label="取得状態検索"></div></div>
-      <div id="acquisition-health-metrics" class="metrics"></div>
-      <div class="subsection-head"><h3>取得request・payload充足監査</h3><p>requestで指定した拡張取得と実際の回答payloadを照合し、featureの枠だけを本文取得済みと誤認しません</p></div>
-      <div id="acquisition-contract-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW / task</th><th>request</th><th>AIO充足</th><th>PAA充足</th><th>費用</th><th>判定</th><th>証跡</th></tr></thead><tbody id="acquisition-contract-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>AIO・PAA統合再取得計画</h3><p>同じ元taskの不足を1回のrequestへ束ね、二重POSTと余分な費用を回避します。価格確認前には送信しません</p></div>
-      <div id="acquisition-remediation-metrics" class="metrics"></div>
-      <div id="acquisition-readiness" class="notice"></div>
-      <div id="acquisition-approval-manifest" class="notice"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW / task</th><th>補完対象</th><th>request</th><th>統合費用</th><th>個別計画との差</th><th>状態</th><th>証跡</th></tr></thead><tbody id="acquisition-remediation-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>生涯累計予算の横断配分</h3><p>全取得portfolioを1つの5 USD累計枠へ統合し、確定支出を控除して判断価値順に選択・延期します。計画のみで送信しません</p></div>
-      <div id="lifetime-allocation-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>source sheet</th><th>候補</th><th>選択</th><th>延期</th><th>選択率</th><th>優先度内訳</th></tr></thead><tbody id="lifetime-allocation-coverage"></tbody></table></div>
-      <div id="lifetime-allocation-manifest" class="notice"></div>
-      <div class="table-wrap"><table><thead><tr><th>immutable batch</th><th>機能</th><th>候補</th><th>優先度</th><th>最大費用</th><th>状態</th><th>証跡</th></tr></thead><tbody id="lifetime-allocation-batches"></tbody></table></div>
-      <div class="table-wrap"><table><thead><tr><th>優先 / 機能</th><th>対象</th><th>判断価値</th><th>単価</th><th>配分</th><th>累計</th><th>証跡</th></tr></thead><tbody id="lifetime-allocation-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>データ処遇台帳</h3><p>未取得・取得失敗・分析未接続・正規化統合・意図的非保持を分離し、欠損理由と是正方法を示します</p></div>
-      <div class="table-wrap"><table><thead><tr><th>dataset</th><th>処遇</th><th>観測</th><th>期待</th><th>差分</th><th>理由</th><th>是正</th><th>証跡</th></tr></thead><tbody id="data-disposition-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>SEO機能・完成監査</h3><p>実装の存在ではなく、実装・テスト証拠と残存gapを突き合わせます。gapが残る機能を完成扱いしません</p></div>
-      <div id="capability-audit-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>機能</th><th>完成判定</th><th>blocker</th><th>残存gap</th><th>権威証拠</th><th>digest</th></tr></thead><tbody id="capability-audit-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>Web / APIクレジット契約分離</h3><p>公開OpenAPIに明記されたAPI消費量をWeb版・HELIXローカル処理と混同せず照合します。表示だけで消費しません</p></div>
-      <div id="public-credit-contract-metrics" class="metrics"></div>
-      <div class="filters" id="public-credit-estimator-controls">
-        <label>調査<select id="public-credit-operation"><option value="search_volume">一括検索指標</option><option value="search_rank">順位取得</option><option value="bulk_site_research">一括サイト調査</option></select></label>
-        <label>キーワード数<input id="public-credit-keyword-count" type="number" min="1" max="50000" value="20"></label>
-        <label>取得深度<select id="public-credit-depth"><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option></select></label>
-        <label>URL数<input id="public-credit-url-count" type="number" min="1" max="100" value="1"></label>
-        <label><input id="public-credit-difficulty" type="checkbox"> SEO難易度</label>
-        <button id="public-credit-estimate" type="button">クレジット見積</button>
-      </div>
-      <div id="public-credit-estimate-result" class="notice"><span>provider credit専用。累計5米ドル予算へは加算せず、有料取得も実行しません。</span></div>
-      <div class="table-wrap"><table><thead><tr><th>機能</th><th>operation</th><th>API credit</th><th>台帳記載</th></tr></thead><tbody id="public-credit-contract-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>公開API operation / lifecycle逆引き</h3><p>24 operationの入力・出力schema、認証、同期/非同期、明示された依存経路、鮮度注意を保持OpenAPIから完全抽出します</p></div>
-      <div id="public-contract-freshness-metrics" class="metrics"></div>
-      <div id="public-operation-graph-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>operation</th><th>method / path</th><th>role / contract</th><th>request fields</th><th>response schemas</th><th>実行・鮮度</th><th>digest</th></tr></thead><tbody id="public-operation-graph-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>operation別・取得／保持マトリクス</h3><p>response fieldを保持済みDB target・未取得・1:1未対応・wire shapeへ分離し、取得後に捨てる可能性と未取得を混同しません</p></div>
-      <div id="public-retention-matrix-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>operation</th><th>保持mapping</th><th>payload未取得</th><th>実行meta / 未mapping</th><th>contract shape</th><th>HELIX target</th><th>digest</th></tr></thead><tbody id="public-retention-matrix-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>upstream来歴・変換仮説監査</h3><p>field signatureと保持証拠から候補upstreamと変換工程を較正します。契約対応が強くても内部実装の証明とは扱いません</p></div>
-      <div id="provider-provenance-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>operation</th><th>証拠状態</th><th>候補upstream</th><th>変換仮説</th><th>保持証拠</th><th>内部実装claim</th><th>digest</th></tr></thead><tbody id="provider-provenance-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>外部SEOデータfield対応監査</h3><p>全field occurrenceを保持対応・未取得・input非互換・contract shape・1:1未対応へ分類します。意味対応とwire互換を混同しません</p></div>
-      <div id="seo-tool-a-field-audit-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>schema</th><th>field</th><th>処遇</th><th>HELIX target</th><th>判定理由</th><th>field ID</th></tr></thead><tbody id="seo-tool-a-field-audit-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>SERP field利用監査</h3><p>rawで観測したfieldを施策接続・証拠専用・未分類へ完全分類し、booleanのtrue/falseを分離します</p></div>
-      <div id="serp-field-audit-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>raw leaf field</th><th>用途</th><th>観測</th><th>保存方式 / consumer</th></tr></thead><tbody id="serp-field-audit-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>元キーワード行lineage</h3><p>元台帳のsheet・row identityを潰さず、正規化階層・取得済みgroup・関連KW候補への接続と孤児を監査します</p></div>
-      <div id="keyword-lineage-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>元KW / source</th><th>処理</th><th>階層</th><th>施策group</th><th>関連候補</th><th>重複cohort</th><th>証跡</th></tr></thead><tbody id="keyword-lineage-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>関連KW group境界</h3><p>同じ元行が複数groupへ提案された場合のscore差を示し、同点・僅差は自動割当せずレビューへ止めます</p></div>
-      <div id="related-boundary-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>関連KW</th><th>候補group</th><th>先頭候補</th><th>score差</th><th>境界判定</th><th>証跡</th></tr></thead><tbody id="related-boundary-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>SERP鮮度シグナル</h3><p>上位10件の公開日時から鮮度分布を判定します。日時欠損を補完せず、取得範囲外の順位や更新要求を断定しません</p></div>
-      <div id="serp-freshness-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>日時coverage</th><th>中央値</th><th>新鮮 / 古い</th><th>判定</th><th>編集判断</th><th>証跡</th></tr></thead><tbody id="serp-freshness-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>SERP表示証拠・品質ゲート</h3><p>表示属性のtrueだけを実測証拠として扱い、falseを需要なしの根拠にはしません。取得contractの不整合は施策へ渡す前に停止します</p></div>
-      <div id="serp-presentation-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>上位結果</th><th>動画 / 画像</th><th>featured / story</th><th>XPath種類</th><th>品質判定</th><th>証跡</th></tr></thead><tbody id="serp-presentation-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>検索取得契約・比較適格性</h3><p>engine・地域・言語・device・OS・depthをfingerprint化し、request・response・再現URLが一致する結果だけを履歴比較へ渡します</p></div>
-      <div id="serp-contract-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>検索契約</th><th>response echo</th><th>結果 / 費用</th><th>比較適格性</th><th>不一致</th><th>証跡</th></tr></thead><tbody id="serp-contract-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>SERP feature配置監査</h3><p>保持済みの表示枠について順位・ページ・配置を観測証拠として示します。クリック率や検索需要は推測しません</p></div>
-      <div id="serp-feature-placement-summary" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>表示枠</th><th>順位</th><th>配置</th><th>要素</th><th>判定</th><th>証跡</th></tr></thead><tbody id="serp-feature-placement-rows"></tbody></table></div>
-      <div class="table-wrap"><table class="acquisition-table"><thead><tr><th>対象KW</th><th>status</th><th>処理時間</th><th>費用</th><th>items</th><th>検索結果概数</th><th>SERP feature</th><th>再現URL</th></tr></thead><tbody id="acquisition-health-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>provider費用台帳</h3><p>分析採用状態と分離し、差し替え済みtaskを含む全課金履歴を取得元・endpoint・task・raw digestまで追跡します。外部サービスのcredit換算なし／API key非保存です</p></div>
-      <div class="table-wrap"><table><thead><tr><th>取得日</th><th>provider</th><th>種別</th><th>endpoint</th><th>source</th><th>費用</th><th>証跡digest</th></tr></thead><tbody id="provider-cost-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>provider依存データ取得計画</h3><p>公式公開単価による見積です。実行直前にaccount単価を再確認し、明示live指定・credentials・承認上限が揃わなければ停止します</p></div>
-      <div class="table-wrap"><table><thead><tr><th>機能</th><th>状態</th><th>job</th><th>見積</th><th>coverage</th><th>未解決条件</th></tr></thead><tbody id="provider-plan-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>キーワード取得編成</h3><p>未取得元行を正規化重複でまとめ、記事判断を解消する順にplan-only batchへ編成します。現在価格の再確認と承認前には送信しません</p></div>
-      <div id="keyword-acquisition-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>batch</th><th>候補</th><th>判断優先</th><th>概算</th><th>lifecycle</th><th>証跡</th></tr></thead><tbody id="keyword-acquisition-batches"></tbody></table></div>
-      <div class="table-wrap"><table><thead><tr><th>候補KW</th><th>優先根拠</th><th>元行</th><th>検索量</th><th>batch</th><th>状態</th><th>証跡</th></tr></thead><tbody id="keyword-acquisition-candidates"></tbody></table></div>
-      <div class="subsection-head"><h3>希少SERP featureのraw投影</h3><p>knowledge graph、people also search、画像、動画をpayload付きで保持します</p></div>
-      <div class="table-wrap"><table class="special-feature-table"><thead><tr><th>対象KW</th><th>feature</th><th>順位</th><th>タイトル</th><th>URL</th></tr></thead><tbody id="special-feature-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>raw取得台帳（再利用監査）</h3><p>保存済みsnapshotを現行分析・同一KW履歴・隣接intent・別scopeへ分類し、捨てずに処遇を明示します</p></div>
-      <div id="snapshot-reuse-metrics" class="metrics"></div>
-      <div class="subsection-head"><h3>別corpus登録レビュー</h3><p>現サイト境界外の取得済みsnapshotを共有tokenで束ねます。site/groupへ自動割当せず、別corpus登録後に分析します</p></div>
-      <div id="isolated-corpus-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>corpus候補</th><th>共有theme</th><th>取得済みKW</th><th>SERP feature</th><th>契約</th><th>処遇</th><th>証跡</th></tr></thead><tbody id="isolated-corpus-rows"></tbody></table><div id="isolated-corpus-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>競合ドメイン・ページ出現履歴</h3><p>同一KWの保持snapshotから継続・新規・消失、最良順位、観測内visibilityを集約します。観測depth外を圏外とは断定しません</p></div>
-      <div id="competitive-history-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>種別 / 対象</th><th>KW</th><th>状態</th><th>最良順位</th><th>URL数</th><th>visibility変化</th><th>証跡</th></tr></thead><tbody id="competitive-history-rows"></tbody></table><div id="competitive-history-empty" class="empty-state"></div></div>
-      <div class="subsection-head table-toolbar"><div><h3>順位監視計画</h3><p>公開catalog名と、保持request・response echo・check URLで観測した数値code対応を別々に検証します。外部取得や自動登録は行いません</p></div><div class="filters"><select id="rank-monitor-device" aria-label="順位監視端末"><option value="desktop">desktop</option><option value="mobile">mobile</option></select><input id="rank-monitor-location-name" value="Japan" placeholder="公開地域名" aria-label="公開地域名"><input id="rank-monitor-language-name" value="Japanese" placeholder="公開言語名" aria-label="公開言語名"><input id="rank-monitor-location" inputmode="numeric" pattern="[0-9]*" placeholder="provider code（地域名とは別）" aria-label="provider location code"></div></div>
-      <div id="rank-monitor-plan-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>対象KW</th><th>target</th><th>保持履歴</th><th>次回期限</th><th>観測契約</th><th>状態</th><th>証跡</th></tr></thead><tbody id="rank-monitor-plan-rows"></tbody></table></div>
-      <div class="subsection-head table-toolbar"><div><h3>保持履歴のtarget順位track</h3><p>任意domain・URLを指定し、保存済みsnapshot内の順位上昇・下降・新規・消失を追跡します。外部取得は行いません</p></div><div class="filters"><input id="snapshot-target" type="search" value="qiita.com" placeholder="domain または URL" aria-label="順位追跡target"><select id="snapshot-target-mode" aria-label="target一致方法"><option value="domain">domain一致</option><option value="url_prefix">URL前方一致</option><option value="exact_url">URL完全一致</option></select></div></div>
-      <div id="snapshot-target-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>target</th><th>KW</th><th>前回</th><th>現在</th><th>変化</th><th>観測期間</th><th>証跡</th></tr></thead><tbody id="snapshot-target-rows"></tbody></table><div id="snapshot-target-empty" class="empty-state"></div></div>
-      <div class="table-wrap"><table><thead><tr><th>同一KW履歴</th><th>観測間隔</th><th>URL重複</th><th>新規 / 消失</th><th>順位・title変化</th><th>feature差分</th><th>証跡</th></tr></thead><tbody id="snapshot-history-rows"></tbody></table><div id="snapshot-history-empty" class="empty-state"></div></div>
-      <div class="table-wrap"><table class="raw-inventory-table"><thead><tr><th>対象KW</th><th>取得dataset</th><th>取得日時</th><th>費用</th><th>SERP feature</th><th>再利用判定</th></tr></thead><tbody id="raw-inventory-rows"></tbody></table></div>
-    </section>
-
-    <section id="market-data" class="view">
-      <div class="section-head table-toolbar"><div><h2>検索市場・獲得キーワード</h2><p>最新volume、4年月次、CPC、広告競合度、SEO難易度と、Labs全rank DBの獲得KWを分離表示します</p></div><div class="filters"><input id="market-data-search" type="search" placeholder="KW・意図・URL検索" aria-label="市場データ検索"></div></div>
-      <div id="market-data-metrics" class="metrics"></div><div id="market-data-pending" class="empty-state"></div>
-      <div class="subsection-head"><h3>キーワード市場指標</h3><p>検索量0とprovider未返却を区別し、年月別観測数を表示します</p></div>
-      <div class="table-wrap"><table class="market-keyword-table"><thead><tr><th>キーワード</th><th>最新volume</th><th>SEO難易度</th><th>CPC</th><th>広告競合度</th><th>月次履歴</th><th>更新状態</th></tr></thead><tbody id="market-keyword-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>自ドメイン獲得キーワード</h3><p>Labsの検索意図、順位、URL、ETV、順位変化を表示します</p></div>
-      <div class="table-wrap"><table class="market-ranked-table"><thead><tr><th>獲得KW</th><th>意図</th><th>順位</th><th>URL</th><th>volume</th><th>ETV</th><th>順位変化</th></tr></thead><tbody id="market-ranked-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>観測獲得キーワード逆引き</h3><p>保持済み上位10だけをhost・directory・page単位で逆引きします。全rank DB、推定traffic、圏外判定ではありません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>scope</th><th>対象</th><th>獲得KW</th><th>最良順位</th><th>観測</th><th>境界</th></tr></thead><tbody id="observed-ranked-keyword-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>観測獲得キーワード履歴</h3><p>同一検索契約の2時点をhost・directory・page別に集約します。消失は圏外断定ではありません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>scope</th><th>対象</th><th>継続</th><th>新規</th><th>消失</th><th>keyword履歴</th></tr></thead><tbody id="observed-ranked-keyword-history-rows"></tbody></table></div>
-    </section>
-
-    <section id="site-portfolio" class="view">
-      <div class="section-head table-toolbar"><div><h2>サイト横断ポートフォリオ</h2><p>同じ定義でKW・取得率・記事・競合・質問・費用を比較します。未登録サイトは0件として作らず、母集団外です</p></div><div class="filters"><input id="portfolio-search" type="search" placeholder="サイト名・domain検索" aria-label="サイト比較検索"></div></div>
-      <div id="portfolio-metrics" class="metrics"></div>
-      <div class="table-wrap"><table><thead><tr><th>サイト</th><th>元KW</th><th>SERP取得</th><th>group</th><th>task</th><th>WP記事</th><th>GSC query</th><th>競合page</th><th>質問候補</th><th>provider費用</th><th></th></tr></thead><tbody id="portfolio-rows"></tbody></table><div id="portfolio-empty" class="empty-state"></div></div>
-      <div class="subsection-head"><h3>観測サイトdirectory</h3><p>保持SERP内で観測したdomainだけを、獲得KW・順位・content取得・2時点履歴付きで検索します。未知Web全体の検索ではありません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>domain</th><th>獲得KW</th><th>page</th><th>最良順位</th><th>content</th><th>履歴</th></tr></thead><tbody id="observed-site-directory-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>観測domain類似graph</h3><p>共有KW・group・順位重みで比較します。全検索市場を分母にした競合率ではありません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>domain pair</th><th>共有KW</th><th>KW Jaccard</th><th>共有group</th><th>順位重み</th><th>証跡</th></tr></thead><tbody id="observed-site-similarity-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>観測近傍KW機会review</h3><p>対象domainを保持深度内で観測できず、類似domainには観測されたKWです。圏外・未保有・traffic機会の断定ではありません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>keyword</th><th>近傍domain</th><th>最良順位</th><th>group</th><th>review経路</th><th>証跡境界</th></tr></thead><tbody id="observed-site-keyword-opportunity-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>観測機会の記事施策routing</h3><p>機会候補を既存記事拡張または新規記事reviewへ接続し、公開blockerを表示します。自動編集・自動公開はありません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>keyword</th><th>施策review</th><th>group</th><th>記事</th><th>公開状態</th><th>blocker / 証跡</th></tr></thead><tbody id="observed-keyword-content-routing-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>既存記事coverage gate</h3><p>title・見出し・GSC queryの保持証拠を先に確認し、観測順位がないだけで追記候補にしません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>keyword</th><th>coverage状態</th><th>review action</th><th>記事coverage</th><th>query / heading</th><th>証跡</th></tr></thead><tbody id="observed-opportunity-content-coverage-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>新規記事topology gate</h3><p>新規記事候補を既存記事・計画groupとのSERP topologyで確認します。カニバリ断定や自動作成はしません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>keyword</th><th>review action</th><th>topology</th><th>既存記事</th><th>計画group</th><th>証跡</th></tr></thead><tbody id="new-article-topology-gate-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>記事単位の新規brief queue</h3><p>同一groupの複数KWを1記事briefへまとめ、title・outline・公開blockerを接続します。記事作成はしません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>group / KW</th><th>title</th><th>outline</th><th>composition</th><th>公開blocker</th><th>証跡</th></tr></thead><tbody id="new-article-brief-queue-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>新規記事citation suitability gate</h3><p>保持引用候補をsource要件と照合します。SERP候補は一次source・独立性の証明なしに承認しません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>claim</th><th>source要件</th><th>候補URL</th><th>source分類</th><th>suitability</th><th>証跡</th></tr></thead><tbody id="new-article-citation-suitability-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>新規記事source discovery manifest</h3><p>保持引用候補がないclaimだけを記事単位で束ねます。価格未確定・予算未配分・明示承認なしのため実行しません</p></div>
-      <div class="table-wrap"><table><thead><tr><th>group</th><th>claim / P0</th><th>source要件</th><th>選択query</th><th>予算状態</th><th>証跡</th></tr></thead><tbody id="new-article-source-discovery-rows"></tbody></table></div>
-      <div class="subsection-head"><h3>優先claim公開source evidence</h3><p>P0/P1/P2 claimを無料の公開情報で確認します。文脈候補や該当なしを根拠充足として扱いません</p></div>
-      <div id="new-article-public-source-evidence-metrics" class="metrics"></div>
-      <h3>直接支持sourceの編集判断</h3><p class="section-note">直接支持の観測だけでは承認しません。source identity・source要件・claim直接支持を人手確認し、判断JSONをdry-run importerへ渡します。</p>
-      <div id="public-source-review-metrics" class="metrics"></div>
-      <div class="editorial-review-toolbar"><label>レビュアー識別子<input id="public-source-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列"></label><button id="public-source-review-export" class="detail-button" type="button">source判断JSONを出力</button><span id="public-source-review-export-status" role="status">入力0件</span></div>
-      <div class="table-wrap"><table><thead><tr><th>claim</th><th>source</th><th>要件</th><th>進捗</th><th>安全確認</th><th>証跡</th></tr></thead><tbody id="public-source-review-rows"></tbody></table></div>
-      <div class="editorial-review-toolbar"><label>レビュアー識別子<input id="safe-revision-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列"></label><button id="safe-revision-export" class="detail-button" type="button">安全revision判断JSONを出力</button><span id="safe-revision-export-status" role="status">入力0件</span></div>
-      <div class="table-wrap"><table><thead><tr><th>claim</th><th>query</th><th>観測結果</th><th>source</th><th>直接支持</th><th>安全な編集scope</th><th>証跡</th></tr></thead><tbody id="new-article-public-source-evidence-rows"></tbody></table></div>
-    </section>
-
-    <section id="internal-links" class="view">
-      <div class="section-head">
-        <div><h2>内部リンクマップ</h2><p>WordPress本文を保存せず抽出した実測リンク。記事間リンク、孤立記事、ハブ、section・anchorを表示します</p></div>
-      </div>
-      <div id="link-map-metrics" class="metrics"></div><div id="link-map" class="map-empty"></div>
-      <div class="subsection-head"><h3>本文非保持の段落構造</h3><p>本文文字列を保存せず、記事別の段落数・要素種別・文字数・section接続を監査します</p></div>
-      <div id="paragraph-structure-metrics" class="metrics"></div><div id="paragraph-structure-table" class="table-wrap"></div>
-      <div class="subsection-head"><h3>公開SEO head監査</h3><p>canonical・indexability・title/description・OG・JSON-LDを公開HTML非保持で検査します</p></div>
-      <div id="seo-audit-metrics" class="metrics"></div>
-      <div id="seo-audit-table" class="table-wrap"></div>
-      <div class="subsection-head"><h3>sitemap公開URL母集団</h3><p>WP postsだけでは落ちるhome・固定ページ・HTML sitemapを、GSC・SEO head・実測内部リンクとの接続状態で表示します</p></div>
-      <div id="surface-metrics" class="metrics"></div>
-      <div id="surface-table" class="table-wrap"></div>
-      <div class="subsection-head"><h3>根拠付き内部リンク候補</h3><p>実測リンクが存在しない確定記事ペアだけを、SERP同時ランクとKW語彙から提案します。自動追加はしません</p></div>
-      <div id="simultaneous-rank-metrics" class="metrics"></div>
-      <div id="link-opportunity-map" class="table-wrap"></div>
-    </section>
-  </main>
-
-  <dialog id="detail-dialog">
-    <div class="dialog-head"><span>判定詳細</span><button id="detail-close" type="button" aria-label="閉じる">×</button></div>
-    <div class="detail" id="group-detail" aria-live="polite"></div>
-  </dialog>
-  <dialog id="site-dialog">
-    <div class="dialog-head"><span>サイト一覧</span><button id="site-close" type="button" aria-label="閉じる">×</button></div>
-    <div class="site-directory"><input id="site-search" type="search" placeholder="サイト名・ドメインで検索" aria-label="サイト検索"><div id="site-list"></div></div>
-  </dialog>
-  <dialog id="query-detail-dialog">
-    <div class="dialog-head"><span>記事の獲得クエリ</span><button id="query-detail-close" type="button" aria-label="閉じる">×</button></div>
-    <div class="query-detail" id="query-detail" aria-live="polite"></div>
-  </dialog>
-
-  <template id="empty-template"><div class="empty"><strong>該当データがありません</strong><span>フィルターを変更してください。</span></div></template>
-  <script type="module" src="app.js"></script>
-</body>
+    <template id="empty-template"
+      ><div class="empty"><strong>該当データがありません</strong><span>フィルターを変更してください。</span></div></template
+    >
+    <script type="module" src="app.js"></script>
+  </body>
 </html>

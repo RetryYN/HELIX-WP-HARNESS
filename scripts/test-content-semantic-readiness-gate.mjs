@@ -93,7 +93,7 @@ assert.equal(
     .resolved_editor_approved_for_consideration,
   1,
 );
-assert.equal(approved.policy, "content-readiness-oracle.v4");
+assert.equal(approved.policy, "content-readiness-oracle.v5");
 console.log(
   "content semantic readiness gate: OK (pending tasks fail closed, approved decisions retain packet lineage, no auto approval)",
 );

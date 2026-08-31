@@ -15,6 +15,7 @@ export function buildContentReadinessOracle(
   safeRevisionOracle = { rows: [] },
   manualRevisionPackets = { packets: [] },
   publicSourceReviewPacket = { items: [], summary: {} },
+  publicSourceCitationApplicationPackets = { packets: [], summary: {} },
 ) {
   const structureByGroup = new Map(
       structures.map((row) => [row.group_id, row]),
@@ -59,6 +60,12 @@ export function buildContentReadinessOracle(
       publicSourceReviewPacket.items ?? [],
       (row) => row.group_id,
     ),
+    publicSourceCitationPacketByGroup = new Map(
+      (publicSourceCitationApplicationPackets.packets ?? []).map((row) => [
+        row.group_id,
+        row,
+      ]),
+    ),
     rows = [];
   for (const group of groups.filter((row) => row.main_keyword)) {
     const structure = structureByGroup.get(group.id),
@@ -90,7 +97,10 @@ export function buildContentReadinessOracle(
       semanticTasks = semanticByGroup.get(group.id) ?? [],
       safeRevisions = safeRevisionsByGroup.get(group.id) ?? [],
       manualPacket = manualPacketByGroup.get(group.id),
-      publicSourceReviews = publicSourceReviewsByGroup.get(group.id) ?? [];
+      publicSourceReviews = publicSourceReviewsByGroup.get(group.id) ?? [],
+      publicSourceCitationPacket = publicSourceCitationPacketByGroup.get(
+        group.id,
+      );
     const semanticCounts = Object.fromEntries(
         [
           "unreviewed",
@@ -184,6 +194,17 @@ export function buildContentReadinessOracle(
         auto_approval: false,
         auto_apply: false,
         auto_publication: false,
+      },
+      publicSourceCitationApplicationLineage = {
+        packet_id: publicSourceCitationPacket?.packet_id ?? null,
+        packet_digest: publicSourceCitationPacket?.packet_digest ?? null,
+        placement_count: publicSourceCitationPacket?.placements?.length ?? 0,
+        body_text_unchanged:
+          publicSourceCitationPacket?.body_text_unchanged ?? true,
+        review_state: publicSourceCitationPacket?.review_state ?? null,
+        artifact_applied: false,
+        auto_apply: false,
+        auto_publication: false,
       };
     const gates = [
         {
@@ -197,6 +218,17 @@ export function buildContentReadinessOracle(
             publicSourceApprovedCount === publicSourceReviews.length
               ? `approved ${publicSourceApprovedCount} / eligible ${publicSourceReviews.length}; draft application required`
               : `approved ${publicSourceApprovedCount} / eligible ${publicSourceReviews.length}`,
+        },
+        {
+          gate: "public_source_citation_application",
+          state: !publicSourceReviews.length
+            ? "pass"
+            : publicSourceCitationPacket
+              ? "review_required"
+              : "blocked",
+          detail: publicSourceCitationPacket
+            ? `packet ${publicSourceCitationPacket.packet_id} unapplied; body unchanged ${publicSourceCitationPacket.body_text_unchanged}`
+            : "approved-only citation application packet unavailable",
         },
         {
           gate: "composition",
@@ -335,6 +367,8 @@ export function buildContentReadinessOracle(
         semantic_resolution: semanticLineage,
         evidence_safe_revision: safeRevisionLineage,
         public_source_review: publicSourceReviewLineage,
+        public_source_citation_application:
+          publicSourceCitationApplicationLineage,
         selected_title_repair_id: title?.repair_id ?? null,
         selected_heading_repair_ids: selectedRepairs.map(
           (row) => row.repair_id,
@@ -345,7 +379,7 @@ export function buildContentReadinessOracle(
         auto_approval: false,
         auto_publication: false,
         ranking_effect_inferred: false,
-        policy: "content-readiness-oracle.v4",
+        policy: "content-readiness-oracle.v5",
       };
     rows.push({ ...base, readiness_digest: digest(base) });
   }
