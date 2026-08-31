@@ -255,6 +255,16 @@ paths["/public-source-review-packet"] = {
     },
   },
 };
+paths["/public-source-citation-application-packets"] = {
+  get: {
+    operationId: "helix_public_source_citation_application_packets",
+    description:
+      "Approved-only citation placement proposals joined to exact retained claims and paragraphs; draft body remains unchanged and no artifact is applied or published.",
+    responses: {
+      200: { description: "Citation application packets or blocked reviews" },
+    },
+  },
+};
 paths["/evidence-safe-claim-reframes"] = {
   get: {
     operationId: "helix_evidence_safe_claim_reframes",
@@ -327,7 +337,7 @@ const openapi = {
   openapi: "3.1.0",
   info: {
     title: "HELIX SEO Research API",
-    version: "2.114.0",
+    version: "2.115.0",
     description:
       "Read-only, site-scoped retained SEO evidence. No endpoint triggers external acquisition. External operation IDs are mapping references, not contract compatibility claims.",
   },
@@ -4332,9 +4342,8 @@ export function routeResearchApi(pathname, url, data, db = null) {
           return {
             domain,
             keyword_count: domainKeywords.length,
-            group_count: new Set(
-              domainKeywords.flatMap((row) => row.group_ids),
-            ).size,
+            group_count: new Set(domainKeywords.flatMap((row) => row.group_ids))
+              .size,
             page_count: new Set(
               domainKeywords.flatMap((row) => row.observed_urls),
             ).size,
@@ -4775,6 +4784,30 @@ export function routeResearchApi(pathname, url, data, db = null) {
       auto_approval: false,
       auto_apply: false,
       auto_publication: false,
+    });
+  }
+  if (pathname === "/api/v1/public-source-citation-application-packets") {
+    const view = url.searchParams.get("view") ?? "packets",
+      oracle = site.public_source_citation_application_packets ?? {
+        packets: [],
+        blocked_reviews: [],
+        summary: {},
+      },
+      source = view === "blocked" ? oracle.blocked_reviews : oracle.packets,
+      rows = source.filter(
+        (row) => !query || norm(JSON.stringify(row)).includes(query),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      packet_set_digest: oracle.packet_set_digest,
+      filters: { q: url.searchParams.get("q") ?? "", view },
+      mutation_supported: false,
+      artifact_applied: false,
+      auto_approval: false,
+      auto_apply: false,
+      auto_publication: false,
+      external_acquisition_triggered: false,
     });
   }
   if (pathname === "/api/v1/evidence-safe-claim-reframes") {

@@ -1497,6 +1497,14 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 12件は3記事群の独立した `public_source_review_decision` gateへ接続する。未審査・非承認はblocked、全件承認後も本文への手動反映reviewを要求し、記事全体のclaim verification/citation approval gateを解除しない。
 - 現行DBは実reviewer判断0件で12/12未審査、記事公開解除0件である。API/MCP/UIは読み取り専用で、自動承認・自動反映・自動公開・追加外部取得・追加費用は0である。
 
+### 10.113 approved-only citation application packet（API 2.115 / SQLite v74）
+
+- `approved_for_claim_use` の公開source reviewだけを記事群単位へ集約し、保持draftのclaim・section・paragraphへ厳密に逆引きしたcitation配置候補を構成する。対応draftまたはlineageを解決できなければfail closedとする。
+- 次revision候補へcitation metadata、source evidence、citation IDを追加する一方、本文text/HTMLは変更しない。before/after、source revision、review・decision・evidence digest、paragraph配置をpacketへ固定する。
+- 現行DBは実reviewer承認0件のためpacket 0、blocked review 12である。API/MCP/UIは承認待ち理由を表示し、未審査sourceを適用候補へ混入させない。
+- packetが生成されても `public_source_citation_application` gateは手動review必須で、artifact未適用のままclaim verification、citation approval、publication reviewを継続する。自動適用・自動承認・自動公開・本文変更・追加費用は0である。
+- 画面ナビゲーションはデスクトップで左右分割し、左panelを190〜420pxでドラッグ・keyboard調整、折りたたみ、local保存できる。850px以下では従来の横scroll tabへ戻す。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

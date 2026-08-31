@@ -16,7 +16,7 @@ try {
     return routeResearchApi(url.pathname, url, data, db);
   };
   const all = request();
-  assert.equal(researchOpenApi.info.version, "2.114.0");
+  assert.equal(researchOpenApi.info.version, "2.115.0");
   assert.equal(all.status, 200);
   assert.equal(all.body.meta.total, 37);
   assert.equal(all.body.summary.acquisition_cost_usd, 0);
