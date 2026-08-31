@@ -5,17 +5,16 @@
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
-    "proven_complete_count": 0,
-    "incomplete_count": 35,
+    "proven_complete_count": 6,
+    "incomplete_count": 29,
     "evidence_integrity_pass_count": 35,
     "evidence_integrity_failure_count": 0,
     "missing_artifact_count": 0,
     "unresolved_verification_command_count": 0,
-    "execution_attested_capability_count": 0,
+    "execution_attested_capability_count": 6,
     "blocker_counts": {
       "contract_or_auth_parity": 2,
       "corpus_or_acquisition_depth": 16,
-      "execution_attestation_missing_or_stale": 6,
       "external_provider_or_account_data": 5,
       "generation_runtime_or_quality_oracle": 6
     }
@@ -1309,7 +1308,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 16,
-    "receipt_digest": "4826dd26816a78b92779ffd56a2655b07285bdf321a415958b13faf9f20a7077",
+    "receipt_digest": "7146d3d060e74ee873f848fb40258c388a09d6de6a592a33939927c6ece91e48",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -3360,12 +3359,10 @@
     {
       "capability_id": "synonyms",
       "name": "類語・同義語",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "人手で同義判定された公開日本語語彙11,753 pair・9,487語をversion 1.0、archive/file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語の両方向・部分検索をAPI/MCP/UIへ実装し、保有corpus 585語中206語・840 pairとの接続も監査。表記variant 921 cluster、共起association 1,636 edge、SERP文脈候補168 pairとは証拠種別を分離。辞書上の語対を記事文脈での無条件交換可能性とは扱わず全11,753 pairをcontext review必須、自動置換0。取得費用0",
       "authoritative_evidence": [
         "scripts/content-semantic-coverage-review.mjs",
@@ -3411,22 +3408,20 @@
         "missing_artifact_count": 0,
         "verification_command_count": 15,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "c4fc0c8b4368065fea5ee594587912d22b31bff8a9737db6569d3ef163953204",
         "command_set_digest": "04ef70ec7f3a6605521df9bdebb2dddab2fae744a2ee18b5edd67e9b8cf97276",
-        "attestation_digest": null
+        "attestation_digest": "95efa73e609883418f6e9f3c6d87c45b2bf05d2d98544074ae72140fdafe51f1"
       },
-      "evidence_digest": "52583605c6a1e0a184f1e82f6c03bbd833960ed8ccfa369cdfa3b52f3aaa9837"
+      "evidence_digest": "0c7243b7dbffb7a30fd8f5a03c8927a38873c2c7c13655499b04f978c78aaf8b"
     },
     {
       "capability_id": "associations",
       "name": "周辺語・連想語",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "公開日本語意味グラフの158,058 sense・93,834語・57,238 synset定義・21種115,295 direct edgeをversion 1.1、archive/派生3 file SHA-256、license、attribution付きでlosslessにSQLiteへ保持。任意語のexact/partial sense起点から有向edgeの正方向・逆方向意味を分離し、循環抑止・最大3階層・2,000 edge上限の探索をAPI/MCP/UIへ実装。保有corpus 585語中425語を意味graphへ接続。別系統として7,087 keyword document由来585基準語・1,636共起関係も保持し、semantic edge・共起・人手同義語を混同しない。意味graphから同義性・検索需要・順位因果・自動content変更を推論せず、取得費用0",
       "authoritative_evidence": [
         "scripts/content-semantic-coverage-review.mjs",
@@ -3472,12 +3467,12 @@
         "missing_artifact_count": 0,
         "verification_command_count": 15,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "c4fc0c8b4368065fea5ee594587912d22b31bff8a9737db6569d3ef163953204",
         "command_set_digest": "04ef70ec7f3a6605521df9bdebb2dddab2fae744a2ee18b5edd67e9b8cf97276",
-        "attestation_digest": null
+        "attestation_digest": "63efb6ee8a0d1122010994ddaf008b48e47592741a8a452ee31b3d2865d83640"
       },
-      "evidence_digest": "c828524ac0b562fd8007328d5f806ee574c0353592add9e67f687ea864de7b51"
+      "evidence_digest": "293740c5ca03b410cd7358472b69e65d7439d5583d305636f4733f2173050f2d"
     },
     {
       "capability_id": "qa_sites",
@@ -3596,12 +3591,10 @@
     {
       "capability_id": "quick_search",
       "name": "クイックサーチ",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "元KW、施策group、質問需要、類語連想、GSC記事、競合contentの6 source横断検索と各filter/treeへの遷移を実装。未取得provider datasetは検索対象外",
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
@@ -3620,22 +3613,20 @@
         "missing_artifact_count": 0,
         "verification_command_count": 2,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "aa003aa706303a96dfc609569a359ff2dfa4ed1d23af38a16cf43a246c472901",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": null
+        "attestation_digest": "77f642683e84542c81080a001cf08bf94327bdd0d8461ee64ff4e92e0f89cac3"
       },
-      "evidence_digest": "882b5c0f3f2435181975fb7d718ac6aaeffbb7d4d39ea96d8336ec20327013dc"
+      "evidence_digest": "6fe00ea621a5af9d71b901d5408c5013c23a6932ffc41f9de2d13430c262d26d"
     },
     {
       "capability_id": "auxiliary_tools",
       "name": "補助ツール",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "9操作を実装。地域生成は日本郵便2026-07-31版の47都道府県/1,892市区町村・郡町村と国交省2025年度版の9,046駅groupをarchive/evidence digest付きで使用",
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
@@ -3654,22 +3645,20 @@
         "missing_artifact_count": 0,
         "verification_command_count": 2,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "aa003aa706303a96dfc609569a359ff2dfa4ed1d23af38a16cf43a246c472901",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": null
+        "attestation_digest": "f9b5e57c9ccee25eb4d24ddb1a719588ae0affbcd55a4529cd254d234508d87a"
       },
-      "evidence_digest": "bcfc938cd60c135f13ea80d988d1a5b424e6f4fe29df693b3a251430038d0180"
+      "evidence_digest": "a702f601c5bf90af91a098128366a36a494d85b8ddeff52d4eadc3266553b671"
     },
     {
       "capability_id": "data_output",
       "name": "データ出力・copy/filter/sort URL state",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "既知契約範囲を実装。filtered CSV/JSON、全16 viewのsite-scoped JSON snapshot、browser-only最大50件履歴、全filterの共通f.* URL state、全tableの任意column昇降sort・ARIA・keyboard・sort.* URL復元を提供",
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
@@ -3688,22 +3677,20 @@
         "missing_artifact_count": 0,
         "verification_command_count": 2,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "aa003aa706303a96dfc609569a359ff2dfa4ed1d23af38a16cf43a246c472901",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": null
+        "attestation_digest": "5a879bc8a2a3803b3a3ca1682e3ed234371f471bf2234249adf4d26b2817672a"
       },
-      "evidence_digest": "3d0b796a8b63f377d8ff8ed7bca97c0bc7866a9295301ab44ede108aa94ddc8b"
+      "evidence_digest": "73fc7a30c7db82ed4f7ec80ee5177a04059aceff8f5cc1f3fcc7ea7ea97352de"
     },
     {
       "capability_id": "bookmarklet",
       "name": "ブックマークレット",
-      "parity_status": "incomplete",
+      "parity_status": "proven_complete",
       "helix_status": "implemented",
-      "completion_evidence_state": "execution_attestation_missing_or_stale",
-      "blocker_classes": [
-        "execution_attestation_missing_or_stale"
-      ],
+      "completion_evidence_state": "artifact_integrity_and_execution_attested",
+      "blocker_classes": [],
       "remaining_gap": "選択文字、未選択時page titleをquick_qへ渡しsite別横断検索を別tabで開く。本文送信・保存なし",
       "authoritative_evidence": [
         "docs/prototypes/wp-ops-dashboard/app.js",
@@ -3722,12 +3709,12 @@
         "missing_artifact_count": 0,
         "verification_command_count": 2,
         "unresolved_command_count": 0,
-        "execution_attested": false,
+        "execution_attested": true,
         "artifact_set_digest": "aa003aa706303a96dfc609569a359ff2dfa4ed1d23af38a16cf43a246c472901",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": null
+        "attestation_digest": "1d6fa1124f1c112beca30ccd25b31bfe35a6237bd77164c02eed34c9599337c3"
       },
-      "evidence_digest": "700ed3f2de87e90a64ab5dc4a252a8aba6f277df7f7284477362783a0763db8b"
+      "evidence_digest": "8d57dd61a639fc8dbd851a0acc67bb6a77d96962d5dc96b60c4c4ca0eac0b0e4"
     },
     {
       "capability_id": "public_api",
@@ -3871,5 +3858,5 @@
       "evidence_digest": "fff96c0e1462dd88bf8730817b724aeb1ac7ded1d5a31f8c22289ae9a3a6658b"
     }
   ],
-  "audit_digest": "37aac1c58ab0b940dee1155292af7c453b8d5ecc313937891e3c3a458a121ff0"
+  "audit_digest": "8c3877074d1663f11768a39de26d01661db5d6e7831c32435b60b03fa3401126"
 }
