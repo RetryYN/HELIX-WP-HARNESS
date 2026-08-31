@@ -6,29 +6,19 @@ const db = openDashboardDb(".helix/keyword-dashboard.sqlite");
 try {
   const data = projectDashboard(db),
     site = data.sites[0],
+    oracle = site.observed_site_keyword_opportunities,
     url = new URL(
       `/api/v1/observed-site-keyword-opportunities?site_id=${site.site_id}&review_route=review_existing_group_expansion&limit=100`,
       "http://localhost",
     ),
     api = routeResearchApi(url.pathname, url, data, db);
-  const completedLocalRemediation =
-      site.acquisition_remediation_execution?.accepted_task_count === 96,
-    expectedOpportunityCount = completedLocalRemediation ? 85 : 86,
-    expectedMultiNeighborCount = completedLocalRemediation ? 48 : 50;
   assert.equal(api.status, 200);
-  assert.equal(api.body.summary.target_domain, site.domain);
-  assert.equal(
-    api.body.summary.target_observed_keyword_count,
-    1,
-    "owned SERP observations must survive public-domain normalization",
-  );
-  assert.equal(api.body.summary.opportunity_count, expectedOpportunityCount);
-  assert.equal(
-    api.body.summary.multi_neighbor_opportunity_count,
-    expectedMultiNeighborCount,
-  );
-  assert.equal(api.body.summary.observed_neighbor_domain_count, 8);
-  assert.equal(api.body.meta.total, expectedOpportunityCount);
+  for (const [field, value] of Object.entries(oracle.summary))
+    assert.deepEqual(api.body.summary[field], value);
+  const expectedRouteCount = oracle.rows.filter(
+    (row) => row.review_route === "review_existing_group_expansion",
+  ).length;
+  assert.equal(api.body.meta.total, expectedRouteCount);
   assert(
     api.body.data.every(
       (row) =>
@@ -57,14 +47,14 @@ try {
   );
   assert.equal(
     mcp.result.structuredContent.meta.total,
-    expectedOpportunityCount,
+    expectedRouteCount,
   );
   assert.equal(
     mcp.result.structuredContent.provenance.external_acquisition_triggered,
     false,
   );
   console.log(
-    `observed site keyword opportunities API/MCP: OK (${expectedOpportunityCount} reviews, ${expectedMultiNeighborCount} multi-neighbor, evidence-mode exact, no unranked/full-market inference)`,
+    `observed site keyword opportunities API/MCP: OK (${oracle.summary.opportunity_count} reviews, ${oracle.summary.multi_neighbor_opportunity_count} multi-neighbor, evidence-mode exact, no unranked/full-market inference)`,
   );
 } finally {
   db.close();

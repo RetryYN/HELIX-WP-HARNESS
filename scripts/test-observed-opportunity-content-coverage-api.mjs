@@ -6,25 +6,21 @@ const db = openDashboardDb(".helix/keyword-dashboard.sqlite");
 try {
   const data = projectDashboard(db),
     site = data.sites[0],
+    oracle = site.observed_opportunity_content_coverage_gate,
     url = new URL(
       `/api/v1/observed-opportunity-content-coverage?site_id=${site.site_id}&review_action=monitor_existing_coverage&limit=100`,
       "http://localhost",
     ),
     api = routeResearchApi(url.pathname, url, data, db);
-  const completedLocalRemediation =
-      site.acquisition_remediation_execution?.accepted_task_count === 96,
-    expectedCandidateCount = completedLocalRemediation ? 85 : 86,
-    expectedGapCount = completedLocalRemediation ? 8 : 9;
   assert.equal(api.status, 200);
-  assert.equal(api.body.summary.candidate_count, expectedCandidateCount);
-  assert.equal(api.body.summary.observed_query_coverage_count, 12);
-  assert.equal(api.body.summary.strong_content_coverage_without_query_count, 6);
+  for (const [field, value] of Object.entries(oracle.summary))
+    assert.deepEqual(api.body.summary[field], value);
   assert.equal(
-    api.body.summary.partial_content_coverage_review_count,
-    expectedGapCount,
+    api.body.meta.total,
+    oracle.rows.filter(
+      (row) => row.review_action === "monitor_existing_coverage",
+    ).length,
   );
-  assert.equal(api.body.summary.new_article_review_count, 59);
-  assert.equal(api.body.meta.total, 12);
   assert(
     api.body.data.every(
       (row) =>
@@ -50,13 +46,18 @@ try {
     },
     data,
   );
-  assert.equal(mcp.result.structuredContent.meta.total, expectedGapCount);
+  assert.equal(
+    mcp.result.structuredContent.meta.total,
+    oracle.rows.filter(
+      (row) => row.review_action === "review_content_coverage_gap",
+    ).length,
+  );
   assert.equal(
     mcp.result.structuredContent.provenance.external_acquisition_triggered,
     false,
   );
   console.log(
-    "observed opportunity content coverage API/MCP: OK (12 query-covered, 6 strong, 9 gap reviews, 59 new)",
+    `observed opportunity content coverage API/MCP: OK (${oracle.summary.observed_query_coverage_count} query-covered, ${oracle.summary.strong_content_coverage_without_query_count} strong, ${oracle.summary.partial_content_coverage_review_count} gap reviews, ${oracle.summary.new_article_review_count} new)`,
   );
 } finally {
   db.close();

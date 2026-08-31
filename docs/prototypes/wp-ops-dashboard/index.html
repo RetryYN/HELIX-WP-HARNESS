@@ -2457,6 +2457,23 @@
             <tbody id="public-source-review-rows"></tbody>
           </table>
         </div>
+        <div class="subsection-head">
+          <h3>citation適用packetの編集判断</h3>
+          <p>承認済みsourceだけをclaim・paragraphへ配置した次revision候補です。ここで承認しても本文へ自動適用せず、公開gateも解除しません。</p>
+        </div>
+        <div id="citation-application-review-metrics" class="metrics"></div>
+        <div class="editorial-review-toolbar">
+          <label>レビュアー識別子<input id="citation-application-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列" /></label><button id="citation-application-review-export" class="detail-button" type="button">適用判断JSONを出力</button><span id="citation-application-review-export-status" role="status">入力0件</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>packet</th><th>revision</th><th>配置</th><th>進捗</th><th>安全確認</th><th>証跡</th></tr>
+            </thead>
+            <tbody id="citation-application-review-rows"></tbody>
+          </table>
+          <div id="citation-application-review-empty" class="empty-state"></div>
+        </div>
         <div class="editorial-review-toolbar">
           <label>レビュアー識別子<input id="safe-revision-reviewer-id" type="text" autocomplete="off" placeholder="氏名ではなく任意の識別文字列" /></label><button id="safe-revision-export" class="detail-button" type="button">安全revision判断JSONを出力</button><span id="safe-revision-export-status" role="status">入力0件</span>
         </div>

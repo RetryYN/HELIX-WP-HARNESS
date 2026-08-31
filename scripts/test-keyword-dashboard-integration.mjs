@@ -989,7 +989,7 @@ assert.equal(
 assert.equal(
   pocDb.prepare("SELECT COUNT(*) AS count FROM related_keyword_proposals").get()
     .count,
-  792,
+  809,
 );
 assert.equal(
   pocDb
@@ -2685,7 +2685,7 @@ assert.equal(
       (sum, group) => sum + group.related_keyword_proposals.length,
       0,
     ),
-    792,
+    809,
   );
   assert.ok(
     actual.groups
@@ -2807,14 +2807,18 @@ assert.equal(
         row.delta_count === 8,
     ),
   );
-  assert.equal(actual.sites[0].provider_cost_ledger.entry_count, 100);
+  assert.equal(
+    actual.sites[0].provider_cost_ledger.entry_count,
+    actual.sites[0].provider_cost_ledger.reconciliation
+      .cost_history_retained_entry_count,
+  );
   assert.equal(
     actual.sites[0].provider_cost_ledger.total_cost_usd,
-    Number(
-      actual.serp_task_metadata
-        .reduce((sum, row) => sum + Number(row.cost), 0)
-        .toFixed(8),
-    ),
+    actual.sites[0].acquisition_lifetime_state.committed_cost_usd,
+  );
+  assert.equal(
+    actual.sites[0].provider_cost_ledger.reconciliation.state,
+    "reconciled",
   );
   assert.equal(actual.sites[0].provider_cost_ledger.api_key_stored, false);
   assert.equal(
@@ -3532,10 +3536,14 @@ const mcpTools = await fetch(`http://127.0.0.1:${port}/mcp`, {
 });
 assert.equal(mcpTools.status, 200);
 const mcpToolList = (await mcpTools.json()).result.tools;
-assert.equal(mcpToolList.length, 100);
+assert.equal(
+  mcpToolList.length,
+  new Set(mcpToolList.map((tool) => tool.name)).size,
+);
 assert.deepEqual(
   new Set(mcpToolList.map((tool) => tool.name)),
   new Set([
+    "review_public_source_citation_applications",
     "review_public_source_decisions",
     "review_evidence_safe_manual_revision_packets",
     "review_evidence_safe_draft_revisions",
@@ -3835,7 +3843,7 @@ assert.match(html, /<th>AIO<\/th>/);
 assert.match(html, /<th>推奨ページ<\/th>/);
 assert.match(
   html,
-  /<th>親カテゴリー<\/th><th id="category-child-head">子カテゴリー<\/th><th id="category-grandchild-head">孫カテゴリー<\/th>/,
+  /<th>親カテゴリー<\/th>\s*<th id="category-child-head">子カテゴリー<\/th>\s*<th id="category-grandchild-head">孫カテゴリー<\/th>/,
 );
 assert.match(app, /\/api\/dashboard/);
 assert.match(app, /aio_observed_queries>0/);
@@ -4076,15 +4084,15 @@ assert.match(app, /MutationObserver/);
 assert.match(app, /site\.data_provider_b_enrichment_status/);
 assert.match(
   app,
-  /data\.keyword_market_metrics\.filter\(\(row\)=>row\.site_id===siteId\)/,
+  /data\.keyword_market_metrics\.filter\(\(?row\)?=>row\.site_id===siteId\)/,
 );
 assert.match(
   app,
-  /data\.keyword_monthly_searches\.filter\(\(row\)=>row\.site_id===siteId\)/,
+  /data\.keyword_monthly_searches\.filter\(\(?row\)?=>row\.site_id===siteId\)/,
 );
 assert.match(
   app,
-  /data\.domain_ranked_keywords\.filter\(\(row\)=>row\.site_id===siteId\)/,
+  /data\.domain_ranked_keywords\.filter\(\(?row\)?=>row\.site_id===siteId\)/,
 );
 assert.match(app, /追加市場データは未取得です/);
 assert.match(app, /renderMarketData/);

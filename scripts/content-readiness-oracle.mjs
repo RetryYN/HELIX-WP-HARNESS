@@ -202,6 +202,11 @@ export function buildContentReadinessOracle(
         body_text_unchanged:
           publicSourceCitationPacket?.body_text_unchanged ?? true,
         review_state: publicSourceCitationPacket?.review_state ?? null,
+        editorial_progress_state:
+          publicSourceCitationPacket?.editorial_progress_state ?? null,
+        reviewer_count: publicSourceCitationPacket?.reviewer_count ?? 0,
+        manual_application_approved:
+          publicSourceCitationPacket?.manual_application_approved ?? false,
         artifact_applied: false,
         auto_apply: false,
         auto_publication: false,
@@ -223,11 +228,13 @@ export function buildContentReadinessOracle(
           gate: "public_source_citation_application",
           state: !publicSourceReviews.length
             ? "pass"
-            : publicSourceCitationPacket
+            : publicSourceCitationPacket?.manual_application_approved
               ? "review_required"
               : "blocked",
-          detail: publicSourceCitationPacket
-            ? `packet ${publicSourceCitationPacket.packet_id} unapplied; body unchanged ${publicSourceCitationPacket.body_text_unchanged}`
+          detail: publicSourceCitationPacket?.manual_application_approved
+            ? `packet ${publicSourceCitationPacket.packet_id} approved for manual application but unapplied; body unchanged ${publicSourceCitationPacket.body_text_unchanged}`
+            : publicSourceCitationPacket
+              ? `packet ${publicSourceCitationPacket.packet_id} ${publicSourceCitationPacket.editorial_progress_state ?? "unreviewed"}; manual application approval required`
             : "approved-only citation application packet unavailable",
         },
         {
@@ -379,7 +386,7 @@ export function buildContentReadinessOracle(
         auto_approval: false,
         auto_publication: false,
         ranking_effect_inferred: false,
-        policy: "content-readiness-oracle.v5",
+        policy: "content-readiness-oracle.v6",
       };
     rows.push({ ...base, readiness_digest: digest(base) });
   }

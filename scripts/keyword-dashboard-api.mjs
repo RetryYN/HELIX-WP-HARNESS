@@ -337,7 +337,7 @@ const openapi = {
   openapi: "3.1.0",
   info: {
     title: "HELIX SEO Research API",
-    version: "2.115.0",
+    version: "2.116.0",
     description:
       "Read-only, site-scoped retained SEO evidence. No endpoint triggers external acquisition. External operation IDs are mapping references, not contract compatibility claims.",
   },
@@ -4788,6 +4788,7 @@ export function routeResearchApi(pathname, url, data, db = null) {
   }
   if (pathname === "/api/v1/public-source-citation-application-packets") {
     const view = url.searchParams.get("view") ?? "packets",
+      progress = url.searchParams.get("progress"),
       oracle = site.public_source_citation_application_packets ?? {
         packets: [],
         blocked_reviews: [],
@@ -4795,13 +4796,21 @@ export function routeResearchApi(pathname, url, data, db = null) {
       },
       source = view === "blocked" ? oracle.blocked_reviews : oracle.packets,
       rows = source.filter(
-        (row) => !query || norm(JSON.stringify(row)).includes(query),
+        (row) =>
+          (!progress ||
+            progress === "all" ||
+            row.editorial_progress_state === progress) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
       );
     return ok({
       ...page(rows, url),
       summary: { ...oracle.summary, filtered_count: rows.length },
       packet_set_digest: oracle.packet_set_digest,
-      filters: { q: url.searchParams.get("q") ?? "", view },
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        view,
+        progress: progress ?? "all",
+      },
       mutation_supported: false,
       artifact_applied: false,
       auto_approval: false,
