@@ -1,18 +1,1 @@
-import assert from "node:assert/strict";
-import {spawnSync} from "node:child_process";
-import {mkdtempSync,rmSync} from "node:fs";
-import {tmpdir} from "node:os";
-import path from "node:path";
-import {DatabaseSync} from "node:sqlite";
-
-const temporaryRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-empty-gsc-"));process.on("exit",()=>rmSync(temporaryRoot,{recursive:true,force:true}));
-const dbPath=path.join(temporaryRoot,"dashboard.sqlite");
-const result=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:dbPath,WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_HEADING_EVIDENCE:path.join(tmpdir(),"missing-heading-evidence.json"),WP_ALLOW_EMPTY_GSC:"1",WP_ALLOW_EMPTY_HEADINGS:"1"},encoding:"utf8"});
-assert.equal(result.status,0,result.stderr);
-const db=new DatabaseSync(dbPath,{readOnly:true});
-assert.equal(db.prepare("SELECT COUNT(*) AS count FROM articles").get().count,0);
-assert.equal(db.prepare("SELECT COUNT(*) AS count FROM gsc_query_results").get().count,0);
-assert.equal(db.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE state = '確定'").get().count,0);
-assert.equal(db.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE selected_wp_article_id IS NOT NULL").get().count,0);
-db.close();
-console.log("keyword dashboard isolated empty-state test: ok");
+import assert from"node:assert/strict";import{spawnSync}from"node:child_process";import{mkdtempSync,rmSync}from"node:fs";import{tmpdir}from"node:os";import path from"node:path";import{DatabaseSync}from"node:sqlite";const temporaryRoot=mkdtempSync(path.join(tmpdir(),"wp-dashboard-empty-gsc-"));process.on("exit",()=>rmSync(temporaryRoot,{recursive:true,force:true}));const dbPath=path.join(temporaryRoot,"dashboard.sqlite");const result=spawnSync(process.execPath,["scripts/build-keyword-dashboard-db.mjs"],{env:{...process.env,WP_DASHBOARD_DB:dbPath,WP_GSC_EVIDENCE:path.join(tmpdir(),"missing-gsc-evidence.json"),WP_HEADING_EVIDENCE:path.join(tmpdir(),"missing-heading-evidence.json"),WP_ALLOW_EMPTY_GSC:"1",WP_ALLOW_EMPTY_HEADINGS:"1",WP_ACQUISITION_REMEDIATION_ROOT:path.join(temporaryRoot,"empty-remediation")},encoding:"utf8"});assert.equal(result.status,0,result.stderr);const db=new DatabaseSync(dbPath,{readOnly:true});assert.equal(db.prepare("SELECT COUNT(*) AS count FROM articles").get().count,0);assert.equal(db.prepare("SELECT COUNT(*) AS count FROM gsc_query_results").get().count,0);assert.equal(db.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE state = '確定'").get().count,0);assert.equal(db.prepare("SELECT COUNT(*) AS count FROM keyword_article_match_runs WHERE selected_wp_article_id IS NOT NULL").get().count,0);db.close();console.log("keyword dashboard isolated empty-state test: ok");

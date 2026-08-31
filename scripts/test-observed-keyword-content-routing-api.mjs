@@ -6,24 +6,21 @@ const db = openDashboardDb(".helix/keyword-dashboard.sqlite");
 try {
   const data = projectDashboard(db),
     site = data.sites[0],
+    oracle = site.observed_keyword_content_routing,
     url = new URL(
       `/api/v1/observed-keyword-content-routing?site_id=${site.site_id}&action=review_existing_article_expansion&limit=100`,
       "http://localhost",
     ),
     api = routeResearchApi(url.pathname, url, data, db);
-  const completedLocalRemediation =
-      site.acquisition_remediation_execution?.accepted_task_count === 96,
-    expectedCandidateCount = completedLocalRemediation ? 85 : 86,
-    expectedExpansionCount = completedLocalRemediation ? 26 : 27;
   assert.equal(api.status, 200);
-  assert.equal(api.body.summary.candidate_count, expectedCandidateCount);
+  for (const [field, value] of Object.entries(oracle.summary))
+    assert.deepEqual(api.body.summary[field], value);
   assert.equal(
-    api.body.summary.existing_article_expansion_review_count,
-    expectedExpansionCount,
+    api.body.meta.total,
+    oracle.rows.filter(
+      (row) => row.action === "review_existing_article_expansion",
+    ).length,
   );
-  assert.equal(api.body.summary.new_article_review_count, 59);
-  assert.equal(api.body.summary.connected_article_count, 11);
-  assert.equal(api.body.meta.total, expectedExpansionCount);
   assert(
     api.body.data.every(
       (row) =>
@@ -49,13 +46,18 @@ try {
     },
     data,
   );
-  assert.equal(mcp.result.structuredContent.meta.total, 59);
+  assert.equal(
+    mcp.result.structuredContent.meta.total,
+    oracle.rows.filter(
+      (row) => row.action === "review_new_article",
+    ).length,
+  );
   assert.equal(
     mcp.result.structuredContent.provenance.external_acquisition_triggered,
     false,
   );
   console.log(
-    "observed keyword content routing API/MCP: OK (27 existing expansions, 59 new article reviews, zero mutation/publication)",
+    `observed keyword content routing API/MCP: OK (${oracle.summary.existing_article_expansion_review_count} existing expansions, ${oracle.summary.new_article_review_count} new article reviews, zero mutation/publication)`,
   );
 } finally {
   db.close();

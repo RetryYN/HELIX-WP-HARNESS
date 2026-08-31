@@ -1505,6 +1505,15 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - packetが生成されても `public_source_citation_application` gateは手動review必須で、artifact未適用のままclaim verification、citation approval、publication reviewを継続する。自動適用・自動承認・自動公開・本文変更・追加費用は0である。
 - 画面ナビゲーションはデスクトップで左右分割し、左panelを190〜420pxでドラッグ・keyboard調整、折りたたみ、local保存できる。850px以下では従来の横scroll tabへ戻す。
 
+### 10.114 citation application編集判断台帳（API 2.116 / SQLite v75）
+
+- citation application packet set、packet、source revisionをdigestで固定し、`approved_for_manual_application`、`changes_requested`、`rejected`、`deferred` の編集判断をSQLiteへ永続化する。reviewer識別子はブラウザ内でSHA-256化し、平文を出力・保存しない。
+- 手動適用可の判断には、paragraph配置lineage、元source判断、本文不変、未支持claimを追加していないことの4確認と、packet自身の本文不変保証を必須にする。reviewer間で判断が割れた場合は不一致としてfail closedにする。
+- importerは既定dry-run、明示 `--commit` のみ書き込み、packet set/digest不一致、古いpacket、同一reviewerの重複投入を拒否する。画面・API・MCPは判断進捗を読み取り専用で表示する。
+- packetが手動適用可になってもartifactは未適用で、公開gateは手動反映とpublication reviewを要求し続ける。自動適用・自動公開・本文変更・外部取得・追加費用は0である。
+- 現行の保持データでは、公開観測とclaim/candidate digestの不一致を検出したため、公開source reviewとcitation application packetは0件として停止している。以前の件数を再利用せず、不整合の解消または再取得まで適用候補に昇格させない。
+- lifetime費用履歴の取込rootと、分析へ採用するremediation結果rootを分離した。不整合なsemantic結果は分析から除外する一方、その実行費用を消さずに台帳へ残す。現行台帳は197 entry、確定費用 `$0.3014`、承認済み最大見込 `$4.9981`、全体上限 `$5.00` に対する残額 `$0.0019` でreconciledであり、この変更による新規有料実行は0件である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
