@@ -2,6 +2,8 @@
 name: pmo-haiku
 description: 簡潔な status、blocker、next action を確認する lightweight PMO レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-haiku-4-5-20251001
+effort: low
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

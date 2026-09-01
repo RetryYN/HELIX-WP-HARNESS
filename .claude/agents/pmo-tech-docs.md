@@ -2,6 +2,8 @@
 name: pmo-tech-docs
 description: ADR、process、governance 品質を確認する technical documentation レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: medium
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

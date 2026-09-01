@@ -2,6 +2,7 @@
 name: pdm-innovation-manager
 description: 機会、scope、portfolio fit を確認する product management レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-opus-5
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

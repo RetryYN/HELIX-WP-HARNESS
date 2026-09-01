@@ -2,6 +2,8 @@
 name: pmo-sonnet
 description: PLAN 構造、handover 品質、文書間整合を確認する PMO レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: medium
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

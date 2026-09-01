@@ -2,6 +2,8 @@
 name: code-reviewer
 description: 正しさ、security、保守性を確認する read-only senior engineering レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: high
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

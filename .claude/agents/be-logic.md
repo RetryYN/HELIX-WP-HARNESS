@@ -2,6 +2,8 @@
 name: be-logic
 description: Backend domain logic の invariant / boundary / TDD 適合を確認するレビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: high
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

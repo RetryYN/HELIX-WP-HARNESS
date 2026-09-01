@@ -2,6 +2,8 @@
 name: pmo-project-explorer
 description: goal、制約、evidence gap を確認する project discovery レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: medium
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

@@ -2,6 +2,8 @@
 name: devops-deploy
 description: CI、deployment、rollback、release readiness を確認するレビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: high
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

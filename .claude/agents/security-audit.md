@@ -2,6 +2,8 @@
 name: security-audit
 description: auth、secret、PII、threat model concern を確認する security レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: high
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

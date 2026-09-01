@@ -2,6 +2,8 @@
 name: pmo-tech-fork
 description: fork、extraction、distribution の clean-room 境界を確認するレビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: medium
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

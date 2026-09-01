@@ -2,6 +2,8 @@
 name: refactor-scout
 description: 複雑度、重複、低 risk extraction 候補を確認する refactoring レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-haiku-4-5-20251001
+effort: low
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

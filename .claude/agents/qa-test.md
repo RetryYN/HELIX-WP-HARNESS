@@ -2,6 +2,8 @@
 name: qa-test
 description: test strategy、oracle 強度、regression scope を確認する quality レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: medium
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。

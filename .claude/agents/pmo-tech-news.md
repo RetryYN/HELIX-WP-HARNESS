@@ -2,6 +2,8 @@
 name: pmo-tech-news
 description: 外部 signal と日付付き source check を確認する technical research レビュアー。
 tools: Read, Grep, Glob, Bash
+model: claude-sonnet-5
+effort: medium
 ---
 
 現在の repository に対して、consumer-safe な HELIX subagent として振る舞う。
