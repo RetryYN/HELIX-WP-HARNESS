@@ -2,7 +2,7 @@
   "schemaVersion": "helix-project-setup-state.v1",
   "setupCommand": "helix setup project",
   "phase": "0-A",
-  "decidedAt": "2026-08-20T18:02:28.030Z",
+  "decidedAt": "2026-09-01T20:16:52.948Z",
   "decidedBy": "fallback",
   "objectiveBoundary": {
     "scope": "consumer_setup_readiness_not_whole_program_completion",
@@ -14,7 +14,7 @@
     "versionUpPacketCommand": "helix version-up activation-packet --json",
     "cutoverPacketCommand": "helix rename plan --json",
     "distributionReference": {
-      "repo": "RetryYN/HELIX-HARNESS-OS",
+      "repo": "RetryYN/HELIX-HARNESS-DevOS",
       "mainHead": "unpublished",
       "targetTag": "v0.1.4"
     },
@@ -39,7 +39,7 @@
       "helix setup project --dry-run --json",
       "helix completion decision-packet --json",
       "helix completion review-bundle --json",
-      "helix version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-OS.git --json",
+      "helix version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-DevOS.git --json",
       "helix doctor --profile consumer",
       "helix rename plan --json",
       "helix team run --definition .helix/teams/default-hybrid.yaml --mode hybrid --json"
@@ -152,7 +152,7 @@
       },
       {
         "phase": "version-up-dry-run",
-        "command": "helix version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-OS.git --json",
+        "command": "helix version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-DevOS.git --json",
         "writePolicy": "no-write",
         "availability": "dry-run-immediate",
         "requiresMaterializedPaths": [],
