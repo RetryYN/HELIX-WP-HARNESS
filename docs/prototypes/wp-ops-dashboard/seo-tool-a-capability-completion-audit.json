@@ -141,12 +141,12 @@
       {
         "path": "docs/research/seo-tool-a-feature-crosswalk.json",
         "exists": true,
-        "sha256": "0bfeeee4bae20d90f44b37a3db7d1b7a2bc9a507852868a79a7d8f4411947dc8"
+        "sha256": "cd4b792a518f181e34dcd1c50aaa8c1fe2e9bc0dc3678cbe08ff4b40baa1e5f7"
       },
       {
         "path": "docs/research/seo-tool-a-public-contract-drift.json",
         "exists": true,
-        "sha256": "95d13b87d66ac543137ff8cc1f51a84b589e1fb32abe9d967b97fbfd760bb4a8"
+        "sha256": "f1296e3a6b3fed3c52cc39b47f17edf9ff7abc2e69aaa42fb754f601dfa45cb1"
       },
       {
         "path": "scripts/acquisition-approval-manifest.mjs",
@@ -541,7 +541,7 @@
       {
         "path": "scripts/test-capability-audit-api.mjs",
         "exists": true,
-        "sha256": "b120c1fc8a49cafcc83ef1f4ca5a2de1e36e8cd8fba74e00f834400ecf9e4e05"
+        "sha256": "a70876644130d999a0cc02ef988ea9be39fe3ba4676982d08dab58450cafc31f"
       },
       {
         "path": "scripts/test-dashboard-table-state.mjs",
@@ -596,7 +596,7 @@
       {
         "path": "scripts/test-seo-tool-a-feature-crosswalk.mjs",
         "exists": true,
-        "sha256": "0c284e77c38530bb9cc425d93f35e534bdb15ed2acc0222b4999b5fd02169258"
+        "sha256": "dafe792fd407406573641a229523f40e8e60ad946bccfa9265a7aca7dc328ca3"
       },
       {
         "path": "scripts/test-suggest-expansion-logic.mjs",
@@ -1108,7 +1108,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-public-contract-freshness-api.mjs",
         "resolved": true,
-        "target_sha256": "b0d32846cf720524d35f733a8a5a9ae73e21a54bc877a277454cd41fae4fab42"
+        "target_sha256": "448618c30e979ae76b27187bb802f8a8c2390ec336a2f86703f32f3e3ae32037"
       },
       {
         "command": "node scripts/test-public-search-metadata-api.mjs",
@@ -1297,7 +1297,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-seo-tool-a-feature-crosswalk.mjs",
         "resolved": true,
-        "target_sha256": "0c284e77c38530bb9cc425d93f35e534bdb15ed2acc0222b4999b5fd02169258"
+        "target_sha256": "dafe792fd407406573641a229523f40e8e60ad946bccfa9265a7aca7dc328ca3"
       },
       {
         "command": "node scripts/test-serp-data-coverage.mjs",
@@ -1503,7 +1503,7 @@
         "definition_sha256": "cd41056c3e6b8bd65740903e7947d5a770f6ef2274fefaa870380ed97a97fdc5"
       }
     ],
-    "catalog_digest": "0129b0760fcacfee6d0adcdcd3fd0c5ed77acfae5943cbfe8734fdc8c79dcee8"
+    "catalog_digest": "371b376b70341e056b76c222db98c1affdc350a386616c05098dc2e2a2818070"
   },
   "proof_attestation": {
     "receipt_present": true,
@@ -1512,7 +1512,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 18,
-    "receipt_digest": "461bf102d482e97c3b12c03bb94b187c8eea61fd7c5ae21bc3386ce6262a3881",
+    "receipt_digest": "fa5133e6db5ac44815f516c0f8bef8ac7575987d65a722c97daa12bc84ab9484",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -1653,6 +1653,7 @@
     "checked_at": "2026-09-04",
     "baseline_evidence_cutoff": "2026-08-29",
     "comparison": "strictly_after_baseline",
+    "coverage": "all 2026 entries shown on the public update-history page at checked_at; the source page describes major updates and may omit weekly maintenance",
     "post_cutoff_updates": [
       {
         "published_at": "2026-09-02",
@@ -1693,6 +1694,225 @@
         ],
         "change_kind": "integration_surface_listing",
         "summary": "Connector listing updated",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-08-04",
+        "capability_ids": [
+          "ai_keyword_proposal",
+          "ai_title",
+          "ai_heading",
+          "ai_body",
+          "ai_questions",
+          "ai_related_keywords"
+        ],
+        "change_kind": "model_availability",
+        "summary": "Latest AI model availability update (model name omitted from repository)",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-07-22",
+        "capability_ids": [
+          "bulk_site_research"
+        ],
+        "change_kind": "release_state",
+        "summary": "Bulk site research formal release",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-07-16",
+        "capability_ids": [
+          "mcp"
+        ],
+        "change_kind": "authentication_contract",
+        "summary": "MCP OAuth support",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-07-15",
+        "capability_ids": [
+          "ai_keyword_proposal",
+          "ai_title",
+          "ai_heading",
+          "ai_body",
+          "ai_questions",
+          "ai_related_keywords"
+        ],
+        "change_kind": "model_availability",
+        "summary": "Latest AI model availability update (model name omitted from repository)",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-07-14",
+        "capability_ids": [
+          "site_search"
+        ],
+        "change_kind": "release_state",
+        "summary": "Site search formal release",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-06-25",
+        "capability_ids": [
+          "search_rank"
+        ],
+        "change_kind": "scope_extension",
+        "summary": "Regional and mobile rank checks",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-06-09",
+        "capability_ids": [
+          "credit_history"
+        ],
+        "change_kind": "account_observability",
+        "summary": "Credit usage history available",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-06-02",
+        "capability_ids": [
+          "public_api"
+        ],
+        "change_kind": "api_contract",
+        "summary": "OpenAPI 3.1.1 support",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-05-26",
+        "capability_ids": [
+          "associations"
+        ],
+        "change_kind": "ui_discovery",
+        "summary": "Related terms exposed while entering a keyword",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-05-26",
+        "capability_ids": [
+          "credit_history",
+          "public_api"
+        ],
+        "change_kind": "account_observability",
+        "summary": "API key labels and credit usage visibility",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-05-26",
+        "capability_ids": [
+          "credit_history"
+        ],
+        "change_kind": "billing_control",
+        "summary": "Plan tiers and automatic charge controls updated",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-05-19",
+        "capability_ids": [
+          "mcp"
+        ],
+        "change_kind": "integration_release",
+        "summary": "MCP integration publicly released",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-05-12",
+        "capability_ids": [
+          "suggest"
+        ],
+        "change_kind": "ui_discovery",
+        "summary": "Typeahead suggestions while entering keywords",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-04-28",
+        "capability_ids": [
+          "bulk_keyword_research"
+        ],
+        "change_kind": "history_depth",
+        "summary": "Bulk keyword search trend history extended to four years",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-04-21",
+        "capability_ids": [
+          "suggest",
+          "lsi_paa",
+          "related_keywords"
+        ],
+        "change_kind": "field_extension",
+        "summary": "First-seen range added to suggest and LSI/PAA surfaces",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-04-16",
+        "capability_ids": [
+          "influx_keywords",
+          "influx_pages"
+        ],
+        "change_kind": "presentation_update",
+        "summary": "Acquired-keyword research graph presentation improved",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-04-14",
+        "capability_ids": [
+          "public_api"
+        ],
+        "change_kind": "api_release",
+        "summary": "Public API released",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-03-25",
+        "capability_ids": [
+          "data_output"
+        ],
+        "change_kind": "export_surface",
+        "summary": "Data output feature added",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-03-10",
+        "capability_ids": [
+          "ai_keyword_proposal",
+          "ai_title",
+          "ai_heading",
+          "ai_body",
+          "ai_questions",
+          "ai_related_keywords"
+        ],
+        "change_kind": "model_availability",
+        "summary": "Latest AI model availability update (model name omitted from repository)",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-01-07",
+        "capability_ids": [
+          "bulk_keyword_research"
+        ],
+        "change_kind": "performance_update",
+        "summary": "Bulk keyword processing time improved",
         "evidence_state": "official_public_update_observed",
         "after_baseline": false
       }
@@ -2107,6 +2327,21 @@
         "mapping_state": "mapped"
       },
       {
+        "update_id": "ai_model_latest_2026_08",
+        "published_at": "2026-08-04",
+        "summary": "Latest AI model availability update (model name omitted from repository)",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "ai_keyword_proposal",
+          "ai_title",
+          "ai_heading",
+          "ai_body",
+          "ai_questions",
+          "ai_related_keywords"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
         "update_id": "bulk_site_formal",
         "published_at": "2026-07-22",
         "summary": "Bulk site research formal release",
@@ -2123,6 +2358,21 @@
         "after_baseline": false,
         "inventory_capability_ids": [
           "mcp"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "ai_model_latest_2026_07",
+        "published_at": "2026-07-15",
+        "summary": "Latest AI model availability update (model name omitted from repository)",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "ai_keyword_proposal",
+          "ai_title",
+          "ai_heading",
+          "ai_body",
+          "ai_questions",
+          "ai_related_keywords"
         ],
         "mapping_state": "mapped"
       },
@@ -2167,12 +2417,63 @@
         "mapping_state": "mapped"
       },
       {
+        "update_id": "typeahead_associated_terms",
+        "published_at": "2026-05-26",
+        "summary": "Related terms exposed while entering a keyword",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "associations"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "api_key_label_and_usage",
+        "published_at": "2026-05-26",
+        "summary": "API key labels and credit usage visibility",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "credit_history",
+          "public_api"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "plan_tiers_and_auto_charge",
+        "published_at": "2026-05-26",
+        "summary": "Plan tiers and automatic charge controls updated",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "credit_history"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "mcp_public_release",
+        "published_at": "2026-05-19",
+        "summary": "MCP integration publicly released",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "mcp"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
         "update_id": "typeahead_suggestions",
         "published_at": "2026-05-12",
         "summary": "Typeahead suggestions while entering keywords",
         "after_baseline": false,
         "inventory_capability_ids": [
           "suggest"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "bulk_keyword_trend_four_years",
+        "published_at": "2026-04-28",
+        "summary": "Bulk keyword search trend history extended to four years",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "bulk_keyword_research"
         ],
         "mapping_state": "mapped"
       },
@@ -2189,12 +2490,58 @@
         "mapping_state": "mapped"
       },
       {
+        "update_id": "influx_graph_refresh",
+        "published_at": "2026-04-16",
+        "summary": "Acquired-keyword research graph presentation improved",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "influx_keywords",
+          "influx_pages"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "public_api_release",
+        "published_at": "2026-04-14",
+        "summary": "Public API released",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "public_api"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
         "update_id": "data_output_release",
         "published_at": "2026-03-25",
         "summary": "Data output feature added",
         "after_baseline": false,
         "inventory_capability_ids": [
           "data_output"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "ai_model_latest_2026_03",
+        "published_at": "2026-03-10",
+        "summary": "Latest AI model availability update (model name omitted from repository)",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "ai_keyword_proposal",
+          "ai_title",
+          "ai_heading",
+          "ai_body",
+          "ai_questions",
+          "ai_related_keywords"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "bulk_processing_speed",
+        "published_at": "2026-01-07",
+        "summary": "Bulk keyword processing time improved",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "bulk_keyword_research"
         ],
         "mapping_state": "mapped"
       }
@@ -2204,8 +2551,8 @@
       "function_surface_count": 34,
       "mapped_function_surface_count": 34,
       "unmapped_function_surface_count": 0,
-      "update_surface_count": 13,
-      "mapped_update_surface_count": 13,
+      "update_surface_count": 24,
+      "mapped_update_surface_count": 24,
       "unmapped_update_surface_count": 0,
       "post_cutoff_update_count": 1,
       "inventory_coverage_count": 35,
@@ -2774,11 +3121,11 @@
         "verification_command_count": 37,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "11f6f6d41ca90f698277f4657f181563b91510df40419fe1b9cf94461c43e5c2",
+        "artifact_set_digest": "ab166b8b08175ea94dafe81ba6924c9922e9f02a7386f056feb4d6b0d30db4e4",
         "command_set_digest": "308f46471c29c034d49b834ff28df1da59160b02e928ae798cd784ce914f79f3",
         "attestation_digest": null
       },
-      "evidence_digest": "0fbbe2801d622c517a4803c48171ba038f7445110aa204bc4f5757467c8662f5"
+      "evidence_digest": "40228baad5275a5b342d38f646812283874b37277f95a9e27660f96a9c3b3321"
     },
     {
       "capability_id": "influx_keywords",
@@ -4243,9 +4590,9 @@
         "execution_attested": true,
         "artifact_set_digest": "65900ca280cbdcdd9d94079089f712bc568aa379a82d3d21809e2a6b2738f8ca",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "f43fe2ef0fdb4498dd661a2bb0ac890e89b7da8adec061c2ac23d62739be3c4a"
+        "attestation_digest": "0f2e6bd34593d13f671cc26d653b46b01d3b070221bcd838b2dcbb9b6641c8d1"
       },
-      "evidence_digest": "442c59c167c0720a72a604211058f31a333810a09a6f1f76ce1ad6a7156e332c"
+      "evidence_digest": "8eb15b9b34762d6402ffe2ab639782d8bc582337fe5cfc01d1f2b825d99856fc"
     },
     {
       "capability_id": "associations",
@@ -4306,9 +4653,9 @@
         "execution_attested": true,
         "artifact_set_digest": "65900ca280cbdcdd9d94079089f712bc568aa379a82d3d21809e2a6b2738f8ca",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "16bf02fe4aec3a943ef0305d61226cea80dfe553a8d3db62aedd6f0eddd37270"
+        "attestation_digest": "4599c9f3c238f8792daa97e2ac7aa028856d8c018078e792f91a322b5bc980b9"
       },
-      "evidence_digest": "5f1c1e609c912bac72d0a18ce04f32320d8d3444b0e1a319f6a637ec74e36f13"
+      "evidence_digest": "9a531633d6de4abda0b809d41e67013f358ef8f8eeef8b7c1b37c2f68676320c"
     },
     {
       "capability_id": "qa_sites",
@@ -4482,9 +4829,9 @@
         "execution_attested": true,
         "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "9f3d07c043af1c1f86a66f26f8214b5c8600dd1b681adcfdd460593181465281"
+        "attestation_digest": "44e9b5993398af7bca6ebc489c91fbc521acfaf8facc4197ff3b4ee24fffdbb3"
       },
-      "evidence_digest": "71ef5c8bfd70660e3103fb834596c5327c46d40c404386fac7d6361c2c125696"
+      "evidence_digest": "00119c9dd4caa2106f7f570a6d3917d3409ea75be71084d35e9f95190a0ca208"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -4522,9 +4869,9 @@
         "execution_attested": true,
         "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "c48ca6ada3d56a19b0b26baff610a0bae9f27f78f303a085cddf4ed0cb040c6e"
+        "attestation_digest": "057afbb526d01da44f44055782b4baf5a4093759fe26cc3cf1057fe44e4bb5fb"
       },
-      "evidence_digest": "59426efb0baa9755e852bae94b679eeb83eb2a65215bc6219d4da6bc07d8e23a"
+      "evidence_digest": "7f6d55c4207611084239d9d83386a8fa14ae9ce4ca696b6eeccebd9c30ba59e9"
     },
     {
       "capability_id": "data_output",
@@ -4562,9 +4909,9 @@
         "execution_attested": true,
         "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "726e0647c27e53ac77314bf8c088676fd870c0744ace3f855853c85127fbc3f1"
+        "attestation_digest": "01d95a62d6cdf9cb02a8a0655506ff6bbbd7af46ba13b348df7ee8cea3a9029e"
       },
-      "evidence_digest": "618600673bddd4632dccc56dcc44d05b648e8f5e343b396fe023d3cdd9db6460"
+      "evidence_digest": "74876e4d4e40defbb966805e89d58914ae3d8947da982efd56392ef6aa1bb0a4"
     },
     {
       "capability_id": "bookmarklet",
@@ -4602,9 +4949,9 @@
         "execution_attested": true,
         "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "d59597309ff878d6c4a39753711670c9163cce7f2be8e354c04389b26b8c3137"
+        "attestation_digest": "5694f796cdf84a14ae37c6be7c5902d39d456bf5f00ac735fd840b8ecadc1591"
       },
-      "evidence_digest": "902640c3f75949569ff3c3d3ad3ef29ce9b1df4f968ab8062c3d85d2d3e37a82"
+      "evidence_digest": "07cc4b62df15fa01bbd8269c7fce6b72912264f72ca03ede91c9545c651b0ef1"
     },
     {
       "capability_id": "public_api",
@@ -4661,11 +5008,11 @@
         "verification_command_count": 14,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "ee70d936dfc2834a9649f38b370c237e42d13d0cc4306af23a97665cba264836",
-        "command_set_digest": "35ffb4a3cb0d1c3d0b61c953e6ced044e423bc1f80ca00a2ea96dddf19d40758",
+        "artifact_set_digest": "2aef685a4da798620ef1f09d40ca283ad0292221451eb090d2ec2d669ae92960",
+        "command_set_digest": "acf029c2e55053a54fd592cf2901569986154e84ebcb1593ba3589acdad8dad1",
         "attestation_digest": null
       },
-      "evidence_digest": "0b2bae44e2d03f6299aac6647986a348cbabd43d59aa3f3789bf3f2879a43707"
+      "evidence_digest": "b6f562bf40f007250ed87555732a87eea8a6c9be1c55b48a3d3dc6910e8ba21a"
     },
     {
       "capability_id": "mcp",
@@ -4722,11 +5069,11 @@
         "verification_command_count": 14,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "ee70d936dfc2834a9649f38b370c237e42d13d0cc4306af23a97665cba264836",
-        "command_set_digest": "35ffb4a3cb0d1c3d0b61c953e6ced044e423bc1f80ca00a2ea96dddf19d40758",
+        "artifact_set_digest": "2aef685a4da798620ef1f09d40ca283ad0292221451eb090d2ec2d669ae92960",
+        "command_set_digest": "acf029c2e55053a54fd592cf2901569986154e84ebcb1593ba3589acdad8dad1",
         "attestation_digest": null
       },
-      "evidence_digest": "337c255ed38e3c269c18f738b79bf950b0bcf775e07890d72f53db21957a1572"
+      "evidence_digest": "54d7abacc34738b71b5e6d1f4b2853a63a9c3d9c461a185c2bb127fc93c32945"
     },
     {
       "capability_id": "credit_history",
@@ -4777,5 +5124,5 @@
       "evidence_digest": "707f5379134df7f35045a860d13b66da488bcbb49957acd96ae380c6c67e1d66"
     }
   ],
-  "audit_digest": "07722d2a1f9ff93be2d79b3097982e3e5a0f5bcfeaaaa235b81af5c3c4736481"
+  "audit_digest": "b1dcde16e0f89cb711dc5dad960cb4c459950e1e8501d3bbd4f960273dc3727f"
 }

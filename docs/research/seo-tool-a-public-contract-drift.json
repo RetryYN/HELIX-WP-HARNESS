@@ -46,6 +46,7 @@
     "checked_at":"2026-09-04",
     "baseline_evidence_cutoff":"2026-08-29",
     "comparison":"strictly_after_baseline",
+    "coverage":"all 2026 entries shown on the public update-history page at checked_at; the source page describes major updates and may omit weekly maintenance",
     "post_cutoff_updates":[
       {
         "published_at":"2026-09-02",
@@ -57,30 +58,29 @@
       }
     ],
     "recent_context_updates":[
-      {
-        "published_at":"2026-08-21",
-        "capability_ids":["mcp"],
-        "change_kind":"integration_surface_listing",
-        "summary":"Chat integration support listed",
-        "evidence_state":"official_public_update_observed",
-        "after_baseline":false
-      },
-      {
-        "published_at":"2026-08-12",
-        "capability_ids":["question_search"],
-        "change_kind":"release_state",
-        "summary":"Question search moved from beta to formal release",
-        "evidence_state":"official_public_update_observed",
-        "after_baseline":false
-      },
-      {
-        "published_at":"2026-08-07",
-        "capability_ids":["mcp"],
-        "change_kind":"integration_surface_listing",
-        "summary":"Connector listing updated",
-        "evidence_state":"official_public_update_observed",
-        "after_baseline":false
-      }
+      {"published_at":"2026-08-21","capability_ids":["mcp"],"change_kind":"integration_surface_listing","summary":"Chat integration support listed","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-08-12","capability_ids":["question_search"],"change_kind":"release_state","summary":"Question search moved from beta to formal release","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-08-07","capability_ids":["mcp"],"change_kind":"integration_surface_listing","summary":"Connector listing updated","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-08-04","capability_ids":["ai_keyword_proposal","ai_title","ai_heading","ai_body","ai_questions","ai_related_keywords"],"change_kind":"model_availability","summary":"Latest AI model availability update (model name omitted from repository)","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-07-22","capability_ids":["bulk_site_research"],"change_kind":"release_state","summary":"Bulk site research formal release","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-07-16","capability_ids":["mcp"],"change_kind":"authentication_contract","summary":"MCP OAuth support","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-07-15","capability_ids":["ai_keyword_proposal","ai_title","ai_heading","ai_body","ai_questions","ai_related_keywords"],"change_kind":"model_availability","summary":"Latest AI model availability update (model name omitted from repository)","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-07-14","capability_ids":["site_search"],"change_kind":"release_state","summary":"Site search formal release","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-06-25","capability_ids":["search_rank"],"change_kind":"scope_extension","summary":"Regional and mobile rank checks","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-06-09","capability_ids":["credit_history"],"change_kind":"account_observability","summary":"Credit usage history available","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-06-02","capability_ids":["public_api"],"change_kind":"api_contract","summary":"OpenAPI 3.1.1 support","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-05-26","capability_ids":["associations"],"change_kind":"ui_discovery","summary":"Related terms exposed while entering a keyword","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-05-26","capability_ids":["credit_history","public_api"],"change_kind":"account_observability","summary":"API key labels and credit usage visibility","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-05-26","capability_ids":["credit_history"],"change_kind":"billing_control","summary":"Plan tiers and automatic charge controls updated","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-05-19","capability_ids":["mcp"],"change_kind":"integration_release","summary":"MCP integration publicly released","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-05-12","capability_ids":["suggest"],"change_kind":"ui_discovery","summary":"Typeahead suggestions while entering keywords","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-04-28","capability_ids":["bulk_keyword_research"],"change_kind":"history_depth","summary":"Bulk keyword search trend history extended to four years","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-04-21","capability_ids":["suggest","lsi_paa","related_keywords"],"change_kind":"field_extension","summary":"First-seen range added to suggest and LSI/PAA surfaces","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-04-16","capability_ids":["influx_keywords","influx_pages"],"change_kind":"presentation_update","summary":"Acquired-keyword research graph presentation improved","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-04-14","capability_ids":["public_api"],"change_kind":"api_release","summary":"Public API released","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-03-25","capability_ids":["data_output"],"change_kind":"export_surface","summary":"Data output feature added","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-03-10","capability_ids":["ai_keyword_proposal","ai_title","ai_heading","ai_body","ai_questions","ai_related_keywords"],"change_kind":"model_availability","summary":"Latest AI model availability update (model name omitted from repository)","evidence_state":"official_public_update_observed","after_baseline":false},
+      {"published_at":"2026-01-07","capability_ids":["bulk_keyword_research"],"change_kind":"performance_update","summary":"Bulk keyword processing time improved","evidence_state":"official_public_update_observed","after_baseline":false}
     ],
     "post_cutoff_update_count":1,
     "affected_capability_ids":["mcp"],
