@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "0c0ac13c63b221be3be9e24a93f5340a41d52953d5c9f528971b09016a73ead9",
+  "inventory_digest": "455f26e662f3f82c5b189370bba0cff46ed93b8a8a8208fddb1b560194805fd2",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -106,7 +106,7 @@
       {
         "path": "docs/research/seo-tool-a-public-contract-drift.json",
         "exists": true,
-        "sha256": "f0888f65767f99e29d909920b530a852943df8420622c39a8341f6c9e192dcbe"
+        "sha256": "2e8762f25c0b9a2c3d7130a04e8410bb9e1eaa86654577faf90a83a3f2d8b5e1"
       },
       {
         "path": "scripts/acquisition-approval-manifest.mjs",
@@ -996,7 +996,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-public-api-credit-estimator-api.mjs",
         "resolved": true,
-        "target_sha256": "7a31256bd664206adad29c2063c47548127ef1b102f7ccbb14d8deee9adf4448"
+        "target_sha256": "9430c8fd745c58e2732e1d3a9d4fdd5c96968a57f050694e2caf0ae97823c815"
       },
       {
         "command": "node scripts/test-public-api-credit-estimator.mjs",
@@ -1010,7 +1010,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-public-contract-drift.mjs",
         "resolved": true,
-        "target_sha256": "8f29d6d01796a7138b97c599425c38544b2e32c5fc9c9d5755e520465da53e40"
+        "target_sha256": "acd0b7764c6c9ce4af8905146171c7390a09ec263686d8ee56234af7134f5fd4"
       },
       {
         "command": "node scripts/test-public-search-metadata-api.mjs",
@@ -1398,7 +1398,7 @@
         "definition_sha256": "cd41056c3e6b8bd65740903e7947d5a770f6ef2274fefaa870380ed97a97fdc5"
       }
     ],
-    "catalog_digest": "14c3102bb7ec855ee93569fbc077c3b9586acb477af992f143121438c903f4bd"
+    "catalog_digest": "3322b800e4db1db14f7afaadb2790ddb79d0f07b6325fab318428543d880bfb3"
   },
   "proof_attestation": {
     "receipt_present": true,
@@ -1407,7 +1407,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 16,
-    "receipt_digest": "acd5a814b296938cd2c74343886810d6fc157925b9a897a08ffe0968c4258311",
+    "receipt_digest": "5a0ef99322251ff44b72c5b2c67735914e4e3fd96c019812c5defb9333a5d638",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -2092,11 +2092,11 @@
         "verification_command_count": 37,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "d72f93e16c0c0e55a7e5b6fa3bc213e69ccb04f7d2cc99a7e0e8e4355e9e4d0a",
-        "command_set_digest": "068d2ab425b7a2524a77e91fd9e36af59079d0a4e7cc4daaf1c5857a1a7c7574",
+        "artifact_set_digest": "3607489a774efd86999b7703ad3dfa728fec252df4de9a7f3e8cddad7234ff28",
+        "command_set_digest": "54704aa5a5c752268ab63a88f884d95fc92ea9ad80184694cedffc7bd909a819",
         "attestation_digest": null
       },
-      "evidence_digest": "5433ce11a41555bb33638a12fc483d53c92e5953ff58abce98a8a684366f6218"
+      "evidence_digest": "eed2b9c0cdfc15cdc697e1db3f0d58873c65b62ac324f786a071676f9ca765b7"
     },
     {
       "capability_id": "influx_keywords",
@@ -3557,9 +3557,9 @@
         "execution_attested": true,
         "artifact_set_digest": "606500ea2a6e753e219f2407dfb20edd463d440c7eb93b7a1f4dad8783563c29",
         "command_set_digest": "3b8014d5703741f71b1ec81e49bd14f6980eeab5d8bef7ea3747fe5b57466333",
-        "attestation_digest": "1c8841edee9cc285524105e91f5d4ad2124e7b8849acaca92a6b8e16a6345e6c"
+        "attestation_digest": "b0a11b20dc1f4bc74bbd18e4d868843d68d52e01b91a0c4653bac8488bfcec9d"
       },
-      "evidence_digest": "96e1928eeef58c34f01cb7e55d97f4ebd99a26a26ed643355784379a8a988c9e"
+      "evidence_digest": "7f46429d9589ebeb47d8d7bde98891d77f12067141dc231945d868aa3f3a2230"
     },
     {
       "capability_id": "associations",
@@ -3616,9 +3616,9 @@
         "execution_attested": true,
         "artifact_set_digest": "606500ea2a6e753e219f2407dfb20edd463d440c7eb93b7a1f4dad8783563c29",
         "command_set_digest": "3b8014d5703741f71b1ec81e49bd14f6980eeab5d8bef7ea3747fe5b57466333",
-        "attestation_digest": "156a0d912d17f6a4d5fbb9ac178af71d491d643c30ec89601401b1306984ee39"
+        "attestation_digest": "892828ac7dd28e7fb2797f3e1eab07ca22bf0bc96dc2212abe37d1103518fe70"
       },
-      "evidence_digest": "c59c6b37a03d8a4f627eb9d018056a3799b55f2097b2c584e3bd85666a37c268"
+      "evidence_digest": "114e8a04c2a4342e2be8205a5603a80a84a97914398d12bdb99e4723b3ea6fa3"
     },
     {
       "capability_id": "qa_sites",
@@ -3784,9 +3784,9 @@
         "execution_attested": true,
         "artifact_set_digest": "faf09f46a71462a2233ab07d4a7092c0a1e331a1656ce9cf0d7823e85b25aeca",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "a529d21797670d05ff4b38ce2f912e505a76f8961860a4fa1848f3e932a26164"
+        "attestation_digest": "0ed4fcef3b43103397ad3d776bf41d235314c86bc19badefe64b5c2434af0a43"
       },
-      "evidence_digest": "8f4e870a4ddcdec6abd8c8d8c807bc7e814cefe47d2793358a252b4ea2445ad2"
+      "evidence_digest": "263b8a5595456b3d35f04fce60c03522b528a629f0932acc1d08ecd5c1403502"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -3816,9 +3816,9 @@
         "execution_attested": true,
         "artifact_set_digest": "faf09f46a71462a2233ab07d4a7092c0a1e331a1656ce9cf0d7823e85b25aeca",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "ca176c8acc6badd11efed37763eb7f433719201d64dc7eb02a1641679f5d918a"
+        "attestation_digest": "4e3e0c29ec0c69dcc5ac101c60b0422c5070b60e724ac20b70d2297e3bcca5e0"
       },
-      "evidence_digest": "50e4061537565aca8acbc1266094073a5303b79de714cf78b59719c3cde46d37"
+      "evidence_digest": "ac33f84509d736cb7b027ebd487fd10be91054ea3991176ea525d58b000616ab"
     },
     {
       "capability_id": "data_output",
@@ -3848,9 +3848,9 @@
         "execution_attested": true,
         "artifact_set_digest": "faf09f46a71462a2233ab07d4a7092c0a1e331a1656ce9cf0d7823e85b25aeca",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "4c4eff6c1eb6fcedb13d14e5f46e0e6d6a40c72de91b3792a10dde6bf82dc809"
+        "attestation_digest": "4c4475643dab8d63b05e473f64bd32a354ba162f0a67c4b485cafeb177c78434"
       },
-      "evidence_digest": "2269f83ecf3b7f192bc427c06073771c080148fc4294248c67a5cae94edd54b3"
+      "evidence_digest": "2adbebddffb1231aedc5d033a662915694d3481590c492bc21f9bcac1b8824ac"
     },
     {
       "capability_id": "bookmarklet",
@@ -3880,9 +3880,9 @@
         "execution_attested": true,
         "artifact_set_digest": "faf09f46a71462a2233ab07d4a7092c0a1e331a1656ce9cf0d7823e85b25aeca",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "0c06fb241dd34eb996318f75aebc23e6e787bd7f8203f488fdec47b8745c3300"
+        "attestation_digest": "525ad8467a2acb1551ad03cad10494f5b4ec646de8bbe67f58dbd0eb1e808dc9"
       },
-      "evidence_digest": "ea0fa17bfd9ad38c829e3d517ce21a4e7e2d1eec7aeb3e4c0901ab389dc66d0c"
+      "evidence_digest": "7fb01f9ec3769f0174aa4f6fb370b27b201de5eeda3d1ed825f8722a270029cc"
     },
     {
       "capability_id": "public_api",
@@ -3893,7 +3893,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に121 GET routeを実装し、2026-08-30に公式OpenAPI 1.14.4（OAS 3.1.1）24 operation・41 schema・952 fieldをlive再取得してdigest差分0を確認し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に121 GET routeを実装し、2026-09-03に公式OpenAPI 1.16.0（OAS 3.1.1）24 operation・41 schema・952 fieldをlive再取得して構造digest差分0（説明・example・plan wordingのみ更新）を確認し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -3931,10 +3931,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "1ba0aafcfd5ae3db6265f5e03880bc9b0ae097065902e7f99de9f61c4bc7cce8",
-        "command_set_digest": "0f120b55179aed9570be2b64ac32de26aed2c4dac8715cf3b61a29b5711923e8",
+        "command_set_digest": "1e86a5b180f60e2df8576083c59a34a72040f7fb88bef6c15f6d9b0ecf0075bd",
         "attestation_digest": null
       },
-      "evidence_digest": "c001573b22671b58167fa2b1d4027570adbe3286f6e781a490782aeea1bc5fb1"
+      "evidence_digest": "8499d24e761dece1ac14ff0acfa83b5e3551059449787809798f6b1f6f2577e8"
     },
     {
       "capability_id": "mcp",
@@ -3983,10 +3983,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "1ba0aafcfd5ae3db6265f5e03880bc9b0ae097065902e7f99de9f61c4bc7cce8",
-        "command_set_digest": "0f120b55179aed9570be2b64ac32de26aed2c4dac8715cf3b61a29b5711923e8",
+        "command_set_digest": "1e86a5b180f60e2df8576083c59a34a72040f7fb88bef6c15f6d9b0ecf0075bd",
         "attestation_digest": null
       },
-      "evidence_digest": "16ef795adfe3c7d51d0ddcb660a7abe08fe11327048a860406231e486dd4e6dc"
+      "evidence_digest": "47fbbd9ba59a86f41b0f9748e83473e2212dfc8b6c01a528dfa0c2247e63a5ee"
     },
     {
       "capability_id": "credit_history",
@@ -4037,5 +4037,5 @@
       "evidence_digest": "707f5379134df7f35045a860d13b66da488bcbb49957acd96ae380c6c67e1d66"
     }
   ],
-  "audit_digest": "3c7ee89c00a545718f04457c02169099008a1683d3be6809c34380971d6bcbeb"
+  "audit_digest": "fc263f3ea7798e2f9721d5505cbaa456cf46b9ce7d4958504b8ec8ec50747041"
 }

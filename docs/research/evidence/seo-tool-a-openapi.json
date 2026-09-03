@@ -2715,7 +2715,7 @@
     },
     "/v1/bulk-site-research": {
       "post": {
-        "description": "一括サイト調査。\n\n複数URL（最大100件）をまとめて調査し、各サイトの推定流入数・獲得キーワード数・ページ数などの現在値と、その推移（0〜100の指数）を取得する。\nサイト群のSEO規模とトレンドを一括で把握するのに有用。\n\n推移データ（histories）は、現在値スカラー（metrics）とは別ソース・別量のため、系列内最大月を100とする指数（0〜100・小数第2位）に正規化して返す。\netv / keywordCount / pageCount の3系列を各々独立に指数化し、キー名は etvIndex / keywordCountIndex / pageCountIndex とする（現在値との誤読防止）。\n現在値・分布・変化率は実数のまま返す（指数化しない）。\n\nurlMatchTypeで調査単位を指定する（url: 完全一致 / forward_url: 前方一致 / domain: ドメイン一致 / sub_domain: サブドメイン一致）。\nitemsは入力urlsと同数・同順で返る。\n本機能はSTANDARD以上のプラン限定。対象URLは最大100件。\n\n入力URL1件あたり0.45クレジットを消費（最低4.5クレジット）。（例: 10URL→4.5クレジット、100URL→45クレジット）。",
+        "description": "一括サイト調査。\n\n複数URL（最大100件）をまとめて調査し、各サイトの推定流入数・獲得キーワード数・ページ数などの現在値と、その推移（0〜100の指数）を取得する。\nサイト群のSEO規模とトレンドを一括で把握するのに有用。\n\n推移データ（histories）は、現在値スカラー（metrics）とは別ソース・別量のため、系列内最大月を100とする指数（0〜100・小数第2位）に正規化して返す。\netv / keywordCount / pageCount の3系列を各々独立に指数化し、キー名は etvIndex / keywordCountIndex / pageCountIndex とする（現在値との誤読防止）。\n現在値・分布・変化率は実数のまま返す（指数化しない）。\n\nurlMatchTypeで調査単位を指定する（url: 完全一致 / forward_url: 前方一致 / domain: ドメイン一致 / sub_domain: サブドメイン一致）。\nitemsは入力urlsと同数・同順で返る。\n対象URLは最大100件。\n\n入力URL1件あたり0.45クレジットを消費（最低4.5クレジット）。（例: 10URL→4.5クレジット、100URL→45クレジット）。",
         "operationId": "BulkSiteResearchController_searchBulkSiteResearch",
         "parameters": [],
         "requestBody": {
@@ -4711,13 +4711,13 @@
     }
   },
   "info": {
-    "title": "seo-tool-a API",
-    "description": "seo-tool-a APIの仕様です。<br>スタンダードプランでAPIキー（最大5個）を発行することで利用できます。<br>取得データは社内利用の範囲でご利用いただけます。サービスへの組み込み等をご検討の際は<a href=\"https://seo-tool-a.example/knowledge/9510/\" target=\"_blank\" rel=\"noopener noreferrer\">API利用ガイドライン</a>・<a href=\"https://seo-tool-a.example/knowledge/terms/\" target=\"_blank\" rel=\"noopener noreferrer\">利用規約</a>を厳守の上ご利用ください。<br>MCPの設定方法や接続手順については、<a href=\"https://seo-tool-a.example/knowledge/9777/\" target=\"_blank\" rel=\"noopener noreferrer\">MCP設定ガイド</a>をご覧ください。<br><br><a href=\"/api-docs.json\" download=\"seo-tool-a-keyword-api-docs.json\">API Docs（JSON（OpenAPI）/ AI・プログラム向け）</a><br><a href=\"/api-docs.md\" download=\"seo-tool-a-keyword-api-docs.md\">API Docs（Markdown / 人間向け）</a>",
-    "version": "1.14.4",
+    "title": "seo-tool-aAPI",
+    "description": "seo-tool-aAPIの仕様です。<br>スタンダードプラン以上でAPIキー（最大5個）を発行することで利用できます。<br>取得データは社内利用の範囲でご利用いただけます。サービスへの組み込み等をご検討の際は<a href=\"https://seo-tool-a.example/knowledge/9510/\" target=\"_blank\" rel=\"noopener noreferrer\">API利用ガイドライン</a>・<a href=\"https://seo-tool-a.example/knowledge/terms/\" target=\"_blank\" rel=\"noopener noreferrer\">利用規約</a>を厳守の上ご利用ください。<br>MCPの設定方法や接続手順については、<a href=\"https://seo-tool-a.example/knowledge/9777/\" target=\"_blank\" rel=\"noopener noreferrer\">AI連携ガイド</a>をご覧ください。<br><br><a href=\"/api-docs.json\" download=\"seo-tool-a-keyword-api-docs.json\">API Docs（JSON（OpenAPI）/ AI・プログラム向け）</a><br><a href=\"/api-docs.md\" download=\"seo-tool-a-keyword-api-docs.md\">API Docs（Markdown / 人間向け）</a>",
+    "version": "1.16.0",
     "contact": {},
     "license": {
       "name": "License: Apache 2.0",
-      "url": "http://www.competitor-16.example/licenses/LICENSE-2.0.html"
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
   "tags": [],
@@ -10452,7 +10452,7 @@
                     "urlSummary": {
                       "type": "string",
                       "description": "URLのサマリ（カンマ区切り、先頭20件・255文字以内で切り詰め）",
-                      "example": "https://competitor-189.example://seo-tool-a.inc"
+                      "example": "https://seo-tool-a.example,https://seo-tool-a.inc"
                     },
                     "keywordCount": {
                       "type": "number",

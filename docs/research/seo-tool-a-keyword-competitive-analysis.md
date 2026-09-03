@@ -1528,6 +1528,12 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 求人条件marker 35判断はclaim/source検証前の利用を禁止し、曖昧marker 71判断は分類確定前の利用を禁止する。全判断で人気・trend・投稿数・検索量・順位効果を推論せず、自動title/heading/body利用は0件である。
 - 専用API、MCP `review_observed_tag_content_coverage`、同一画面内のcoverage表を追加した。全体はAPI 121 route、MCP 103 read-only toolとなり、外部取得・追加費用は0である。
 
+### 10.117 公開API契約の現行再確認（OpenAPI 1.16.0 / 2026-09-03）
+
+- 公式に公開されているOpenAPIを読み取り専用で再取得し、リポジトリ内の中立化スナップショットを更新した。文書版は1.16.0、OASは3.1.1、24 operation・41 schema・952 flattened fieldで、構造digest差分は0だった。差分は説明文・example・plan wordingに限られ、operation/schema/fieldの増減はない。
+- 24 operationのcredit分類、53明示依存edge、952 fieldの処遇（保持semantic 112、provider dataset未取得190、provider実行meta未取得31、未mapping 0、wire shape 448）を再生成し、既存のAPI/MCP/API freshness検証へ反映した。今回の確認で外部APIキー、認証情報、有料リクエスト、非公開endpoint、外部データは使用していない。
+- 現在の実装は公開契約を参照するread-only証拠投影であり、外部wire互換、認証、credit消費、provider mutation、全provider datasetの取得を主張しない。未取得データと非保持データは従来どおり別状態で表示し、失われたデータと未取得データを混同しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
