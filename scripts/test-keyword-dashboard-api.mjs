@@ -94,7 +94,7 @@ const openApiPaths = Object.keys(researchOpenApi.paths),
   mappedOperationIds = new Set(
     operationCoverage.map((row) => row.operation_id),
   );
-assert.equal(openApiPaths.length, 124);
+assert.equal(openApiPaths.length, 125);
 assert.ok(openApiPaths.every((path) => researchOpenApi.paths[path].get));
 assert.equal(operationCoverage.length, 27);
 assert.equal(mappedOperationIds.size, 24);
@@ -110,6 +110,15 @@ assert.equal(keywords.body.data.length, 1);
 assert.equal(keywords.body.meta.total, 2);
 assert.equal(keywords.body.meta.next_cursor, "1");
 assert.equal(keywords.body.provenance.external_acquisition_triggered, false);
+const suggestLogic = route(
+  "/api/v1/suggest-expansion-logic?site_id=s&view=frontier&suggest_class=2&limit=10",
+);
+assert.equal(suggestLogic.status, 200);
+assert.equal(suggestLogic.body.view, "frontier");
+assert.equal(suggestLogic.body.data.length, 2);
+assert.equal(suggestLogic.body.summary.observed_external_result_count, 0);
+assert.equal(suggestLogic.body.external_acquisition_triggered, false);
+assert.equal(suggestLogic.body.auto_generation, false);
 assert.equal(
   route("/api/v1/questions?site_id=s&kind=derived_question").body.data.length,
   1,

@@ -32,6 +32,7 @@
       <button class="tab" data-view="observed-hashtags">観測ハッシュタグ</button>
       <button class="tab" data-view="keyword-utilities">補助ツール</button>
       <button class="tab" data-view="suggest-explorer">サジェスト</button>
+      <button class="tab" data-view="suggest-expansion-logic">拡張ロジック</button>
       <button class="tab" data-view="quick-search">クイック検索</button>
       <button class="tab" data-view="qa-site-search">Q&Aサイト</button>
       <button class="tab" data-view="demand-search">質問・潜在需要</button>
@@ -844,6 +845,41 @@
             </thead>
             <tbody id="suggest-rows"></tbody>
           </table>
+        </div>
+      </section>
+
+      <section id="suggest-expansion-logic" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>サジェスト拡張ロジック</h2>
+            <p>公式区分と保持済みseedの探索計画。外部結果・内部アルゴリズムは未取得のまま分離表示します。</p>
+          </div>
+          <div class="filters">
+            <input id="suggest-expansion-search" type="search" placeholder="seed・区分・engineを検索" aria-label="サジェスト拡張ロジック検索" />
+            <select id="suggest-expansion-view" aria-label="サジェスト拡張ロジック表示">
+              <option value="seeds">保持seed</option>
+              <option value="frontier">探索frontier</option>
+              <option value="engines">取得面</option>
+              <option value="contract">公式contract</option>
+              <option value="traces">BFS / DFS比較</option>
+            </select>
+            <select id="suggest-expansion-class" aria-label="サジェスト区分">
+              <option value="all">全区分</option>
+              <option value="0">＋ 直接</option>
+              <option value="1">＋＋ 再帰</option>
+              <option value="2">＋α 文字拡張</option>
+              <option value="3">＋＋＋ 再帰拡張</option>
+            </select>
+          </div>
+        </div>
+        <div id="suggest-expansion-metrics" class="metrics"></div>
+        <div id="suggest-expansion-status" class="notice" role="status"></div>
+        <div class="table-wrap">
+          <table>
+            <thead id="suggest-expansion-head"></thead>
+            <tbody id="suggest-expansion-rows"></tbody>
+          </table>
+          <div id="suggest-expansion-empty" class="empty-state"></div>
         </div>
       </section>
 
@@ -2730,6 +2766,7 @@
     <script type="module" src="responsive-sidebar.js"></script>
     <script type="module" src="keyword-content-lineage.js"></script>
     <script type="module" src="keyword-expansion-lineage.js"></script>
+    <script type="module" src="suggest-expansion-logic.js"></script>
     <script type="module" src="latent-demand-traversal.js"></script>
     <script type="module" src="demand-payload-retention.js"></script>
     <script type="module" src="observed-hashtags.js"></script>

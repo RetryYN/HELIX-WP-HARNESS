@@ -1552,6 +1552,14 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - `GET /api/v1/keyword-expansion-lineage` とMCP `audit_keyword_expansion_lineage`を追加し、nodes/edges/元KW処遇/取得面処遇をsite・group・edge種別・処遇・queryで読み取り可能にした。ダッシュボードにも「KW拡張lineage」を追加し、保持／未取得／0件／非該当／取得失敗と自動割当・自動生成・自動反映・自動公開0を同時に表示する。
 - lineageはサジェストや関連語の市場母集団、同義性、検索量、順位因果を推定しない。外部取得・認証・追加費用・モデル実行は0で、未取得面を埋めるには明示承認と価格・予算・provider payloadの別途証跡が必要である。
 
+### 10.120 サジェスト拡張ロジックの契約・探索計画（2026-09-04）
+
+- ローカル保持した公開スキーマから、サジェストの4区分（＋: 直接、＋＋: class 0 の再サジェスト、＋α: 元キーワードへ文字を加えた入力、＋＋＋: class 1/2 からの再帰）、8取得面、filter/sort/default/limit、1リクエスト1.5 creditを抽出し、スキーマファイルのSHA-256とともに `suggest-expansion-logic.v1` のcontractへ固定した。通常約1,000件、増量時約10,000件という公開説明も「契約上の目安」として保持する。
+- 保持済み10,694元行・10,619正規化seedをsource keyword ID、raw form、sheet/row、取得状態、証跡digest付きで再利用し、seedごとに4区分・計42,476件のfrontierを作った。frontierはrequest templateとappend family（ひらがな・英字・数字）の計画だけで、候補語を合成せず、外部レスポンスを0件としている。
+- 8取得面は全て `not_acquired`、request/resultとも0である。保持workbookの候補を外部サジェスト結果と呼ばず、外部autocompleteの未取得、候補のappearance history、増量結果、指標値を補完しない。今回の追加で外部通信・認証・課金・モデル実行は0であり、累計5 USD上限の台帳にも影響しない。
+- 区分遷移（seed→class 0/2→class 1→class 3）から決定論的BFS/DFSのローカルtraceを比較できるようにした。ただし公開投影だけでは内部訪問方式を識別できないため、両方式を `possible_not_proven` とし、同一seedの区分別レスポンス順、limit prefixの安定性、親frontier付きtraceを追加観測要件として残す。これは提供元内部DFSの証明ではない。
+- DB投影、`GET /api/v1/suggest-expansion-logic`、MCP `audit_suggest_expansion_logic`、ダッシュボード「拡張ロジック」へ接続した。API 125 route、MCP 107 read-only toolの一覧・テストを更新し、seed/frontier/engine/contract/traceをsite scope・cursor・digest付きで読み取れる。自動group割当・自動生成・自動公開は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

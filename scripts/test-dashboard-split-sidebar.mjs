@@ -17,6 +17,10 @@ const root = new URL("../docs/prototypes/wp-ops-dashboard/", import.meta.url),
     new URL("keyword-expansion-lineage.js", root),
     "utf8",
   ),
+  suggestExpansion = readFileSync(
+    new URL("suggest-expansion-logic.js", root),
+    "utf8",
+  ),
   semanticBindings = readFileSync(
     new URL("semantic-coverage-bindings.js", root),
     "utf8",
@@ -79,6 +83,13 @@ assert.match(html, /keyword-expansion-lineage\.js/u);
 assert.match(expansionLineage, /api\/v1\/keyword-expansion-lineage/u);
 assert.match(expansionLineage, /not_acquired/u);
 assert.match(expansionLineage, /自動割当0/u);
+assert.match(html, /data-view="suggest-expansion-logic"/u);
+assert.match(html, /id="suggest-expansion-logic"/u);
+assert.match(html, /suggest-expansion-logic\.js/u);
+assert.match(suggestExpansion, /api\/v1\/suggest-expansion-logic/u);
+assert.match(html, /BFS \/ DFS比較/u);
+assert.match(suggestExpansion, /node_order/u);
+assert.match(suggestExpansion, /外部取得0/u);
 console.log(
   "dashboard split sidebar: OK (resize, collapse, persistence, keyboard, mobile fallback)",
 );

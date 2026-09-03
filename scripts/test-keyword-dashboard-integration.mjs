@@ -3607,6 +3607,7 @@ assert.deepEqual(
     "search_observed_hashtags",
     "review_observed_tag_content_coverage",
     "search_suggest_evidence",
+    "audit_suggest_expansion_logic",
     "audit_question_lineage",
     "audit_demand_occurrences",
     "audit_simultaneous_rankings",
@@ -3706,6 +3707,16 @@ assert.equal(draftMcp.meta.total, draftApi.meta.total);
 assert.deepEqual(draftMcp.data, draftApi.data);
 assert.equal(draftMcp.summary.auto_approval, false);
 assert.equal(draftMcp.provenance.external_acquisition_triggered, false);
+const suggestExpansionResponse = await fetch(
+  `http://127.0.0.1:${port}/api/v1/suggest-expansion-logic?site_id=site-a.example&view=frontier&suggest_class=2&limit=3`,
+);
+assert.equal(suggestExpansionResponse.status, 200);
+const suggestExpansionPayload = await suggestExpansionResponse.json();
+assert.equal(suggestExpansionPayload.data.length, 3);
+assert.equal(suggestExpansionPayload.summary.observed_external_result_count, 0);
+assert.equal(suggestExpansionPayload.external_acquisition_triggered, false);
+assert.equal(suggestExpansionPayload.auto_generation, false);
+assert.equal(suggestExpansionPayload.traversal.comparison.provider_internal_algorithm_proven, false);
 const openapiResponse = await fetch(
   `http://127.0.0.1:${port}/api/v1/openapi.json`,
 );
@@ -3819,9 +3830,18 @@ const html = await fetch(`http://127.0.0.1:${port}/`).then((item) =>
 const app = await fetch(`http://127.0.0.1:${port}/app.js`).then((item) =>
   item.text(),
 );
+const suggestExpansionUi = await fetch(
+  `http://127.0.0.1:${port}/suggest-expansion-logic.js`,
+).then((item) => item.text());
 assert.match(html, /記事単位の新規brief queue/);
 assert.match(html, /new-article-brief-queue-rows/);
 assert.match(app, /renderNewArticleBriefQueue/);
+assert.match(html, /data-view="suggest-expansion-logic"/);
+assert.match(html, /id="suggest-expansion-logic"/);
+assert.match(html, /suggest-expansion-logic\.js/);
+assert.match(suggestExpansionUi, /api\/v1\/suggest-expansion-logic/);
+assert.match(suggestExpansionUi, /外部取得0/);
+assert.match(suggestExpansionUi, /自動生成0/);
 assert.match(app, /new_article_brief_queue/);
 assert.match(app, /editorial_stage/);
 assert.match(app, /composition_issues/);

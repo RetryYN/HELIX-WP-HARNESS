@@ -17,6 +17,7 @@ import { queryGraphRelatedKeywords } from "./graph-related-keyword-query.mjs";
 import { buildKeywordContentLineage } from "./keyword-content-lineage.mjs";
 import { buildLatentDemandTraversal } from "./latent-demand-traversal.mjs";
 import { buildTraversalIdentifiabilityProof } from "./seo-tool-a-traversal-hypothesis.mjs";
+import { buildSuggestExpansionLogic } from "./suggest-expansion-logic.mjs";
 const traversalIdentifiabilityProof = buildTraversalIdentifiabilityProof();
 const publicApiOperationGraph = JSON.parse(
   readFileSync(
@@ -657,6 +658,15 @@ paths["/suggest-evidence"] = {
       "Normalized retained-workbook candidates with lossless source rows, acquisition state and volume conflicts; not an external autocomplete feed.",
     "x-seo-tool-a-operation-ids": ["SuggestKeywordsController_search"],
     responses: { 200: { description: "Retained suggest candidate evidence" } },
+  },
+};
+paths["/suggest-expansion-logic"] = {
+  get: {
+    operationId: "helix_suggest_expansion_logic",
+    description:
+      "Read-only suggest class contract, retained seed frontier, engine coverage, and BFS/DFS plan traces; no external acquisition or automatic generation.",
+    "x-seo-tool-a-operation-ids": ["SuggestKeywordsController_search"],
+    responses: { 200: { description: "Suggest expansion logic plan" } },
   },
 };
 paths["/question-lineage"] = {
@@ -3493,6 +3503,88 @@ export function routeResearchApi(pathname, url, data, db = null) {
       external_surface_coverage: oracle.external_surface_coverage ?? {},
       filters: { q: url.searchParams.get("q") ?? "", mode },
       external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/suggest-expansion-logic") {
+    const requestedView = url.searchParams.get("view"),
+      view = ["seeds", "frontier", "engines", "contract", "traces"].includes(
+        requestedView,
+      )
+        ? requestedView
+        : "seeds",
+      classRaw =
+        url.searchParams.get("suggest_class") ?? url.searchParams.get("class"),
+      classValue =
+        classRaw == null || String(classRaw).trim() === "" ? null : Number(classRaw),
+      suggestClass = Number.isInteger(classValue) && classValue >= 0 && classValue <= 3
+        ? classValue
+        : null,
+      engine = url.searchParams.get("engine"),
+      state = url.searchParams.get("state"),
+      logic =
+        site.suggest_expansion_logic ??
+        buildSuggestExpansionLogic({
+          siteId,
+          sourceRows: (data.keyword_inventory ?? []).filter(
+            (row) => row.site_id === siteId,
+          ),
+          suggestEvidence: site.suggest_evidence_oracle,
+        }),
+      source =
+        view === "frontier"
+          ? logic.frontier
+          : view === "engines"
+            ? logic.engines
+            : view === "contract"
+              ? [logic.contract]
+              : view === "traces"
+                ? logic.traversal.traces
+                : logic.seeds,
+      rows = source.filter((row) => {
+        const text =
+          `${row.normalized_keyword ?? ""} ${row.representative_keyword ?? ""} ${
+            row.normalized_seed ?? ""
+          } ${row.mode ?? ""} ${row.strategy ?? ""} ${row.meaning ?? ""}`;
+        return (
+          (suggestClass == null || row.suggest_class === suggestClass) &&
+          (!engine || row.mode === engine) &&
+          (!state || state === "all" || row.state === state || row.status === state) &&
+          (!query || norm(text).includes(query))
+        );
+      });
+    return ok({
+      ...page(rows, url),
+      view,
+      summary: {
+        ...logic.summary,
+        filtered_count: rows.length,
+        filtered_source_row_count:
+          view === "seeds"
+            ? rows.reduce((sum, row) => sum + Number(row.source_row_count ?? 0), 0)
+            : undefined,
+      },
+      contract: logic.contract,
+      traversal:
+        view === "traces"
+          ? logic.traversal
+          : { policy: logic.traversal.policy, comparison: logic.traversal.comparison },
+      lineage_digest: logic.lineage_digest,
+      policy: logic.policy,
+      source_policy: logic.source_policy,
+      interpretation_policy: logic.interpretation_policy,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        view,
+        suggest_class: suggestClass == null ? "all" : suggestClass,
+        engine: engine ?? "all",
+        state: state ?? "all",
+      },
+      source_rows_losslessly_retained: logic.summary.source_rows_losslessly_retained,
+      observed_external_result_count: logic.summary.observed_external_result_count,
+      external_acquisition_triggered: false,
+      auto_assignment: false,
+      auto_generation: false,
+      auto_publication: false,
     });
   }
   if (pathname === "/api/v1/question-lineage") {
