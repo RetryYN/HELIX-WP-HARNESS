@@ -465,6 +465,11 @@
             <option value="hprt">部分を含む全体</option>
             <option value="also">関連参照</option>
           </select>
+          <select id="semantic-strategy" aria-label="意味グラフ探索方式">
+            <option value="breadth_first">幅優先（既定）</option>
+            <option value="depth_first">深さ優先（比較）</option>
+          </select>
+          <span id="semantic-strategy-status" class="cell-note">探索方式: 幅優先（既定）</span>
         </div>
         <div id="semantic-graph-metrics" class="metrics"></div>
         <div class="table-wrap">
@@ -2607,6 +2612,7 @@
     <template id="empty-template"
       ><div class="empty"><strong>該当データがありません</strong><span>フィルターを変更してください。</span></div></template
     >
+    <script type="module" src="semantic-traversal-controls.js"></script>
     <script type="module" src="app.js"></script>
     <script type="module" src="observed-hashtags.js"></script>
   </body>

@@ -1538,7 +1538,7 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 
 - 公開契約から確実に観測できるのは、LSI/PAAの最大2階層再帰、`sourceKeyword`による取得元、再帰中の出現回数に基づく`importance`、LSI→PAAの出力順である。stack/queue、訪問順、tie-break、途中停止条件は公開されていないため、DFSと断定しない。
 - `seo-tool-a-traversal-hypothesis.v1` に、bounded recursive expansion・親source・occurrence aggregation・出力partition・指標投影の6信号と、DFS/BFS/出現回数集約の3仮説を固定した。DFS/BFSはどちらも`possible_not_proven`、契約挙動として最も整合するのは「bounded recursive expansion + occurrence aggregation」とし、内部実装証明はfalseのままにする。
-- ローカル意味グラフの`public-semantic-graph`へ`strategy=breadth_first|depth_first`を追加し、同じseed・深度・edge上限で訪問順とpathを比較できるようにした。MCPにも同じ選択肢を追加した。デフォルトは既存のbreadth-firstで、両方式ともtyped edge・path digest・depth・逆方向を保持し、自動group割当・自動title/heading/body変更は行わない。
+- ローカル意味グラフの`public-semantic-graph`へ`strategy=breadth_first|depth_first`を追加し、同じseed・深度・edge上限で訪問順とpathを比較できるようにした。MCPとダッシュボードの意味グラフ画面にも同じ選択肢を追加した。デフォルトは既存のbreadth-firstで、両方式ともtyped edge・path digest・depth・逆方向を保持し、自動group割当・自動title/heading/body変更は行わない。
 - 仮説からDB/API/UIへ戻す対応を、(1) raw demand occurrenceのsource/importance/digest、(2) keyword groupのboundary review、(3) title/heading候補のdemand・source lineage・review gateの3層へ固定した。これは公開挙動の再現可能な比較であり、外部サービスの内部アルゴリズム、provider、検索需要、順位効果を推論するものではない。
 
 ## 11. 未検証事項
