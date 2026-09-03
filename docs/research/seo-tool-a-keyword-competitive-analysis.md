@@ -1541,6 +1541,7 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - ローカル意味グラフの`public-semantic-graph`へ`strategy=breadth_first|depth_first`を追加し、同じseed・深度・edge上限で訪問順とpathを比較できるようにした。MCPとダッシュボードの意味グラフ画面にも同じ選択肢を追加した。デフォルトは既存のbreadth-firstで、両方式ともtyped edge・path digest・depth・逆方向を保持し、自動group割当・自動title/heading/body変更は行わない。
 - 仮説からDB/API/UIへ戻す対応を、(1) raw demand occurrenceのsource/importance/digest、(2) keyword groupのboundary review、(3) title/heading候補のdemand・source lineage・review gateの3層へ固定した。これは公開挙動の再現可能な比較であり、外部サービスの内部アルゴリズム、provider、検索需要、順位効果を推論するものではない。
 - `latent-demand-traversal.v1`を追加し、保持`serp_demand_occurrences`をseed→demand node→edgeへ再構成する。occurrence/task/source keyword/snapshot digestを保持したまま、BFS/DFSのローカルtrace、深度上限（1〜2）、重複出現、複数親、cycleを比較できる。現行DBは1,188 occurrenceがすべて深度1で、深度2は0件のため、方式識別は`insufficient_retained_depth`として停止し、提供元trace・内部アルゴリズムは未証明のままとする。`GET /api/v1/latent-demand-traversal`、MCP `audit_latent_demand_traversal`、ダッシュボードの「潜在需要探索」へ接続し、自動group割当・自動content変更・自動公開・外部取得は0である。
+- 需要出現整合性をv2へ拡張し、各PAA／関連検索occurrenceを同taskの保持feature payloadへ照合した。現行DBでは1,188/1,188 occurrenceがpayloadへリンクし、snapshot digestも1,188/1,188保持されている。一方、PAA回答payloadは1件がresolved、384件が非同期placeholder、11件がemptyで、395件はproviderから回答本文が返っていない。これは「保持後に破棄」とは断定せず、`provider_payload_not_returned`として未取得境界を明示する。`GET /api/v1/demand-occurrence-integrity`、MCP、質問・潜在需要画面の保持境界panelへ反映し、自動取得・自動編集・自動公開は0である。
 
 ## 11. 未検証事項
 

@@ -398,6 +398,8 @@ const proof = {
     artifacts: [
       "docs/prototypes/wp-ops-dashboard/app.js",
       "docs/prototypes/wp-ops-dashboard/index.html",
+      "docs/prototypes/wp-ops-dashboard/demand-payload-retention.js",
+      "docs/prototypes/wp-ops-dashboard/latent-demand-traversal.js",
       "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
       "scripts/test-dashboard-table-state.mjs",
       "scripts/test-keyword-dashboard-integration.mjs",
