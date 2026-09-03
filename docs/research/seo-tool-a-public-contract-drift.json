@@ -47,6 +47,7 @@
     "baseline_evidence_cutoff":"2026-08-29",
     "comparison":"strictly_after_baseline",
     "coverage":"all 2026 entries shown on the public update-history page at checked_at; the source page describes major updates and may omit weekly maintenance",
+    "source_observation":{"listed_2026_entry_count":24,"listed_2026_entry_identity_digest":"e8fdc61787f3c0865f91230597192c7b4ffb6c614d492d72565c9080af84ba2d","major_updates_only_note":true},
     "post_cutoff_updates":[
       {
         "published_at":"2026-09-02",
