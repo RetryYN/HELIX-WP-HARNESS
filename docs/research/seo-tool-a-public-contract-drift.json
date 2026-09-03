@@ -38,5 +38,56 @@
   ],
   "operation_classification":{"fixed_credit_count":12,"dynamic_credit_count":3,"zero_credit_count":9,"unclassified_count":0},
   "interpretation":"web UI credits and public API credits are distinct contracts and must not be collapsed",
-  "paid_request_executed":false
+  "paid_request_executed":false,
+  "public_update_history":{
+    "schema_version":"seo-tool-a-public-update-history.v1",
+    "source_kind":"official_public_update_history",
+    "source_path":"/knowledge/1338/",
+    "checked_at":"2026-09-04",
+    "baseline_evidence_cutoff":"2026-08-29",
+    "comparison":"strictly_after_baseline",
+    "post_cutoff_updates":[
+      {
+        "published_at":"2026-09-02",
+        "capability_ids":["mcp"],
+        "change_kind":"availability_plan_boundary",
+        "summary":"MCP availability plan floor changed",
+        "evidence_state":"official_public_update_observed",
+        "requires_reaudit":true
+      }
+    ],
+    "recent_context_updates":[
+      {
+        "published_at":"2026-08-21",
+        "capability_ids":["mcp"],
+        "change_kind":"integration_surface_listing",
+        "summary":"Chat integration support listed",
+        "evidence_state":"official_public_update_observed",
+        "after_baseline":false
+      },
+      {
+        "published_at":"2026-08-12",
+        "capability_ids":["question_search"],
+        "change_kind":"release_state",
+        "summary":"Question search moved from beta to formal release",
+        "evidence_state":"official_public_update_observed",
+        "after_baseline":false
+      },
+      {
+        "published_at":"2026-08-07",
+        "capability_ids":["mcp"],
+        "change_kind":"integration_surface_listing",
+        "summary":"Connector listing updated",
+        "evidence_state":"official_public_update_observed",
+        "after_baseline":false
+      }
+    ],
+    "post_cutoff_update_count":1,
+    "affected_capability_ids":["mcp"],
+    "reaudit_required":true,
+    "completion_claim_impact":"does_not_upgrade_parity; requires capability re-audit",
+    "live_product_request_executed":false,
+    "paid_request_executed":false,
+    "credentials_used":false
+  }
 }

@@ -37,6 +37,13 @@ const credits = request("view=credits&limit=100");
 assert(credits.body.meta.total > 0);
 assert.equal(credits.body.public_contract_credits.paid_request_executed, false);
 
+const freshness = request("view=freshness&limit=100");
+assert.equal(freshness.body.meta.total, 4);
+assert.equal(freshness.body.summary.post_cutoff_update_count, 1);
+assert.equal(freshness.body.summary.reaudit_required, true);
+assert.deepEqual(freshness.body.summary.affected_capability_ids, ["mcp"]);
+assert.equal(freshness.body.public_update_history.checked_at, "2026-09-04");
+
 const listed = handleMcpMessage(
   { jsonrpc: "2.0", id: 1, method: "tools/list" },
   null,
@@ -58,6 +65,21 @@ const mcp = handleMcpMessage(
 assert.equal(mcp.isError, false);
 assert.equal(mcp.structuredContent.meta.total, 29);
 assert.equal(mcp.structuredContent.completion_claim, "not_proven");
+const mcpFreshness = handleMcpMessage(
+  {
+    jsonrpc: "2.0",
+    id: 3,
+    method: "tools/call",
+    params: {
+      name: "inspect_capability_completion_audit",
+      arguments: { view: "freshness", limit: 100 },
+    },
+  },
+  null,
+).result;
+assert.equal(mcpFreshness.isError, false);
+assert.equal(mcpFreshness.structuredContent.meta.total, 4);
+assert.equal(mcpFreshness.structuredContent.summary.reaudit_required, true);
 
 console.log(
   "capability audit API/MCP: OK (35 capabilities, 6 proven, 29 incomplete, 108 tools, no external/model/paid execution)",

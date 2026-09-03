@@ -1115,6 +1115,7 @@ export function routeResearchApi(pathname, url, data, db = null) {
       operation_count: publicContractDrift.operation_count,
       openapi_contract: publicContractDrift.openapi_contract,
       mcp_contract: publicContractDrift.mcp_contract,
+      public_update_history: publicContractDrift.public_update_history,
       paid_request_executed: false,
       credentials_used: false,
     });
@@ -1372,9 +1373,13 @@ export function routeResearchApi(pathname, url, data, db = null) {
   }
   if (pathname === "/api/v1/capability-audit") {
     const requestedView = url.searchParams.get("view"),
-      view = ["capabilities", "integrity", "credits", "summary"].includes(
-        requestedView,
-      )
+      view = [
+        "capabilities",
+        "integrity",
+        "credits",
+        "freshness",
+        "summary",
+      ].includes(requestedView)
         ? requestedView
         : "capabilities",
       q = norm(url.searchParams.get("q")),
@@ -1398,6 +1403,31 @@ export function routeResearchApi(pathname, url, data, db = null) {
         ...(capabilityCompletionAudit.public_contract_credits?.rows ?? []),
         ...(capabilityCompletionAudit.public_contract_credits?.dynamic_rows ?? []),
       ],
+      publicUpdateHistory = publicContractDrift.public_update_history ?? {
+        post_cutoff_updates: [],
+        recent_context_updates: [],
+        post_cutoff_update_count: 0,
+        affected_capability_ids: [],
+        reaudit_required: true,
+      },
+      freshnessRows = [
+        ...(publicUpdateHistory.post_cutoff_updates ?? []).map((row) => ({
+          ...row,
+          update_scope: "post_cutoff",
+          after_baseline: true,
+        })),
+        ...(publicUpdateHistory.recent_context_updates ?? []).map((row) => ({
+          ...row,
+          update_scope: "recent_context",
+          after_baseline: false,
+          requires_reaudit: false,
+        })),
+      ].filter((row) => {
+        if (!q) return true;
+        return norm(
+          `${row.published_at} ${row.capability_ids?.join(" ") ?? ""} ${row.change_kind} ${row.summary} ${row.evidence_state} ${row.update_scope}`,
+        ).includes(q);
+      }),
       rows =
         view === "integrity"
           ? capabilityRows.map(({ capability_id, name, parity_status, evidence_integrity, evidence_digest }) => ({
@@ -1409,22 +1439,45 @@ export function routeResearchApi(pathname, url, data, db = null) {
             }))
           : view === "credits"
             ? creditRows.filter((row) => !q || norm(JSON.stringify(row)).includes(q))
+            : view === "freshness"
+              ? freshnessRows
             : view === "summary"
               ? []
               : capabilityRows;
+    const freshnessSummary = {
+      update_count: freshnessRows.length,
+      post_cutoff_update_count:
+        publicUpdateHistory.post_cutoff_update_count ??
+        (publicUpdateHistory.post_cutoff_updates ?? []).length,
+      context_update_count: (publicUpdateHistory.recent_context_updates ?? []).length,
+      affected_capability_count: new Set(
+        publicUpdateHistory.affected_capability_ids ?? [],
+      ).size,
+      affected_capability_ids: publicUpdateHistory.affected_capability_ids ?? [],
+      reaudit_required: Boolean(publicUpdateHistory.reaudit_required),
+      checked_at: publicUpdateHistory.checked_at ?? null,
+      baseline_evidence_cutoff:
+        publicUpdateHistory.baseline_evidence_cutoff ?? null,
+      filtered_count: rows.length,
+    };
     return ok({
       ...page(rows, url),
       view,
-      summary: {
-        ...capabilityCompletionAudit.summary,
-        filtered_count: view === "credits" ? rows.length : capabilityRows.length,
-      },
+      summary:
+        view === "freshness"
+          ? freshnessSummary
+          : {
+              ...capabilityCompletionAudit.summary,
+              filtered_count:
+                view === "credits" ? rows.length : capabilityRows.length,
+            },
       completion_claim: capabilityCompletionAudit.completion_claim,
       evidence_cutoff: capabilityCompletionAudit.evidence_cutoff,
       inventory_digest: capabilityCompletionAudit.inventory_digest,
       audit_digest: capabilityCompletionAudit.audit_digest,
       proof_attestation: capabilityCompletionAudit.proof_attestation,
       public_contract_credits: capabilityCompletionAudit.public_contract_credits,
+      public_update_history: publicUpdateHistory,
       policy: capabilityCompletionAudit.schema_version,
       filters: {
         q: url.searchParams.get("q") ?? "",

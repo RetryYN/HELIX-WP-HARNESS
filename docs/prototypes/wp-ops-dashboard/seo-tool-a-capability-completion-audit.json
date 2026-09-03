@@ -21,7 +21,7 @@
   },
   "evidence_integrity_catalog": {
     "artifact_count": 117,
-    "verification_command_count": 124,
+    "verification_command_count": 125,
     "artifacts": [
       {
         "path": "docs/prototypes/wp-ops-dashboard/app.js",
@@ -31,7 +31,7 @@
       {
         "path": "docs/prototypes/wp-ops-dashboard/capability-audit.js",
         "exists": true,
-        "sha256": "e2c468142b4b8fcffbcab2f9f0856bfc45485b0d3066310198ffe68e3f8e8ba8"
+        "sha256": "737241e6f1ae5bf21b5b5e1283efaffabda8be4746345e95133499c4fd604daa"
       },
       {
         "path": "docs/prototypes/wp-ops-dashboard/citation-application-review-export.mjs",
@@ -56,7 +56,7 @@
       {
         "path": "docs/prototypes/wp-ops-dashboard/index.html",
         "exists": true,
-        "sha256": "cd77aace1499cadca68cedda6e3e914690f42b38e5135cda74cca12fb506cca9"
+        "sha256": "9343c6d607f7a4136ae26454b39fa08320144aad6d88fcb4f8f7c493dae42118"
       },
       {
         "path": "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
@@ -141,7 +141,7 @@
       {
         "path": "docs/research/seo-tool-a-public-contract-drift.json",
         "exists": true,
-        "sha256": "2e8762f25c0b9a2c3d7130a04e8410bb9e1eaa86654577faf90a83a3f2d8b5e1"
+        "sha256": "95d13b87d66ac543137ff8cc1f51a84b589e1fb32abe9d967b97fbfd760bb4a8"
       },
       {
         "path": "scripts/acquisition-approval-manifest.mjs",
@@ -366,7 +366,7 @@
       {
         "path": "scripts/keyword-dashboard-api.mjs",
         "exists": true,
-        "sha256": "e030a8ae8533c380ad2cf11c6c91d5e2f1578ab9aecf686ab7d3d0346613c2e6"
+        "sha256": "3c93634ee55cc042d95937a78ac0c9e93e883fbd959eb13050323e441f0d0253"
       },
       {
         "path": "scripts/keyword-dashboard-db.mjs",
@@ -376,7 +376,7 @@
       {
         "path": "scripts/keyword-dashboard-mcp.mjs",
         "exists": true,
-        "sha256": "beaa473586da39820f6e117ae8c7f9839344629136565424c887dc4cd89768cd"
+        "sha256": "de4dc2464c324feb7650b176743786c241dc8743895028ffc5ca744dc5f1b745"
       },
       {
         "path": "scripts/keyword-expansion-lineage.mjs",
@@ -536,7 +536,7 @@
       {
         "path": "scripts/test-capability-audit-api.mjs",
         "exists": true,
-        "sha256": "8db25d50159af7f1318ff9cfcfa3bd448bd05666bed408d927964b941c80fb9a"
+        "sha256": "d3d1daca3033c0b7b8a5019afb55d6ab7cf5d7b3a429c8ae75466d5e9449f043"
       },
       {
         "path": "scripts/test-dashboard-table-state.mjs",
@@ -734,7 +734,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-capability-audit-ui.mjs",
         "resolved": true,
-        "target_sha256": "d9ceeaa322be6b33f6b877f639f09a12f6fd66ca9d99479a9ab3b000c1b12458"
+        "target_sha256": "c7698193ecff6a67637ff60ceb0c77d6d038d1dcba1a80a5891880f6b09ffd83"
       },
       {
         "command": "node scripts/test-citation-application-review-import.mjs",
@@ -1091,7 +1091,14 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-public-contract-drift.mjs",
         "resolved": true,
-        "target_sha256": "acd0b7764c6c9ce4af8905146171c7390a09ec263686d8ee56234af7134f5fd4"
+        "target_sha256": "9d108446e6cb0aa01baba6b3373f4784285a96e1c6a21424ed029e34d7c78b0a"
+      },
+      {
+        "command": "node scripts/test-public-contract-freshness-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-public-contract-freshness-api.mjs",
+        "resolved": true,
+        "target_sha256": "b0d32846cf720524d35f733a8a5a9ae73e21a54bc877a277454cd41fae4fab42"
       },
       {
         "command": "node scripts/test-public-search-metadata-api.mjs",
@@ -1479,7 +1486,7 @@
         "definition_sha256": "cd41056c3e6b8bd65740903e7947d5a770f6ef2274fefaa870380ed97a97fdc5"
       }
     ],
-    "catalog_digest": "f1ba1d1243941df87299059acb20854d46394548244e4f85206203d8fc58d4ad"
+    "catalog_digest": "59bcc56dd7125170c69debf1a681405b3e346ff6c165aafc2958d7c6f885271c"
   },
   "proof_attestation": {
     "receipt_present": true,
@@ -1488,7 +1495,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 18,
-    "receipt_digest": "854e5348deca6c1ba0137704cac21fa84b3a2f89228e1cef58b6a2f7f791f1b6",
+    "receipt_digest": "4e6ecdfbe8a448a19365f45281e070b1f7827ebdc7d9914395167590005446d1",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -1622,6 +1629,67 @@
       }
     ]
   },
+  "public_update_history": {
+    "schema_version": "seo-tool-a-public-update-history.v1",
+    "source_kind": "official_public_update_history",
+    "source_path": "/knowledge/1338/",
+    "checked_at": "2026-09-04",
+    "baseline_evidence_cutoff": "2026-08-29",
+    "comparison": "strictly_after_baseline",
+    "post_cutoff_updates": [
+      {
+        "published_at": "2026-09-02",
+        "capability_ids": [
+          "mcp"
+        ],
+        "change_kind": "availability_plan_boundary",
+        "summary": "MCP availability plan floor changed",
+        "evidence_state": "official_public_update_observed",
+        "requires_reaudit": true
+      }
+    ],
+    "recent_context_updates": [
+      {
+        "published_at": "2026-08-21",
+        "capability_ids": [
+          "mcp"
+        ],
+        "change_kind": "integration_surface_listing",
+        "summary": "Chat integration support listed",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-08-12",
+        "capability_ids": [
+          "question_search"
+        ],
+        "change_kind": "release_state",
+        "summary": "Question search moved from beta to formal release",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      },
+      {
+        "published_at": "2026-08-07",
+        "capability_ids": [
+          "mcp"
+        ],
+        "change_kind": "integration_surface_listing",
+        "summary": "Connector listing updated",
+        "evidence_state": "official_public_update_observed",
+        "after_baseline": false
+      }
+    ],
+    "post_cutoff_update_count": 1,
+    "affected_capability_ids": [
+      "mcp"
+    ],
+    "reaudit_required": true,
+    "completion_claim_impact": "does_not_upgrade_parity; requires capability re-audit",
+    "live_product_request_executed": false,
+    "paid_request_executed": false,
+    "credentials_used": false
+  },
   "capabilities": [
     {
       "capability_id": "suggest",
@@ -1682,11 +1750,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "0d0c44e1242de4d555c726ff35d6241fe4833f43e3869c0810fed51e64bd3075",
+        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
         "attestation_digest": null
       },
-      "evidence_digest": "f2842405d1a3c8fae1dbdec4a142beba0c0dbf734f223263e776a9ea00c4af64"
+      "evidence_digest": "95869e729f59686b6b5c0113a8667751d63fb3bbbb6d1f977c2e85e2aac80a7a"
     },
     {
       "capability_id": "related_keywords",
@@ -1747,11 +1815,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "0d0c44e1242de4d555c726ff35d6241fe4833f43e3869c0810fed51e64bd3075",
+        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
         "attestation_digest": null
       },
-      "evidence_digest": "44ddb349b4dcb86fd3c37a5acd18380de857f1bcd068c80e961a8d2b97ff7cd1"
+      "evidence_digest": "6d4c9a1cb2abec8901bd831a69943c3cb3e85f047d0beac63409f519e347b4b1"
     },
     {
       "capability_id": "question_search",
@@ -2181,11 +2249,11 @@
         "verification_command_count": 37,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "c66848fa21a630660ba4f473cfbba7622ae1af4637d51ded1aa4cf31c4853700",
-        "command_set_digest": "60e1d1e436aa2285ba9c2170f64e2d1729b13851a39a5c8ed47f918f26676453",
+        "artifact_set_digest": "11f6f6d41ca90f698277f4657f181563b91510df40419fe1b9cf94461c43e5c2",
+        "command_set_digest": "308f46471c29c034d49b834ff28df1da59160b02e928ae798cd784ce914f79f3",
         "attestation_digest": null
       },
-      "evidence_digest": "dfc57da09fe1157d38d248d01417977792a677096d38dc5cfeaac88810345912"
+      "evidence_digest": "0fbbe2801d622c517a4803c48171ba038f7445110aa204bc4f5757467c8662f5"
     },
     {
       "capability_id": "influx_keywords",
@@ -2471,11 +2539,11 @@
         "verification_command_count": 2,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "1e3ecfa774aa60ec06539b71f1ae02582050afdd06cf0d5df8f2f60f329ae8c4",
+        "artifact_set_digest": "01ef3c65c281230b180c8e9792dab640c926bd17ade224788ddb779cb2813392",
         "command_set_digest": "30a469bca90f670713477299a9dfd5702fa697bf236d9a47fcbdfb87e2d0cdb0",
         "attestation_digest": null
       },
-      "evidence_digest": "19a1f852b1151f1a0167a368827ba68062d9b2e3ba40ec9e309ad9c1d721f3de"
+      "evidence_digest": "521a4e241df97790190fbe7069442147990fb52e8c829338990461cb603afbd2"
     },
     {
       "capability_id": "site_search",
@@ -2503,11 +2571,11 @@
         "verification_command_count": 2,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "1e3ecfa774aa60ec06539b71f1ae02582050afdd06cf0d5df8f2f60f329ae8c4",
+        "artifact_set_digest": "01ef3c65c281230b180c8e9792dab640c926bd17ade224788ddb779cb2813392",
         "command_set_digest": "30a469bca90f670713477299a9dfd5702fa697bf236d9a47fcbdfb87e2d0cdb0",
         "attestation_digest": null
       },
-      "evidence_digest": "346c35b5028fa28a00b0ea70abc8bce8fbbcb023a33f09bcd562f1fe82914851"
+      "evidence_digest": "f5019b0868487a638c2efaba5860c823e1d5eb259ff6033ea2ec5228810e2af7"
     },
     {
       "capability_id": "content_search",
@@ -3648,11 +3716,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "0d0c44e1242de4d555c726ff35d6241fe4833f43e3869c0810fed51e64bd3075",
+        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "bdaaf1f7474a57d3ff749119230ac7b71ad936d47987ff4ec75670d606a0e5d8"
+        "attestation_digest": "61e90237d59660d2004747ccfc4e8c9d661f63d08efe36a1f35cf6e53294ffde"
       },
-      "evidence_digest": "a1dd2aab412722d01bdbe3be700813c8091eeace4062d41eb8c36abce57fb558"
+      "evidence_digest": "3596920f5ae80dc8d68606a7d28aab694b6664ed1c17de7f8138deb06f8a5b0b"
     },
     {
       "capability_id": "associations",
@@ -3711,11 +3779,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "0d0c44e1242de4d555c726ff35d6241fe4833f43e3869c0810fed51e64bd3075",
+        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "5aca4778a5602740a52065b95ae0a55133cd9e7218ce55b6a99998041f72e9c8"
+        "attestation_digest": "c49f1f28c82d225a25099b91b2b1a9e284c118146d03851722cae6786fd4dd7a"
       },
-      "evidence_digest": "9d7c1419b880f8646e08cfed509dc0ee41c52982bd86a55b6b4046c2e2fc11b8"
+      "evidence_digest": "24c856f05c4e8a8a8471bd5759a22b932e6e83d422111671f1613d513ac811d8"
     },
     {
       "capability_id": "qa_sites",
@@ -3751,11 +3819,11 @@
         "verification_command_count": 5,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "5b9c38cf77e6d98dca31092021bb2245b5a8d3ba93bef492c01f2db9ecad4754",
+        "artifact_set_digest": "6c3e9716511c71cad13cb67eb3f141da1bc7d5ad4938a05645d0631fa1e1175a",
         "command_set_digest": "2ee0a166290f1a67cc0e4146935afd6fee63dca3284cd27911927b7c6d67b525",
         "attestation_digest": null
       },
-      "evidence_digest": "67446496064cb137728ec128e9c4b9021e4d3cf8ff2886e940bfd6987761e35d"
+      "evidence_digest": "5aaa72adfc8283a4be44cdf8765c4310ec750aad26c4febc9a334863d87daa0b"
     },
     {
       "capability_id": "google_trends",
@@ -3887,11 +3955,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "5eb9101b36681aea0650150e54252cd783652003cbf1182d644950d0ec2a7175",
-        "command_set_digest": "b27e16ebd0549c66d62b470e687673a057942cd1a41a7f0839dce188d98dd4de",
-        "attestation_digest": "e154fee878cfde320f1fe09fe3a5c9621294e3bf1e66ad3e9aa600767bbec063"
+        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
+        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
+        "attestation_digest": "7a6327fc9a126c3223aab3021fc3efcafbbfb26fd5cafcdb743ae16add73a2ef"
       },
-      "evidence_digest": "9a096f973d6b3788c26687de465b06bea6ab2cd04a5df47200dd8bf42b8438d0"
+      "evidence_digest": "f468294b3955a4da6081f4be96fd591932bb83887699e8e1534cfdf243996ec1"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -3927,11 +3995,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "5eb9101b36681aea0650150e54252cd783652003cbf1182d644950d0ec2a7175",
-        "command_set_digest": "b27e16ebd0549c66d62b470e687673a057942cd1a41a7f0839dce188d98dd4de",
-        "attestation_digest": "e58cba966c5b39e541ced57f24447fc8a49c6785c79c47c7d9fe631643e511d0"
+        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
+        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
+        "attestation_digest": "c7cf3dbdc3448dfa98dbd5a605c34d66a0d649dc5aaddb0b58796c0f34ea2338"
       },
-      "evidence_digest": "6f6b6a1f93ea160a77ce0e074eaea23b0b7ab8468ae1b5cb83358647460ee550"
+      "evidence_digest": "d1eb4f5048c26bde3210955772cf09b1c7180cb98a0f8e3423f8321127fb3b6c"
     },
     {
       "capability_id": "data_output",
@@ -3967,11 +4035,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "5eb9101b36681aea0650150e54252cd783652003cbf1182d644950d0ec2a7175",
-        "command_set_digest": "b27e16ebd0549c66d62b470e687673a057942cd1a41a7f0839dce188d98dd4de",
-        "attestation_digest": "62ac023ccba62874f7f251ee6aa22ec65f30c610600d19357d9bd4362c60a6a6"
+        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
+        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
+        "attestation_digest": "08289ff54d144a56a0ded96ac24f04893a4f654f2258126f8f7f2ef46b20e230"
       },
-      "evidence_digest": "143fa3f0dc20ca539c57e238852c7cd074d5e5eabd04241a79e126654cc75aee"
+      "evidence_digest": "b0798a94d2eef1767749030416eeac4ba10992a488ee63b56c395760e9ebb4e7"
     },
     {
       "capability_id": "bookmarklet",
@@ -4007,11 +4075,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "5eb9101b36681aea0650150e54252cd783652003cbf1182d644950d0ec2a7175",
-        "command_set_digest": "b27e16ebd0549c66d62b470e687673a057942cd1a41a7f0839dce188d98dd4de",
-        "attestation_digest": "172cdb16d4c5753de3bccea379f2c727194337fee69ff7c342af6b22b5a63e2d"
+        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
+        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
+        "attestation_digest": "d68e559070a30c0b3332330e65c306ff0a84825d4f7c8e9bd1a1c277d85b53dc"
       },
-      "evidence_digest": "3eacef5468c8fee3df1a92d4abef6b5caa4f17e2cee245fc0dba04c6de56aad0"
+      "evidence_digest": "5b10fde6ec6375d907a66ec5e03a5d18ab27dc7f899e5d7d3b11399be08115e7"
     },
     {
       "capability_id": "public_api",
@@ -4034,6 +4102,7 @@
         "docs/research/public-api-retention-matrix.json",
         "scripts/provider-provenance-hypothesis.mjs",
         "docs/research/provider-provenance-hypothesis.json",
+        "docs/research/seo-tool-a-public-contract-drift.json",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -4050,6 +4119,8 @@
         "npm run research:public-operation-graph:test",
         "npm run research:public-retention:test",
         "npm run research:provider-provenance:test",
+        "node scripts/test-public-contract-drift.mjs",
+        "node scripts/test-public-contract-freshness-api.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "node scripts/test-keyword-expansion-lineage-api.mjs",
         "npm run prototype:research-api:test",
@@ -4057,16 +4128,16 @@
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 17,
+        "artifact_count": 18,
         "missing_artifact_count": 0,
-        "verification_command_count": 11,
+        "verification_command_count": 13,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "a6bdb89bbf6dc6975fca8738844b685810e984b0fce8ac53eab3bc971121f2a0",
-        "command_set_digest": "aad9e2e96afd5eff2c7be4438e3b399a2fadf58d9b93b7ba7652950324161a42",
+        "artifact_set_digest": "8c03f25d453b59bd6e895c2284fb95fd62c8bb562f9f96d20c7b3bfc67acfae1",
+        "command_set_digest": "70c6d92ef7ab18a59d193754f79ebcb027552c04c25be622a78bc3ac8b3b18bd",
         "attestation_digest": null
       },
-      "evidence_digest": "c76dadbd6b415e4719a6cb02103abf843719d93fd8389ce449a6c78df333e4cb"
+      "evidence_digest": "d2f9d5956a8c953c86ee9558f73ec7e1eaacfc0c1c5085f858c4e6e0bc24d0d6"
     },
     {
       "capability_id": "mcp",
@@ -4089,6 +4160,7 @@
         "docs/research/public-api-retention-matrix.json",
         "scripts/provider-provenance-hypothesis.mjs",
         "docs/research/provider-provenance-hypothesis.json",
+        "docs/research/seo-tool-a-public-contract-drift.json",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -4105,6 +4177,8 @@
         "npm run research:public-operation-graph:test",
         "npm run research:public-retention:test",
         "npm run research:provider-provenance:test",
+        "node scripts/test-public-contract-drift.mjs",
+        "node scripts/test-public-contract-freshness-api.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "node scripts/test-keyword-expansion-lineage-api.mjs",
         "npm run prototype:research-api:test",
@@ -4112,16 +4186,16 @@
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 17,
+        "artifact_count": 18,
         "missing_artifact_count": 0,
-        "verification_command_count": 11,
+        "verification_command_count": 13,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "a6bdb89bbf6dc6975fca8738844b685810e984b0fce8ac53eab3bc971121f2a0",
-        "command_set_digest": "aad9e2e96afd5eff2c7be4438e3b399a2fadf58d9b93b7ba7652950324161a42",
+        "artifact_set_digest": "8c03f25d453b59bd6e895c2284fb95fd62c8bb562f9f96d20c7b3bfc67acfae1",
+        "command_set_digest": "70c6d92ef7ab18a59d193754f79ebcb027552c04c25be622a78bc3ac8b3b18bd",
         "attestation_digest": null
       },
-      "evidence_digest": "ecf066aa2c8677b01e806045dafb792eaa0e8cf669479458c7c19dfb26b9b6f0"
+      "evidence_digest": "88bf40258105339d3dcf0bb48b663b14a00646ef4842ed009326be61fef86e0e"
     },
     {
       "capability_id": "credit_history",
@@ -4172,5 +4246,5 @@
       "evidence_digest": "707f5379134df7f35045a860d13b66da488bcbb49957acd96ae380c6c67e1d66"
     }
   ],
-  "audit_digest": "483e1988c67b4fe3ecc077824ff5bf6962a6d779e669aca9bddf84b2df513a30"
+  "audit_digest": "7af9975c13222ee867cee1db8a5c19b73e0b8e9d2b54bdc12262e3bd0f1c1bbc"
 }
