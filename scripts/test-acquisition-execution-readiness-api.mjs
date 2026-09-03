@@ -16,16 +16,17 @@ try {
   assert.deepEqual(readiness.candidate_digest_mismatch_ids,[]);
   assert.deepEqual(readiness.batch_digest_mismatch_ids,[]);
   assert.deepEqual(readiness.request_contract_mismatch_ids,[]);
-  assert.equal(readiness.technical_ready,true);
+  const priceCurrent=readiness.price_age_days<=readiness.maximum_price_age_days;
+  assert.equal(readiness.technical_ready,priceCurrent);
   assert.equal(readiness.authorization_ready,false);
   assert.equal(readiness.execution_ready,false);
-  assert.equal(readiness.execution_state,"blocked_approval_required");
-  assert.deepEqual(readiness.blockers,["explicit_paid_execution_approval_required"]);
+  assert.equal(readiness.execution_state,priceCurrent?"blocked_approval_required":"blocked_technical_review");
+  assert.deepEqual(readiness.blockers,priceCurrent?["explicit_paid_execution_approval_required"]:["price_snapshot_stale_or_invalid","explicit_paid_execution_approval_required"]);
   assert.equal(readiness.external_acquisition_triggered,false);
   assert.equal(readiness.auto_submission,false);
   const mcp=handleMcpMessage({jsonrpc:"2.0",id:1,method:"tools/call",params:{name:"review_acquisition_execution_readiness",arguments:{site_id:site.site_id}}},data);
   assert.deepEqual(mcp.result.structuredContent.data,readiness);
-  console.log(`acquisition readiness API/MCP: OK (${readiness.candidate_count} technically ready, explicit paid approval blocked, zero submission)`);
+  console.log(`acquisition readiness API/MCP: OK (${readiness.candidate_count} candidates, price ${priceCurrent?"current":"stale and blocked"}, explicit paid approval blocked, zero submission)`);
 } finally {
   db.close();
 }

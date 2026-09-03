@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "ad311aaffe72ab87e5394c17dbd87aadee9b544a0705fca7752ed5d4517e2493",
+  "inventory_digest": "a438a1e14accb649ac033dc00b957da2249434eb1f7e901a3db2115680edabe3",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -520,7 +520,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-acquisition-approval-manifest-api.mjs",
         "resolved": true,
-        "target_sha256": "ad7925a1544d48de7a17890e6dbeacb0b2df3a3b0a8c78e0575a62fd1faa5ea2"
+        "target_sha256": "eb156b3f2b5cfcd39320f0a08fe85d7737e5eb4a6ada2f7b499e1acfbf4ea5d1"
       },
       {
         "command": "node scripts/test-acquisition-approval-manifest.mjs",
@@ -548,7 +548,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-acquisition-execution-readiness-api.mjs",
         "resolved": true,
-        "target_sha256": "95a0f176d4b3d02ec15997bcab447d5d0f5e4862f22a7fe1a461624c917d54e2"
+        "target_sha256": "3058d2d5171601f302b6de089e1f724471cd13e986aac811689239c19c4c267d"
       },
       {
         "command": "node scripts/test-acquisition-execution-readiness.mjs",
@@ -1335,7 +1335,7 @@
         "definition_sha256": "cd41056c3e6b8bd65740903e7947d5a770f6ef2274fefaa870380ed97a97fdc5"
       }
     ],
-    "catalog_digest": "a4598c520c3f80627c03bb2cf38bfcba602df6a70256fd8c5d193a062e8b2909"
+    "catalog_digest": "8489b5bc45c9f91e7f564bd3bf084e60943cbf4bb822b5e38502d8dd2f7d42d4"
   },
   "proof_attestation": {
     "receipt_present": true,
@@ -1344,7 +1344,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 16,
-    "receipt_digest": "05d3b6388883fcd5d4066227ddff28bef9012328faca4c2ef5da732b5ea9c775",
+    "receipt_digest": "50d59ea58425f9fce7bb5c79379d6e1f86d021e2cb848f98bee5c9a863d0bf62",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -1682,10 +1682,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "3c296924b5e191807fcb42d06d7e6cf0f87a90cc19c10edc35cb639ab7cdbd63"
+      "evidence_digest": "633009b782d45172406ca3a4c273cb69dbfe1d14a1dd730add51267f394a1457"
     },
     {
       "capability_id": "lsi_paa",
@@ -1768,10 +1768,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "f4dbc677e18e56a9fdcd7e2703d987ed37d6f01cf4573c3721a95712fee5473f"
+      "evidence_digest": "9777975426c10eac950889eb0248e669cbeff329e4e8b45a9fcab6277e7c3c8c"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -1854,10 +1854,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "ee258f10d2acc42c7d83e537109a8e358a9d0cde9a03f57e20e5c50bba21fe51"
+      "evidence_digest": "29f386eda1813a746b6aee17db48c4e7cd9c71f228675a6b78cf566c16c93202"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -1868,7 +1868,7 @@
       "blocker_classes": [
         "corpus_or_acquisition_depth"
       ],
-      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。さらに全取得portfolioを生涯累計5 USDへ横断配分し、確定0.3014 USD控除後に6,243候補・4.69815 USDをplan-only選択、4,182延期。前回試行済97補完taskは再試行reviewへ隔離し二重取得を防止。選択6,243候補を機能別・最大100件のimmutable 64 batchへ固定し、候補集合・batch・費用digest、累計4.99955 USD整合、価格再確認・正確な承認challenge、実行権限falseを実装。latest/monthly/difficulty実測とprovider job実行は未取得",
+      "remaining_gap": "15 sheet・10,694 workbook行をsource identity付きで保持し、10,694/10,694階層接続、取得100/100 unique group接続、孤児0を監査。SERP未取得10,594元行を10,519正規化取得候補へlossless集約し、取得済み正規化証拠10候補と重複を含む75 taskを回避。判断block 23・group提案709・台帳9,787の順で100件×106 batchへ編成し、保持実績medianによる概算$21.038と価格再確認gate、planned/submitted/completed/failed lifecycleを実装。送信0。さらに全取得portfolioを生涯累計5 USDへ横断配分し、確定0.3014 USD控除後に2,388候補・4.6969 USDをplan-only選択、8,305延期。費用履歴に残る過去試行98補完taskは元task IDと再取得task IDの両方で再試行reviewへ隔離し、再選定0。選択2,388候補を機能別・最大100件のimmutable 26 batchへ固定し、候補集合・batch・費用digest、累計4.9983 USD整合、価格再確認・正確な承認challenge、実行権限falseを実装。latest/monthly/difficulty実測とprovider job実行は未取得",
       "authoritative_evidence": [
         "scripts/search-contract-code-mapping-oracle.mjs",
         "scripts/keyword-dashboard-db.mjs",
@@ -1940,10 +1940,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "eeecf90641350333d67a2dfb88644726d165f225fdbaf397a119a34f769f465c"
+      "evidence_digest": "b8c862c8767e696ab2043db29627ce15a1d0462ab813993aed4c935190f10a42"
     },
     {
       "capability_id": "seo_difficulty",
@@ -2030,10 +2030,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "f5f1e3a5e40b3ed462e235eea02da7930889998e22e724a3857a44018d8b2f4f",
-        "command_set_digest": "f0b99dc6cebaee3afa58947bd1828c133337734d6616a131060c796d277dd126",
+        "command_set_digest": "068d2ab425b7a2524a77e91fd9e36af59079d0a4e7cc4daaf1c5857a1a7c7574",
         "attestation_digest": null
       },
-      "evidence_digest": "5215adf3ebfda0ff6902f1a7dd70ee5674944d4a0de0094c51791cfab823ab93"
+      "evidence_digest": "56800d5d31cebadb87fc0f884cf780f67fc2701cf774f30a7fe3c9689ea8fd89"
     },
     {
       "capability_id": "influx_keywords",
@@ -2116,10 +2116,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "a5e8518d3f8ef284b3eb5351764d0092d5be5e46275815ca87cf39c1467b4206"
+      "evidence_digest": "533e217a8f9ac2c1b1e6b60d296edd0479e1e17a7e356262927a99b8b2cf394c"
     },
     {
       "capability_id": "influx_pages",
@@ -2202,10 +2202,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "4bd83e5a617aaaafde064095f09d7b24a8f27c386f29adbdde7578d34c69a85a"
+      "evidence_digest": "d52a34946ba6656193f1f928a1097a10d56ed7de25caea2fe8749eb6c7688243"
     },
     {
       "capability_id": "competitive_domains",
@@ -2288,10 +2288,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "ab237be7f3822f4b3c0cab087337359398d7a97638f59993f4a62bdd0e5d538b"
+      "evidence_digest": "6fcc74e6dcc42ea2faee72206ab68efb3acdbf6ba5b37437e3427287b4f3573e"
     },
     {
       "capability_id": "bulk_site_research",
@@ -2438,10 +2438,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "93b47915b9893f5693325ed53415a3706444418daafc0be77cf96fde2e8396ce"
+      "evidence_digest": "75c7f12e9194119274aa2479ae7e74fd8f0aa31ffbe807bf0e2d8e4b0ffeca25"
     },
     {
       "capability_id": "search_rank",
@@ -2524,10 +2524,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "97039d1b8e578f55d488091f7f6e8759464051838de599f1512ff584e8c80b7f"
+      "evidence_digest": "2fcd60b80a4f5d44af25e8795ef61d45bc587b2c4261236925ccb07c989e067d"
     },
     {
       "capability_id": "headline",
@@ -2610,10 +2610,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "2b9a1a91a37341009b06d3aed4dbcda0ac28f0ba28c05c6ba7fa31807a248278"
+      "evidence_digest": "8072eb23230c2cf482114bc0e1468fbbbdecdd58a9f9ea6061b97d0bb4946f52"
     },
     {
       "capability_id": "cooccurrence",
@@ -2696,10 +2696,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "07beb09842fd7abf1ca13f8527cc0f57ab2d538c9cbbb6734f8d084b5dbcb23d",
-        "command_set_digest": "3e68216bbbc6bac3b585127ef4c5fa7f6c98b67752f14ad5716b87bd712c4a7e",
+        "command_set_digest": "350d64fd4535f024031c1bb9548ccba78812118ddf5d5679338b5cff593dea9c",
         "attestation_digest": null
       },
-      "evidence_digest": "2556e3bfbeadff9fe8137f01e9b0d9c0cead74115b554058c1b580850880b356"
+      "evidence_digest": "a79f39834fdb83b444c07080c4f02f1bf8d8d276f6e4dc64e782ce41286d0750"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -3483,9 +3483,9 @@
         "execution_attested": true,
         "artifact_set_digest": "eceb517f662ce8ff22dd53c6fc78d36ec901ecdfc4845ff5c747658e428b0542",
         "command_set_digest": "7cb66a04ba5500df55bb8ff023b5b0abe0a15887ba6b99d57dbee0f3df09a760",
-        "attestation_digest": "e847232789dc17193e196123db0a65bb1c30eaebe03823179114b2db87dbdc2a"
+        "attestation_digest": "b9eafa2d21b04151c3cc332e597f602267c2c46020bf31e8f0fd3aaa8b88e720"
       },
-      "evidence_digest": "aee1133aa33d925c4a3dc783f06eb28eca0f0a441130192cb9f86f6febf70980"
+      "evidence_digest": "3ce4f9508ed42bd704f31ab90257f691f724ce3998577092b130cd51de74d636"
     },
     {
       "capability_id": "associations",
@@ -3542,9 +3542,9 @@
         "execution_attested": true,
         "artifact_set_digest": "eceb517f662ce8ff22dd53c6fc78d36ec901ecdfc4845ff5c747658e428b0542",
         "command_set_digest": "7cb66a04ba5500df55bb8ff023b5b0abe0a15887ba6b99d57dbee0f3df09a760",
-        "attestation_digest": "5dd7b7cf83331989fd446a4e437d8d728f75968bec7d27025793c099e83dac2a"
+        "attestation_digest": "e32bfb5da3d1dcc1182dc334dd53d85d86c92d5908b621c55f3534eaeddc8f1e"
       },
-      "evidence_digest": "05fe31215032ca9a7631785e8cf0a4364498f6ba85ad2925c8bf8e24cd912c35"
+      "evidence_digest": "7db41d601b8aadd9779f74a3e11865c2059df9f710ca23edd77656ca95f327c8"
     },
     {
       "capability_id": "qa_sites",
@@ -3688,9 +3688,9 @@
         "execution_attested": true,
         "artifact_set_digest": "049595fd937c7733bc7f4ac0d67f85e11697850a063bceab8bc3b3f2d7565316",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "f4ea85e651a30db82af1895070ed42989e90118fce0f9e08f677e1864ca5f98f"
+        "attestation_digest": "a3ebb503ff8d969c4e9ceef83e37be25c28e93b5b22d355b14ded54080c2b100"
       },
-      "evidence_digest": "1bfc5d1ec5cd256a2cb8f20395493c5686a7c75a83d36b5842a828bb578935e5"
+      "evidence_digest": "5e39788bad99b86dc0b8aa8c403dbc94cf932886e466ac5429bb7a742f072e15"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -3720,9 +3720,9 @@
         "execution_attested": true,
         "artifact_set_digest": "049595fd937c7733bc7f4ac0d67f85e11697850a063bceab8bc3b3f2d7565316",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "81aed90107b581592c553ed040b9da4ae683496d30da4d80b6d61d7768e207cd"
+        "attestation_digest": "c3d1660d6a3447e452bd52290857c14c37afdda1d730b0b80f48482d692bbc35"
       },
-      "evidence_digest": "adcabaf554596f61e48df2b1f0623ad21ff25f3d391fb997dff58673f87346dc"
+      "evidence_digest": "7752ec14600a449c166ce59f717c2877d3e7c787609c7cb2f3ece8ff1fc77c2f"
     },
     {
       "capability_id": "data_output",
@@ -3752,9 +3752,9 @@
         "execution_attested": true,
         "artifact_set_digest": "049595fd937c7733bc7f4ac0d67f85e11697850a063bceab8bc3b3f2d7565316",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "1914fd55c1639a5d7d5783f52a79ac0a3280b846b77c9231d90d506e32f64b72"
+        "attestation_digest": "79f817c192a272c61043bb017c56d576749d1d25f455275442973d8a585509fc"
       },
-      "evidence_digest": "e6db6e570c17084ed611a4834e5f3c69721cfac318f3a4ecfaa7ce1561eacee9"
+      "evidence_digest": "16d96f66a83dbac700dbf3bd82e60f915cccb46fb42d92f5f8fd13a12415271b"
     },
     {
       "capability_id": "bookmarklet",
@@ -3784,9 +3784,9 @@
         "execution_attested": true,
         "artifact_set_digest": "049595fd937c7733bc7f4ac0d67f85e11697850a063bceab8bc3b3f2d7565316",
         "command_set_digest": "221ec1f9f63188f7e8ee1aca856dfc8240597100d39e5079ea21cac2187fb489",
-        "attestation_digest": "cfe10b8cb9066f6b196983274cb56b463a55dfc881695e6db41ea53e34106d7e"
+        "attestation_digest": "c2034e9084033cdcf1b71fdfaf590cd5d7487bc70082e5a989fcec204d4d4422"
       },
-      "evidence_digest": "97eb7ee90b8eb08136301d3c8e864290074cddedb4453717406845174cb680c2"
+      "evidence_digest": "21d741499824a14975f4b944ceb62c9c66782481fe2bcb4ca28a59187c8fd069"
     },
     {
       "capability_id": "public_api",
@@ -3797,7 +3797,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に108 GET routeを実装し、2026-08-30に公式OpenAPI 1.14.4（OAS 3.1.1）24 operation・41 schema・952 fieldをlive再取得してdigest差分0を確認し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に119 GET routeを実装し、2026-08-30に公式OpenAPI 1.14.4（OAS 3.1.1）24 operation・41 schema・952 fieldをlive再取得してdigest差分0を確認し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画を含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -3838,7 +3838,7 @@
         "command_set_digest": "0f120b55179aed9570be2b64ac32de26aed2c4dac8715cf3b61a29b5711923e8",
         "attestation_digest": null
       },
-      "evidence_digest": "3030481b7696f49b5cf88dc00b7eef79f039bb9f97d6e399eaaeaf79125da8e8"
+      "evidence_digest": "d59d57b323e0384fd74b9045a44139dd111ceade63e0604be6026f3d14aa3aa8"
     },
     {
       "capability_id": "mcp",
@@ -3849,7 +3849,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む96 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録reviewに加え、消費0で実測保持した216か国＋日本下位地域1,144件（統合1,360件）・言語46件のmetadata検索を含む101 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -3890,7 +3890,7 @@
         "command_set_digest": "0f120b55179aed9570be2b64ac32de26aed2c4dac8715cf3b61a29b5711923e8",
         "attestation_digest": null
       },
-      "evidence_digest": "81e5d39dc4e3bb2b9fea44ef74d1a774228134f26f985b7923d5ce4437b0dbd8"
+      "evidence_digest": "ffab3a13d99534fde4ccc04096ccd30118365275ab87b19d3ba902d9f69a412d"
     },
     {
       "capability_id": "credit_history",
@@ -3901,7 +3901,7 @@
       "blocker_classes": [
         "external_provider_or_account_data"
       ],
-      "remaining_gap": "DPBのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.3014 USD・残4.6986 USDを監査し、全portfolio配分後も合計4.99955 USDに制限し、6,243候補を64 immutable batchへ固定。価格再確認・正確な承認challengeが未充足のため実行権限false。SeoToolA credit換算・SeoToolA account/API key lifecycleは未取得・未実装",
+      "remaining_gap": "DPBのUSD原価をsite/day/endpoint/task/run・raw digest付きprovider台帳として実装し、API key非保存を明示。生涯累計5 USD台帳で確定0.3014 USD・残4.6986 USDを監査し、全portfolio配分後も合計4.9983 USDに制限し、過去試行98件を再選定せず2,388候補を26 immutable batchへ固定。価格再確認・正確な承認challengeが未充足のため実行権限false。SeoToolA credit換算・SeoToolA account/API key lifecycleは未取得・未実装",
       "authoritative_evidence": [
         "scripts/provider-acquisition-plan.mjs",
         "scripts/acquisition-lifetime-allocation.mjs",
@@ -3927,8 +3927,8 @@
         "command_set_digest": "5583fed7d2ec6b11a94a48dea682e9e2893003a2730173c03c90b282fa5a3db5",
         "attestation_digest": null
       },
-      "evidence_digest": "fff96c0e1462dd88bf8730817b724aeb1ac7ded1d5a31f8c22289ae9a3a6658b"
+      "evidence_digest": "2b57f571a7e090d1fa480a2e91366442289a5fe7d8a564d8a4f57ad396e1a81d"
     }
   ],
-  "audit_digest": "9db805eccf1604dd0d74e2552c3fb95b5709eb05a33f3e9cd956d5f6abe9ec3e"
+  "audit_digest": "a4ac936e411aca30e0b1c7f400bb4e8c9945258090afedc34545547d1aa77de1"
 }
