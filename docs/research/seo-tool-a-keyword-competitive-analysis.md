@@ -1544,6 +1544,14 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - `latent-demand-traversal.v1`を追加し、保持`serp_demand_occurrences`をseed→demand node→edgeへ再構成する。occurrence/task/source keyword/snapshot digestを保持したまま、BFS/DFSのローカルtrace、深度上限（1〜2）、重複出現、複数親、cycleを比較できる。現行DBは1,188 occurrenceがすべて深度1で、深度2は0件のため、方式識別は`insufficient_retained_depth`として停止し、提供元trace・内部アルゴリズムは未証明のままとする。`GET /api/v1/latent-demand-traversal`、MCP `audit_latent_demand_traversal`、ダッシュボードの「潜在需要探索」へ接続し、自動group割当・自動content変更・自動公開・外部取得は0である。
 - 需要出現整合性をv2へ拡張し、各PAA／関連検索occurrenceを同taskの保持feature payloadへ照合した。現行DBでは1,188/1,188 occurrenceがpayloadへリンクし、snapshot digestも1,188/1,188保持されている。一方、PAA回答payloadは1件がresolved、384件が非同期placeholder、11件がemptyで、395件はproviderから回答本文が返っていない。これは「保持後に破棄」とは断定せず、`provider_payload_not_returned`として未取得境界を明示する。`GET /api/v1/demand-occurrence-integrity`、MCP、質問・潜在需要画面の保持境界panelへ反映し、自動取得・自動編集・自動公開は0である。
 
+### 10.119 横断KW拡張lineageと処遇台帳（2026-09-04）
+
+- 元KWのsource rowを起点に、正規化・階層親・group所属・関連group候補・SERPのPAA/関連検索・topic・質問・title/heading候補・語彙共起・レビュー済み語彙対を、typed node/edgeとして同じlineageへ束ねた。edgeごとに元source ID、task/occurrence、snapshotまたはcandidate digest、group境界review状態を残し、同じ候補が複数経路から来た場合も重複を捨てない。
+- 元KW 10,694行、正規化KW 10,619件、ノード27,422、edge49,784を再構成した。元行の処遇は保持98、未取得10,594、取得済みだが拡張証拠0件2、取得失敗0で、source sheet/row identityは全件保持した。0件は未取得とは混同せず、取得失敗はtask status非成功として別状態にする。
+- 外部autocomplete、provider全体の質問index、provider全体のrank keyword indexは`not_acquired`の取得面として固定し、保持証拠がないのに候補を補完しない。SERP需要、語彙辞書、保持workbookは保持または該当なしを別表示する。これは外部面の実測を装う実装ではない。
+- `GET /api/v1/keyword-expansion-lineage` とMCP `audit_keyword_expansion_lineage`を追加し、nodes/edges/元KW処遇/取得面処遇をsite・group・edge種別・処遇・queryで読み取り可能にした。ダッシュボードにも「KW拡張lineage」を追加し、保持／未取得／0件／非該当／取得失敗と自動割当・自動生成・自動反映・自動公開0を同時に表示する。
+- lineageはサジェストや関連語の市場母集団、同義性、検索量、順位因果を推定しない。外部取得・認証・追加費用・モデル実行は0で、未取得面を埋めるには明示承認と価格・予算・provider payloadの別途証跡が必要である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

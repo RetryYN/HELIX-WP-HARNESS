@@ -3596,6 +3596,7 @@ assert.deepEqual(
     "audit_serp_feature_placements",
     "review_heading_patterns",
     "audit_keyword_lineage",
+    "audit_keyword_expansion_lineage",
     "review_related_keyword_boundaries",
     "audit_association_evidence",
     "audit_variant_evidence",

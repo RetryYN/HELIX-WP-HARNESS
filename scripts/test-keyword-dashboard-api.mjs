@@ -94,7 +94,7 @@ const openApiPaths = Object.keys(researchOpenApi.paths),
   mappedOperationIds = new Set(
     operationCoverage.map((row) => row.operation_id),
   );
-assert.equal(openApiPaths.length, 123);
+assert.equal(openApiPaths.length, 124);
 assert.ok(openApiPaths.every((path) => researchOpenApi.paths[path].get));
 assert.equal(operationCoverage.length, 27);
 assert.equal(mappedOperationIds.size, 24);
@@ -170,5 +170,5 @@ assert.equal(retention.body.summary.future_covered_count, 952);
 assert.equal(retention.body.summary.not_acquired_field_count, 221);
 assert.equal(retention.body.credentials_retained, false);
 console.log(
-  `keyword dashboard API: OK (OpenAPI 3.1, ${openApiPaths.length} read-only routes, all ${mappedOperationIds.size} SeoToolA operation IDs mapped, pagination, site gate)`,
+  `keyword dashboard API: OK (OpenAPI 3.1, ${openApiPaths.length} read-only routes, all ${mappedOperationIds.size} operation IDs mapped, pagination, site gate)`,
 );
