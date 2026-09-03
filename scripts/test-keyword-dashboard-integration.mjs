@@ -3543,6 +3543,7 @@ assert.equal(
 assert.deepEqual(
   new Set(mcpToolList.map((tool) => tool.name)),
   new Set([
+    "audit_latent_demand_traversal",
     "audit_keyword_content_lineage",
     "review_public_source_citation_applications",
     "review_public_source_decisions",

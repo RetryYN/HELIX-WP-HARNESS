@@ -7,6 +7,10 @@ const root = new URL("../docs/prototypes/wp-ops-dashboard/", import.meta.url),
   js = readFileSync(new URL("app.js", root), "utf8"),
   traversal = readFileSync(new URL("semantic-traversal-controls.js", root), "utf8"),
   contentLineage = readFileSync(new URL("keyword-content-lineage.js", root), "utf8"),
+  latentDemandTraversal = readFileSync(
+    new URL("latent-demand-traversal.js", root),
+    "utf8",
+  ),
   semanticBindings = readFileSync(
     new URL("semantic-coverage-bindings.js", root),
     "utf8",
@@ -39,6 +43,12 @@ assert.match(contentLineage, /自動反映0/u);
 assert.match(contentLineage, /MutationObserver/u);
 assert.match(html, /semantic-coverage-bindings\.js/u);
 assert.match(semanticBindings, /semanticCoverageGroup/u);
+assert.match(html, /data-view="latent-demand-traversal"/u);
+assert.match(html, /id="latent-demand-traversal"/u);
+assert.match(html, /latent-demand-traversal\.js/u);
+assert.match(latentDemandTraversal, /api\/v1\/latent-demand-traversal/u);
+assert.match(latentDemandTraversal, /depth_first/u);
+assert.match(latentDemandTraversal, /自動反映0/u);
 console.log(
   "dashboard split sidebar: OK (resize, collapse, persistence, keyboard, mobile fallback)",
 );
