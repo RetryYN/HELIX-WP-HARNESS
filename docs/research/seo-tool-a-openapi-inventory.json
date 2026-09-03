@@ -1,8 +1,8 @@
 {
   "schema_version": "seo-tool-a-openapi-inventory.v1",
-  "generated_at": "2026-08-30T13:26:11.439Z",
+  "generated_at": "2026-09-03T13:46:25.689Z",
   "source_url": "https://api.seo-tool-a.example/docs/swagger-ui-init.js",
-  "source_sha256": "c85670ca424c51944eee80a146c994bdaf105caa3181dfbcfcab738165685fe9",
+  "source_sha256": "23ba5cc59ada134c623422dc122834645e519fb17ca10aa3bc7dec404dfcbcad",
   "openapi_version": "3.1.1",
   "operation_count": 24,
   "schema_count": 41,
@@ -378,7 +378,7 @@
       "operation": "POST /v1/bulk-site-research",
       "operation_id": "BulkSiteResearchController_searchBulkSiteResearch",
       "summary": "一括サイト調査",
-      "description": "一括サイト調査。\n\n複数URL（最大100件）をまとめて調査し、各サイトの推定流入数・獲得キーワード数・ページ数などの現在値と、その推移（0〜100の指数）を取得する。\nサイト群のSEO規模とトレンドを一括で把握するのに有用。\n\n推移データ（histories）は、現在値スカラー（metrics）とは別ソース・別量のため、系列内最大月を100とする指数（0〜100・小数第2位）に正規化して返す。\netv / keywordCount / pageCount の3系列を各々独立に指数化し、キー名は etvIndex / keywordCountIndex / pageCountIndex とする（現在値との誤読防止）。\n現在値・分布・変化率は実数のまま返す（指数化しない）。\n\nurlMatchTypeで調査単位を指定する（url: 完全一致 / forward_url: 前方一致 / domain: ドメイン一致 / sub_domain: サブドメイン一致）。\nitemsは入力urlsと同数・同順で返る。\n本機能はSTANDARD以上のプラン限定。対象URLは最大100件。\n\n入力URL1件あたり0.45クレジットを消費（最低4.5クレジット）。（例: 10URL→4.5クレジット、100URL→45クレジット）。",
+      "description": "一括サイト調査。\n\n複数URL（最大100件）をまとめて調査し、各サイトの推定流入数・獲得キーワード数・ページ数などの現在値と、その推移（0〜100の指数）を取得する。\nサイト群のSEO規模とトレンドを一括で把握するのに有用。\n\n推移データ（histories）は、現在値スカラー（metrics）とは別ソース・別量のため、系列内最大月を100とする指数（0〜100・小数第2位）に正規化して返す。\netv / keywordCount / pageCount の3系列を各々独立に指数化し、キー名は etvIndex / keywordCountIndex / pageCountIndex とする（現在値との誤読防止）。\n現在値・分布・変化率は実数のまま返す（指数化しない）。\n\nurlMatchTypeで調査単位を指定する（url: 完全一致 / forward_url: 前方一致 / domain: ドメイン一致 / sub_domain: サブドメイン一致）。\nitemsは入力urlsと同数・同順で返る。\n対象URLは最大100件。\n\n入力URL1件あたり0.45クレジットを消費（最低4.5クレジット）。（例: 10URL→4.5クレジット、100URL→45クレジット）。",
       "request_schema": "BulkSiteResearchDto",
       "response_schemas": {
         "200": "BulkSiteResearchResponseDto",
