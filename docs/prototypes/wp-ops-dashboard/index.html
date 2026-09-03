@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>キーワード施策ボード</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="responsive-sidebar.css" />
   </head>
   <body>
     <header class="topbar">
@@ -13,13 +14,14 @@
         <h1>キーワード施策ボード</h1>
       </div>
       <div class="site-controls">
+        <button id="mobile-sidebar-toggle" class="mobile-sidebar-toggle" type="button" aria-expanded="false" aria-controls="analysis-tabs">☰ <span>分析メニュー</span></button>
         <button id="current-view-export" class="detail-button" type="button">現在ビューJSON</button>
         <div id="site-selector" class="site-tabs" role="tablist" aria-label="対象サイト"></div>
         <div class="freshness"><span class="dot"></span><span id="freshness">実データ読込中</span></div>
       </div>
     </header>
 
-    <nav class="tabs" aria-label="表示切替">
+    <nav id="analysis-tabs" class="tabs" aria-label="表示切替">
       <div class="sidebar-head"><span>分析メニュー</span><button id="sidebar-toggle" type="button" aria-expanded="true" aria-label="サイドパネルを折りたたむ" title="サイドパネルを折りたたむ">‹</button></div>
       <button class="tab active" data-view="keywords">キーワード一覧</button>
       <button class="tab" data-view="keyword-tree">キーワードツリー</button>
@@ -46,6 +48,7 @@
     </nav>
 
     <div id="sidebar-resizer" class="sidebar-resizer" role="separator" aria-label="サイドパネル幅" aria-orientation="vertical" tabindex="0"></div>
+    <button id="sidebar-scrim" class="sidebar-scrim" type="button" aria-label="サイドパネルを閉じる" hidden></button>
 
     <main>
       <section id="keywords" class="view active">
@@ -2724,6 +2727,7 @@
     <script type="module" src="semantic-traversal-controls.js"></script>
     <script type="module" src="semantic-coverage-bindings.js"></script>
     <script type="module" src="app.js"></script>
+    <script type="module" src="responsive-sidebar.js"></script>
     <script type="module" src="keyword-content-lineage.js"></script>
     <script type="module" src="keyword-expansion-lineage.js"></script>
     <script type="module" src="latent-demand-traversal.js"></script>

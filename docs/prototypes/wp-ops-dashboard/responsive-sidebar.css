@@ -1,0 +1,144 @@
+.mobile-sidebar-toggle,
+.sidebar-scrim {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  body.sidebar-open {
+    overflow: hidden;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+
+  .mobile-sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #9ab7a7;
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--green);
+    padding: 7px 10px;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .mobile-sidebar-toggle:hover,
+  .mobile-sidebar-toggle:focus-visible {
+    background: var(--green-soft);
+  }
+
+  .tabs {
+    position: fixed;
+    z-index: 40;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: min(86vw, 300px);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 14px 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: normal;
+    background: var(--surface);
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+    box-shadow: 18px 0 42px rgba(24, 32, 27, 0.16);
+    transform: translateX(-105%);
+    transition: transform 0.2s ease;
+  }
+
+  .sidebar-open .tabs {
+    transform: translateX(0);
+  }
+
+  .sidebar-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 38px;
+    padding: 0 8px 8px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .sidebar-head button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--green);
+    font-size: 21px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 38px;
+    padding: 9px 12px;
+    border-radius: 9px;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .tab:hover {
+    background: #f0f5f1;
+  }
+
+  .tab.active {
+    color: var(--green);
+    background: var(--green-soft);
+  }
+
+  .tab.active:after {
+    width: 3px;
+    height: auto;
+    left: 0;
+    right: auto;
+    top: 7px;
+    bottom: 7px;
+  }
+
+  .sidebar-scrim {
+    display: block;
+    position: fixed;
+    z-index: 35;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: rgba(18, 25, 21, 0.38);
+    cursor: pointer;
+  }
+
+  .sidebar-scrim[hidden] {
+    display: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .mobile-sidebar-toggle span {
+    display: none;
+  }
+
+  .mobile-sidebar-toggle {
+    padding-inline: 9px;
+    font-size: 16px;
+  }
+}
