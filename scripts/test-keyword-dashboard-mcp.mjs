@@ -271,8 +271,8 @@ const listed = handleMcpMessage(
   { jsonrpc: "2.0", id: 2, method: "tools/list" },
   data,
 ).result.tools;
-assert.equal(listed.length, 103);
-assert.equal(new Set(listed.map((tool) => tool.name)).size, 103);
+assert.equal(listed.length, 104);
+assert.equal(new Set(listed.map((tool) => tool.name)).size, 104);
 assert.ok(
   listed.some((tool) => tool.name === "review_public_source_decisions"),
 );
@@ -324,6 +324,9 @@ assert.ok(
   listed.some((tool) => tool.name === "review_isolated_snapshot_corpora"),
 );
 assert.ok(
+  listed.some((tool) => tool.name === "audit_keyword_content_lineage"),
+);
+assert.ok(
   listed.every(
     (tool) =>
       tool.inputSchema.required?.includes("site_id") ||
@@ -356,6 +359,20 @@ assert.equal(market.structuredContent.keyword_metrics.length, 1);
 assert.equal(market.structuredContent.keyword_metrics[0].site_id, "s");
 assert.equal(
   market.structuredContent.provenance.external_acquisition_triggered,
+  false,
+);
+const contentLineage = call(5.5, "audit_keyword_content_lineage", {
+  site_id: "s",
+  group_id: "g",
+  limit: 100,
+});
+assert.equal(contentLineage.structuredContent.meta.total, 1);
+assert.equal(
+  contentLineage.structuredContent.data[0].stages.demand.state,
+  "observed",
+);
+assert.equal(
+  contentLineage.structuredContent.automatic_content_mutation,
   false,
 );
 const compositions = call(6, "review_content_compositions", {
@@ -485,5 +502,5 @@ assert.equal(
 assert.equal(isAllowedMcpOrigin("http://127.0.0.1:4173"), true);
 assert.equal(isAllowedMcpOrigin("https://evil.example"), false);
 console.log(
-  "keyword dashboard MCP: OK (initialize, 103 read-only tools, public metadata, credit estimator, isolated corpus review, evidence boundaries, site scope, origin gate)",
+  "keyword dashboard MCP: OK (initialize, 104 read-only tools, public metadata, credit estimator, isolated corpus review, evidence boundaries, site scope, origin gate)",
 );

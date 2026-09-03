@@ -94,7 +94,7 @@ const openApiPaths = Object.keys(researchOpenApi.paths),
   mappedOperationIds = new Set(
     operationCoverage.map((row) => row.operation_id),
   );
-assert.equal(openApiPaths.length, 118);
+assert.equal(openApiPaths.length, 122);
 assert.ok(openApiPaths.every((path) => researchOpenApi.paths[path].get));
 assert.equal(operationCoverage.length, 27);
 assert.equal(mappedOperationIds.size, 24);
