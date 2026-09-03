@@ -55,6 +55,7 @@ try {
   assert.equal(researchOpenApi.info.version, "2.118.0");
   assert.equal(response.status, 200);
   assert.equal(response.body.summary.query_match_state, "exact");
+  assert.equal(response.body.summary.traversal_strategy, "breadth_first");
   assert.equal(response.body.summary.seed_sense_count, 4);
   assert(response.body.meta.total > 100);
   assert.equal(response.body.data.length, 100);
@@ -83,6 +84,23 @@ try {
     "7643604773d71af613e0f45e994d6c2a7cd9c493ede21b857409e342ee259f93",
   );
   assert.equal(response.body.provenance.external_acquisition_triggered, false);
+  const dfsUrl = new URL(
+      `/api/v1/public-semantic-graph?site_id=${site.site_id}&q=${encodeURIComponent("トラブル")}&depth=2&strategy=depth_first&limit=100`,
+      "http://localhost",
+    ),
+    dfsResponse = routeResearchApi(dfsUrl.pathname, dfsUrl, data, db);
+  assert.equal(dfsResponse.status, 200);
+  assert.equal(dfsResponse.body.summary.traversal_strategy, "depth_first");
+  assert.equal(dfsResponse.body.filters.strategy, "depth_first");
+  assert(
+    dfsResponse.body.data.every(
+      (row) => row.traversal_strategy === "depth_first" && row.path_synsets.length === row.depth + 1,
+    ),
+  );
+  assert.notDeepEqual(
+    dfsResponse.body.data.map((row) => row.path_relation_ids),
+    response.body.data.map((row) => row.path_relation_ids),
+  );
   setResearchDb(db);
   const mcp = handleMcpMessage(
     {
@@ -95,6 +113,7 @@ try {
           site_id: site.site_id,
           query: "トラブル",
           depth: 2,
+          strategy: "depth_first",
           limit: 100,
         },
       },
@@ -104,6 +123,7 @@ try {
   assert.equal(mcp.isError, false);
   assert.equal(mcp.structuredContent.meta.total, response.body.meta.total);
   assert.equal(mcp.structuredContent.synonymy_inferred, false);
+  assert.equal(mcp.structuredContent.summary.traversal_strategy, "depth_first");
   assert.equal(mcp.structuredContent.auto_mutation, false);
   console.log(
     "public semantic graph API/MCP: OK (bounded depth 2, canonical/inverse relation semantics, 0 automatic mutation)",
