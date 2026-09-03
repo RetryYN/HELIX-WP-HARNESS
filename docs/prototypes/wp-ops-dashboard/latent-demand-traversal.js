@@ -23,7 +23,7 @@ const labels = {
     "ローカルBFS/DFSは同順。提供元traceが必要",
 };
 
-const renderSummary = (summary) => {
+const renderSummary = (summary, identifiabilityProof) => {
   if (!summaryRoot) return;
   const metrics = [
     ["occurrence", summary.matched_occurrence_count],
@@ -40,7 +40,10 @@ const renderSummary = (summary) => {
     )
     .join("");
   if (statusRoot) {
-    statusRoot.innerHTML = `<strong>${escapeHtml(labels[summary.disambiguation_state] ?? "保持証跡による比較")}</strong><span>方式の断定: no · 自動割当0 · 自動反映0 · 自動公開0</span>`;
+    const projectionState = identifiabilityProof?.public_projection?.equal === true
+      ? "公開projectionではDFS/BFS同一可"
+      : "公開projection反例未評価";
+    statusRoot.innerHTML = `<strong>${escapeHtml(labels[summary.disambiguation_state] ?? "保持証跡による比較")}</strong><span>方式の断定: no · ${escapeHtml(projectionState)} · 自動割当0 · 自動反映0 · 自動公開0</span>`;
   }
 };
 
@@ -88,7 +91,7 @@ const render = async () => {
     if (!response.ok) throw new Error(`latent-demand: ${response.status}`);
     const payload = await response.json();
     if (serial !== requestSerial) return;
-    renderSummary(payload.summary ?? {});
+    renderSummary(payload.summary ?? {}, payload.identifiability_proof);
     renderRows(payload);
   } catch (error) {
     if (serial !== requestSerial) return;

@@ -16,6 +16,8 @@ import { queryPublicSemanticGraph } from "./public-semantic-graph-query.mjs";
 import { queryGraphRelatedKeywords } from "./graph-related-keyword-query.mjs";
 import { buildKeywordContentLineage } from "./keyword-content-lineage.mjs";
 import { buildLatentDemandTraversal } from "./latent-demand-traversal.mjs";
+import { buildTraversalIdentifiabilityProof } from "./seo-tool-a-traversal-hypothesis.mjs";
+const traversalIdentifiabilityProof = buildTraversalIdentifiabilityProof();
 const publicApiOperationGraph = JSON.parse(
   readFileSync(
     new URL(
@@ -532,7 +534,7 @@ paths["/latent-demand-traversal"] = {
   get: {
     operationId: "helix_latent_demand_traversal",
     description:
-      "Read-only retained demand graph with deterministic breadth/depth traversal comparison; preserves occurrence lineage and never claims the upstream provider's internal algorithm.",
+      "Read-only retained demand graph with deterministic breadth/depth traversal comparison; includes a contract-level counterexample showing that public projection can be identical for both strategies, preserves occurrence lineage, and never claims the upstream provider's internal algorithm.",
     "x-seo-tool-a-operation-ids": [],
     responses: { 200: { description: "Retained latent demand traversal evidence" } },
   },
@@ -2884,6 +2886,7 @@ export function routeResearchApi(pathname, url, data, db = null) {
       strategy: traversal.strategy,
       max_depth: traversal.max_depth,
       strategy_comparison: traversal.strategy_comparison,
+      identifiability_proof: traversalIdentifiabilityProof,
       lineage_digest: traversal.lineage_digest,
       policy: traversal.policy,
       source_policy: traversal.source_policy,

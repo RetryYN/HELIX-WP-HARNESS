@@ -39,6 +39,19 @@ assert.equal(audit.evidence_boundary.automatic_group_assignment, false);
 assert.equal(audit.evidence_boundary.automatic_content_mutation, false);
 assert.equal(audit.downstream_mappings.length, 3);
 assert(audit.downstream_mappings.every((row) => row.automatic_mutation === false));
+assert.equal(
+  audit.identifiability_proof.identifiability_state,
+  "not_identifiable_from_public_projection",
+);
+assert.equal(audit.identifiability_proof.trace_order_differs, true);
+assert.equal(audit.identifiability_proof.public_projection.equal, true);
+assert.notDeepEqual(
+  audit.identifiability_proof.traces.depth_first,
+  audit.identifiability_proof.traces.breadth_first,
+);
+assert.equal(audit.identifiability_proof.external_request_executed, false);
+assert.equal(audit.identifiability_proof.paid_request_executed, false);
+assert.equal(audit.identifiability_proof.automatic_mutation, false);
 assert.equal(stored.audit_digest, audit.audit_digest);
 console.log(
   "SeoToolA traversal hypothesis: OK (bounded recursion explicit, DFS/BFS unresolved, occurrence aggregation mapped, no internal/provider claim)",
