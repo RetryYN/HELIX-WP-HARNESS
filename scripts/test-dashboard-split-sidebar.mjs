@@ -4,7 +4,8 @@ import { readFileSync } from "node:fs";
 const root = new URL("../docs/prototypes/wp-ops-dashboard/", import.meta.url),
   html = readFileSync(new URL("index.html", root), "utf8"),
   css = readFileSync(new URL("styles.css", root), "utf8"),
-  js = readFileSync(new URL("app.js", root), "utf8");
+  js = readFileSync(new URL("app.js", root), "utf8"),
+  traversal = readFileSync(new URL("semantic-traversal-controls.js", root), "utf8");
 assert.match(html, /id="sidebar-toggle"/u);
 assert.match(html, /id="sidebar-resizer"[^>]+role="separator"/u);
 assert.match(css, /--sidebar-width:\s*248px/u);
@@ -18,6 +19,13 @@ assert.match(js, /function initializeSplitSidebar\(\)/u);
 assert.match(js, /localStorage\.setItem\(storageKey/u);
 assert.match(js, /setPointerCapture/u);
 assert.match(js, /\["ArrowLeft",\s*"ArrowRight"\]/u);
+assert.match(html, /id="semantic-strategy"/u);
+assert.match(html, /value="breadth_first"/u);
+assert.match(html, /value="depth_first"/u);
+assert.match(html, /semantic-traversal-controls\.js/u);
+assert.match(traversal, /api\/v1\/public-semantic-graph/u);
+assert.match(traversal, /strategyControl\.value/u);
+assert.match(traversal, /dispatchEvent\(new Event\("input"/u);
 console.log(
   "dashboard split sidebar: OK (resize, collapse, persistence, keyboard, mobile fallback)",
 );
