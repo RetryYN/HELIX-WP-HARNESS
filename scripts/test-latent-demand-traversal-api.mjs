@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import {
   openDashboardDb,
   projectDashboard,
@@ -6,9 +7,43 @@ import {
 import { researchOpenApi, routeResearchApi } from "./keyword-dashboard-api.mjs";
 import { handleMcpMessage } from "./keyword-dashboard-mcp.mjs";
 
-const db = openDashboardDb(".helix/keyword-dashboard.sqlite");
+const dbPath = ".helix/keyword-dashboard.sqlite";
+const fixtureData = {
+  sites: [{ site_id: "site-a" }],
+  groups: [{ id: "g1", site_id: "site-a" }],
+  serp_demand_occurrences: [
+    {
+      occurrence_id: "fixture-o1",
+      group_id: "g1",
+      task_id: "fixture-task",
+      source_keyword: "seed",
+      demand_type: "related_search",
+      value: "A",
+      normalized_value: "a",
+      occurrence_order: 0,
+      recursion_depth: 1,
+      snapshot_digest: "a".repeat(64),
+      observed_at: "2026-09-04T00:00:00Z",
+    },
+    {
+      occurrence_id: "fixture-o2",
+      group_id: "g1",
+      task_id: "fixture-task",
+      source_keyword: "seed",
+      demand_type: "paa",
+      value: "A1",
+      normalized_value: "a1",
+      occurrence_order: 1,
+      recursion_depth: 2,
+      seed_value: "A",
+      snapshot_digest: "b".repeat(64),
+      observed_at: "2026-09-04T00:00:00Z",
+    },
+  ],
+};
+const db = existsSync(dbPath) ? openDashboardDb(dbPath) : null;
 try {
-  const data = projectDashboard(db);
+  const data = db ? projectDashboard(db) : fixtureData;
   const site = data.sites.find((row) => data.groups.some((group) => group.site_id === row.site_id));
   assert(site);
   const url = new URL(
@@ -19,9 +54,12 @@ try {
   assert.equal(api.status, 200);
   assert.equal(api.body.summary.site_id, site.site_id);
   assert.equal(api.body.strategy, "depth_first");
-  assert.equal(api.body.summary.observed_max_depth, 1);
-  assert.equal(api.body.summary.depth_2_occurrence_count, 0);
-  assert.equal(api.body.summary.disambiguation_state, "insufficient_retained_depth");
+  assert.equal(api.body.summary.observed_max_depth, db ? 1 : 2);
+  assert.equal(api.body.summary.depth_2_occurrence_count, db ? 0 : 1);
+  assert.equal(
+    api.body.summary.disambiguation_state,
+    db ? "insufficient_retained_depth" : "local_strategies_same_order_provider_trace_required",
+  );
   assert.equal(api.body.strategy_comparison.internal_algorithm_identified, false);
   assert.equal(api.body.strategy_comparison.provider_trace_available, false);
   assert.equal(api.body.evidence_boundary.paid_request_executed, false);
@@ -65,8 +103,8 @@ try {
   assert.equal(routeResearchApi(badGroup.pathname, badGroup, data, db).status, 404);
 
   console.log(
-    `latent demand traversal API/MCP: OK (${api.body.summary.matched_occurrence_count} retained occurrences, depth2 absent, provider order unclaimed)`,
+    `latent demand traversal API/MCP: OK (${api.body.summary.matched_occurrence_count} retained occurrences, ${db ? "live DB" : "portable fixture"}, provider order unclaimed)`,
   );
 } finally {
-  db.close();
+  db?.close();
 }
