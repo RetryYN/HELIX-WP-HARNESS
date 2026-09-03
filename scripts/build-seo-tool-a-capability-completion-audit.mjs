@@ -369,13 +369,19 @@ const proof = {
   },
   provider: {
     artifacts: [
+      "scripts/observed-hashtag-evidence.mjs",
+      "docs/prototypes/wp-ops-dashboard/observed-hashtags.js",
       "scripts/provider-acquisition-plan.mjs",
       "scripts/acquisition-lifetime-allocation.mjs",
       "scripts/acquisition-lifetime-approval-manifest.mjs",
       "docs/prototypes/wp-ops-dashboard/provider-acquisition-plan.json",
       "scripts/test-provider-acquisition-plan.mjs",
+      "scripts/test-observed-hashtag-evidence.mjs",
+      "scripts/test-observed-hashtag-api.mjs",
     ],
     verification: [
+      "node scripts/test-observed-hashtag-evidence.mjs",
+      "node scripts/test-observed-hashtag-api.mjs",
       "npm run provider:acquisition-plan:test",
       "node scripts/test-acquisition-lifetime-allocation.mjs",
       "node scripts/test-acquisition-lifetime-allocation-api.mjs",

@@ -24,6 +24,7 @@
       <button class="tab active" data-view="keywords">キーワード一覧</button>
       <button class="tab" data-view="keyword-tree">キーワードツリー</button>
       <button class="tab" data-view="lexical-explorer">類語・連想語</button>
+      <button class="tab" data-view="observed-hashtags">観測ハッシュタグ</button>
       <button class="tab" data-view="keyword-utilities">補助ツール</button>
       <button class="tab" data-view="suggest-explorer">サジェスト</button>
       <button class="tab" data-view="quick-search">クイック検索</button>
@@ -2136,6 +2137,40 @@
         </div>
       </section>
 
+      <section id="observed-hashtags" class="view">
+        <div class="toolbar table-toolbar">
+          <div>
+            <h2>観測ハッシュタグ証拠</h2>
+            <p>保持SERPのタイトル・説明文と取得済み見出しで実際に観測した記号付き語。SNS全体の人気・トレンド・検索量・順位効果ではありません</p>
+          </div>
+          <div class="filters">
+            <input id="observed-hashtag-search" type="search" placeholder="タグ・URL検索" aria-label="観測ハッシュタグ検索" />
+            <select id="observed-hashtag-classification" aria-label="分類で絞り込み">
+              <option value="all">全分類</option>
+              <option value="social_or_topic_observed">話題・媒体タグ</option>
+              <option value="job_attribute_marker_observed">求人条件タグ</option>
+              <option value="ambiguous_marker_review">要分類レビュー</option>
+            </select>
+            <select id="observed-hashtag-source" aria-label="証拠元で絞り込み">
+              <option value="all">全証拠元</option>
+              <option value="serp_title">SERPタイトル</option>
+              <option value="serp_description">SERP説明文</option>
+              <option value="serp_pre_snippet">SERP pre-snippet</option>
+              <option value="competitor_heading">取得済み見出し</option>
+            </select>
+          </div>
+        </div>
+        <div id="observed-hashtag-metrics" class="metrics"></div>
+        <div class="notice"><span>観測回数は保持範囲内の出現数です。自動でタイトル・見出し・本文へ挿入せず、編集レビュー対象としてのみ扱います。</span></div>
+        <div class="table-wrap">
+          <table class="observed-hashtag-table">
+            <thead><tr><th>タグ</th><th>分類</th><th>観測</th><th>証拠元</th><th>グループ</th><th>URL</th><th>証拠digest</th></tr></thead>
+            <tbody id="observed-hashtag-rows"></tbody>
+          </table>
+          <div id="observed-hashtag-empty" class="empty-state"></div>
+        </div>
+      </section>
+
       <section id="market-data" class="view">
         <div class="section-head table-toolbar">
           <div>
@@ -2551,5 +2586,6 @@
       ><div class="empty"><strong>該当データがありません</strong><span>フィルターを変更してください。</span></div></template
     >
     <script type="module" src="app.js"></script>
+    <script type="module" src="observed-hashtags.js"></script>
   </body>
 </html>

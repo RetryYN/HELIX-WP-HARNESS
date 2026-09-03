@@ -271,8 +271,8 @@ const listed = handleMcpMessage(
   { jsonrpc: "2.0", id: 2, method: "tools/list" },
   data,
 ).result.tools;
-assert.equal(listed.length, 100);
-assert.equal(new Set(listed.map((tool) => tool.name)).size, 100);
+assert.equal(listed.length, 102);
+assert.equal(new Set(listed.map((tool) => tool.name)).size, 102);
 assert.ok(
   listed.some((tool) => tool.name === "review_public_source_decisions"),
 );
@@ -281,6 +281,7 @@ assert.ok(
   listed.some((tool) => tool.name === "traverse_public_semantic_graph"),
 );
 assert.ok(listed.some((tool) => tool.name === "search_graph_related_keywords"));
+assert.ok(listed.some((tool) => tool.name === "search_observed_hashtags"));
 assert.ok(
   listed.some((tool) => tool.name === "review_content_semantic_coverage"),
 );
@@ -484,5 +485,5 @@ assert.equal(
 assert.equal(isAllowedMcpOrigin("http://127.0.0.1:4173"), true);
 assert.equal(isAllowedMcpOrigin("https://evil.example"), false);
 console.log(
-  "keyword dashboard MCP: OK (initialize, 100 read-only tools, public metadata, credit estimator, isolated corpus review, evidence boundaries, site scope, origin gate)",
+  "keyword dashboard MCP: OK (initialize, 102 read-only tools, public metadata, credit estimator, isolated corpus review, evidence boundaries, site scope, origin gate)",
 );
