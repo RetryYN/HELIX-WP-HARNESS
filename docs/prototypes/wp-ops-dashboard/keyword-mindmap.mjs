@@ -33,7 +33,7 @@ export function buildMindmapSource(rows, formatNumber = (value) => String(value)
   }
   const ordered = [...nodes.values()].sort((left, right) => left.path.length - right.path.length || left.key.localeCompare(right.key, "ja"));
   const roots = ordered.filter((node) => node.path.length === 1);
-  if (roots.length !== 1) throw new Error(`mindmap requires exactly one root: ${roots.length}`);
+  if (!roots.length) throw new Error("mindmap requires at least one root");
   const children = new Map();
   for (const node of ordered.filter((item) => item.path.length > 1)) {
     const parent = node.path.slice(0, -1).join("\0");
@@ -42,6 +42,13 @@ export function buildMindmapSource(rows, formatNumber = (value) => String(value)
     children.set(parent, items);
   }
   const ids = new Map(ordered.map((node, index) => [node.key, `mm${index}`]));
+  const virtualRoot = roots.length > 1
+    ? { key: "__virtual_root__", path: ["キーワード"], rows: [] }
+    : null;
+  if (virtualRoot) {
+    ids.set(virtualRoot.key, "mmroot");
+    children.set(virtualRoot.key, roots);
+  }
   const lines = ["mindmap"];
   function appendNode(node, depth) {
     const actual = node.rows;
@@ -51,6 +58,6 @@ export function buildMindmapSource(rows, formatNumber = (value) => String(value)
     lines.push(`${"  ".repeat(depth)}${ids.get(node.key)}${shape}`);
     for (const child of (children.get(node.key) ?? []).sort((left, right) => left.key.localeCompare(right.key, "ja"))) appendNode(child, depth + 1);
   }
-  appendNode(roots[0], 1);
+  appendNode(virtualRoot ?? roots[0], 1);
   return { source: lines.join("\n"), nodes: ordered };
 }

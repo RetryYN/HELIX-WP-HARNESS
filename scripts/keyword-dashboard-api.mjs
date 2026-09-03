@@ -14,6 +14,7 @@ import {
 import { readFileSync } from "node:fs";
 import { queryPublicSemanticGraph } from "./public-semantic-graph-query.mjs";
 import { queryGraphRelatedKeywords } from "./graph-related-keyword-query.mjs";
+import { buildKeywordContentLineage } from "./keyword-content-lineage.mjs";
 const publicApiOperationGraph = JSON.parse(
   readFileSync(
     new URL(
@@ -515,6 +516,15 @@ paths["/keyword-lineage"] = {
       "Lossless source-row lineage through normalization hierarchy, acquired groups, and related-keyword proposals.",
     "x-seo-tool-a-operation-ids": [],
     responses: { 200: { description: "Retained keyword source lineage" } },
+  },
+};
+paths["/keyword-content-lineage"] = {
+  get: {
+    operationId: "helix_keyword_content_lineage",
+    description:
+      "Read-only lineage from retained source keywords through observed demand, title/heading candidates, outline selection, and publication gates; never assigns groups, generates content, or publishes.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Keyword-to-content lineage" } },
   },
 };
 paths["/related-keyword-boundaries"] = {
@@ -2802,6 +2812,38 @@ export function routeResearchApi(pathname, url, data, db = null) {
       },
       source_rows_losslessly_retained: true,
       auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/keyword-content-lineage") {
+    const requestedGroup = url.searchParams.get("group_id") ?? "",
+      lineage = buildKeywordContentLineage({
+        siteId,
+        groups,
+        keywordInventory: data.keyword_inventory ?? [],
+        keywordLineageRows: site.keyword_lineage_ledger?.rows ?? [],
+        demands: data.serp_demands ?? [],
+        occurrences: data.serp_demand_occurrences ?? [],
+        topics: data.content_topic_proposals ?? [],
+        questions: site.ai_question_candidates ?? [],
+        structures: data.content_structure_candidates ?? [],
+        candidates: data.content_generation_candidates ?? [],
+        outlines: data.content_outlines ?? [],
+        readinessRows: site.content_readiness_oracle?.rows ?? [],
+        query: url.searchParams.get("q") ?? "",
+        groupId: requestedGroup,
+      });
+    return ok({
+      ...page(lineage.rows, url),
+      summary: lineage.summary,
+      policy: lineage.policy,
+      source_policy: lineage.source_policy,
+      lineage_digest: lineage.lineage_digest,
+      filters: lineage.filters,
+      automatic_group_assignment: false,
+      automatic_generation: false,
+      automatic_content_mutation: false,
+      automatic_publication: false,
+      external_acquisition_triggered: false,
     });
   }
   if (pathname === "/api/v1/related-keyword-boundaries") {

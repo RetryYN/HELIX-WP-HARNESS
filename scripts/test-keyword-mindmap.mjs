@@ -14,6 +14,17 @@ const hostileMindmap = buildMindmapSource(hostile);
 assert.ok(hostileMindmap.source.startsWith("mindmap\n"));
 assert.doesNotMatch(hostileMindmap.source, /2027\)|\[比較|\{新卒/, "external keyword punctuation must not escape a mindmap node");
 assert.match(hostileMindmap.source, /◇/, "derived nodes remain visibly distinct");
+const multiRootMindmap = buildMindmapSource([
+  ...hostile,
+  {
+    source_keyword_id: "other",
+    raw_keyword: "別軸",
+    search_volume: 10,
+    tree_path: ["別軸"],
+    normalized_terms: ["別軸"],
+  },
+]);
+assert.match(multiRootMindmap.source, /キーワード/, "multiple roots use a visible virtual root");
 
 const evidence = JSON.parse(readFileSync(new URL("../artifacts/poc/keyword-workbook-100-live/result.json", import.meta.url), "utf8"));
 const actual = buildKeywordHierarchy(evidence.tasks.map((row) => ({ source_keyword_id: row.source_keyword_id, raw_keyword: row.keyword, search_volume: row.search_volume })));
