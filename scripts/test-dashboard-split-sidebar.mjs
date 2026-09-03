@@ -4,7 +4,9 @@ import { readFileSync } from "node:fs";
 const root = new URL("../docs/prototypes/wp-ops-dashboard/", import.meta.url),
   html = readFileSync(new URL("index.html", root), "utf8"),
   css = readFileSync(new URL("styles.css", root), "utf8"),
+  responsiveCss = readFileSync(new URL("responsive-sidebar.css", root), "utf8"),
   js = readFileSync(new URL("app.js", root), "utf8"),
+  responsiveJs = readFileSync(new URL("responsive-sidebar.js", root), "utf8"),
   traversal = readFileSync(new URL("semantic-traversal-controls.js", root), "utf8"),
   contentLineage = readFileSync(new URL("keyword-content-lineage.js", root), "utf8"),
   latentDemandTraversal = readFileSync(
@@ -21,6 +23,10 @@ const root = new URL("../docs/prototypes/wp-ops-dashboard/", import.meta.url),
   );
 assert.match(html, /id="sidebar-toggle"/u);
 assert.match(html, /id="sidebar-resizer"[^>]+role="separator"/u);
+assert.match(html, /id="mobile-sidebar-toggle"[^>]+aria-controls="analysis-tabs"/u);
+assert.match(html, /id="sidebar-scrim"[^>]+hidden/u);
+assert.match(html, /responsive-sidebar\.css/u);
+assert.match(html, /responsive-sidebar\.js/u);
 assert.match(css, /--sidebar-width:\s*248px/u);
 assert.match(css, /cursor:\s*col-resize/u);
 assert.match(css, /\.sidebar-collapsed/u);
@@ -32,6 +38,20 @@ assert.match(js, /function initializeSplitSidebar\(\)/u);
 assert.match(js, /localStorage\.setItem\(storageKey/u);
 assert.match(js, /setPointerCapture/u);
 assert.match(js, /\["ArrowLeft",\s*"ArrowRight"\]/u);
+assert.match(responsiveCss, /@media\s*\(max-width:\s*850px\)/u);
+assert.match(
+  responsiveCss,
+  /\.sidebar-open \.tabs\s*\{[\s\S]*transform:\s*translateX\(0\)/u,
+);
+assert.match(
+  responsiveCss,
+  /\.sidebar-scrim\[hidden\][\s\S]*display:\s*none\s*!important/u,
+);
+assert.match(responsiveCss, /\.sidebar-scrim\s*\{[\s\S]*display:\s*block;/u);
+assert.match(responsiveJs, /matchMedia\("\(max-width: 850px\)"\)/u);
+assert.match(responsiveJs, /Escape/u);
+assert.match(responsiveJs, /setOpen\(false\)/u);
+assert.match(responsiveJs, /querySelector\("#sidebar-toggle"\)/u);
 assert.match(html, /id="semantic-strategy"/u);
 assert.match(html, /value="breadth_first"/u);
 assert.match(html, /value="depth_first"/u);
