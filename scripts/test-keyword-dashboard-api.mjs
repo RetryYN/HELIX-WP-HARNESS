@@ -94,8 +94,12 @@ const openApiPaths = Object.keys(researchOpenApi.paths),
   mappedOperationIds = new Set(
     operationCoverage.map((row) => row.operation_id),
   );
-assert.equal(openApiPaths.length, 126);
+assert.equal(openApiPaths.length, 127);
 assert.ok(openApiPaths.every((path) => researchOpenApi.paths[path].get));
+assert.equal(
+  researchOpenApi.paths["/generation-quality-oracle"].get.operationId,
+  "helix_generation_quality_oracle",
+);
 assert.equal(operationCoverage.length, 27);
 assert.equal(mappedOperationIds.size, 24);
 assert.equal(
@@ -119,6 +123,14 @@ assert.equal(suggestLogic.body.data.length, 2);
 assert.equal(suggestLogic.body.summary.observed_external_result_count, 0);
 assert.equal(suggestLogic.body.external_acquisition_triggered, false);
 assert.equal(suggestLogic.body.auto_generation, false);
+const generationQuality = route(
+  "/api/v1/generation-quality-oracle?site_id=s&limit=10",
+);
+assert.equal(generationQuality.status, 200);
+assert.equal(generationQuality.body.policy, "generation-quality-oracle.v1");
+assert.equal(generationQuality.body.meta.total, 0);
+assert.equal(generationQuality.body.human_quality_proven, false);
+assert.equal(generationQuality.body.auto_content_mutation, false);
 assert.equal(
   route("/api/v1/questions?site_id=s&kind=derived_question").body.data.length,
   1,

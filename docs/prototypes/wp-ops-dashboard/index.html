@@ -972,6 +972,26 @@
             <tbody id="generation-provenance-rows"></tbody>
           </table>
         </div>
+        <h3>決定論 generation quality oracle</h3>
+        <p class="section-note">証拠閉包・需要／競合安定性・意味coverage・task holdoutを候補単位で突合します。これは編集レビュー用の品質診断であり、人手品質・順位効果・自動選定を証明しません。</p>
+        <div id="generation-quality-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>candidate</th>
+                <th>種別</th>
+                <th>判定</th>
+                <th>決定論review</th>
+                <th>需要 / 競合</th>
+                <th>holdout</th>
+                <th>blocker</th>
+                <th>digest</th>
+              </tr>
+            </thead>
+            <tbody id="generation-quality-rows"></tbody>
+          </table>
+        </div>
         <h3>本文generation実行manifest</h3>
         <p class="section-note">prompt・出力schema・token上限・model価格・累計$5予算を実行前に固定します。現在はモデル未選択・価格未確認・生成予算未配分のため停止中です。</p>
         <div id="generation-manifest-metrics" class="metrics"></div>
@@ -2812,5 +2832,6 @@
     <script type="module" src="demand-payload-retention.js"></script>
     <script type="module" src="observed-hashtags.js"></script>
     <script type="module" src="capability-audit.js"></script>
+    <script type="module" src="generation-quality.js"></script>
   </body>
 </html>

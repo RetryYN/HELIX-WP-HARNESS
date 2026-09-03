@@ -923,6 +923,15 @@ paths["/generation-provenance"] = {
     responses: { 200: { description: "Generation provenance ledger" } },
   },
 };
+paths["/generation-quality-oracle"] = {
+  get: {
+    operationId: "helix_generation_quality_oracle",
+    description:
+      "Combine deterministic evidence, stability, semantic and holdout diagnostics for generated candidates; human quality and ranking effect remain unproven.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Generation candidate quality oracle" } },
+  },
+};
 paths["/generation-execution-manifest"] = {
   get: {
     operationId: "helix_generation_execution_manifest",
@@ -2249,6 +2258,35 @@ export function routeResearchApi(pathname, url, data, db = null) {
       mutation_supported: false,
       external_generation_triggered: false,
       paid_execution_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/generation-quality-oracle") {
+    const oracle = site.generation_quality_oracle ?? {
+        rows: [],
+        summary: {},
+      },
+      type = url.searchParams.get("type"),
+      state = url.searchParams.get("state"),
+      rows = oracle.rows.filter(
+        (row) =>
+          (!type || type === "all" || row.content_type === type) &&
+          (!state || state === "all" || row.review_state === state) &&
+          (!query || norm(JSON.stringify(row)).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...(oracle.summary ?? {}), filtered_count: rows.length },
+      oracle_digest: oracle.oracle_digest,
+      policy: oracle.policy ?? "generation-quality-oracle.v1",
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        type: type ?? "all",
+        state: state ?? "all",
+      },
+      human_quality_proven: false,
+      ranking_effect_inferred: false,
+      auto_selection: false,
+      auto_content_mutation: false,
     });
   }
   if (pathname === "/api/v1/generation-execution-manifest") {
