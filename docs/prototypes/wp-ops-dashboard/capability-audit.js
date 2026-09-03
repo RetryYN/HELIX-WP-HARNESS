@@ -50,6 +50,15 @@ if (root) {
               ["基準日", summary.baseline_evidence_cutoff ?? "—"],
               ["外部取得", payload.external_request_executed ? "あり" : "なし"],
             ]
+          : payload.view === "crosswalk"
+            ? [
+                ["公開機能面", summary.function_surface_count ?? 0],
+                ["更新履歴面", summary.update_surface_count ?? 0],
+                ["inventory対応", `${summary.inventory_coverage_count ?? 0}/${summary.inventory_capability_count ?? 0}`],
+                ["未マッピング", (summary.unmapped_function_surface_count ?? 0) + (summary.unmapped_update_surface_count ?? 0)],
+                ["カットオフ後更新", summary.post_cutoff_update_count ?? 0],
+                ["マッピング再確認", summary.mapping_review_required ? "要" : "不要"],
+              ]
           : payload.view === "credits"
             ? [
                 ["API operation", summary.operation_count ?? 0],
@@ -123,6 +132,27 @@ if (root) {
               row.evidence_state,
             )}</td></tr>`,
         )
+      .join("");
+      return;
+    }
+    if (view === "crosswalk") {
+      head.innerHTML =
+        "<tr><th>公開面</th><th>種別</th><th>範囲</th><th>inventory対象</th><th>mapping</th><th>基準日後</th></tr>";
+      rowsRoot.innerHTML = rows
+        .map(
+          (row) =>
+            `<tr><td><strong>${escapeHtml(row.source_text ?? row.source_key)}</strong><small class="cell-note">${escapeHtml(
+              row.source_key,
+            )}</small></td><td>${escapeHtml(row.row_kind)}</td><td>${escapeHtml(
+              row.scope,
+            )}</td><td>${escapeHtml(
+              row.target_capabilities?.join(" / ") ?? "—",
+            )}</td><td>${escapeHtml(
+              row.mapping_kind ?? "update_surface",
+            )}<small class="cell-note">${escapeHtml(
+              row.mapping_state ?? "—",
+            )}</small></td><td>${row.after_baseline ? "あり" : "なし"}</td></tr>`,
+        )
         .join("");
       return;
     }
@@ -171,9 +201,9 @@ if (root) {
   const load = async () => {
     message.textContent = "全機能の証拠境界を読み込み中…";
     message.classList.remove("error");
-    const freshnessView = viewFilter.value === "freshness";
-    statusFilter.disabled = freshnessView;
-    blockerFilter.disabled = freshnessView;
+    const auditMetaView = ["freshness", "crosswalk"].includes(viewFilter.value);
+    statusFilter.disabled = auditMetaView;
+    blockerFilter.disabled = auditMetaView;
     const url = new URL("/api/v1/capability-audit", location.origin);
     url.searchParams.set("view", viewFilter.value);
     url.searchParams.set("q", search.value.trim());
@@ -197,6 +227,15 @@ if (root) {
             } · 基準日 ${payload.summary?.baseline_evidence_cutoff ?? "—"} · completion claim: ${
               payload.completion_claim ?? "not_proven"
             } · 外部取得0 · model実行0 · 有料実行0`
+          : payload.view === "crosswalk"
+            ? `公開機能面 ${payload.summary?.function_surface_count ?? 0}件 · 更新履歴面 ${
+                payload.summary?.update_surface_count ?? 0
+              }件 · inventory対応 ${payload.summary?.inventory_coverage_count ?? 0}/${
+                payload.summary?.inventory_capability_count ?? 0
+              } · 未マッピング ${
+                (payload.summary?.unmapped_function_surface_count ?? 0) +
+                (payload.summary?.unmapped_update_surface_count ?? 0)
+              } · completion claim: ${payload.completion_claim ?? "not_proven"} · parity proofではない`
           : `completion claim: ${payload.completion_claim ?? "not_proven"} · audit ${String(
               payload.audit_digest ?? "",
             ).slice(0, 12)} · 外部取得0 · model実行0 · 有料実行0`;

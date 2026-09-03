@@ -20,8 +20,8 @@
     }
   },
   "evidence_integrity_catalog": {
-    "artifact_count": 117,
-    "verification_command_count": 125,
+    "artifact_count": 119,
+    "verification_command_count": 126,
     "artifacts": [
       {
         "path": "docs/prototypes/wp-ops-dashboard/app.js",
@@ -31,7 +31,7 @@
       {
         "path": "docs/prototypes/wp-ops-dashboard/capability-audit.js",
         "exists": true,
-        "sha256": "737241e6f1ae5bf21b5b5e1283efaffabda8be4746345e95133499c4fd604daa"
+        "sha256": "5ef307a596acf342b07cf8c7519248cfa987c5e206c48f28bd3f04ba12d07dcf"
       },
       {
         "path": "docs/prototypes/wp-ops-dashboard/citation-application-review-export.mjs",
@@ -56,7 +56,7 @@
       {
         "path": "docs/prototypes/wp-ops-dashboard/index.html",
         "exists": true,
-        "sha256": "9343c6d607f7a4136ae26454b39fa08320144aad6d88fcb4f8f7c493dae42118"
+        "sha256": "7cee656808f6caa8d8ffb0c659e5e948a6ea6cf174886ff561c2b26ec76a6537"
       },
       {
         "path": "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
@@ -137,6 +137,11 @@
         "path": "docs/research/public-lexical-corpus/source-manifest.json",
         "exists": true,
         "sha256": "0c912ebae40d784b1661da73b07c014515d7296f76aa6946d41b6ab66e15703d"
+      },
+      {
+        "path": "docs/research/seo-tool-a-feature-crosswalk.json",
+        "exists": true,
+        "sha256": "0bfeeee4bae20d90f44b37a3db7d1b7a2bc9a507852868a79a7d8f4411947dc8"
       },
       {
         "path": "docs/research/seo-tool-a-public-contract-drift.json",
@@ -366,7 +371,7 @@
       {
         "path": "scripts/keyword-dashboard-api.mjs",
         "exists": true,
-        "sha256": "3c93634ee55cc042d95937a78ac0c9e93e883fbd959eb13050323e441f0d0253"
+        "sha256": "f68a7f3426d8c6cb0df1e2b0cff80770efe329ca722157ce5a100d563cd50863"
       },
       {
         "path": "scripts/keyword-dashboard-db.mjs",
@@ -376,7 +381,7 @@
       {
         "path": "scripts/keyword-dashboard-mcp.mjs",
         "exists": true,
-        "sha256": "de4dc2464c324feb7650b176743786c241dc8743895028ffc5ca744dc5f1b745"
+        "sha256": "5dfc17b6984bc4b60bf5837018b5c9516686a7c219db7cbb26588c3445e68411"
       },
       {
         "path": "scripts/keyword-expansion-lineage.mjs",
@@ -536,7 +541,7 @@
       {
         "path": "scripts/test-capability-audit-api.mjs",
         "exists": true,
-        "sha256": "d3d1daca3033c0b7b8a5019afb55d6ab7cf5d7b3a429c8ae75466d5e9449f043"
+        "sha256": "b120c1fc8a49cafcc83ef1f4ca5a2de1e36e8cd8fba74e00f834400ecf9e4e05"
       },
       {
         "path": "scripts/test-dashboard-table-state.mjs",
@@ -587,6 +592,11 @@
         "path": "scripts/test-provider-acquisition-plan.mjs",
         "exists": true,
         "sha256": "8e08c86e35ceba6b5f7e1ecf597948e87623f42d31366af4170e948293c60137"
+      },
+      {
+        "path": "scripts/test-seo-tool-a-feature-crosswalk.mjs",
+        "exists": true,
+        "sha256": "0c284e77c38530bb9cc425d93f35e534bdb15ed2acc0222b4999b5fd02169258"
       },
       {
         "path": "scripts/test-suggest-expansion-logic.mjs",
@@ -734,7 +744,7 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-capability-audit-ui.mjs",
         "resolved": true,
-        "target_sha256": "c7698193ecff6a67637ff60ceb0c77d6d038d1dcba1a80a5891880f6b09ffd83"
+        "target_sha256": "bd616f9c5d96c110fcc429bd54d24607aa21ce223bf7e493fd025f33e53fec17"
       },
       {
         "command": "node scripts/test-citation-application-review-import.mjs",
@@ -1283,6 +1293,13 @@
         "target_sha256": "6caf18e0137054b4f15c5e966169292bf43d88d1ab8be821e6a7d95f6c68e8bb"
       },
       {
+        "command": "node scripts/test-seo-tool-a-feature-crosswalk.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-seo-tool-a-feature-crosswalk.mjs",
+        "resolved": true,
+        "target_sha256": "0c284e77c38530bb9cc425d93f35e534bdb15ed2acc0222b4999b5fd02169258"
+      },
+      {
         "command": "node scripts/test-serp-data-coverage.mjs",
         "resolution_kind": "node_script",
         "target": "scripts/test-serp-data-coverage.mjs",
@@ -1486,7 +1503,7 @@
         "definition_sha256": "cd41056c3e6b8bd65740903e7947d5a770f6ef2274fefaa870380ed97a97fdc5"
       }
     ],
-    "catalog_digest": "59bcc56dd7125170c69debf1a681405b3e346ff6c165aafc2958d7c6f885271c"
+    "catalog_digest": "0129b0760fcacfee6d0adcdcd3fd0c5ed77acfae5943cbfe8734fdc8c79dcee8"
   },
   "proof_attestation": {
     "receipt_present": true,
@@ -1495,7 +1512,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 18,
-    "receipt_digest": "4e6ecdfbe8a448a19365f45281e070b1f7827ebdc7d9914395167590005446d1",
+    "receipt_digest": "461bf102d482e97c3b12c03bb94b187c8eea61fd7c5ae21bc3386ce6262a3881",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -1690,6 +1707,514 @@
     "paid_request_executed": false,
     "credentials_used": false
   },
+  "feature_crosswalk": {
+    "schema_version": "seo-tool-a-feature-crosswalk.v1",
+    "checked_at": "2026-09-04",
+    "baseline_evidence_cutoff": "2026-08-29",
+    "source_kind": "official_public_function_index_and_update_history",
+    "source_paths": [
+      "/knowledge/1332/",
+      "/knowledge/1338/"
+    ],
+    "mapping_policy": "Public labels are mapped to neutral inventory IDs. Umbrella and update-surface rows may map to more than one capability; mapping is coverage bookkeeping, not parity proof.",
+    "rows": [
+      {
+        "source_id": "suggest",
+        "source_label": "サジェストキーワード",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "suggest"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "related_keywords",
+        "source_label": "関連キーワード",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "related_keywords"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "question_search",
+        "source_label": "よくある質問検索",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "question_search"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "lsi_paa",
+        "source_label": "潜在的な検索キーワード/質問（LSI/PAA）",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "lsi_paa"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "simultaneous_ranking",
+        "source_label": "ランクインキーワード / 同時ランクインキーワード",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "simultaneous_ranking"
+        ],
+        "mapping_kind": "label_variant",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "bulk_keyword_research",
+        "source_label": "一括キーワード調査",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "bulk_keyword_research"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "seo_difficulty",
+        "source_label": "SEO難易度",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "seo_difficulty"
+        ],
+        "mapping_kind": "metric_surface",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "influx_keywords",
+        "source_label": "獲得キーワード調査",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "influx_keywords"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "influx_pages",
+        "source_label": "獲得ページ調査",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "influx_pages"
+        ],
+        "mapping_kind": "subsurface",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "competitive_domains",
+        "source_label": "競合サイト抽出",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "competitive_domains"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "bulk_site_research",
+        "source_label": "一括サイト調査",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "bulk_site_research"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "site_search",
+        "source_label": "サイト検索",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "site_search"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "content_search",
+        "source_label": "集客コンテンツ検索",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "content_search"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "search_rank",
+        "source_label": "検索順位チェック",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "search_rank"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "headline",
+        "source_label": "見出し抽出",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "headline"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "cooccurrence",
+        "source_label": "共起語",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "cooccurrence"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "ai_keyword_proposal",
+        "source_label": "キーワード提案AI",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "ai_keyword_proposal"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "ai_content_creation",
+        "source_label": "AI記事タイトル・見出し・本文生成",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "ai_title",
+          "ai_heading",
+          "ai_body"
+        ],
+        "mapping_kind": "umbrella",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "ai_questions",
+        "source_label": "関連する疑問（AI）",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "ai_questions"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "ai_related_keywords",
+        "source_label": "関連キーワード（AI）",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "ai_related_keywords"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "hashtags",
+        "source_label": "関連ハッシュタグ",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "hashtags"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "synonyms",
+        "source_label": "類語・同義語",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "synonyms"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "associations",
+        "source_label": "周辺語・連想語",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "associations"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "qa_sites",
+        "source_label": "Q&Aサイト検索",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "qa_sites"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "google_trends",
+        "source_label": "Googleトレンド",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "google_trends"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "news",
+        "source_label": "ニュース・話題の記事",
+        "source_scope": "primary_function",
+        "inventory_capability_ids": [
+          "news"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "site_analysis",
+        "source_label": "サイト分析",
+        "source_scope": "umbrella_surface",
+        "inventory_capability_ids": [
+          "influx_keywords",
+          "influx_pages",
+          "competitive_domains",
+          "bulk_site_research",
+          "site_search"
+        ],
+        "mapping_kind": "umbrella",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "quick_search",
+        "source_label": "クイックサーチ",
+        "source_scope": "support_surface",
+        "inventory_capability_ids": [
+          "quick_search"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "auxiliary_tools",
+        "source_label": "補助ツール",
+        "source_scope": "support_surface",
+        "inventory_capability_ids": [
+          "auxiliary_tools"
+        ],
+        "mapping_kind": "composite",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "data_output",
+        "source_label": "データ出力",
+        "source_scope": "support_surface",
+        "inventory_capability_ids": [
+          "data_output"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "bookmarklet",
+        "source_label": "ブックマークレット",
+        "source_scope": "support_surface",
+        "inventory_capability_ids": [
+          "bookmarklet"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "public_api",
+        "source_label": "公開API",
+        "source_scope": "integration_surface",
+        "inventory_capability_ids": [
+          "public_api"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "mcp",
+        "source_label": "MCP連携",
+        "source_scope": "integration_surface",
+        "inventory_capability_ids": [
+          "mcp"
+        ],
+        "mapping_kind": "exact",
+        "mapping_state": "mapped"
+      },
+      {
+        "source_id": "credit_history",
+        "source_label": "クレジット消費履歴・APIキー管理",
+        "source_scope": "account_surface",
+        "inventory_capability_ids": [
+          "credit_history"
+        ],
+        "mapping_kind": "account_surface",
+        "mapping_state": "mapped"
+      }
+    ],
+    "update_surface_rows": [
+      {
+        "update_id": "mcp_plan_floor",
+        "published_at": "2026-09-02",
+        "summary": "MCP availability plan floor changed",
+        "after_baseline": true,
+        "inventory_capability_ids": [
+          "mcp"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "chat_integration_listing",
+        "published_at": "2026-08-21",
+        "summary": "Chat integration support listed",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "mcp"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "question_search_formal",
+        "published_at": "2026-08-12",
+        "summary": "Question search moved from beta to formal release",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "question_search"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "connector_listing",
+        "published_at": "2026-08-07",
+        "summary": "Connector listing updated",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "mcp"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "bulk_site_formal",
+        "published_at": "2026-07-22",
+        "summary": "Bulk site research formal release",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "bulk_site_research"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "mcp_oauth",
+        "published_at": "2026-07-16",
+        "summary": "MCP OAuth support",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "mcp"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "site_search_formal",
+        "published_at": "2026-07-14",
+        "summary": "Site search formal release",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "site_search"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "regional_mobile_rank",
+        "published_at": "2026-06-25",
+        "summary": "Regional and mobile rank checks",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "search_rank"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "credit_usage_history",
+        "published_at": "2026-06-09",
+        "summary": "Credit usage history available",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "credit_history"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "openapi_3_1_1",
+        "published_at": "2026-06-02",
+        "summary": "OpenAPI 3.1.1 support",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "public_api"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "typeahead_suggestions",
+        "published_at": "2026-05-12",
+        "summary": "Typeahead suggestions while entering keywords",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "suggest"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "first_seen_range",
+        "published_at": "2026-04-21",
+        "summary": "First-seen range added to suggest and LSI/PAA surfaces",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "suggest",
+          "lsi_paa",
+          "related_keywords"
+        ],
+        "mapping_state": "mapped"
+      },
+      {
+        "update_id": "data_output_release",
+        "published_at": "2026-03-25",
+        "summary": "Data output feature added",
+        "after_baseline": false,
+        "inventory_capability_ids": [
+          "data_output"
+        ],
+        "mapping_state": "mapped"
+      }
+    ],
+    "summary": {
+      "inventory_capability_count": 35,
+      "function_surface_count": 34,
+      "mapped_function_surface_count": 34,
+      "unmapped_function_surface_count": 0,
+      "update_surface_count": 13,
+      "mapped_update_surface_count": 13,
+      "unmapped_update_surface_count": 0,
+      "post_cutoff_update_count": 1,
+      "inventory_coverage_count": 35,
+      "unmapped_inventory_capability_ids": [],
+      "coverage_complete": true,
+      "mapping_review_required": true,
+      "completion_claim_impact": "crosswalk completeness does not prove parity, data depth, internal implementation, or quality"
+    }
+  },
   "capabilities": [
     {
       "capability_id": "suggest",
@@ -1750,11 +2275,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
+        "artifact_set_digest": "65900ca280cbdcdd9d94079089f712bc568aa379a82d3d21809e2a6b2738f8ca",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
         "attestation_digest": null
       },
-      "evidence_digest": "95869e729f59686b6b5c0113a8667751d63fb3bbbb6d1f977c2e85e2aac80a7a"
+      "evidence_digest": "a8538a6d44cf28172ddfa2bab009ab8b2acb0a9196b680a4a078ee482940aaf5"
     },
     {
       "capability_id": "related_keywords",
@@ -1815,11 +2340,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
+        "artifact_set_digest": "65900ca280cbdcdd9d94079089f712bc568aa379a82d3d21809e2a6b2738f8ca",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
         "attestation_digest": null
       },
-      "evidence_digest": "6d4c9a1cb2abec8901bd831a69943c3cb3e85f047d0beac63409f519e347b4b1"
+      "evidence_digest": "1ec87ae8443515503c0afdd2af270fb4f2c043ecc25e20daef612730902e9334"
     },
     {
       "capability_id": "question_search",
@@ -2539,11 +3064,11 @@
         "verification_command_count": 2,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "01ef3c65c281230b180c8e9792dab640c926bd17ade224788ddb779cb2813392",
+        "artifact_set_digest": "18831e6a2ca91a7e505075149b90792c864f77ff9c966f2c557e911ce799fe4f",
         "command_set_digest": "30a469bca90f670713477299a9dfd5702fa697bf236d9a47fcbdfb87e2d0cdb0",
         "attestation_digest": null
       },
-      "evidence_digest": "521a4e241df97790190fbe7069442147990fb52e8c829338990461cb603afbd2"
+      "evidence_digest": "ff99efd8aa16e1a8ff25daf7e8a6ee3eb5753eea56860549c0901841dc3c59e7"
     },
     {
       "capability_id": "site_search",
@@ -2571,11 +3096,11 @@
         "verification_command_count": 2,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "01ef3c65c281230b180c8e9792dab640c926bd17ade224788ddb779cb2813392",
+        "artifact_set_digest": "18831e6a2ca91a7e505075149b90792c864f77ff9c966f2c557e911ce799fe4f",
         "command_set_digest": "30a469bca90f670713477299a9dfd5702fa697bf236d9a47fcbdfb87e2d0cdb0",
         "attestation_digest": null
       },
-      "evidence_digest": "f5019b0868487a638c2efaba5860c823e1d5eb259ff6033ea2ec5228810e2af7"
+      "evidence_digest": "29f8273a3b9caf4772031dd7c22b65790dbfca576f11be8e6e77cc9d0b784d85"
     },
     {
       "capability_id": "content_search",
@@ -3716,11 +4241,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
+        "artifact_set_digest": "65900ca280cbdcdd9d94079089f712bc568aa379a82d3d21809e2a6b2738f8ca",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "61e90237d59660d2004747ccfc4e8c9d661f63d08efe36a1f35cf6e53294ffde"
+        "attestation_digest": "f43fe2ef0fdb4498dd661a2bb0ac890e89b7da8adec061c2ac23d62739be3c4a"
       },
-      "evidence_digest": "3596920f5ae80dc8d68606a7d28aab694b6664ed1c17de7f8138deb06f8a5b0b"
+      "evidence_digest": "442c59c167c0720a72a604211058f31a333810a09a6f1f76ce1ad6a7156e332c"
     },
     {
       "capability_id": "associations",
@@ -3779,11 +4304,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "810d75a0e6f5308b9a06f8fc1ba4efdfee9d86f00a8d04289aca6c9cdf1547a8",
+        "artifact_set_digest": "65900ca280cbdcdd9d94079089f712bc568aa379a82d3d21809e2a6b2738f8ca",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "c49f1f28c82d225a25099b91b2b1a9e284c118146d03851722cae6786fd4dd7a"
+        "attestation_digest": "16bf02fe4aec3a943ef0305d61226cea80dfe553a8d3db62aedd6f0eddd37270"
       },
-      "evidence_digest": "24c856f05c4e8a8a8471bd5759a22b932e6e83d422111671f1613d513ac811d8"
+      "evidence_digest": "5f1c1e609c912bac72d0a18ce04f32320d8d3444b0e1a319f6a637ec74e36f13"
     },
     {
       "capability_id": "qa_sites",
@@ -3819,11 +4344,11 @@
         "verification_command_count": 5,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "6c3e9716511c71cad13cb67eb3f141da1bc7d5ad4938a05645d0631fa1e1175a",
+        "artifact_set_digest": "556efafa0e9d2b1f831474e5a2f88cb6f8025f096faba54c5eb1480e66c19cc6",
         "command_set_digest": "2ee0a166290f1a67cc0e4146935afd6fee63dca3284cd27911927b7c6d67b525",
         "attestation_digest": null
       },
-      "evidence_digest": "5aaa72adfc8283a4be44cdf8765c4310ec750aad26c4febc9a334863d87daa0b"
+      "evidence_digest": "08989734a5d2e7372367d66700c98775e8ec45d6e5b75c88a9200055067a0222"
     },
     {
       "capability_id": "google_trends",
@@ -3955,11 +4480,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
-        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
-        "attestation_digest": "7a6327fc9a126c3223aab3021fc3efcafbbfb26fd5cafcdb743ae16add73a2ef"
+        "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
+        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
+        "attestation_digest": "9f3d07c043af1c1f86a66f26f8214b5c8600dd1b681adcfdd460593181465281"
       },
-      "evidence_digest": "f468294b3955a4da6081f4be96fd591932bb83887699e8e1534cfdf243996ec1"
+      "evidence_digest": "71ef5c8bfd70660e3103fb834596c5327c46d40c404386fac7d6361c2c125696"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -3995,11 +4520,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
-        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
-        "attestation_digest": "c7cf3dbdc3448dfa98dbd5a605c34d66a0d649dc5aaddb0b58796c0f34ea2338"
+        "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
+        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
+        "attestation_digest": "c48ca6ada3d56a19b0b26baff610a0bae9f27f78f303a085cddf4ed0cb040c6e"
       },
-      "evidence_digest": "d1eb4f5048c26bde3210955772cf09b1c7180cb98a0f8e3423f8321127fb3b6c"
+      "evidence_digest": "59426efb0baa9755e852bae94b679eeb83eb2a65215bc6219d4da6bc07d8e23a"
     },
     {
       "capability_id": "data_output",
@@ -4035,11 +4560,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
-        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
-        "attestation_digest": "08289ff54d144a56a0ded96ac24f04893a4f654f2258126f8f7f2ef46b20e230"
+        "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
+        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
+        "attestation_digest": "726e0647c27e53ac77314bf8c088676fd870c0744ace3f855853c85127fbc3f1"
       },
-      "evidence_digest": "b0798a94d2eef1767749030416eeac4ba10992a488ee63b56c395760e9ebb4e7"
+      "evidence_digest": "618600673bddd4632dccc56dcc44d05b648e8f5e343b396fe023d3cdd9db6460"
     },
     {
       "capability_id": "bookmarklet",
@@ -4075,11 +4600,11 @@
         "verification_command_count": 3,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "ee42a274744003ef2704fcc97c343699a1f9a95a246402022eb6c6e7dcee8d09",
-        "command_set_digest": "961bd2fe80f16fd4450a0a4d7c6ac76e73dfb7bfa4c84e9ae5cdc42fb1cad64a",
-        "attestation_digest": "d68e559070a30c0b3332330e65c306ff0a84825d4f7c8e9bd1a1c277d85b53dc"
+        "artifact_set_digest": "df0a96ea755f6b31360181241bfd165fee1322260dd984d02e05a3c483b838d3",
+        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
+        "attestation_digest": "d59597309ff878d6c4a39753711670c9163cce7f2be8e354c04389b26b8c3137"
       },
-      "evidence_digest": "5b10fde6ec6375d907a66ec5e03a5d18ab27dc7f899e5d7d3b11399be08115e7"
+      "evidence_digest": "902640c3f75949569ff3c3d3ad3ef29ce9b1df4f968ab8062c3d85d2d3e37a82"
     },
     {
       "capability_id": "public_api",
@@ -4103,6 +4628,8 @@
         "scripts/provider-provenance-hypothesis.mjs",
         "docs/research/provider-provenance-hypothesis.json",
         "docs/research/seo-tool-a-public-contract-drift.json",
+        "docs/research/seo-tool-a-feature-crosswalk.json",
+        "scripts/test-seo-tool-a-feature-crosswalk.mjs",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -4121,6 +4648,7 @@
         "npm run research:provider-provenance:test",
         "node scripts/test-public-contract-drift.mjs",
         "node scripts/test-public-contract-freshness-api.mjs",
+        "node scripts/test-seo-tool-a-feature-crosswalk.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "node scripts/test-keyword-expansion-lineage-api.mjs",
         "npm run prototype:research-api:test",
@@ -4128,16 +4656,16 @@
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 18,
+        "artifact_count": 20,
         "missing_artifact_count": 0,
-        "verification_command_count": 13,
+        "verification_command_count": 14,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "8c03f25d453b59bd6e895c2284fb95fd62c8bb562f9f96d20c7b3bfc67acfae1",
-        "command_set_digest": "70c6d92ef7ab18a59d193754f79ebcb027552c04c25be622a78bc3ac8b3b18bd",
+        "artifact_set_digest": "ee70d936dfc2834a9649f38b370c237e42d13d0cc4306af23a97665cba264836",
+        "command_set_digest": "35ffb4a3cb0d1c3d0b61c953e6ced044e423bc1f80ca00a2ea96dddf19d40758",
         "attestation_digest": null
       },
-      "evidence_digest": "d2f9d5956a8c953c86ee9558f73ec7e1eaacfc0c1c5085f858c4e6e0bc24d0d6"
+      "evidence_digest": "0b2bae44e2d03f6299aac6647986a348cbabd43d59aa3f3789bf3f2879a43707"
     },
     {
       "capability_id": "mcp",
@@ -4161,6 +4689,8 @@
         "scripts/provider-provenance-hypothesis.mjs",
         "docs/research/provider-provenance-hypothesis.json",
         "docs/research/seo-tool-a-public-contract-drift.json",
+        "docs/research/seo-tool-a-feature-crosswalk.json",
+        "scripts/test-seo-tool-a-feature-crosswalk.mjs",
         "scripts/keyword-dashboard-api.mjs",
         "scripts/keyword-dashboard-mcp.mjs",
         "scripts/seo-action-queue.mjs",
@@ -4179,6 +4709,7 @@
         "npm run research:provider-provenance:test",
         "node scripts/test-public-contract-drift.mjs",
         "node scripts/test-public-contract-freshness-api.mjs",
+        "node scripts/test-seo-tool-a-feature-crosswalk.mjs",
         "node scripts/test-seo-action-queue-api.mjs",
         "node scripts/test-keyword-expansion-lineage-api.mjs",
         "npm run prototype:research-api:test",
@@ -4186,16 +4717,16 @@
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 18,
+        "artifact_count": 20,
         "missing_artifact_count": 0,
-        "verification_command_count": 13,
+        "verification_command_count": 14,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "8c03f25d453b59bd6e895c2284fb95fd62c8bb562f9f96d20c7b3bfc67acfae1",
-        "command_set_digest": "70c6d92ef7ab18a59d193754f79ebcb027552c04c25be622a78bc3ac8b3b18bd",
+        "artifact_set_digest": "ee70d936dfc2834a9649f38b370c237e42d13d0cc4306af23a97665cba264836",
+        "command_set_digest": "35ffb4a3cb0d1c3d0b61c953e6ced044e423bc1f80ca00a2ea96dddf19d40758",
         "attestation_digest": null
       },
-      "evidence_digest": "88bf40258105339d3dcf0bb48b663b14a00646ef4842ed009326be61fef86e0e"
+      "evidence_digest": "337c255ed38e3c269c18f738b79bf950b0bcf775e07890d72f53db21957a1572"
     },
     {
       "capability_id": "credit_history",
@@ -4246,5 +4777,5 @@
       "evidence_digest": "707f5379134df7f35045a860d13b66da488bcbb49957acd96ae380c6c67e1d66"
     }
   ],
-  "audit_digest": "7af9975c13222ee867cee1db8a5c19b73e0b8e9d2b54bdc12262e3bd0f1c1bbc"
+  "audit_digest": "07722d2a1f9ff93be2d79b3097982e3e5a0f5bcfeaaaa235b81af5c3c4736481"
 }
