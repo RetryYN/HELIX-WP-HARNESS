@@ -1560,6 +1560,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 区分遷移（seed→class 0/2→class 1→class 3）から決定論的BFS/DFSのローカルtraceを比較できるようにした。ただし公開投影だけでは内部訪問方式を識別できないため、両方式を `possible_not_proven` とし、同一seedの区分別レスポンス順、limit prefixの安定性、親frontier付きtraceを追加観測要件として残す。これは提供元内部DFSの証明ではない。
 - DB投影、`GET /api/v1/suggest-expansion-logic`、MCP `audit_suggest_expansion_logic`、ダッシュボード「拡張ロジック」へ接続した。API 125 route、MCP 107 read-only toolの一覧・テストを更新し、seed/frontier/engine/contract/traceをsite scope・cursor・digest付きで読み取れる。自動group割当・自動生成・自動公開は0である。
 
+### 10.121 全機能完成監査の横断公開面（2026-09-04）
+
+- 既存の完成監査artifactを、機能一覧・証拠整合性・credit契約の3 viewで `GET /api/v1/capability-audit` とMCP `inspect_capability_completion_audit`へ公開した。35機能を同じdigest・evidence cutoff・completion claimへ束ね、機能名・状態・blocker・gap・artifact/commandをcursor・query付きで逆引きできる。
+- ダッシュボードに「全機能監査」タブを追加し、サイドパネルから完成証明済み／未完成、corpus・外部provider・生成runtime・契約parityのblocker、証拠整合性、credit契約を切り替えられる。監査面は外部取得・モデル実行・有料実行を行わない。
+- 現時点の判定は6/35が実行証跡付き完成、29/35が未完成・未証明であり、横断面を追加したこと自体は競合機能の完成証明を意味しない。未取得・未証明・自動化なしを同じ表で確認できるようにした。
+- ルートはAPI 126、MCP 108へ増えた。既存の公式24 operation契約・保持マトリクス・provider来歴仮説は別面のまま維持し、全機能監査はそれらの未完了状態を隠さない集約面として扱う。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
