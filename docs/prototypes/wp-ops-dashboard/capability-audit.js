@@ -41,23 +41,32 @@ if (root) {
           ? payload.public_contract_credits ?? payload.summary ?? {}
           : payload.summary ?? {},
       values =
-        payload.view === "credits"
+        payload.view === "freshness"
           ? [
-              ["API operation", summary.operation_count ?? 0],
-              ["固定credit", summary.credit_contract_count ?? 0],
-              ["動的credit", summary.dynamic_credit_contract_count ?? 0],
-              ["無料", summary.zero_credit_operation_count ?? 0],
-              ["未分類", summary.unclassified_operation_count ?? 0],
-              ["有料実行", summary.paid_request_executed ? "あり" : "なし"],
+              ["更新記録", summary.update_count ?? 0],
+              ["カットオフ後", summary.post_cutoff_update_count ?? 0],
+              ["影響機能", summary.affected_capability_count ?? 0],
+              ["再監査", summary.reaudit_required ? "要" : "不要"],
+              ["基準日", summary.baseline_evidence_cutoff ?? "—"],
+              ["外部取得", payload.external_request_executed ? "あり" : "なし"],
             ]
-          : [
-              ["全機能", summary.capability_count ?? 0],
-              ["完成証明", summary.proven_complete_count ?? 0],
-              ["未完成", summary.incomplete_count ?? 0],
-              ["証拠整合", summary.evidence_integrity_pass_count ?? 0],
-              ["証拠異常", summary.evidence_integrity_failure_count ?? 0],
-              ["実行証跡", summary.execution_attested_capability_count ?? 0],
-            ];
+          : payload.view === "credits"
+            ? [
+                ["API operation", summary.operation_count ?? 0],
+                ["固定credit", summary.credit_contract_count ?? 0],
+                ["動的credit", summary.dynamic_credit_contract_count ?? 0],
+                ["無料", summary.zero_credit_operation_count ?? 0],
+                ["未分類", summary.unclassified_operation_count ?? 0],
+                ["有料実行", summary.paid_request_executed ? "あり" : "なし"],
+              ]
+            : [
+                ["全機能", summary.capability_count ?? 0],
+                ["完成証明", summary.proven_complete_count ?? 0],
+                ["未完成", summary.incomplete_count ?? 0],
+                ["証拠整合", summary.evidence_integrity_pass_count ?? 0],
+                ["証拠異常", summary.evidence_integrity_failure_count ?? 0],
+                ["実行証跡", summary.execution_attested_capability_count ?? 0],
+              ];
     metrics.innerHTML = values
       .map(
         ([name, value]) =>
@@ -94,6 +103,25 @@ if (root) {
             }</small></td><td><code>${escapeHtml(
               row.evidence_digest?.slice(0, 12),
             )}</code></td></tr>`,
+        )
+        .join("");
+      return;
+    }
+    if (view === "freshness") {
+      head.innerHTML =
+        "<tr><th>公開日</th><th>対象機能</th><th>変更種別</th><th>更新内容</th><th>範囲</th><th>再監査</th><th>証拠状態</th></tr>";
+      rowsRoot.innerHTML = rows
+        .map(
+          (row) =>
+            `<tr><td><strong>${escapeHtml(row.published_at)}</strong></td><td>${escapeHtml(
+              row.capability_ids?.join(" / ") ?? "—",
+            )}</td><td>${escapeHtml(row.change_kind)}</td><td>${escapeHtml(
+              row.summary,
+            )}</td><td>${escapeHtml(
+              row.update_scope === "post_cutoff" ? "カットオフ後" : "基準日前後の文脈",
+            )}</td><td>${row.requires_reaudit ? "要" : "不要"}</td><td>${escapeHtml(
+              row.evidence_state,
+            )}</td></tr>`,
         )
         .join("");
       return;
@@ -143,6 +171,9 @@ if (root) {
   const load = async () => {
     message.textContent = "全機能の証拠境界を読み込み中…";
     message.classList.remove("error");
+    const freshnessView = viewFilter.value === "freshness";
+    statusFilter.disabled = freshnessView;
+    blockerFilter.disabled = freshnessView;
     const url = new URL("/api/v1/capability-audit", location.origin);
     url.searchParams.set("view", viewFilter.value);
     url.searchParams.set("q", search.value.trim());
@@ -159,9 +190,16 @@ if (root) {
       empty.innerHTML = payload.data?.length
         ? ""
         : "<strong>一致する監査対象がありません</strong><span>filterを変更してください。</span>";
-      message.textContent = `completion claim: ${payload.completion_claim ?? "not_proven"} · audit ${String(
-        payload.audit_digest ?? "",
-      ).slice(0, 12)} · 外部取得0 · model実行0 · 有料実行0`;
+      message.textContent =
+        payload.view === "freshness"
+          ? `公開更新 ${payload.summary?.post_cutoff_update_count ?? 0}件 · 再監査 ${
+              payload.summary?.reaudit_required ? "要" : "不要"
+            } · 基準日 ${payload.summary?.baseline_evidence_cutoff ?? "—"} · completion claim: ${
+              payload.completion_claim ?? "not_proven"
+            } · 外部取得0 · model実行0 · 有料実行0`
+          : `completion claim: ${payload.completion_claim ?? "not_proven"} · audit ${String(
+              payload.audit_digest ?? "",
+            ).slice(0, 12)} · 外部取得0 · model実行0 · 有料実行0`;
     } catch (error) {
       rowsRoot.innerHTML = "";
       empty.hidden = false;
