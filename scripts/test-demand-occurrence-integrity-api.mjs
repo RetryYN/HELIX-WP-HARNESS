@@ -18,6 +18,15 @@ try {
   assert.ok(summary.review_required_count>=summary.orphan_occurrence_count);
   assert.equal(summary.orphan_occurrence_count,0);
   assert.equal(api.body.absolute_search_volume_inferred,false);
+  assert.equal(summary.payload_evidence_evaluated,true);
+  assert.equal(summary.feature_payload_linked_occurrence_count,summary.occurrence_count);
+  assert.equal(summary.feature_payload_unlinked_occurrence_count,0);
+  assert.equal(summary.feature_payload_unlinked_demand_count,0);
+  assert.equal(summary.snapshot_provenance_retained_occurrence_count,summary.occurrence_count);
+  const paaOccurrenceCount=oracle.rows.filter((row)=>row.demand_type==="paa").reduce((sum,row)=>sum+row.occurrence_count,0);
+  assert.equal(summary.paa_answer_state_counts.resolved+summary.paa_answer_state_counts.async_pending+summary.paa_answer_state_counts.empty+summary.paa_answer_state_counts.not_returned,paaOccurrenceCount);
+  assert.equal(summary.paa_answer_not_returned_occurrence_count,summary.paa_answer_state_counts.async_pending+summary.paa_answer_state_counts.empty+summary.paa_answer_state_counts.not_returned);
+  assert.equal(api.body.policy,"demand-occurrence-integrity.v2");
 
   const expectedCrossGroup=oracle.rows.filter((row)=>row.scope_state==="cross_group_repeated").length;
   assert.equal(summary.cross_group_repeated_count,expectedCrossGroup);
