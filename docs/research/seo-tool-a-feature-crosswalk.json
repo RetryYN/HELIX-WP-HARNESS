@@ -4,6 +4,7 @@
   "baseline_evidence_cutoff":"2026-08-29",
   "source_kind":"official_public_function_index_and_update_history",
   "source_paths":["/knowledge/1332/","/knowledge/1338/"],
+  "source_observation":{"update_history_scope":"all 2026 entries shown at checked_at","listed_2026_entry_count":24,"listed_2026_entry_identity_digest":"e8fdc61787f3c0865f91230597192c7b4ffb6c614d492d72565c9080af84ba2d","major_updates_only_note":true},
   "mapping_policy":"Public labels are mapped to neutral inventory IDs. Umbrella and update-surface rows may map to more than one capability; mapping is coverage bookkeeping, not parity proof.",
   "rows":[
     {"source_id":"suggest","source_label":"サジェストキーワード","source_scope":"primary_function","inventory_capability_ids":["suggest"],"mapping_kind":"exact","mapping_state":"mapped"},

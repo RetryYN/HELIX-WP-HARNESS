@@ -84,6 +84,12 @@ assert.deepEqual(
   ].map(updateIdentity).sort(),
   "crosswalk and freshness audit must expose the same update surfaces",
 );
+assert.equal(crosswalk.source_observation.listed_2026_entry_count, crosswalk.update_surface_rows.length);
+assert.equal(crosswalk.source_observation.major_updates_only_note, true);
+assert.equal(
+  crosswalk.source_observation.listed_2026_entry_identity_digest,
+  "e8fdc61787f3c0865f91230597192c7b4ffb6c614d492d72565c9080af84ba2d",
+);
 assert.equal(
   crosswalk.update_surface_rows.filter((row) => row.after_baseline).length,
   crosswalk.summary.post_cutoff_update_count,
