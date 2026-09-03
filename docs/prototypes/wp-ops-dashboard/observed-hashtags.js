@@ -7,10 +7,17 @@ const labels = {
   serp_description: "SERP説明文",
   serp_pre_snippet: "SERP pre-snippet",
   competitor_heading: "取得済み見出し",
+  monitor_existing_marker: "既存marker監視",
+  verify_claim_before_consideration: "claim検証必須",
+  classify_before_consideration: "分類レビュー必須",
+  review_topic_fit: "topic適合レビュー",
+  review_unassigned_group_context: "未割当groupレビュー",
 };
 const search = document.querySelector("#observed-hashtag-search");
 const classification = document.querySelector("#observed-hashtag-classification");
 const source = document.querySelector("#observed-hashtag-source");
+const coverageSearch = document.querySelector("#observed-tag-coverage-search");
+const coverageAction = document.querySelector("#observed-tag-coverage-action");
 let requestId = 0;
 
 async function renderObservedHashtags() {
@@ -50,9 +57,40 @@ async function renderObservedHashtags() {
   empty.innerHTML = payload.data.length ? "" : "<strong>該当する観測証拠がありません</strong><span>保持SERP・取得済み見出しに記号付き語がない状態です。外部SNSデータがないことを、タグが存在しない証明にはしません。</span>";
 }
 
+async function renderObservedTagCoverage() {
+  const siteId = document.querySelector("#site-selector .site-tab.active")?.dataset.site;
+  if (!siteId) return;
+  const url = new URL("/api/v1/observed-tag-content-coverage", location.origin);
+  url.searchParams.set("site_id", siteId);
+  url.searchParams.set("limit", "100");
+  if (coverageSearch.value.trim()) url.searchParams.set("q", coverageSearch.value.trim());
+  if (coverageAction.value !== "all") url.searchParams.set("action", coverageAction.value);
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`/api/v1/observed-tag-content-coverage: ${response.status}`);
+  const payload = await response.json(), summary = payload.summary ?? {};
+  document.querySelector("#observed-tag-coverage-metrics").innerHTML = [
+    ["判断", summary.decision_count ?? 0], ["記事接続", summary.assigned_article_count ?? 0], ["marker既存", summary.exact_marker_covered_count ?? 0],
+    ["語句既存", summary.lexical_term_covered_count ?? 0], ["claim検証", summary.claim_verification_required_count ?? 0], ["分類レビュー", summary.classification_review_required_count ?? 0],
+  ].map(([label, value]) => `<div class="metric"><span>${label}</span><strong>${value}</strong><small>件</small></div>`).join("");
+  document.querySelector("#observed-tag-coverage-rows").innerHTML = payload.data.map((row) => `<tr>
+    <td><strong>${escapeHtml(row.hashtag)}</strong><small class="cell-note">観測${row.observed_occurrence_count}件</small></td>
+    <td><code>${escapeHtml(row.group_id)}</code></td>
+    <td>${row.article_url ? `<a href="${escapeHtml(row.article_url)}" target="_blank" rel="noreferrer">WP ${row.wp_article_id}</a>` : "未割当"}</td>
+    <td>${row.exact_marker_covered ? "あり" : "なし"}<small class="cell-note">title ${row.marker_in_title ? "yes" : "no"} · heading ${row.marker_heading_positions.join(",") || "—"}</small></td>
+    <td>${row.lexical_term_covered ? "あり" : "なし"}<small class="cell-note">title ${row.term_in_title ? "yes" : "no"} · heading ${row.term_heading_positions.join(",") || "—"}</small></td>
+    <td><strong>${escapeHtml(labels[row.review_action] ?? row.review_action)}</strong><small class="cell-note">自動利用なし・順位効果推論なし</small></td>
+    <td><code>${escapeHtml(row.coverage_digest.slice(0, 12))}</code></td>
+  </tr>`).join("");
+  const empty = document.querySelector("#observed-tag-coverage-empty");
+  empty.hidden = payload.data.length > 0;
+  empty.innerHTML = payload.data.length ? "" : "<strong>該当するcoverage判断がありません</strong><span>観測タグと記事群の証拠接続がない状態です。未観測を未需要とは扱いません。</span>";
+}
+
 for (const control of [search, classification, source]) control.addEventListener(control === search ? "input" : "change", () => renderObservedHashtags().catch(console.error));
+for (const control of [coverageSearch, coverageAction]) control.addEventListener(control === coverageSearch ? "input" : "change", () => renderObservedTagCoverage().catch(console.error));
 document.addEventListener("click", (event) => {
-  if (event.target.closest(".site-tab") || event.target.closest('[data-view="observed-hashtags"]')) queueMicrotask(() => renderObservedHashtags().catch(console.error));
+  if (event.target.closest(".site-tab") || event.target.closest('[data-view="observed-hashtags"]')) queueMicrotask(() => { renderObservedHashtags().catch(console.error); renderObservedTagCoverage().catch(console.error); });
 });
-new MutationObserver(() => renderObservedHashtags().catch(console.error)).observe(document.querySelector("#site-selector"), { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
+new MutationObserver(() => { renderObservedHashtags().catch(console.error); renderObservedTagCoverage().catch(console.error); }).observe(document.querySelector("#site-selector"), { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
 renderObservedHashtags().catch(console.error);
+renderObservedTagCoverage().catch(console.error);

@@ -1521,6 +1521,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 画面「観測ハッシュタグ」、`GET /api/v1/observed-hashtags`、MCP `search_observed_hashtags` は分類・証拠元・文字列で絞り込める。APIは全120 route、MCPは全102 read-only toolとなった。
 - これは保持文書内の文字列観測であり、SNS全体の人気、trend、投稿数、検索量、順位効果を示さない。外部SNS dataset接続・外部取得・追加費用は0で、authoritative social hashtag機能は引き続き未完成である。
 
+### 10.116 観測タグの記事coverage逆引き（API 2.118 / SQLite v77）
+
+- 114観測タグをsource groupへ戻し、タグ×記事群の125判断を `observed_tag_content_coverage` に永続化した。記事割当後に判定するため、66判断を既存WP記事へ接続し、title・headingの`#marker`完全形と`#`を除いた語句coverageを別々に保持する。
+- 現行記事に完全な`#marker`は0件、語句coverageは6件だった。未使用を欠落や追加推奨とは扱わず、既存marker監視、topic適合、未割当group、claim検証、分類reviewの5判断へ分ける。
+- 求人条件marker 35判断はclaim/source検証前の利用を禁止し、曖昧marker 71判断は分類確定前の利用を禁止する。全判断で人気・trend・投稿数・検索量・順位効果を推論せず、自動title/heading/body利用は0件である。
+- 専用API、MCP `review_observed_tag_content_coverage`、同一画面内のcoverage表を追加した。全体はAPI 121 route、MCP 103 read-only toolとなり、外部取得・追加費用は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

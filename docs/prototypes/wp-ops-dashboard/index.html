@@ -2169,6 +2169,28 @@
           </table>
           <div id="observed-hashtag-empty" class="empty-state"></div>
         </div>
+        <div class="subsection-head table-toolbar">
+          <div><h3>記事タイトル・見出しcoverage判断</h3><p>観測タグを記事群と既存記事へ逆引き。タグの追加推奨ではなく、既存coverageと必要な編集判断を示します</p></div>
+          <div class="filters">
+            <input id="observed-tag-coverage-search" type="search" placeholder="タグ・group・記事検索" aria-label="観測タグcoverage検索" />
+            <select id="observed-tag-coverage-action" aria-label="判断で絞り込み">
+              <option value="all">全判断</option>
+              <option value="monitor_existing_marker">既存marker監視</option>
+              <option value="verify_claim_before_consideration">claim検証必須</option>
+              <option value="classify_before_consideration">分類レビュー必須</option>
+              <option value="review_topic_fit">topic適合レビュー</option>
+              <option value="review_unassigned_group_context">未割当groupレビュー</option>
+            </select>
+          </div>
+        </div>
+        <div id="observed-tag-coverage-metrics" class="metrics"></div>
+        <div class="table-wrap">
+          <table class="observed-tag-coverage-table">
+            <thead><tr><th>タグ</th><th>記事群</th><th>既存記事</th><th>marker coverage</th><th>語句coverage</th><th>編集判断</th><th>証拠digest</th></tr></thead>
+            <tbody id="observed-tag-coverage-rows"></tbody>
+          </table>
+          <div id="observed-tag-coverage-empty" class="empty-state"></div>
+        </div>
       </section>
 
       <section id="market-data" class="view">
