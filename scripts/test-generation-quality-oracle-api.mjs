@@ -1,12 +1,60 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
 import { openDashboardDb, projectDashboard } from "./keyword-dashboard-db.mjs";
 import { routeResearchApi } from "./keyword-dashboard-api.mjs";
 import { handleMcpMessage } from "./keyword-dashboard-mcp.mjs";
+import { buildGenerationQualityOracle } from "./generation-quality-oracle.mjs";
 
-const db = openDashboardDb(".helix/keyword-dashboard.sqlite");
+const dbPath = process.env.WP_DASHBOARD_DB ?? ".helix/keyword-dashboard.sqlite",
+  db = existsSync(dbPath) ? openDashboardDb(dbPath) : null,
+  fallbackOracle = buildGenerationQualityOracle({
+    candidates: [
+      {
+        candidate_id: "portable-ready",
+        group_id: "portable-group",
+        content_type: "title",
+        text: "ポータブル検証タイトル",
+        evidence_ids: ["portable-evidence"],
+        review: {
+          review_state: "ready",
+          quality_score: 100,
+          evidence_count: 1,
+          review_digest: "r".repeat(64),
+          oracle: { evidence_reference_resolved: true },
+          issues: [],
+        },
+      },
+      {
+        candidate_id: "portable-blocked",
+        group_id: "portable-group",
+        content_type: "heading",
+        heading_level: 2,
+        text: "ポータブル検証見出し",
+        review: {
+          review_state: "blocked",
+          quality_score: 0,
+          evidence_count: 0,
+          review_digest: "b".repeat(64),
+          oracle: { evidence_reference_resolved: false },
+          issues: ["evidence_missing"],
+        },
+      },
+    ],
+  }),
+  data = db
+    ? projectDashboard(db)
+    : {
+        sites: [
+          {
+            site_id: "portable-site",
+            label: "Portable test site",
+            domain: "portable.example",
+            generation_quality_oracle: fallbackOracle,
+          },
+        ],
+      };
 try {
-  const data = projectDashboard(db),
-    site = data.sites[0],
+  const site = data.sites[0],
     oracle = site.generation_quality_oracle,
     url = new URL(
       `/api/v1/generation-quality-oracle?site_id=${encodeURIComponent(site.site_id)}&limit=100`,
@@ -75,8 +123,8 @@ try {
     false,
   );
   console.log(
-    `generation quality oracle API/MCP: OK (${oracle.rows.length} candidates, ${oracle.summary.blocked_deterministic_gate_count} deterministic blocks, human/ranking claims remain false)`,
+    `generation quality oracle API/MCP: OK (${oracle.rows.length} candidates, ${oracle.summary.blocked_deterministic_gate_count} deterministic blocks, ${db ? "live DB" : "portable fixture"}, human/ranking claims remain false)`,
   );
 } finally {
-  db.close();
+  db?.close();
 }
