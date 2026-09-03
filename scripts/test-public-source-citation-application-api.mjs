@@ -17,7 +17,7 @@ try {
     },
     packets = request("packets"),
     blocked = request("blocked");
-  assert.equal(researchOpenApi.info.version, "2.117.0");
+  assert.equal(researchOpenApi.info.version, "2.118.0");
   assert.equal(packets.status, 200);
   assert.equal(packets.body.meta.total, oracle.summary.packet_count);
   assert.equal(blocked.body.meta.total, oracle.summary.blocked_review_count);

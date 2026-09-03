@@ -370,6 +370,7 @@ const proof = {
   provider: {
     artifacts: [
       "scripts/observed-hashtag-evidence.mjs",
+      "scripts/observed-tag-content-coverage.mjs",
       "docs/prototypes/wp-ops-dashboard/observed-hashtags.js",
       "scripts/provider-acquisition-plan.mjs",
       "scripts/acquisition-lifetime-allocation.mjs",
@@ -378,10 +379,14 @@ const proof = {
       "scripts/test-provider-acquisition-plan.mjs",
       "scripts/test-observed-hashtag-evidence.mjs",
       "scripts/test-observed-hashtag-api.mjs",
+      "scripts/test-observed-tag-content-coverage.mjs",
+      "scripts/test-observed-tag-content-coverage-api.mjs",
     ],
     verification: [
       "node scripts/test-observed-hashtag-evidence.mjs",
       "node scripts/test-observed-hashtag-api.mjs",
+      "node scripts/test-observed-tag-content-coverage.mjs",
+      "node scripts/test-observed-tag-content-coverage-api.mjs",
       "npm run provider:acquisition-plan:test",
       "node scripts/test-acquisition-lifetime-allocation.mjs",
       "node scripts/test-acquisition-lifetime-allocation-api.mjs",

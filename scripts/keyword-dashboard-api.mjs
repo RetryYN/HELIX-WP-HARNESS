@@ -325,6 +325,14 @@ paths["/observed-hashtags"] = {
     responses: { 200: { description: "Retained observed text evidence" } },
   },
 };
+paths["/observed-tag-content-coverage"] = {
+  get: {
+    operationId: "helix_observed_tag_content_coverage",
+    description:
+      "Reverse-map retained observed tag evidence into article-title and heading coverage with fail-closed editorial actions.",
+    responses: { 200: { description: "Retained coverage decisions" } },
+  },
+};
 paths["/observed-ranked-keyword-history"] = {
   get: {
     operationId: "helix_observed_ranked_keyword_history",
@@ -345,7 +353,7 @@ const openapi = {
   openapi: "3.1.0",
   info: {
     title: "HELIX SEO Research API",
-    version: "2.117.0",
+    version: "2.118.0",
     description:
       "Read-only, site-scoped retained SEO evidence. No endpoint triggers external acquisition. External operation IDs are mapping references, not contract compatibility claims.",
   },
@@ -3192,6 +3200,21 @@ export function routeResearchApi(pathname, url, data, db = null) {
       auto_group_assignment: false,
       auto_selection: false,
       auto_content_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-tag-content-coverage") {
+    const action = url.searchParams.get("action"), classification = url.searchParams.get("classification"), groupId = url.searchParams.get("group_id"),
+      oracle = site.observed_tag_content_coverage ?? { rows: [], summary: {} }, rows = oracle.rows.filter((row) =>
+        (!action || action === "all" || row.review_action === action) &&
+        (!classification || classification === "all" || row.classification === classification) &&
+        (!groupId || row.group_id === groupId) &&
+        (!query || norm(`${row.hashtag} ${row.group_id} ${row.article_url ?? ""} ${row.review_action}`).includes(query)));
+    return ok({
+      ...page(rows, url), summary: { ...oracle.summary, filtered_count: rows.length }, policy: oracle.policy ?? "observed-tag-content-coverage.v1",
+      filters: { q: url.searchParams.get("q") ?? "", action: action ?? "all", classification: classification ?? "all", group_id: groupId ?? "all" },
+      interpretation_policy: "coverage_is_not_recommendation_popularity_or_ranking_effect",
+      claim_verification_fail_closed: true, classification_review_fail_closed: true,
+      popularity_inferred: false, ranking_effect_inferred: false, auto_content_use: false, external_acquisition_triggered: false,
     });
   }
   if (pathname === "/api/v1/observed-hashtags") {

@@ -7,7 +7,7 @@ import { handleMcpMessage } from "./keyword-dashboard-mcp.mjs";
 const db = openDashboardDb(process.env.WP_DASHBOARD_DB ?? ".helix/keyword-dashboard.sqlite");
 try {
   const data = projectDashboard(db), site = data.sites[0], oracle = site.observed_hashtag_evidence;
-  assert.equal(researchOpenApi.info.version, "2.117.0");
+  assert.equal(researchOpenApi.info.version, "2.118.0");
   assert(oracle.summary.hashtag_count > 0);
   assert.equal(db.prepare("SELECT COUNT(*) count FROM observed_hashtag_evidence WHERE site_id=?").get(site.site_id).count, oracle.summary.hashtag_count);
   assert.equal(db.prepare("SELECT COUNT(*) count FROM observed_hashtag_occurrences WHERE site_id=?").get(site.site_id).count, oracle.summary.occurrence_count);
