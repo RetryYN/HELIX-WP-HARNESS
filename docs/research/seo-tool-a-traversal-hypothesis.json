@@ -88,6 +88,164 @@
       "disambiguating_observation_required": "sourceKeywordごとの深さ付きraw応答、重複除去規則、importance計算の実測"
     }
   ],
+  "identifiability_proof": {
+    "schema_version": "seo-tool-a-traversal-identifiability.v1",
+    "checked_at": "2026-09-03",
+    "fixture": {
+      "root": "root",
+      "max_depth": 2,
+      "graph_digest": "0d4be8e4ad6effbfc5ee16e09a708c6de9a7fe7026a10e89b751e3ac19f1cd43",
+      "purpose": "同一の公開projectionをDFS/BFSの異なる内部訪問順から生成できることを示す反例"
+    },
+    "traces": {
+      "depth_first": [
+        {
+          "keyword": "root",
+          "depth": 0
+        },
+        {
+          "keyword": "alpha",
+          "depth": 1
+        },
+        {
+          "keyword": "shared",
+          "depth": 2
+        },
+        {
+          "keyword": "alpha question",
+          "depth": 2
+        },
+        {
+          "keyword": "beta",
+          "depth": 1
+        },
+        {
+          "keyword": "beta question",
+          "depth": 2
+        }
+      ],
+      "breadth_first": [
+        {
+          "keyword": "root",
+          "depth": 0
+        },
+        {
+          "keyword": "alpha",
+          "depth": 1
+        },
+        {
+          "keyword": "beta",
+          "depth": 1
+        },
+        {
+          "keyword": "shared",
+          "depth": 2
+        },
+        {
+          "keyword": "alpha question",
+          "depth": 2
+        },
+        {
+          "keyword": "beta question",
+          "depth": 2
+        }
+      ]
+    },
+    "trace_order_differs": true,
+    "public_projection": {
+      "depth_first": [
+        {
+          "type": "lsi",
+          "keyword": "alpha",
+          "importance": "low",
+          "sourceKeyword": "root"
+        },
+        {
+          "type": "lsi",
+          "keyword": "beta",
+          "importance": "low",
+          "sourceKeyword": "root"
+        },
+        {
+          "type": "lsi",
+          "keyword": "shared",
+          "importance": "medium",
+          "sourceKeyword": "alpha"
+        },
+        {
+          "type": "paa",
+          "question": "alpha question",
+          "importance": "low",
+          "sourceKeyword": "alpha"
+        },
+        {
+          "type": "paa",
+          "question": "beta question",
+          "importance": "low",
+          "sourceKeyword": "beta"
+        }
+      ],
+      "breadth_first": [
+        {
+          "type": "lsi",
+          "keyword": "alpha",
+          "importance": "low",
+          "sourceKeyword": "root"
+        },
+        {
+          "type": "lsi",
+          "keyword": "beta",
+          "importance": "low",
+          "sourceKeyword": "root"
+        },
+        {
+          "type": "lsi",
+          "keyword": "shared",
+          "importance": "medium",
+          "sourceKeyword": "alpha"
+        },
+        {
+          "type": "paa",
+          "question": "alpha question",
+          "importance": "low",
+          "sourceKeyword": "alpha"
+        },
+        {
+          "type": "paa",
+          "question": "beta question",
+          "importance": "low",
+          "sourceKeyword": "beta"
+        }
+      ],
+      "equal": true,
+      "exposed_fields": [
+        "type",
+        "keyword|question",
+        "importance",
+        "sourceKeyword"
+      ],
+      "hidden_fields": [
+        "depth",
+        "visit_order",
+        "stack_or_queue",
+        "duplicate_parent_set"
+      ],
+      "parent_selection": "lexical_canonical_parent_for_counterexample",
+      "importance_projection": "illustrative_count_bucket_only; provider thresholds are not documented"
+    },
+    "identifiability_state": "not_identifiable_from_public_projection",
+    "conclusion": "内部traceを返さず、重複を出現回数と集約itemへ投影する契約では、DFSとBFSの少なくとも二つの実装が同じ公開レスポンスを生成できる。したがって公開レスポンスだけからDFSを証明できない。",
+    "required_disambiguation": [
+      "同一seed・同一グラフに対する親別raw responseと深さ付き訪問順",
+      "limitまたは途中停止時の応答prefixと取得単位の対応",
+      "重複itemのsourceKeyword選択規則またはprovider確認"
+    ],
+    "external_request_executed": false,
+    "paid_request_executed": false,
+    "credentials_used": false,
+    "automatic_mutation": false,
+    "proof_digest": "ab929a5ba1f76b09776909815c4ec74f6579fdbafe8918153c373cd5d4dc35b2"
+  },
   "downstream_mappings": [
     {
       "surface": "keyword_database",
@@ -147,5 +305,5 @@
     "automatic_group_assignment": false,
     "automatic_content_mutation": false
   },
-  "audit_digest": "cee9db08716c1106e13e9ecf4ac47fa21de3b552c33be976d3fe9aa5c9c9b731"
+  "audit_digest": "4e5afbe9399025a3f8c9a1a7b1c1e31684dc1befe959bb9fabc2d0c92366c98f"
 }

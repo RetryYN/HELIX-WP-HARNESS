@@ -8,6 +8,127 @@ const hasText = (text, pattern) => pattern.test(String(text ?? ""));
 const schemaHasProperty = (schema, property) =>
   Boolean(schema?.properties?.[property]);
 
+const traversalFixture = Object.freeze({
+  root: [
+    { type: "lsi", value: "alpha" },
+    { type: "lsi", value: "beta" },
+  ],
+  alpha: [
+    { type: "lsi", value: "shared" },
+    { type: "paa", value: "alpha question" },
+  ],
+  beta: [
+    { type: "lsi", value: "shared" },
+    { type: "paa", value: "beta question" },
+  ],
+  shared: [{ type: "lsi", value: "deep" }],
+});
+
+function expandFixture(strategy, { maxDepth = 2 } = {}) {
+  const pending = [{ keyword: "root", depth: 0 }];
+  const expanded = new Set();
+  const visits = [];
+  const occurrences = [];
+  while (pending.length) {
+    const entry = strategy === "depth_first" ? pending.pop() : pending.shift();
+    if (!entry || expanded.has(entry.keyword)) continue;
+    expanded.add(entry.keyword);
+    visits.push({ keyword: entry.keyword, depth: entry.depth });
+    if (entry.depth >= maxDepth) continue;
+    const children = traversalFixture[entry.keyword] ?? [];
+    for (const child of children) {
+      occurrences.push({
+        type: child.type,
+        value: child.value,
+        sourceKeyword: entry.keyword,
+        depth: entry.depth + 1,
+      });
+    }
+    const next = children.map((child) => ({
+      keyword: child.value,
+      depth: entry.depth + 1,
+    }));
+    if (strategy === "depth_first") pending.push(...next.toReversed());
+    else pending.push(...next);
+  }
+  return { visits, occurrences };
+}
+
+function projectPublicResponse(occurrences) {
+  const byIdentity = new Map();
+  for (const occurrence of occurrences) {
+    const identity = `${occurrence.type}\0${occurrence.value}`;
+    const item = byIdentity.get(identity) ?? {
+      type: occurrence.type,
+      value: occurrence.value,
+      count: 0,
+      parents: new Set(),
+    };
+    item.count += 1;
+    item.parents.add(occurrence.sourceKeyword);
+    byIdentity.set(identity, item);
+  }
+  const importance = (count) => (count >= 3 ? "high" : count === 2 ? "medium" : "low");
+  return [...byIdentity.values()]
+    .map((item) => ({
+      type: item.type,
+      [item.type === "paa" ? "question" : "keyword"]: item.value,
+      importance: importance(item.count),
+      // The public schema does not define which parent wins after aggregation;
+      // lexical selection is one valid implementation compatible with it.
+      sourceKeyword: [...item.parents].sort((a, b) => a.localeCompare(b, "ja"))[0],
+    }))
+    .sort(
+      (a, b) =>
+        (a.type === "lsi" ? 0 : 1) - (b.type === "lsi" ? 0 : 1) ||
+        (a.keyword ?? a.question).localeCompare(b.keyword ?? b.question, "ja"),
+    );
+}
+
+export function buildTraversalIdentifiabilityProof({ checkedAt = "2026-09-03" } = {}) {
+  const dfs = expandFixture("depth_first");
+  const bfs = expandFixture("breadth_first");
+  const dfsPublic = projectPublicResponse(dfs.occurrences);
+  const bfsPublic = projectPublicResponse(bfs.occurrences);
+  const base = {
+    schema_version: "seo-tool-a-traversal-identifiability.v1",
+    checked_at: checkedAt,
+    fixture: {
+      root: "root",
+      max_depth: 2,
+      graph_digest: digest(traversalFixture),
+      purpose: "同一の公開projectionをDFS/BFSの異なる内部訪問順から生成できることを示す反例",
+    },
+    traces: {
+      depth_first: dfs.visits,
+      breadth_first: bfs.visits,
+    },
+    trace_order_differs: JSON.stringify(dfs.visits) !== JSON.stringify(bfs.visits),
+    public_projection: {
+      depth_first: dfsPublic,
+      breadth_first: bfsPublic,
+      equal: JSON.stringify(dfsPublic) === JSON.stringify(bfsPublic),
+      exposed_fields: ["type", "keyword|question", "importance", "sourceKeyword"],
+      hidden_fields: ["depth", "visit_order", "stack_or_queue", "duplicate_parent_set"],
+      parent_selection: "lexical_canonical_parent_for_counterexample",
+      importance_projection: "illustrative_count_bucket_only; provider thresholds are not documented",
+    },
+    identifiability_state: "not_identifiable_from_public_projection",
+    conclusion:
+      "内部traceを返さず、重複を出現回数と集約itemへ投影する契約では、DFSとBFSの少なくとも二つの実装が同じ公開レスポンスを生成できる。したがって公開レスポンスだけからDFSを証明できない。",
+    required_disambiguation: [
+      "同一seed・同一グラフに対する親別raw responseと深さ付き訪問順",
+      "limitまたは途中停止時の応答prefixと取得単位の対応",
+      "重複itemのsourceKeyword選択規則またはprovider確認",
+    ],
+    external_request_executed: false,
+    paid_request_executed: false,
+    credentials_used: false,
+    automatic_mutation: false,
+  };
+  return { ...base, proof_digest: digest(base) };
+}
+
 export function buildTraversalHypothesis(spec, { checkedAt = "2026-09-03" } = {}) {
   const operation = Object.values(spec.paths ?? {})
     .flatMap((methods) => Object.values(methods))
@@ -138,6 +259,7 @@ export function buildTraversalHypothesis(spec, { checkedAt = "2026-09-03" } = {}
       automatic_mutation: false,
     },
   ];
+  const identifiabilityProof = buildTraversalIdentifiabilityProof({ checkedAt });
   const base = {
     schema_version: "seo-tool-a-traversal-hypothesis.v1",
     checked_at: checkedAt,
@@ -150,6 +272,7 @@ export function buildTraversalHypothesis(spec, { checkedAt = "2026-09-03" } = {}
     },
     contract_signals: signals,
     algorithm_hypotheses: algorithmHypotheses,
+    identifiability_proof: identifiabilityProof,
     downstream_mappings: downstreamMappings,
     conclusion:
       "公開契約からはbounded recursive graph behaviorとoccurrence aggregationまでは支持できるが、DFSかBFSか、内部queue/stack、provider実装は識別できない。両戦略をローカル証拠グラフで比較し、未観測の内部処理を断定しない。",

@@ -62,6 +62,12 @@ try {
   );
   assert.equal(api.body.strategy_comparison.internal_algorithm_identified, false);
   assert.equal(api.body.strategy_comparison.provider_trace_available, false);
+  assert.equal(
+    api.body.identifiability_proof.identifiability_state,
+    "not_identifiable_from_public_projection",
+  );
+  assert.equal(api.body.identifiability_proof.trace_order_differs, true);
+  assert.equal(api.body.identifiability_proof.public_projection.equal, true);
   assert.equal(api.body.evidence_boundary.paid_request_executed, false);
   assert.equal(api.body.external_acquisition_triggered, false);
   assert(api.body.data.every((row) => row.strategy === "depth_first"));
