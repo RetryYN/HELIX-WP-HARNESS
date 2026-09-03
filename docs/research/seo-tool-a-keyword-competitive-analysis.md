@@ -1512,7 +1512,7 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - importerは既定dry-run、明示 `--commit` のみ書き込み、packet set/digest不一致、古いpacket、同一reviewerの重複投入を拒否する。画面・API・MCPは判断進捗を読み取り専用で表示する。
 - packetが手動適用可になってもartifactは未適用で、公開gateは手動反映とpublication reviewを要求し続ける。自動適用・自動公開・本文変更・外部取得・追加費用は0である。
 - 現行の保持データでは、公開観測とclaim/candidate digestの不一致を検出したため、公開source reviewとcitation application packetは0件として停止している。以前の件数を再利用せず、不整合の解消または再取得まで適用候補に昇格させない。
-- lifetime費用履歴の取込rootと、分析へ採用するremediation結果rootを分離した。不整合なsemantic結果は分析から除外する一方、その実行費用を消さずに台帳へ残す。現行台帳は197 entry、確定費用 `$0.3014`、承認済み最大見込 `$4.9981`、全体上限 `$5.00` に対する残額 `$0.0019` でreconciledであり、この変更による新規有料実行は0件である。
+- lifetime費用履歴の取込rootと、分析へ採用するremediation結果rootを分離した。不整合なsemantic結果は分析から除外する一方、その実行費用を消さずに台帳へ残す。さらに費用履歴の元task IDと再取得task IDを再試行防止集合へ入れ、過去試行98件を全件reviewへ隔離して再選定0件とした。現行台帳は197 entry、確定費用 `$0.3014`、承認済み最大見込 `$4.9983`、全体上限 `$5.00` に対する残額 `$0.0017` でreconciledであり、この変更による新規有料実行は0件である。
 
 ## 11. 未検証事項
 
