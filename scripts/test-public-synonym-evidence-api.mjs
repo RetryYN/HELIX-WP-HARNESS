@@ -52,7 +52,7 @@ try {
       "http://localhost",
     ),
     response = routeResearchApi(url.pathname, url, data, db);
-  assert.equal(researchOpenApi.info.version, "2.116.0");
+  assert.equal(researchOpenApi.info.version, "2.117.0");
   assert.equal(response.status, 200);
   assert(response.body.meta.total > 0);
   assert(

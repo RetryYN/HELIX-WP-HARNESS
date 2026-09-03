@@ -1514,6 +1514,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 現行の保持データでは、公開観測とclaim/candidate digestの不一致を検出したため、公開source reviewとcitation application packetは0件として停止している。以前の件数を再利用せず、不整合の解消または再取得まで適用候補に昇格させない。
 - lifetime費用履歴の取込rootと、分析へ採用するremediation結果rootを分離した。不整合なsemantic結果は分析から除外する一方、その実行費用を消さずに台帳へ残す。さらに費用履歴の元task IDと再取得task IDを再試行防止集合へ入れ、過去試行98件を全件reviewへ隔離して再選定0件とした。現行台帳は197 entry、確定費用 `$0.3014`、承認済み最大見込 `$4.9983`、全体上限 `$5.00` に対する残額 `$0.0017` でreconciledであり、この変更による新規有料実行は0件である。
 
+### 10.115 保持文書内の観測ハッシュタグ証拠（API 2.117 / SQLite v76）
+
+- 保持SERP 926件のtitle・description・pre-snippetと、取得済み競合見出し18,424件だけを走査し、114タグ・170出現を `observed_hashtag_evidence` / `observed_hashtag_occurrences` に永続化した。全角`＃`と連続タグを正規化し、task・group・page・URL・rank・見出し位置・source/evidence digestへ逆引きできる。
+- 話題・媒体タグ18件、求人条件marker 29件、曖昧review 67件へ保守的に分類した。全件review必須で、タイトル・見出し・本文への自動利用は0件である。
+- 画面「観測ハッシュタグ」、`GET /api/v1/observed-hashtags`、MCP `search_observed_hashtags` は分類・証拠元・文字列で絞り込める。APIは全120 route、MCPは全102 read-only toolとなった。
+- これは保持文書内の文字列観測であり、SNS全体の人気、trend、投稿数、検索量、順位効果を示さない。外部SNS dataset接続・外部取得・追加費用は0で、authoritative social hashtag機能は引き続き未完成である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

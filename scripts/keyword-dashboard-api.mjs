@@ -317,6 +317,14 @@ paths["/observed-sites"] = {
     responses: { 200: { description: "Retained evidence" } },
   },
 };
+paths["/observed-hashtags"] = {
+  get: {
+    operationId: "helix_observed_hashtags",
+    description:
+      "Search hashtags observed in retained SERP snippets and fetched headings; no social popularity, trend, volume, or ranking effect is inferred.",
+    responses: { 200: { description: "Retained observed text evidence" } },
+  },
+};
 paths["/observed-ranked-keyword-history"] = {
   get: {
     operationId: "helix_observed_ranked_keyword_history",
@@ -337,7 +345,7 @@ const openapi = {
   openapi: "3.1.0",
   info: {
     title: "HELIX SEO Research API",
-    version: "2.116.0",
+    version: "2.117.0",
     description:
       "Read-only, site-scoped retained SEO evidence. No endpoint triggers external acquisition. External operation IDs are mapping references, not contract compatibility claims.",
   },
@@ -3184,6 +3192,31 @@ export function routeResearchApi(pathname, url, data, db = null) {
       auto_group_assignment: false,
       auto_selection: false,
       auto_content_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/observed-hashtags") {
+    const classification = url.searchParams.get("classification"),
+      sourceKind = url.searchParams.get("source"),
+      oracle = site.observed_hashtag_evidence ?? { rows: [], occurrences: [], summary: {} },
+      rows = oracle.rows.filter(
+        (row) =>
+          (!classification || classification === "all" || row.classification === classification) &&
+          (!sourceKind || sourceKind === "all" || row.source_kinds.includes(sourceKind)) &&
+          (!query || norm(`${row.hashtag} ${row.normalized_tag} ${row.urls.join(" ")}`).includes(query)),
+      );
+    return ok({
+      ...page(rows, url),
+      summary: { ...oracle.summary, filtered_count: rows.length },
+      policy: oracle.policy ?? "observed-hashtag-evidence.v1",
+      source_policy: oracle.source_policy ?? "retained_serp_and_fetched_heading_text_only",
+      filters: { q: url.searchParams.get("q") ?? "", classification: classification ?? "all", source: sourceKind ?? "all" },
+      interpretation_policy: "occurrence_is_not_social_popularity_trend_search_volume_or_ranking_effect",
+      external_social_dataset_connected: false,
+      popularity_inferred: false,
+      trend_inferred: false,
+      search_volume_inferred: false,
+      auto_content_use: false,
+      external_acquisition_triggered: false,
     });
   }
   if (pathname === "/api/v1/suggest-evidence") {

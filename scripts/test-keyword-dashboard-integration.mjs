@@ -3601,6 +3601,7 @@ assert.deepEqual(
     "search_public_synonyms",
     "traverse_public_semantic_graph",
     "search_graph_related_keywords",
+    "search_observed_hashtags",
     "search_suggest_evidence",
     "audit_question_lineage",
     "audit_demand_occurrences",
