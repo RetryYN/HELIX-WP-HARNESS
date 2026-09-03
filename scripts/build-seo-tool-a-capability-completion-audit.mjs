@@ -10,6 +10,9 @@ const inventoryPath = "docs/research/seo-tool-a-web-capability-inventory.json",
   contractDrift = JSON.parse(
     readFileSync("docs/research/seo-tool-a-public-contract-drift.json", "utf8"),
   ),
+  featureCrosswalk = JSON.parse(
+    readFileSync("docs/research/seo-tool-a-feature-crosswalk.json", "utf8"),
+  ),
   packageJson = JSON.parse(readFileSync("package.json", "utf8")),
   attestation = existsSync(attestationPath)
     ? JSON.parse(readFileSync(attestationPath, "utf8"))
@@ -432,6 +435,8 @@ const proof = {
       "scripts/provider-provenance-hypothesis.mjs",
       "docs/research/provider-provenance-hypothesis.json",
       "docs/research/seo-tool-a-public-contract-drift.json",
+      "docs/research/seo-tool-a-feature-crosswalk.json",
+      "scripts/test-seo-tool-a-feature-crosswalk.mjs",
       "scripts/keyword-dashboard-api.mjs",
       "scripts/keyword-dashboard-mcp.mjs",
       "scripts/seo-action-queue.mjs",
@@ -450,6 +455,7 @@ const proof = {
       "npm run research:provider-provenance:test",
       "node scripts/test-public-contract-drift.mjs",
       "node scripts/test-public-contract-freshness-api.mjs",
+      "node scripts/test-seo-tool-a-feature-crosswalk.mjs",
       "node scripts/test-seo-action-queue-api.mjs",
       "node scripts/test-keyword-expansion-lineage-api.mjs",
       "npm run prototype:research-api:test",
@@ -675,6 +681,7 @@ const base = {
     proof_attestation: proofAttestation,
     public_contract_credits: publicContractCredits,
     public_update_history: contractDrift.public_update_history,
+    feature_crosswalk: featureCrosswalk,
     capabilities,
   },
   audit = { ...base, audit_digest: digest(base) };

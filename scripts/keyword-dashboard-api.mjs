@@ -64,6 +64,15 @@ const publicContractDrift = JSON.parse(
     "utf8",
   ),
 );
+const featureCrosswalk = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/research/seo-tool-a-feature-crosswalk.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
 const capabilityCompletionAudit = JSON.parse(
   readFileSync(
     new URL(
@@ -367,7 +376,19 @@ paths["/capability-audit"] = {
   get: {
     operationId: "helix_capability_audit",
     description:
-      "Cross-capability completion audit for all retained SEO-tool-A feature surfaces, including evidence integrity and explicit remaining gaps.",
+      "Cross-capability completion audit for all retained SEO-tool-A feature surfaces, including evidence integrity, explicit remaining gaps, public update freshness, and a public-function crosswalk (view=crosswalk).",
+    parameters: [
+      {
+        name: "view",
+        in: "query",
+        description: "Audit projection to return.",
+        schema: {
+          type: "string",
+          enum: ["capabilities", "integrity", "credits", "freshness", "crosswalk", "summary"],
+          default: "capabilities",
+        },
+      },
+    ],
     responses: { 200: { description: "Capability completion audit" } },
   },
 };
@@ -1378,6 +1399,7 @@ export function routeResearchApi(pathname, url, data, db = null) {
         "integrity",
         "credits",
         "freshness",
+        "crosswalk",
         "summary",
       ].includes(requestedView)
         ? requestedView
@@ -1428,6 +1450,30 @@ export function routeResearchApi(pathname, url, data, db = null) {
           `${row.published_at} ${row.capability_ids?.join(" ") ?? ""} ${row.change_kind} ${row.summary} ${row.evidence_state} ${row.update_scope}`,
         ).includes(q);
       }),
+      crosswalkRows = [
+        ...(featureCrosswalk.rows ?? []).map((row) => ({
+          ...row,
+          row_kind: "function_surface",
+          source_key: row.source_id,
+          source_text: row.source_label,
+          scope: row.source_scope,
+          target_capabilities: row.inventory_capability_ids,
+        })),
+        ...(featureCrosswalk.update_surface_rows ?? []).map((row) => ({
+          ...row,
+          row_kind: "update_surface",
+          source_key: row.update_id,
+          source_text: row.summary,
+          scope: "update_history",
+          target_capabilities: row.inventory_capability_ids,
+          mapping_kind: "update_surface",
+        })),
+      ].filter((row) => {
+        if (!q) return true;
+        return norm(
+          `${row.source_key} ${row.source_text} ${row.scope} ${row.mapping_kind} ${row.mapping_state} ${row.target_capabilities?.join(" ") ?? ""}`,
+        ).includes(q);
+      }),
       rows =
         view === "integrity"
           ? capabilityRows.map(({ capability_id, name, parity_status, evidence_integrity, evidence_digest }) => ({
@@ -1441,6 +1487,8 @@ export function routeResearchApi(pathname, url, data, db = null) {
             ? creditRows.filter((row) => !q || norm(JSON.stringify(row)).includes(q))
             : view === "freshness"
               ? freshnessRows
+            : view === "crosswalk"
+              ? crosswalkRows
             : view === "summary"
               ? []
               : capabilityRows;
@@ -1460,12 +1508,20 @@ export function routeResearchApi(pathname, url, data, db = null) {
         publicUpdateHistory.baseline_evidence_cutoff ?? null,
       filtered_count: rows.length,
     };
+    const crosswalkSummary = {
+      ...featureCrosswalk.summary,
+      function_surface_count: featureCrosswalk.rows?.length ?? 0,
+      update_surface_count: featureCrosswalk.update_surface_rows?.length ?? 0,
+      filtered_count: rows.length,
+    };
     return ok({
       ...page(rows, url),
       view,
       summary:
         view === "freshness"
           ? freshnessSummary
+          : view === "crosswalk"
+            ? crosswalkSummary
           : {
               ...capabilityCompletionAudit.summary,
               filtered_count:
@@ -1478,6 +1534,7 @@ export function routeResearchApi(pathname, url, data, db = null) {
       proof_attestation: capabilityCompletionAudit.proof_attestation,
       public_contract_credits: capabilityCompletionAudit.public_contract_credits,
       public_update_history: publicUpdateHistory,
+      feature_crosswalk: featureCrosswalk,
       policy: capabilityCompletionAudit.schema_version,
       filters: {
         q: url.searchParams.get("q") ?? "",

@@ -8,6 +8,12 @@ const request = (query = "") => {
 };
 
 assert(researchOpenApi.paths["/capability-audit"]?.get);
+assert.equal(
+  researchOpenApi.paths["/capability-audit"].get.parameters[0].schema.enum.includes(
+    "crosswalk",
+  ),
+  true,
+);
 const all = request("limit=100");
 assert.equal(all.status, 200);
 assert.equal(all.body.meta.total, 35);
@@ -43,6 +49,18 @@ assert.equal(freshness.body.summary.post_cutoff_update_count, 1);
 assert.equal(freshness.body.summary.reaudit_required, true);
 assert.deepEqual(freshness.body.summary.affected_capability_ids, ["mcp"]);
 assert.equal(freshness.body.public_update_history.checked_at, "2026-09-04");
+
+const crosswalk = request("view=crosswalk&limit=100");
+assert.equal(crosswalk.status, 200);
+assert.equal(crosswalk.body.meta.total, 47);
+assert.equal(crosswalk.body.summary.function_surface_count, 34);
+assert.equal(crosswalk.body.summary.update_surface_count, 13);
+assert.equal(crosswalk.body.summary.unmapped_function_surface_count, 0);
+assert.equal(crosswalk.body.summary.unmapped_update_surface_count, 0);
+assert.equal(crosswalk.body.summary.coverage_complete, true);
+assert.equal(crosswalk.body.feature_crosswalk.summary.inventory_coverage_count, 35);
+assert.equal(crosswalk.body.data.some((row) => row.row_kind === "function_surface"), true);
+assert.equal(crosswalk.body.data.some((row) => row.row_kind === "update_surface"), true);
 
 const listed = handleMcpMessage(
   { jsonrpc: "2.0", id: 1, method: "tools/list" },
@@ -80,6 +98,21 @@ const mcpFreshness = handleMcpMessage(
 assert.equal(mcpFreshness.isError, false);
 assert.equal(mcpFreshness.structuredContent.meta.total, 4);
 assert.equal(mcpFreshness.structuredContent.summary.reaudit_required, true);
+const mcpCrosswalk = handleMcpMessage(
+  {
+    jsonrpc: "2.0",
+    id: 4,
+    method: "tools/call",
+    params: {
+      name: "inspect_capability_completion_audit",
+      arguments: { view: "crosswalk", limit: 100 },
+    },
+  },
+  null,
+).result;
+assert.equal(mcpCrosswalk.isError, false);
+assert.equal(mcpCrosswalk.structuredContent.meta.total, 47);
+assert.equal(mcpCrosswalk.structuredContent.summary.coverage_complete, true);
 
 console.log(
   "capability audit API/MCP: OK (35 capabilities, 6 proven, 29 incomplete, 108 tools, no external/model/paid execution)",

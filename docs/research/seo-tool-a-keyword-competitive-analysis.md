@@ -1574,6 +1574,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - `seo-tool-a-public-update-history.v1` に公開日、影響機能、変更種別、証拠状態、基準日、再監査要否を固定し、`GET /api/v1/public-contract-freshness` と `GET /api/v1/capability-audit?view=freshness`、既存MCP監査tool、ダッシュボード「公開更新差分」から同じdigest境界を参照できるようにした。
 - カットオフ後差分が1件でもある場合は `reaudit_required=true` とし、35機能のparityやcompletion claimを自動昇格させない。今回も外部API取得、認証、有料リクエスト、モデル実行は0で、MCPの内部実装・提供元データ・DFS方式は未証明のままである。
 
+### 10.123 公開機能・更新面crosswalk監査（2026-09-04）
+
+- 公式の機能一覧と更新履歴を中立化した35 capability inventoryへ横断マッピングし、34公開機能面と13更新履歴面を固定した。機能面・更新面とも未マッピング0、inventory対応35/35である。
+- exact、label variant、metric surface、subsurface、umbrella、composite、account surfaceを分け、umbrellaやラベル一致を機能同等性・データ深度・品質・内部実装の証明と扱わない。AI記事生成やサイト分析のような親面も、構成する中立capabilityへ分解して追跡する。
+- 2026-08-29の証拠カットオフ後はMCP利用プラン境界の更新1件が残るため、crosswalkのcoverage_complete=trueでも `mapping_review_required=true` と `reaudit_required=true` を維持する。completion claimは6/35 proven、29/35 incompleteのまま変えない。
+- `GET /api/v1/capability-audit?view=crosswalk`、既存MCP `inspect_capability_completion_audit` の `view=crosswalk`、ダッシュボード「公開機能crosswalk」で、公開面・更新面・inventory対象・mapping状態・基準日後フラグを同じ証跡から確認できる。外部取得・認証・有料実行・モデル実行は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
