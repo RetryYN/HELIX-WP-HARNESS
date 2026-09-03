@@ -15,6 +15,7 @@ import { readFileSync } from "node:fs";
 import { queryPublicSemanticGraph } from "./public-semantic-graph-query.mjs";
 import { queryGraphRelatedKeywords } from "./graph-related-keyword-query.mjs";
 import { buildKeywordContentLineage } from "./keyword-content-lineage.mjs";
+import { buildLatentDemandTraversal } from "./latent-demand-traversal.mjs";
 const publicApiOperationGraph = JSON.parse(
   readFileSync(
     new URL(
@@ -525,6 +526,15 @@ paths["/keyword-content-lineage"] = {
       "Read-only lineage from retained source keywords through observed demand, title/heading candidates, outline selection, and publication gates; never assigns groups, generates content, or publishes.",
     "x-seo-tool-a-operation-ids": [],
     responses: { 200: { description: "Keyword-to-content lineage" } },
+  },
+};
+paths["/latent-demand-traversal"] = {
+  get: {
+    operationId: "helix_latent_demand_traversal",
+    description:
+      "Read-only retained demand graph with deterministic breadth/depth traversal comparison; preserves occurrence lineage and never claims the upstream provider's internal algorithm.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Retained latent demand traversal evidence" } },
   },
 };
 paths["/related-keyword-boundaries"] = {
@@ -2839,6 +2849,51 @@ export function routeResearchApi(pathname, url, data, db = null) {
       source_policy: lineage.source_policy,
       lineage_digest: lineage.lineage_digest,
       filters: lineage.filters,
+      automatic_group_assignment: false,
+      automatic_generation: false,
+      automatic_content_mutation: false,
+      automatic_publication: false,
+      external_acquisition_triggered: false,
+    });
+  }
+  if (pathname === "/api/v1/latent-demand-traversal") {
+    const requestedGroup = url.searchParams.get("group_id") ?? "";
+    if (requestedGroup && !groupIds.has(requestedGroup))
+      return bad(404, `unknown group_id for site: ${requestedGroup}`);
+    const requestedStrategy = url.searchParams.get("strategy") ?? "breadth_first",
+      requestedDepth = Number(url.searchParams.get("max_depth") ?? 2);
+    if (!['breadth_first', 'depth_first'].includes(requestedStrategy))
+      return bad(400, "strategy must be breadth_first or depth_first");
+    if (!Number.isInteger(requestedDepth) || requestedDepth < 1 || requestedDepth > 2)
+      return bad(400, "max_depth must be an integer from 1 to 2");
+    const traversal = buildLatentDemandTraversal({
+      siteId,
+      groups,
+      occurrences: data.serp_demand_occurrences ?? [],
+      query: url.searchParams.get("q") ?? "",
+      groupId: requestedGroup,
+      strategy: requestedStrategy,
+      maxDepth: requestedDepth,
+    });
+    return ok({
+      ...page(traversal.rows, url),
+      summary: traversal.summary,
+      nodes: traversal.nodes,
+      edges: traversal.edges,
+      traces: traversal.traces,
+      strategy: traversal.strategy,
+      max_depth: traversal.max_depth,
+      strategy_comparison: traversal.strategy_comparison,
+      lineage_digest: traversal.lineage_digest,
+      policy: traversal.policy,
+      source_policy: traversal.source_policy,
+      evidence_boundary: traversal.evidence_boundary,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        group_id: requestedGroup || "all",
+        strategy: requestedStrategy,
+        max_depth: requestedDepth,
+      },
       automatic_group_assignment: false,
       automatic_generation: false,
       automatic_content_mutation: false,
