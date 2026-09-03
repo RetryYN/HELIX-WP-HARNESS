@@ -15,13 +15,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 61,
+      "duration_ms": 58,
       "stdout_sha256": "fa91acd790c6786088c327ebbf5177691481fb6f1e27bd21a316082cb33986c8",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "association evidence oracle: OK (cosine, evidence sample, reciprocal/top-k, no semantic inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "fcdc70bb8621f8d13289930cd154b773aa8431b38892f10af61b20d448295749"
+      "result_digest": "115996bdb34c184ca271252b3c4ebd382ec315e01965df61a1e4d8aa948d3c2b"
     },
     {
       "command": "node scripts/test-content-semantic-coverage-api.mjs",
@@ -29,13 +29,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 13372,
+      "duration_ms": 12952,
       "stdout_sha256": "2d52449aab63c0efb768ce0de6a6266170efa4b333ae692ba9898bf05d3d8025",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "content semantic coverage API/MCP: OK (24 concepts, 14 coverage rows, 12 gated previews, no mutation)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "bfce41719b2dbab15d63c24410084d857e2727b2fc8aa6f6eb19e79632acef3d"
+      "result_digest": "61268c23b850ad3df624fde39380578232248ed71230117ab098b79c43783fca"
     },
     {
       "command": "node scripts/test-content-semantic-coverage-review.mjs",
@@ -43,13 +43,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 62,
+      "duration_ms": 51,
       "stdout_sha256": "df409f09a337b9b5e18d29d75290996a2e642d9ed56b3e5f8fdf581ff93ffb99",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "content semantic coverage review: OK (deduplicated resolution tasks, no demand/synonym/rank/content inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "3054a31022bf63d3e4f7f976d79a48f3773fed47310a4f3b05663fb54e35e8a9"
+      "result_digest": "b88e1609b9922422547313d817f8143304d49f6a3b21a180210d3fda168c3880"
     },
     {
       "command": "node scripts/test-graph-related-keyword-api.mjs",
@@ -57,13 +57,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 14044,
+      "duration_ms": 14348,
       "stdout_sha256": "f2bd74b0a993f73de86d74586e9c98367e04e35772e5642c02642ae39fd027f8",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "graph related keyword API/MCP: OK (arbitrary query, evidence paths, review-only boundaries, zero market inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "1d7fddf4b4bfe2bf626a2fdcb2db5882d205728aee3f39b592238c015932ed7b"
+      "result_digest": "c3ed9ccd14871fa3d4a25371be90f9e2226402fd3c02b0348756b8aabc9faabd"
     },
     {
       "command": "node scripts/test-graph-related-keyword-query.mjs",
@@ -71,13 +71,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 1984,
+      "duration_ms": 2004,
       "stdout_sha256": "ef33b66efc15695b0631f916e31ce141d7aae9198a49696f2b2843a5153711d7",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "graph related keyword query: OK (10694 retained rows, lexical/semantic paths separated, group boundaries fail closed)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "54d61b839a8a61f9d2365264410936d1674a2088df81f2eacf0f9ab342247604"
+      "result_digest": "eaf0a9746b52048e1bd07c58125ff8829b6e6b0b8d8c789353c47a12d2579f39"
     },
     {
       "command": "node scripts/test-keyword-lineage-ledger.mjs",
@@ -85,13 +85,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 58,
+      "duration_ms": 60,
       "stdout_sha256": "0cc61d1cc8deb2c107118aff6a96dc26c4a446766b4ce95188de32240c89e064",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "keyword lineage ledger: OK (source identity, hierarchy, group/proposal paths, lossless rows)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "b4f5c4d5b678a0605e94f72a8c4d95ff8472902135c3385e907069a0e257d11c"
+      "result_digest": "3568d5b7098d7c9848ab4a95dc0ef668f45b2100098d0a2c72d3dbd394b98102"
     },
     {
       "command": "node scripts/test-public-semantic-graph-api.mjs",
@@ -99,13 +99,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 11366,
+      "duration_ms": 11647,
       "stdout_sha256": "b8359ec7a97e13b9d683572ab7d2021d0a3d9ffb3de5b5d28c0de96a1f15b340",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public semantic graph API/MCP: OK (bounded depth 2, canonical/inverse relation semantics, 0 automatic mutation)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "69112af79d16a83428c6a15dbb0989f721d78c30ea9879f9b2261bab14e8ed3c"
+      "result_digest": "38de7320ff578a59837cc67a77923fa6682b53b683e72a5b4bf0e1e9816d2791"
     },
     {
       "command": "node scripts/test-public-semantic-graph.mjs",
@@ -113,13 +113,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 2408,
+      "duration_ms": 2599,
       "stdout_sha256": "35668be39b1c43067f00bd329a5305cfe257f499c58ad763d35a6bd7e114d371",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public semantic graph: OK (93,834 words, 57,238 synsets, 115,295 typed edges, $0)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "a2f6fd9a1690ae858cae5cba1772f0b7d28b8d6cf3a9c18bec82e87ccd4a77f3"
+      "result_digest": "1360c8829bb77f5ae59eca1b602f646709f46a1308b12c5ed9e004ca3c4dc6e5"
     },
     {
       "command": "node scripts/test-public-synonym-evidence-api.mjs",
@@ -127,13 +127,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 12085,
+      "duration_ms": 13408,
       "stdout_sha256": "2c791c67a9964bff17e47844676e8fe99ff80ad2a5ae393682b62a0b75d17adb",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public synonym evidence API/MCP: OK (11,753 pairs, 9,487 terms, 840 corpus matches, $0)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "c52711c7bccb3819cdbc7bf28d6cb7d934b3420ba1b2199ed67e5ebb83cddd86"
+      "result_digest": "472a42c0d1d2016a333d354698673f7e3f57d6958b429efd76f134ce3f5c5456"
     },
     {
       "command": "node scripts/test-public-synonym-evidence.mjs",
@@ -141,13 +141,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 363,
+      "duration_ms": 286,
       "stdout_sha256": "24aba9f4937371b8515e911dc3f87ad4ba7aa01748903857f4d06426ca96ff73",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public synonym evidence: OK (11753 human-reviewed pairs, 9487 terms, $0)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "367850e354f11abe9832e79480e4008633e4a65db51137825c924ecdc58828c6"
+      "result_digest": "542a5b947f05b93019554863ae7b5364385650549b09ba2d02c2befddf1eef87"
     },
     {
       "command": "node scripts/test-related-keyword-boundary-oracle.mjs",
@@ -155,13 +155,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 65,
+      "duration_ms": 57,
       "stdout_sha256": "2522842a8ee4940eacfe2ba6d7409bfefa5650a76ae110015006f76678e51cb1",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "related keyword boundary oracle: OK (unique, tie, clear leader, no auto assignment)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "0c5c6fa748e733a09dbe214695e48531550c02d9848d1f824f67c6280fbcfa28"
+      "result_digest": "05ed4272cf1d669bfd4005190ea6d33a5bb07d552904411e223bb6639157bf7a"
     },
     {
       "command": "node scripts/test-semantic-candidate-review.mjs",
@@ -169,13 +169,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 64,
+      "duration_ms": 59,
       "stdout_sha256": "ef7144ca7642cbcc81fba9114e3146e437e5aa8645c67947febe5ab6bd4fda3b",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "semantic candidate review: OK (cooccurrence + SERP context, relation review only, no synonym assertion)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "47cdd41878e1d9a08d4dcee8061b3e2cdc7546af6c6302d5c1b94e9f669acb3f"
+      "result_digest": "942b4cc69123420f06351d90ca52109da51d3a9a246553eade69ab1fe9f63649"
     },
     {
       "command": "node scripts/test-suggest-evidence-oracle.mjs",
@@ -183,13 +183,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 66,
+      "duration_ms": 50,
       "stdout_sha256": "a1a94f33a61276d7d45793aae6731e58338b77243814d60b614b6ec5b6b76125",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "suggest evidence oracle: OK (normalized dedupe, source rows, volume conflict, no surface inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "402e575442ce0cec0b01044429c6aaa150fe7d2f7f916f15c374b6fdb853c486"
+      "result_digest": "cda8b85670f18228a13961e28dbab4c91771a85b93d75275b65e3268cc78d929"
     },
     {
       "command": "node scripts/test-variant-evidence-oracle.mjs",
@@ -197,13 +197,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 62,
+      "duration_ms": 58,
       "stdout_sha256": "6210418254310d19255290d00f1b6c53308c73bfa1fdd45ddbb3c55db3b69510",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "variant evidence oracle: OK (source identity, pair count, no semantic synonym inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "7b55d0e506c91312b2855dcbebc47a53c73307d52df3ab0771a6d32be09fa122"
+      "result_digest": "91b7d3b9c7f617a290a26b916661840c158850025f01085535e16465c4a5046e"
     },
     {
       "command": "npm run prototype:keyword-dashboard:test",
@@ -211,13 +211,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 28676,
+      "duration_ms": 30091,
       "stdout_sha256": "c5a7d8acc2b04c6f12f3c5cee9918d6435bf82a2055008efe568dac3122d0c20",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "\n> helix-wp-harness@0.1.0 prototype:keyword-dashboard:test\n> node scripts/test-keyword-dashboard-suite.mjs\n\ndashboard suite: portable evidence mode (/home/tenni/dev/poc-wp/data/サイトAキーワードマップ.xlsx is intentionally not stored in the public repository; full retained-workbook gate remains local)\ndashboard bind policy: OK (loopback default, explicit remote override required)\nkeyword dashboard isolated empty-state test: ok\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "d0c7da58851fd67f17a18452460cf6efe146ff1cc0c794ebb8ea4b4ec57cec2d"
+      "result_digest": "3f1763c0d301d8a8781f69974b665cb450e69a1405ad264c9125d3e7c9ef2b30"
     },
     {
       "command": "npm run prototype:table-state:test",
@@ -225,69 +225,69 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 204,
+      "duration_ms": 229,
       "stdout_sha256": "92d7c4712432f8518e18ff0ba99ebeb190f943a7f423d92fa8abc7a9e0023bb5",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "\n> helix-wp-harness@0.1.0 prototype:table-state:test\n> node scripts/test-dashboard-table-state.mjs\n\ndashboard table/filter state: OK (numeric/text sort and stable URL keys)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "c81ef77f44ec5116038fbdaee917b544c5b5f2a9d3446bf313f0e726ea438757"
+      "result_digest": "597dd460affc43ce47fd4eaedb912bd2c11aa218b818a96a4b11c2600dd20700"
     }
   ],
   "capabilities": [
     {
       "capability_id": "synonyms",
-      "artifact_set_digest": "606500ea2a6e753e219f2407dfb20edd463d440c7eb93b7a1f4dad8783563c29",
-      "command_set_digest": "3b8014d5703741f71b1ec81e49bd14f6980eeab5d8bef7ea3747fe5b57466333",
+      "artifact_set_digest": "f12b82f4e1249c5e2f6bbcbe791f41ac1229c46a0c8d971619f469761cbccf17",
+      "command_set_digest": "481872a43aeeec87165558ca0bc3db23a6eb294e01b41c46fcc3beefbbf2dd12",
       "expected_command_count": 15,
       "executed_command_count": 15,
       "passed_command_count": 15,
       "all_commands_passed": true,
       "command_result_digests": [
-        "0c5c6fa748e733a09dbe214695e48531550c02d9848d1f824f67c6280fbcfa28",
-        "1d7fddf4b4bfe2bf626a2fdcb2db5882d205728aee3f39b592238c015932ed7b",
-        "3054a31022bf63d3e4f7f976d79a48f3773fed47310a4f3b05663fb54e35e8a9",
-        "367850e354f11abe9832e79480e4008633e4a65db51137825c924ecdc58828c6",
-        "402e575442ce0cec0b01044429c6aaa150fe7d2f7f916f15c374b6fdb853c486",
-        "47cdd41878e1d9a08d4dcee8061b3e2cdc7546af6c6302d5c1b94e9f669acb3f",
-        "54d61b839a8a61f9d2365264410936d1674a2088df81f2eacf0f9ab342247604",
-        "69112af79d16a83428c6a15dbb0989f721d78c30ea9879f9b2261bab14e8ed3c",
-        "7b55d0e506c91312b2855dcbebc47a53c73307d52df3ab0771a6d32be09fa122",
-        "a2f6fd9a1690ae858cae5cba1772f0b7d28b8d6cf3a9c18bec82e87ccd4a77f3",
-        "b4f5c4d5b678a0605e94f72a8c4d95ff8472902135c3385e907069a0e257d11c",
-        "bfce41719b2dbab15d63c24410084d857e2727b2fc8aa6f6eb19e79632acef3d",
-        "c52711c7bccb3819cdbc7bf28d6cb7d934b3420ba1b2199ed67e5ebb83cddd86",
-        "d0c7da58851fd67f17a18452460cf6efe146ff1cc0c794ebb8ea4b4ec57cec2d",
-        "fcdc70bb8621f8d13289930cd154b773aa8431b38892f10af61b20d448295749"
+        "05ed4272cf1d669bfd4005190ea6d33a5bb07d552904411e223bb6639157bf7a",
+        "115996bdb34c184ca271252b3c4ebd382ec315e01965df61a1e4d8aa948d3c2b",
+        "1360c8829bb77f5ae59eca1b602f646709f46a1308b12c5ed9e004ca3c4dc6e5",
+        "3568d5b7098d7c9848ab4a95dc0ef668f45b2100098d0a2c72d3dbd394b98102",
+        "38de7320ff578a59837cc67a77923fa6682b53b683e72a5b4bf0e1e9816d2791",
+        "3f1763c0d301d8a8781f69974b665cb450e69a1405ad264c9125d3e7c9ef2b30",
+        "472a42c0d1d2016a333d354698673f7e3f57d6958b429efd76f134ce3f5c5456",
+        "542a5b947f05b93019554863ae7b5364385650549b09ba2d02c2befddf1eef87",
+        "61268c23b850ad3df624fde39380578232248ed71230117ab098b79c43783fca",
+        "91b7d3b9c7f617a290a26b916661840c158850025f01085535e16465c4a5046e",
+        "942b4cc69123420f06351d90ca52109da51d3a9a246553eade69ab1fe9f63649",
+        "b88e1609b9922422547313d817f8143304d49f6a3b21a180210d3fda168c3880",
+        "c3ed9ccd14871fa3d4a25371be90f9e2226402fd3c02b0348756b8aabc9faabd",
+        "cda8b85670f18228a13961e28dbab4c91771a85b93d75275b65e3268cc78d929",
+        "eaf0a9746b52048e1bd07c58125ff8829b6e6b0b8d8c789353c47a12d2579f39"
       ],
-      "attestation_digest": "b0a11b20dc1f4bc74bbd18e4d868843d68d52e01b91a0c4653bac8488bfcec9d"
+      "attestation_digest": "d24624fe83632d6976a37afe6f3ba2bbd9a464e9a9fed6505e0deaeb30918941"
     },
     {
       "capability_id": "associations",
-      "artifact_set_digest": "606500ea2a6e753e219f2407dfb20edd463d440c7eb93b7a1f4dad8783563c29",
-      "command_set_digest": "3b8014d5703741f71b1ec81e49bd14f6980eeab5d8bef7ea3747fe5b57466333",
+      "artifact_set_digest": "f12b82f4e1249c5e2f6bbcbe791f41ac1229c46a0c8d971619f469761cbccf17",
+      "command_set_digest": "481872a43aeeec87165558ca0bc3db23a6eb294e01b41c46fcc3beefbbf2dd12",
       "expected_command_count": 15,
       "executed_command_count": 15,
       "passed_command_count": 15,
       "all_commands_passed": true,
       "command_result_digests": [
-        "0c5c6fa748e733a09dbe214695e48531550c02d9848d1f824f67c6280fbcfa28",
-        "1d7fddf4b4bfe2bf626a2fdcb2db5882d205728aee3f39b592238c015932ed7b",
-        "3054a31022bf63d3e4f7f976d79a48f3773fed47310a4f3b05663fb54e35e8a9",
-        "367850e354f11abe9832e79480e4008633e4a65db51137825c924ecdc58828c6",
-        "402e575442ce0cec0b01044429c6aaa150fe7d2f7f916f15c374b6fdb853c486",
-        "47cdd41878e1d9a08d4dcee8061b3e2cdc7546af6c6302d5c1b94e9f669acb3f",
-        "54d61b839a8a61f9d2365264410936d1674a2088df81f2eacf0f9ab342247604",
-        "69112af79d16a83428c6a15dbb0989f721d78c30ea9879f9b2261bab14e8ed3c",
-        "7b55d0e506c91312b2855dcbebc47a53c73307d52df3ab0771a6d32be09fa122",
-        "a2f6fd9a1690ae858cae5cba1772f0b7d28b8d6cf3a9c18bec82e87ccd4a77f3",
-        "b4f5c4d5b678a0605e94f72a8c4d95ff8472902135c3385e907069a0e257d11c",
-        "bfce41719b2dbab15d63c24410084d857e2727b2fc8aa6f6eb19e79632acef3d",
-        "c52711c7bccb3819cdbc7bf28d6cb7d934b3420ba1b2199ed67e5ebb83cddd86",
-        "d0c7da58851fd67f17a18452460cf6efe146ff1cc0c794ebb8ea4b4ec57cec2d",
-        "fcdc70bb8621f8d13289930cd154b773aa8431b38892f10af61b20d448295749"
+        "05ed4272cf1d669bfd4005190ea6d33a5bb07d552904411e223bb6639157bf7a",
+        "115996bdb34c184ca271252b3c4ebd382ec315e01965df61a1e4d8aa948d3c2b",
+        "1360c8829bb77f5ae59eca1b602f646709f46a1308b12c5ed9e004ca3c4dc6e5",
+        "3568d5b7098d7c9848ab4a95dc0ef668f45b2100098d0a2c72d3dbd394b98102",
+        "38de7320ff578a59837cc67a77923fa6682b53b683e72a5b4bf0e1e9816d2791",
+        "3f1763c0d301d8a8781f69974b665cb450e69a1405ad264c9125d3e7c9ef2b30",
+        "472a42c0d1d2016a333d354698673f7e3f57d6958b429efd76f134ce3f5c5456",
+        "542a5b947f05b93019554863ae7b5364385650549b09ba2d02c2befddf1eef87",
+        "61268c23b850ad3df624fde39380578232248ed71230117ab098b79c43783fca",
+        "91b7d3b9c7f617a290a26b916661840c158850025f01085535e16465c4a5046e",
+        "942b4cc69123420f06351d90ca52109da51d3a9a246553eade69ab1fe9f63649",
+        "b88e1609b9922422547313d817f8143304d49f6a3b21a180210d3fda168c3880",
+        "c3ed9ccd14871fa3d4a25371be90f9e2226402fd3c02b0348756b8aabc9faabd",
+        "cda8b85670f18228a13961e28dbab4c91771a85b93d75275b65e3268cc78d929",
+        "eaf0a9746b52048e1bd07c58125ff8829b6e6b0b8d8c789353c47a12d2579f39"
       ],
-      "attestation_digest": "892828ac7dd28e7fb2797f3e1eab07ca22bf0bc96dc2212abe37d1103518fe70"
+      "attestation_digest": "fde6e3b43562b05752ba7ebe66fdfe3f5a3aab38077423ab214430c8fced83fa"
     },
     {
       "capability_id": "quick_search",
@@ -298,10 +298,10 @@
       "passed_command_count": 2,
       "all_commands_passed": true,
       "command_result_digests": [
-        "c81ef77f44ec5116038fbdaee917b544c5b5f2a9d3446bf313f0e726ea438757",
-        "d0c7da58851fd67f17a18452460cf6efe146ff1cc0c794ebb8ea4b4ec57cec2d"
+        "3f1763c0d301d8a8781f69974b665cb450e69a1405ad264c9125d3e7c9ef2b30",
+        "597dd460affc43ce47fd4eaedb912bd2c11aa218b818a96a4b11c2600dd20700"
       ],
-      "attestation_digest": "0ed4fcef3b43103397ad3d776bf41d235314c86bc19badefe64b5c2434af0a43"
+      "attestation_digest": "729062c2296dd4aff7bdd41d6ab65f01571d2dde6ccb6e8e97225e548b3c6da9"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -312,10 +312,10 @@
       "passed_command_count": 2,
       "all_commands_passed": true,
       "command_result_digests": [
-        "c81ef77f44ec5116038fbdaee917b544c5b5f2a9d3446bf313f0e726ea438757",
-        "d0c7da58851fd67f17a18452460cf6efe146ff1cc0c794ebb8ea4b4ec57cec2d"
+        "3f1763c0d301d8a8781f69974b665cb450e69a1405ad264c9125d3e7c9ef2b30",
+        "597dd460affc43ce47fd4eaedb912bd2c11aa218b818a96a4b11c2600dd20700"
       ],
-      "attestation_digest": "4e3e0c29ec0c69dcc5ac101c60b0422c5070b60e724ac20b70d2297e3bcca5e0"
+      "attestation_digest": "704f0766a9622736883cc653b634491f055a602839975f680e9c78303779978e"
     },
     {
       "capability_id": "data_output",
@@ -326,10 +326,10 @@
       "passed_command_count": 2,
       "all_commands_passed": true,
       "command_result_digests": [
-        "c81ef77f44ec5116038fbdaee917b544c5b5f2a9d3446bf313f0e726ea438757",
-        "d0c7da58851fd67f17a18452460cf6efe146ff1cc0c794ebb8ea4b4ec57cec2d"
+        "3f1763c0d301d8a8781f69974b665cb450e69a1405ad264c9125d3e7c9ef2b30",
+        "597dd460affc43ce47fd4eaedb912bd2c11aa218b818a96a4b11c2600dd20700"
       ],
-      "attestation_digest": "4c4475643dab8d63b05e473f64bd32a354ba162f0a67c4b485cafeb177c78434"
+      "attestation_digest": "b302bda48d14c4e64de15142fd47676d989841c18ddf72c88d2cfbb012ab3b12"
     },
     {
       "capability_id": "bookmarklet",
@@ -340,11 +340,11 @@
       "passed_command_count": 2,
       "all_commands_passed": true,
       "command_result_digests": [
-        "c81ef77f44ec5116038fbdaee917b544c5b5f2a9d3446bf313f0e726ea438757",
-        "d0c7da58851fd67f17a18452460cf6efe146ff1cc0c794ebb8ea4b4ec57cec2d"
+        "3f1763c0d301d8a8781f69974b665cb450e69a1405ad264c9125d3e7c9ef2b30",
+        "597dd460affc43ce47fd4eaedb912bd2c11aa218b818a96a4b11c2600dd20700"
       ],
-      "attestation_digest": "525ad8467a2acb1551ad03cad10494f5b4ec646de8bbe67f58dbd0eb1e808dc9"
+      "attestation_digest": "e67ca4d29fa1f62839fde5a8322f9c5a65e1346b3972e2a9985e54f9aa6f1415"
     }
   ],
-  "receipt_digest": "5a0ef99322251ff44b72c5b2c67735914e4e3fd96c019812c5defb9333a5d638"
+  "receipt_digest": "17fa7151f5b3cdac02fff2f566a218cfb92990fc5691412ee1b7e5ab9a87a642"
 }

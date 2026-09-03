@@ -1534,6 +1534,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 24 operationのcredit分類、53明示依存edge、952 fieldの処遇（保持semantic 112、provider dataset未取得190、provider実行meta未取得31、未mapping 0、wire shape 448）を再生成し、既存のAPI/MCP/API freshness検証へ反映した。今回の確認で外部APIキー、認証情報、有料リクエスト、非公開endpoint、外部データは使用していない。
 - 現在の実装は公開契約を参照するread-only証拠投影であり、外部wire互換、認証、credit消費、provider mutation、全provider datasetの取得を主張しない。未取得データと非保持データは従来どおり別状態で表示し、失われたデータと未取得データを混同しない。
 
+### 10.118 再帰取得のDFS仮説と比較可能な実装（2026-09-03）
+
+- 公開契約から確実に観測できるのは、LSI/PAAの最大2階層再帰、`sourceKeyword`による取得元、再帰中の出現回数に基づく`importance`、LSI→PAAの出力順である。stack/queue、訪問順、tie-break、途中停止条件は公開されていないため、DFSと断定しない。
+- `seo-tool-a-traversal-hypothesis.v1` に、bounded recursive expansion・親source・occurrence aggregation・出力partition・指標投影の6信号と、DFS/BFS/出現回数集約の3仮説を固定した。DFS/BFSはどちらも`possible_not_proven`、契約挙動として最も整合するのは「bounded recursive expansion + occurrence aggregation」とし、内部実装証明はfalseのままにする。
+- ローカル意味グラフの`public-semantic-graph`へ`strategy=breadth_first|depth_first`を追加し、同じseed・深度・edge上限で訪問順とpathを比較できるようにした。MCPにも同じ選択肢を追加した。デフォルトは既存のbreadth-firstで、両方式ともtyped edge・path digest・depth・逆方向を保持し、自動group割当・自動title/heading/body変更は行わない。
+- 仮説からDB/API/UIへ戻す対応を、(1) raw demand occurrenceのsource/importance/digest、(2) keyword groupのboundary review、(3) title/heading候補のdemand・source lineage・review gateの3層へ固定した。これは公開挙動の再現可能な比較であり、外部サービスの内部アルゴリズム、provider、検索需要、順位効果を推論するものではない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

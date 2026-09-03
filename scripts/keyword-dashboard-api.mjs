@@ -570,7 +570,7 @@ paths["/public-semantic-graph"] = {
   get: {
     operationId: "helix_public_semantic_graph",
     description:
-      "Traverse versioned public Japanese senses and typed semantic edges to depth 1-3 without inferring synonymy, demand, ranking effects, or content changes.",
+      "Traverse versioned public Japanese senses and typed semantic edges to depth 1-3 with a deterministic breadth-first default or depth-first comparison strategy; this is bounded evidence navigation and does not infer synonymy, demand, ranking effects, or content changes.",
     "x-seo-tool-a-operation-ids": [],
     responses: { 200: { description: "Public semantic graph evidence" } },
   },
@@ -2979,10 +2979,12 @@ export function routeResearchApi(pathname, url, data, db = null) {
         .flatMap((value) => value.split(","))
         .filter(Boolean),
       depth = Number(url.searchParams.get("depth") ?? 1),
+      strategy = url.searchParams.get("strategy") ?? "breadth_first",
       graph = queryPublicSemanticGraph(db, {
         query: url.searchParams.get("q") ?? "",
         depth,
         relationTypes,
+        strategy,
       }),
       evidence = site.public_semantic_graph ?? { source: null, summary: {} };
     return ok({
@@ -3000,6 +3002,7 @@ export function routeResearchApi(pathname, url, data, db = null) {
         q: url.searchParams.get("q") ?? "",
         depth: graph.summary.max_depth_requested,
         relation_types: relationTypes,
+        strategy: graph.summary.traversal_strategy,
       },
       external_public_corpus_acquired: true,
       direct_edges_distinguished: true,
