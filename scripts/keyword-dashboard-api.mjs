@@ -521,6 +521,20 @@ paths["/keyword-lineage"] = {
     responses: { 200: { description: "Retained keyword source lineage" } },
   },
 };
+paths["/keyword-expansion-lineage"] = {
+  get: {
+    operationId: "helix_keyword_expansion_lineage",
+    description:
+      "Cross-source retained keyword expansion graph with source-row, demand, related-group, lexical, question, and content-candidate lineage; explicit disposition ledger separates retained, not acquired, zero, not applicable, and failed states.",
+    "x-seo-tool-a-operation-ids": [
+      "SuggestKeywordsController_search",
+      "RelatedKeywordsController_search",
+      "OtherKeywordsController_search",
+      "QuestionSearchController_search",
+    ],
+    responses: { 200: { description: "Retained keyword expansion lineage" } },
+  },
+};
 paths["/keyword-content-lineage"] = {
   get: {
     operationId: "helix_keyword_content_lineage",
@@ -2824,6 +2838,105 @@ export function routeResearchApi(pathname, url, data, db = null) {
       },
       source_rows_losslessly_retained: true,
       auto_mutation: false,
+    });
+  }
+  if (pathname === "/api/v1/keyword-expansion-lineage") {
+    const view = ["nodes", "edges", "coverage", "surfaces"].includes(
+      url.searchParams.get("view"),
+    )
+      ? url.searchParams.get("view")
+      : "nodes",
+      lineage = site.keyword_expansion_lineage ?? {
+        nodes: [],
+        edges: [],
+        coverage: [],
+        surface_coverage: [],
+        summary: {},
+        lineage_digest: null,
+      },
+      nodeType = url.searchParams.get("node_type"),
+      edgeType = url.searchParams.get("edge_type"),
+      disposition = url.searchParams.get("disposition"),
+      requestedGroup = url.searchParams.get("group_id"),
+      source =
+        view === "edges"
+          ? lineage.edges
+          : view === "coverage"
+            ? lineage.coverage
+            : view === "surfaces"
+              ? lineage.surface_coverage
+              : lineage.nodes,
+      rows = source.filter((row) => {
+        if (view === "nodes") {
+          if (nodeType && nodeType !== "all" && row.node_type !== nodeType)
+            return false;
+          if (
+            requestedGroup &&
+            requestedGroup !== "all" &&
+            !row.group_ids?.includes(requestedGroup)
+          )
+            return false;
+          if (
+            disposition &&
+            disposition !== "all" &&
+            row.source_state !== disposition
+          )
+            return false;
+        }
+        if (view === "edges") {
+          if (edgeType && edgeType !== "all" && row.edge_type !== edgeType)
+            return false;
+          if (
+            requestedGroup &&
+            requestedGroup !== "all" &&
+            row.group_id !== requestedGroup
+          )
+            return false;
+          if (
+            disposition &&
+            disposition !== "all" &&
+            row.retention_state !== disposition
+          )
+            return false;
+        }
+        if ((view === "coverage" || view === "surfaces") && disposition && disposition !== "all" && row.disposition_state !== disposition)
+          return false;
+        return !query || norm(JSON.stringify(row)).includes(query);
+      });
+    return ok({
+      ...page(rows, url),
+      view,
+      summary: {
+        ...lineage.summary,
+        filtered_count: rows.length,
+        filtered_node_count: view === "nodes" ? rows.length : undefined,
+        filtered_edge_count: view === "edges" ? rows.length : undefined,
+        filtered_coverage_count:
+          view === "coverage" || view === "surfaces" ? rows.length : undefined,
+      },
+      lineage_digest: lineage.lineage_digest,
+      policy: lineage.policy ?? "keyword-expansion-lineage.v1",
+      source_policy:
+        lineage.source_policy ??
+        "retained_evidence_typed_edges_and_explicit_disposition_ledger",
+      interpretation_policy:
+        lineage.interpretation_policy ??
+        "expansion_edges_are_provenance_links_not_synonymy_demand_or_ranking_causality",
+      source_rows_losslessly_retained: true,
+      raw_external_payload_synthesized: false,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        view,
+        node_type: nodeType ?? "all",
+        edge_type: edgeType ?? "all",
+        disposition: disposition ?? "all",
+        group_id: requestedGroup ?? "all",
+      },
+      automatic_group_assignment: false,
+      automatic_generation: false,
+      automatic_content_mutation: false,
+      automatic_publication: false,
+      external_acquisition_triggered: false,
     });
   }
   if (pathname === "/api/v1/keyword-content-lineage") {

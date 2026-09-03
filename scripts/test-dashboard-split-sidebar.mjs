@@ -11,6 +11,10 @@ const root = new URL("../docs/prototypes/wp-ops-dashboard/", import.meta.url),
     new URL("latent-demand-traversal.js", root),
     "utf8",
   ),
+  expansionLineage = readFileSync(
+    new URL("keyword-expansion-lineage.js", root),
+    "utf8",
+  ),
   semanticBindings = readFileSync(
     new URL("semantic-coverage-bindings.js", root),
     "utf8",
@@ -49,6 +53,12 @@ assert.match(html, /latent-demand-traversal\.js/u);
 assert.match(latentDemandTraversal, /api\/v1\/latent-demand-traversal/u);
 assert.match(latentDemandTraversal, /depth_first/u);
 assert.match(latentDemandTraversal, /自動反映0/u);
+assert.match(html, /data-view="keyword-expansion-lineage"/u);
+assert.match(html, /id="keyword-expansion-lineage"/u);
+assert.match(html, /keyword-expansion-lineage\.js/u);
+assert.match(expansionLineage, /api\/v1\/keyword-expansion-lineage/u);
+assert.match(expansionLineage, /not_acquired/u);
+assert.match(expansionLineage, /自動割当0/u);
 console.log(
   "dashboard split sidebar: OK (resize, collapse, persistence, keyboard, mobile fallback)",
 );

@@ -24,6 +24,7 @@
       <button class="tab active" data-view="keywords">キーワード一覧</button>
       <button class="tab" data-view="keyword-tree">キーワードツリー</button>
       <button class="tab" data-view="keyword-content-lineage">KW→記事lineage</button>
+      <button class="tab" data-view="keyword-expansion-lineage">KW拡張lineage</button>
       <button class="tab" data-view="latent-demand-traversal">潜在需要探索</button>
       <button class="tab" data-view="lexical-explorer">類語・連想語</button>
       <button class="tab" data-view="observed-hashtags">観測ハッシュタグ</button>
@@ -299,6 +300,41 @@
             <tbody id="keyword-content-lineage-rows"></tbody>
           </table>
           <div id="keyword-content-lineage-empty" class="empty-state"></div>
+        </div>
+      </section>
+
+      <section id="keyword-expansion-lineage" class="view">
+        <div class="toolbar table-toolbar">
+          <div>
+            <h2>KW拡張lineage</h2>
+            <p>元KW・正規化・階層・関連候補・SERP需要・語彙・質問・タイトル/見出し候補を一つの証跡graphで追跡します</p>
+          </div>
+          <div class="filters">
+            <input id="keyword-expansion-lineage-search" type="search" placeholder="KW・需要・候補を検索" aria-label="KW拡張lineageを検索" />
+            <select id="keyword-expansion-lineage-view" aria-label="KW拡張lineage表示">
+              <option value="nodes">ノード</option>
+              <option value="edges">エッジ</option>
+              <option value="coverage">元KW処遇</option>
+              <option value="surfaces">取得面処遇</option>
+            </select>
+            <select id="keyword-expansion-lineage-disposition" aria-label="KW拡張lineage処遇">
+              <option value="all">全処遇</option>
+              <option value="retained">保持</option>
+              <option value="not_acquired">未取得</option>
+              <option value="zero">0件</option>
+              <option value="not_applicable">非該当</option>
+              <option value="failed">取得失敗</option>
+            </select>
+          </div>
+        </div>
+        <div id="keyword-expansion-lineage-summary" class="metrics"></div>
+        <div id="keyword-expansion-lineage-status" class="notice" role="status"></div>
+        <div class="table-wrap">
+          <table>
+            <thead id="keyword-expansion-lineage-head"></thead>
+            <tbody id="keyword-expansion-lineage-rows"></tbody>
+          </table>
+          <div id="keyword-expansion-lineage-empty" class="empty-state"></div>
         </div>
       </section>
 
@@ -2689,6 +2725,7 @@
     <script type="module" src="semantic-coverage-bindings.js"></script>
     <script type="module" src="app.js"></script>
     <script type="module" src="keyword-content-lineage.js"></script>
+    <script type="module" src="keyword-expansion-lineage.js"></script>
     <script type="module" src="latent-demand-traversal.js"></script>
     <script type="module" src="demand-payload-retention.js"></script>
     <script type="module" src="observed-hashtags.js"></script>
