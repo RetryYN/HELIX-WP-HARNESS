@@ -408,6 +408,7 @@ const proof = {
       "docs/prototypes/wp-ops-dashboard/latent-demand-traversal.js",
       "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
       "docs/prototypes/wp-ops-dashboard/suggest-expansion-logic.js",
+      "docs/prototypes/wp-ops-dashboard/capability-audit.js",
       "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
       "scripts/test-dashboard-table-state.mjs",
       "scripts/test-keyword-dashboard-integration.mjs",
@@ -415,6 +416,7 @@ const proof = {
     verification: [
       "npm run prototype:table-state:test",
       "npm run prototype:keyword-dashboard:test",
+      "node scripts/test-capability-audit-ui.mjs",
     ],
   },
   contract: {
@@ -434,6 +436,7 @@ const proof = {
       "scripts/seo-action-queue.mjs",
       "scripts/test-keyword-dashboard-api.mjs",
       "scripts/test-keyword-dashboard-mcp.mjs",
+      "scripts/test-capability-audit-api.mjs",
       "scripts/test-keyword-expansion-lineage-api.mjs",
     ],
     verification: [

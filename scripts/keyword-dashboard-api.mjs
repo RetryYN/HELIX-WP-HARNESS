@@ -64,6 +64,15 @@ const publicContractDrift = JSON.parse(
     "utf8",
   ),
 );
+const capabilityCompletionAudit = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/prototypes/wp-ops-dashboard/seo-tool-a-capability-completion-audit.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
 
 const parseLimit = (value) => {
     if (value == null || String(value).trim() === "") return 25;
@@ -352,6 +361,14 @@ paths["/observed-ranked-keywords"] = {
     description:
       "Observed host, directory, and page to keyword reverse index within retained top-10 evidence only.",
     responses: { 200: { description: "Retained evidence" } },
+  },
+};
+paths["/capability-audit"] = {
+  get: {
+    operationId: "helix_capability_audit",
+    description:
+      "Cross-capability completion audit for all retained SEO-tool-A feature surfaces, including evidence integrity and explicit remaining gaps.",
+    responses: { 200: { description: "Capability completion audit" } },
   },
 };
 const openapi = {
@@ -1351,6 +1368,75 @@ export function routeResearchApi(pathname, url, data, db = null) {
         projection_state: state ?? "all",
         decision_state: use ?? "all",
       },
+    });
+  }
+  if (pathname === "/api/v1/capability-audit") {
+    const requestedView = url.searchParams.get("view"),
+      view = ["capabilities", "integrity", "credits", "summary"].includes(
+        requestedView,
+      )
+        ? requestedView
+        : "capabilities",
+      q = norm(url.searchParams.get("q")),
+      status = url.searchParams.get("status") ?? url.searchParams.get("parity_status"),
+      helixStatus = url.searchParams.get("helix_status"),
+      blocker = url.searchParams.get("blocker") ?? url.searchParams.get("blocker_class"),
+      evidenceState = url.searchParams.get("evidence_state"),
+      capabilityRows = capabilityCompletionAudit.capabilities.filter((row) => {
+        const haystack = norm(
+          `${row.capability_id} ${row.name} ${row.parity_status} ${row.helix_status} ${row.completion_evidence_state} ${row.blocker_classes.join(" ")} ${row.remaining_gap} ${row.authoritative_evidence.join(" ")}`,
+        );
+        return (
+          (!status || status === "all" || row.parity_status === status) &&
+          (!helixStatus || helixStatus === "all" || row.helix_status === helixStatus) &&
+          (!blocker || blocker === "all" || row.blocker_classes.includes(blocker)) &&
+          (!evidenceState || evidenceState === "all" || row.completion_evidence_state === evidenceState) &&
+          (!q || haystack.includes(q))
+        );
+      }),
+      creditRows = [
+        ...(capabilityCompletionAudit.public_contract_credits?.rows ?? []),
+        ...(capabilityCompletionAudit.public_contract_credits?.dynamic_rows ?? []),
+      ],
+      rows =
+        view === "integrity"
+          ? capabilityRows.map(({ capability_id, name, parity_status, evidence_integrity, evidence_digest }) => ({
+              capability_id,
+              name,
+              parity_status,
+              evidence_integrity,
+              evidence_digest,
+            }))
+          : view === "credits"
+            ? creditRows.filter((row) => !q || norm(JSON.stringify(row)).includes(q))
+            : view === "summary"
+              ? []
+              : capabilityRows;
+    return ok({
+      ...page(rows, url),
+      view,
+      summary: {
+        ...capabilityCompletionAudit.summary,
+        filtered_count: view === "credits" ? rows.length : capabilityRows.length,
+      },
+      completion_claim: capabilityCompletionAudit.completion_claim,
+      evidence_cutoff: capabilityCompletionAudit.evidence_cutoff,
+      inventory_digest: capabilityCompletionAudit.inventory_digest,
+      audit_digest: capabilityCompletionAudit.audit_digest,
+      proof_attestation: capabilityCompletionAudit.proof_attestation,
+      public_contract_credits: capabilityCompletionAudit.public_contract_credits,
+      policy: capabilityCompletionAudit.schema_version,
+      filters: {
+        q: url.searchParams.get("q") ?? "",
+        status: status ?? "all",
+        helix_status: helixStatus ?? "all",
+        blocker: blocker ?? "all",
+        evidence_state: evidenceState ?? "all",
+      },
+      retained_evidence_only: true,
+      external_request_executed: false,
+      model_execution_triggered: false,
+      paid_execution_triggered: false,
     });
   }
   if (pathname === "/api/v1/openapi.json")

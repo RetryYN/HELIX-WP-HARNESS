@@ -42,6 +42,7 @@
       <button class="tab" data-view="competitor-domains">競合ドメイン</button>
       <button class="tab" data-view="aio-citations">AIO引用</button>
       <button class="tab" data-view="acquisition-health">取得状態</button>
+      <button class="tab" data-view="capability-audit">全機能監査</button>
       <button class="tab" data-view="action-queue">SEO実行キュー</button>
       <button class="tab" data-view="market-data">市場データ</button>
       <button class="tab" data-view="site-portfolio">サイト比較</button>
@@ -2290,6 +2291,44 @@
         </div>
       </section>
 
+      <section id="capability-audit" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>全機能・証拠境界監査</h2>
+            <p>35機能を完成判定・残存blocker・証拠整合性で横断確認します。未証明の内部実装・自動取得・自動公開は完成扱いしません</p>
+          </div>
+          <div class="filters">
+            <input id="capability-audit-search" type="search" placeholder="機能・gap・証拠を検索" aria-label="全機能監査検索" />
+            <select id="capability-audit-status" aria-label="完成状態で絞り込み">
+              <option value="all">全状態</option>
+              <option value="proven_complete">完成証明済み</option>
+              <option value="incomplete">未完成・未証明</option>
+            </select>
+            <select id="capability-audit-blocker" aria-label="blockerで絞り込み">
+              <option value="all">全blocker</option>
+              <option value="corpus_or_acquisition_depth">corpus / 取得深度</option>
+              <option value="external_provider_or_account_data">外部provider / account</option>
+              <option value="generation_runtime_or_quality_oracle">生成runtime / quality</option>
+              <option value="contract_or_auth_parity">契約 / auth parity</option>
+            </select>
+            <select id="capability-audit-view" aria-label="監査表示">
+              <option value="capabilities">機能一覧</option>
+              <option value="integrity">証拠整合性</option>
+              <option value="credits">credit契約</option>
+            </select>
+          </div>
+        </div>
+        <div id="capability-audit-metrics" class="metrics"></div>
+        <div id="capability-audit-status-message" class="notice" role="status"></div>
+        <div class="table-wrap">
+          <table id="capability-audit-table">
+            <thead id="capability-audit-head"></thead>
+            <tbody id="capability-audit-rows"></tbody>
+          </table>
+          <div id="capability-audit-empty" class="empty-state"></div>
+        </div>
+      </section>
+
       <section id="observed-hashtags" class="view">
         <div class="toolbar table-toolbar">
           <div>
@@ -2770,5 +2809,6 @@
     <script type="module" src="latent-demand-traversal.js"></script>
     <script type="module" src="demand-payload-retention.js"></script>
     <script type="module" src="observed-hashtags.js"></script>
+    <script type="module" src="capability-audit.js"></script>
   </body>
 </html>
