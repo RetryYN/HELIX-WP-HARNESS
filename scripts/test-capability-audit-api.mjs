@@ -44,7 +44,9 @@ assert(credits.body.meta.total > 0);
 assert.equal(credits.body.public_contract_credits.paid_request_executed, false);
 
 const freshness = request("view=freshness&limit=100");
-assert.equal(freshness.body.meta.total, 4);
+assert.equal(freshness.body.meta.total, 24);
+assert.equal(freshness.body.summary.update_count, 24);
+assert.equal(freshness.body.summary.context_update_count, 23);
 assert.equal(freshness.body.summary.post_cutoff_update_count, 1);
 assert.equal(freshness.body.summary.reaudit_required, true);
 assert.deepEqual(freshness.body.summary.affected_capability_ids, ["mcp"]);
@@ -52,9 +54,9 @@ assert.equal(freshness.body.public_update_history.checked_at, "2026-09-04");
 
 const crosswalk = request("view=crosswalk&limit=100");
 assert.equal(crosswalk.status, 200);
-assert.equal(crosswalk.body.meta.total, 47);
+assert.equal(crosswalk.body.meta.total, 58);
 assert.equal(crosswalk.body.summary.function_surface_count, 34);
-assert.equal(crosswalk.body.summary.update_surface_count, 13);
+assert.equal(crosswalk.body.summary.update_surface_count, 24);
 assert.equal(crosswalk.body.summary.unmapped_function_surface_count, 0);
 assert.equal(crosswalk.body.summary.unmapped_update_surface_count, 0);
 assert.equal(crosswalk.body.summary.coverage_complete, true);
@@ -96,7 +98,7 @@ const mcpFreshness = handleMcpMessage(
   null,
 ).result;
 assert.equal(mcpFreshness.isError, false);
-assert.equal(mcpFreshness.structuredContent.meta.total, 4);
+assert.equal(mcpFreshness.structuredContent.meta.total, 24);
 assert.equal(mcpFreshness.structuredContent.summary.reaudit_required, true);
 const mcpCrosswalk = handleMcpMessage(
   {
@@ -111,7 +113,7 @@ const mcpCrosswalk = handleMcpMessage(
   null,
 ).result;
 assert.equal(mcpCrosswalk.isError, false);
-assert.equal(mcpCrosswalk.structuredContent.meta.total, 47);
+assert.equal(mcpCrosswalk.structuredContent.meta.total, 58);
 assert.equal(mcpCrosswalk.structuredContent.summary.coverage_complete, true);
 
 console.log(
