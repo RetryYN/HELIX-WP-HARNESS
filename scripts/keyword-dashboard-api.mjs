@@ -487,7 +487,7 @@ paths["/serp-field-lineage"] = {
   get: {
     operationId: "helix_serp_field_lineage",
     description:
-      "Every non-empty primitive raw SERP field path with projection state and a source-verified decision consumer when one exists.",
+      "Every observed primitive raw SERP field path with projection state, value-state counts (non-empty, empty, null, zero, false), and a source-verified decision consumer when one exists.",
     "x-seo-tool-a-operation-ids": [],
     responses: { 200: { description: "Retained field and consumer lineage" } },
   },
@@ -1389,23 +1389,35 @@ export function routeResearchApi(pathname, url, data, db = null) {
   if (pathname === "/api/v1/serp-field-lineage") {
     const audit = data.serp_field_lineage;
     if (!audit) return bad(503, "SERP field lineage audit is unavailable");
-    const query = norm(url.searchParams.get("q")),
+    const view = url.searchParams.get("view") === "states" ? "states" : "fields",
+      valueState = url.searchParams.get("value_state"),
+      query = norm(url.searchParams.get("q")),
       state = url.searchParams.get("projection_state"),
-      use = url.searchParams.get("decision_state"),
-      rows = audit.raw_leaf_fields.filter(
+      use = url.searchParams.get("decision_state");
+    if (valueState && valueState !== "all" && !["nonempty", "empty", "null", "zero", "false"].includes(valueState))
+      return bad(400, "value_state must be one of nonempty, empty, null, zero, false");
+    const source = view === "states" ? audit.raw_leaf_states ?? [] : audit.raw_leaf_fields,
+      rows = source.filter(
         (row) =>
           (!query || norm(row.field).includes(query)) &&
-          (!state || state === "all" || row.projection_state === state) &&
-          (!use || use === "all" || row.decision_state === use),
+          (view === "states" || !state || state === "all" || row.projection_state === state) &&
+          (view === "states" || !use || use === "all" || row.decision_state === use) &&
+          (!valueState || valueState === "all" || Number(row.state_counts?.[valueState] ?? 0) > 0),
       );
     return ok({
       ...page(rows, url),
-      summary: audit.raw_leaf_field_summary,
+      summary: {
+        ...audit.raw_leaf_field_summary,
+        value_state: audit.raw_leaf_state_summary ?? null,
+        filtered_state_count: view === "states" ? rows.length : undefined,
+      },
       schema_version: audit.schema_version,
       filters: {
         q: url.searchParams.get("q") ?? "",
+        view,
         projection_state: state ?? "all",
         decision_state: use ?? "all",
+        value_state: valueState ?? "all",
       },
     });
   }

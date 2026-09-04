@@ -20,8 +20,8 @@
     }
   },
   "evidence_integrity_catalog": {
-    "artifact_count": 124,
-    "verification_command_count": 129,
+    "artifact_count": 127,
+    "verification_command_count": 131,
     "artifacts": [
       {
         "path": "docs/prototypes/wp-ops-dashboard/app.js",
@@ -56,7 +56,7 @@
       {
         "path": "docs/prototypes/wp-ops-dashboard/index.html",
         "exists": true,
-        "sha256": "4e3936ba659b48a47ab949060b29364862fe9897c42ddaba0e0b9793986c6dab"
+        "sha256": "42baa55e4f2a091e602dbe11486be866b21ca3aca236f72e956c9f87bb5509db"
       },
       {
         "path": "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
@@ -94,9 +94,19 @@
         "sha256": "848a1f4af467e8eb6b647042c3a5a7f4953b87dad5693ea497c944ab7103cc02"
       },
       {
+        "path": "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json",
+        "exists": true,
+        "sha256": "5d4c218cfb6c4fe8dae34eeac39916216e37d311077db1839409f639a1f6a22c"
+      },
+      {
         "path": "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "exists": true,
         "sha256": "d5c4eecbeebf07279a164a11472895b7fee926b77f78cdd5f3af2e065fa3aeb2"
+      },
+      {
+        "path": "docs/prototypes/wp-ops-dashboard/serp-field-state-audit.js",
+        "exists": true,
+        "sha256": "978e9f62c8b2a19050179851b76f47e020920b7e20360a4401e4e54296998294"
       },
       {
         "path": "docs/prototypes/wp-ops-dashboard/suggest-expansion-logic.js",
@@ -211,7 +221,7 @@
       {
         "path": "scripts/audit-serp-data-coverage.mjs",
         "exists": true,
-        "sha256": "e21a57b7cb8707096bc964fcc86044c4b6b7f59f3d065b1d89d5b2e82e320ebc"
+        "sha256": "d62aa7fb69000182457548447c50e9ba08b1cbddc69bc1a10e20148140570308"
       },
       {
         "path": "scripts/claim-discovery-portfolio.mjs",
@@ -376,7 +386,7 @@
       {
         "path": "scripts/keyword-dashboard-api.mjs",
         "exists": true,
-        "sha256": "c1bbd6a212624768377afbbca52d85559b904842fbd1a31c43a7c53ff58a4824"
+        "sha256": "8d2c3e5837b0c25f9a569215c00138e6eedbcc0a08172251f437a2c3f9e86dac"
       },
       {
         "path": "scripts/keyword-dashboard-db.mjs",
@@ -386,7 +396,7 @@
       {
         "path": "scripts/keyword-dashboard-mcp.mjs",
         "exists": true,
-        "sha256": "d250c3a5f2eef667412a42ac85088b2bb0b00365e64da123fa35ee9b6e84af5d"
+        "sha256": "133028969c7909e0dd38cae4ffd035200bd2e2d2f419935cdac0fc019a5729bb"
       },
       {
         "path": "scripts/keyword-expansion-lineage.mjs",
@@ -622,6 +632,11 @@
         "path": "scripts/test-serp-depth-inventory.mjs",
         "exists": true,
         "sha256": "e13cb182d4281089611037d0dd56080a8456ead36ba986b38cd573400eedc2d4"
+      },
+      {
+        "path": "scripts/test-serp-field-state-ui.mjs",
+        "exists": true,
+        "sha256": "a785c308f5a7abdc0dd5e1aee3c6a5fed63241795e01336758732ac5d3e1b29a"
       },
       {
         "path": "scripts/test-suggest-expansion-logic.mjs",
@@ -1329,7 +1344,21 @@
         "resolution_kind": "node_script",
         "target": "scripts/test-serp-data-coverage.mjs",
         "resolved": true,
-        "target_sha256": "03b548ce496967dbc3a288dee0e1efbc4a840bb3863025983e7ac9b175d8de52"
+        "target_sha256": "2318ea702a7083b60694382987d0f5ca423e4873e5f737ecfc8c5b667727c905"
+      },
+      {
+        "command": "node scripts/test-serp-field-lineage-api.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-serp-field-lineage-api.mjs",
+        "resolved": true,
+        "target_sha256": "c57685a1d8ec422a0829531342ca249643edfc5d5d0aaa8e5cde1dff4a9b0637"
+      },
+      {
+        "command": "node scripts/test-serp-field-state-ui.mjs",
+        "resolution_kind": "node_script",
+        "target": "scripts/test-serp-field-state-ui.mjs",
+        "resolved": true,
+        "target_sha256": "a785c308f5a7abdc0dd5e1aee3c6a5fed63241795e01336758732ac5d3e1b29a"
       },
       {
         "command": "node scripts/test-simultaneous-rank-integrity.mjs",
@@ -1462,7 +1491,7 @@
         "resolution_kind": "package_script",
         "target": "prototype:keyword-dashboard:test",
         "resolved": true,
-        "definition_sha256": "3e26cbaff554787307e2fabbce0a88d45cb400ee2e30de565988f163a5ff04eb"
+        "definition_sha256": "610596702c4672fe4a298be65c663644dfeb8ba5c3b3cd83d151a9297aa9d733"
       },
       {
         "command": "npm run prototype:mcp:test",
@@ -1549,7 +1578,7 @@
         "definition_sha256": "cd41056c3e6b8bd65740903e7947d5a770f6ef2274fefaa870380ed97a97fdc5"
       }
     ],
-    "catalog_digest": "9a88b21aed260e071999d425efcdfa77e334c214a595927e2c60b23d9cc0e2f6"
+    "catalog_digest": "5cd1b5ba2dce1d9b6990c55302bdb9af17c80540ae8a3b3fcfd9c1d518066862"
   },
   "proof_attestation": {
     "receipt_present": true,
@@ -1557,8 +1586,8 @@
     "inventory_digest_matches": true,
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
-    "unique_command_count": 18,
-    "receipt_digest": "c06ad293b3786ed8bb268e036bb4c52968d72145a88fcceb064dda80e0b7adf7",
+    "unique_command_count": 19,
+    "receipt_digest": "5b3bd17866fec314e546e81d58d48d9da190726a90d9f4a4c3622020e1d6548a",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -2679,11 +2708,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "4b1ecb7dedbe4b273ea141ede77bc638fc49573adc9c7df3550ea135af564685",
-        "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
+        "artifact_set_digest": "648d909945dad6eeb858efb885a2de419bf7f8676c80cd5174c44fe2574e9da7",
+        "command_set_digest": "c0fbb88a09a3992c5a9b2594e244ae716e32bab78d89565ee0b73487427faaa9",
         "attestation_digest": null
       },
-      "evidence_digest": "e7b33c2560d0953b3c2f7b76a325f6bc90ae3151ba6091b657ea8321dc4c6316"
+      "evidence_digest": "56ea7fbe94c4c58f7a29630f4e02cd4ff1a55ae0eb25b03ce62ae97c32ea8909"
     },
     {
       "capability_id": "related_keywords",
@@ -2744,11 +2773,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "4b1ecb7dedbe4b273ea141ede77bc638fc49573adc9c7df3550ea135af564685",
-        "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
+        "artifact_set_digest": "648d909945dad6eeb858efb885a2de419bf7f8676c80cd5174c44fe2574e9da7",
+        "command_set_digest": "c0fbb88a09a3992c5a9b2594e244ae716e32bab78d89565ee0b73487427faaa9",
         "attestation_digest": null
       },
-      "evidence_digest": "04bade843fd32fa6d43f78624977229aeb5801cc1bf69ce33a0001da8447575f"
+      "evidence_digest": "0166f510e258427afb17af64846fd97d169364ce2a01daee8944fbdd92434696"
     },
     {
       "capability_id": "question_search",
@@ -2789,7 +2818,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -2829,20 +2859,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "5c83c7e51a436397a731362bc6a460192a0335dbbe225786076c5376a82d7bc6"
+      "evidence_digest": "4837aca900cc6a5f32731d56892188fc77919baf100976a6a74af0273c8dde18"
     },
     {
       "capability_id": "lsi_paa",
@@ -2883,7 +2914,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -2923,20 +2955,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "2dc923826584c30f7f4bf9c1dccb7826bb424178d4da8f0089846815ecb5002c"
+      "evidence_digest": "b1e48013b91196cba37d1056cc8da28e619f417ffa5bebc575d08bfb06a783d8"
     },
     {
       "capability_id": "simultaneous_ranking",
@@ -2977,7 +3010,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3017,20 +3051,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "d7605a3280d9f341f12a903d0145b34c3e638b4ae6dd4519aba8a7d30eb50ebc"
+      "evidence_digest": "3187bac1b80cdcc478584f3314e73e7d138fa44d290e478187a1867d44900a5f"
     },
     {
       "capability_id": "bulk_keyword_research",
@@ -3071,7 +3106,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3111,20 +3147,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "74392478ac70738673a285492ee0ae0be162d99e6fc97b511988948d8bc2e12d"
+      "evidence_digest": "ace627d3042806ce05260f86eea376724526a73d34cc0880e0000525133d5189"
     },
     {
       "capability_id": "seo_difficulty",
@@ -3167,7 +3204,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-seo-difficulty-contract.mjs",
@@ -3209,20 +3247,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 31,
+        "artifact_count": 32,
         "missing_artifact_count": 0,
-        "verification_command_count": 40,
+        "verification_command_count": 41,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "986ef9168e53498e9b6311ce33950f232f597e2c10f7d305ed81e37ad4871298",
-        "command_set_digest": "5d1d87f5247122a48f8916a9859e9fc91d45557f53984c0e3af579e811ab2935",
+        "artifact_set_digest": "bbb4876a03f41f90eeb4d8384a432efe209fc1183bb27120e9d205009c390ba4",
+        "command_set_digest": "7165369256ce79b36f00ac78016999dbdcdcf342aaae3934089b2368c54cb025",
         "attestation_digest": null
       },
-      "evidence_digest": "0897bf15315837ba9b2a36b86da10d99356fbf7ac0fcfbc5e9346901239fee7a"
+      "evidence_digest": "4177a8bc88fd46147db52fdcefda5bd44557d7eb1e88a22413259dc6df5f1855"
     },
     {
       "capability_id": "influx_keywords",
@@ -3263,7 +3302,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3303,20 +3343,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "e268202105b7a6c01c78298d7b66c94663f340298680e518291bc7f9a1ab6672"
+      "evidence_digest": "5e2a79bea2a7bbef7b5c431bc08e4d8eed241eafdf1ac0970952174f099ea80c"
     },
     {
       "capability_id": "influx_pages",
@@ -3357,7 +3398,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3397,20 +3439,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "b08a2c273762c8a762e6c1fa9d3d4bf6fa383d73a5506ab65e46bd5613542ca6"
+      "evidence_digest": "2eaa1a87fb9ee278d8f912af0c435471faf5be10c6ee2c8c7f6487c1172cfc90"
     },
     {
       "capability_id": "competitive_domains",
@@ -3451,7 +3494,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3491,20 +3535,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "fe1c2da339310383f73029a1615899efe1714aecc6d8d3cefcf7f220c04bb967"
+      "evidence_digest": "8a61890472207b05e7f10184e3e11f3af3b6c65de82bd01dc13b5e31b9f46e2b"
     },
     {
       "capability_id": "bulk_site_research",
@@ -3532,11 +3577,11 @@
         "verification_command_count": 2,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "56118aa87a5094dcdaada5a67d62558d074db4b0dbd6c5431da19875599f3e15",
-        "command_set_digest": "30a469bca90f670713477299a9dfd5702fa697bf236d9a47fcbdfb87e2d0cdb0",
+        "artifact_set_digest": "d5a67939f4bddfbc854a926c6dadf739a2dd2b765ddb5b853160a896e46d6c32",
+        "command_set_digest": "30d0590c13e4b3fe2bc79d0e65a6c4abeb23506963f7ccf160d79eccbcd0d8f2",
         "attestation_digest": null
       },
-      "evidence_digest": "712634de26a3e6b29ff111dfab84531e49aa10ee787ca0b945b37ba07240a388"
+      "evidence_digest": "f7c282f93d60490f761410470eb7ea25f05a172bb0acd4e1c50eda31d3e2ce65"
     },
     {
       "capability_id": "site_search",
@@ -3564,11 +3609,11 @@
         "verification_command_count": 2,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "56118aa87a5094dcdaada5a67d62558d074db4b0dbd6c5431da19875599f3e15",
-        "command_set_digest": "30a469bca90f670713477299a9dfd5702fa697bf236d9a47fcbdfb87e2d0cdb0",
+        "artifact_set_digest": "d5a67939f4bddfbc854a926c6dadf739a2dd2b765ddb5b853160a896e46d6c32",
+        "command_set_digest": "30d0590c13e4b3fe2bc79d0e65a6c4abeb23506963f7ccf160d79eccbcd0d8f2",
         "attestation_digest": null
       },
-      "evidence_digest": "bc11ba674640d82ff301430908e7a0cb69c41d8eaf09fd23221f7979e748a261"
+      "evidence_digest": "67463f89a1a679047c7a95c20dcfffe86ec2df6a2f32bfc8ed54d5805a48ce40"
     },
     {
       "capability_id": "content_search",
@@ -3609,7 +3654,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3649,20 +3695,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "9c9773e843957bda570a3dd70a3e4eede8706a6f3a85c1a8d6d7faafad160efe"
+      "evidence_digest": "f5c21c2cfb2019fa3bdb0e1ffa3ca8895c71336eacf21782cffbd6b2edd5f1a5"
     },
     {
       "capability_id": "search_rank",
@@ -3703,7 +3750,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3743,20 +3791,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "a0b752ebc633b3330c15ffcc17f843e0341e8642b3c7699c57bc5cb4d6184cd0"
+      "evidence_digest": "a11a84cfd02f2b887316f2f3bc605533b62806f914c4c27a76538f254278cce3"
     },
     {
       "capability_id": "headline",
@@ -3797,7 +3846,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3837,20 +3887,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "cb028a14beb2d62cb95a3ba593105e456d92f362eda5193a8341e0fa226372f8"
+      "evidence_digest": "5d63159d7efc8839bfe1483aca4bd90205a5d140df4a57711b6469e4902067f0"
     },
     {
       "capability_id": "cooccurrence",
@@ -3891,7 +3942,8 @@
         "scripts/test-serp-depth-inventory-ui.mjs",
         "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
         "scripts/test-keyword-dashboard-integration.mjs",
-        "scripts/audit-serp-data-coverage.mjs"
+        "scripts/audit-serp-data-coverage.mjs",
+        "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json"
       ],
       "verification_commands": [
         "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -3931,20 +3983,21 @@
         "npm run prototype:serp-depth-inventory:test",
         "npm run prototype:serp-depth-inventory:api:test",
         "npm run prototype:serp-depth-inventory:ui:test",
-        "node scripts/test-serp-data-coverage.mjs"
+        "node scripts/test-serp-data-coverage.mjs",
+        "node scripts/test-serp-field-lineage-api.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 29,
+        "artifact_count": 30,
         "missing_artifact_count": 0,
-        "verification_command_count": 38,
+        "verification_command_count": 39,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "e7337ff5b4d0c0f7c81145f75626ad067bf5c88d197673b6e63c1871dd55e116",
-        "command_set_digest": "802a5103065571da4dc05e15b4b1ce39a596825face7dc5c64ef776c101dbf2b",
+        "artifact_set_digest": "aeac41fd8d4f72639b89f54cf0d43b810059fb57b500de739938679ae6fd4dcc",
+        "command_set_digest": "6752d76d60a3b50524490136d8bac72bdb7f1c8a97aec539673820b196491962",
         "attestation_digest": null
       },
-      "evidence_digest": "22be11686693f94c76c2bfd8273fb3d9b39779d86297ebaedebe16dee48cf9a8"
+      "evidence_digest": "b82e1dd245d1941f8535df3ba87c05a10ff62c8150d214ec65f625ebd471781c"
     },
     {
       "capability_id": "ai_keyword_proposal",
@@ -4056,10 +4109,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "e5f77483fc499e566b7987a327dc5088f2731f2fb9512c13a728272418d6ab31",
-        "command_set_digest": "1d9a01e6218369c3f79fa87d46a9325364f2fa449b1d9bc45bbcfd849a580844",
+        "command_set_digest": "c465c3f645e5fd9ca6562947d45ce06a75c80d4109990c01ecec617534da51eb",
         "attestation_digest": null
       },
-      "evidence_digest": "338fc5da799a9f3a1d0fd2cf7a5d0c74b30b195bbb035e524045631c51f5448e"
+      "evidence_digest": "49baef964c704cf4fae5018b36fb25616de5876b36f5a609cec71a526724a1ed"
     },
     {
       "capability_id": "ai_title",
@@ -4171,10 +4224,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "e5f77483fc499e566b7987a327dc5088f2731f2fb9512c13a728272418d6ab31",
-        "command_set_digest": "1d9a01e6218369c3f79fa87d46a9325364f2fa449b1d9bc45bbcfd849a580844",
+        "command_set_digest": "c465c3f645e5fd9ca6562947d45ce06a75c80d4109990c01ecec617534da51eb",
         "attestation_digest": null
       },
-      "evidence_digest": "aa781c4c76c4c73e417b8dd2b73915918115d3bf8d5f68fe0f647e5a2d59cc5a"
+      "evidence_digest": "9100cf9d1652b48f759747524d2316b5c60d2b64636ac186a7f5ac72ef39a773"
     },
     {
       "capability_id": "ai_heading",
@@ -4286,10 +4339,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "e5f77483fc499e566b7987a327dc5088f2731f2fb9512c13a728272418d6ab31",
-        "command_set_digest": "1d9a01e6218369c3f79fa87d46a9325364f2fa449b1d9bc45bbcfd849a580844",
+        "command_set_digest": "c465c3f645e5fd9ca6562947d45ce06a75c80d4109990c01ecec617534da51eb",
         "attestation_digest": null
       },
-      "evidence_digest": "9721ad5eaa722e4b1d58dbf1290e631eb4bc0efc5c06ce74127ea3acfd946fc9"
+      "evidence_digest": "b232fd8852251eeb1e701e22e1d81733a3fddb93f7c44bbf2274c583cd0a2be9"
     },
     {
       "capability_id": "ai_body",
@@ -4401,10 +4454,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "e5f77483fc499e566b7987a327dc5088f2731f2fb9512c13a728272418d6ab31",
-        "command_set_digest": "1d9a01e6218369c3f79fa87d46a9325364f2fa449b1d9bc45bbcfd849a580844",
+        "command_set_digest": "c465c3f645e5fd9ca6562947d45ce06a75c80d4109990c01ecec617534da51eb",
         "attestation_digest": null
       },
-      "evidence_digest": "f8432bba97ad03d5bac7f5a6b7e399877997f4883a336eb8f5087df581a87099"
+      "evidence_digest": "e13018d589dc26cbe7c3e62dd07e7d85fc8d364abcadd0fb10640b76d989df4f"
     },
     {
       "capability_id": "ai_questions",
@@ -4516,10 +4569,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "e5f77483fc499e566b7987a327dc5088f2731f2fb9512c13a728272418d6ab31",
-        "command_set_digest": "1d9a01e6218369c3f79fa87d46a9325364f2fa449b1d9bc45bbcfd849a580844",
+        "command_set_digest": "c465c3f645e5fd9ca6562947d45ce06a75c80d4109990c01ecec617534da51eb",
         "attestation_digest": null
       },
-      "evidence_digest": "dbc9c4e0608ba46f75a608cbcdd945e1acde788fe78327475e0c487a6b187f17"
+      "evidence_digest": "d1d47f9c50eccb1b8862b86514b67f8046278416c32a8cfe7d3efe168cd293c9"
     },
     {
       "capability_id": "ai_related_keywords",
@@ -4631,10 +4684,10 @@
         "unresolved_command_count": 0,
         "execution_attested": false,
         "artifact_set_digest": "e5f77483fc499e566b7987a327dc5088f2731f2fb9512c13a728272418d6ab31",
-        "command_set_digest": "1d9a01e6218369c3f79fa87d46a9325364f2fa449b1d9bc45bbcfd849a580844",
+        "command_set_digest": "c465c3f645e5fd9ca6562947d45ce06a75c80d4109990c01ecec617534da51eb",
         "attestation_digest": null
       },
-      "evidence_digest": "1e31279c180400fa27f057de92afd68067cd218279fb4691dfb50e019dba98d3"
+      "evidence_digest": "8d3e9251847ad7ae93ba7fb4f225f04452a6fd84a00e69d566ef0c0c14a7a859"
     },
     {
       "capability_id": "hashtags",
@@ -4741,11 +4794,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "4b1ecb7dedbe4b273ea141ede77bc638fc49573adc9c7df3550ea135af564685",
-        "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "bcb976f818a7f1919b876105c5b706d75f0e5e1c5f679679f7c57e76c91a6b8d"
+        "artifact_set_digest": "648d909945dad6eeb858efb885a2de419bf7f8676c80cd5174c44fe2574e9da7",
+        "command_set_digest": "c0fbb88a09a3992c5a9b2594e244ae716e32bab78d89565ee0b73487427faaa9",
+        "attestation_digest": "135f6f443a147f32388da8cba2bcad112e935dd154b90a014b672a62dcb73a79"
       },
-      "evidence_digest": "9f3c33ed4d26a73e0f64582c37e3ac31d76c3a8ea0e06e63b3a3a090fe047d75"
+      "evidence_digest": "9db70a83745a00efd69236f96ca82d4682326541aeb3f3651cf7ee0b6cd9d4dc"
     },
     {
       "capability_id": "associations",
@@ -4804,11 +4857,11 @@
         "verification_command_count": 16,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "4b1ecb7dedbe4b273ea141ede77bc638fc49573adc9c7df3550ea135af564685",
-        "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "cc444cbe552b9c9838f95ed622cd09babd41141ddd924758a359b58276ce8e38"
+        "artifact_set_digest": "648d909945dad6eeb858efb885a2de419bf7f8676c80cd5174c44fe2574e9da7",
+        "command_set_digest": "c0fbb88a09a3992c5a9b2594e244ae716e32bab78d89565ee0b73487427faaa9",
+        "attestation_digest": "fadd40975700682b8747fe16488986a58af8c7c1b7ea16cba730f5d2b0c10cf7"
       },
-      "evidence_digest": "8aa01e0eedff15adb9cd756b60f899f9e654fc40bdfc048e5745eeaad3ecd25c"
+      "evidence_digest": "a19a596b67b912d21e4e5f26dd80e287ec387901df6f8b15daa3ce7225634b9b"
     },
     {
       "capability_id": "qa_sites",
@@ -4844,11 +4897,11 @@
         "verification_command_count": 5,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "7cc48d32197ea75f7efcffe0fd17a40b30c1cc8208961d607e1bbf6848b005f6",
-        "command_set_digest": "2ee0a166290f1a67cc0e4146935afd6fee63dca3284cd27911927b7c6d67b525",
+        "artifact_set_digest": "b9009a77af7c8bffdc0107a233dcbc0f5e29fd85c61569694f75ea5e2ffe01ba",
+        "command_set_digest": "c504c78f2aada3659c963f08b9987d8aadff34de07117c9a9a1eea42c4d6d1cd",
         "attestation_digest": null
       },
-      "evidence_digest": "9b985f369f200edd4f2d31cb7969cd33489674b81742d8335767074abd9c123f"
+      "evidence_digest": "2c060d2df2bd14f1e5cfd525ecdac36751460118bc32c3657ed7259d6d85d619"
     },
     {
       "capability_id": "google_trends",
@@ -4964,27 +5017,30 @@
         "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
         "docs/prototypes/wp-ops-dashboard/suggest-expansion-logic.js",
         "docs/prototypes/wp-ops-dashboard/capability-audit.js",
+        "docs/prototypes/wp-ops-dashboard/serp-field-state-audit.js",
         "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
         "scripts/test-dashboard-table-state.mjs",
-        "scripts/test-keyword-dashboard-integration.mjs"
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/test-serp-field-state-ui.mjs"
       ],
       "verification_commands": [
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test",
-        "node scripts/test-capability-audit-ui.mjs"
+        "node scripts/test-capability-audit-ui.mjs",
+        "node scripts/test-serp-field-state-ui.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 12,
+        "artifact_count": 14,
         "missing_artifact_count": 0,
-        "verification_command_count": 3,
+        "verification_command_count": 4,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "c47dfd1aec650cf0f3ea54e7750cdbec4907ed75f9d11bf94b8fb7d1f2ce4de3",
-        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "2b0cc4f97a4f0950c2a918c027c3de6b76f9c85fb738de0702e6c4cf99e849fa"
+        "artifact_set_digest": "da2c427efe072c24210323f1c2de0e2b4c551897a1b076805d8cefaa788ec024",
+        "command_set_digest": "78edb631c405ed64eb5be195d64e7629622cdf0027bd6672e6105ab92b2712e3",
+        "attestation_digest": "4e5c4a3d67c78bbd7dc360bdd02454fd660e1c80b9cfb182e2ce794b720e81ad"
       },
-      "evidence_digest": "6fbf8bd470a40f68ff3f65092ceabc4dc506448b4be6f470dcb95620407cb1e8"
+      "evidence_digest": "6da411ffa0e766b9d6e478f6eb826a337227fdbb8a263ef45bc972ad4e3c1223"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -5004,27 +5060,30 @@
         "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
         "docs/prototypes/wp-ops-dashboard/suggest-expansion-logic.js",
         "docs/prototypes/wp-ops-dashboard/capability-audit.js",
+        "docs/prototypes/wp-ops-dashboard/serp-field-state-audit.js",
         "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
         "scripts/test-dashboard-table-state.mjs",
-        "scripts/test-keyword-dashboard-integration.mjs"
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/test-serp-field-state-ui.mjs"
       ],
       "verification_commands": [
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test",
-        "node scripts/test-capability-audit-ui.mjs"
+        "node scripts/test-capability-audit-ui.mjs",
+        "node scripts/test-serp-field-state-ui.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 12,
+        "artifact_count": 14,
         "missing_artifact_count": 0,
-        "verification_command_count": 3,
+        "verification_command_count": 4,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "c47dfd1aec650cf0f3ea54e7750cdbec4907ed75f9d11bf94b8fb7d1f2ce4de3",
-        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "eb05cf1ba463015e5c90c421b10f9278e901a5f3910adc15e418ce8d259e884e"
+        "artifact_set_digest": "da2c427efe072c24210323f1c2de0e2b4c551897a1b076805d8cefaa788ec024",
+        "command_set_digest": "78edb631c405ed64eb5be195d64e7629622cdf0027bd6672e6105ab92b2712e3",
+        "attestation_digest": "e5d4eeae71d7134b9fe523b3dbec37db8459727fa6537ece8efb450be07e6eab"
       },
-      "evidence_digest": "0b21c38600f23467f7db08452fafda43e0046a4518b46e9ef8514834fdebef29"
+      "evidence_digest": "d2c8c1836597d03e75d4a52a6226949f899f0bf7e256049361fa14979e24aa55"
     },
     {
       "capability_id": "data_output",
@@ -5044,27 +5103,30 @@
         "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
         "docs/prototypes/wp-ops-dashboard/suggest-expansion-logic.js",
         "docs/prototypes/wp-ops-dashboard/capability-audit.js",
+        "docs/prototypes/wp-ops-dashboard/serp-field-state-audit.js",
         "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
         "scripts/test-dashboard-table-state.mjs",
-        "scripts/test-keyword-dashboard-integration.mjs"
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/test-serp-field-state-ui.mjs"
       ],
       "verification_commands": [
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test",
-        "node scripts/test-capability-audit-ui.mjs"
+        "node scripts/test-capability-audit-ui.mjs",
+        "node scripts/test-serp-field-state-ui.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 12,
+        "artifact_count": 14,
         "missing_artifact_count": 0,
-        "verification_command_count": 3,
+        "verification_command_count": 4,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "c47dfd1aec650cf0f3ea54e7750cdbec4907ed75f9d11bf94b8fb7d1f2ce4de3",
-        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "2500e44691fed52b12a2bbb85f8797b5081234dd4c8b4872faa6c32cdd06c131"
+        "artifact_set_digest": "da2c427efe072c24210323f1c2de0e2b4c551897a1b076805d8cefaa788ec024",
+        "command_set_digest": "78edb631c405ed64eb5be195d64e7629622cdf0027bd6672e6105ab92b2712e3",
+        "attestation_digest": "63201cf2f9722d478b25b3fbd213083bd101a21f8c3e7dc7cc33fa7aed8f2898"
       },
-      "evidence_digest": "556eeb67c6ea86325568d0b43f27588882e87051405a22064e6371249901eaf7"
+      "evidence_digest": "5b4cb57e3f4c0a8515ec89e9f31b46ba0e5d9ee41f214f65338643c2194f44d3"
     },
     {
       "capability_id": "bookmarklet",
@@ -5084,27 +5146,30 @@
         "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
         "docs/prototypes/wp-ops-dashboard/suggest-expansion-logic.js",
         "docs/prototypes/wp-ops-dashboard/capability-audit.js",
+        "docs/prototypes/wp-ops-dashboard/serp-field-state-audit.js",
         "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
         "scripts/test-dashboard-table-state.mjs",
-        "scripts/test-keyword-dashboard-integration.mjs"
+        "scripts/test-keyword-dashboard-integration.mjs",
+        "scripts/test-serp-field-state-ui.mjs"
       ],
       "verification_commands": [
         "npm run prototype:table-state:test",
         "npm run prototype:keyword-dashboard:test",
-        "node scripts/test-capability-audit-ui.mjs"
+        "node scripts/test-capability-audit-ui.mjs",
+        "node scripts/test-serp-field-state-ui.mjs"
       ],
       "evidence_integrity": {
         "state": "integrity_verified_execution_not_attested",
-        "artifact_count": 12,
+        "artifact_count": 14,
         "missing_artifact_count": 0,
-        "verification_command_count": 3,
+        "verification_command_count": 4,
         "unresolved_command_count": 0,
         "execution_attested": true,
-        "artifact_set_digest": "c47dfd1aec650cf0f3ea54e7750cdbec4907ed75f9d11bf94b8fb7d1f2ce4de3",
-        "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "0dc1426496de8f62d1d52a20775a5870700e27a6b6595579c1465aff9c176694"
+        "artifact_set_digest": "da2c427efe072c24210323f1c2de0e2b4c551897a1b076805d8cefaa788ec024",
+        "command_set_digest": "78edb631c405ed64eb5be195d64e7629622cdf0027bd6672e6105ab92b2712e3",
+        "attestation_digest": "42c65d7a4a29d8db915acd6e93a0b738b4d7c46a1dda60d30222e5289fd072a9"
       },
-      "evidence_digest": "bae674651f6db57ec6d9d130189a5e9a5131393ae99cd1fcacb2c09d2ba266a0"
+      "evidence_digest": "c1017a87c6eea782a11496e5a1b5583b2474bcde4ad6e7bcccb91bc85601a829"
     },
     {
       "capability_id": "public_api",
@@ -5161,11 +5226,11 @@
         "verification_command_count": 14,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "2828b64852b327955943fc8de149257086a040e7ff6a7ee89f87174dac977933",
+        "artifact_set_digest": "b884ef278ba48c2cc0835accb7bd759f4bb1bed48109df9ab7e71c753b7a97ff",
         "command_set_digest": "2e70b501b49e30d1068a99539b3ee3d1b67341fe8f997a7bc5c917963e9a3db3",
         "attestation_digest": null
       },
-      "evidence_digest": "931a76c2bf675f2ad13a464f3ae59e4155e4fc26d33fa418b596641748cbbcb8"
+      "evidence_digest": "5eb79f66324d226edc32e8d5836368d09e07958fe811f9c8dbae5b39ce8d8cc2"
     },
     {
       "capability_id": "mcp",
@@ -5222,11 +5287,11 @@
         "verification_command_count": 14,
         "unresolved_command_count": 0,
         "execution_attested": false,
-        "artifact_set_digest": "2828b64852b327955943fc8de149257086a040e7ff6a7ee89f87174dac977933",
+        "artifact_set_digest": "b884ef278ba48c2cc0835accb7bd759f4bb1bed48109df9ab7e71c753b7a97ff",
         "command_set_digest": "2e70b501b49e30d1068a99539b3ee3d1b67341fe8f997a7bc5c917963e9a3db3",
         "attestation_digest": null
       },
-      "evidence_digest": "5585c2921db632affc27077cde79d4b9c87b21d88df45fbd4e0a891e0e819806"
+      "evidence_digest": "ce6d087222990b256e1dadbcdb227591e412af963506f01ea6a1815d1247082b"
     },
     {
       "capability_id": "credit_history",
@@ -5277,5 +5342,5 @@
       "evidence_digest": "707f5379134df7f35045a860d13b66da488bcbb49957acd96ae380c6c67e1d66"
     }
   ],
-  "audit_digest": "909068c77566c048f8fa278d8572ac70cd1b06368c9c063b7485d203145c9232"
+  "audit_digest": "c0e5dad52f816c95b4deac670f2e87a7dac8e136d39282dc82128665fc2bf3b8"
 }

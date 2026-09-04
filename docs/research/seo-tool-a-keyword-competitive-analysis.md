@@ -1581,6 +1581,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - 2026-08-29の証拠カットオフ後はMCP利用プラン境界の更新1件が残るため、24更新面・crosswalkのcoverage_complete=trueでも `mapping_review_required=true` と `reaudit_required=true` を維持する。completion claimは6/35 proven、29/35 incompleteのまま変えない。
 - `GET /api/v1/capability-audit?view=crosswalk`、既存MCP `inspect_capability_completion_audit` の `view=crosswalk`、ダッシュボード「公開機能crosswalk」で、公開面・更新面・inventory対象・mapping状態・基準日後フラグを同じ証跡から確認できる。外部取得・認証・有料実行・モデル実行は0である。
 
+### 10.124 raw SERP value-state lineage（SERP audit v11 / existing API extension）
+
+- raw task・result・全SERP itemを再帰走査し、従来の非空primitive pathだけでなく、取得payload内で観測された `null`・空値・`0`・`false` をfield単位で別カウントした。空値は0件だったが、null 56 field / 16,921 observation、false 8 field / 6,103 observation、0 3 field / 3 observationを確認した。全体は242 observed field、52,613 observation（非空29,586）である。
+- 既存の非空leaf inventoryは195 field（投影195、raw-only 0、source検証済みconsumer 195）のまま保持し、`organic.description` のnull 10件、`organic.is_video` のfalse 995件、`result.spell` のnull 109件のように、値が返らなかった状態も捨てずに保存する。falseを「機能需要なし」、nullを「providerが未実装」とは解釈しない。
+- `GET /api/v1/serp-field-lineage?view=states&value_state=...` とMCP `audit_serp_field_lineage` へ `fields`／`states` viewと状態filterを追加し、ダッシュボード「SERP field value-state監査」から全242 fieldをページング表示する。payloadに存在しないfieldは観測状態に数えず、未取得・任意省略・今回の空値を混同しない境界を明記した。
+- これは取得済みrawの値状態を可視化する監査であり、未要求dataset、深度外SERP、providerが返していない回答本文、継続履歴、外部市場指標の取得完了を意味しない。外部通信・認証・有料実行・モデル実行・自動施策変更は0である。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
