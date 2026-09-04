@@ -99,6 +99,11 @@ export function buildGenerationQualityOracle({
       },
       semantic_coverage: {
         state: normalizedState(semantic?.review_state, "not_available"),
+        // This input measures mentions, not word sense or explanation quality.
+        measurement: "lexical_mention_coverage",
+        mention_matching: semantic?.mention_matching ?? "unknown",
+        semantic_coverage_verified: false,
+        substring_only_concepts: [...(semantic?.substring_only_concepts ?? [])],
         covered_concept_count: semantic?.covered_concept_count ?? null,
         review_concept_count: semantic?.review_concept_count ?? null,
         coverage_ratio: semantic?.coverage_ratio ?? null,

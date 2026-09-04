@@ -74,6 +74,9 @@ const oracle = buildGenerationQualityOracle({
       covered_concept_count: 1,
       review_concept_count: 2,
       coverage_ratio: 0.5,
+      mention_matching: "intl_word_boundaries_v1",
+      semantic_coverage_verified: false,
+      substring_only_concepts: ["ネット"],
       coverage_digest: "s".repeat(64),
     },
   ],
@@ -96,6 +99,19 @@ assert.equal(oracle.rows[0].review_state, "editor_review_required");
 assert.equal(oracle.rows[0].text, "SEO 基礎ガイド");
 assert.deepEqual(oracle.rows[0].evidence_ids, ["e1"]);
 assert.equal(oracle.rows[0].semantic_coverage.coverage_ratio, 0.5);
+assert.equal(oracle.rows[0].semantic_coverage.measurement, "lexical_mention_coverage");
+assert.equal(oracle.rows[0].semantic_coverage.mention_matching, "intl_word_boundaries_v1");
+assert.equal(oracle.rows[0].semantic_coverage.semantic_coverage_verified, false);
+assert.deepEqual(oracle.rows[0].semantic_coverage.substring_only_concepts, ["ネット"]);
+assert.equal(oracle.rows[1].semantic_coverage.mention_matching, "unknown");
+assert.equal(oracle.rows[1].semantic_coverage.semantic_coverage_verified, false);
+assert.deepEqual(oracle.rows[1].semantic_coverage.substring_only_concepts, []);
+const unsupportedClaim = buildGenerationQualityOracle({
+  candidates: [candidates[0]],
+  semanticReviewRows: [{ candidate_id: "ready", semantic_coverage_verified: true, coverage_ratio: 1 }],
+});
+assert.equal(unsupportedClaim.rows[0].semantic_coverage.semantic_coverage_verified, false);
+assert.equal(unsupportedClaim.rows[0].review_state, "editor_review_required");
 assert.equal(oracle.rows[1].review_state, "blocked_deterministic_gate");
 assert.deepEqual(oracle.rows[1].blocking_reasons, [
   "review:evidence_missing",
