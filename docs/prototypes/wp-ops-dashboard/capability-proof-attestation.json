@@ -15,13 +15,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 51,
+      "duration_ms": 50,
       "stdout_sha256": "fa91acd790c6786088c327ebbf5177691481fb6f1e27bd21a316082cb33986c8",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "association evidence oracle: OK (cosine, evidence sample, reciprocal/top-k, no semantic inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "2e6944557e41edd2aa1fb7180a5d3fa7036567f14cc8a0e9e6ae88a0f7bb21a8"
+      "result_digest": "c520899ba349f08397c11cd8686047a122d6c44d39545f247470c592df194880"
     },
     {
       "command": "node scripts/test-capability-audit-ui.mjs",
@@ -29,13 +29,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 44,
+      "duration_ms": 57,
       "stdout_sha256": "0ab40ab40baf28ca68019f52309a2c257b713d3f99fee5ca990807fd222c7418",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "capability audit UI: OK (cross-capability filters, integrity/credit views, fail-closed status)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "6a1e7e2cec142121538f6420fea7b7dfd00032a67522106cf4af5a6ff4304a19"
+      "result_digest": "881a804f8fab9206401ceb9357dee8cf38771a0295f2df58bd54530acca21816"
     },
     {
       "command": "node scripts/test-content-semantic-coverage-api.mjs",
@@ -43,13 +43,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 14488,
+      "duration_ms": 37672,
       "stdout_sha256": "2d52449aab63c0efb768ce0de6a6266170efa4b333ae692ba9898bf05d3d8025",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "content semantic coverage API/MCP: OK (24 concepts, 14 coverage rows, 12 gated previews, no mutation)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "84d05ffab43ea60474e6ce12faba2ffafb224696a61725e53dc8fb15773eaeb3"
+      "result_digest": "aff378b399623a3a44dfddef49a72de5c16c53c0e9e79d385b7f7f4871b0de04"
     },
     {
       "command": "node scripts/test-content-semantic-coverage-review.mjs",
@@ -57,13 +57,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 74,
+      "duration_ms": 73,
       "stdout_sha256": "df409f09a337b9b5e18d29d75290996a2e642d9ed56b3e5f8fdf581ff93ffb99",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "content semantic coverage review: OK (deduplicated resolution tasks, no demand/synonym/rank/content inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "53f2a1e6b2492026734d56dd0f6a5f15c931cf87997c81bd7788f37cd699c92b"
+      "result_digest": "71e70c13c1e58d57be7eed853d58065b8ad31bf0a7f8a2f7536206671f62a3f0"
     },
     {
       "command": "node scripts/test-graph-related-keyword-api.mjs",
@@ -71,13 +71,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 16806,
+      "duration_ms": 20881,
       "stdout_sha256": "f2bd74b0a993f73de86d74586e9c98367e04e35772e5642c02642ae39fd027f8",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "graph related keyword API/MCP: OK (arbitrary query, evidence paths, review-only boundaries, zero market inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "f78c91513c3e358b104a6e73cd3500bdb7d034d08617372aa8f016cbbb47413d"
+      "result_digest": "99807f82fc9c54f9c882270754effd406f869a1a45660e8367fc361b784a0e3c"
     },
     {
       "command": "node scripts/test-graph-related-keyword-query.mjs",
@@ -85,13 +85,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 1909,
+      "duration_ms": 2772,
       "stdout_sha256": "ef33b66efc15695b0631f916e31ce141d7aae9198a49696f2b2843a5153711d7",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "graph related keyword query: OK (10694 retained rows, lexical/semantic paths separated, group boundaries fail closed)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "09db674593aa5c5eadc851f14ec0c37bb949e2674ad56a8973248ecbded5baad"
+      "result_digest": "e3fdb75706da723a9df57e2164daa58b403b4412e7f31db72ccae5cc79841de3"
     },
     {
       "command": "node scripts/test-keyword-expansion-lineage.mjs",
@@ -99,13 +99,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 70,
+      "duration_ms": 113,
       "stdout_sha256": "f803051ba07bb2998271c269393cbd105d42183ebab0861b9244a0ca294748b8",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "keyword expansion lineage: OK (22 nodes, 29 edges, 3 coverage rows)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "0b1f39001bfe4f3fe8df87424e58bdfb0914a67da5834d131e3565926336f93c"
+      "result_digest": "d4fed973d65d35139b7d2e0e26cbe92596922d209b1484e2d3ceca5e87f99d27"
     },
     {
       "command": "node scripts/test-keyword-lineage-ledger.mjs",
@@ -113,13 +113,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 58,
+      "duration_ms": 88,
       "stdout_sha256": "0cc61d1cc8deb2c107118aff6a96dc26c4a446766b4ce95188de32240c89e064",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "keyword lineage ledger: OK (source identity, hierarchy, group/proposal paths, lossless rows)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "b4f5c4d5b678a0605e94f72a8c4d95ff8472902135c3385e907069a0e257d11c"
+      "result_digest": "85d328962254594ed363216e689ee418f6dbaf723a2b4684a91d6ffda85cda22"
     },
     {
       "command": "node scripts/test-public-semantic-graph-api.mjs",
@@ -127,13 +127,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 16707,
+      "duration_ms": 17140,
       "stdout_sha256": "b8359ec7a97e13b9d683572ab7d2021d0a3d9ffb3de5b5d28c0de96a1f15b340",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public semantic graph API/MCP: OK (bounded depth 2, canonical/inverse relation semantics, 0 automatic mutation)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "bc989c4c4d82679d0e415785caf86d5a46b919d74a67e1ee766c64460b4600c6"
+      "result_digest": "885bae7a90385d645def72d12b9df2c55466923e0f3b10d6aaddd63ef474b8cd"
     },
     {
       "command": "node scripts/test-public-semantic-graph.mjs",
@@ -141,13 +141,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 2402,
+      "duration_ms": 2934,
       "stdout_sha256": "35668be39b1c43067f00bd329a5305cfe257f499c58ad763d35a6bd7e114d371",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public semantic graph: OK (93,834 words, 57,238 synsets, 115,295 typed edges, $0)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "488b7a2704c9a4a34cf826eb3a0b44da1871899a3f6405faaedc447cb6428997"
+      "result_digest": "25f1a11d80c5167701efe798e482db4eef812a36f3668f6c8d8ccd4f64ea0ae6"
     },
     {
       "command": "node scripts/test-public-synonym-evidence-api.mjs",
@@ -155,13 +155,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 17164,
+      "duration_ms": 18634,
       "stdout_sha256": "2c791c67a9964bff17e47844676e8fe99ff80ad2a5ae393682b62a0b75d17adb",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public synonym evidence API/MCP: OK (11,753 pairs, 9,487 terms, 840 corpus matches, $0)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "13c49ae3e351defcad9318e2bffb0286b57d2ea6f29890f35673fdd51d95fe93"
+      "result_digest": "5dd0f36460130f1f256e1a1ebbf6e7bf99bb19372aeb76d12ca880bdb000757d"
     },
     {
       "command": "node scripts/test-public-synonym-evidence.mjs",
@@ -169,13 +169,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 261,
+      "duration_ms": 457,
       "stdout_sha256": "24aba9f4937371b8515e911dc3f87ad4ba7aa01748903857f4d06426ca96ff73",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "public synonym evidence: OK (11753 human-reviewed pairs, 9487 terms, $0)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "a675046148958b800dee1d41c48d63e3e8933089b1e4d1264a8b4aa52df37d81"
+      "result_digest": "1cae0d0ee964298d8261cd888043810934d275e7b9d46b5fbb6f08e1c69cc7a5"
     },
     {
       "command": "node scripts/test-related-keyword-boundary-oracle.mjs",
@@ -183,13 +183,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 57,
+      "duration_ms": 79,
       "stdout_sha256": "2522842a8ee4940eacfe2ba6d7409bfefa5650a76ae110015006f76678e51cb1",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "related keyword boundary oracle: OK (unique, tie, clear leader, no auto assignment)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "05ed4272cf1d669bfd4005190ea6d33a5bb07d552904411e223bb6639157bf7a"
+      "result_digest": "4a28b2b4d2b7b2bc58207a1b1626f0282fe81bf68d89c590bfcd5913292ee4df"
     },
     {
       "command": "node scripts/test-semantic-candidate-review.mjs",
@@ -197,13 +197,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 57,
+      "duration_ms": 81,
       "stdout_sha256": "ef7144ca7642cbcc81fba9114e3146e437e5aa8645c67947febe5ab6bd4fda3b",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "semantic candidate review: OK (cooccurrence + SERP context, relation review only, no synonym assertion)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "61795c5d9592f9723fd3451790a0bf98829e48f92830c2e88f9650f43dfffe56"
+      "result_digest": "30fbc4d65e64727ff83f5907e921bf3ee151c437dd1a47e43e1d2ad622080865"
     },
     {
       "command": "node scripts/test-serp-db-retention-ui.mjs",
@@ -211,13 +211,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 42,
+      "duration_ms": 50,
       "stdout_sha256": "427e1c893d4ed0f1d687352d88a42a79651bad1cc6a34cd9ed5e51c86c9dd085",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "SERP DB retention UI: OK (scope-separated retention, raw payload viewer, policy boundary, and pagination hooks are visible)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "aea96e5ec8910b986ae6f59bc001d20bd2233243382be8240e1df8eaca21a4d9"
+      "result_digest": "65d32ed02011b2de8d9da4ef442c9edaeb4a1b7cf99d6ba2ae49f60a8b9d560f"
     },
     {
       "command": "node scripts/test-serp-field-state-ui.mjs",
@@ -225,13 +225,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 42,
+      "duration_ms": 68,
       "stdout_sha256": "ac7a714d03f07828f07e80d7d57060631b35ea3cea21913221e31d22fb7d2173",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "SERP field state UI: OK (all observed value states, pagination, and absent-field boundary are visible)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "9019b2cef162ad749116a2731b5ccf5ae2c0ae20d715d16f1fb9b66ecc176af6"
+      "result_digest": "04f61fc9fa3da206adce65701984fcc3a455ab2ef7825e3d3c5770dc859aa663"
     },
     {
       "command": "node scripts/test-suggest-evidence-oracle.mjs",
@@ -239,13 +239,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 56,
+      "duration_ms": 57,
       "stdout_sha256": "a1a94f33a61276d7d45793aae6731e58338b77243814d60b614b6ec5b6b76125",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "suggest evidence oracle: OK (normalized dedupe, source rows, volume conflict, no surface inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "d029ed61b37358189b17138c3b6d77c3aaa7752159f8bec0bcb5088b06ab385c"
+      "result_digest": "9aba176c2b7fc3d18de8214b3f9ce6a71d6f4aea55752b70f04c07924fac4a16"
     },
     {
       "command": "node scripts/test-variant-evidence-oracle.mjs",
@@ -253,13 +253,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 48,
+      "duration_ms": 55,
       "stdout_sha256": "6210418254310d19255290d00f1b6c53308c73bfa1fdd45ddbb3c55db3b69510",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "variant evidence oracle: OK (source identity, pair count, no semantic synonym inference)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "65ca7dae14b7fc17dcc987d38cff670832d45074b6c1fae4f31385e2e03ecd02"
+      "result_digest": "55fc49da5e69e3aefb98564adb3bfebfe529c18e5c724e5f3b06d7f84c852129"
     },
     {
       "command": "npm run prototype:keyword-dashboard:test",
@@ -267,13 +267,13 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 29200,
+      "duration_ms": 32832,
       "stdout_sha256": "baabad37779132bc894fc401586a6ab8be88ff0243350434005f50c2e97b8ef3",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "ashboard isolated empty-state test: ok\nsuggest expansion logic: OK (classes, retained seed lineage, plan-only frontier, BFS/DFS ambiguity, no acquisition)\ncapability audit UI: OK (cross-capability filters, integrity/credit views, fail-closed status)\n\n> helix-wp-harness@0.1.0 prototype:serp-field-state:ui:test\n> node scripts/test-serp-field-state-ui.mjs\n\nSERP field state UI: OK (all observed value states, pagination, and absent-field boundary are visible)\n\n> helix-wp-harness@0.1.0 research:serp-db-retention:test\n> node scripts/test-serp-db-retention.mjs && node scripts/test-serp-db-retention-api.mjs && node scripts/test-serp-db-retention-ui.mjs\n\nSERP DB retention audit: OK (110 verbatim raw payloads; 29,586 non-empty observations represented)\nSERP DB retention API/MCP: OK (summary, raw payload inspection, exact/drop filters, integrity, and read-only tool contract)\nSERP DB retention UI: OK (scope-separated retention, raw payload viewer, policy boundary, and pagination hooks are visible)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "f97eb6d2ae00b40c8fcef8ae9d50a9961d0ce8cb74111d039453facd82ffc00f"
+      "result_digest": "64cf9b9d16cb7fa604e1f2b7286e38b0f66d7bb8ef19946114b54efef6e6756d"
     },
     {
       "command": "npm run prototype:table-state:test",
@@ -281,71 +281,71 @@
       "exit_code": 0,
       "signal": null,
       "timed_out": false,
-      "duration_ms": 194,
+      "duration_ms": 227,
       "stdout_sha256": "92d7c4712432f8518e18ff0ba99ebeb190f943a7f423d92fa8abc7a9e0023bb5",
       "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "stdout_tail": "\n> helix-wp-harness@0.1.0 prototype:table-state:test\n> node scripts/test-dashboard-table-state.mjs\n\ndashboard table/filter state: OK (numeric/text sort and stable URL keys)\n",
       "stderr_tail": "",
       "passed": true,
-      "result_digest": "042b4d4516eab795f35fb879ff962494a2ae9d84e9c4363dd85f9c7cf746ff56"
+      "result_digest": "b02fbf8ba305e4253a3473bc985411d4ec8b5e0ae7b7a6838a0493733a508db7"
     }
   ],
   "capabilities": [
     {
       "capability_id": "synonyms",
-      "artifact_set_digest": "5152ea7186d63e987f11c38720e371154dd9c9d898b93ad584b59f23484ababe",
+      "artifact_set_digest": "e490cac06763a074fb90327c7083f91c7fb9a88341b6aba873dc23f72f8f3cd1",
       "command_set_digest": "94ad7c61e27c7852897528b9bfa35485d15f37b463ba82ec6647a4e8f11822ba",
       "expected_command_count": 16,
       "executed_command_count": 16,
       "passed_command_count": 16,
       "all_commands_passed": true,
       "command_result_digests": [
-        "05ed4272cf1d669bfd4005190ea6d33a5bb07d552904411e223bb6639157bf7a",
-        "09db674593aa5c5eadc851f14ec0c37bb949e2674ad56a8973248ecbded5baad",
-        "0b1f39001bfe4f3fe8df87424e58bdfb0914a67da5834d131e3565926336f93c",
-        "13c49ae3e351defcad9318e2bffb0286b57d2ea6f29890f35673fdd51d95fe93",
-        "2e6944557e41edd2aa1fb7180a5d3fa7036567f14cc8a0e9e6ae88a0f7bb21a8",
-        "488b7a2704c9a4a34cf826eb3a0b44da1871899a3f6405faaedc447cb6428997",
-        "53f2a1e6b2492026734d56dd0f6a5f15c931cf87997c81bd7788f37cd699c92b",
-        "61795c5d9592f9723fd3451790a0bf98829e48f92830c2e88f9650f43dfffe56",
-        "65ca7dae14b7fc17dcc987d38cff670832d45074b6c1fae4f31385e2e03ecd02",
-        "84d05ffab43ea60474e6ce12faba2ffafb224696a61725e53dc8fb15773eaeb3",
-        "a675046148958b800dee1d41c48d63e3e8933089b1e4d1264a8b4aa52df37d81",
-        "b4f5c4d5b678a0605e94f72a8c4d95ff8472902135c3385e907069a0e257d11c",
-        "bc989c4c4d82679d0e415785caf86d5a46b919d74a67e1ee766c64460b4600c6",
-        "d029ed61b37358189b17138c3b6d77c3aaa7752159f8bec0bcb5088b06ab385c",
-        "f78c91513c3e358b104a6e73cd3500bdb7d034d08617372aa8f016cbbb47413d",
-        "f97eb6d2ae00b40c8fcef8ae9d50a9961d0ce8cb74111d039453facd82ffc00f"
+        "1cae0d0ee964298d8261cd888043810934d275e7b9d46b5fbb6f08e1c69cc7a5",
+        "25f1a11d80c5167701efe798e482db4eef812a36f3668f6c8d8ccd4f64ea0ae6",
+        "30fbc4d65e64727ff83f5907e921bf3ee151c437dd1a47e43e1d2ad622080865",
+        "4a28b2b4d2b7b2bc58207a1b1626f0282fe81bf68d89c590bfcd5913292ee4df",
+        "55fc49da5e69e3aefb98564adb3bfebfe529c18e5c724e5f3b06d7f84c852129",
+        "5dd0f36460130f1f256e1a1ebbf6e7bf99bb19372aeb76d12ca880bdb000757d",
+        "64cf9b9d16cb7fa604e1f2b7286e38b0f66d7bb8ef19946114b54efef6e6756d",
+        "71e70c13c1e58d57be7eed853d58065b8ad31bf0a7f8a2f7536206671f62a3f0",
+        "85d328962254594ed363216e689ee418f6dbaf723a2b4684a91d6ffda85cda22",
+        "885bae7a90385d645def72d12b9df2c55466923e0f3b10d6aaddd63ef474b8cd",
+        "99807f82fc9c54f9c882270754effd406f869a1a45660e8367fc361b784a0e3c",
+        "9aba176c2b7fc3d18de8214b3f9ce6a71d6f4aea55752b70f04c07924fac4a16",
+        "aff378b399623a3a44dfddef49a72de5c16c53c0e9e79d385b7f7f4871b0de04",
+        "c520899ba349f08397c11cd8686047a122d6c44d39545f247470c592df194880",
+        "d4fed973d65d35139b7d2e0e26cbe92596922d209b1484e2d3ceca5e87f99d27",
+        "e3fdb75706da723a9df57e2164daa58b403b4412e7f31db72ccae5cc79841de3"
       ],
-      "attestation_digest": "964eccc2bd44899d1098285757fbd458598c15a69a4e50a38ab5059b96018d3b"
+      "attestation_digest": "df0089095d0dba018818e7acede4447c7791bb8d5af13df39aa2e2f73d12ab53"
     },
     {
       "capability_id": "associations",
-      "artifact_set_digest": "5152ea7186d63e987f11c38720e371154dd9c9d898b93ad584b59f23484ababe",
+      "artifact_set_digest": "e490cac06763a074fb90327c7083f91c7fb9a88341b6aba873dc23f72f8f3cd1",
       "command_set_digest": "94ad7c61e27c7852897528b9bfa35485d15f37b463ba82ec6647a4e8f11822ba",
       "expected_command_count": 16,
       "executed_command_count": 16,
       "passed_command_count": 16,
       "all_commands_passed": true,
       "command_result_digests": [
-        "05ed4272cf1d669bfd4005190ea6d33a5bb07d552904411e223bb6639157bf7a",
-        "09db674593aa5c5eadc851f14ec0c37bb949e2674ad56a8973248ecbded5baad",
-        "0b1f39001bfe4f3fe8df87424e58bdfb0914a67da5834d131e3565926336f93c",
-        "13c49ae3e351defcad9318e2bffb0286b57d2ea6f29890f35673fdd51d95fe93",
-        "2e6944557e41edd2aa1fb7180a5d3fa7036567f14cc8a0e9e6ae88a0f7bb21a8",
-        "488b7a2704c9a4a34cf826eb3a0b44da1871899a3f6405faaedc447cb6428997",
-        "53f2a1e6b2492026734d56dd0f6a5f15c931cf87997c81bd7788f37cd699c92b",
-        "61795c5d9592f9723fd3451790a0bf98829e48f92830c2e88f9650f43dfffe56",
-        "65ca7dae14b7fc17dcc987d38cff670832d45074b6c1fae4f31385e2e03ecd02",
-        "84d05ffab43ea60474e6ce12faba2ffafb224696a61725e53dc8fb15773eaeb3",
-        "a675046148958b800dee1d41c48d63e3e8933089b1e4d1264a8b4aa52df37d81",
-        "b4f5c4d5b678a0605e94f72a8c4d95ff8472902135c3385e907069a0e257d11c",
-        "bc989c4c4d82679d0e415785caf86d5a46b919d74a67e1ee766c64460b4600c6",
-        "d029ed61b37358189b17138c3b6d77c3aaa7752159f8bec0bcb5088b06ab385c",
-        "f78c91513c3e358b104a6e73cd3500bdb7d034d08617372aa8f016cbbb47413d",
-        "f97eb6d2ae00b40c8fcef8ae9d50a9961d0ce8cb74111d039453facd82ffc00f"
+        "1cae0d0ee964298d8261cd888043810934d275e7b9d46b5fbb6f08e1c69cc7a5",
+        "25f1a11d80c5167701efe798e482db4eef812a36f3668f6c8d8ccd4f64ea0ae6",
+        "30fbc4d65e64727ff83f5907e921bf3ee151c437dd1a47e43e1d2ad622080865",
+        "4a28b2b4d2b7b2bc58207a1b1626f0282fe81bf68d89c590bfcd5913292ee4df",
+        "55fc49da5e69e3aefb98564adb3bfebfe529c18e5c724e5f3b06d7f84c852129",
+        "5dd0f36460130f1f256e1a1ebbf6e7bf99bb19372aeb76d12ca880bdb000757d",
+        "64cf9b9d16cb7fa604e1f2b7286e38b0f66d7bb8ef19946114b54efef6e6756d",
+        "71e70c13c1e58d57be7eed853d58065b8ad31bf0a7f8a2f7536206671f62a3f0",
+        "85d328962254594ed363216e689ee418f6dbaf723a2b4684a91d6ffda85cda22",
+        "885bae7a90385d645def72d12b9df2c55466923e0f3b10d6aaddd63ef474b8cd",
+        "99807f82fc9c54f9c882270754effd406f869a1a45660e8367fc361b784a0e3c",
+        "9aba176c2b7fc3d18de8214b3f9ce6a71d6f4aea55752b70f04c07924fac4a16",
+        "aff378b399623a3a44dfddef49a72de5c16c53c0e9e79d385b7f7f4871b0de04",
+        "c520899ba349f08397c11cd8686047a122d6c44d39545f247470c592df194880",
+        "d4fed973d65d35139b7d2e0e26cbe92596922d209b1484e2d3ceca5e87f99d27",
+        "e3fdb75706da723a9df57e2164daa58b403b4412e7f31db72ccae5cc79841de3"
       ],
-      "attestation_digest": "e24f9528e305ac02b7dc4a84d49b4c6804c62b140f8a66b9b988268c0d5491a8"
+      "attestation_digest": "9b1826d7facd2e404914ec81e5723dfc7b5835b788f2f1a44697c62b4748859e"
     },
     {
       "capability_id": "quick_search",
@@ -356,13 +356,13 @@
       "passed_command_count": 5,
       "all_commands_passed": true,
       "command_result_digests": [
-        "042b4d4516eab795f35fb879ff962494a2ae9d84e9c4363dd85f9c7cf746ff56",
-        "6a1e7e2cec142121538f6420fea7b7dfd00032a67522106cf4af5a6ff4304a19",
-        "9019b2cef162ad749116a2731b5ccf5ae2c0ae20d715d16f1fb9b66ecc176af6",
-        "aea96e5ec8910b986ae6f59bc001d20bd2233243382be8240e1df8eaca21a4d9",
-        "f97eb6d2ae00b40c8fcef8ae9d50a9961d0ce8cb74111d039453facd82ffc00f"
+        "04f61fc9fa3da206adce65701984fcc3a455ab2ef7825e3d3c5770dc859aa663",
+        "64cf9b9d16cb7fa604e1f2b7286e38b0f66d7bb8ef19946114b54efef6e6756d",
+        "65d32ed02011b2de8d9da4ef442c9edaeb4a1b7cf99d6ba2ae49f60a8b9d560f",
+        "881a804f8fab9206401ceb9357dee8cf38771a0295f2df58bd54530acca21816",
+        "b02fbf8ba305e4253a3473bc985411d4ec8b5e0ae7b7a6838a0493733a508db7"
       ],
-      "attestation_digest": "0608a99f7fa663a5750ea64373ab500f9b13816c5ae2c52989f3a11b62f4dfc5"
+      "attestation_digest": "6332747099e5c10307514c1994009a4bcb170e7a9a441d3993a5bdd1cbae98b1"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -373,13 +373,13 @@
       "passed_command_count": 5,
       "all_commands_passed": true,
       "command_result_digests": [
-        "042b4d4516eab795f35fb879ff962494a2ae9d84e9c4363dd85f9c7cf746ff56",
-        "6a1e7e2cec142121538f6420fea7b7dfd00032a67522106cf4af5a6ff4304a19",
-        "9019b2cef162ad749116a2731b5ccf5ae2c0ae20d715d16f1fb9b66ecc176af6",
-        "aea96e5ec8910b986ae6f59bc001d20bd2233243382be8240e1df8eaca21a4d9",
-        "f97eb6d2ae00b40c8fcef8ae9d50a9961d0ce8cb74111d039453facd82ffc00f"
+        "04f61fc9fa3da206adce65701984fcc3a455ab2ef7825e3d3c5770dc859aa663",
+        "64cf9b9d16cb7fa604e1f2b7286e38b0f66d7bb8ef19946114b54efef6e6756d",
+        "65d32ed02011b2de8d9da4ef442c9edaeb4a1b7cf99d6ba2ae49f60a8b9d560f",
+        "881a804f8fab9206401ceb9357dee8cf38771a0295f2df58bd54530acca21816",
+        "b02fbf8ba305e4253a3473bc985411d4ec8b5e0ae7b7a6838a0493733a508db7"
       ],
-      "attestation_digest": "93906376942444ca6cbb3afd47b152b7bb6407768eae6ca8665955a735a75bf7"
+      "attestation_digest": "6f23c47caa2044965a30533da76226e5d455a51395dc3e40863243add4c9c4f6"
     },
     {
       "capability_id": "data_output",
@@ -390,13 +390,13 @@
       "passed_command_count": 5,
       "all_commands_passed": true,
       "command_result_digests": [
-        "042b4d4516eab795f35fb879ff962494a2ae9d84e9c4363dd85f9c7cf746ff56",
-        "6a1e7e2cec142121538f6420fea7b7dfd00032a67522106cf4af5a6ff4304a19",
-        "9019b2cef162ad749116a2731b5ccf5ae2c0ae20d715d16f1fb9b66ecc176af6",
-        "aea96e5ec8910b986ae6f59bc001d20bd2233243382be8240e1df8eaca21a4d9",
-        "f97eb6d2ae00b40c8fcef8ae9d50a9961d0ce8cb74111d039453facd82ffc00f"
+        "04f61fc9fa3da206adce65701984fcc3a455ab2ef7825e3d3c5770dc859aa663",
+        "64cf9b9d16cb7fa604e1f2b7286e38b0f66d7bb8ef19946114b54efef6e6756d",
+        "65d32ed02011b2de8d9da4ef442c9edaeb4a1b7cf99d6ba2ae49f60a8b9d560f",
+        "881a804f8fab9206401ceb9357dee8cf38771a0295f2df58bd54530acca21816",
+        "b02fbf8ba305e4253a3473bc985411d4ec8b5e0ae7b7a6838a0493733a508db7"
       ],
-      "attestation_digest": "ec7e355ba1be3f372147affa10124fe492cc6b944a4147e4b1df2dcc52cac9b0"
+      "attestation_digest": "7b74e6a6fb73c6f7b80de07ff280d583ca25a1ebce6b73795017f0460cab19dc"
     },
     {
       "capability_id": "bookmarklet",
@@ -407,14 +407,14 @@
       "passed_command_count": 5,
       "all_commands_passed": true,
       "command_result_digests": [
-        "042b4d4516eab795f35fb879ff962494a2ae9d84e9c4363dd85f9c7cf746ff56",
-        "6a1e7e2cec142121538f6420fea7b7dfd00032a67522106cf4af5a6ff4304a19",
-        "9019b2cef162ad749116a2731b5ccf5ae2c0ae20d715d16f1fb9b66ecc176af6",
-        "aea96e5ec8910b986ae6f59bc001d20bd2233243382be8240e1df8eaca21a4d9",
-        "f97eb6d2ae00b40c8fcef8ae9d50a9961d0ce8cb74111d039453facd82ffc00f"
+        "04f61fc9fa3da206adce65701984fcc3a455ab2ef7825e3d3c5770dc859aa663",
+        "64cf9b9d16cb7fa604e1f2b7286e38b0f66d7bb8ef19946114b54efef6e6756d",
+        "65d32ed02011b2de8d9da4ef442c9edaeb4a1b7cf99d6ba2ae49f60a8b9d560f",
+        "881a804f8fab9206401ceb9357dee8cf38771a0295f2df58bd54530acca21816",
+        "b02fbf8ba305e4253a3473bc985411d4ec8b5e0ae7b7a6838a0493733a508db7"
       ],
-      "attestation_digest": "ee4d7258fed3eb233e3b4f624c4b0edc55ba2351b17966f79b1b06bbf73b49d5"
+      "attestation_digest": "70aa3c30debeb0307cca14586002e2f00589c44bafb18739440efcc1f6bc97ff"
     }
   ],
-  "receipt_digest": "04c7e4e7913784a09fa2f821eb7db52e493b83875a4eef2734cfbd5760ca2ab9"
+  "receipt_digest": "37a69a202005cc724d1d55f8b4d6e8d4ce91ecc9a80a997bb6fe63f3188d1794"
 }

@@ -3,7 +3,13 @@ import {createHash} from "node:crypto";
 const digest=(value)=>createHash("sha256").update(JSON.stringify(value)).digest("hex");
 const pairKey=(left,right)=>[left,right].sort().join("\0");
 
-export function buildKeywordBoundaryOracle(legacyRows,intentPairs){
+export function buildKeywordBoundaryOracle(legacyRows,intentPairs,retainedEdges=[]){
+  const urlsByTask=new Map();
+  for(const edge of retainedEdges){
+    const url=edge.canonical_url??edge.url;
+    if(!url||!(edge.rank>=1&&edge.rank<=10))continue;
+    const urls=urlsByTask.get(edge.task_id)??new Set();urls.add(url);urlsByTask.set(edge.task_id,urls);
+  }
   const legacy=new Map(legacyRows.filter((row)=>row.kind==="serp_pair").map((row)=>[pairKey(row.source_task_id,row.target_task_id),row]));
   const intent=new Map(intentPairs.map((row)=>[pairKey(row.left_task_id,row.right_task_id),row]));
   const actionableKeys=new Set([
@@ -11,8 +17,15 @@ export function buildKeywordBoundaryOracle(legacyRows,intentPairs){
     ...[...intent].filter(([,row])=>row.review_required).map(([key])=>key),
   ]),rows=[];
   for(const key of actionableKeys){
-    const urlEvidence=legacy.get(key)??null,intentEvidence=intent.get(key)??null;
+    let urlEvidence=legacy.get(key)??null;const intentEvidence=intent.get(key)??null;
     if(!urlEvidence&&!intentEvidence)continue;
+    if(!urlEvidence&&intentEvidence){
+      const left=[...(urlsByTask.get(intentEvidence.left_task_id)??[])].sort(),right=[...(urlsByTask.get(intentEvidence.right_task_id)??[])].sort();
+      if(left.length&&right.length){
+        const rightSet=new Set(right),shared=left.filter(url=>rightSet.has(url)).length;
+        urlEvidence={overlap_ratio:shared/10,shared_url_count:shared,evidence_digest:digest({scope:"identifiable_retained_top_10",left_task_id:intentEvidence.left_task_id,right_task_id:intentEvidence.right_task_id,left_urls:left,right_urls:right})};
+      }
+    }
     const sameGroup=intentEvidence?.current_same_group??urlEvidence.current_same_group,urlOverlap=urlEvidence?.overlap_ratio??null,intentScore=intentEvidence?.intent_similarity_score??null;
     let decision,recommendedAction,reasonCodes;
     if(urlOverlap==null){decision="insufficient_url_evidence_review";recommendedAction="inspect_url_evidence";reasonCodes=["exact_url_comparison_unavailable"]}

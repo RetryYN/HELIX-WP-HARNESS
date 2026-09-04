@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import "./test-boundary-missing-url-contract.mjs";
 import {buildKeywordBoundaryOracle} from "./keyword-boundary-oracle.mjs";
+import {buildSerpPageKeywordGraph} from "./serp-page-keyword-graph.mjs";
 
 const legacy=(id,overlap,same=false)=>({kind:"serp_pair",source_task_id:`${id}a`,target_task_id:`${id}b`,source_group_id:`${id}g1`,target_group_id:same?`${id}g1`:`${id}g2`,source_keyword:`${id} left`,target_keyword:`${id} right`,current_same_group:same,shared_url_count:overlap*10,overlap_ratio:overlap,review_required:true,evidence_digest:id.repeat(64).slice(0,64)}),intent=(id,score,same=false)=>({left_task_id:`${id}a`,right_task_id:`${id}b`,left_group_id:`${id}g1`,right_group_id:same?`${id}g1`:`${id}g2`,left_keyword:`${id} left`,right_keyword:`${id} right`,current_same_group:same,intent_similarity_score:score,components:{domain_similarity:score},review_required:true,pair_digest:id.toUpperCase().repeat(64).slice(0,64)});
 const result=buildKeywordBoundaryOracle([legacy("a",.6),legacy("b",.4),legacy("c",.2,true)],[intent("a",.7),intent("b",.7),intent("c",.2,true)]);
@@ -20,4 +21,14 @@ const observedZero=buildKeywordBoundaryOracle([legacy("z",0,true)],[intent("z",.
 assert.equal(observedZero.decision,"split_consensus_review");
 assert.equal(observedZero.url_overlap_ratio,0);
 assert.equal(observedZero.shared_url_count,0);
+const tasks=[{task_id:"za",group_id:"zg1",keyword:"left"},{task_id:"zb",group_id:"zg1",keyword:"right"}];
+const graph=buildSerpPageKeywordGraph(tasks,[{task_id:"za",rank_group:1,url:"https://fixture.example/left"},{task_id:"zb",rank_group:1,url:"https://fixture.example/right"}]);
+assert.equal(graph.relations.length,0,"production graph omits disjoint pairs");
+const disjoint=buildKeywordBoundaryOracle([],[intent("z",.1,true)],graph.edges).rows[0];
+assert.equal(disjoint.url_overlap_ratio,0);assert.equal(disjoint.shared_url_count,0);
+assert.equal(disjoint.decision,"split_consensus_review");assert.equal(disjoint.url_evidence_digest.length,64);
+assert.equal(buildKeywordBoundaryOracle([],[intent("z",.1,true)],graph.edges.slice(0,1)).rows[0].url_overlap_ratio,null);
+const masked=buildSerpPageKeywordGraph(tasks,[{task_id:"za",rank_group:1,url:"https://fixture.example/<redacted-post>"},{task_id:"zb",rank_group:1,url:"https://fixture.example/right"}]);
+assert.equal(buildKeywordBoundaryOracle([],[intent("z",.1,true)],masked.edges).rows[0].url_overlap_ratio,null);
+assert.equal(buildKeywordBoundaryOracle([],[intent("z",.1,true)],graph.edges.map(({url,...edge})=>({...edge,canonical_url:url}))).rows[0].boundary_digest,disjoint.boundary_digest);
 console.log("keyword boundary oracle: OK (URL/intent consensus, missing differs from observed zero, review-only actions)");
