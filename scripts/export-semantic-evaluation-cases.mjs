@@ -1,6 +1,7 @@
 import { DatabaseSync } from "node:sqlite";
 import { createHash } from "node:crypto";
 import path from "node:path";
+import { acquisitionFields, compareAcquisitionConditions } from "./compare-acquisition-conditions.mjs";
 
 // Export review inputs, never use the current classifier as its own gold label.
 const db = new DatabaseSync(path.resolve(process.env.WP_DASHBOARD_DB ?? ".helix/keyword-dashboard.sqlite"), { readOnly: true });
@@ -42,8 +43,7 @@ try {
     }
     const rawTask = JSON.parse(stored.payload_json).tasks?.find((row) => row.id === taskId);
     if (!rawTask) throw new Error(`Raw task identity mismatch for ${taskId}`);
-    const contractFields = ["api", "function", "se", "se_type", "location_code", "language_code", "device", "os", "depth"];
-    const acquisition_contract = Object.fromEntries(contractFields.map((field) => [field, rawTask.data?.[field] ?? null]));
+    const acquisition_contract = Object.fromEntries(acquisitionFields.map((field) => [field, rawTask.data?.[field] ?? null]));
     return { ...snapshot, acquisition_contract, results: results.all(taskId) };
   };
   const cases = [...strata].flatMap(([decision, rows]) => {
@@ -53,19 +53,11 @@ try {
     return indices.map((index) => {
       const row = rows[index];
       const left = evidence(row.left_task_id), right = evidence(row.right_task_id);
-      const fields = Object.keys(left.acquisition_contract);
-      const unknownFields = fields.filter((field) => left.acquisition_contract[field] == null || right.acquisition_contract[field] == null);
-      const differingFields = fields.filter((field) => !unknownFields.includes(field) && left.acquisition_contract[field] !== right.acquisition_contract[field]);
       return {
         case_id: row.pair_digest,
         left,
         right,
-        acquisition_comparison: {
-          differing_fields: differingFields,
-          unknown_fields: unknownFields,
-          listed_fields_match: !unknownFields.length && !differingFields.length,
-          semantic_equivalence_proven: false,
-        },
+        acquisition_comparison: compareAcquisitionConditions(left.acquisition_contract, right.acquisition_contract),
         classifier_prediction: { decision, score: row.intent_similarity_score, components: JSON.parse(row.components_json), policy: row.policy },
         annotation: { label: null, rationale: null, reviewer: null, reviewed_at: null, evidence_urls: [] },
       };
