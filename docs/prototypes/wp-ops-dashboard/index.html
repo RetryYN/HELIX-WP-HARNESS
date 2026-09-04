@@ -1957,6 +1957,28 @@
         </div>
         <div id="serp-field-state-audit-empty" class="empty" hidden></div>
         <div class="subsection-head">
+          <h3>raw→DB保持境界監査</h3>
+          <p>実際のSQLite投影をrawの観測値と照合し、保持・文脈のみ・状態のみdrop・非空値drop・投影gapを接続済み／未接続snapshot別に分離します。dropは未取得ではなく、取得済みrawをDBへ保存していないことを示します</p>
+        </div>
+        <div id="serp-db-retention-audit-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>scope</th>
+                <th>raw field</th>
+                <th>処遇</th>
+                <th>raw非空</th>
+                <th>非空drop</th>
+                <th>状態drop</th>
+                <th>source table</th>
+              </tr>
+            </thead>
+            <tbody id="serp-db-retention-audit-rows"></tbody>
+          </table>
+        </div>
+        <div id="serp-db-retention-audit-empty" class="empty" hidden></div>
+        <div class="subsection-head">
           <h3>元キーワード行lineage</h3>
           <p>元台帳のsheet・row identityを潰さず、正規化階層・取得済みgroup・関連KW候補への接続と孤児を監査します</p>
         </div>
@@ -2896,5 +2918,6 @@
     <script type="module" src="generation-quality.js"></script>
     <script type="module" src="serp-depth-inventory.js"></script>
     <script type="module" src="serp-field-state-audit.js"></script>
+    <script type="module" src="serp-db-retention-audit.js"></script>
   </body>
 </html>

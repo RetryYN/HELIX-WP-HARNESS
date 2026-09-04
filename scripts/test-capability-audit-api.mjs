@@ -68,7 +68,7 @@ const listed = handleMcpMessage(
   { jsonrpc: "2.0", id: 1, method: "tools/list" },
   null,
 ).result.tools;
-assert.equal(listed.length, 108);
+assert.equal(listed.length, 111);
 assert(listed.some((tool) => tool.name === "inspect_capability_completion_audit"));
 const mcp = handleMcpMessage(
   {
@@ -117,5 +117,5 @@ assert.equal(mcpCrosswalk.structuredContent.meta.total, 58);
 assert.equal(mcpCrosswalk.structuredContent.summary.coverage_complete, true);
 
 console.log(
-  "capability audit API/MCP: OK (35 capabilities, 6 proven, 29 incomplete, 108 tools, no external/model/paid execution)",
+  "capability audit API/MCP: OK (35 capabilities, 6 proven, 29 incomplete, 111 tools, no external/model/paid execution)",
 );
