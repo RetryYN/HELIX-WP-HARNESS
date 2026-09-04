@@ -90,7 +90,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
-    "helix": "github:RetryYN/HELIX-HARNESS#dcfbb845",
+    "helix": "github:RetryYN/HELIX-HARNESS#19d0bffd",
     "tsx": "^4.23.12",
     "typescript": "^5.9.2"
   },
