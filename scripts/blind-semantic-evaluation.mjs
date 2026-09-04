@@ -10,6 +10,7 @@ export function blindSemanticEvaluation(dataset) {
     left: row.left,
     right: row.right,
     acquisition_comparison: row.acquisition_comparison,
+    result_comparison: row.result_comparison,
     annotation: { label: null, rationale: null, reviewer: null, reviewed_at: null, evidence_urls: [] },
   })).sort((a, b) => a.case_id.localeCompare(b.case_id));
   const packet = {

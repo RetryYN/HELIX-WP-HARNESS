@@ -99,6 +99,37 @@ scoreが0.38未満の組を保持せず、関連ペアも上限で切る。
 task重複を考慮した評価分割がまだないため、精度は未検証のままとする。
 この出力にも実KWとURLが含まれるため、評価データ本体はGitHubへ同期しない。
 
+### 共通ページと対象範囲のレビュー
+
+保持されているmerge_review 22組の上位最大10件を比較すると、全組に共通URLがあり、
+1組は共通URLが1件だけだった。その組は将来像を尋ねる期間が5年後と10年後で異なり、
+共通ページは複数期間をまとめて扱っていた。タイトルだけでは統合・分割の正解は確定しない。
+共通URLが少ないことを自動的な分割条件にはせず、対象範囲を人手レビューする。
+
+評価出力のresult_comparisonに、共通URL・左右固有URL・重複除外後の件数を追加した。
+URLは保持文字列の完全一致で比較し、canonical同一性や意味同一性を推定しない。
+片側の有効URLが0件なら類似度はnullとし、不一致0と区別する。
+レビュー用出力にもこの根拠を残すが、自動分類のスコアや判定は含めない。
+
+### ローカル初回レビュー画面
+
+`node scripts/export-semantic-evaluation-cases.mjs --sample-size 50 --seed semantic-review-v1 | node scripts/render-blind-semantic-review.mjs OUTPUT.html`
+で、左右の検索結果・判断・理由・根拠URLを入力する単体HTMLを作る。
+OUTPUT.htmlはGit対象外の保存先を指定する。既存ファイルは上書きしない。
+実データ入りHTMLと保存したレビューJSONをリポジトリへ追加しない。
+
+初回画面は予測付き入力・既存ラベル付き入力を拒否する。自動通信はせず、
+リンクを明示クリックしたときだけ外部ページへ移動する。入力は自動保存しない。
+判断済みの行には理由と根拠URLを必須とし、判断保留のみURL省略を認める。
+JSON保存時にもgold_labels=false、accuracy_claim=not_evaluatedを維持する。
+DOM代替環境で保存処理とエスケープを検証済み。
+専用の一時Chromeでも50例の描画、1280pxの2列・390pxの1列、横はみ出しなし、
+必須入力の検証、実際のJSONダウンロード、ページ起因HTTP通信なしを確認した。
+自動テストの入力はUI検証専用で、人手レビューや意味分類の正解データには使わない。
+再実行は専用ブラウザのdebug portを指定して
+`node scripts/test-blind-semantic-review-browser.mjs PORT REVIEW.html` を使う。
+個人用ブラウザのprofileや既存タブでは実行しない。
+
 ## 部分一致の修正
 
 `concept-mention.mjs` を用いて、正規化した語が単語境界に一致するかを検査する。

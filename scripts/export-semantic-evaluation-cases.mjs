@@ -5,6 +5,7 @@ import { parseArgs } from "node:util";
 import { acquisitionFields, compareAcquisitionConditions } from "./compare-acquisition-conditions.mjs";
 import { blindSemanticEvaluation } from "./blind-semantic-evaluation.mjs";
 import { sampleSemanticEvaluationPairs } from "./sample-semantic-evaluation-pairs.mjs";
+import { compareSemanticReviewResults } from "./compare-semantic-review-results.mjs";
 
 const { values: options } = parseArgs({ options: {
   "include-predictions": { type: "boolean", default: false },
@@ -73,6 +74,7 @@ try {
         left,
         right,
         acquisition_comparison: compareAcquisitionConditions(left.acquisition_contract, right.acquisition_contract),
+        result_comparison: compareSemanticReviewResults(left.results, right.results),
         classifier_prediction: { decision: row.decision, score: row.intent_similarity_score, components: JSON.parse(row.components_json), policy: row.policy },
         annotation: { label: null, rationale: null, reviewer: null, reviewed_at: null, evidence_urls: [] },
       };
