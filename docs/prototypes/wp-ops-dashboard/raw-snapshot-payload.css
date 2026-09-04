@@ -1,0 +1,55 @@
+.inline-controls {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.inline-controls label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.inline-controls input {
+  min-width: 320px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 9px 10px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 12px ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.code-preview {
+  max-height: 420px;
+  overflow: auto;
+  margin: 10px 0 16px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #1e2721;
+  color: #e6f2eb;
+  font: 11px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+  white-space: pre-wrap;
+}
+
+.raw-payload-task {
+  padding: 4px 7px;
+  font-size: 10px;
+}
+
+@media (max-width: 520px) {
+  .inline-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .inline-controls input {
+    min-width: 0;
+    width: 100%;
+  }
+}

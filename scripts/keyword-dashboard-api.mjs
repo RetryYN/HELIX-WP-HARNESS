@@ -169,6 +169,7 @@ const operations = {
   "/cooccurrence": ["CoOccurrenceController_search"],
   "/serp-results": ["SearchRankSerpCacheController_getSerpCache"],
   "/serp-db-retention": [],
+  "/raw-snapshot": [],
   "/market/locations": ["SearchVolumeMetadataController_getLocations"],
   "/market/languages": ["SearchVolumeMetadataController_getLanguages"],
   "/credits/estimate": [],
@@ -1116,6 +1117,15 @@ paths["/snapshot-history"] = {
     responses: { 200: { description: "Retained evidence" } },
   },
 };
+paths["/raw-snapshot"] = {
+  get: {
+    operationId: "helix_raw_snapshot_payload",
+    description:
+      "Read a digest-bound raw snapshot inventory row or its verbatim retained JSON payload by task ID; never acquires or mutates data.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Verbatim retained raw snapshot" } },
+  },
+};
 paths["/serp-feature-items"] = {
   get: {
     operationId: "helix_serp_feature_items",
@@ -1438,6 +1448,64 @@ export function routeResearchApi(pathname, url, data, db = null) {
         decision_state: use ?? "all",
         value_state: valueState ?? "all",
       },
+    });
+  }
+  if (pathname === "/api/v1/raw-snapshot") {
+    const taskId = String(url.searchParams.get("task_id") ?? "").trim(),
+      requestedView = url.searchParams.get("view"),
+      view = requestedView == null || requestedView === "" ? "summary" : requestedView;
+    if (!taskId) return bad(400, "task_id is required");
+    if (!["summary", "payload"].includes(view))
+      return bad(400, "view must be one of summary, payload");
+    let inventory;
+    let payload;
+    if (db) {
+      inventory = db
+        .prepare("SELECT * FROM raw_snapshot_inventory WHERE task_id=?")
+        .get(taskId);
+      payload = db
+        .prepare(
+          "SELECT task_id,payload_json,payload_digest,payload_bytes,storage_policy FROM raw_snapshot_payloads WHERE task_id=?",
+        )
+        .get(taskId);
+    } else {
+      inventory = (data?.raw_snapshot_inventory ?? []).find(
+        (row) => row.task_id === taskId,
+      );
+      payload = (data?.raw_snapshot_payloads ?? []).find(
+        (row) => row.task_id === taskId,
+      );
+    }
+    if (!inventory || !payload) return bad(404, "raw snapshot payload not found");
+    const normalizedInventory = {
+      ...inventory,
+      item_types:
+        inventory.item_types ??
+        (inventory.item_types_json == null
+          ? []
+          : JSON.parse(inventory.item_types_json)),
+    };
+    delete normalizedInventory.item_types_json;
+    let parsedPayload;
+    if (view === "payload") {
+      try {
+        parsedPayload =
+          payload.payload ?? JSON.parse(payload.payload_json ?? "null");
+      } catch {
+        return bad(500, "retained raw snapshot payload is invalid JSON");
+      }
+    }
+    return ok({
+      task_id: taskId,
+      view,
+      inventory: normalizedInventory,
+      payload_digest: payload.payload_digest,
+      payload_bytes: payload.payload_bytes,
+      storage_policy: payload.storage_policy ?? "raw_snapshot_verbatim",
+      raw_file_digest_match:
+        normalizedInventory.snapshot_digest === payload.payload_digest,
+      raw_payload_verbatim: true,
+      ...(view === "payload" ? { payload: parsedPayload } : {}),
     });
   }
   if (pathname === "/api/v1/serp-db-retention") {

@@ -431,6 +431,7 @@ const proof = {
       "docs/prototypes/wp-ops-dashboard/capability-audit.js",
       "docs/prototypes/wp-ops-dashboard/serp-field-state-audit.js",
       "docs/prototypes/wp-ops-dashboard/serp-db-retention-audit.js",
+      "docs/prototypes/wp-ops-dashboard/raw-snapshot-payload.css",
       "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
       "scripts/test-dashboard-table-state.mjs",
       "scripts/test-keyword-dashboard-integration.mjs",

@@ -271,14 +271,15 @@ const listed = handleMcpMessage(
   { jsonrpc: "2.0", id: 2, method: "tools/list" },
   data,
 ).result.tools;
-assert.equal(listed.length, 111);
-assert.equal(new Set(listed.map((tool) => tool.name)).size, 111);
+assert.equal(listed.length, 112);
+assert.equal(new Set(listed.map((tool) => tool.name)).size, 112);
 assert.ok(
   listed.some((tool) => tool.name === "review_public_source_decisions"),
 );
 assert.ok(listed.some((tool) => tool.name === "search_public_synonyms"));
 assert.ok(listed.some((tool) => tool.name === "audit_suggest_expansion_logic"));
 assert.ok(listed.some((tool) => tool.name === "audit_serp_db_retention"));
+assert.ok(listed.some((tool) => tool.name === "inspect_raw_snapshot_payload"));
 assert.ok(
   listed.some((tool) => tool.name === "traverse_public_semantic_graph"),
 );
@@ -337,6 +338,7 @@ assert.ok(
         "get_content_brief",
         "audit_serp_field_lineage",
         "audit_serp_db_retention",
+        "inspect_raw_snapshot_payload",
         "list_search_locations",
         "list_search_languages",
         "estimate_public_api_credits",
@@ -507,5 +509,5 @@ assert.equal(
 assert.equal(isAllowedMcpOrigin("http://127.0.0.1:4173"), true);
 assert.equal(isAllowedMcpOrigin("https://evil.example"), false);
 console.log(
-  "keyword dashboard MCP: OK (initialize, 111 read-only tools, public metadata, credit estimator, isolated corpus review, evidence boundaries, site scope, origin gate)",
+  "keyword dashboard MCP: OK (initialize, 112 read-only tools, public metadata, credit estimator, isolated corpus review, evidence boundaries, site scope, origin gate)",
 );
