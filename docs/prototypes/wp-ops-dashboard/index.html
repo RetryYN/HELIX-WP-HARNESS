@@ -42,6 +42,7 @@
       <button class="tab" data-view="competitor-domains">競合ドメイン</button>
       <button class="tab" data-view="aio-citations">AIO引用</button>
       <button class="tab" data-view="acquisition-health">取得状態</button>
+      <button class="tab" data-view="serp-depth-inventory">SERP深度</button>
       <button class="tab" data-view="capability-audit">全機能監査</button>
       <button class="tab" data-view="action-queue">SEO実行キュー</button>
       <button class="tab" data-view="market-data">市場データ</button>
@@ -2311,6 +2312,44 @@
         </div>
       </section>
 
+      <section id="serp-depth-inventory" class="view">
+        <div class="section-head table-toolbar">
+          <div>
+            <h2>SERP深度境界</h2>
+            <p>taskの宣言depthと保持rankを分離し、11〜20位の実観測行・未観測slot・証跡を確認します</p>
+          </div>
+          <div class="filters">
+            <input id="serp-depth-search" type="search" placeholder="KW・task・状態検索" aria-label="SERP深度検索" />
+            <select id="serp-depth-state" aria-label="SERP深度状態">
+              <option value="all">全状態</option>
+              <option value="declared_depth_only">宣言depth内のみ</option>
+              <option value="over_declared_depth_observed">宣言depth外を観測</option>
+              <option value="target_depth_complete">target20充足</option>
+              <option value="over_target_depth_observed">target20超を観測</option>
+              <option value="no_rows_retained">rank行なし</option>
+            </select>
+          </div>
+        </div>
+        <div id="serp-depth-metrics" class="metrics"></div>
+        <div class="notice"><span>target20は分析上の照合境界で、providerへ20位取得を要求した証拠ではありません。未観測slotを圏外・不存在とは扱いません。</span></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>対象KW / task</th>
+                <th>宣言depth / target</th>
+                <th>保持rank</th>
+                <th>11〜20位観測</th>
+                <th>状態</th>
+                <th>証跡</th>
+              </tr>
+            </thead>
+            <tbody id="serp-depth-rows"></tbody>
+          </table>
+          <div id="serp-depth-empty" class="empty-state"></div>
+        </div>
+      </section>
+
       <section id="capability-audit" class="view">
         <div class="section-head table-toolbar">
           <div>
@@ -2833,5 +2872,6 @@
     <script type="module" src="observed-hashtags.js"></script>
     <script type="module" src="capability-audit.js"></script>
     <script type="module" src="generation-quality.js"></script>
+    <script type="module" src="serp-depth-inventory.js"></script>
   </body>
 </html>
