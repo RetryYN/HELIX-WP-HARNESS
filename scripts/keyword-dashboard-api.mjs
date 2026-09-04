@@ -82,6 +82,15 @@ const capabilityCompletionAudit = JSON.parse(
     "utf8",
   ),
 );
+const serpDbRetentionAudit = JSON.parse(
+  readFileSync(
+    new URL(
+      "../docs/prototypes/wp-ops-dashboard/serp-db-retention-audit.json",
+      import.meta.url,
+    ),
+    "utf8",
+  ),
+);
 
 const parseLimit = (value) => {
     if (value == null || String(value).trim() === "") return 25;
@@ -159,6 +168,7 @@ const operations = {
   "/outlines": [],
   "/cooccurrence": ["CoOccurrenceController_search"],
   "/serp-results": ["SearchRankSerpCacheController_getSerpCache"],
+  "/serp-db-retention": [],
   "/market/locations": ["SearchVolumeMetadataController_getLocations"],
   "/market/languages": ["SearchVolumeMetadataController_getLanguages"],
   "/credits/estimate": [],
@@ -490,6 +500,15 @@ paths["/serp-field-lineage"] = {
       "Every observed primitive raw SERP field path with projection state, value-state counts (non-empty, empty, null, zero, false), and a source-verified decision consumer when one exists.",
     "x-seo-tool-a-operation-ids": [],
     responses: { 200: { description: "Retained field and consumer lineage" } },
+  },
+};
+paths["/serp-db-retention"] = {
+  get: {
+    operationId: "helix_serp_db_retention",
+    description:
+      "Compare observed raw SERP primitive states with the actual SQLite projection, separating exact retention, implicit table context, state-only loss, non-empty drops, and projection gaps; never triggers acquisition.",
+    "x-seo-tool-a-operation-ids": [],
+    responses: { 200: { description: "Raw-to-DB retention evidence" } },
   },
 };
 paths["/freshness-signals"] = {
@@ -1418,6 +1437,79 @@ export function routeResearchApi(pathname, url, data, db = null) {
         projection_state: state ?? "all",
         decision_state: use ?? "all",
         value_state: valueState ?? "all",
+      },
+    });
+  }
+  if (pathname === "/api/v1/serp-db-retention") {
+    const audit = data?.serp_db_retention ?? serpDbRetentionAudit;
+    if (!audit) return bad(503, "SERP DB retention audit is unavailable");
+    const requestedView = url.searchParams.get("view"),
+      view = requestedView == null || requestedView === "" ? "summary" : requestedView,
+      scope = url.searchParams.get("scope") ?? "all",
+      severity = url.searchParams.get("severity") ?? "all",
+      query = norm(url.searchParams.get("q"));
+    if (!["summary", "fields", "drops"].includes(view))
+      return bad(400, "view must be one of summary, fields, drops");
+    if (!["all", "connected", "unconnected"].includes(scope))
+      return bad(400, "scope must be one of all, connected, unconnected");
+    if (
+      ![
+        "all",
+        "retained",
+        "state_only_dropped",
+        "dropped_nonempty",
+        "implicit_context_only",
+        "projection_gap",
+      ].includes(severity)
+    )
+      return bad(
+        400,
+        "severity must be one of retained, state_only_dropped, dropped_nonempty, implicit_context_only, projection_gap",
+      );
+    const source =
+        view === "summary"
+          ? audit.scope_summary
+          : view === "drops"
+            ? audit.dropped_field_rows
+            : audit.field_rows,
+      rows = source.filter(
+        (row) =>
+          (scope === "all" || row.scope === scope) &&
+          (view === "summary" || severity === "all" || row.severity === severity) &&
+          (!query ||
+            norm(
+              `${row.scope} ${row.field ?? ""} ${row.severity ?? ""} ${(row.reasons ?? []).join(" ")} ${(row.source_tables ?? []).join(" ")}`,
+            ).includes(query)),
+      );
+    const summaryRows = audit.scope_summary,
+      allSummary = summaryRows.find((row) => row.scope === "all"),
+      droppedNonemptyFieldCount = audit.field_rows.filter(
+        (row) => row.not_retained_nonempty_observation_count > 0,
+      ).length,
+      stateOnlyFieldCount = audit.field_rows.filter(
+        (row) => row.severity === "state_only_dropped",
+      ).length;
+    return ok({
+      ...page(rows, url),
+      schema_version: audit.schema_version,
+      audit_digest: audit.audit_digest,
+      summary: {
+        ...(allSummary ?? {}),
+        scope_summary: summaryRows,
+        dropped_nonempty_field_count: droppedNonemptyFieldCount,
+        state_only_dropped_field_count: stateOnlyFieldCount,
+        projection_gap_field_count: audit.field_rows.filter(
+          (row) => row.projection_gap_observation_count > 0,
+        ).length,
+      },
+      database_counts: audit.database_counts,
+      integrity: audit.integrity,
+      retention_policy: audit.retention_policy,
+      filters: {
+        view,
+        scope,
+        severity,
+        q: url.searchParams.get("q") ?? "",
       },
     });
   }

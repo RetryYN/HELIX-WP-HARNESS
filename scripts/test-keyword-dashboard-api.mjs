@@ -94,7 +94,7 @@ const openApiPaths = Object.keys(researchOpenApi.paths),
   mappedOperationIds = new Set(
     operationCoverage.map((row) => row.operation_id),
   );
-assert.equal(openApiPaths.length, 128);
+assert.equal(openApiPaths.length, 129);
 assert.ok(openApiPaths.every((path) => researchOpenApi.paths[path].get));
 assert.equal(
   researchOpenApi.paths["/generation-quality-oracle"].get.operationId,

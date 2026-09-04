@@ -1588,6 +1588,14 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - `GET /api/v1/serp-field-lineage?view=states&value_state=...` とMCP `audit_serp_field_lineage` へ `fields`／`states` viewと状態filterを追加し、ダッシュボード「SERP field value-state監査」から全242 fieldをページング表示する。payloadに存在しないfieldは観測状態に数えず、未取得・任意省略・今回の空値を混同しない境界を明記した。
 - これは取得済みrawの値状態を可視化する監査であり、未要求dataset、深度外SERP、providerが返していない回答本文、継続履歴、外部市場指標の取得完了を意味しない。外部通信・認証・有料実行・モデル実行・自動施策変更は0である。
 
+### 10.125 raw→DB保持境界の実照合（SERP retention audit v1 / 2026-09-05）
+
+- 110 raw task（現行接続100、独立取得だが現行groupに未接続10）を、実際のSQLite投影の行・列・JSON payloadへ照合した。52,613 primitive/state observationのうち、exact保持40,820、table文脈だけ90、DBに値を持たないもの11,703で、非空29,586のうち1,491が未接続snapshot側の非空値dropだった。接続済み100 taskでは非空値dropは0である。
+- 独立取得10 taskは、`raw_snapshot_inventory`、需要観測、feature payload、organicのrank/domain/title/URLだけを保持する境界だった。したがってorganicのdescription 88件、breadcrumb 90件、rank/page/position/xpath各90件、sitelink各81件、検索契約の`check_url`等10件、動画flagのtrue 2件などはrawには存在するがDB投影には残っていない。これはprovider未取得ではなく、取得済みrawの限定投影によるdropである。
+- 接続済み100 taskはtask metadata・organic構造化行・JSON列・non-organic feature payloadを実照合し、metadata欠落0、organic行gap 0、feature payload行gap 0を確認した。`organic.cache_url`等のnull-only fieldは非空値を失っていないため「状態のみdrop」として分離し、false/0/nullを需要や未実装の証拠に昇格させない。
+- `scripts/audit-serp-db-retention.mjs` と `serp-db-retention-audit.json`を追加し、`GET /api/v1/serp-db-retention`（summary／fields／drops、scope・severity・query・cursor）とMCP `audit_serp_db_retention`、ダッシュボード「raw→DB保持境界監査」へ接続した。exact保持、implicit context、state-only drop、非空値drop、projection gapを同じdigest・整合性チェックで逆引きできる。
+- 監査はrawファイルを削除せず、外部通信・認証・有料実行・モデル実行・自動DB修正を行わない。非空値dropを回収するには、限定snapshotを現行groupへ再接続するか、承認済みの保持列／payload設計を別PRで追加する必要がある。payloadに存在しないfieldは、引き続き未取得かprovider省略かをこの監査だけで判定しない。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了
