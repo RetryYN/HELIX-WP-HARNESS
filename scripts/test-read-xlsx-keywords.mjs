@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import "./test-xlsx-empty-metrics.mjs";
 import {existsSync} from "node:fs";
 import path from "node:path";
 import {listXlsxSheets,readXlsxKeywordWorkbook} from "./read-xlsx-keywords.mjs";

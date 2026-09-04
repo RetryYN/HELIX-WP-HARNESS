@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import "./test-xlsx-empty-metrics.mjs";
 import { checkKeywordCoverage, groupBySerp, normalizeKeyword,serpConfidence } from "./keyword-serp-core.mjs";
 
 assert.equal(normalizeKeyword("  ＳＥＯ　記事  "), "seo 記事");
