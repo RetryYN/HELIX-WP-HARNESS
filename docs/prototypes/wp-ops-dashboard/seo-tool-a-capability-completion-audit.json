@@ -1,7 +1,7 @@
 {
   "schema_version": "seo-tool-a-capability-completion-audit.v1",
   "evidence_cutoff": "2026-08-29",
-  "inventory_digest": "a8f60de5855992ec2a483b15dd60d7b8518e748237276bd51adc019c0f4bee0a",
+  "inventory_digest": "a9d946341671f7c6ab540ce4ef654cef03dd5ad061b8e707d0835d75fbf4002e",
   "completion_claim": "not_proven",
   "summary": {
     "capability_count": 35,
@@ -1512,7 +1512,7 @@
     "all_unique_commands_passed": true,
     "target_capability_count": 6,
     "unique_command_count": 18,
-    "receipt_digest": "0e6a9c2fe3ca233eb1f36911221c8f84dec2c2af3f60b84c50f43ab220a3e378",
+    "receipt_digest": "9d010066813afc7d2ac809fa5da892ad7b0ec2cec8acf69cdd9500dc2224b637",
     "external_acquisition_triggered": false,
     "model_execution_triggered": false,
     "paid_execution_triggered": false
@@ -4601,9 +4601,9 @@
         "execution_attested": true,
         "artifact_set_digest": "12c7c277fef1800a6bbc2dea731ea8be27441fb360fd05eb26c8771839fbf1cd",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "9133b46a6416b0525bfa24266e1aa2a375867f3335e212d229f746c7abb2419e"
+        "attestation_digest": "a84d1d590b8d1dba817551a24b7edde4bd4b63e711085a06e5e53736f5c0d009"
       },
-      "evidence_digest": "72c11da0c85b204c9b473cb20da145c063bac9781cde26469151ec822f906f75"
+      "evidence_digest": "299f29c1e7ffcf2cd13d1ea78a3f66ca8a5e2fb7f1888ff8d005ce2d70b1d1f2"
     },
     {
       "capability_id": "associations",
@@ -4664,9 +4664,9 @@
         "execution_attested": true,
         "artifact_set_digest": "12c7c277fef1800a6bbc2dea731ea8be27441fb360fd05eb26c8771839fbf1cd",
         "command_set_digest": "e9816ba1dc1f81ac1edf742e37578904a103eef833f16bd5f37f93cca575f652",
-        "attestation_digest": "a1fe8d6dfa74b5e9fe48fd82cf2b3f658f231707b224fe750e906648b71bbf8e"
+        "attestation_digest": "5826f8cb1bdabdb8428585013e300587e5034c259239e585579cd528a0af9654"
       },
-      "evidence_digest": "978e15921bf997e5aa6f154be11461501af00e6a8ed462343ced150bf500091a"
+      "evidence_digest": "4df291377177d00571d5067619efdb77e50c386dcaa26dca753f948653455361"
     },
     {
       "capability_id": "qa_sites",
@@ -4840,9 +4840,9 @@
         "execution_attested": true,
         "artifact_set_digest": "9f430d0665cadffaad6369f97847d8f3e4672aa1e549f7785d4afe3f7f590082",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "ae4705d265d067ed43bee911caee2e7eae7cd3a57023370d59c5673b303024f2"
+        "attestation_digest": "070eaeea51ff81c82c5a8835a2d347b6d0e5a69e8fe1ec4d6f091caf3cdba9aa"
       },
-      "evidence_digest": "fcdec952efd0ccc29e4a43c362c1def6342df295169dc4ce72f518eb435fc71f"
+      "evidence_digest": "1ee8e10f08b7e1c437409fb96f0d223c2091d917a6f009dd57ac37d568725788"
     },
     {
       "capability_id": "auxiliary_tools",
@@ -4880,9 +4880,9 @@
         "execution_attested": true,
         "artifact_set_digest": "9f430d0665cadffaad6369f97847d8f3e4672aa1e549f7785d4afe3f7f590082",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "f395dbeb7654dc28aa0110ac668a797086a874466a1e816b3e4cd4a769e78ae8"
+        "attestation_digest": "0963c6f8fb909769e0a480f7ceb037f1fe4fb13978a1bfdb833f8c31bf548fff"
       },
-      "evidence_digest": "770f50166220914adc15f0297d80e5a24b7067fe5a114e93a719c68b9349cb5d"
+      "evidence_digest": "154012e91c1cd2d895e2d8beaacfcf6e333aa752dfbe8e11dccd3f5b9d677975"
     },
     {
       "capability_id": "data_output",
@@ -4920,9 +4920,9 @@
         "execution_attested": true,
         "artifact_set_digest": "9f430d0665cadffaad6369f97847d8f3e4672aa1e549f7785d4afe3f7f590082",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "9aa606798dae116b4e2def19d74c01ada7c3b0f030b186fca7ea3a3354d73292"
+        "attestation_digest": "2386328864f9328d7c7447e0f2d953ecd2e048ad9ce43bd7fac1f5658b5d20ac"
       },
-      "evidence_digest": "dec50768284ef8f3faae519e0221350353b097bda87dc8e4f0052a1d1c8e08b7"
+      "evidence_digest": "d2a47e828ce85f6c9554ab091f71d3bb803a39f717119c58e842f137431d788c"
     },
     {
       "capability_id": "bookmarklet",
@@ -4960,9 +4960,9 @@
         "execution_attested": true,
         "artifact_set_digest": "9f430d0665cadffaad6369f97847d8f3e4672aa1e549f7785d4afe3f7f590082",
         "command_set_digest": "9ec93448d6bf00834315648ca2dfb67afb4d04d63477f124e10a4a69f7cfae7b",
-        "attestation_digest": "cce2ad4ca2989003d79fee7a38aa7dcf40fd898ac53b4703f3f1a075dd959efd"
+        "attestation_digest": "214f587bfe1afe753e7c470839a7908f210db21bc8874483291ec99e01fb154b"
       },
-      "evidence_digest": "ed063f170cc41aa96678a3107d2da41b75c59cfff661d94673998a3959c86a5d"
+      "evidence_digest": "269544b28752ca3ae0e5ff04d97a576a398825c78d82a50bc6b7efcba6835a12"
     },
     {
       "capability_id": "public_api",
@@ -4973,7 +4973,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/api/v1に126 GET routeを実装し、2026-09-03に公式OpenAPI 1.16.0（OAS 3.1.1）24 operation・41 schema・952 fieldをlive再取得して構造digest差分0（説明・example・plan wordingのみ更新）を確認し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・横断KW拡張lineageを含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
+      "remaining_gap": "/api/v1に127 GET routeを実装し、2026-09-03に公式OpenAPI 1.16.0（OAS 3.1.1）24 operation・41 schema・952 fieldをlive再取得して構造digest差分0（説明・example・plan wordingのみ更新）を確認し、公開OpenAPI全24 operationの入力・出力schema、認証、lifecycle role、credit class、明示依存53 edgeを完全分類し、nullable primitiveを正しくflattenした952 field監査と結合し、保持semantic 112・payload未取得190・provider実行meta未取得31・未mapping 0・wire shape 448をoperation別に逆引きし、取得後に捨てた疑い0を明示し、952/952 fieldの将来無損失保持先・未取得221・空台帳7 tableを監査し、24 operationのupstream来歴を契約対応観測4・保持部分再現6・変換再現2・schema仮説5・workflow仮説6・provider不明1へ較正し内部実装証明0を明示し、全24 operation IDをretained projectionまたはplan-onlyへ明示mapping。HELIX固有のAIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・横断KW拡張lineageを含み、site gate、cursor、provenance付き。外部wire contract互換、認証、credit消費、provider mutationは意図的に未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -5023,7 +5023,7 @@
         "command_set_digest": "2e70b501b49e30d1068a99539b3ee3d1b67341fe8f997a7bc5c917963e9a3db3",
         "attestation_digest": null
       },
-      "evidence_digest": "05f7a20f7d3871eb4535991b09637703098a85a98607a7777f8d09ad5558856b"
+      "evidence_digest": "bd8c375f2c5907362a432ff278dd8d71f7de3b98bd0740d0a3dbacea3f7edc2e"
     },
     {
       "capability_id": "mcp",
@@ -5034,7 +5034,7 @@
       "blocker_classes": [
         "contract_or_auth_parity"
       ],
-      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録review・横断KW拡張lineageを含む108 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
+      "remaining_gap": "/mcpに公式契約のStreamable HTTP stateless・POST・JSON-RPC 2.0・60req/60秒・OAuth2.1 CIMD/DCR・API key・Web比1.5倍credit・API同等14機能群・content生成補助対象外を監査し、initialize/ping/tools/list/tools/callと、site-scoped SEO証拠・AIO/PAA回答completion・claim探索/検証・記事公開readiness・修正review・順位監視計画・keyword/citation lineage・公開類語・公開意味graph・graph関連KW逆引き・隔離snapshotの別corpus登録review・横断KW拡張lineageを含む109 read-only toolを実装。API投影を再利用し、Origin・1MiB・protocol version gate付き。外部OAuth、外部固有tool contract、credit連携は未実装",
       "authoritative_evidence": [
         "scripts/public-search-metadata.mjs",
         "docs/research/evidence/public-search-metadata.json",
@@ -5084,7 +5084,7 @@
         "command_set_digest": "2e70b501b49e30d1068a99539b3ee3d1b67341fe8f997a7bc5c917963e9a3db3",
         "attestation_digest": null
       },
-      "evidence_digest": "9803a3d6f20e2f5ff3f21263970d528035470e4eb302111a77ad1ad754c7737b"
+      "evidence_digest": "eca930b513c0eebc726ddf8003db4daa0261e735a416671bbb950dbc94b51dee"
     },
     {
       "capability_id": "credit_history",
@@ -5135,5 +5135,5 @@
       "evidence_digest": "707f5379134df7f35045a860d13b66da488bcbb49957acd96ae380c6c67e1d66"
     }
   ],
-  "audit_digest": "7cbb622fda5d6522d314bbfb32244be3a025631ec06e535ee53a2365d11f1688"
+  "audit_digest": "2b8229ef499aad47caaaa8fa129e2cc1f813be7f069ea17a3335f31b099bc3fc"
 }
