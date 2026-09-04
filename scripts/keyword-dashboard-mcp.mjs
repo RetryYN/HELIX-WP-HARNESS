@@ -12,6 +12,14 @@ const apiToolRoutes = { inspect_observed_site_similarity: "/api/v1/observed-site
 apiToolRoutes.audit_keyword_content_lineage = "/api/v1/keyword-content-lineage";
 apiToolRoutes.audit_keyword_expansion_lineage = "/api/v1/keyword-expansion-lineage";
 apiToolRoutes.inspect_capability_completion_audit = "/api/v1/capability-audit";
+const fieldLineageTool = tools.find((tool) => tool.name === "audit_serp_field_lineage");
+if (fieldLineageTool) {
+  fieldLineageTool.description = "List every observed primitive SERP field path, projection and decision lineage, and value-state counts (non-empty, empty, null, zero, false); absent fields remain unobservable.";
+  Object.assign(fieldLineageTool.inputSchema.properties, {
+    view: { type: "string", enum: ["fields", "states"] },
+    value_state: { type: "string", enum: ["all", "nonempty", "empty", "null", "zero", "false"] }
+  });
+}
 tools.push({ name: "audit_suggest_expansion_logic", title: "Audit suggest expansion logic", description: "Inspect the official suggest-class contract, retained seed frontier, engine coverage, and local BFS/DFS plan traces without external acquisition or automatic generation.", inputSchema: { type: "object", properties: { site_id: { type: "string" }, view: { type: "string", enum: ["seeds", "frontier", "engines", "contract", "traces"] }, query: { type: "string" }, suggest_class: { type: "integer", enum: [0, 1, 2, 3] }, engine: { type: "string" }, state: { type: "string" }, limit: { type: "integer", minimum: 1, maximum: 100 } }, required: ["site_id"], additionalProperties: false } });
 apiToolRoutes.audit_suggest_expansion_logic = "/api/v1/suggest-expansion-logic";
 tools.push({ name: "audit_latent_demand_traversal", title: "Compare latent demand traversal", description: "Compare deterministic breadth-first and depth-first order over retained demand occurrences, preserving source evidence without claiming an upstream internal algorithm or triggering acquisition.", inputSchema: { type: "object", properties: { site_id: { type: "string" }, group_id: { type: "string" }, query: { type: "string" }, strategy: { type: "string", enum: ["breadth_first", "depth_first"] }, max_depth: { type: "integer", minimum: 1, maximum: 2 }, limit: { type: "integer", minimum: 1, maximum: 100 } }, required: ["site_id"], additionalProperties: false } });

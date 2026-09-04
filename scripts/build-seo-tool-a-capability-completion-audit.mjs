@@ -172,6 +172,7 @@ const proof = {
       "docs/prototypes/wp-ops-dashboard/serp-depth-inventory.js",
       "scripts/test-keyword-dashboard-integration.mjs",
       "scripts/audit-serp-data-coverage.mjs",
+      "docs/prototypes/wp-ops-dashboard/serp-data-coverage-audit.json",
     ],
     verification: [
       "node scripts/test-search-contract-code-mapping-oracle.mjs",
@@ -212,6 +213,7 @@ const proof = {
       "npm run prototype:serp-depth-inventory:api:test",
       "npm run prototype:serp-depth-inventory:ui:test",
       "node scripts/test-serp-data-coverage.mjs",
+      "node scripts/test-serp-field-lineage-api.mjs",
     ],
   },
   corpus: {
@@ -420,14 +422,17 @@ const proof = {
       "docs/prototypes/wp-ops-dashboard/keyword-expansion-lineage.js",
       "docs/prototypes/wp-ops-dashboard/suggest-expansion-logic.js",
       "docs/prototypes/wp-ops-dashboard/capability-audit.js",
+      "docs/prototypes/wp-ops-dashboard/serp-field-state-audit.js",
       "docs/prototypes/wp-ops-dashboard/dashboard-table-state.mjs",
       "scripts/test-dashboard-table-state.mjs",
       "scripts/test-keyword-dashboard-integration.mjs",
+      "scripts/test-serp-field-state-ui.mjs",
     ],
     verification: [
       "npm run prototype:table-state:test",
       "npm run prototype:keyword-dashboard:test",
       "node scripts/test-capability-audit-ui.mjs",
+      "node scripts/test-serp-field-state-ui.mjs",
     ],
   },
   contract: {

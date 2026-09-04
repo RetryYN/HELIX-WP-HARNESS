@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import path from "node:path";
 import { auditSerpDataCoverage } from "./audit-serp-data-coverage.mjs";
 
 const audit=auditSerpDataCoverage();
@@ -12,7 +14,7 @@ assert.equal(audit.acquired_but_empty_or_incomplete.paa_questions,436);
 assert.equal(audit.acquired_but_empty_or_incomplete.paa_answer_items,16,"resolved expanded PAA answers must not be miscounted as absent");
 assert.equal(audit.acquired_but_empty_or_incomplete.aio_items,92);
 assert.equal(audit.acquired_but_empty_or_incomplete.aio_references,124);
-assert.equal(audit.schema_version,"serp-data-coverage-audit.v10");
+assert.equal(audit.schema_version,"serp-data-coverage-audit.v11");
 assert.deepEqual(audit.raw_leaf_field_summary,{field_count:195,projected_field_count:195,raw_only_field_count:0,decision_connected_field_count:94,evidence_only_field_count:101,consumer_verified_field_count:195,consumer_missing_field_count:0});
 assert.equal(audit.raw_leaf_fields.length,195,"every non-empty primitive leaf path across all public raw datasets must be inventoried");
 assert.deepEqual(audit.raw_only_leaf_fields,[],"every observed raw leaf must resolve to a structured, normalized, ancestor-JSON, or feature-payload projection");
@@ -41,4 +43,22 @@ assert.ok(audit.evidence_only_projected.some((row)=>row.field==="task.id"),"prov
 assert.ok(audit.raw_leaf_fields.some((row)=>row.field==="jobs.items[].contract_type"&&row.storage_kind==="raw_feature_payload_json"&&row.consumer?.file==="scripts/keyword-dashboard-db.mjs"));
 assert.deepEqual(audit.boolean_observations.find((row)=>row.field==="organic.is_video"),{field:"organic.is_video",observed_count:1016,true_count:21,false_count:995});
 assert.deepEqual(audit.boolean_observations.find((row)=>row.field==="organic.is_image"),{field:"organic.is_image",observed_count:1016,true_count:0,false_count:1016});
+assert.equal(audit.raw_leaf_state_summary.field_count,242,"state inventory includes null-valued fields in addition to non-empty leaves");
+assert.equal(audit.raw_leaf_state_summary.null_observation_count,16921);
+assert.equal(audit.raw_leaf_state_summary.false_observation_count,6103);
+assert.deepEqual(audit.raw_leaf_states.find((row)=>row.field==="organic.description")?.state_counts,{nonempty:1006,empty:0,null:10,zero:0,false:0});
+assert.deepEqual(audit.raw_leaf_states.find((row)=>row.field==="organic.is_video")?.state_counts,{nonempty:21,empty:0,null:0,zero:0,false:995});
+assert.deepEqual(audit.raw_leaf_states.find((row)=>row.field==="result.spell")?.state_counts,{nonempty:0,empty:0,null:109,zero:0,false:0});
+assert.equal(audit.raw_leaf_fields.find((row)=>row.field==="organic.is_video")?.state_counts.false,995);
+const stateFixture=mkdtempSync("/tmp/helix-serp-field-state-");
+try {
+  writeFileSync(path.join(stateFixture,"state.json"),JSON.stringify({tasks:[{id:"state-task",status_code:20000,status_message:"ok",time:0,cost:0,result_count:1,path:[],data:{keyword:"state"},result:[{keyword:"state",type:"serp",se_domain:"google.com",location_code:2392,language_code:"ja",check_url:"https://example.test",datetime:"2026-09-05T00:00:00Z",items:[{type:"organic",rank_absolute:0,title:"state",url:"https://example.test",description:"",links:[],is_video:false}]}]}]}));
+  const stateAudit=auditSerpDataCoverage([stateFixture]);
+  assert.deepEqual(stateAudit.raw_leaf_states.find((row)=>row.field==="organic.description")?.state_counts,{nonempty:0,empty:1,null:0,zero:0,false:0});
+  assert.deepEqual(stateAudit.raw_leaf_states.find((row)=>row.field==="organic.rank_absolute")?.state_counts,{nonempty:0,empty:0,null:0,zero:1,false:0});
+  assert.deepEqual(stateAudit.raw_leaf_states.find((row)=>row.field==="organic.is_video")?.state_counts,{nonempty:0,empty:0,null:0,zero:0,false:1});
+  assert.deepEqual(stateAudit.raw_leaf_states.find((row)=>row.field==="organic.links")?.state_counts,{nonempty:0,empty:1,null:0,zero:0,false:0});
+} finally {
+  rmSync(stateFixture,{recursive:true,force:true});
+}
 console.log("SERP data coverage audit: OK (decision/evidence-only/unclassified/raw-only and boolean observations are explicit)");

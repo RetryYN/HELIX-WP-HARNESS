@@ -1935,6 +1935,28 @@
           </table>
         </div>
         <div class="subsection-head">
+          <h3>SERP field value-state監査</h3>
+          <p>非空fieldだけでなく、取得payload内で観測したnull・空値・0・falseを分離します。payloadに存在しないfieldは未取得かどうかをこの監査だけでは判定しません</p>
+        </div>
+        <div id="serp-field-state-audit-summary" class="metrics"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>raw leaf field</th>
+                <th>観測合計</th>
+                <th>非空</th>
+                <th>null</th>
+                <th>空値</th>
+                <th>0</th>
+                <th>false</th>
+              </tr>
+            </thead>
+            <tbody id="serp-field-state-audit-rows"></tbody>
+          </table>
+        </div>
+        <div id="serp-field-state-audit-empty" class="empty" hidden></div>
+        <div class="subsection-head">
           <h3>元キーワード行lineage</h3>
           <p>元台帳のsheet・row identityを潰さず、正規化階層・取得済みgroup・関連KW候補への接続と孤児を監査します</p>
         </div>
@@ -2873,5 +2895,6 @@
     <script type="module" src="capability-audit.js"></script>
     <script type="module" src="generation-quality.js"></script>
     <script type="module" src="serp-depth-inventory.js"></script>
+    <script type="module" src="serp-field-state-audit.js"></script>
   </body>
 </html>
