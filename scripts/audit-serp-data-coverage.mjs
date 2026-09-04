@@ -104,13 +104,14 @@ export function auditSerpDataCoverage(rawRoots=defaultRoots){
     acquired_but_empty_or_incomplete:{paa_questions:paaQuestions,paa_answer_items:paaAnswers,paa_references:paaReferences,aio_items:aioItems,aio_references:aioReferences},
     acquired_downstream:[
       {dataset:"resolved PAA answer evidence",scope:"retained PAA expanded elements",state:"partial_acquired_and_projected",evidence:["paa_answer_evidence","question_lineage_oracle.unlinked_resolved_answers"],limitations:["384_questions_async_pending","provider_click_depth_not_requested_for_pending_questions"]},
-      {dataset:"competitor top10 H1-H6/body-derived terms/link graph",scope:"retained top10 organic URLs",state:"acquired_and_projected",evidence:["competitor_pages","competitor_headings","competitor_page_terms","wp_observed_links"],limitations:["top11_to_20_not_acquired","full_body_text_intentionally_not_retained"]},
+      {dataset:"competitor top10 H1-H6/body-derived terms/link graph",scope:"retained top10 organic URLs",state:"acquired_and_projected",evidence:["competitor_pages","competitor_headings","competitor_page_terms","wp_observed_links"],limitations:["rank11_to_20_page_parse_is_separately_bounded","full_body_text_intentionally_not_retained"]},
+      {dataset:"retained rank11-20 SERP depth/content boundary",scope:"retained rank rows beyond declared depth",state:"partial_serp_rows_with_page_evidence_boundary",evidence:["serp_depth_inventory","serp_depth_inventory.rank_11_20_content_evidence"],limitations:["provider_depth_request_not_confirmed","only_successfully_matched_page_evidence_contributes_headings_or_terms","unobserved_slots_are_not_unranked_claims"]},
       {dataset:"retained Q&A page evidence",scope:"Q&A pages observed in retained organic results",state:"partial_acquired_and_projected",evidence:["qa_site_evidence.rows","qa_site_evidence.pages"],limitations:["external_full_qa_index_not_acquired","answer_text_not_retained"]}
     ],
     not_acquired:[
       {dataset:"remaining PAA expanded answers/references",reason:"12 resolved answer elements are retained; 384 questions remain asynchronous pending because additional click depth was not requested"},
       {dataset:"SERP pixel rectangles",reason:"calculate_rectangles was not requested"},
-      {dataset:"competitor top11-20 H1-H6/body-derived terms/link graph",reason:"content parsing is retained for observed top10 URLs; ranks 11-20 were not acquired"},
+      {dataset:"competitor top11-20 H1-H6/body-derived terms/link graph",reason:"rank 11-20 SERP rows may be retained and are audited separately, but provider depth acquisition and complete page parsing are not confirmed; only successfully matched page evidence contributes headings or body-derived terms"},
       {dataset:"fresh keyword volume/monthly history/CPC/competition/SEO difficulty",reason:"SERP snapshots do not replace Keywords Data/Labs acquisition"},
       {dataset:"ranked keywords/pages/domain competitors/history",reason:"DataProviderB Labs datasets were not acquired"},
       {dataset:"multi-engine suggestions/question corpus/trends/news/full Q&A index/social hashtags",reason:"no corresponding full external acquisition exists; retained-workbook suggestions and retained-SERP Q&A subsets are projected separately"}

@@ -13,7 +13,9 @@ assert.match(html, /id="serp-depth-rows"/u);
 assert.match(html, /serp-depth-inventory\.js/u);
 assert.match(js, /api\/v1\/serp-depth-inventory/u);
 assert.match(js, /rank_11_20_evidence/u);
+assert.match(js, /rank_11_20_parsed_row_count/u);
+assert.match(js, /本文解析/u);
+assert.match(js, /SERP-only/u);
 assert.match(js, /未観測slot＝圏外ではない/u);
 assert.match(js, /MutationObserver/u);
 console.log("SERP depth inventory UI: OK (site scope, depth filters, rank 11-20 evidence, boundary copy)");
-

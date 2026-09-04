@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import {
+  buildSerpDepthContentCoverage,
   buildSerpDepthInventory,
   projectSerpDepthInventory,
 } from "./serp-depth-inventory.mjs";
@@ -12,6 +13,12 @@ const completeRows = Array.from({ length: 20 }, (_, index) => ({
     domain: "example.test",
     title: `Result ${index + 1}`,
   })),
+  organicResults = [
+    { task_id: "over", rank_absolute: 1, url: "https://example.test/1" },
+    { task_id: "over", rank_absolute: 10, url: "https://example.test/10" },
+    { task_id: "over", rank_absolute: 11, url: "https://example.test/11" },
+    ...completeRows,
+  ],
   inventory = buildSerpDepthInventory(
     [
       {
@@ -38,12 +45,7 @@ const completeRows = Array.from({ length: 20 }, (_, index) => ({
         depth: 10,
       },
     ],
-    [
-      { task_id: "over", rank_absolute: 1, url: "https://example.test/1" },
-      { task_id: "over", rank_absolute: 10, url: "https://example.test/10" },
-      { task_id: "over", rank_absolute: 11, url: "https://example.test/11" },
-      ...completeRows,
-    ],
+    organicResults,
   );
 
 assert.equal(inventory.policy, "serp-depth-inventory.v1");
@@ -79,6 +81,60 @@ assert.equal(projected.rows.length, 3);
 assert.equal(projected.summary.task_count, 3);
 assert.equal(projected.inventory_digest.length, 64);
 assert.notEqual(projected.inventory_digest, inventory.inventory_digest);
+const enriched = buildSerpDepthContentCoverage(inventory, {
+  organicResults,
+  pages: [
+    {
+      page_id: "page-11",
+      url: "https://example.test/11",
+      status: "ok",
+    },
+    {
+      page_id: "failed-page-12",
+      url: "https://example.test/12",
+      status: "fetch_error",
+    },
+  ],
+  pageTaskEvidence: [
+    {
+      task_id: "over",
+      page_id: "page-11",
+      best_rank: 11,
+    },
+    {
+      task_id: "complete",
+      page_id: "failed-page-12",
+      best_rank: 12,
+    },
+  ],
+  headings: [{ page_id: "page-11", position: 1, level: 2, text: "H2" }],
+  pageTerms: [{ page_id: "page-11", term: "foo" }],
+});
+const enrichedOver = enriched.rows.find((row) => row.task_id === "over"),
+  enrichedComplete = enriched.rows.find((row) => row.task_id === "complete");
+assert.equal(enrichedOver.rank_11_20_content_state, "rank_11_20_content_observed");
+assert.equal(enrichedOver.rank_11_20_parsed_row_count, 1);
+assert.equal(enrichedOver.rank_11_20_unparsed_row_count, 0);
+assert.equal(enrichedOver.rank_11_20_page_evidence_count, 1);
+assert.equal(enrichedOver.rank_11_20_failed_page_evidence_count, 0);
+assert.equal(enrichedOver.rank_11_20_heading_count, 1);
+assert.equal(enrichedOver.rank_11_20_term_count, 1);
+assert.equal(enrichedOver.rank_11_20_content_evidence[0].content_state, "page_evidence_retained");
+assert.equal(enrichedComplete.rank_11_20_content_state, "rank_11_20_serp_only");
+assert.equal(enrichedComplete.rank_11_20_parsed_row_count, 0);
+assert.equal(enrichedComplete.rank_11_20_unparsed_row_count, 10);
+assert.equal(enrichedComplete.rank_11_20_failed_page_evidence_count, 1);
+assert.equal(enriched.content_summary.rank_11_20_serp_row_count, 11);
+assert.equal(enriched.content_summary.rank_11_20_parsed_row_count, 1);
+assert.equal(enriched.content_summary.rank_11_20_unparsed_row_count, 10);
+assert.equal(enriched.content_summary.rank_11_20_heading_count, 1);
+assert.equal(enriched.content_summary.rank_11_20_term_count, 1);
+assert.equal(enriched.content_summary.rank_11_20_failed_page_evidence_count, 1);
+assert.equal(enriched.content_summary.external_acquisition_triggered, false);
+const enrichedProjected = projectSerpDepthInventory(enriched, "site-a.example");
+assert.equal(enrichedProjected.content_summary.rank_11_20_parsed_row_count, 1);
+assert.equal(enrichedProjected.content_summary.rank_11_20_unparsed_row_count, 10);
+assert.equal(enrichedProjected.content_coverage_digest, enriched.content_coverage_digest);
 console.log(
   "SERP depth inventory: OK (declared depth, retained rank 11-20 evidence, unobserved-slot boundary, digest)",
 );
