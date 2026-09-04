@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import "./test-select-semantic-review-stratum.mjs";
 import "./test-serp-intent-missing-evidence.mjs";
 import "./test-blind-semantic-evaluation.mjs";
 import "./test-sample-semantic-evaluation-pairs.mjs";

@@ -6,14 +6,20 @@ import { acquisitionFields, compareAcquisitionConditions } from "./compare-acqui
 import { blindSemanticEvaluation } from "./blind-semantic-evaluation.mjs";
 import { sampleSemanticEvaluationPairs } from "./sample-semantic-evaluation-pairs.mjs";
 import { compareSemanticReviewResults } from "./compare-semantic-review-results.mjs";
+import { selectSemanticReviewStratum } from "./select-semantic-review-stratum.mjs";
 
 const { values: options } = parseArgs({ options: {
   "include-predictions": { type: "boolean", default: false },
   "sample-size": { type: "string" },
+  "review-stratum": { type: "string" },
   seed: { type: "string" },
 } });
 if ((options["sample-size"] === undefined) !== (options.seed === undefined)) {
   throw new Error("Provide --sample-size and --seed together");
+}
+if(options["review-stratum"]!==undefined){
+  if(options["sample-size"]!==undefined||options.seed!==undefined)throw new Error("review-stratum cannot be combined with sample-size or seed");
+  selectSemanticReviewStratum([],options["review-stratum"]);
 }
 
 // Export review inputs, never use the current classifier as its own gold label.
@@ -59,7 +65,9 @@ try {
     const acquisition_contract = Object.fromEntries(acquisitionFields.map((field) => [field, rawTask.data?.[field] ?? null]));
     return { ...snapshot, acquisition_contract, results: results.all(taskId) };
   };
-  const selectedPairs = options["sample-size"] !== undefined
+  const selectedPairs = options["review-stratum"] !== undefined
+    ? selectSemanticReviewStratum(pairs,options["review-stratum"])
+    : options["sample-size"] !== undefined
     ? sampleSemanticEvaluationPairs(pairs, { size: Number(options["sample-size"]), seed: options.seed })
     : [...strata].flatMap(([decision, rows]) => {
     // Unretained rows have no score: use hash order, not an invented prediction.
@@ -81,11 +89,12 @@ try {
   });
   const output = {
     schema_version: "semantic-evaluation-cases.v2",
-    sampling: options["sample-size"] !== undefined ? "seeded_hash_rank_across_all_fingerprint_pairs" : "score_extremes_and_median_for_retained_decisions_hash_positions_for_unretained",
+    sampling: options["review-stratum"] !== undefined ? "complete_current_review_stratum" : options["sample-size"] !== undefined ? "seeded_hash_rank_across_all_fingerprint_pairs" : "score_extremes_and_median_for_retained_decisions_hash_positions_for_unretained",
+    ...(options["review-stratum"] !== undefined ? {selected_review_stratum: options["review-stratum"]} : {}),
     sampling_seed: options.seed ?? null,
     retained_pair_count: retainedPairCount,
     population_pair_count: populationPairCount,
-    source_selection_bias: options["sample-size"] !== undefined ? "fingerprint_tasks_only_seed_must_be_fixed_before_labeling_no_unacquired_keywords" : "all_same_site_fingerprint_pairs_enumerated_but_cases_are_exploratory_not_random",
+    source_selection_bias: options["review-stratum"] !== undefined ? "classifier_selected_queue_census_not_population_accuracy_or_recall" : options["sample-size"] !== undefined ? "fingerprint_tasks_only_seed_must_be_fixed_before_labeling_no_unacquired_keywords" : "all_same_site_fingerprint_pairs_enumerated_but_cases_are_exploratory_not_random",
     population_accuracy_estimable: false,
     strata: Object.fromEntries([...strata].map(([key, rows]) => [key, rows.length])),
     allowed_labels: ["same_article", "separate_articles", "related_only", "insufficient_evidence"],
