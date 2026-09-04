@@ -452,7 +452,7 @@ paths["/serp-depth-inventory"] = {
   get: {
     operationId: "helix_serp_depth_inventory",
     description:
-      "Compare declared SERP depth with retained rank rows and expose rank 11-20 observations without inferring unranked or absent results.",
+      "Compare declared SERP depth with retained rank rows, separating SERP-only rows from successful page evidence (headings and terms) for ranks 11-20 without inferring unranked or absent results.",
     responses: { 200: { description: "Retained SERP depth evidence" } },
   },
 };
@@ -4293,6 +4293,23 @@ export function routeResearchApi(pathname, url, data, db = null) {
             (sum, row) => sum + row.rank_11_20_row_count,
             0,
           ),
+          filtered_rank_11_20_parsed_row_count: rows.reduce(
+            (sum, row) => sum + Number(row.rank_11_20_parsed_row_count ?? 0),
+            0,
+          ),
+          filtered_rank_11_20_unparsed_row_count: rows.reduce(
+            (sum, row) => sum + Number(row.rank_11_20_unparsed_row_count ?? 0),
+            0,
+          ),
+          filtered_rank_11_20_page_evidence_count: rows.reduce(
+            (sum, row) => sum + Number(row.rank_11_20_page_evidence_count ?? 0),
+            0,
+          ),
+          filtered_rank_11_20_failed_page_evidence_count: rows.reduce(
+            (sum, row) =>
+              sum + Number(row.rank_11_20_failed_page_evidence_count ?? 0),
+            0,
+          ),
         },
         target_depth: inventory.target_depth ?? 20,
         target_depth_is_provider_request: false,
@@ -4301,6 +4318,8 @@ export function routeResearchApi(pathname, url, data, db = null) {
           inventory.interpretation_policy ??
           "retained_rank_rows_only; unobserved_slots_are_not_ranked_or_absent_claims",
         inventory_digest: inventory.inventory_digest ?? null,
+        content_summary: inventory.content_summary ?? null,
+        content_coverage_digest: inventory.content_coverage_digest ?? null,
         filters: {
           q: url.searchParams.get("q") ?? "",
           state: state ?? "all",

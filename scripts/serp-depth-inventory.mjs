@@ -271,6 +271,12 @@ export function projectSerpDepthInventory(inventory, siteId) {
   const rows = (inventory?.rows ?? []).filter((row) => row.site_id === siteId),
     targetDepth = integer(inventory?.target_depth, DEFAULT_TARGET_DEPTH),
     summary = summarizeSerpDepthInventory(rows, targetDepth),
+    hasContentCoverage = rows.some(
+      (row) => row.rank_11_20_content_state != null,
+    ),
+    contentSummary = hasContentCoverage
+      ? summarizeSerpDepthContentCoverage(rows)
+      : null,
     base = {
       policy: inventory?.policy ?? POLICY,
       interpretation_policy: inventory?.interpretation_policy ?? INTERPRETATION_POLICY,
@@ -279,8 +285,182 @@ export function projectSerpDepthInventory(inventory, siteId) {
       target_depth_is_provider_request: false,
       rows,
       summary,
+      content_summary: contentSummary,
+      content_coverage_digest: hasContentCoverage
+        ? digest({
+            policy: inventory?.policy ?? POLICY,
+            rows,
+            content_summary: contentSummary,
+          })
+        : inventory?.content_coverage_digest ?? null,
       external_acquisition_triggered: false,
       provider_depth_claim: false,
     };
   return { ...base, inventory_digest: digest(base) };
+}
+
+export function summarizeSerpDepthContentCoverage(rows = []) {
+  const numericTotal = (field) =>
+    rows.reduce((sum, row) => sum + Number(row[field] ?? 0), 0);
+  return {
+    task_count: rows.length,
+    task_with_rank_11_20_serp_count: rows.filter(
+      (row) => Number(row.rank_11_20_row_count ?? 0) > 0,
+    ).length,
+    task_rank_11_20_serp_only_count: rows.filter(
+      (row) => row.rank_11_20_content_state === "rank_11_20_serp_only",
+    ).length,
+    task_rank_11_20_content_observed_count: rows.filter(
+      (row) => row.rank_11_20_content_state === "rank_11_20_content_observed",
+    ).length,
+    task_rank_11_20_mixed_count: rows.filter(
+      (row) => row.rank_11_20_content_state === "rank_11_20_mixed_content_coverage",
+    ).length,
+    rank_11_20_serp_row_count: numericTotal("rank_11_20_row_count"),
+    rank_11_20_parsed_row_count: numericTotal("rank_11_20_parsed_row_count"),
+    rank_11_20_unparsed_row_count: numericTotal("rank_11_20_unparsed_row_count"),
+    rank_11_20_page_evidence_count: numericTotal(
+      "rank_11_20_page_evidence_count",
+    ),
+    rank_11_20_failed_page_evidence_count: numericTotal(
+      "rank_11_20_failed_page_evidence_count",
+    ),
+    rank_11_20_heading_count: numericTotal("rank_11_20_heading_count"),
+    rank_11_20_term_count: numericTotal("rank_11_20_term_count"),
+    content_parse_is_provider_request: false,
+    unparsed_serp_rows_are_not_missing_or_unranked_claims: true,
+    external_acquisition_triggered: false,
+  };
+}
+
+export function buildSerpDepthContentCoverage(
+  inventory,
+  {
+    organicResults = [],
+    pageTaskEvidence = [],
+    pages = [],
+    headings = [],
+    pageTerms = [],
+  } = {},
+) {
+  const pageById = new Map(pages.map((row) => [row.page_id, row])),
+    headingCountByPage = new Map(),
+    termCountByPage = new Map();
+  for (const row of headings)
+    headingCountByPage.set(
+      row.page_id,
+      (headingCountByPage.get(row.page_id) ?? 0) + 1,
+    );
+  for (const row of pageTerms)
+    termCountByPage.set(
+      row.page_id,
+      (termCountByPage.get(row.page_id) ?? 0) + 1,
+    );
+  const evidenceByTaskUrl = new Map();
+  for (const evidence of pageTaskEvidence) {
+    const page = pageById.get(evidence.page_id),
+      url = page?.url;
+    if (!url) continue;
+    const key = `${evidence.task_id}\0${url}`,
+      current = evidenceByTaskUrl.get(key) ?? [];
+    current.push({
+      page_id: evidence.page_id,
+      best_rank: evidence.best_rank,
+      page_status: page.status,
+      heading_count: headingCountByPage.get(evidence.page_id) ?? 0,
+      term_count: termCountByPage.get(evidence.page_id) ?? 0,
+    });
+    evidenceByTaskUrl.set(key, current);
+  }
+  const rows = (inventory?.rows ?? []).map((inventoryRow) => {
+      const taskRows = organicResults
+          .filter(
+            (row) =>
+              String(row.task_id) === String(inventoryRow.task_id) &&
+              Number.isInteger(Number(row.rank_absolute)) &&
+              Number(row.rank_absolute) >= 11 &&
+              Number(row.rank_absolute) <= inventoryRow.target_depth,
+          )
+          .sort((left, right) => Number(left.rank_absolute) - Number(right.rank_absolute)),
+        rankEvidence = taskRows.map((row) => {
+          const key = `${inventoryRow.task_id}\0${row.url ?? ""}`,
+            evidence = evidenceByTaskUrl.get(key) ?? [],
+            successfulEvidence = evidence.filter(
+              (item) => item.page_status === "ok",
+            ),
+            headingCount = successfulEvidence.reduce(
+              (sum, item) => sum + item.heading_count,
+              0,
+            ),
+            termCount = successfulEvidence.reduce(
+              (sum, item) => sum + item.term_count,
+              0,
+            );
+          return {
+            rank_absolute: Number(row.rank_absolute),
+            url: row.url ?? null,
+            domain: row.domain ?? null,
+            title: row.title ?? null,
+            page_evidence_count: successfulEvidence.length,
+            failed_page_evidence_count: evidence.length - successfulEvidence.length,
+            page_ids: successfulEvidence.map((item) => item.page_id),
+            heading_count: headingCount,
+            term_count: termCount,
+            content_state: successfulEvidence.length
+              ? "page_evidence_retained"
+              : "serp_row_only",
+          };
+        }),
+        parsed = rankEvidence.filter(
+          (row) => row.content_state === "page_evidence_retained",
+        ),
+        unparsed = rankEvidence.filter(
+          (row) => row.content_state === "serp_row_only",
+        ),
+        contentState = !rankEvidence.length
+          ? "no_rank_11_20_retained"
+          : !parsed.length
+            ? "rank_11_20_serp_only"
+            : !unparsed.length
+              ? "rank_11_20_content_observed"
+              : "rank_11_20_mixed_content_coverage";
+      return {
+        ...inventoryRow,
+        rank_11_20_content_state: contentState,
+        rank_11_20_page_evidence_count: parsed.reduce(
+          (sum, row) => sum + row.page_evidence_count,
+          0,
+        ),
+        rank_11_20_failed_page_evidence_count: rankEvidence.reduce(
+          (sum, row) => sum + row.failed_page_evidence_count,
+          0,
+        ),
+        rank_11_20_parsed_row_count: parsed.length,
+        rank_11_20_unparsed_row_count: unparsed.length,
+        rank_11_20_heading_count: rankEvidence.reduce(
+          (sum, row) => sum + row.heading_count,
+          0,
+        ),
+        rank_11_20_term_count: rankEvidence.reduce(
+          (sum, row) => sum + row.term_count,
+          0,
+        ),
+        rank_11_20_content_evidence: rankEvidence,
+      };
+    }),
+    contentSummary = summarizeSerpDepthContentCoverage(rows),
+    contentBase = {
+      ...inventory,
+      rows,
+      content_summary: contentSummary,
+    };
+  return {
+    ...contentBase,
+    content_coverage_digest: digest({
+      policy: inventory?.policy ?? POLICY,
+      rows,
+      content_summary: contentSummary,
+    }),
+    inventory_digest: digest(contentBase),
+  };
 }

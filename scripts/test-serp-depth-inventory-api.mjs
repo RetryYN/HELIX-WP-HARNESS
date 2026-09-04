@@ -71,6 +71,32 @@ try {
   assert.equal(api.body.target_depth_is_provider_request, false);
   assert.equal(api.body.unobserved_rank_slots_are_not_unranked_claims, true);
   assert.equal(api.body.provenance.external_acquisition_triggered, false);
+  if (db) {
+    assert.equal(api.body.content_summary.rank_11_20_serp_row_count, 98);
+    assert.equal(api.body.content_summary.rank_11_20_parsed_row_count, 2);
+    assert.equal(api.body.content_summary.rank_11_20_unparsed_row_count, 96);
+    assert.equal(api.body.content_summary.rank_11_20_page_evidence_count, 2);
+    assert.equal(api.body.content_summary.rank_11_20_failed_page_evidence_count, 0);
+    assert.equal(api.body.content_coverage_digest.length, 64);
+    assert(
+      api.body.data.every(
+        (row) =>
+          [
+            "rank_11_20_serp_only",
+            "rank_11_20_content_observed",
+          ].includes(row.rank_11_20_content_state),
+      ),
+    );
+    assert.equal(
+      api.body.data.filter(
+        (row) => row.rank_11_20_content_state === "rank_11_20_content_observed",
+      ).length,
+      2,
+    );
+  } else {
+    assert.equal(api.body.content_summary, null);
+    assert.equal(api.body.content_coverage_digest, null);
+  }
 
   const summaryUrl = new URL(
       `/api/v1/serp-depth-inventory?site_id=${encodeURIComponent(site.site_id)}&view=summary`,
@@ -123,4 +149,3 @@ try {
 } finally {
   db?.close();
 }
-
