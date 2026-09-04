@@ -448,6 +448,14 @@ paths["/depth-stability"] = {
     responses: { 200: { description: "Retained evidence" } },
   },
 };
+paths["/serp-depth-inventory"] = {
+  get: {
+    operationId: "helix_serp_depth_inventory",
+    description:
+      "Compare declared SERP depth with retained rank rows and expose rank 11-20 observations without inferring unranked or absent results.",
+    responses: { 200: { description: "Retained SERP depth evidence" } },
+  },
+};
 paths["/content-topology"] = {
   get: {
     operationId: "helix_content_topology",
@@ -4257,6 +4265,56 @@ export function routeResearchApi(pathname, url, data, db = null) {
       filters: { q: url.searchParams.get("q") ?? "", state, robust },
       auto_mutation: false,
     });
+  }
+  if (pathname === "/api/v1/serp-depth-inventory") {
+    const state = url.searchParams.get("state"),
+      view = url.searchParams.get("view") === "summary" ? "summary" : "tasks",
+      inventory = site.serp_depth_inventory ?? {
+        rows: [],
+        summary: {},
+        target_depth: 20,
+      },
+      rows = inventory.rows.filter(
+        (row) =>
+          (!state || state === "all" || row.depth_state === state) &&
+          (!query ||
+            norm(
+              `${row.task_id} ${row.group_id} ${row.keyword} ${row.depth_state}`,
+            ).includes(query)),
+      ),
+      result = {
+        summary: {
+          ...inventory.summary,
+          filtered_task_count: rows.length,
+          filtered_rank_11_20_task_count: rows.filter(
+            (row) => row.rank_11_20_observed,
+          ).length,
+          filtered_rank_11_20_row_count: rows.reduce(
+            (sum, row) => sum + row.rank_11_20_row_count,
+            0,
+          ),
+        },
+        target_depth: inventory.target_depth ?? 20,
+        target_depth_is_provider_request: false,
+        policy: inventory.policy ?? "serp-depth-inventory.v1",
+        interpretation_policy:
+          inventory.interpretation_policy ??
+          "retained_rank_rows_only; unobserved_slots_are_not_ranked_or_absent_claims",
+        inventory_digest: inventory.inventory_digest ?? null,
+        filters: {
+          q: url.searchParams.get("q") ?? "",
+          state: state ?? "all",
+          view,
+        },
+        unobserved_rank_slots_are_not_unranked_claims: true,
+        external_acquisition_triggered: false,
+        provider_depth_claim: false,
+      };
+    return ok(
+      view === "summary"
+        ? result
+        : { ...page(rows, url), ...result },
+    );
   }
   if (pathname === "/api/v1/content-topology") {
     const decision = url.searchParams.get("decision"),
