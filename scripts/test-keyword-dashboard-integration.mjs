@@ -25,6 +25,7 @@ import {
   rankPrimaryQueries,
 } from "./gsc-primary-query.mjs";
 import { canonicalSerpUrl } from "./serp-page-keyword-graph.mjs";
+import { hasRedactedUrlIdentity } from "./retained-url-identity.mjs";
 
 const temporaryRoots = [];
 const temporaryRoot = (prefix) => {
@@ -1741,13 +1742,18 @@ const expectedTopTenEdgeCount = new Set(
       "SELECT task_id,url FROM serp_organic_results WHERE rank_group<=10",
     )
     .all()
+    .filter((row) => !hasRedactedUrlIdentity(row.url))
     .map((row) => `${row.task_id}\0${canonicalSerpUrl(row.url)}`),
 ).size;
+const unidentifiedTopTen=pocDb.prepare("SELECT task_id,url,rank_group FROM serp_organic_results WHERE rank_group<=10").all().filter(row=>hasRedactedUrlIdentity(row.url));
+const identityExclusions=JSON.parse(pocDb.prepare("SELECT value FROM dashboard_metadata WHERE key='serp_url_identity_exclusions'").get().value);
+assert.equal(identityExclusions.length,unidentifiedTopTen.length);
+assert(identityExclusions.every(row=>row.reason==="non_unique_redacted_url"&&unidentifiedTopTen.some(source=>source.task_id===row.task_id&&source.url===row.url&&source.rank_group===row.rank)));
 assert.equal(
   pocDb.prepare("SELECT COUNT(*) AS count FROM serp_page_keyword_edges").get()
     .count,
   expectedTopTenEdgeCount,
-  "every canonical task/page observation inside the configured top-10 depth must become exactly one page-keyword edge",
+  "every identifiable canonical task/page observation inside top-10 must become exactly one edge; non-unique placeholders are not page identities",
 );
 assert(
   pocDb

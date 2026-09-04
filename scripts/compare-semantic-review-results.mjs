@@ -1,13 +1,12 @@
 // Exact identifiable retained URLs only. Non-unique redaction placeholders cannot
 // prove page identity; original titles/URLs remain available in the review packet.
+import {hasRedactedUrlIdentity} from "./retained-url-identity.mjs";
 export function compareSemanticReviewResults(left = [], right = []) {
   const urls = (rows) => {
     const valid=new Set();let redacted=0;
     for(const {url:value} of rows){
       if(typeof value!=="string"||!value.trim())continue;
-      let decoded=value.replace(/%3c/giu,"<").replace(/%3e/giu,">");
-      try{decoded=decodeURIComponent(value);}catch{/* Retained malformed escapes are not normalized. */}
-      if(/<redacted(?:[-_][^<>]*)?>/iu.test(decoded)){redacted++;continue;}
+      if(hasRedactedUrlIdentity(value)){redacted++;continue;}
       try{if(["http:","https:"].includes(new URL(value).protocol))valid.add(value);}catch{/* Not a retained HTTP URL. */}
     }
     return{valid,redacted};
