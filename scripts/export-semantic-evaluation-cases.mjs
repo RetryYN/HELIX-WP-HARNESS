@@ -1,7 +1,19 @@
 import { DatabaseSync } from "node:sqlite";
 import { createHash } from "node:crypto";
 import path from "node:path";
+import { parseArgs } from "node:util";
 import { acquisitionFields, compareAcquisitionConditions } from "./compare-acquisition-conditions.mjs";
+import { blindSemanticEvaluation } from "./blind-semantic-evaluation.mjs";
+import { sampleSemanticEvaluationPairs } from "./sample-semantic-evaluation-pairs.mjs";
+
+const { values: options } = parseArgs({ options: {
+  "include-predictions": { type: "boolean", default: false },
+  "sample-size": { type: "string" },
+  seed: { type: "string" },
+} });
+if ((options["sample-size"] === undefined) !== (options.seed === undefined)) {
+  throw new Error("Provide --sample-size and --seed together");
+}
 
 // Export review inputs, never use the current classifier as its own gold label.
 const db = new DatabaseSync(path.resolve(process.env.WP_DASHBOARD_DB ?? ".helix/keyword-dashboard.sqlite"), { readOnly: true });
@@ -46,29 +58,32 @@ try {
     const acquisition_contract = Object.fromEntries(acquisitionFields.map((field) => [field, rawTask.data?.[field] ?? null]));
     return { ...snapshot, acquisition_contract, results: results.all(taskId) };
   };
-  const cases = [...strata].flatMap(([decision, rows]) => {
+  const selectedPairs = options["sample-size"] !== undefined
+    ? sampleSemanticEvaluationPairs(pairs, { size: Number(options["sample-size"]), seed: options.seed })
+    : [...strata].flatMap(([decision, rows]) => {
     // Unretained rows have no score: use hash order, not an invented prediction.
     if (decision === "not_retained") rows.sort((a, b) => a.pair_digest.localeCompare(b.pair_digest));
     const indices = [...new Set([0, Math.floor((rows.length - 1) / 2), rows.length - 1])];
-    return indices.map((index) => {
-      const row = rows[index];
+    return indices.map((index) => rows[index]);
+  });
+  const cases = selectedPairs.map((row) => {
       const left = evidence(row.left_task_id), right = evidence(row.right_task_id);
       return {
         case_id: row.pair_digest,
         left,
         right,
         acquisition_comparison: compareAcquisitionConditions(left.acquisition_contract, right.acquisition_contract),
-        classifier_prediction: { decision, score: row.intent_similarity_score, components: JSON.parse(row.components_json), policy: row.policy },
+        classifier_prediction: { decision: row.decision, score: row.intent_similarity_score, components: JSON.parse(row.components_json), policy: row.policy },
         annotation: { label: null, rationale: null, reviewer: null, reviewed_at: null, evidence_urls: [] },
       };
-    });
   });
   const output = {
     schema_version: "semantic-evaluation-cases.v2",
-    sampling: "score_extremes_and_median_for_retained_decisions_hash_positions_for_unretained",
+    sampling: options["sample-size"] !== undefined ? "seeded_hash_rank_across_all_fingerprint_pairs" : "score_extremes_and_median_for_retained_decisions_hash_positions_for_unretained",
+    sampling_seed: options.seed ?? null,
     retained_pair_count: retainedPairCount,
     population_pair_count: populationPairCount,
-    source_selection_bias: "all_same_site_fingerprint_pairs_enumerated_but_cases_are_exploratory_not_random",
+    source_selection_bias: options["sample-size"] !== undefined ? "fingerprint_tasks_only_seed_must_be_fixed_before_labeling_no_unacquired_keywords" : "all_same_site_fingerprint_pairs_enumerated_but_cases_are_exploratory_not_random",
     population_accuracy_estimable: false,
     strata: Object.fromEntries([...strata].map(([key, rows]) => [key, rows.length])),
     allowed_labels: ["same_article", "separate_articles", "related_only", "insufficient_evidence"],
@@ -83,7 +98,7 @@ try {
     cases,
   };
   output.dataset_digest = createHash("sha256").update(JSON.stringify(output)).digest("hex");
-  console.log(JSON.stringify(output, null, 2));
+  console.log(JSON.stringify(options["include-predictions"] ? output : blindSemanticEvaluation(output), null, 2));
 } finally {
   db.close();
 }

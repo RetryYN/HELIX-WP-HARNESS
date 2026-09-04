@@ -1,4 +1,7 @@
 import assert from "node:assert/strict";
+import "./test-serp-intent-missing-evidence.mjs";
+import "./test-blind-semantic-evaluation.mjs";
+import "./test-sample-semantic-evaluation-pairs.mjs";
 import {buildSerpIntentFingerprints} from "./serp-intent-fingerprint.mjs";
 
 const tasks=[{task_id:"a",group_id:"g1",site_id:"s",keyword:"IT企業",recommended_page_type:"article",pages:[{rank:1,domain:"a.test",page_type:"article"},{rank:2,domain:"b.test",page_type:"database"}]},{task_id:"b",group_id:"g2",site_id:"s",keyword:"IT会社",recommended_page_type:"article",pages:[{rank:1,domain:"a.test",page_type:"article"},{rank:2,domain:"b.test",page_type:"database"}]},{task_id:"c",group_id:"g1",site_id:"s",keyword:"面接",recommended_page_type:"video",pages:[{rank:1,domain:"video.test",page_type:"video"}]}];
