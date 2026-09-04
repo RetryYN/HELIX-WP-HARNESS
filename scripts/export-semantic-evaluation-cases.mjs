@@ -36,7 +36,15 @@ try {
   const evidence = (taskId) => {
     const snapshot = task.get(taskId);
     if (!snapshot) throw new Error(`Missing snapshot for ${taskId}`);
-    return { ...snapshot, results: results.all(taskId) };
+    const stored = db.prepare("SELECT payload_json,payload_digest FROM raw_snapshot_payloads WHERE task_id=?").get(taskId);
+    if (!stored || createHash("sha256").update(stored.payload_json).digest("hex") !== snapshot.snapshot_digest || stored.payload_digest !== snapshot.snapshot_digest) {
+      throw new Error(`Raw payload integrity mismatch for ${taskId}`);
+    }
+    const rawTask = JSON.parse(stored.payload_json).tasks?.find((row) => row.id === taskId);
+    if (!rawTask) throw new Error(`Raw task identity mismatch for ${taskId}`);
+    const contractFields = ["api", "function", "se", "se_type", "location_code", "language_code", "device", "os", "depth"];
+    const acquisition_contract = Object.fromEntries(contractFields.map((field) => [field, rawTask.data?.[field] ?? null]));
+    return { ...snapshot, acquisition_contract, results: results.all(taskId) };
   };
   const cases = [...strata].flatMap(([decision, rows]) => {
     // Unretained rows have no score: use hash order, not an invented prediction.
@@ -44,10 +52,20 @@ try {
     const indices = [...new Set([0, Math.floor((rows.length - 1) / 2), rows.length - 1])];
     return indices.map((index) => {
       const row = rows[index];
+      const left = evidence(row.left_task_id), right = evidence(row.right_task_id);
+      const fields = Object.keys(left.acquisition_contract);
+      const unknownFields = fields.filter((field) => left.acquisition_contract[field] == null || right.acquisition_contract[field] == null);
+      const differingFields = fields.filter((field) => !unknownFields.includes(field) && left.acquisition_contract[field] !== right.acquisition_contract[field]);
       return {
         case_id: row.pair_digest,
-        left: evidence(row.left_task_id),
-        right: evidence(row.right_task_id),
+        left,
+        right,
+        acquisition_comparison: {
+          differing_fields: differingFields,
+          unknown_fields: unknownFields,
+          listed_fields_match: !unknownFields.length && !differingFields.length,
+          semantic_equivalence_proven: false,
+        },
         classifier_prediction: { decision, score: row.intent_similarity_score, components: JSON.parse(row.components_json), policy: row.policy },
         annotation: { label: null, rationale: null, reviewer: null, reviewed_at: null, evidence_urls: [] },
       };
