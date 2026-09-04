@@ -29,6 +29,7 @@ const exactStates = new Set([
   "exact_json_column",
   "exact_feature_payload",
   "exact_inventory_projection",
+  "exact_raw_snapshot_payload",
 ]);
 
 const walkLeaves = (value, prefix, callback) => {
@@ -159,12 +160,19 @@ const rawFieldProjection = (field, scope, context, dbState) => {
           storage_kind: "payload_json",
           reason: "non-organic item payload is retained verbatim in the raw feature evidence table",
         }
-      : {
-          retention_state: "projection_gap",
-          source_tables: ["raw_snapshot_feature_evidence"],
-          storage_kind: "missing_payload_row",
-          reason: "raw non-organic item has no matching retained feature-evidence row",
-        };
+      : dbState.rawPayloadKeys.has(context.taskId)
+        ? {
+            retention_state: "exact_raw_snapshot_payload",
+            source_tables: ["raw_snapshot_payloads"],
+            storage_kind: "raw_json",
+            reason: "non-organic item is retained in the verbatim raw snapshot payload",
+          }
+        : {
+            retention_state: "projection_gap",
+            source_tables: ["raw_snapshot_feature_evidence"],
+            storage_kind: "missing_payload_row",
+            reason: "raw non-organic item has no matching retained feature-evidence row",
+          };
   }
 
   if (field.startsWith("organic.")) {
@@ -193,12 +201,19 @@ const rawFieldProjection = (field, scope, context, dbState) => {
           storage_kind: "structured_columns_or_json_columns",
           reason: "connected organic result is represented by the SERP result and attribute rows",
         };
-      return {
-        retention_state: "not_retained",
-        source_tables: ["serp_organic_results", "serp_organic_attributes"],
-        storage_kind: "no_column",
-        reason: "raw organic field has no corresponding connected-result column",
-      };
+      return dbState.rawPayloadKeys.has(context.taskId)
+        ? {
+            retention_state: "exact_raw_snapshot_payload",
+            source_tables: ["raw_snapshot_payloads"],
+            storage_kind: "raw_json",
+            reason: "connected organic field is retained in the verbatim raw snapshot payload",
+          }
+        : {
+            retention_state: "not_retained",
+            source_tables: ["serp_organic_results", "serp_organic_attributes"],
+            storage_kind: "no_column",
+            reason: "raw organic field has no corresponding connected-result column",
+          };
     }
     if (unconnectedOrganicFields.has(field)) {
       if (!dbState.snapshotOrganicKeys.has(rowKey))
@@ -215,19 +230,26 @@ const rawFieldProjection = (field, scope, context, dbState) => {
         reason: "unconnected snapshots retain only rank, domain, title and URL for organic rows",
       };
     }
-    if (field === "organic.type")
+    if (field === "organic.type" && !dbState.rawPayloadKeys.has(context.taskId))
       return {
         retention_state: "implicit_context",
         source_tables: ["serp_snapshot_organic_observations"],
         storage_kind: "table_identity",
         reason: "snapshot table identity is organic, but the raw type value is not stored as a column",
       };
-    return {
-      retention_state: "not_retained",
-      source_tables: ["serp_snapshot_organic_observations"],
-      storage_kind: "limited_snapshot_projection",
-      reason: "unconnected organic snapshot projection does not retain this field",
-    };
+    return dbState.rawPayloadKeys.has(context.taskId)
+      ? {
+          retention_state: "exact_raw_snapshot_payload",
+          source_tables: ["raw_snapshot_payloads"],
+          storage_kind: "raw_json",
+          reason: "unconnected organic field is retained in the verbatim raw snapshot payload",
+        }
+      : {
+          retention_state: "not_retained",
+          source_tables: ["serp_snapshot_organic_observations"],
+          storage_kind: "limited_snapshot_projection",
+          reason: "unconnected organic snapshot projection does not retain this field",
+        };
   }
 
   if (field.startsWith("task.") || field.startsWith("result.")) {
@@ -262,12 +284,19 @@ const rawFieldProjection = (field, scope, context, dbState) => {
           storage_kind: "structured_columns",
           reason: "task/result scalar is retained in the connected task or metadata row",
         };
-      return {
-        retention_state: "not_retained",
-        source_tables: ["data_provider_b_tasks", "serp_task_metadata"],
-        storage_kind: "no_column",
-        reason: "connected task/result field has no corresponding scalar or JSON column",
-      };
+      return dbState.rawPayloadKeys.has(context.taskId)
+        ? {
+            retention_state: "exact_raw_snapshot_payload",
+            source_tables: ["raw_snapshot_payloads"],
+            storage_kind: "raw_json",
+            reason: "connected task/result field is retained in the verbatim raw snapshot payload",
+          }
+        : {
+            retention_state: "not_retained",
+            source_tables: ["data_provider_b_tasks", "serp_task_metadata"],
+            storage_kind: "no_column",
+            reason: "connected task/result field has no corresponding scalar or JSON column",
+          };
     }
     if (unconnectedInventoryFields.has(field))
       return {
@@ -276,12 +305,19 @@ const rawFieldProjection = (field, scope, context, dbState) => {
         storage_kind: "inventory_columns",
         reason: "unconnected snapshots retain only task identity, keyword, time, cost and item-type inventory",
       };
-    return {
-      retention_state: "not_retained",
-      source_tables: ["raw_snapshot_inventory"],
-      storage_kind: "no_metadata_row",
-      reason: "unconnected snapshots do not receive the connected task metadata projection",
-    };
+    return dbState.rawPayloadKeys.has(context.taskId)
+      ? {
+          retention_state: "exact_raw_snapshot_payload",
+          source_tables: ["raw_snapshot_payloads"],
+          storage_kind: "raw_json",
+          reason: "unconnected task/result field is retained in the verbatim raw snapshot payload",
+        }
+      : {
+          retention_state: "not_retained",
+          source_tables: ["raw_snapshot_inventory"],
+          storage_kind: "no_metadata_row",
+          reason: "unconnected snapshots do not receive the connected task metadata projection",
+        };
   }
 
   return {
@@ -311,6 +347,11 @@ export function auditSerpDbRetention({
       )
       .all();
     const snapshotOrganicRows = db.prepare("SELECT task_id,rank_absolute FROM serp_snapshot_organic_observations").all();
+    const rawPayloadRows = db
+      .prepare(
+        "SELECT task_id,payload_json,payload_digest,payload_bytes,storage_policy FROM raw_snapshot_payloads",
+      )
+      .all();
     const featureRows = db
       .prepare(
         "SELECT task_id,occurrence_order,payload_json FROM raw_snapshot_feature_evidence",
@@ -328,6 +369,8 @@ export function auditSerpDbRetention({
       featurePayloadKeys: new Set(
         featureRows.map((row) => key(row.task_id, row.occurrence_order)),
       ),
+      rawPayloadKeys: new Set(rawPayloadRows.map((row) => row.task_id)),
+      rawPayloadById: new Map(rawPayloadRows.map((row) => [row.task_id, row])),
       featurePayloadByKey: new Map(
         featureRows.map((row) => [
           key(row.task_id, row.occurrence_order),
@@ -345,7 +388,9 @@ export function auditSerpDbRetention({
     const taskScopes = new Map();
     const duplicateTaskIds = [];
     const taskRecords = new Map();
-    let featurePayloadValueMismatchCount = 0,
+    let rawPayloadDigestMismatchCount = 0,
+      rawPayloadBytesMismatchCount = 0,
+      featurePayloadValueMismatchCount = 0,
       connectedOrganicValueMismatchCount = 0,
       unconnectedOrganicValueMismatchCount = 0;
     const datasetCounts = new Map();
@@ -437,6 +482,21 @@ export function auditSerpDbRetention({
       const scope = dbState.connectedTaskIds.has(task.id)
         ? "connected"
         : "unconnected";
+      const rawPayload = dbState.rawPayloadById.get(task.id);
+      if (
+        !rawPayload ||
+        rawPayload.payload_digest !==
+          createHash("sha256").update(readFileSync(entry.file)).digest("hex") ||
+        rawPayload.payload_digest !==
+          createHash("sha256").update(rawPayload.payload_json, "utf8").digest("hex")
+      )
+        rawPayloadDigestMismatchCount += 1;
+      if (
+        !rawPayload ||
+        Number(rawPayload.payload_bytes) !==
+          Buffer.byteLength(rawPayload.payload_json ?? "", "utf8")
+      )
+        rawPayloadBytesMismatchCount += 1;
       taskScopes.set(task.id, scope);
       scopeSummary.get(scope).task_ids.add(task.id);
       datasetCounts.set(entry.dataset, (datasetCounts.get(entry.dataset) ?? 0) + 1);
@@ -563,6 +623,9 @@ export function auditSerpDbRetention({
     const rawTasks = entries.map(parseRawTask).filter(Boolean);
     const inventoryTaskIds = new Set(inventoryRows.map((row) => row.task_id));
     const rawTaskIds = new Set(taskRecords.keys());
+    const rawPayloadOrphanCount = rawPayloadRows.filter(
+      (row) => !rawTaskIds.has(row.task_id),
+    ).length;
     const missingInventoryTaskIds = [...rawTaskIds].filter(
       (taskId) => !inventoryTaskIds.has(taskId),
     );
@@ -700,6 +763,7 @@ export function auditSerpDbRetention({
       [
         "raw_snapshot_inventory",
         "raw_snapshot_feature_evidence",
+        "raw_snapshot_payloads",
         "raw_snapshot_demand_observations",
         "serp_snapshot_organic_observations",
         "data_provider_b_tasks",
@@ -742,6 +806,12 @@ export function auditSerpDbRetention({
         retained_unconnected_organic_rows: retainedUnconnectedOrganicRows,
         expected_feature_payload_rows: expectedFeatureItems,
         retained_feature_payload_rows: featureRows.length,
+        expected_raw_payload_rows: rawTaskIds.size,
+        retained_raw_payload_rows: rawPayloadRows.length,
+        raw_payload_row_gap_count: rawTaskIds.size - rawPayloadRows.length,
+        raw_payload_orphan_count: rawPayloadOrphanCount,
+        raw_payload_digest_mismatch_count: rawPayloadDigestMismatchCount,
+        raw_payload_bytes_mismatch_count: rawPayloadBytesMismatchCount,
         organic_row_gap_count:
           expectedConnectedOrganic + expectedUnconnectedOrganic -
           connectedOrganicRows.length - retainedUnconnectedOrganicRows,
@@ -755,6 +825,11 @@ export function auditSerpDbRetention({
           expectedConnectedOrganic + expectedUnconnectedOrganic ===
           connectedOrganicRows.length + retainedUnconnectedOrganicRows,
         feature_payload_match: expectedFeatureItems === featureRows.length,
+        raw_payload_match:
+          rawTaskIds.size === rawPayloadRows.length &&
+          rawPayloadOrphanCount === 0 &&
+          rawPayloadDigestMismatchCount === 0 &&
+          rawPayloadBytesMismatchCount === 0,
         feature_payload_value_match: featurePayloadValueMismatchCount === 0,
         connected_organic_value_match: connectedOrganicValueMismatchCount === 0,
         unconnected_organic_value_match: unconnectedOrganicValueMismatchCount === 0,
@@ -771,10 +846,10 @@ export function auditSerpDbRetention({
         absent_field_semantics:
           "A field absent from a payload is not counted; this audit only classifies observed primitive states.",
         full_payload_policy:
-          "Non-organic SERP item payloads are retained in raw_snapshot_feature_evidence.payload_json; connected task metadata and organic rows use structured/JSON columns.",
+          "Every raw snapshot task is retained verbatim in raw_snapshot_payloads.payload_json with a file-matching SHA-256 digest; non-organic SERP item payloads additionally use raw_snapshot_feature_evidence.payload_json, while connected task metadata and organic rows use structured/JSON columns.",
       },
       coverage_notes: [
-        "The ten unconnected snapshots are retained for inventory, demand, feature-payload, and limited organic rank/domain/title/URL reuse, but do not receive connected task metadata or full organic-result columns.",
+        "The ten unconnected snapshots use limited structured columns for inventory and organic rank/domain/title/URL reuse, while the complete raw response remains available through raw_snapshot_payloads without current-group assignment.",
         "Full raw snapshot files remain the source of truth for any primitive classified as not_retained; no raw file is deleted by this audit.",
         "Null/false/zero rows can be state-only drops even when no non-empty value was lost; inspect state_counts before treating them as actionable gaps.",
       ],

@@ -157,10 +157,43 @@ assert.equal(
 );
 
 const dbPath = path.join(temporaryRoot("wp-dashboard-db-"), "dashboard.sqlite");
+const dashboardFixtureKeywords = [
+  {
+    source_keyword_id: "dashboard-fixture:1",
+    site_id: "site-a.example",
+    source_sheet: "fixture",
+    source_row: 1,
+    raw_keyword: "it 就活",
+    search_volume: 100,
+    cpc: null,
+    competition: null,
+  },
+  {
+    source_keyword_id: "dashboard-fixture:2",
+    site_id: "site-a.example",
+    source_sheet: "fixture",
+    source_row: 2,
+    raw_keyword: "it 就活 面接",
+    search_volume: 80,
+    cpc: null,
+    competition: null,
+  },
+  {
+    source_keyword_id: "dashboard-fixture:3",
+    site_id: "site-a.example",
+    source_sheet: "fixture",
+    source_row: 3,
+    raw_keyword: "it 就活 企業",
+    search_volume: 60,
+    cpc: null,
+    competition: null,
+  },
+];
 buildDashboardDb({
   dbPath,
   fixturePath: path.resolve("docs/prototypes/wp-ops-dashboard/data.json"),
   artifactRoot: path.resolve("artifacts/poc"),
+  importedKeywords: dashboardFixtureKeywords,
 }).close();
 const persisted = new DatabaseSync(dbPath, { readOnly: true });
 assert.equal(
@@ -2174,7 +2207,7 @@ assert.equal(
     actual.sites[0].portfolio_metrics.question_candidate_count,
     actual.sites[0].ai_question_candidates.length,
   );
-  assert.equal(actual.sites[0].data_disposition.length, 17);
+  assert.equal(actual.sites[0].data_disposition.length, 18);
   assert.equal(
     actual.sites[0].data_disposition.find(
       (row) => row.dataset === "qa_site_evidence",
@@ -3543,6 +3576,11 @@ assert.equal(
 assert.deepEqual(
   new Set(mcpToolList.map((tool) => tool.name)),
   new Set([
+    "audit_generation_quality",
+    "audit_serp_db_retention",
+    "audit_serp_depth_inventory",
+    "inspect_capability_completion_audit",
+    "inspect_raw_snapshot_payload",
     "audit_latent_demand_traversal",
     "audit_keyword_content_lineage",
     "review_public_source_citation_applications",

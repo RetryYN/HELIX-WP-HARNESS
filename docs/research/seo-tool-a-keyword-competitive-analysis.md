@@ -1596,6 +1596,13 @@ APIは2.25、MCPはread-only 31 toolとなった。外部大規模index、match 
 - `scripts/audit-serp-db-retention.mjs` と `serp-db-retention-audit.json`を追加し、`GET /api/v1/serp-db-retention`（summary／fields／drops、scope・severity・query・cursor）とMCP `audit_serp_db_retention`、ダッシュボード「raw→DB保持境界監査」へ接続した。exact保持、implicit context、state-only drop、非空値drop、projection gapを同じdigest・整合性チェックで逆引きできる。
 - 監査はrawファイルを削除せず、外部通信・認証・有料実行・モデル実行・自動DB修正を行わない。非空値dropを回収するには、限定snapshotを現行groupへ再接続するか、承認済みの保持列／payload設計を別PRで追加する必要がある。payloadに存在しないfieldは、引き続き未取得かprovider省略かをこの監査だけで判定しない。
 
+### 10.126 raw snapshot payloadの完全保持層（SERP retention audit v2 / 2026-09-05）
+
+- 前節で確認した未接続snapshot側の非空値dropを「捨てた」と扱わないため、全110 raw taskの元JSONをSQLite `raw_snapshot_payloads.payload_json`へverbatim保存した。各行に元ファイルと同じSHA-256、UTF-8 byte数、`raw_snapshot_verbatim` policyを固定し、110/110行・digest mismatch 0・row gap 0を実照合した。
+- 完全payloadを保持したうえで、既存の構造化projection（接続済みSERP行、未接続のinventory／rank・domain・title・URL、feature payload）との境界を別表示する。52,613 primitive/state observationは全件が構造化列・feature payload・raw payloadのいずれかへexact保持され、非空値drop 0、projection gap 0となった。構造化列が限定的である事実は隠さず、raw payloadから任意fieldを再解析できる。
+- `GET /api/v1/raw-snapshot?task_id=...&view=summary|payload` とMCP `inspect_raw_snapshot_payload`で、inventory、digest、byte数、保存policy、元JSONをtask単位で読み取れる。ダッシュボードの保持監査にはtask ID入力とpayload viewerを追加し、`exact_raw_snapshot_payload`を構造化保持と区別して表示する。いずれも取得・書き込み・自動group割当を行わない。
+- APIは130 route、MCPは112 read-only toolとなった。raw payloadの追加はPoCの保持・検証層であり、未取得provider dataset、外部wire互換、認証、課金、モデル実行、記事自動生成・公開の完成を意味しない。現行DB再構築ではgroup境界が不一致の承認済み再取得結果を暗黙に割り当てず、別途review対象のまま除外している。
+
 ## 11. 未検証事項
 
 - 公開API 24 operation / 41 schema / 952 fieldは全件処遇分類済み。保持意味対応95 fieldの値定義同等性と、1:1未対応27 fieldの実装は未完了

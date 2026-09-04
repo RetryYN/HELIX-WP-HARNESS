@@ -6,6 +6,7 @@
     <title>キーワード施策ボード</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="responsive-sidebar.css" />
+    <link rel="stylesheet" href="raw-snapshot-payload.css" />
   </head>
   <body>
     <header class="topbar">
@@ -1961,6 +1962,13 @@
           <p>実際のSQLite投影をrawの観測値と照合し、保持・文脈のみ・状態のみdrop・非空値drop・投影gapを接続済み／未接続snapshot別に分離します。dropは未取得ではなく、取得済みrawをDBへ保存していないことを示します</p>
         </div>
         <div id="serp-db-retention-audit-summary" class="metrics"></div>
+        <div class="inline-controls" aria-label="raw snapshot payload viewer">
+          <label>raw task ID
+            <input id="raw-snapshot-payload-task-id" type="text" autocomplete="off" placeholder="task idを入力">
+          </label>
+          <button id="raw-snapshot-payload-load" type="button">verbatim payloadを表示</button>
+        </div>
+        <pre id="raw-snapshot-payload-output" class="code-preview" hidden></pre>
         <div class="table-wrap">
           <table>
             <thead>
@@ -1972,6 +1980,7 @@
                 <th>非空drop</th>
                 <th>状態drop</th>
                 <th>source table</th>
+                <th>raw task</th>
               </tr>
             </thead>
             <tbody id="serp-db-retention-audit-rows"></tbody>
