@@ -11,7 +11,9 @@ export function validateGenerationChallengerOutput(request,envelope){
   if(!request?.request_digest||envelope?.request_digest!==request.request_digest)throw new Error("request digest mismatch");
   if(envelope.capability!==request.capability)throw new Error("capability mismatch");
   if(request.execution_authorized!==true)throw new Error("request execution was not authorized");
-  if(request.maximum_cost_usd==null)throw new Error("request maximum cost is unknown");
+  if(!Number.isFinite(request.maximum_cost_usd)||request.maximum_cost_usd<0)throw new Error("request maximum cost is unknown or invalid");
+  if(!Number.isSafeInteger(request.input_contract?.estimated_maximum_input_tokens)||request.input_contract.estimated_maximum_input_tokens<0)throw new Error("request input token ceiling is unknown or invalid");
+  if(!Number.isSafeInteger(request.token_ceiling?.maximum_output_tokens)||request.token_ceiling.maximum_output_tokens<0)throw new Error("request output token ceiling is unknown or invalid");
   if(!envelope.model||envelope.model!==request.model_selection?.model)throw new Error("executed model does not match manifest");
   if(!Number.isFinite(envelope.cost_usd)||envelope.cost_usd<0||envelope.cost_usd>request.maximum_cost_usd)throw new Error("reported cost exceeds request maximum");
   if(!Number.isInteger(envelope.usage?.input_tokens)||envelope.usage.input_tokens<0||envelope.usage.input_tokens>request.input_contract.estimated_maximum_input_tokens)throw new Error("input token ceiling exceeded");
@@ -19,6 +21,19 @@ export function validateGenerationChallengerOutput(request,envelope){
   const key=outputKeys[request.capability],items=envelope.output?.[key],[minimum,maximum]=bounds[request.capability]??[];
   if(!key||!Array.isArray(items)||items.length<minimum||items.length>maximum)throw new Error("output does not satisfy capability item bounds");
   const evidenceAllowed=new Set(request.input.evidence_ids),baselineAllowed=new Set(request.input.baseline_artifact_ids);
+  if (request.capability === "ai_heading") {
+    let currentH2 = null;
+    for (const [index, item] of items.entries()) {
+      if (item?.level === 2) {
+        if (item.parent_index != null) throw new Error(`headings[${index}]: H2 must not have a parent`);
+        currentH2 = index;
+      } else if (item?.level === 3) {
+        if (currentH2 === null || item.parent_index !== currentH2) {
+          throw new Error(`headings[${index}]: H3 must reference the current preceding H2`);
+        }
+      }
+    }
+  }
   for(const [index,item] of items.entries()){
     if(request.capability==="ai_title"){requireString(item.text,`${key}[${index}].text`,80);requireIdArray(item.evidence_ids,`${key}[${index}].evidence_ids`,evidenceAllowed)}
     if(request.capability==="ai_heading"){if(![2,3].includes(item.level))throw new Error(`${key}[${index}].level is invalid`);requireString(item.text,`${key}[${index}].text`,200);if(item.parent_index!=null&&(!Number.isInteger(item.parent_index)||item.parent_index<0||item.parent_index>=index))throw new Error(`${key}[${index}].parent_index is invalid`);requireIdArray(item.evidence_ids,`${key}[${index}].evidence_ids`,evidenceAllowed)}

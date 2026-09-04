@@ -63,6 +63,12 @@ try {
     api = routeResearchApi(url.pathname, url, data, db);
 
   assert.equal(api.status, 200);
+  assert(oracle.rows.length > 0);
+  assert(oracle.rows.every((row) =>
+    row.semantic_coverage.semantic_coverage_verified === false &&
+    row.semantic_coverage.measurement === "lexical_mention_coverage" &&
+    Array.isArray(row.semantic_coverage.substring_only_concepts),
+  ));
   assert.equal(api.body.policy, "generation-quality-oracle.v1");
   assert.equal(api.body.meta.total, oracle.rows.length);
   assert.equal(api.body.summary.candidate_count, oracle.summary.candidate_count);
@@ -77,6 +83,9 @@ try {
       (row) =>
         /^[a-f0-9]{64}$/u.test(row.quality_digest) &&
         row.human_quality_proven === false &&
+        row.semantic_coverage.semantic_coverage_verified === false &&
+        row.semantic_coverage.measurement === "lexical_mention_coverage" &&
+        Array.isArray(row.semantic_coverage.substring_only_concepts) &&
         row.ranking_effect_inferred === false &&
         row.auto_selection === false &&
         row.auto_content_mutation === false,
@@ -118,6 +127,10 @@ try {
     ).length,
   );
   assert.equal(mcp.result.structuredContent.human_quality_proven, false);
+  assert(mcp.result.structuredContent.data.every((row) =>
+    row.semantic_coverage.semantic_coverage_verified === false &&
+    row.semantic_coverage.measurement === "lexical_mention_coverage",
+  ));
   assert.equal(
     mcp.result.structuredContent.provenance.external_acquisition_triggered,
     false,

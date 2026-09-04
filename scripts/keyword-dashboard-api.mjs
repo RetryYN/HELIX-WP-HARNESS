@@ -5597,6 +5597,7 @@ export function routeResearchApi(pathname, url, data, db = null) {
       ...page(rows, url),
       summary: { ...evidence.summary, filtered_count: rows.length },
       evidence_set_digest: evidence.evidence_set_digest,
+      retention_reconciliation: evidence.retention_reconciliation ?? null,
       filters: {
         q: url.searchParams.get("q") ?? "",
         support_state: state ?? "all",

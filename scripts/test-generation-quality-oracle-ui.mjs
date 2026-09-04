@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import "./test-semantic-coverage-ui-labels.mjs";
 
 const root = new URL("../docs/prototypes/wp-ops-dashboard/", import.meta.url),
   html = readFileSync(new URL("index.html", root), "utf8"),
