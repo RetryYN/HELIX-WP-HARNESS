@@ -1,0 +1,66 @@
+{
+  "schema_version": "semantic-evaluation-provisional-labels.v1",
+  "reviewer": "assistant",
+  "evidence_basis": "retained_query_and_serp_titles_only",
+  "review_status": "provisional_not_independently_reviewed",
+  "gold_labels": false,
+  "accuracy_claim": "not_evaluated",
+  "cases": [
+    {
+      "case_id": "3e95fa0750eae87ea50c7696449b1e3af7c3ea11fe9db86a4d33f9610eed106b",
+      "proposed_label": "insufficient_evidence",
+      "rationale": "企業探索全般と人気順比較には重なりがあるが、一覧・求人サービスも混在する。共通するランキング結果だけで全体を同記事と判断できない。",
+      "needed_evidence": "企業探索側の主要な読者課題と既存記事の説明範囲"
+    },
+    {
+      "case_id": "4b072025cfd2c33056a38af15bd2fdadb8141daabfaf846c51651b3db3a40597",
+      "proposed_label": "insufficient_evidence",
+      "rationale": "ランキング側は企業比較が中心だが、おすすめ側は企業・支援サービス・資格に対象が分散している。おすすめ対象の特定が先に必要。",
+      "needed_evidence": "対象ごとの検索意図の分解と本文の対象確認"
+    },
+    {
+      "case_id": "936e407b293d5a7d5c243dfe7afbdc8e750f3d5ab71d1cce0d6bd285df310a09",
+      "proposed_label": "same_article",
+      "acquisition_comparison": { "source": "raw_snapshot_payloads", "matching_fields": ["api", "function", "se", "se_type", "location_code", "language_code", "device", "os", "depth"], "observed_time_difference_seconds": 41, "semantic_equivalence_proven": false },
+      "rationale": "時期と進め方は一連の就職活動の準備課題で、上位タイトルも共通する。時系列と各段階の行動を説明する同記事が候補になる。",
+      "needed_evidence": "対象卒年と読者層の一致、段階別の本文充足確認"
+    },
+    {
+      "case_id": "9d31b62a6c33809a37ba3f10249b5ff1711f74a33cb3535a95a6447a60e4f332",
+      "proposed_label": "related_only",
+      "rationale": "企業選びは業界就活全般の下位課題である。業界理解・職種・進め方まで含む広い問いと同一とは言えない。",
+      "needed_evidence": "親記事と企業比較記事の役割分担、既存記事の範囲"
+    },
+    {
+      "case_id": "567d9c15fa5b17c696501997320233d1e29fa87cf92fcb8aac5025f5091a5910",
+      "proposed_label": "separate_articles",
+      "rationale": "人気・総合評価などが混在するランキングと入社難易度比較では評価軸が異なる。ランキング形式の一致だけでは統合できない。",
+      "needed_evidence": "比較指標の定義と出典を本文で確認"
+    },
+    {
+      "case_id": "1b652027a9b87beab2c9e1a630ca0afe9187b83cff17699a17582f0727bca972",
+      "proposed_label": "same_article",
+      "acquisition_comparison": { "source": "raw_snapshot_payloads", "matching_fields": ["api", "function", "se", "se_type", "location_code", "language_code", "device", "os", "depth"], "observed_time_difference_seconds": 28, "semantic_equivalence_proven": false },
+      "rationale": "語列は空白の違いのみであり、観測タイトル一覧も一致する。イベント情報を探す同一の課題と解釈できる。",
+      "needed_evidence": "独立した意味判断のレビュー。取得条件9項目の一致と取得時差28秒は確認済み"
+    },
+    {
+      "case_id": "002007ff209c2f5521f603cfb8bdee35889c13464a95d3d7ecfa78940feaca7f",
+      "proposed_label": "separate_articles",
+      "rationale": "専攻背景を持つ読者向けの業界・職種選択と、選考時期や準備手順では主課題が異なる。",
+      "needed_evidence": "既存記事の重複範囲と対象読者の確認"
+    },
+    {
+      "case_id": "80f9c3f898355780873516f978356df7de2c31fa998439adbd0f83f823f39997",
+      "proposed_label": "separate_articles",
+      "rationale": "選考で自分の企業選びの軸を説明するための例文と、企業の入社難易度比較では必要な回答形式と目的が異なる。",
+      "needed_evidence": "本文で実際に扱う質問と評価指標の確認"
+    },
+    {
+      "case_id": "fff67dc56b624ac37d5278fd506de1aadce8abef1bd9e0c60abe8a5a4ca57d4d",
+      "proposed_label": "separate_articles",
+      "rationale": "職種の種類・仕事内容を調べる問いと、特定サービスの概要・信頼性を調べる問いは対象と目的が異なる。",
+      "needed_evidence": "指名対象の同定と本文の対象確認"
+    }
+  ]
+}
