@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import {buildKeywordMeaningEvidence} from "./keyword-meaning-evidence.mjs";
+const input={tasks:[{task_id:"a",group_id:"g",keyword:"機器 選び方"},{task_id:"b",group_id:"g",keyword:"機器 修理"}],edges:[{task_id:"a",canonical_url:"https://fixture.example/page",rank:1},{task_id:"b",canonical_url:"https://fixture.example/<redacted-post>",rank:1}],demands:[{task_id:"a",occurrence_id:"q",demand_type:"paa",value:"何を比較する？",source_keyword:"機器 選び方",snapshot_digest:"a".repeat(64),observed_at:"2026-01-01",seed_value:null,recursion_depth:1}],semanticReviews:[{group_id:"g",review_digest:"b".repeat(64),concepts:[{term:"道具",path_digests:["c".repeat(64)]}]}]};
+const before=JSON.stringify(input),out=buildKeywordMeaningEvidence(input);
+assert.equal(JSON.stringify(input),before);
+assert.equal(out[0].demand_observations.length,1);assert.equal(out[1].demand_observations.length,0);
+assert.equal(out[1].serp.state,"no_identifiable_pages_available");
+assert.equal(out[0].lexical_context.scope,"group_not_individual_keyword");
+assert(out.every(r=>!r.article_generation_ready&&!r.actual_user_journey_observed&&r.story_transitions.length===0));
+assert.equal(out[0].evidence_packet_digest.length,64);
+const changed=structuredClone(input);changed.demands[0].value="別の質問";
+assert.notEqual(buildKeywordMeaningEvidence(changed)[0].evidence_packet_digest,out[0].evidence_packet_digest);
+assert.throws(()=>buildKeywordMeaningEvidence({...input,tasks:[input.tasks[0],input.tasks[0]]}),/duplicate/);
+console.log("keyword meaning evidence: OK (task isolation, provenance, group context distinguished, no invented journey)");

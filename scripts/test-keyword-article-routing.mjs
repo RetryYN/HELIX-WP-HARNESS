@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {buildKeywordArticleRouting as build} from './keyword-article-routing.mjs';
+const story={story_digest:'d',problem_clusters:['a','b','c'].map(id=>({id,answer_scope:id})),story_transitions:[{from_problem:'a',to_problem:'b',resolved_before_transition:'整理できた',next_question:'次は？',rationale:'理由'},{from_problem:'b',to_problem:'c',resolved_before_transition:'理解できた',next_question:'どう使う？',rationale:'別の回答が必要'}]};
+const assignment=(problem_id,article_candidate_id)=>({problem_id,article_candidate_id,rationale:'編集判断'});
+const result=build(story,[assignment('a','one'),assignment('b','one'),assignment('c','two')]);
+assert.deepEqual(result.routes.map(r=>r.placement),['in_article_question','internal_link_question']);
+assert(result.routes.every(r=>r.target_url===null&&!r.auto_publish));
+assert.equal(build(story,[assignment('a','one')]).summary.unresolved_boundaries,2);
+assert.throws(()=>build(story,[assignment('missing','one')]),/unknown/);
+assert.throws(()=>build(story,[assignment('a','one'),assignment('a','two')]),/duplicate/);
+console.log('keyword article routing: OK (in-article versus internal-link questions, missing boundaries and URLs explicit)');
