@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {buildKeywordStoryArticlePlans as build} from './keyword-story-article-plan.mjs';
+const nodes=['n1','n2','n3'].map(id=>({id,task_id:id,trigger:'trigger',barrier:'barrier',desired_outcome:'outcome',evidence_ids:['q'],unknowns:[],evidence_packet_digest:'d'}));
+const story={story_digest:'d',interpretations:nodes,problem_clusters:[{id:'a',reader:'reader',problem:'a',answer_scope:'scope',interpretation_ids:['n1','n2']},{id:'b',reader:'reader',problem:'b',answer_scope:'scope',interpretation_ids:['n3']}],dependency_order:['a','b'],story_transitions:['n1','n2'].map(from=>({from,to:'n3',from_problem:'a',to_problem:'b',resolved_before_transition:'done',next_question:'next?',rationale:'why',evidence_packets:['d']}))};
+const assignments=[{problem_id:'a',article_candidate_id:'one',rationale:'scope'},{problem_id:'b',article_candidate_id:'two',rationale:'scope'}];
+const result=build(story,assignments);
+assert.equal(result.plans[0].sections.length,1);
+assert.equal(result.plans[0].related_questions.length,1);
+assert.equal(result.plans[0].related_questions[0].supporting_route_digests.length,2);
+assert.equal(result.plans[0].sections[0].source_task_ids.length,2);
+assert.equal(result.plans[0].title,null);
+assert.equal(result.plans[0].related_questions[0].target_url,null);
+console.log('story article plans: OK (one section per problem, branches preserved, link evidence deduplicated without loss)');
