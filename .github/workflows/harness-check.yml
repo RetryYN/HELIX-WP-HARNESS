@@ -34,4 +34,6 @@ jobs:
       - name: HELIX team run dry-run
         run: npm run helix -- team run --definition .helix/teams/default-hybrid.yaml --mode hybrid --json
       - run: npm run typecheck
+      - name: Keyword meaning and story regression tests
+        run: npm run research:keyword-meaning:test
       - run: npm test
