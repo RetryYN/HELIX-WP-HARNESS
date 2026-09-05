@@ -5,10 +5,27 @@ import {hasRedactedUrlIdentity} from "./retained-url-identity.mjs";
 
 const identity=value=>{try{return value&&!hasRedactedUrlIdentity(value)?canonicalSerpUrl(value):null;}catch{return null;}};
 
+// Heading identity is page + position, never text alone. Retain H1 as context, not a demand.
+export function contextualizeBenchmarkHeadings(headings){
+  const output=[];
+  for(const [pageId,rows] of Map.groupBy(headings,h=>h.page_id)){
+    const stack=[],positions=new Set();
+    for(const h of [...rows].sort((a,b)=>a.position-b.position)){
+      if(!Number.isInteger(h.position)||!Number.isInteger(h.level)||h.level<1||h.level>6||positions.has(h.position))throw Error('invalid or duplicate heading position/level');
+      positions.add(h.position);
+      while(stack.length&&stack.at(-1).level>=h.level)stack.pop();
+      const ancestors=stack.map(p=>({position:p.position,level:p.level,text:p.text}));
+      if(h.level>=2)output.push({...h,page_id:pageId,ancestors,content_region_state:'not_reviewed',semantic_match_state:'not_reviewed'});
+      stack.push(h);
+    }
+  }
+  return output;
+}
+
 // Retained SERP appearance is a bounded sample, not the full set of a page's ranking keywords.
 export function auditKeywordBenchmarkReadiness(db){
   const rows=db.prepare("SELECT t.task_id,p.page_id,p.url,p.status,p.fetched_at,p.snapshot_digest FROM data_provider_b_tasks t LEFT JOIN competitor_page_task_evidence e ON e.task_id=t.task_id AND e.best_rank=1 LEFT JOIN competitor_pages p USING(page_id) ORDER BY t.task_id,p.page_id").all();
-  const headings=db.prepare("SELECT page_id,position,level,text FROM competitor_headings WHERE level IN (2,3)").all();
+  const headings=contextualizeBenchmarkHeadings(db.prepare("SELECT page_id,position,level,text FROM competitor_headings").all());
   const ranked=db.prepare("SELECT url,keyword,location_code,language_code,source_digest FROM domain_ranked_keywords").all();
   const appearances=db.prepare("SELECT canonical_url,keyword FROM serp_page_keyword_edges").all();
   const byPage=Map.groupBy(headings,h=>h.page_id);
@@ -19,6 +36,8 @@ export function auditKeywordBenchmarkReadiness(db){
     return {task_id:row.task_id,page_id:row.page_id,
       top_page_state:!row.page_id?"not_retained":!url?"unidentifiable_url":row.status!=="ok"?"fetch_not_ok":"retained",
       heading_count:hs.length,
+      deep_heading_count:hs.filter(h=>h.level>=4).length,
+      heading_level_scope:'h2_through_h6_with_ancestor_context',
       long_heading_count:hs.filter(h=>h.text.length>300).length,
       possible_navigation_heading_count:hs.filter(h=>/カテゴリ一覧|あわせて知りたい|人気記事ランキング|総合Q&Aランキング|まずは読みたい記事/.test(h.text)).length,
       heading_comparison_state:hs.length?"requires_content_region_and_meaning_review":"not_observed",

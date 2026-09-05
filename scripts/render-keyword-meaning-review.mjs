@@ -10,12 +10,15 @@ export function renderKeywordMeaningReview({packets,story}){
     const transitions=story.story_transitions.filter(t=>t.from_problem===p.id);
     const interpretations=p.interpretation_ids.map(id=>{
       const n=nodes.get(id),packet=sources.get(n.task_id);
-      const evidence=n.evidence_ids.map(id=>{
+      const describeEvidence=id=>{
         const d=packet.demand_observations.find(d=>d.evidence_id===id);
         const h=(packet.benchmark_heading_evidence??[]).find(h=>h.evidence_id===id);
         return d?`${d.kind}：${d.text}（観測 ${d.observed_at??'不明'}）`:h?`上位記事：ページ ${h.page_id}／見出し位置 ${h.position}／原本 ${h.snapshot_digest}`:id;
-      });
-      return `<details><summary>${esc(packet.keyword)} — ${esc(n.trigger)}</summary><dl>${[['読者',n.reader],['既知事項',n.prior_knowledge],['障壁',n.barrier],['到達状態',n.desired_outcome],['解釈理由',n.rationale]].map(([label,value])=>`<dt>${label}</dt><dd>${esc(value)}</dd>`).join('')}</dl><h4>観測根拠</h4>${list(evidence)}<h4>代替解釈</h4>${list(n.alternative_interpretations)}<h4>未確認</h4>${list(n.unknowns)}</details>`;
+      };
+      const evidence=n.evidence_ids.map(describeEvidence);
+      const methods=(n.recall_methods??[]).map(m=>`<li><p>方法：${esc(m.method)}</p><p>得たい材料：${esc(m.expected_material)}</p><p class="note">方法の使い方は編集仮説。効果は未検証です。</p>${list((m.evidence_ids??[]).map(describeEvidence))}</li>`).join('');
+      if(methods)evidence.push('振り返り方の具体的な使い方は下記の編集仮説を参照');
+      return `<details><summary>${esc(packet.keyword)} — ${esc(n.trigger)}</summary><dl>${[['読者',n.reader],['既知事項',n.prior_knowledge],['障壁',n.barrier],['到達状態',n.desired_outcome],['解釈理由',n.rationale]].map(([label,value])=>`<dt>${label}</dt><dd>${esc(value)}</dd>`).join('')}</dl><h4>観測根拠</h4>${list(evidence)}${methods?`<h4>経験の振り返り方（編集仮説）</h4><ul>${methods}</ul>`:''}<h4>代替解釈</h4>${list(n.alternative_interpretations)}<h4>未確認</h4>${list(n.unknowns)}</details>`;
     }).join('');
     const merge=story.relations.filter(r=>r.kind==='same_problem'&&p.interpretation_ids.includes(r.from)&&p.interpretation_ids.includes(r.to));
     return `<section id="${esc(p.id)}"><h2>${esc(p.problem)}</h2><p>読者：${esc(p.reader)}</p><p>回答範囲：${esc(p.answer_scope)}</p>${interpretations}${merge.length?`<h3>統合理由</h3>${list(merge.map(r=>`${r.rationale}／共通の回答：${r.shared_answer}`))}`:''}<h3>解決後に生まれる疑問</h3>${transitions.length?transitions.map(t=>`<div class="transition"><p>条件：${esc(t.resolved_before_transition)}</p><p>次の疑問：${esc(t.next_question)}</p><a href="${target(t.to_problem)}">→ ${esc(clusters.get(t.to_problem).problem)}</a><p class="note">推論理由：${esc(t.rationale)}</p></div>`).join(''):'<p class="note">次の遷移は未設定。ここで読者の行動が終わると確認したわけではありません。</p>'}</section>`;
