@@ -14,7 +14,10 @@ const base = { schema_version: 'rank1-keyword-semantic-conjunction-review.v1', m
 const run = (review) => spawnSync(process.execPath, ['scripts/verify-rank1-keyword-semantic-conjunction.mjs', manifest, source, write(`review-${Math.random()}.json`, review)], { cwd: process.cwd(), encoding: 'utf8' });
 const pass = run(base);
 assert.equal(pass.status, 0, pass.stderr);
-assert.equal(JSON.parse(pass.stdout).summary.conjunction_percent, 100);
+const passed = JSON.parse(pass.stdout);
+assert.equal(passed.summary.conjunction_percent, 100);
+assert.equal(passed.gate_level, 'minimum_operational_acceptance');
+assert(passed.non_claims.includes('PASS is not a ranking guarantee.'));
 
 const missing = structuredClone(base);
 missing.candidates[0].planned_units[1] = { problem_id: 'p2', state: 'missing', matched_keyword_digests: [] };

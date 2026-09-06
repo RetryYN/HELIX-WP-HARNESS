@@ -88,7 +88,9 @@ assert.deepEqual(new Set(review.value.candidates.map((item) => item.article_cand
 const passed = results.filter((item) => item.verdict === 'PASS').length;
 console.log(JSON.stringify({
   schema_version: 'rank1-keyword-semantic-conjunction-verification.v1',
+  gate_level: 'minimum_operational_acceptance',
   pass_rule: 'Complete exact-page corpus AND every planned meaning unit matched AND every material acquired keyword classified with rationale AND zero false merges.',
+  non_claims: ['PASS is not a ranking guarantee.', 'PASS is not publication approval.', 'Observed rank and traffic after publication require separate measurement.'],
   candidates: results,
   summary: { passed, total: results.length, conjunction_percent: results.length ? Math.round(passed / results.length * 10000) / 100 : 0 },
 }, null, 2));
