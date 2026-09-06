@@ -44,6 +44,7 @@ export function buildKeywordMeaningStory(packets,interpretations,relations){
     if(["prerequisite","next_question"].includes(r.kind)){
       required(r.resolved_before_transition,"resolved before transition");
       required(r.next_question,"next question");
+      if(r.handoff_material!==undefined)required(r.handoff_material,"handoff material");
     }
     const link={...r,state:"hypothesis",evidence_packets:[a.evidence_packet_digest,b.evidence_packet_digest],actual_user_transition_observed:false};
     pairs.set(pk,link);links.push(link);

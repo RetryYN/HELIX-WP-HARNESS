@@ -13,8 +13,8 @@ export function buildKeywordArticleRouting(story,assignments){
     const from=assigned.get(t.from_problem),to=assigned.get(t.to_problem);
     const kind=!from||!to?'boundary_unresolved':from.article_candidate_id===to.article_candidate_id?'in_article_question':'internal_link_question';
     const record={source_problem_id:t.from_problem,target_problem_id:t.to_problem,source_article_candidate_id:from?.article_candidate_id??null,target_article_candidate_id:to?.article_candidate_id??null,
-      placement:kind,trigger_condition:t.resolved_before_transition,related_question:t.next_question,transition_rationale:t.rationale,
-      target_answer_scope:problems.get(t.to_problem)?.answer_scope??null,target_url:null,target_resolution:'not_resolved',
+      placement:kind,trigger_condition:t.resolved_before_transition,related_question:t.next_question,handoff_material:t.handoff_material??null,transition_rationale:t.rationale,
+      target_answer_scope:problems.get(t.to_problem)?.answer_scope??null,target_url:null,target_resolution:to?'article_candidate_resolved':'not_resolved',
       source_interpretation_id:t.from,target_interpretation_id:t.to,evidence_packets:t.evidence_packets,
       article_boundary_rationales:[from?.rationale??null,to?.rationale??null],state:'editorial_hypothesis',auto_publish:false};
     return {...record,route_digest:createHash('sha256').update(JSON.stringify(record)).digest('hex')};
