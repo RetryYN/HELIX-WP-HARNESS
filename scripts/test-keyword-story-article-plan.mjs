@@ -10,4 +10,23 @@ assert.equal(result.plans[0].related_questions[0].supporting_route_digests.lengt
 assert.equal(result.plans[0].sections[0].source_task_ids.length,2);
 assert.equal(result.plans[0].title,null);
 assert.equal(result.plans[0].related_questions[0].target_url,null);
+assert.deepEqual(result.plans[0].sections[0].recall_methods,[]);
+const enriched=structuredClone(story);
+enriched.interpretations[0].recall_methods=[{method:'Recall a concrete event',expected_material:'Situation, action and reason',evidence_ids:['q'],state:'verified',independently_verified:true}];
+const withRecall=build(enriched,assignments);
+const recall=withRecall.plans[0].sections[0].recall_methods[0];
+assert.equal(recall.expected_material,'Situation, action and reason');
+assert.equal(recall.interpretation_id,'n1');
+assert.equal(recall.task_id,'n1');
+assert.equal(recall.packet_digest,'d');
+assert.equal(recall.state,'editorial_hypothesis');
+assert.equal(recall.independently_verified,false);
+assert.notEqual(result.plan_digest,withRecall.plan_digest);
+recall.evidence_ids.push('unrelated');
+assert.deepEqual(enriched.interpretations[0].recall_methods[0].evidence_ids,['q']);
+for(const change of [{evidence_ids:['unknown']},{evidence_ids:[]},{method:''},{expected_material:''}]){
+ const invalid=structuredClone(enriched);
+ Object.assign(invalid.interpretations[0].recall_methods[0],change);
+ assert.throws(()=>build(invalid,assignments),/recall method/);
+}
 console.log('story article plans: OK (one section per problem, branches preserved, link evidence deduplicated without loss)');

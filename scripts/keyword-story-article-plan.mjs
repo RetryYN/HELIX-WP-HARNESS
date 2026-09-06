@@ -11,9 +11,16 @@ export function buildKeywordStoryArticlePlans(story,assignments){
     const ids=new Set(assigned.map(a=>a.problem_id));
     const sections=[...ids].sort((a,b)=>index.get(a)-index.get(b)).map(id=>{
       const p=problems.get(id),members=p.interpretation_ids.map(id=>nodes.get(id));
+      const recallMethods=members.flatMap(n=>(n.recall_methods??[]).map(method=>{
+        if(typeof method.method!=='string'||!method.method.trim()||typeof method.expected_material!=='string'||!method.expected_material.trim())throw Error('recall method needs method and expected material');
+        if(!Array.isArray(method.evidence_ids)||!method.evidence_ids.length||method.evidence_ids.some(ref=>!n.evidence_ids.includes(ref)))throw Error('recall method needs evidence from its interpretation');
+        return {method:method.method,expected_material:method.expected_material,evidence_ids:[...method.evidence_ids],
+          interpretation_id:n.id,task_id:n.task_id,packet_digest:n.evidence_packet_digest,state:'editorial_hypothesis',independently_verified:false};
+      }));
       return {problem_id:id,reader_condition:p.reader,question_to_resolve:p.problem,answer_scope:p.answer_scope,
         triggers:[...new Set(members.map(n=>n.trigger))],barriers:[...new Set(members.map(n=>n.barrier))],
         expected_reader_outcomes:[...new Set(members.map(n=>n.desired_outcome))],
+        recall_methods:recallMethods,
         source_task_ids:[...new Set(members.map(n=>n.task_id))],interpretation_ids:p.interpretation_ids,
         prerequisites:[...new Set(routing.routes.filter(r=>r.placement==='in_article_question'&&r.target_problem_id===id).map(r=>r.source_problem_id))],
         evidence:members.map(n=>({interpretation_id:n.id,task_id:n.task_id,packet_digest:n.evidence_packet_digest,evidence_ids:n.evidence_ids})),
