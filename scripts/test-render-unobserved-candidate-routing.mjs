@@ -1,0 +1,6 @@
+import assert from 'node:assert/strict';
+import { renderUnobservedCandidateRouting } from './render-unobserved-candidate-routing.mjs';
+const ledger = { candidates: [{ article_candidate_id: 'a<script>', meaning_units: [{ unit_id: 'u', question_to_resolve: '<question>' }] }] };
+const review = { schema_version: 'unobserved-candidate-routing-review-aggregate.v1', candidates: [{ article_candidate_id: 'a<script>', candidate_disposition: 'promote', candidate_rationale: '<why>', unit_reviews: [{ unit_id: 'u', disposition: 'promote_query_candidate', query_to_test: '<query>', target_article_candidate_id: null, rationale: '<reason>' }] }] };
+const verification = { schema_version: 'unobserved-candidate-routing-verification.v1', summary: { observed_articles: 1, reviewed_unobserved_candidates: 1, candidate_dispositions: { promote: 1, split: 0, retire_to_existing: 0, hold: 0, exclude: 0 }, query_candidates_to_test: 1, canonical_query_observed_after_review: 0 }, candidates: [{ article_candidate_id: 'a<script>', candidate_disposition: 'promote', units: 1 }] };
+const html = renderUnobservedCandidateRouting(ledger, review, verification); assert(html.includes('&lt;question&gt;')); assert(html.includes('&lt;query&gt;')); assert(!html.includes('a<script>')); assert(!/https?:\/\//.test(html)); console.log('unobserved candidate routing rendering: OK');
