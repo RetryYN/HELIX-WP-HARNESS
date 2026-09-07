@@ -23,7 +23,7 @@ assert.equal(manifest.value.status, 'complete', 'acquisition manifest is not ter
 
 const plans = new Map(source.value.plans.plans.map((plan) => [plan.article_candidate_id, plan]));
 const jobs = new Map(manifest.value.jobs.map((job) => [job.job_id, job]));
-const allowedClasses = new Set(['direct', 'supporting', 'internal_link', 'other_intent']);
+const allowedClasses = new Set(['direct', 'supporting', 'context_only', 'internal_link', 'other_intent']);
 const results = [];
 
 for (const candidateReview of review.value.candidates) {
@@ -34,6 +34,7 @@ for (const candidateReview of review.value.candidates) {
   assert.deepEqual(new Set(planned.keys()), problemIds, `${candidateReview.article_candidate_id}: planned-unit review must cover every semantic section exactly once`);
 
   const observed = new Set();
+  const supportedByProblem = new Map([...problemIds].map((problemId) => [problemId, new Set()]));
   let allCorporaComplete = true;
   for (const page of candidateReview.pages) {
     const job = jobs.get(page.job_id);
@@ -49,6 +50,7 @@ for (const candidateReview of review.value.candidates) {
       for (const problemId of item.matched_problem_ids) assert(problemIds.has(problemId), `${page.job_id}: unknown problem ${problemId}`);
       if (item.classification === 'direct' || item.classification === 'supporting') {
         assert(item.matched_problem_ids.length > 0, `${page.job_id}: in-article keyword has no matched meaning unit`);
+        for (const problemId of item.matched_problem_ids) supportedByProblem.get(problemId).add(item.keyword_digest);
       } else {
         assert.equal(item.matched_problem_ids.length, 0, `${page.job_id}: non-body keyword must not satisfy a meaning unit`);
       }
@@ -60,6 +62,9 @@ for (const candidateReview of review.value.candidates) {
   for (const [problemId, unit] of planned) {
     assert(['matched', 'missing'].includes(unit.state), `${problemId}: invalid state`);
     assert(unit.matched_keyword_digests.every((keyword) => observed.has(keyword)), `${problemId}: cites unobserved keyword`);
+    assert(unit.matched_keyword_digests.every((keyword) => supportedByProblem.get(problemId).has(keyword)), `${problemId}: cites keyword not classified as direct/supporting for this meaning unit`);
+    assert.deepEqual(new Set(unit.matched_keyword_digests), supportedByProblem.get(problemId), `${problemId}: planned-unit keyword set must exactly equal direct/supporting classifications`);
+    assert.equal(unit.state, supportedByProblem.get(problemId).size ? 'matched' : 'missing', `${problemId}: state contradicts classified keyword support`);
     if (unit.state === 'matched') assert(unit.matched_keyword_digests.length > 0, `${problemId}: matched without keyword evidence`);
     if (unit.state === 'missing') {
       assert.equal(unit.matched_keyword_digests.length, 0, `${problemId}: missing unit cites matches`);

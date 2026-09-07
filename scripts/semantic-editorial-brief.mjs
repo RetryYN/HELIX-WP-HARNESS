@@ -84,10 +84,11 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
     const benchmark = {
       state: exactCorpus ? 'ready_for_semantic_conjunction' : 'pending_exact_page_ranked_keywords',
       rank1_url: ranked?.rank1_url ?? null,
+      rank1_urls: ranked?.rank1_urls ?? (ranked?.rank1_url ? [ranked.rank1_url] : []),
       acquired_keyword_count: ranked?.keywords?.length ?? 0,
       complete_exact_page_corpus: exactCorpus,
-      semantic_agreement: null,
-      note: exactCorpus ? 'Corpus is present, but semantic agreement still requires classification.' : 'Seed-query ranks and heading overlap do not substitute for the complete URL-level ranked-keyword corpus.',
+      semantic_agreement: ranked?.semantic_agreement ?? null,
+      note: exactCorpus ? (ranked?.semantic_agreement ? 'Complete URL-level corpora were classified against every planned meaning unit.' : 'Corpus is present, but semantic agreement still requires classification.') : 'Seed-query ranks and heading overlap do not substitute for the complete URL-level ranked-keyword corpus.',
     };
     const base = {
       article_candidate_id: plan.article_candidate_id,
