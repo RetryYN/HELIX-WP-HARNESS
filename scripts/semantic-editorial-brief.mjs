@@ -10,8 +10,9 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
   const planByInterpretation = new Map(source.plans.plans.flatMap((plan) => plan.sections.flatMap((section) => section.interpretation_ids.map((id) => [id, plan.article_candidate_id]))));
   const problemByInterpretation = new Map(source.story.problem_clusters.flatMap((problem) => problem.interpretation_ids.map((id) => [id, problem.id])));
   const unassigned = new Set(source.routing.unassigned_problem_ids);
-  const explicit = new Map(decisions.map((row) => [`${row.article_candidate_id}:${row.evidence_id}`, row]));
+  const explicit = new Map(decisions.map((row) => [`${row.article_candidate_id ?? '*'}:${row.evidence_id}`, row]));
   const rankedByCandidate = new Map(rankedKeywordEvidence.map((row) => [row.article_candidate_id, row]));
+  const knownCandidates = new Set(source.plans.plans.map((plan) => plan.article_candidate_id));
 
   const briefs = source.plans.plans.map((plan) => {
     const taskIds = unique(plan.sections.flatMap((section) => section.source_task_ids));
@@ -31,7 +32,7 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
       const own = interpretationIds.filter((id) => ownInterpretations.has(id));
       const otherCandidates = unique(interpretationIds.map((id) => planByInterpretation.get(id)).filter((id) => id && id !== plan.article_candidate_id));
       const isUnassigned = interpretationIds.some((id) => unassigned.has(problemByInterpretation.get(id)));
-      const override = explicit.get(`${plan.article_candidate_id}:${evidenceId}`);
+      const override = explicit.get(`${plan.article_candidate_id}:${evidenceId}`) ?? explicit.get(`*:${evidenceId}`);
       let disposition;
       let reason;
       if (override) {
@@ -49,6 +50,7 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
         disposition = 'hold';
         reason = isUnassigned ? 'The meaning unit has no approved article assignment.' : 'No evidence-backed meaning assignment exists; exclusion is not inferred.';
       }
+      const targetArticleCandidateIds = disposition === 'separate_article' ? unique(override?.target_article_candidate_ids ?? otherCandidates) : [];
       return {
         evidence_id: evidenceId,
         keyword_or_question: observation.text,
@@ -59,7 +61,8 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
         interpretation_ids: interpretationIds,
         disposition,
         decision_reason: reason,
-        target_article_candidate_ids: disposition === 'separate_article' ? otherCandidates : [],
+        target_article_candidate_ids: targetArticleCandidateIds,
+        target_resolution: disposition !== 'separate_article' ? null : targetArticleCandidateIds.length && targetArticleCandidateIds.every((id) => knownCandidates.has(id)) ? 'article_candidate_resolved' : 'proposed_or_unassigned',
         decision_state: override ? 'explicit_editorial_decision' : 'evidence_projection',
       };
     });
@@ -98,7 +101,7 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
       internal_link_questions: plan.related_questions,
       unresolved_routes: plan.unresolved_routes,
       copywriting_state: outline.every((section) => section.heading_text) ? 'generated_unreviewed' : 'not_generated',
-      design_gate: ledger.some((row) => row.disposition === 'hold') || !exactCorpus || outline.some((section) => !section.heading_text) ? 'blocked' : 'ready_for_independent_review',
+      design_gate: ledger.some((row) => row.disposition === 'hold' || row.target_resolution === 'proposed_or_unassigned') || !exactCorpus || outline.some((section) => !section.heading_text) ? 'blocked' : 'ready_for_independent_review',
       non_claims: ['A heading plan does not prove body-answer quality.', 'Rank-1 semantic agreement is a minimum gate, not a ranking guarantee.', 'Editorial transitions are hypotheses unless separately observed.'],
     };
     return { ...base, brief_digest: digest(base) };
@@ -110,6 +113,7 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
     ready_for_independent_review_count: briefs.filter((row) => row.design_gate === 'ready_for_independent_review').length,
     pending_exact_page_corpus_count: briefs.filter((row) => !row.rank1_page_comparison.complete_exact_page_corpus).length,
     held_demand_count: briefs.reduce((sum, row) => sum + row.disposition_counts.hold, 0),
+    unresolved_separate_article_proposal_count: briefs.reduce((sum, row) => sum + row.keyword_ledger.filter((item) => item.target_resolution === 'proposed_or_unassigned').length, 0),
     briefs,
   };
   return { ...base, output_digest: digest(base) };

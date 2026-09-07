@@ -10,11 +10,13 @@ const source = {
   routing: { story_digest: 'story', unassigned_problem_ids: ['p3'] },
   plans: { plans: [{ article_candidate_id: 'a1', sections: [section('p1', ['i1'], ['e1', 'e5', 'e6'])], related_questions: [], unresolved_routes: [] }, { article_candidate_id: 'a2', sections: [section('p2', ['i2'], ['e2'])], related_questions: [], unresolved_routes: [] }] },
 };
-const result = buildSemanticEditorialBriefs(source, { decisions: [{ article_candidate_id: 'a1', evidence_id: 'e5', disposition: 'body_supplement', reason: 'supports the answer without needing its own section' }, { article_candidate_id: 'a1', evidence_id: 'e6', disposition: 'exclude', reason: 'opposite reader and purpose' }] });
+const result = buildSemanticEditorialBriefs(source, { decisions: [{ article_candidate_id: 'a1', evidence_id: 'e5', disposition: 'body_supplement', reason: 'supports the answer without needing its own section' }, { evidence_id: 'e6', disposition: 'exclude', reason: 'opposite reader and purpose' }, { article_candidate_id: 'a1', evidence_id: 'e3', disposition: 'separate_article', target_article_candidate_ids: ['a3'], reason: 'different answer artifact' }] });
 const a1 = result.briefs.find((row) => row.article_candidate_id === 'a1');
 assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e1').disposition, 'main_argument');
 assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e2').disposition, 'separate_article');
-assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e3').disposition, 'hold');
+assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e3').disposition, 'separate_article');
+assert.deepEqual(a1.keyword_ledger.find((row) => row.evidence_id === 'e3').target_article_candidate_ids, ['a3']);
+assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e3').target_resolution, 'proposed_or_unassigned');
 assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e4').disposition, 'hold');
 assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e5').disposition, 'body_supplement');
 assert.equal(a1.keyword_ledger.find((row) => row.evidence_id === 'e6').disposition, 'exclude');
