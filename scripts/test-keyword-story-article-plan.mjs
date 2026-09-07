@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import {buildKeywordStoryArticlePlans as build} from './keyword-story-article-plan.mjs';
+const nodes=['n1','n2','n3'].map(id=>({id,task_id:id,trigger:'trigger',barrier:'barrier',desired_outcome:'outcome',evidence_ids:['q'],unknowns:[],evidence_packet_digest:'d'}));
+const story={story_digest:'d',interpretations:nodes,problem_clusters:[{id:'a',reader:'reader',problem:'a',answer_scope:'scope',interpretation_ids:['n1','n2']},{id:'b',reader:'reader',problem:'b',answer_scope:'scope',interpretation_ids:['n3']}],dependency_order:['a','b'],story_transitions:['n1','n2'].map(from=>({from,to:'n3',from_problem:'a',to_problem:'b',resolved_before_transition:'done',next_question:'next?',rationale:'why',evidence_packets:['d']}))};
+const assignments=[{problem_id:'a',article_candidate_id:'one',rationale:'scope'},{problem_id:'b',article_candidate_id:'two',rationale:'scope'}];
+const result=build(story,assignments);
+assert.equal(result.plans[0].sections.length,1);
+assert.equal(result.plans[0].related_questions.length,1);
+assert.equal(result.plans[0].related_questions[0].supporting_route_digests.length,2);
+assert.equal(result.plans[0].sections[0].source_task_ids.length,2);
+assert.equal(result.plans[0].title,null);
+assert.equal(result.plans[0].related_questions[0].target_url,null);
+assert.deepEqual(result.plans[0].sections[0].recall_methods,[]);
+const enriched=structuredClone(story);
+enriched.interpretations[0].recall_methods=[{method:'Recall a concrete event',expected_material:'Situation, action and reason',evidence_ids:['q'],state:'verified',independently_verified:true}];
+const withRecall=build(enriched,assignments);
+const recall=withRecall.plans[0].sections[0].recall_methods[0];
+assert.equal(recall.expected_material,'Situation, action and reason');
+assert.equal(recall.interpretation_id,'n1');
+assert.equal(recall.task_id,'n1');
+assert.equal(recall.packet_digest,'d');
+assert.equal(recall.state,'editorial_hypothesis');
+assert.equal(recall.independently_verified,false);
+assert.notEqual(result.plan_digest,withRecall.plan_digest);
+recall.evidence_ids.push('unrelated');
+assert.deepEqual(enriched.interpretations[0].recall_methods[0].evidence_ids,['q']);
+for(const change of [{evidence_ids:['unknown']},{evidence_ids:[]},{method:''},{expected_material:''}]){
+ const invalid=structuredClone(enriched);
+ Object.assign(invalid.interpretations[0].recall_methods[0],change);
+ assert.throws(()=>build(invalid,assignments),/recall method/);
+}
+console.log('story article plans: OK (one section per problem, branches preserved, link evidence deduplicated without loss)');
