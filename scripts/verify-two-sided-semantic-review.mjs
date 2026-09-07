@@ -146,11 +146,12 @@ export function verifyTwoSidedReview(ledger, keywordSource, headingSource, revie
     results.push({ article_candidate_id: source.article_candidate_id, ...metrics, verdict: pass ? 'PASS' : 'FAIL' });
   }
   const passed = results.filter((row) => row.verdict === 'PASS').length;
+  const totalCandidates = ledger.value.candidates.length;
   return {
     schema_version: 'two-sided-semantic-review-verification.v1',
     thresholds: { page_keyword_agreement_percent: 90, heading_alignment_percent: 90, conjunction_percent: 90, unresolved_false_merge_count: 0 },
     candidates: results,
-    summary: { reviewed_candidates: results.length, passed_candidates: passed, candidate_pass_percent: percent(passed, expectedCandidates.length), demand_units: results.reduce((sum, row) => sum + row.demand_units, 0), editorial_requirements: results.reduce((sum, row) => sum + row.editorial_requirements, 0), target_demand_rows: results.reduce((sum, row) => sum + row.target_demand_rows, 0), acquired_keywords: results.reduce((sum, row) => sum + row.acquired_keywords, 0), headings: results.reduce((sum, row) => sum + row.headings, 0), rejected_false_merges: results.reduce((sum, row) => sum + row.rejected_false_merge_count, 0), unresolved_false_merges: results.reduce((sum, row) => sum + row.unresolved_false_merge_count, 0) },
+    summary: { total_candidates: totalCandidates, reviewed_candidates: results.length, review_coverage_percent: percent(results.length, totalCandidates), unobserved_candidates: totalCandidates - results.length, passed_candidates: passed, reviewed_candidate_pass_percent: percent(passed, expectedCandidates.length), candidate_pass_percent: percent(passed, totalCandidates), demand_units: results.reduce((sum, row) => sum + row.demand_units, 0), editorial_requirements: results.reduce((sum, row) => sum + row.editorial_requirements, 0), target_demand_rows: results.reduce((sum, row) => sum + row.target_demand_rows, 0), acquired_keywords: results.reduce((sum, row) => sum + row.acquired_keywords, 0), headings: results.reduce((sum, row) => sum + row.headings, 0), rejected_false_merges: results.reduce((sum, row) => sum + row.rejected_false_merge_count, 0), unresolved_false_merges: results.reduce((sum, row) => sum + row.unresolved_false_merge_count, 0) },
     non_claims: ['PASS is not a ranking guarantee or publication approval.', 'Transitions are editorial hypotheses, not observed journeys.', 'Unobserved canonical queries are excluded from review but remain incomplete.'],
   };
 }

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "helix": "tsx node_modules/helix/src/cli.ts",
-    "research:keyword-meaning:test": "node scripts/test-keyword-meaning-suite.mjs && node scripts/test-canonical-keyword-targets.mjs && node scripts/test-project-target-demand-ledger.mjs && node scripts/test-rank1-keyword-semantic-conjunction.mjs && node scripts/test-rank1-heading-semantic-alignment.mjs && node scripts/test-two-sided-keyword-meaning-alignment.mjs && node scripts/test-verify-two-sided-semantic-review.mjs && node scripts/test-semantic-editorial-brief.mjs",
+    "research:keyword-meaning:test": "node scripts/test-keyword-meaning-suite.mjs && node scripts/test-canonical-keyword-targets.mjs && node scripts/test-project-target-demand-ledger.mjs && node scripts/test-rank1-keyword-semantic-conjunction.mjs && node scripts/test-rank1-heading-semantic-alignment.mjs && node scripts/test-two-sided-keyword-meaning-alignment.mjs && node scripts/test-verify-two-sided-semantic-review.mjs && node scripts/test-render-two-sided-semantic-review.mjs && node scripts/test-semantic-editorial-brief.mjs",
     "requirements:validate": "node scripts/validate-requirements.mjs",
     "requirements:helix-l1-l2": "node scripts/validate-helix-l1-l2.mjs",
     "requirements:helix-vmodel": "npm run helix -- vmodel lint",

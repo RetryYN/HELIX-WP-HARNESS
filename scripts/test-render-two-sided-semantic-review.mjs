@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import { renderTwoSidedSemanticReview } from './render-two-sided-semantic-review.mjs';
+const candidate = { article_candidate_id: 'a<script>', unit_reviews: [{ unit_id: 'u', layer: 'mixed', demand_core: '<need>', editorial_requirements: ['safe'], supporting_target_evidence_ids: ['e'], rationale: 'why' }], target_demand_reviews: [{ evidence_id: 'e', disposition: 'body', rationale: 'why' }], acquired_keyword_reviews: [{ text: '<kw>', relation: 'common', rationale: 'why' }], heading_reviews: [], transitions: [], false_merges: [] };
+const review = { schema_version: 'two-sided-semantic-review-aggregate.v1', candidates: [candidate] };
+const verification = { schema_version: 'two-sided-semantic-review-verification.v1', summary: { total_candidates: 2, reviewed_candidates: 1, review_coverage_percent: 50, unobserved_candidates: 1, passed_candidates: 0, candidate_pass_percent: 0, demand_units: 1, editorial_requirements: 1, target_demand_rows: 1, acquired_keywords: 1, headings: 0, rejected_false_merges: 0, unresolved_false_merges: 0 }, candidates: [{ article_candidate_id: 'a<script>', verdict: 'FAIL', demand_units: 1, editorial_requirements: 1, page_keyword_agreement_percent: 0, heading_alignment_percent: 0, conjunction_percent: 0, rejected_false_merge_count: 0 }] };
+const context = { ledger: { candidates: [{ article_candidate_id: 'a<script>', target_demands: [{ evidence_id: 'e', text: '<question>' }] }] }, headingSource: { candidates: [{ article_candidate_id: 'a<script>', heading_reviews: [] }] } };
+const html = renderTwoSidedSemanticReview(review, verification, context);
+assert(html.includes('a&lt;script&gt;'));
+assert(html.includes('&lt;need&gt;'));
+assert(html.includes('&lt;kw&gt;'));
+assert(html.includes('&lt;question&gt;'));
+assert(!html.includes('a<script>'));
+assert(!/https?:\/\//.test(html));
+console.log('two-sided semantic review rendering: OK');
