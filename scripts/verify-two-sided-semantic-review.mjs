@@ -62,7 +62,10 @@ export function verifyTwoSidedReview(ledger, keywordSource, headingSource, revie
       assert(['main', 'body', 'internal_link', 'separate_article', 'exclude', 'hold'].includes(row.disposition), `${row.evidence_id}: invalid disposition`);
       rationale(row, row.evidence_id);
       assert(Array.isArray(row.matched_unit_ids), `${row.evidence_id}: matched_unit_ids required`);
-      for (const unitId of row.matched_unit_ids) assert(demandUnitIds.has(unitId), `${row.evidence_id}: target demand cites non-demand unit`);
+      for (const unitId of row.matched_unit_ids) {
+        assert(demandUnitIds.has(unitId), `${row.evidence_id}: target demand cites non-demand unit`);
+        assert(units.get(unitId).supporting_target_evidence_ids.includes(row.evidence_id), `${row.evidence_id}: unit evidence back-reference missing`);
+      }
       if (row.material && ['main', 'body'].includes(row.disposition)) assert(row.matched_unit_ids.length, `${row.evidence_id}: used material demand requires a unit`);
       else assert.equal(row.matched_unit_ids.length, 0, `${row.evidence_id}: non-body disposition cannot merge into article`);
     }
@@ -115,6 +118,17 @@ export function verifyTwoSidedReview(ledger, keywordSource, headingSource, revie
       rationale(row, `${source.article_candidate_id} transition`);
     }
     assert(Array.isArray(candidate.false_merges), `${source.article_candidate_id}: false_merges required`);
+    let rejectedFalseMerges = 0;
+    let unresolvedFalseMerges = 0;
+    for (const row of candidate.false_merges) {
+      assert(['rejected_demand_entailment', 'unresolved'].includes(row.kind), `${source.article_candidate_id}: invalid false merge state`);
+      assert(units.has(row.unit_id), `${source.article_candidate_id}: false merge cites unknown unit`);
+      assert(Array.isArray(row.evidence_ids) && row.evidence_ids.length, `${source.article_candidate_id}: false merge evidence required`);
+      for (const evidenceId of row.evidence_ids) assert(sourceDemands.has(evidenceId), `${source.article_candidate_id}: false merge cites unknown evidence`);
+      rationale(row, `${source.article_candidate_id} false merge`);
+      if (row.kind === 'rejected_demand_entailment') rejectedFalseMerges += 1;
+      else unresolvedFalseMerges += 1;
+    }
     const demandRows = [...demandUnitIds].map((unitId) => ({ unit_id: unitId, page_keyword_agreement: pageUnits.has(unitId), heading_alignment: headingUnits.has(unitId), conjunction: pageUnits.has(unitId) && headingUnits.has(unitId) }));
     const metrics = {
       demand_units: demandRows.length,
@@ -125,17 +139,18 @@ export function verifyTwoSidedReview(ledger, keywordSource, headingSource, revie
       page_keyword_agreement_percent: pct(demandRows, (row) => row.page_keyword_agreement),
       heading_alignment_percent: pct(demandRows, (row) => row.heading_alignment),
       conjunction_percent: pct(demandRows, (row) => row.conjunction),
-      false_merge_count: candidate.false_merges.length,
+      rejected_false_merge_count: rejectedFalseMerges,
+      unresolved_false_merge_count: unresolvedFalseMerges,
     };
-    const pass = metrics.page_keyword_agreement_percent >= 90 && metrics.heading_alignment_percent >= 90 && metrics.conjunction_percent >= 90 && metrics.false_merge_count === 0;
+    const pass = metrics.page_keyword_agreement_percent >= 90 && metrics.heading_alignment_percent >= 90 && metrics.conjunction_percent >= 90 && metrics.unresolved_false_merge_count === 0;
     results.push({ article_candidate_id: source.article_candidate_id, ...metrics, verdict: pass ? 'PASS' : 'FAIL' });
   }
   const passed = results.filter((row) => row.verdict === 'PASS').length;
   return {
     schema_version: 'two-sided-semantic-review-verification.v1',
-    thresholds: { page_keyword_agreement_percent: 90, heading_alignment_percent: 90, conjunction_percent: 90, false_merge_count: 0 },
+    thresholds: { page_keyword_agreement_percent: 90, heading_alignment_percent: 90, conjunction_percent: 90, unresolved_false_merge_count: 0 },
     candidates: results,
-    summary: { reviewed_candidates: results.length, passed_candidates: passed, candidate_pass_percent: percent(passed, expectedCandidates.length), demand_units: results.reduce((sum, row) => sum + row.demand_units, 0), editorial_requirements: results.reduce((sum, row) => sum + row.editorial_requirements, 0), target_demand_rows: results.reduce((sum, row) => sum + row.target_demand_rows, 0), acquired_keywords: results.reduce((sum, row) => sum + row.acquired_keywords, 0), headings: results.reduce((sum, row) => sum + row.headings, 0) },
+    summary: { reviewed_candidates: results.length, passed_candidates: passed, candidate_pass_percent: percent(passed, expectedCandidates.length), demand_units: results.reduce((sum, row) => sum + row.demand_units, 0), editorial_requirements: results.reduce((sum, row) => sum + row.editorial_requirements, 0), target_demand_rows: results.reduce((sum, row) => sum + row.target_demand_rows, 0), acquired_keywords: results.reduce((sum, row) => sum + row.acquired_keywords, 0), headings: results.reduce((sum, row) => sum + row.headings, 0), rejected_false_merges: results.reduce((sum, row) => sum + row.rejected_false_merge_count, 0), unresolved_false_merges: results.reduce((sum, row) => sum + row.unresolved_false_merge_count, 0) },
     non_claims: ['PASS is not a ranking guarantee or publication approval.', 'Transitions are editorial hypotheses, not observed journeys.', 'Unobserved canonical queries are excluded from review but remain incomplete.'],
   };
 }

@@ -35,8 +35,13 @@ const missingDemand = structuredClone(base); missingDemand.candidates[0].target_
 assert.throws(() => verifyTwoSidedReview(ledger, keywordSource, headingSource, missingDemand));
 const badLink = structuredClone(base); badLink.candidates[0].target_demand_reviews[0].disposition = 'internal_link';
 assert.throws(() => verifyTwoSidedReview(ledger, keywordSource, headingSource, badLink));
+const missingBackReference = structuredClone(base); missingBackReference.candidates[0].unit_reviews[0].supporting_target_evidence_ids = [];
+assert.throws(() => verifyTwoSidedReview(ledger, keywordSource, headingSource, missingBackReference));
 const editorialCitation = structuredClone(base); editorialCitation.candidates[0].heading_reviews[0].matched_unit_ids = ['e'];
 assert.throws(() => verifyTwoSidedReview(ledger, keywordSource, headingSource, editorialCitation));
-const falseMerge = structuredClone(base); falseMerge.candidates[0].false_merges = [{ left: 'd', right: 'x' }];
+const falseMerge = structuredClone(base); falseMerge.candidates[0].false_merges = [{ unit_id: 'd', evidence_ids: ['t'], kind: 'unresolved', rationale: 'still merged' }];
 assert.equal(verifyTwoSidedReview(ledger, keywordSource, headingSource, falseMerge).summary.passed_candidates, 0);
+const rejectedMerge = structuredClone(base); rejectedMerge.candidates[0].false_merges = [{ unit_id: 'd', evidence_ids: ['t'], kind: 'rejected_demand_entailment', rationale: 'removed from accepted mapping' }];
+assert.equal(verifyTwoSidedReview(ledger, keywordSource, headingSource, rejectedMerge).summary.passed_candidates, 1);
+assert.equal(verifyTwoSidedReview(ledger, keywordSource, headingSource, rejectedMerge).summary.rejected_false_merges, 1);
 console.log('two-sided semantic review verification: OK');
