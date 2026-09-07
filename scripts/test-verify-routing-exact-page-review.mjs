@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import { verifyRoutingExactPageReview } from './verify-routing-exact-page-review.mjs';
+
+const bytes = (value) => Buffer.from(JSON.stringify(value)); const digest = (value) => crypto.createHash('sha256').update(bytes(value)).digest('hex'); const wrapped = (value) => ({ value, bytes: bytes(value), digest: digest(value) }); const headingDigest = (value) => crypto.createHash('sha256').update(value).digest('hex');
+const ranked = wrapped({ status: 'complete', truncated_pages: 0, jobs: [{ job_id: 'j1', target_url: 'https://example.test/a', target_digest: 'target', raw_digest: 'raw', corpus_state: 'complete', observed_keyword_count: 1, observations: [{ query_id: 'q1' }] }] });
+const headings = wrapped({ pages: [{ url: 'https://example.test/a', status: 'ok', raw_digest: 'html', headings: [{ position: 0, level: 2, text: 'Answer' }] }] });
+const semantic = wrapped({ candidates: [{ query_reviews: [{ query_id: 'q1', decision: 'canonical_query' }] }] });
+const packet = wrapped({ pages: [{ job_id: 'j1', target_url: 'https://example.test/a', target_digest: 'target', raw_digest: 'raw', corpus_state: 'complete', observations: [{ query_id: 'q1', canonical_query: 'alpha' }], acquired_keywords: [{ keyword: 'alpha', keyword_digest: headingDigest('alpha') }], heading_evidence: { status: 'ok', raw_digest: 'html', headings: [{ position: 0, level: 2, text: 'Answer' }] } }] });
+const base = { schema_version: 'routing-exact-page-review-aggregate.v1', ranked_manifest_digest: ranked.digest, heading_manifest_digest: headings.digest, semantic_review_digest: semantic.digest, packet_digests: [packet.digest], pages: [{ job_id: 'j1', keyword_reviews: [{ keyword_digest: headingDigest('alpha'), class: 'canonical_exact', rationale: 'exact query' }], heading_reviews: [{ position: 0, level: 2, heading_digest: headingDigest('Answer'), class: 'supported', rationale: 'direct answer' }], canonical_query_acquired_state: 'exact', source_unit_supported: true, material_keyword_coverage: true, heading_alignment_state: 'pass', page_state: 'pass', rationale: 'minimum conjunction met' }] };
+const verify = (review = base, rankedInput = ranked, packetInput = packet) => verifyRoutingExactPageReview(rankedInput, headings, semantic, [packetInput], review);
+assert.equal(verify().summary.final_pass_queries, 1);
+const rejects = (pattern, mutate) => { const review = structuredClone(base); mutate(review); assert.throws(() => verify(review), pattern); };
+rejects(/keyword review coverage mismatch/, (review) => review.pages[0].keyword_reviews.pop());
+rejects(/heading digest mismatch/, (review) => { review.pages[0].heading_reviews[0].heading_digest = 'borrowed'; });
+const semanticOnlyPacketValue = structuredClone(packet.value); semanticOnlyPacketValue.pages[0].acquired_keywords[0].keyword = 'beta'; semanticOnlyPacketValue.pages[0].acquired_keywords[0].keyword_digest = headingDigest('beta'); const semanticOnlyPacket = wrapped(semanticOnlyPacketValue); const exactWithoutEvidence = structuredClone(base); exactWithoutEvidence.packet_digests = [semanticOnlyPacket.digest]; exactWithoutEvidence.pages[0].keyword_reviews[0].keyword_digest = headingDigest('beta'); assert.throws(() => verify(exactWithoutEvidence, ranked, semanticOnlyPacket), /canonical exact claim lacks exact keyword/);
+rejects(/heading pass requires at least 90%/, (review) => { review.pages[0].heading_reviews[0].class = 'gap'; });
+rejects(/unsupported source unit cannot pass/, (review) => { review.pages[0].source_unit_supported = false; });
+const truncated = wrapped({ ...ranked.value, truncated_pages: 1 }); assert.throws(() => verify(base, truncated), /ranked manifest digest mismatch|truncated exact-page corpus/);
+console.log('routing exact-page review verifier tests passed');
