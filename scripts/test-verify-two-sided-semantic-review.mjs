@@ -44,4 +44,14 @@ assert.equal(verifyTwoSidedReview(ledger, keywordSource, headingSource, falseMer
 const rejectedMerge = structuredClone(base); rejectedMerge.candidates[0].false_merges = [{ unit_id: 'd', evidence_ids: ['t'], kind: 'rejected_demand_entailment', rationale: 'removed from accepted mapping' }];
 assert.equal(verifyTwoSidedReview(ledger, keywordSource, headingSource, rejectedMerge).summary.passed_candidates, 1);
 assert.equal(verifyTwoSidedReview(ledger, keywordSource, headingSource, rejectedMerge).summary.rejected_false_merges, 1);
+
+const multiLedger = structuredClone(ledger); multiLedger.value.candidates[0].meaning_units.push({ unit_id: 'd2' }); multiLedger.value.candidates[0].target_demands.push({ evidence_id: 't2', text: 'second demand' });
+const multiKeywords = structuredClone(keywordSource); multiKeywords.value.candidates[0].pages[0].keyword_reviews.push({ keyword: 'second query', keyword_digest: 'k2' });
+const multiHeadings = structuredClone(headingSource); multiHeadings.value.candidates[0].heading_reviews.push({ position: 2, text: 'second answer' });
+const disconnected = structuredClone(base); disconnected.candidates[0].unit_reviews.push({ unit_id: 'd2', layer: 'demand', demand_core: 'second', editorial_requirements: [], supporting_target_evidence_ids: ['t2'], rationale: 'observed' }); disconnected.candidates[0].target_demand_reviews.push({ evidence_id: 't2', material: true, disposition: 'body', matched_unit_ids: ['d2'], rationale: 'same answer' }); disconnected.candidates[0].acquired_keyword_reviews.push({ keyword_id: 'k2', text: 'second query', material: true, relation: 'common', matched_unit_ids: ['d2'], rationale: 'same demand' }); disconnected.candidates[0].heading_reviews.push({ heading_id: 'page:2', position: 2, classification: 'supported', matched_unit_ids: ['d2'], rationale: 'same demand' });
+assert.equal(verifyTwoSidedReview(multiLedger, multiKeywords, multiHeadings, disconnected).summary.passed_candidates, 0);
+const connected = structuredClone(disconnected); connected.candidates[0].transitions = [{ from_unit_id: 'd', to_unit_id: 'd2', state: 'editorial_hypothesis', evidence_ids: ['t'], rationale: 'editorial order' }];
+assert.equal(verifyTwoSidedReview(multiLedger, multiKeywords, multiHeadings, connected).summary.passed_candidates, 1);
+const cycle = structuredClone(connected); cycle.candidates[0].transitions.push({ from_unit_id: 'd2', to_unit_id: 'd', state: 'editorial_hypothesis', evidence_ids: ['t2'], rationale: 'bad cycle' });
+assert.throws(() => verifyTwoSidedReview(multiLedger, multiKeywords, multiHeadings, cycle));
 console.log('two-sided semantic review verification: OK');

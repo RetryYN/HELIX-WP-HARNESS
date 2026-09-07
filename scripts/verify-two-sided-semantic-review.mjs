@@ -18,6 +18,27 @@ const mapUnique = (rows, key, label) => {
 };
 const rationale = (row, label) => assert(typeof row.rationale === 'string' && row.rationale.trim(), `${label} requires rationale`);
 const pct = (values, predicate) => percent(values.filter(predicate).length, values.length);
+function auditStory(unitIds, transitions, label) {
+  if (unitIds.size === 1) return { transition_count: transitions.length, story_unit_coverage_percent: 100, story_connected: true };
+  const adjacency = new Map([...unitIds].map((id) => [id, new Set()]));
+  const directed = new Map([...unitIds].map((id) => [id, []]));
+  const edgeIds = new Set();
+  const covered = new Set();
+  for (const row of transitions) {
+    assert.notEqual(row.from_unit_id, row.to_unit_id, `${label}: self transition`);
+    const edgeId = `${row.from_unit_id}\0${row.to_unit_id}`;
+    assert(!edgeIds.has(edgeId), `${label}: duplicate transition`);
+    edgeIds.add(edgeId); covered.add(row.from_unit_id); covered.add(row.to_unit_id);
+    adjacency.get(row.from_unit_id).add(row.to_unit_id); adjacency.get(row.to_unit_id).add(row.from_unit_id);
+    directed.get(row.from_unit_id).push(row.to_unit_id);
+  }
+  const visiting = new Set(); const visited = new Set();
+  const visit = (id) => { assert(!visiting.has(id), `${label}: transition cycle`); if (visited.has(id)) return; visiting.add(id); for (const next of directed.get(id)) visit(next); visiting.delete(id); visited.add(id); };
+  for (const id of unitIds) visit(id);
+  const reached = new Set(); const queue = [unitIds.values().next().value];
+  while (queue.length) { const id = queue.shift(); if (reached.has(id)) continue; reached.add(id); queue.push(...adjacency.get(id)); }
+  return { transition_count: transitions.length, story_unit_coverage_percent: percent(covered.size, unitIds.size), story_connected: reached.size === unitIds.size };
+}
 
 export function verifyTwoSidedReview(ledger, keywordSource, headingSource, review) {
   assert.equal(review.schema_version, 'two-sided-semantic-review-aggregate.v1');
@@ -110,13 +131,15 @@ export function verifyTwoSidedReview(ledger, keywordSource, headingSource, revie
         for (const unitId of row.matched_unit_ids) { assert(demandUnitIds.has(unitId), `${row.heading_id}: heading cites non-demand unit`); headingUnits.add(unitId); }
       } else assert.equal(row.matched_unit_ids.length, 0, `${row.heading_id}: gap/excluded cannot satisfy demand`);
     }
-    for (const row of candidate.transitions ?? []) {
+    const transitions = candidate.transitions ?? [];
+    for (const row of transitions) {
       assert.equal(row.state, 'editorial_hypothesis', `${source.article_candidate_id}: transition must remain hypothetical`);
       assert(demandUnitIds.has(row.from_unit_id) && demandUnitIds.has(row.to_unit_id), `${source.article_candidate_id}: transition cites non-demand unit`);
       assert(Array.isArray(row.evidence_ids) && row.evidence_ids.length, `${source.article_candidate_id}: transition evidence required`);
       for (const evidenceId of row.evidence_ids) assert(sourceDemands.has(evidenceId), `${source.article_candidate_id}: transition cites unknown evidence`);
       rationale(row, `${source.article_candidate_id} transition`);
     }
+    const story = auditStory(demandUnitIds, transitions, source.article_candidate_id);
     assert(Array.isArray(candidate.false_merges), `${source.article_candidate_id}: false_merges required`);
     let rejectedFalseMerges = 0;
     let unresolvedFalseMerges = 0;
@@ -141,17 +164,18 @@ export function verifyTwoSidedReview(ledger, keywordSource, headingSource, revie
       conjunction_percent: pct(demandRows, (row) => row.conjunction),
       rejected_false_merge_count: rejectedFalseMerges,
       unresolved_false_merge_count: unresolvedFalseMerges,
+      ...story,
     };
-    const pass = metrics.page_keyword_agreement_percent >= 90 && metrics.heading_alignment_percent >= 90 && metrics.conjunction_percent >= 90 && metrics.unresolved_false_merge_count === 0;
+    const pass = metrics.page_keyword_agreement_percent >= 90 && metrics.heading_alignment_percent >= 90 && metrics.conjunction_percent >= 90 && metrics.unresolved_false_merge_count === 0 && metrics.story_unit_coverage_percent === 100 && metrics.story_connected;
     results.push({ article_candidate_id: source.article_candidate_id, ...metrics, verdict: pass ? 'PASS' : 'FAIL' });
   }
   const passed = results.filter((row) => row.verdict === 'PASS').length;
   const totalCandidates = ledger.value.candidates.length;
   return {
     schema_version: 'two-sided-semantic-review-verification.v1',
-    thresholds: { page_keyword_agreement_percent: 90, heading_alignment_percent: 90, conjunction_percent: 90, unresolved_false_merge_count: 0 },
+    thresholds: { page_keyword_agreement_percent: 90, heading_alignment_percent: 90, conjunction_percent: 90, unresolved_false_merge_count: 0, story_unit_coverage_percent: 100, story_connected: true },
     candidates: results,
-    summary: { total_candidates: totalCandidates, reviewed_candidates: results.length, review_coverage_percent: percent(results.length, totalCandidates), unobserved_candidates: totalCandidates - results.length, passed_candidates: passed, reviewed_candidate_pass_percent: percent(passed, expectedCandidates.length), candidate_pass_percent: percent(passed, totalCandidates), demand_units: results.reduce((sum, row) => sum + row.demand_units, 0), editorial_requirements: results.reduce((sum, row) => sum + row.editorial_requirements, 0), target_demand_rows: results.reduce((sum, row) => sum + row.target_demand_rows, 0), acquired_keywords: results.reduce((sum, row) => sum + row.acquired_keywords, 0), headings: results.reduce((sum, row) => sum + row.headings, 0), rejected_false_merges: results.reduce((sum, row) => sum + row.rejected_false_merge_count, 0), unresolved_false_merges: results.reduce((sum, row) => sum + row.unresolved_false_merge_count, 0) },
+    summary: { total_candidates: totalCandidates, reviewed_candidates: results.length, review_coverage_percent: percent(results.length, totalCandidates), unobserved_candidates: totalCandidates - results.length, passed_candidates: passed, reviewed_candidate_pass_percent: percent(passed, expectedCandidates.length), candidate_pass_percent: percent(passed, totalCandidates), demand_units: results.reduce((sum, row) => sum + row.demand_units, 0), editorial_requirements: results.reduce((sum, row) => sum + row.editorial_requirements, 0), target_demand_rows: results.reduce((sum, row) => sum + row.target_demand_rows, 0), acquired_keywords: results.reduce((sum, row) => sum + row.acquired_keywords, 0), headings: results.reduce((sum, row) => sum + row.headings, 0), transitions: results.reduce((sum, row) => sum + row.transition_count, 0), story_ready_candidates: results.filter((row) => row.story_connected && row.story_unit_coverage_percent === 100).length, rejected_false_merges: results.reduce((sum, row) => sum + row.rejected_false_merge_count, 0), unresolved_false_merges: results.reduce((sum, row) => sum + row.unresolved_false_merge_count, 0) },
     non_claims: ['PASS is not a ranking guarantee or publication approval.', 'Transitions are editorial hypotheses, not observed journeys.', 'Unobserved canonical queries are excluded from review but remain incomplete.'],
   };
 }
