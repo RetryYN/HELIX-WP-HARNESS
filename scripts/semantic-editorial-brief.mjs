@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 const digest = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
-export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKeywordEvidence = [] } = {}) {
+export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKeywordEvidence = [], canonicalKeywordTargets = [] } = {}) {
   const observations = new Map(source.packets.flatMap((packet) => packet.demand_observations.map((row) => [row.evidence_id, { ...row, task_id: packet.task_id }])));
   const packetByTask = new Map(source.packets.map((packet) => [packet.task_id, packet]));
   const interpretationById = new Map(source.story.interpretations.map((row) => [row.id, row]));
@@ -12,6 +12,7 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
   const unassigned = new Set(source.routing.unassigned_problem_ids);
   const explicit = new Map(decisions.map((row) => [`${row.article_candidate_id ?? '*'}:${row.evidence_id}`, row]));
   const rankedByCandidate = new Map(rankedKeywordEvidence.map((row) => [row.article_candidate_id, row]));
+  const canonicalByCandidate = new Map(canonicalKeywordTargets.map((row) => [row.article_candidate_id, row]));
   const knownCandidates = new Set(source.plans.plans.map((plan) => plan.article_candidate_id));
 
   const briefs = source.plans.plans.map((plan) => {
@@ -80,6 +81,9 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
       prerequisites: section.prerequisites,
     }));
     const ranked = rankedByCandidate.get(plan.article_candidate_id);
+    const canonical = canonicalByCandidate.get(plan.article_candidate_id) ?? { state: 'not_declared', keyword: null, task_id: null, rank1_url: null, reason: 'No canonical main-keyword decision was supplied.' };
+    if (ranked && canonical.state !== 'observed') throw new Error(`ranked evidence requires an observed canonical target: ${plan.article_candidate_id}`);
+    if (ranked?.rank1_url && ranked.rank1_url !== canonical.rank1_url) throw new Error(`ranked evidence URL does not match canonical target: ${plan.article_candidate_id}`);
     const exactCorpus = Boolean(ranked?.complete_exact_page_corpus);
     const benchmark = {
       state: exactCorpus ? 'ready_for_semantic_conjunction' : 'pending_exact_page_ranked_keywords',
@@ -92,7 +96,8 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
     };
     const base = {
       article_candidate_id: plan.article_candidate_id,
-      main_keywords: unique(taskIds.map((taskId) => packetByTask.get(taskId)?.keyword)),
+      main_keyword: canonical.keyword,
+      main_keyword_observation: canonical,
       target_readers: unique(plan.sections.map((section) => section.reader_condition)),
       answer_scopes: unique(plan.sections.map((section) => section.answer_scope)),
       keyword_ledger: ledger,
@@ -102,7 +107,7 @@ export function buildSemanticEditorialBriefs(source, { decisions = [], rankedKey
       internal_link_questions: plan.related_questions,
       unresolved_routes: plan.unresolved_routes,
       copywriting_state: outline.every((section) => section.heading_text) ? 'generated_unreviewed' : 'not_generated',
-      design_gate: ledger.some((row) => row.disposition === 'hold' || row.target_resolution === 'proposed_or_unassigned') || !exactCorpus || outline.some((section) => !section.heading_text) ? 'blocked' : 'ready_for_independent_review',
+      design_gate: canonical.state !== 'observed' || ledger.some((row) => row.disposition === 'hold' || row.target_resolution === 'proposed_or_unassigned') || !exactCorpus || outline.some((section) => !section.heading_text) ? 'blocked' : 'ready_for_independent_review',
       non_claims: ['A heading plan does not prove body-answer quality.', 'Rank-1 semantic agreement is a minimum gate, not a ranking guarantee.', 'Editorial transitions are hypotheses unless separately observed.'],
     };
     return { ...base, brief_digest: digest(base) };

@@ -2,9 +2,9 @@ import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 
-const [manifestPath, sourcePath, reviewPath] = process.argv.slice(2);
-if (!manifestPath || !sourcePath || !reviewPath) {
-  throw new Error('usage: node scripts/verify-rank1-keyword-semantic-conjunction.mjs MANIFEST SOURCE REVIEW');
+const [manifestPath, sourcePath, canonicalTargetsPath, reviewPath] = process.argv.slice(2);
+if (!manifestPath || !sourcePath || !canonicalTargetsPath || !reviewPath) {
+  throw new Error('usage: node scripts/verify-rank1-keyword-semantic-conjunction.mjs MANIFEST SOURCE CANONICAL_TARGETS REVIEW');
 }
 
 const digest = (value) => crypto.createHash('sha256').update(value).digest('hex');
@@ -14,14 +14,17 @@ const read = (file) => {
 };
 const manifest = read(manifestPath);
 const source = read(sourcePath);
+const canonicalTargets = read(canonicalTargetsPath);
 const review = read(reviewPath);
 
 assert.equal(review.value.schema_version, 'rank1-keyword-semantic-conjunction-review.v1');
 assert.equal(review.value.manifest_digest, digest(manifest.bytes), 'review does not bind the current acquisition manifest');
 assert.equal(review.value.source_digest, digest(source.bytes), 'review does not bind the current semantic source');
+assert.equal(review.value.canonical_targets_digest, digest(canonicalTargets.bytes), 'review does not bind the canonical main-keyword targets');
 assert.equal(manifest.value.status, 'complete', 'acquisition manifest is not terminal');
 
 const plans = new Map(source.value.plans.plans.map((plan) => [plan.article_candidate_id, plan]));
+const canonicalByCandidate = new Map(canonicalTargets.value.assignments.map((row) => [row.article_candidate_id, row]));
 const jobs = new Map(manifest.value.jobs.map((job) => [job.job_id, job]));
 const allowedClasses = new Set(['direct', 'supporting', 'context_only', 'internal_link', 'other_intent']);
 const results = [];
@@ -29,6 +32,9 @@ const results = [];
 for (const candidateReview of review.value.candidates) {
   const plan = plans.get(candidateReview.article_candidate_id);
   assert(plan, `unknown article candidate: ${candidateReview.article_candidate_id}`);
+  const canonical = canonicalByCandidate.get(candidateReview.article_candidate_id);
+  assert(canonical, `canonical target missing: ${candidateReview.article_candidate_id}`);
+  assert.equal(candidateReview.pages.length, canonical.state === 'observed' ? 1 : 0, `${candidateReview.article_candidate_id}: page count contradicts canonical target state`);
   const problemIds = new Set(plan.sections.map((section) => section.problem_id));
   const planned = new Map(candidateReview.planned_units.map((unit) => [unit.problem_id, unit]));
   assert.deepEqual(new Set(planned.keys()), problemIds, `${candidateReview.article_candidate_id}: planned-unit review must cover every semantic section exactly once`);
@@ -40,6 +46,8 @@ for (const candidateReview of review.value.candidates) {
     const job = jobs.get(page.job_id);
     assert(job, `${candidateReview.article_candidate_id}: unknown job ${page.job_id}`);
     assert(job.article_candidate_ids.includes(candidateReview.article_candidate_id), `${page.job_id}: URL is not evidence for candidate`);
+    assert.equal(job.target_url, canonical.rank1_url, `${page.job_id}: URL is not the canonical main-query rank-1 page`);
+    assert(job.source_task_ids.includes(canonical.task_id), `${page.job_id}: canonical main query did not produce this rank-1 page`);
     assert.equal(page.target_digest, job.target_digest, `${page.job_id}: target mismatch`);
     allCorporaComplete &&= job.corpus_state === 'complete';
     const expected = new Set(job.observed_keyword_digests || []);
@@ -74,11 +82,12 @@ for (const candidateReview of review.value.candidates) {
   const materialUnexplained = candidateReview.pages.flatMap((page) => page.keyword_reviews)
     .filter((item) => item.material && !item.rationale?.trim()).map((item) => item.keyword_digest);
   const falseMerges = candidateReview.false_merges || [];
-  const computedPass = allCorporaComplete && missingUnits.length === 0 && materialUnexplained.length === 0 && falseMerges.length === 0;
+  const computedPass = canonical.state === 'observed' && allCorporaComplete && missingUnits.length === 0 && materialUnexplained.length === 0 && falseMerges.length === 0;
   assert.equal(candidateReview.verdict, computedPass ? 'PASS' : 'FAIL', `${candidateReview.article_candidate_id}: verdict contradicts evidence`);
   results.push({
     article_candidate_id: candidateReview.article_candidate_id,
-    corpus_complete: allCorporaComplete,
+    canonical_keyword_state: canonical.state,
+    corpus_complete: canonical.state === 'observed' && allCorporaComplete,
     planned_meaning_units: problemIds.size,
     matched_meaning_units: problemIds.size - missingUnits.length,
     semantic_recall_percent: problemIds.size ? Math.round((problemIds.size - missingUnits.length) / problemIds.size * 10000) / 100 : null,
