@@ -16,6 +16,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Verify guard contract
+        run: bash scripts/test-public-safety-guard.sh
       - name: Guard newly published content
         env:
           PUBLIC_REDACTION_GUARD_RE: ${{ secrets.PUBLIC_REDACTION_GUARD_RE }}
@@ -28,5 +30,8 @@ jobs:
           # Branch creation or force-push leaves "before" unusable; fall back to the parent commit.
           if ! git rev-parse --verify --quiet "${base_ref}^{commit}" >/dev/null; then
             base_ref="HEAD^"
+          fi
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            base_ref="$(git merge-base "$base_ref" HEAD)"
           fi
           bash scripts/public-safety-guard.sh --base-ref "$base_ref" HEAD
