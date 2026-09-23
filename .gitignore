@@ -10,3 +10,4 @@ harness.db
 .helix/keyword-meaning-*.sqlite*
 .helix/keyword-dashboard-runtime.json
 .helix/logs/
+.public-safety.local.regex
