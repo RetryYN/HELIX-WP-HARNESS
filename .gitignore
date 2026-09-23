@@ -8,6 +8,7 @@ node_modules/
 harness.db
 .helix/keyword-dashboard.sqlite*
 .helix/keyword-meaning-*.sqlite*
+.helix/routing-exact-page-semantic-*.sqlite*
 .helix/keyword-dashboard-runtime.json
 .helix/logs/
 .public-safety.local.regex
