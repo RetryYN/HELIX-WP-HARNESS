@@ -101,8 +101,9 @@ WordPress サイトの運用（コンテンツ投稿・更新・計測・改善�
 5. **テーマ連携**: 開発ベースは HELIX-WP-THEME（旧 AGENT-NEO）。AI 判定ロジックは
    ハーネス（オーケストレーター）側に置き、テーマ／プラグインは表示に徹する
    （REQ-NF-025 の分離原則を引き継ぐ）。
-6. **統合層との関係**: 本リポは HELIX-MARKETING-HARNESS（統合層）の `media/wp/`。
-   共通規律は統合層 CLAUDE.md が正本。
+6. **リポジトリ境界**（2026-09-23 更新）: 本リポは独立運用する。
+   共通規律の正本は本リポの `AGENTS.md`・`CLAUDE.md` と
+   `docs/governance/public-repository-safety.md`。HELIX-WP-THEME は別リポジトリとする。
 
 7. **API 費用の最小化**（PO 判断 2026-08-21）: 無料車線（WP REST／CLI／SSH・ブラウザ・
    単発 fetch・GSC/GA4）を常に優先し、有料 API は代替不能なデータに限定する。有料呼び出しは
