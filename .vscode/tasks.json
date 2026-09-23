@@ -28,7 +28,7 @@
     {
       "label": "HELIX: version-up dry-run",
       "type": "shell",
-      "command": "npm run helix -- version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-OS.git --json",
+      "command": "npm run helix -- version-up dry-run --current v0.1.0 --target v0.1.4 --release-remote https://github.com/RetryYN/HELIX-HARNESS-DevOS.git --json",
       "problemMatcher": []
     },
     {
