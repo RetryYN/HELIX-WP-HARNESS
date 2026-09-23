@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+guard="$repo_root/scripts/public-safety-guard.sh"
+
+if [[ ! -x "$guard" ]]; then
+  echo "FAIL: public safety guard is unavailable: $guard" >&2
+  exit 1
+fi
+
+exec bash "$guard" --staged

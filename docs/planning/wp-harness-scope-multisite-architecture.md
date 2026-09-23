@@ -18,16 +18,15 @@ WP HARNESS は SEO 専用ハーネスではない。複数の WordPress サイ�
 SEO は現在の最初の実証スライスであり、全体スコープの上限ではない。
 
 ```text
-HELIX-MARKETING-HARNESS
-└─ media/wp = HELIX-WP-HARNESS
-   ├─ portfolio / site context
-   ├─ WordPress assets
-   ├─ acquisition surfaces
-   ├─ intelligence / growth / lifecycle
-   ├─ operations
-   └─ providers / platform / interfaces
+HELIX-WP-HARNESS（独立リポジトリ）
+├─ portfolio / site context
+├─ WordPress assets
+├─ acquisition surfaces
+├─ intelligence / growth / lifecycle
+├─ operations
+└─ providers / platform / interfaces
 
-HELIX-WP-THEME
+HELIX-WP-THEME（別リポジトリ）
 └─ render / dry-run / apply / rollback 等の実行基盤
 ```
 
@@ -46,7 +45,7 @@ HELIX-WP-THEME
 - backup / restore / monitoring / incident response
 - existing-site handover / new-site provisioning
 
-YouTube 等の別媒体は本リポへ内包しない。必要時は `HELIX-MARKETING-HARNESS` の媒体別リポとして追加する。
+YouTube 等の別媒体は本リポへ内包しない。必要時は別の独立リポジトリとして扱う。
 
 ## 3. マルチサイト境界
 

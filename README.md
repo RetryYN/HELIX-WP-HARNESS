@@ -4,6 +4,10 @@ WordPress 専用のマーケティングハーネス。`RetryYN/HELIX-MARKETING-
 **媒体別リポジトリ分割**（1 媒体 = 1 ハーネス = 1 リポジトリ）の 1 号として、
 PO 判断（2026-08-21）により白紙から出発する。
 
+現在は独立リポジトリとして運用する。作業規律の正本は `AGENTS.md`・`CLAUDE.md` と
+`docs/governance/public-repository-safety.md`。過去の PoC・レビュー文書にある
+`media/wp` や旧統合層の手順は、当時の記録であり現在の作業手順ではない。
+
 ## 出自と持ち込み範囲
 
 - 持ち込みは **WordPress PoC 証跡のみ**（`docs/poc/`）。

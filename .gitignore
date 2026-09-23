@@ -11,3 +11,4 @@ harness.db
 .helix/routing-exact-page-semantic-*.sqlite*
 .helix/keyword-dashboard-runtime.json
 .helix/logs/
+.public-safety.local.regex
