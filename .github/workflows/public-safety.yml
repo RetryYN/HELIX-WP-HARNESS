@@ -25,4 +25,8 @@ jobs:
           else
             base_ref="${{ github.event.before }}"
           fi
-          bash scripts/public-safety-guard.sh --base-ref "$base_ref"
+          # Branch creation or force-push leaves "before" unusable; fall back to the parent commit.
+          if ! git rev-parse --verify --quiet "${base_ref}^{commit}" >/dev/null; then
+            base_ref="HEAD^"
+          fi
+          bash scripts/public-safety-guard.sh --base-ref "$base_ref" HEAD

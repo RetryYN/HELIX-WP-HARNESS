@@ -5,12 +5,13 @@ repo_root="$(git rev-parse --show-toplevel)"
 cd "$repo_root"
 
 usage() {
-  echo "usage: $0 --staged | --base-ref <git-ref>" >&2
+  echo "usage: $0 --staged | --base-ref <git-ref> [<head-ref>]" >&2
   exit 2
 }
 
 mode=""
 base_ref=""
+head_ref="HEAD"
 case "${1:-}" in
   --staged)
     mode="staged"
@@ -19,8 +20,10 @@ case "${1:-}" in
   --base-ref)
     mode="range"
     base_ref="${2:-}"
-    [[ $# -eq 2 && -n "$base_ref" ]] || usage
+    head_ref="${3:-HEAD}"
+    [[ ( $# -eq 2 || $# -eq 3 ) && -n "$base_ref" ]] || usage
     git rev-parse --verify "${base_ref}^{commit}" >/dev/null
+    git rev-parse --verify "${head_ref}^{commit}" >/dev/null
     ;;
   *) usage ;;
 esac
@@ -36,12 +39,13 @@ append_diff() {
   shift 2
 
   git -C "$repo" diff --no-ext-diff --unified=0 "$@" -- \
-    ':(exclude)scripts/check-public-safety.sh' \
     ':(exclude)scripts/public-safety-guard.sh' |
     awk -v prefix="$prefix" '
-      /^\+\+\+ b\// { file = substr($0, 7); next }
-      /^\+\+\+ \/dev\/null/ { file = ""; next }
-      /^\+[^+]/ && file != "" {
+      /^diff --git / { file = ""; in_hunk = 0; next }
+      /^\+\+\+ b\// && !in_hunk { file = substr($0, 7); next }
+      /^\+\+\+ \/dev\/null/ && !in_hunk { file = ""; next }
+      /^@@ / { in_hunk = 1; next }
+      /^\+/ && in_hunk && file != "" {
         line = substr($0, 2)
         gsub(/\t/, "    ", line)
         print prefix file "\t" line
@@ -53,8 +57,8 @@ if [[ "$mode" == "staged" ]]; then
   append_diff . "" --cached
   raw_args=(--cached --raw --no-abbrev)
 else
-  append_diff . "" "$base_ref" HEAD
-  raw_args=(--raw --no-abbrev "$base_ref" HEAD)
+  append_diff . "" "$base_ref" "$head_ref"
+  raw_args=(--raw --no-abbrev "$base_ref" "$head_ref")
 fi
 
 # A gitlink diff contains only the pointer at the integration layer. Inspect the

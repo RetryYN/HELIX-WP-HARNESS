@@ -3,6 +3,7 @@ set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel)"
 guard="$repo_root/scripts/public-safety-guard.sh"
+remote_name="${1:-origin}"
 zero_sha="0000000000000000000000000000000000000000"
 
 if [[ ! -x "$guard" ]]; then
@@ -14,7 +15,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   [[ "$local_sha" != "$zero_sha" ]] || continue
 
   if [[ "$remote_sha" == "$zero_sha" ]]; then
-    base_ref="$(git merge-base "$local_sha" refs/remotes/origin/main 2>/dev/null || true)"
+    base_ref="$(git merge-base "$local_sha" "refs/remotes/$remote_name/main" 2>/dev/null || true)"
     if [[ -z "$base_ref" ]]; then
       echo "FAIL: cannot determine a safe base for new ref $remote_ref" >&2
       exit 1
@@ -23,5 +24,5 @@ while read -r local_ref local_sha remote_ref remote_sha; do
     base_ref="$remote_sha"
   fi
 
-  bash "$guard" --base-ref "$base_ref"
+  bash "$guard" --base-ref "$base_ref" "$local_sha" </dev/null
 done
