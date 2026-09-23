@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
-import { verifyRoutingArticleSemanticMap } from './verify-routing-article-semantic-map.mjs';
+import { verifyAuditedHeadingCounts, verifyRoutingArticleSemanticMap } from './verify-routing-article-semantic-map.mjs';
 
 const sha = (value) => crypto.createHash('sha256').update(value).digest('hex');
 const wrap = (value) => ({ value, digest: sha(JSON.stringify(value)) });
@@ -23,4 +23,6 @@ rejects(/substantive heading coverage mismatch|excluded or unknown heading mappe
 rejects(/heading 0: source text mismatch/, (map) => { map.heading_routes[0].heading_digest = sha('Borrowed answer'); });
 rejects(/transition absent from brief/, (map) => { map.transition_hypotheses = [{ from: 'u1', to: 'u1', condition: 'later', hypothesis_only: true }]; });
 rejects(/mapped transition claims observed behavior/, (map) => { map.transition_hypotheses = [{ from: 'u1', to: 'u1', condition: 'later', hypothesis_only: false }]; });
+assert.deepEqual(verifyAuditedHeadingCounts({ heading_reviews: [{ class: 'supported' }, { class: 'excluded' }], metrics: { stored_heading_count: 2, substantive_heading_count: 1, supported_count: 1 } }), { supported: 1, partial: 0, gap: 0, excluded: 1 });
+assert.throws(() => verifyAuditedHeadingCounts({ heading_reviews: [{ class: 'supported' }, { class: 'excluded' }], metrics: { stored_heading_count: 2, substantive_heading_count: 0, supported_count: 1 } }), /substantive_heading_count does not match heading rows/);
 console.log('routing article semantic map verifier tests passed');

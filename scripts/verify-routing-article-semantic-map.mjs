@@ -17,6 +17,29 @@ const index = (rows, key, label) => {
 };
 const nonempty = (value, label) => assert(typeof value === 'string' && value.trim(), `${label} required`);
 
+export function verifyAuditedHeadingCounts(audited) {
+  const counts = { supported: 0, partial: 0, gap: 0, excluded: 0 };
+  for (const row of audited.heading_reviews ?? []) {
+    const classification = row.classification ?? row.class;
+    assert(Object.hasOwn(counts, classification), `invalid audited heading class: ${classification}`);
+    counts[classification]++;
+  }
+  const metrics = audited.metrics ?? {};
+  const expectations = [
+    ['stored_heading_count', audited.heading_reviews?.length],
+    ['raw_substantive_heading_count', counts.supported + counts.partial + counts.gap],
+    ['substantive_heading_count', counts.supported + counts.partial + counts.gap],
+    ['supported', counts.supported], ['supported_count', counts.supported],
+    ['partial', counts.partial], ['partial_count', counts.partial],
+    ['gap', counts.gap], ['gap_count', counts.gap],
+    ['excluded', counts.excluded]
+  ];
+  for (const [field, actual] of expectations) {
+    if (metrics[field] != null) assert.equal(metrics[field], actual, `independent audit ${field} does not match heading rows`);
+  }
+  return counts;
+}
+
 export function verifyRoutingArticleSemanticMap(packet, review, brief, audit, map) {
   assert.equal(map.schema_version, 'routing-article-semantic-map.v1');
   for (const [name, source] of Object.entries({ packet, review, brief, audit })) {
@@ -29,6 +52,7 @@ export function verifyRoutingArticleSemanticMap(packet, review, brief, audit, ma
   const design = index(brief.value.briefs, 'job_id', 'editorial brief').get(jobId);
   const audited = index(audit.value.jobs, 'job_id', 'independent audit').get(jobId);
   assert(page && reviewPage && design && audited, `${jobId}: source page missing`);
+  verifyAuditedHeadingCounts(audited);
   const keywords = index(page.acquired_keywords, 'keyword_digest', 'acquired keyword');
   const classifications = index(reviewPage.keyword_reviews, 'keyword_digest', 'keyword review');
   const auditKeywords = index(audited.keyword_audit, 'keyword_digest', 'audited keyword');
