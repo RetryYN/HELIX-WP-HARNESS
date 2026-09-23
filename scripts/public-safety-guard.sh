@@ -38,72 +38,92 @@ append_diff() {
   local prefix="$2"
   shift 2
 
-  git -C "$repo" diff --no-ext-diff --unified=0 "$@" -- \
-    ':(exclude)scripts/public-safety-guard.sh' |
+  git -C "$repo" diff --no-ext-diff --unified=0 "$@" -- |
     awk -v prefix="$prefix" '
       /^diff --git / { file = ""; in_hunk = 0; next }
       /^\+\+\+ b\// && !in_hunk { file = substr($0, 7); next }
       /^\+\+\+ \/dev\/null/ && !in_hunk { file = ""; next }
-      /^@@ / { in_hunk = 1; next }
+      /^@@ / { match($0, /\+[0-9]+/); line_number = substr($0, RSTART + 1, RLENGTH - 1) + 0; in_hunk = 1; next }
       /^\+/ && in_hunk && file != "" {
         line = substr($0, 2)
         gsub(/\t/, "    ", line)
-        print prefix file "\t" line
+        print prefix file "\t" line_number "\t" line
+        line_number++
+        next
       }
+      in_hunk && !/^-/ { line_number++ }
     ' >>"$records"
 }
 
-if [[ "$mode" == "staged" ]]; then
-  append_diff . "" --cached
-  raw_args=(--cached --raw --no-abbrev)
-else
-  append_diff . "" "$base_ref" "$head_ref"
-  raw_args=(--raw --no-abbrev "$base_ref" "$head_ref")
-fi
-
-# A gitlink diff contains only the pointer at the integration layer. Inspect the
-# actual old..new commit range inside every changed, initialized submodule.
-while IFS=$'\t' read -r path old_sha new_sha; do
-  [[ -n "$path" && ( -d "$path/.git" || -f "$path/.git" ) ]] || {
-    echo "FAIL: changed submodule is not initialized: $path" >&2
-    exit 1
-  }
-  for sha in "$old_sha" "$new_sha"; do
-    git -C "$path" cat-file -e "${sha}^{commit}" 2>/dev/null || {
-      echo "FAIL: submodule commit unavailable for inspection: $path@$sha" >&2
+scan_gitlinks() {
+  local repo="$1" prefix="$2"
+  shift 2
+  while IFS=$'\t' read -r path old_sha new_sha; do
+    [[ -n "$path" && ( -d "$repo/$path/.git" || -f "$repo/$path/.git" ) ]] || {
+      echo "FAIL: changed submodule is not initialized" >&2
       exit 1
     }
-  done
-  append_diff "$path" "$path/" "$old_sha" "$new_sha"
-done < <(
-  git diff "${raw_args[@]}" | awk '
+    for sha in "$old_sha" "$new_sha"; do
+      git -C "$repo/$path" cat-file -e "${sha}^{commit}" 2>/dev/null || {
+        echo "FAIL: submodule commit unavailable for inspection" >&2
+        exit 1
+      }
+    done
+    scan_range "$repo/$path" "$prefix$path/" "$old_sha" "$new_sha"
+  done < <(git -C "$repo" diff --raw --no-abbrev "$@" | awk '
     $1 ~ /^:160000/ || $2 == "160000" {
       old = $3; new = $4; path = $6
       if (path != "") print path "\t" old "\t" new
     }
-  '
-)
+  ')
+}
+
+scan_range() {
+  local repo="$1" prefix="$2" start="$3" finish="$4" commit parent
+  git -C "$repo" merge-base --is-ancestor "$start" "$finish" || {
+    echo "FAIL: scan base is not an ancestor of head" >&2
+    exit 1
+  }
+  while read -r commit; do
+    parent="$(git -C "$repo" rev-list --parents -n 1 "$commit" | awk '{print $2}')"
+    [[ -n "$parent" ]] || parent="$(git -C "$repo" hash-object -t tree /dev/null)"
+    append_diff "$repo" "$prefix" "$parent" "$commit"
+    scan_gitlinks "$repo" "$prefix" "$parent" "$commit"
+  done < <(git -C "$repo" rev-list --reverse "$start..$finish")
+}
+
+if [[ "$mode" == "staged" ]]; then
+  append_diff . "" --cached
+  scan_gitlinks . "" --cached
+else
+  scan_range . "" "$base_ref" "$head_ref"
+fi
 
 failures=0
 check_pattern() {
   local description="$1"
   local pattern="$2"
-  local flags="${3:--E}"
   local found="$tmp_dir/found"
-  if grep $flags -n -- "$pattern" "$records" >"$found"; then
+  local result=0
+  grep -Ei -- "$pattern" "$records" >"$found" 2>/dev/null || result=$?
+  if [[ "$result" -eq 0 ]]; then
     echo "FAIL: $description" >&2
-    sed 's/^/  /' "$found" >&2
+    awk -F '\t' '{ print "  " $1 ":" $2 }' "$found" | sort -u >&2
+    failures=$((failures + 1))
+  elif [[ "$result" -ne 1 ]]; then
+    echo "FAIL: invalid $description pattern" >&2
     failures=$((failures + 1))
   fi
 }
 
 # Split well-known token prefixes so this guard does not flag its own source.
-check_pattern "private key material" 'BEGIN [A-Z0-9 ]*PRIVATE KEY' '-E'
-check_pattern "well-known access token format" '(gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16})' '-E'
-check_pattern "credential-like assignment" '(password|passwd|api[_-]?key|access[_-]?token|client[_-]?secret)[[:space:]]*[:=][[:space:]]*[[:punct:]]?[[:space:]]*[A-Za-z0-9+/=_-]{12,}' '-Ei'
+check_pattern "private key material" 'BEGIN [A-Z0-9 ]*PRIVATE KEY'
+check_pattern "well-known access token format" '(gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16})'
+credential_assignment_pattern="(password|passwd|api[_-]?key|access[_-]?token|client[_-]?secret)[\"'[:space:]]*[:=][[:space:]]*[\"'[:space:]]*[A-Za-z0-9+/=_-]{12,}"
+check_pattern "credential-like assignment" "$credential_assignment_pattern"
 personal_path_pattern='(/ho''me/[^/<[:space:]]+/|/Us''ers/[^/<[:space:]]+/|[A-Za-z]:[/\\]Us''ers[/\\][^/\\<[:space:]]+[/\\])'
-check_pattern "personal absolute filesystem path" "$personal_path_pattern" '-E'
-check_pattern "affiliate or click-tracking URL" 'https?://[^[:space:]]*(a8mat=|/svt/|/0\.gif\?)' '-Ei'
+check_pattern "personal absolute filesystem path" "$personal_path_pattern"
+check_pattern "affiliate or click-tracking URL" 'https?://[^[:space:]]*(a8mat=|/svt/|/0\.gif\?)'
 
 custom_regex="${PUBLIC_REDACTION_GUARD_RE:-}"
 local_regex_file="${PUBLIC_SAFETY_REGEX_FILE:-.public-safety.local.regex}"
@@ -114,10 +134,10 @@ if [[ -f "$local_regex_file" ]]; then
   fi
 fi
 if [[ -n "$custom_regex" ]]; then
-  check_pattern "private name/domain mapping" "$custom_regex" '-Ei'
+  check_pattern "private name/domain mapping" "$custom_regex"
 fi
 
-if awk -F '\t' '$1 ~ /(^|\/)(research|evidence|artifacts?\/poc|raw|captures?)(\/|$)/ { found=1 } END { exit !found }' "$records" &&
+if awk -F '\t' '$1 ~ /(^|\/)(research|evidence|poc|raw|captures?)(\/|$)/ || $1 ~ /^docs\/.*poc/ { found=1 } END { exit !found }' "$records" &&
    [[ -z "$custom_regex" ]]; then
   echo "FAIL: research/evidence/PoC content changed without a private redaction mapping." >&2
   echo "  Set PUBLIC_REDACTION_GUARD_RE or create .public-safety.local.regex." >&2
