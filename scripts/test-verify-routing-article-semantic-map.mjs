@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import { verifyRoutingArticleSemanticMap } from './verify-routing-article-semantic-map.mjs';
+
+const sha = (value) => crypto.createHash('sha256').update(value).digest('hex');
+const wrap = (value) => ({ value, digest: sha(JSON.stringify(value)) });
+const keywordDigest = sha('alpha');
+const headingDigest = sha('Answer');
+const packet = wrap({ pages: [{ job_id: 'j1', acquired_keywords: [{ keyword_digest: keywordDigest }], heading_evidence: { headings: [{ position: 0, text: 'Answer' }, { position: 1, text: 'Navigation' }] } }] });
+const review = wrap({ pages: [{ job_id: 'j1', keyword_reviews: [{ keyword_digest: keywordDigest, class: 'same_answer_support' }] }] });
+const brief = wrap({ briefs: [{ job_id: 'j1', sections: [{ unit_id: 'u1', keyword_digests: [keywordDigest] }], internal_links: [], story_transitions: [] }] });
+const audit = wrap({ jobs: [{ job_id: 'j1', keyword_audit: [{ keyword_digest: keywordDigest, route: { route: 'meaning_unit', unit_id: 'u1' } }], heading_reviews: [{ position: 0, heading_digest: headingDigest, classification: 'supported', matched_unit_ids: ['u1'] }, { position: 1, heading_digest: sha('Navigation'), classification: 'excluded', matched_unit_ids: [] }] }] });
+const valid = { schema_version: 'routing-article-semantic-map.v1', job_id: 'j1', source_digests: Object.fromEntries(Object.entries({ packet, review, brief, audit }).map(([name, source]) => [name, source.digest])), groups: [{ group_id: 'g1', reader_question: 'What is the answer?', meaning_boundary: 'One answer only.', destination: 'on_page', review_class: 'same_answer_support', unit_id: 'u1', keyword_digests: [keywordDigest] }], heading_routes: [{ position: 0, heading_digest: headingDigest, unit_id: 'u1' }], transition_hypotheses: [] };
+const verify = (map) => verifyRoutingArticleSemanticMap(packet, review, brief, audit, map);
+assert.deepEqual(verify(valid).summary, { acquired_keywords: 1, mapped_keywords: 1, on_page_keywords: 1, internal_candidate_keywords: 0, meaning_groups: 1, substantive_headings: 1, mapped_headings: 1, transition_hypotheses: 0, observed_user_transitions: 0 });
+const rejects = (pattern, change) => { const map = structuredClone(valid); change(map); assert.throws(() => verify(map), pattern); };
+rejects(/source digest mismatch/, (map) => { map.source_digests.packet = 'borrowed'; });
+rejects(/keyword absent from exact page/, (map) => { map.groups[0].keyword_digests = [sha('other')]; });
+rejects(/duplicate mapped keyword/, (map) => { map.groups.push({ ...structuredClone(map.groups[0]), group_id: 'g2' }); });
+rejects(/review class mismatch/, (map) => { map.groups[0].review_class = 'body_support'; });
+rejects(/substantive heading coverage mismatch/, (map) => { map.heading_routes = []; });
+rejects(/substantive heading coverage mismatch|excluded or unknown heading mapped/, (map) => { map.heading_routes.push({ position: 1, heading_digest: sha('Navigation'), unit_id: 'u1' }); });
+rejects(/heading 0: source text mismatch/, (map) => { map.heading_routes[0].heading_digest = sha('Borrowed answer'); });
+rejects(/transition absent from brief/, (map) => { map.transition_hypotheses = [{ from: 'u1', to: 'u1', condition: 'later', hypothesis_only: true }]; });
+rejects(/mapped transition claims observed behavior/, (map) => { map.transition_hypotheses = [{ from: 'u1', to: 'u1', condition: 'later', hypothesis_only: false }]; });
+console.log('routing article semantic map verifier tests passed');
